@@ -8,13 +8,13 @@ function MyApp({ Component, pageProps }) {
   const mousePositionRef = useRef(null);
   const [sharedState, setSharedState] = useState({
     portfolio: {
-      NavBar: {
-        IntervalEvent: null,
+      navBar: {
+        intervalEvent: null,
         scrolling: null,
         scrollSizeY: null,
       },
-      Scrolling:{
-        IntervalEvent:null
+      scrolling:{
+        intervalEvent:null
       }
     },
     userdata: {
