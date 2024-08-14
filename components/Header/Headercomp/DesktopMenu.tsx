@@ -1,5 +1,5 @@
 import React, {useCallback} from "react";
-import {motion} from "../../../node_modules/framer-motion/dist/framer-motion";
+import {motion} from "framer-motion";
 
 export default function DesktopMenu(props: { finishedLoading: boolean }) {
     const menuItems = [
