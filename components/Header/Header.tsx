@@ -9,47 +9,47 @@ import AppContext from "../AppContextFolder/AppContext";
 const Header = (props: { finishedLoading: boolean }) => {
     const [isScrolled, setIsScrolled] = useState(false);
 
-    const RefNavBar = useRef<HTMLDivElement>(null);
+    // const refNavBar = useRef<HTMLDivElement>(null);
     const [showElement, setShowElement] = useState(true);
     const [rotate, setRotate] = useState<boolean>(false);
-    const context = useContext(AppContext);
-    const scrollSizeY = useRef<number>(0);
+    // const context = useContext(AppContext);
+    // const scrollSizeY = useRef<number>(0);
 
-    // Define the EventListener for the NavBar
-    useEffect(() => {
-        if (context.sharedState.portfolio.NavBar.IntervalEvent == null) {
-            context.sharedState.portfolio.NavBar.IntervalEvent = () => {
-                if (scrollSizeY.current == 0) {
-                    scrollSizeY.current = window.scrollY;
-                } else {
-                    if (window.scrollY > 50) {
-                        if (window.scrollY > scrollSizeY.current) {
-                            if (RefNavBar) {
-                                RefNavBar.current?.classList.remove("translate-y-0");
-                                RefNavBar.current?.classList.add("-translate-y-full");
-                            }
-                        } else {
-                            RefNavBar.current?.classList.add("translate-y-0");
-                            RefNavBar.current?.classList.remove("-translate-y-full");
-                        }
-                        scrollSizeY.current = window.scrollY;
-                    }
-                }
-            }
-        }
-    }, [context.sharedState.portfolio.NavBar, context.sharedState.portfolio.NavBar.IntervalEvent]);
+    // // Define the EventListener for the NavBar
+    // useEffect(() => {
+    //     if (context.sharedState.portfolio.navBar.intervalEvent == null) {
+    //         context.sharedState.portfolio.navBar.intervalEvent = () => {
+    //             if (scrollSizeY.current == 0) {
+    //                 scrollSizeY.current = window.scrollY;
+    //             } else {
+    //                 if (window.scrollY > 50) {
+    //                     if (window.scrollY > scrollSizeY.current) {
+    //                         if (refNavBar) {
+    //                             refNavBar.current?.classList.remove("translate-y-0");
+    //                             refNavBar.current?.classList.add("-translate-y-full");
+    //                         }
+    //                     } else {
+    //                         refNavBar.current?.classList.add("translate-y-0");
+    //                         refNavBar.current?.classList.remove("-translate-y-full");
+    //                     }
+    //                     scrollSizeY.current = window.scrollY;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }, [context.sharedState.portfolio.navBar, context.sharedState.portfolio.navBar.intervalEvent]);
 
-    //Adding the EventListener for the NavBar
-    useEffect(() => {
-        if (context.sharedState.portfolio.NavBar.scrolling == null) {
-            context.sharedState.portfolio.NavBar.scrolling = true;
-            scrollSizeY.current = 0;
-            //Hide when scroll down & show when scroll up
-            if (typeof window !== "undefined") {
-                window.addEventListener("scroll", context.sharedState.portfolio.NavBar.IntervalEvent);
-            }
-        }
-    }, [context.sharedState.portfolio.NavBar, context.sharedState.portfolio.NavBar.scrolling]);
+    // //Adding the EventListener for the NavBar
+    // useEffect(() => {
+    //     if (context.sharedState.portfolio.NavBar.scrolling == null) {
+    //         context.sharedState.portfolio.NavBar.scrolling = true;
+    //         scrollSizeY.current = 0;
+    //         //Hide when scroll down & show when scroll up
+    //         if (typeof window !== "undefined") {
+    //             window.addEventListener("scroll", context.sharedState.portfolio.NavBar.IntervalEvent);
+    //         }
+    //     }
+    // }, [context.sharedState.portfolio.NavBar, context.sharedState.portfolio.NavBar.scrolling]);
 
     useEffect(() => {
         const handleScroll = () => {
