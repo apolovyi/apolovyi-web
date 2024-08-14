@@ -1,55 +1,14 @@
-import React, {useContext, useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Logo from "./Headercomp/Logo";
 import DesktopMenu from "./Headercomp/DesktopMenu";
 import IconMenu from "./Headercomp/IconMenu";
 import MobileMenu from "./Headercomp/MobileMenu";
 import {motion} from "framer-motion";
-import AppContext from "../AppContextFolder/AppContext";
 
 const Header = (props: { finishedLoading: boolean }) => {
     const [isScrolled, setIsScrolled] = useState(false);
-
-    // const refNavBar = useRef<HTMLDivElement>(null);
     const [showElement, setShowElement] = useState(true);
     const [rotate, setRotate] = useState<boolean>(false);
-    // const context = useContext(AppContext);
-    // const scrollSizeY = useRef<number>(0);
-
-    // // Define the EventListener for the NavBar
-    // useEffect(() => {
-    //     if (context.sharedState.portfolio.navBar.intervalEvent == null) {
-    //         context.sharedState.portfolio.navBar.intervalEvent = () => {
-    //             if (scrollSizeY.current == 0) {
-    //                 scrollSizeY.current = window.scrollY;
-    //             } else {
-    //                 if (window.scrollY > 50) {
-    //                     if (window.scrollY > scrollSizeY.current) {
-    //                         if (refNavBar) {
-    //                             refNavBar.current?.classList.remove("translate-y-0");
-    //                             refNavBar.current?.classList.add("-translate-y-full");
-    //                         }
-    //                     } else {
-    //                         refNavBar.current?.classList.add("translate-y-0");
-    //                         refNavBar.current?.classList.remove("-translate-y-full");
-    //                     }
-    //                     scrollSizeY.current = window.scrollY;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }, [context.sharedState.portfolio.navBar, context.sharedState.portfolio.navBar.intervalEvent]);
-
-    // //Adding the EventListener for the NavBar
-    // useEffect(() => {
-    //     if (context.sharedState.portfolio.NavBar.scrolling == null) {
-    //         context.sharedState.portfolio.NavBar.scrolling = true;
-    //         scrollSizeY.current = 0;
-    //         //Hide when scroll down & show when scroll up
-    //         if (typeof window !== "undefined") {
-    //             window.addEventListener("scroll", context.sharedState.portfolio.NavBar.IntervalEvent);
-    //         }
-    //     }
-    // }, [context.sharedState.portfolio.NavBar, context.sharedState.portfolio.NavBar.scrolling]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -63,11 +22,6 @@ const Header = (props: { finishedLoading: boolean }) => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
-    //verify document for serverSide rendering
-    if (typeof document !== "undefined") {
-        rotate ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto");
-    }
 
     return (
         <>
@@ -88,7 +42,7 @@ const Header = (props: { finishedLoading: boolean }) => {
                 }
         `}
             >
-                <Logo finishedLoading={props.finishedLoading}/>
+                <Logo/>
 
                 <IconMenu
                     rotate={rotate}
