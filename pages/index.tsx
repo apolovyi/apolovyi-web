@@ -45,13 +45,27 @@ export default function Home() {
                 <title>{meta.title}</title>
                 <meta name="robots" content="follow, index"/>
                 <meta content={meta.description} name="description"/>
-                <meta property="og:url" content={`https://apolovyi.me`}/>
-                <link rel="canonical" href={`https://apolovyi.me`}/>
+                <meta property="og:url" content="https://apolovyi.me"/>
+                <link rel="canonical" href="https://apolovyi.me"/>
                 <meta property="og:type" content={meta.type}/>
                 <meta property="og:site_name" content="Artem Polovyi"/>
                 <meta property="og:description" content={meta.description}/>
                 <meta property="og:title" content={meta.title}/>
                 <meta property="og:image" content={meta.image}/>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Person",
+                        "name": "Artem Polovyi",
+                        "url": "https://apolovyi.me",
+                        "jobTitle": "Full-Stack Software Engineer",
+                        "alumniOf": "Munich University of Applied Sciences",
+                        "sameAs": [
+                            "https://linkedin.com/in/apolovyi",
+                            "https://github.com/apolovyi"
+                        ]
+                    })}
+                </script>
             </Head>
 
             <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
