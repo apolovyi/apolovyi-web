@@ -1,26 +1,21 @@
-# My Portfolio Website
+# Welcome to My Personal Portfolio Website
 
----
-## Description
+This platform is designed to showcase my work, projects, case studies, and provide information about myself.
 
-My personal portfolio website. It is a unique way to showcase your work and let others know about yourself. It’s like an evergreen platform for your projects, case studies, and information about you. However, Why why did i choose Next.js? Because it is a React framework with Server-Side Rendering, which is good for SEO (Good for us if we get found on Google, right?).
+## Why Next.js?
 
-Also, Next.js helps us build a full back-end & blazing-fast websites along with benefits such as Image optimization.
+I chose Next.js because it is a powerful React framework with Server-Side Rendering, which enhances SEO and helps us get discovered on Google. Additionally, Next.js allows us to build a full back-end and create blazing-fast websites with benefits like image optimization.
 
-Why tailwindcss? Because TailwindCSS is a framework which reduces a lot of styling efforts. It has low level CSS classes that you can directly embed into the HTML code.
+## Why Tailwind CSS?
+
+Tailwind CSS is a framework that significantly reduces styling efforts. It provides low-level CSS classes that can be directly embedded into HTML, streamlining the design process.
 
 ---
 ## Technologies & libraries
-
-Since i integrated some of my project into my website i'll i mention most of technologies & libraries that i used.
 
 - Next.js
 - Nodejs
 - TypeScript
 - Tailwind CSS
-- framer-motion
-- Google API
-- cookie-cutter
-- react-leaflet
 - Vercel Analytics
 
