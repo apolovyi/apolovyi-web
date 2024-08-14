@@ -72,7 +72,7 @@ const Header = (props: { finishedLoading: boolean }) => {
     return (
         <>
             <MobileMenu rotate={rotate} setRotate={setRotate} setShowElement={setShowElement}
-                        ShowElement={showElement}/>
+                        showElement={showElement}/>
             <motion.div
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
