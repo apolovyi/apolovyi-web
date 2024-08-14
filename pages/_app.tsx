@@ -7,24 +7,10 @@ function MyApp({ Component, pageProps }) {
   const windowSizeTrackerRef = useRef(null);
   const mousePositionRef = useRef(null);
   const [sharedState, setSharedState] = useState({
-    portfolio: {
-      navBar: {
-        intervalEvent: null,
-        scrolling: null,
-        scrollSizeY: null,
-      },
-      scrolling:{
-        intervalEvent:null
-      }
-    },
     userdata: {
       timerCookieRef: timerCookie,
       windowSizeTracker: windowSizeTrackerRef,
       mousePositionTracker: mousePositionRef,
-    },
-    typing: {
-      keyboardEvent: null,
-      eventInputLostFocus: null,
     },
     finishedLoading: false,
   });

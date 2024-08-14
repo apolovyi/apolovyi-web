@@ -2,7 +2,7 @@ import Header from "../components/Header/Header";
 import Startup from "../components/Header/StartupLogo/Startup";
 import MyName from "../components/Home/MyName/MyName";
 import {useContext, useEffect, useState} from "react";
-import SocialMediaArround from "../components/Home/SocialMediaArround/SocialMediaArround";
+import SocialMediaAround from "../components/Home/SocialMediaAround/SocialMediaAround";
 import AboutMe from "../components/Home/AboutMe/AboutMe";
 import WhereIHaveWorked from "../components/Home/WhereIHaveWorked/WhereIHaveWorked";
 import SomethingIveBuilt from "../components/Home/SomethingIveBuilt/SomethingIveBuilt";
@@ -19,17 +19,6 @@ export default function Home() {
     const context = useContext(AppContext);
 
     useEffect(() => {
-        // remove the interval Cookie timer setter when
-        clearInterval(context.sharedState.userdata.timerCookieRef.current);
-        if (typeof window !== "undefined") {
-            // remove UserDataPuller project EventListeners
-            window.removeEventListener("resize", context.sharedState.userdata.windowSizeTracker.current);
-            window.removeEventListener("mousemove", context.sharedState.userdata.mousePositionTracker.current, false);
-            // remove Typing project EventListeners
-            window.removeEventListener("resize", context.sharedState.typing.eventInputLostFocus);
-            document.removeEventListener("keydown", context.sharedState.typing.keyboardEvent);
-        }
-
         setTimeout(() => {
             setShowElement(false);
             context.sharedState.finishedLoading = true;
@@ -69,7 +58,7 @@ export default function Home() {
                 {context.sharedState.finishedLoading ? <></> : showElement ? <Startup/> : <></>}
                 <Header finishedLoading={context.sharedState.finishedLoading}/>
                 <MyName finishedLoading={context.sharedState.finishedLoading}/>
-                <SocialMediaArround finishedLoading={context.sharedState.finishedLoading}/>
+                <SocialMediaAround finishedLoading={context.sharedState.finishedLoading}/>
                 {context.sharedState.finishedLoading ? <AboutMe/> : <></>}
                 {context.sharedState.finishedLoading ? <WhereIHaveWorked/> : <></>}
                 {context.sharedState.finishedLoading ? <SomethingIveBuilt/> : <></>}
