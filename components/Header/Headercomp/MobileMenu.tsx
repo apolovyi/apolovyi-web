@@ -1,4 +1,4 @@
-import {motion} from "../../../node_modules/framer-motion/dist/framer-motion";
+import {motion} from "framer-motion";
 import {useCallback} from "react";
 
 interface MobileMenuProps {

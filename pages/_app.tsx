@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
       keyboardEvent: null,
       eventInputLostFocus: null,
     },
-    finishedLoading: true,
+    finishedLoading: false,
   });
   return (
     <AppContext.Provider value={{ sharedState, setSharedState }}>
