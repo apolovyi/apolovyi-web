@@ -9,10 +9,10 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({rotate, setRotate, showElement, setShowElement}: MobileMenuProps) => {
-    const closeMenu = () => {
-        setRotate(!rotate);
-        setShowElement(!showElement);
-    };
+    const closeMenu = useCallback(() => {
+        setRotate(prev => !prev);
+        setShowElement(prev => !prev);
+    }, [setRotate, setShowElement]);
 
     const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
         e.preventDefault();
@@ -43,10 +43,10 @@ const MobileMenu = ({rotate, setRotate, showElement, setShowElement}: MobileMenu
             <div
                 onClick={closeMenu}
                 className="w-1/4 h-full backdrop-blur-sm bg-MobileNavColor/30 hover:cursor-pointer"
-            ></div>
+            />
             <div
                 className="w-3/4 h-full bg-MobileNavBarColor flex flex-col
-        justify-center items-center space-y-8 font-sans"
+                justify-center items-center space-y-8 font-sans"
             >
                 {menuItems.map((item) => (
                     <a
@@ -58,16 +58,16 @@ const MobileMenu = ({rotate, setRotate, showElement, setShowElement}: MobileMenu
                         <span className="text-AAsecondary text-xs font-mono">{item.id}.</span>
                         <span
                             className="text-white font-Text2 text-sm sm:text-base
-               hover:text-AAsecondary hover:cursor-pointer duration-300"
+                            hover:text-AAsecondary hover:cursor-pointer duration-300"
                         >
-              {item.name}
-            </span>
+                            {item.name}
+                        </span>
                     </a>
                 ))}
                 <a href="/cv/CV_Artem_Polovyi_EN.pdf" target="_blank" rel="noopener noreferrer">
                     <button
                         className="rounded border font-Text2 border-AAsecondary
-             hover:bg-ResumeButtonHover py-2 sm:py-4 px-5 sm:px-10 text-xs text-AAsecondary"
+                        hover:bg-ResumeButtonHover py-2 sm:py-4 px-5 sm:px-10 text-xs text-AAsecondary"
                     >
                         Resume
                     </button>
