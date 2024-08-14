@@ -14,18 +14,21 @@ import "aos/dist/aos.css";
 import Head from "next/head";
 import ScreenSizeDetector from "../components/CustomComponents/ScreenSizeDetector";
 
-export default function Home() {
+const Home = () => {
     const [showElement, setShowElement] = useState(true);
     const context = useContext(AppContext);
 
     useEffect(() => {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setShowElement(false);
-            context.sharedState.finishedLoading = true;
-            context.setSharedState(context.sharedState);
-
+            context.setSharedState(prevState => ({
+                ...prevState,
+                finishedLoading: true,
+            }));
         }, 4940);
-    }, [context, context.sharedState]);
+
+        return () => clearTimeout(timer);
+    }, [context]);
 
     useEffect(() => {
         Aos.init({duration: 1000, once: true});
@@ -33,10 +36,11 @@ export default function Home() {
 
     const meta = {
         title: "Artem Polovyi - Software Engineer",
-        description: `I've been working as a full-stack engineer for 6 years straight. Get in touch with me to know more.`,
-        image: "/me-circle.jpg",
+        description: "I've been working as a full-stack engineer for 6 years straight. Get in touch with me to know more.",
+        image: "/me-circle.png",
         type: "website",
     };
+
     const isProd = process.env.NODE_ENV === "production";
 
     return (
@@ -58,7 +62,7 @@ export default function Home() {
                         "@type": "Person",
                         "name": "Artem Polovyi",
                         "url": "https://apolovyi.me",
-                        "jobTitle": "Full-Stack Software Engineer",
+                        "jobTitle": "Senior Full-Stack Software Engineer",
                         "alumniOf": "Munich University of Applied Sciences",
                         "sameAs": [
                             "https://linkedin.com/in/apolovyi",
@@ -68,22 +72,24 @@ export default function Home() {
                 </script>
             </Head>
 
-            <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
-                {context.sharedState.finishedLoading ? <></> : showElement ? <Startup/> : <></>}
+            <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full">
+                {!context.sharedState.finishedLoading && showElement && <Startup/>}
                 <Header finishedLoading={context.sharedState.finishedLoading}/>
                 <MyName finishedLoading={context.sharedState.finishedLoading}/>
                 <SocialMediaAround finishedLoading={context.sharedState.finishedLoading}/>
-                {context.sharedState.finishedLoading ? <AboutMe/> : <></>}
-                {context.sharedState.finishedLoading ? <WhereIHaveWorked/> : <></>}
-                {context.sharedState.finishedLoading ? <SomethingIveBuilt/> : <></>}
-                {context.sharedState.finishedLoading ? <GetInTouch/> : <></>}
-                {context.sharedState.finishedLoading ? (
-                    <Footer hideSocialsInDesktop={true}/>
-                ) : (
-                    <></>
+                {context.sharedState.finishedLoading && (
+                    <>
+                        <AboutMe/>
+                        <WhereIHaveWorked/>
+                        <SomethingIveBuilt/>
+                        <GetInTouch/>
+                        <Footer hideSocialsInDesktop={true}/>
+                    </>
                 )}
                 {!isProd && <ScreenSizeDetector/>}
             </div>
         </>
     );
-}
+};
+
+export default Home;
