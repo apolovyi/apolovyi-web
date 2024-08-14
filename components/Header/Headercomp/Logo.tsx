@@ -7,11 +7,6 @@ export default function Logo() {
             <motion.div
                 initial={{y: 0, opacity: 0}}
                 animate={{y: 0, opacity: 1}}
-                transition={{
-                    type: "spring",
-                    damping: 8,
-                    stiffness: 60
-                }}
                 className=" relative h-12 w-10 "
             >
                 <motion.span
