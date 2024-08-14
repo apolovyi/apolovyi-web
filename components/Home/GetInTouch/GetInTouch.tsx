@@ -29,19 +29,57 @@ export default function GetInTouch() {
                     conversation and explore how we can create something amazing together!
                 </p>
 
-                {/* Call-to-Action Button */}
-                <a
-                    href="mailto:info@apolovyi.me"
-                    className="mt-6 inline-block font-mono text-AAsecondary border-AAsecondary
-                 px-8 py-4 border-2 rounded-md
-                 transition-all duration-300 ease-in-out
-                 hover:bg-AAsecondary hover:bg-opacity-10
-                 focus:outline-none focus:ring-2 focus:ring-AAsecondary focus:ring-opacity-50"
+                {/* Netlify Form */}
+                <form
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    className="w-full max-w-md"
                 >
-                    Reach Out
-                </a>
-
-                <a href="mailto:max.muster@domain.de?subject=Hier%20steht%20der%20Betreff">E-Mail mit Betreff</a>
+                    <input type="hidden" name="form-name" value="contact"/>
+                    <div className="mb-4">
+                        <label htmlFor="name" className="block text-gray-400 font-mono text-sm mb-2">Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            required
+                            className="w-full bg-transparent border border-gray-700 rounded-md px-4 py-2 text-gray-300 focus:outline-none focus:border-AAsecondary"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="email" className="block text-gray-400 font-mono text-sm mb-2">Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            required
+                            className="w-full bg-transparent border border-gray-700 rounded-md px-4 py-2 text-gray-300 focus:outline-none focus:border-AAsecondary"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="message" className="block text-gray-400 font-mono text-sm mb-2">Message</label>
+                        <textarea
+                            name="message"
+                            id="message"
+                            required
+                            rows={4}
+                            className="w-full bg-transparent border border-gray-700 rounded-md px-4 py-2 text-gray-300 focus:outline-none focus:border-AAsecondary"
+                        ></textarea>
+                    </div>
+                    <div className="flex justify-center">
+                        <button
+                            type="submit"
+                            className="font-mono text-sm text-AAsecondary border-AAsecondary
+                                       px-6 py-2 border-2 rounded-md
+                                       transition-all duration-300 ease-in-out
+                                       hover:bg-AAsecondary hover:bg-opacity-10
+                                       focus:outline-none focus:ring-2 focus:ring-AAsecondary focus:ring-opacity-50"
+                        >
+                            Send Message
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     );
