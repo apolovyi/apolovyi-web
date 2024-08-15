@@ -1,35 +1,36 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useAppContext } from "./shared/AppContext";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import Header from "components/Header/Header";
-import Startup from "components/Header/StartupLogo/Startup";
-import MyName from "components/Home/MyName/MyName";
-import SocialMediaAround from "components/Home/SocialMediaAround/SocialMediaAround";
-import AboutMe from "components/Home/AboutMe/AboutMe";
-import WhereIHaveWorked from "components/Home/WhereIHaveWorked/WhereIHaveWorked";
-import SomethingIveBuilt from "components/Home/SomethingIveBuilt/SomethingIveBuilt";
-import GetInTouch from "components/Home/GetInTouch/GetInTouch";
-import Footer from "components/Footer/Footer";
-import AppContext from "components/AppContextFolder/AppContext";
-import ScreenSizeDetector from "components/CustomComponents/ScreenSizeDetector";
 
-export default function Home() {
+import Header from "@/components/Header/Header";
+import Startup from "@/components/Header/StartupLogo/Startup";
+import MyName from "@/components/Home/MyName/MyName";
+import SocialMediaAround from "@/components/Home/SocialMediaAround/SocialMediaAround";
+import AboutMe from "@/components/Home/AboutMe/AboutMe";
+import WhereIHaveWorked from "@/components/Home/WhereIHaveWorked/WhereIHaveWorked";
+import SomethingIveBuilt from "@/components/Home/SomethingIveBuilt/SomethingIveBuilt";
+import GetInTouch from "@/components/Home/GetInTouch/GetInTouch";
+import Footer from "@/components/Footer/Footer";
+import ScreenSizeDetector from "@/components/CustomComponents/ScreenSizeDetector";
+
+const Home = () => {
   const [showElement, setShowElement] = useState(true);
-  const context = useContext(AppContext);
+  const { sharedState, setSharedState } = useAppContext();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowElement(false);
-      context?.setSharedState((prevState) => ({
+      setSharedState((prevState) => ({
         ...prevState,
         finishedLoading: true,
       }));
     }, 4940);
 
     return () => clearTimeout(timer);
-  }, [context]);
+  }, [setSharedState]);
 
   useEffect(() => {
     Aos.init({ duration: 1000, once: true });
@@ -39,13 +40,11 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen w-full snap-mandatory bg-AAprimary">
-      {!context?.sharedState.finishedLoading && showElement && <Startup />}
-      <Header finishedLoading={context?.sharedState.finishedLoading || false} />
-      <MyName finishedLoading={context?.sharedState.finishedLoading || false} />
-      <SocialMediaAround
-        finishedLoading={context?.sharedState.finishedLoading || false}
-      />
-      {context?.sharedState.finishedLoading && (
+      {!sharedState.finishedLoading && showElement && <Startup />}
+      <Header finishedLoading={sharedState.finishedLoading} />
+      <MyName finishedLoading={sharedState.finishedLoading} />
+      <SocialMediaAround finishedLoading={sharedState.finishedLoading} />
+      {sharedState.finishedLoading && (
         <>
           <AboutMe />
           <WhereIHaveWorked />
@@ -57,4 +56,6 @@ export default function Home() {
       {!isProd && <ScreenSizeDetector />}
     </main>
   );
-}
+};
+
+export default Home;

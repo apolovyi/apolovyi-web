@@ -1,11 +1,7 @@
 import "styles/globals.css";
-import { AppProvider } from "components/AppContextFolder/AppContext";
+import { AppProvider } from "./shared/AppContext";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body>
@@ -13,4 +9,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
