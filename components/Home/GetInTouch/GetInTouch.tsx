@@ -36,6 +36,7 @@ export default function GetInTouch() {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div
       id="GetInTouchSection"
@@ -67,13 +68,24 @@ export default function GetInTouch() {
           conversation and explore how we can create something amazing together!
         </p>
 
-        {/* Netlify Form */}
+        {/* Netlify Form with Honeypot */}
         <form
           name="contact"
           onSubmit={handleSubmit}
           className="w-full max-w-md"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="form-name" value="contact" />
+
+          {/* Honeypot field */}
+          <p className="hidden">
+            <label>
+              Don&apos;t fill this out if you&apos;re human:{" "}
+              <input name="bot-field" />
+            </label>
+          </p>
+
           <div className="mb-4">
             <label
               htmlFor="name"
@@ -124,11 +136,11 @@ export default function GetInTouch() {
               type="submit"
               disabled={isSubmitting}
               className="rounded-md border-2 border-AAsecondary px-6
-                           py-2 font-mono text-sm text-AAsecondary
-                           transition-all duration-300 ease-in-out
-                           hover:bg-AAsecondary hover:bg-opacity-10
-                           focus:outline-none focus:ring-2 focus:ring-AAsecondary focus:ring-opacity-50
-                           disabled:opacity-50"
+                               py-2 font-mono text-sm text-AAsecondary
+                               transition-all duration-300 ease-in-out
+                               hover:bg-AAsecondary hover:bg-opacity-10
+                               focus:outline-none focus:ring-2 focus:ring-AAsecondary focus:ring-opacity-50
+                               disabled:opacity-50"
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
