@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useState,
-} from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
 
 type SharedState = {
   finishedLoading: boolean;
@@ -30,15 +23,9 @@ type AppProviderProps = {
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-  const [sharedState, setSharedState] = useState<SharedState>(
-    defaultContextValue.sharedState,
-  );
+  const [sharedState, setSharedState] = useState<SharedState>(defaultContextValue.sharedState);
 
-  return (
-    <AppContext.Provider value={{ sharedState, setSharedState }}>
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={{ sharedState, setSharedState }}>{children}</AppContext.Provider>;
 };
 
 export const useAppContext = () => {

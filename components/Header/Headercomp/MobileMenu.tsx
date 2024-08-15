@@ -8,12 +8,7 @@ interface MobileMenuProps {
   setShowElement: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MobileMenu = ({
-  rotate,
-  setRotate,
-  showElement,
-  setShowElement,
-}: MobileMenuProps) => {
+const MobileMenu = ({ rotate, setRotate, showElement, setShowElement }: MobileMenuProps) => {
   const closeMenu = useCallback(() => {
     setRotate((prev) => !prev);
     setShowElement((prev) => !prev);
@@ -26,8 +21,7 @@ const MobileMenu = ({
       const elem = document.getElementById(targetId);
       if (elem) {
         const yOffset = -100; // Adjust this value based on your header height
-        const y =
-          elem.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        const y = elem.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: "smooth" });
       }
       closeMenu();
@@ -49,13 +43,10 @@ const MobileMenu = ({
       transition={{ x: { duration: 0.4 } }}
       className="fixed z-20 flex h-screen w-full duration-300 md:hidden"
     >
+      <div onClick={closeMenu} className="bg-MobileNavColor/30 h-full w-1/4 backdrop-blur-sm hover:cursor-pointer" />
       <div
-        onClick={closeMenu}
-        className="bg-MobileNavColor/30 h-full w-1/4 backdrop-blur-sm hover:cursor-pointer"
-      />
-      <div
-        className="font-body flex h-full w-3/4 flex-col
-                items-center justify-center space-y-8 bg-MobileNavBarColor"
+        className="flex h-full w-3/4 flex-col items-center
+                justify-center space-y-8 bg-MobileNavBarColor font-body"
       >
         {menuItems.map((item) => (
           <a
@@ -64,9 +55,7 @@ const MobileMenu = ({
             onClick={(e) => handleScroll(e, item.href)}
             className="flex flex-col space-y-2 text-center"
           >
-            <span className="font-tech text-xs text-AAsecondary">
-              {item.id}.
-            </span>
+            <span className="font-tech text-xs text-AAsecondary">{item.id}.</span>
             <span
               className="font-heading text-sm text-white duration-300
                             hover:cursor-pointer hover:text-AAsecondary sm:text-base"
@@ -75,11 +64,7 @@ const MobileMenu = ({
             </span>
           </a>
         ))}
-        <a
-          href="/cv/CV_Artem_Polovyi_EN.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="/cv/CV_Artem_Polovyi_EN.pdf" target="_blank" rel="noopener noreferrer">
           <button
             className="rounded border border-AAsecondary px-5
                         py-2 font-heading text-xs text-AAsecondary hover:bg-ResumeButtonHover sm:px-10 sm:py-4"

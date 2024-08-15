@@ -22,13 +22,8 @@ export default function WhereIHaveWorked() {
     >
       <section className="flex flex-row items-center">
         <div className="flex flex-row items-center">
-          <ArrowIcon
-            className={"h-4 w-4 flex-none text-AAsecondary md:h-6 md:w-5"}
-          />
-          <span className="font-tech text-sm text-AAsecondary sm:text-xl">
-            {" "}
-            02.
-          </span>
+          <ArrowIcon className={"h-4 w-4 flex-none text-AAsecondary md:h-6 md:w-5"} />
+          <span className="font-tech text-sm text-AAsecondary sm:text-xl"> 02.</span>
         </div>
         <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
           Where I&apos;ve Worked
@@ -37,10 +32,7 @@ export default function WhereIHaveWorked() {
       </section>
 
       <section className="flex flex-col items-center justify-center space-y-4 md:flex-row md:items-start md:justify-center md:space-x-4 md:space-y-0">
-        <CompaniesBar
-          activeCompany={activeCompany}
-          setActiveCompany={setActiveCompany}
-        />
+        <CompaniesBar activeCompany={activeCompany} setActiveCompany={setActiveCompany} />
         <JobDescription company={activeCompany} />
       </section>
     </div>
@@ -53,9 +45,7 @@ const CompaniesBar = ({ activeCompany, setActiveCompany }) => {
       <div className="relative order-2 hidden h-0.5 translate-y-1 rounded bg-gray-500 md:order-1 md:block md:h-[390px] md:w-0.5">
         <motion.div
           animate={{
-            y:
-              companies.findIndex((company) => company.key === activeCompany) *
-              64,
+            y: companies.findIndex((company) => company.key === activeCompany) * 64,
           }}
           className={`absolute h-0.5 w-10 rounded bg-AAsecondary md:h-16 md:w-0.5`}
         ></motion.div>
@@ -75,10 +65,7 @@ const CompaniesBar = ({ activeCompany, setActiveCompany }) => {
         <div className="block h-0.5 rounded bg-gray-500 md:hidden">
           <motion.div
             animate={{
-              x:
-                companies.findIndex(
-                  (company) => company.key === activeCompany,
-                ) * 128,
+              x: companies.findIndex((company) => company.key === activeCompany) * 128,
             }}
             className="h-0.5 w-[128px] rounded bg-AAsecondary"
           ></motion.div>
@@ -180,15 +167,7 @@ const JobDescription = ({ company }) => {
         },
         {
           text: "Worked with technologies including PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript, and React.",
-          keywords: [
-            "PostgreSQL",
-            "Flyway",
-            "Kotlin",
-            "Spring Boot",
-            "JUnit",
-            "TypeScript",
-            "React",
-          ],
+          keywords: ["PostgreSQL", "Flyway", "Kotlin", "Spring Boot", "JUnit", "TypeScript", "React"],
         },
       ],
     },
@@ -298,10 +277,7 @@ const JobDescription = ({ company }) => {
     let highlightedText = text;
     keywords.forEach((keyword) => {
       const regex = new RegExp(keyword, "gi");
-      highlightedText = highlightedText.replace(
-        regex,
-        (match) => `<span class="text-AAsecondary">${match}</span>`,
-      );
+      highlightedText = highlightedText.replace(regex, (match) => `<span class="text-AAsecondary">${match}</span>`);
     });
     return highlightedText;
   };
@@ -310,10 +286,7 @@ const JobDescription = ({ company }) => {
     <div className="flex max-w-xl flex-col space-y-5 px-4 md:px-0">
       <div className="spacey-y-2 flex flex-col">
         <span className="font-Arimo text-sm tracking-wide text-gray-100 sm:text-lg">
-          {job.title}{" "}
-          <span className="text-AAsecondary">
-            @ {companies.find((c) => c.key === company).name}
-          </span>
+          {job.title} <span className="text-AAsecondary">@ {companies.find((c) => c.key === company).name}</span>
         </span>
         <span className="font-tech text-xs text-gray-500">{job.date}</span>
         <span
@@ -331,10 +304,7 @@ const JobDescription = ({ company }) => {
             <span
               className="text-xs text-gray-500 sm:text-sm"
               dangerouslySetInnerHTML={{
-                __html: getTasksTextWithHighlightedKeyword(
-                  item.text,
-                  item.keywords,
-                ),
+                __html: getTasksTextWithHighlightedKeyword(item.text, item.keywords),
               }}
             ></span>
           </div>

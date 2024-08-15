@@ -23,10 +23,7 @@ const spaceMono = Space_Mono({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html
-      lang="en"
-      className={`${comfortaa.variable} ${quicksand.variable} ${spaceMono.variable}`}
-    >
+    <html lang="en" className={`${comfortaa.variable} ${quicksand.variable} ${spaceMono.variable}`}>
       <body>
         <AppProvider>{children}</AppProvider>
       </body>

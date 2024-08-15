@@ -22,15 +22,7 @@ export default function SomethingIveBuilt() {
       image: "/img/projects/infineon.png",
       link: "https://www.infineon.com",
       role: "Senior Full-Stack Engineer",
-      technologies: [
-        "JavaEE",
-        "Spring",
-        "OpenCMS",
-        "JUnit",
-        "TypeScript",
-        "React",
-        "AWS",
-      ],
+      technologies: ["JavaEE", "Spring", "OpenCMS", "JUnit", "TypeScript", "React", "AWS"],
     },
     {
       category: "Cloud Migration & Optimization",
@@ -40,16 +32,7 @@ export default function SomethingIveBuilt() {
       image: "/img/projects/voestalpine.png",
       link: "https://www.voestalpine.com",
       role: "Cloud Migration Specialist",
-      technologies: [
-        "JavaEE",
-        "Spring",
-        "OpenCMS",
-        "AWS",
-        "MySQL",
-        "Oracle",
-        "React",
-        "CloudFormation",
-      ],
+      technologies: ["JavaEE", "Spring", "OpenCMS", "AWS", "MySQL", "Oracle", "React", "CloudFormation"],
     },
     {
       category: "Financial Technology",
@@ -59,15 +42,7 @@ export default function SomethingIveBuilt() {
       image: "/img/projects/spreadshirt.png",
       link: "https://www.spreadshirt.com",
       role: "Senior Full-Stack Engineer",
-      technologies: [
-        "Kotlin",
-        "Spring Boot",
-        "PostgreSQL",
-        "Flyway",
-        "JUnit",
-        "TypeScript",
-        "React",
-      ],
+      technologies: ["Kotlin", "Spring Boot", "PostgreSQL", "Flyway", "JUnit", "TypeScript", "React"],
     },
     {
       category: "Car Rental Platform",
@@ -77,15 +52,7 @@ export default function SomethingIveBuilt() {
       image: "/img/projects/aod.png",
       link: "https://www.audi.com",
       role: "Full-Stack Engineer",
-      technologies: [
-        "Kotlin",
-        "Spring Boot",
-        "RabbitMQ",
-        "Angular",
-        "TypeScript",
-        "Jenkins",
-        "AWS",
-      ],
+      technologies: ["Kotlin", "Spring Boot", "RabbitMQ", "Angular", "TypeScript", "Jenkins", "AWS"],
     },
     {
       category: "Travel & Lifestyle",
@@ -124,14 +91,7 @@ export default function SomethingIveBuilt() {
       image: "/img/projects/billiger-mietwagen.png",
       link: "https://www.billiger-mietwagen.de",
       role: "Student Full-Stack Developer",
-      technologies: [
-        "JavaScript",
-        "HTML",
-        "CSS",
-        "jQuery",
-        "PHP",
-        "Optimizely",
-      ],
+      technologies: ["JavaScript", "HTML", "CSS", "jQuery", "PHP", "Optimizely"],
     },
   ];
 
@@ -141,20 +101,10 @@ export default function SomethingIveBuilt() {
       className="flex w-full flex-col space-y-12 bg-AAprimary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
       {/* Title */}
-      <div
-        data-aos="fade-up"
-        className="flex flex-row items-center font-heading md:px-0"
-      >
-        <ArrowIcon
-          className={
-            "h-5 w-5 flex-none translate-y-[2px] text-AAsecondary md:h-6 md:w-5"
-          }
-        />
+      <div data-aos="fade-up" className="flex flex-row items-center font-heading md:px-0">
+        <ArrowIcon className={"h-5 w-5 flex-none translate-y-[2px] text-AAsecondary md:h-6 md:w-5"} />
         <div className="flex-none flex-row items-center space-x-2 pr-2">
-          <span className="font-tech text-sm text-AAsecondary sm:text-xl">
-            {" "}
-            03.
-          </span>
+          <span className="font-tech text-sm text-AAsecondary sm:text-xl"> 03.</span>
           <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
             Some Things I&apos;ve Built
           </span>
@@ -164,17 +114,9 @@ export default function SomethingIveBuilt() {
 
       <div className="flex flex-col space-y-8 md:space-y-28 xl:space-y-36">
         {projects.map((project, index) => (
-          <div
-            key={index}
-            data-aos="fade-up"
-            className="relative h-[450px] w-full lg:h-96"
-          >
+          <div key={index} data-aos="fade-up" className="relative h-[450px] w-full lg:h-96">
             {/* Image */}
-            <div
-              className={`absolute top-0 h-full w-full lg:w-2/3 ${
-                index % 2 === 0 ? "lg:left-0" : "lg:right-0"
-              }`}
-            >
+            <div className={`absolute top-0 h-full w-full lg:w-2/3 ${index % 2 === 0 ? "lg:left-0" : "lg:right-0"}`}>
               <div className="relative h-full w-full overflow-hidden rounded-lg">
                 <Image
                   src={project.image}
@@ -197,22 +139,10 @@ export default function SomethingIveBuilt() {
                 index % 2 === 0 ? "lg:right-0" : "lg:left-0"
               } flex flex-col justify-center p-8`}
             >
-              <div
-                className={`flex flex-col space-y-1 ${
-                  index % 2 === 0 ? "lg:items-end" : "lg:items-start"
-                }`}
-              >
-                <span className="text-base text-AAsecondary">
-                  {project.category}
-                </span>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="text-xl font-bold text-gray-200 hover:text-AAsecondary">
-                    {project.title}
-                  </span>
+              <div className={`flex flex-col space-y-1 ${index % 2 === 0 ? "lg:items-end" : "lg:items-start"}`}>
+                <span className="text-base text-AAsecondary">{project.category}</span>
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <span className="text-xl font-bold text-gray-200 hover:text-AAsecondary">{project.title}</span>
                 </a>
               </div>
               <div
@@ -220,15 +150,9 @@ export default function SomethingIveBuilt() {
                   index % 2 === 0 ? "lg:text-right" : "lg:text-left"
                 }`}
               >
-                <p className="text-xs text-gray-400 sm:text-sm md:text-lg">
-                  {project.description}
-                </p>
+                <p className="text-xs text-gray-400 sm:text-sm md:text-lg">{project.description}</p>
               </div>
-              <div
-                className={`mb-4 text-sm text-AAsecondary ${
-                  index % 2 === 0 ? "lg:text-right" : "lg:text-left"
-                }`}
-              >
+              <div className={`mb-4 text-sm text-AAsecondary ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
                 Role: {project.role}
               </div>
               <ul
@@ -242,11 +166,7 @@ export default function SomethingIveBuilt() {
                   </li>
                 ))}
               </ul>
-              <div
-                className={`flex ${
-                  index % 2 === 0 ? "lg:justify-end" : "lg:justify-start"
-                } mt-4`}
-              >
+              <div className={`flex ${index % 2 === 0 ? "lg:justify-end" : "lg:justify-start"} mt-4`}>
                 <a href={project.link} target="_blank" rel="noreferrer">
                   <ExternalLink url={project.link} />
                 </a>
