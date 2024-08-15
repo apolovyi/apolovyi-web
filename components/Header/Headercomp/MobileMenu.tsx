@@ -54,8 +54,8 @@ const MobileMenu = ({
         className="bg-MobileNavColor/30 h-full w-1/4 backdrop-blur-sm hover:cursor-pointer"
       />
       <div
-        className="flex h-full w-3/4 flex-col items-center
-                justify-center space-y-8 bg-MobileNavBarColor font-sans"
+        className="font-body flex h-full w-3/4 flex-col
+                items-center justify-center space-y-8 bg-MobileNavBarColor"
       >
         {menuItems.map((item) => (
           <a
@@ -64,11 +64,11 @@ const MobileMenu = ({
             onClick={(e) => handleScroll(e, item.href)}
             className="flex flex-col space-y-2 text-center"
           >
-            <span className="font-mono text-xs text-AAsecondary">
+            <span className="font-tech text-xs text-AAsecondary">
               {item.id}.
             </span>
             <span
-              className="font-Text2 text-sm text-white duration-300
+              className="font-heading text-sm text-white duration-300
                             hover:cursor-pointer hover:text-AAsecondary sm:text-base"
             >
               {item.name}
@@ -82,7 +82,7 @@ const MobileMenu = ({
         >
           <button
             className="rounded border border-AAsecondary px-5
-                        py-2 font-Text2 text-xs text-AAsecondary hover:bg-ResumeButtonHover sm:px-10 sm:py-4"
+                        py-2 font-heading text-xs text-AAsecondary hover:bg-ResumeButtonHover sm:px-10 sm:py-4"
           >
             Resume
           </button>

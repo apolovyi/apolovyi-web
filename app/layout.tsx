@@ -1,4 +1,4 @@
-import { Arimo, Comfortaa, JetBrains_Mono, Quicksand } from "next/font/google";
+import { Comfortaa, Quicksand, Space_Mono } from "next/font/google";
 import { AppProvider } from "./shared/AppContext";
 import "styles/globals.css";
 
@@ -14,23 +14,18 @@ const quicksand = Quicksand({
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const spaceMono = Space_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-space-mono",
   display: "swap",
-});
-
-const arimo = Arimo({
-  subsets: ["latin"],
-  variable: "--font-arimo",
-  display: "swap",
+  weight: ["400", "700"], // Space Mono is available in regular (400) and bold (700)
 });
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang="en"
-      className={`${comfortaa.variable} ${quicksand.variable} ${jetbrainsMono.variable} ${arimo.variable}`}
+      className={`${comfortaa.variable} ${quicksand.variable} ${spaceMono.variable}`}
     >
       <body>
         <AppProvider>{children}</AppProvider>

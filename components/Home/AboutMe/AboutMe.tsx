@@ -8,24 +8,13 @@ export default function AboutMe(props) {
     ["AWS", "PostgreSQL", "Docker", "Jenkins", "GitLab"],
   ];
   return (
-    <div
-      id="aboutSection"
-      data-aos="fade-up"
-      className="flex snap-start flex-col items-center bg-AAprimary py-20"
-    >
+    <div id="aboutSection" data-aos="fade-up" className="flex snap-start flex-col items-center bg-AAprimary py-20">
       <div className="flex w-full flex-col space-y-8 px-4 sm:w-[500px] sm:px-0 md:w-[700px] lg:w-[900px]">
         <div className="flex flex-row items-center">
           <div className="mr-4 flex flex-row items-center">
-            <ArrowIcon
-              className={
-                "h-4 w-4 flex-none translate-y-[0.5px] text-AAsecondary md:h-6 md:w-5"
-              }
-            />
-            <span className="font-Header text-sm text-AAsecondary sm:text-xl">
-              {" "}
-              01.
-            </span>
-            <span className="flex-none pl-4 text-lg font-bold tracking-wider text-gray-200 opacity-85 sm:text-2xl">
+            <ArrowIcon className={"h-4 w-4 flex-none translate-y-[0.5px] text-AAsecondary md:h-6 md:w-5"} />
+            <span className="font-tech text-sm text-AAsecondary sm:text-xl"> 01.</span>
+            <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
               About Me
             </span>
           </div>
@@ -33,62 +22,44 @@ export default function AboutMe(props) {
         </div>
 
         <div className="flex w-full flex-col space-y-8 sm:space-x-2 md:flex-row md:space-x-8 md:space-y-0">
-          <div className="w-full space-y-4 text-sm sm:text-base md:w-7/12">
-            <div className="font-Header">
+          <div className="w-full space-y-4 font-body text-sm sm:text-base md:w-7/12">
+            <div className="font-body">
               <span className="text-gray-400">
-                Hello! I&apos;m Artem Polovyi, a skilled Full-Stack Software
-                Engineer with extensive experience in leading product and
-                consulting companies. My expertise lies in designing and
-                developing high-performance, scalable, and highly available
-                applications.
+                Hello! I&apos;m Artem Polovyi, a skilled Full-Stack Software Engineer with extensive experience in
+                leading product and consulting companies. My expertise lies in designing and developing
+                high-performance, scalable, and highly available applications.
               </span>
             </div>
-            <div className="font-Header">
+            <div className="font-body">
               <span className="text-gray-400">
                 I specialize in backend technologies (
-                <span className="text-AAsecondary">
-                  Spring Boot, Kotlin, Java
-                </span>
+                <span className="font-tech text-AAsecondary">Spring Boot, Kotlin, Java</span>
                 ), frontend development (
-                <span className="text-AAsecondary">
-                  React, JavaScript, TypeScript
-                </span>
-                ), DevOps (
-                <span className="text-AAsecondary">Jenkins, GitLab</span>), and
-                test automation. My experience includes working on projects for
-                renowned companies like
-                <span className="text-AAsecondary"> Infineon</span> and{" "}
-                <span className="text-AAsecondary">Audi</span>, where I&apos;ve
-                contributed to developing and maintaining high-traffic
-                applications and optimizing system performance.
+                <span className="font-tech text-AAsecondary">React, JavaScript, TypeScript</span>
+                ), DevOps (<span className="font-tech text-AAsecondary">Jenkins, GitLab</span>
+                ), and test automation. My experience includes working on projects for renowned companies like
+                <span className="text-AAsecondary"> Infineon</span> and <span className="text-AAsecondary">Audi</span>,
+                where I&apos;ve contributed to developing and maintaining high-traffic applications and optimizing
+                system performance.
               </span>
             </div>
-            <div className="font-Header">
+            <div className="font-body">
               <span className="text-gray-400">
-                I have an agile mindset and extensive experience working in
-                agile environments. My passion for continuous learning and
-                problem-solving drives me to stay updated with the latest
-                technologies and best practices in software development.
+                I have an agile mindset and extensive experience working in agile environments. My passion for
+                continuous learning and problem-solving drives me to stay updated with the latest technologies and best
+                practices in software development.
               </span>
             </div>
-            <div className="font-Header tracking-wide">
-              <span className="text-gray-400">
-                Here are a few technologies I&apos;ve been working with
-                recently:
-              </span>
+            <div className="tracking-wide">
+              <span className="text-gray-400">Here are a few technologies I&apos;ve been working with recently:</span>
             </div>
-            <div className="flex flex-row space-x-16 font-Header tracking-wide">
+            <div className="flex flex-row space-x-16 font-tech tracking-wide">
               <div className="flex flex-row items-center space-x-2">
                 <div className="flex flex-col space-y-4 text-sm sm:text-base">
                   {technologies[0].map((tech, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-row items-center space-x-2"
-                    >
+                    <div key={index} className="flex flex-row items-center space-x-2">
                       <ArrowIcon className={"h-3 w-3 text-AAsecondary"} />
-                      <span className="text-xs text-gray-400 sm:text-sm">
-                        {tech}
-                      </span>
+                      <span className="text-xs text-gray-400 sm:text-sm">{tech}</span>
                     </div>
                   ))}
                 </div>
@@ -96,14 +67,9 @@ export default function AboutMe(props) {
               <div className="flex flex-row items-center space-x-2">
                 <div className="flex flex-col space-y-4 text-sm sm:text-base">
                   {technologies[1].map((tech, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-row items-center space-x-2"
-                    >
+                    <div key={index} className="flex flex-row items-center space-x-2">
                       <ArrowIcon className={"h-3 w-3 text-AAsecondary"} />
-                      <span className="text-xs text-gray-400 sm:text-sm">
-                        {tech}
-                      </span>
+                      <span className="text-xs text-gray-400 sm:text-sm">{tech}</span>
                     </div>
                   ))}
                 </div>

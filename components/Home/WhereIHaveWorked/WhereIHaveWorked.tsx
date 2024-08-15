@@ -25,12 +25,12 @@ export default function WhereIHaveWorked() {
           <ArrowIcon
             className={"h-4 w-4 flex-none text-AAsecondary md:h-6 md:w-5"}
           />
-          <span className="font-sans text-sm text-AAsecondary sm:text-xl">
+          <span className="font-tech text-sm text-AAsecondary sm:text-xl">
             {" "}
             02.
           </span>
         </div>
-        <span className="px-3 text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
+        <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
           Where I&apos;ve Worked
         </span>
         <div className="h-[0.2px] w-16 bg-gray-400 sm:w-44 md:w-80"></div>
@@ -91,7 +91,7 @@ const CompaniesBar = ({ activeCompany, setActiveCompany }) => {
 const CompanyButton = ({ company, isActive, onClick, index }) => (
   <button
     onClick={onClick}
-    className={`h-16 w-32 flex-none rounded py-3 text-center font-mono
+    className={`h-16 w-32 flex-none rounded py-3 text-center font-tech
       text-xs duration-500 hover:bg-ResumeButtonHover hover:text-AAsecondary sm:text-sm md:w-44 md:px-4 md:pl-6 md:text-left
       ${isActive ? "bg-ResumeButtonHover text-AAsecondary" : "text-gray-500"}`}
   >
@@ -315,9 +315,9 @@ const JobDescription = ({ company }) => {
             @ {companies.find((c) => c.key === company).name}
           </span>
         </span>
-        <span className="font-mono text-xs text-gray-500">{job.date}</span>
+        <span className="font-tech text-xs text-gray-500">{job.date}</span>
         <span
-          className="font-mono text-xs text-AAsecondary hover:cursor-pointer"
+          className="font-tech text-xs text-AAsecondary hover:cursor-pointer"
           style={{ fontSize: "0.6rem" }}
           onClick={() => window.open(job.url, "_blank")}
         >

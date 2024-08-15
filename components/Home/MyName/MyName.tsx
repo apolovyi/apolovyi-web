@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 export default function MyName(props: { finishedLoading: boolean }) {
   return (
     <div
-      className="flex h-full flex-col justify-center
-      px-8 py-32 sm:px-8 sm:py-52  md:px-28 lg:px-32 xl:px-56 2xl:px-72  "
+      className="flex h-full flex-col justify-center px-8
+      py-32 sm:px-8 sm:py-52  md:px-28 lg:px-32 xl:px-56 2xl:px-72  "
     >
       <motion.span
         initial={{ y: 10, opacity: 0 }}
@@ -20,7 +20,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="font-mono text-AAsecondary"
+        className="font-tech tracking-wider text-AAsecondary"
       >
         Hi, my name is
       </motion.span>
@@ -37,7 +37,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="mt-4 text-3xl font-bold text-gray-300 sm:text-5xl md:text-6xl lg:text-7xl"
+        className="mt-4 font-heading text-3xl font-bold text-gray-300 sm:text-5xl md:text-6xl lg:text-7xl"
       >
         Artem Polovyi.
       </motion.h1>
@@ -54,7 +54,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="mt-4 text-3xl font-bold text-gray-400 sm:text-5xl md:text-6xl lg:text-7xl"
+        className="mt-4 font-body text-3xl font-bold text-gray-400 sm:text-5xl md:text-6xl lg:text-7xl"
       >
         I bring ideas to life.
       </motion.h2>
@@ -72,7 +72,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="sm:text-md mt-10 font-Header text-sm tracking-wider text-gray-400 md:text-lg"
+        className="sm:text-md mt-10 font-body text-sm tracking-wider text-gray-400 md:text-lg"
       >
         As a{" "}
         <span className="text-AAsecondary">full-stack software engineer </span>
@@ -106,7 +106,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
           target={"_blank"}
           rel="noreferrer"
         >
-          <button className="rounded border border-AAsecondary bg-AAprimary px-4 py-3 text-AAsecondary sm:px-8 sm:py-4">
+          <button className="rounded border border-AAsecondary bg-AAprimary px-4 py-3 font-heading text-AAsecondary sm:px-8 sm:py-4">
             Check out my resume!
           </button>
         </a>

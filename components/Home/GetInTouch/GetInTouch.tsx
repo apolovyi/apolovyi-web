@@ -47,10 +47,10 @@ export default function GetInTouch() {
         {/* Section Number and Title */}
         <div className="flex items-center space-x-2">
           <ArrowIcon className="h-5 w-5 text-AAsecondary" />
-          <span className="font-mono text-sm text-AAsecondary sm:text-base">
+          <span className="font-tech text-sm text-AAsecondary sm:text-xl">
             04.
           </span>
-          <h2 className="font-sans text-xl font-semibold text-gray-200 sm:text-2xl">
+          <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
             What&apos;s Next?
           </h2>
         </div>
@@ -61,7 +61,7 @@ export default function GetInTouch() {
         </h1>
 
         {/* Description */}
-        <p className="text-center font-sans text-lg leading-relaxed text-gray-400">
+        <p className="text-center font-body text-lg leading-relaxed text-gray-400">
           I&apos;m always excited about new opportunities and collaborations.
           Whether you have a project in mind, a question about my work, or just
           want to say hello, I&apos;d love to hear from you. Let&apos;s start a
@@ -89,7 +89,7 @@ export default function GetInTouch() {
           <div className="mb-4">
             <label
               htmlFor="name"
-              className="mb-2 block font-mono text-sm text-gray-400"
+              className="mb-2 block font-tech text-sm text-gray-400"
             >
               Name
             </label>
@@ -104,7 +104,7 @@ export default function GetInTouch() {
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="mb-2 block font-mono text-sm text-gray-400"
+              className="mb-2 block font-tech text-sm text-gray-400"
             >
               Email
             </label>
@@ -119,7 +119,7 @@ export default function GetInTouch() {
           <div className="mb-4">
             <label
               htmlFor="message"
-              className="mb-2 block font-mono text-sm text-gray-400"
+              className="mb-2 block font-tech text-sm text-gray-400"
             >
               Message
             </label>
@@ -136,7 +136,7 @@ export default function GetInTouch() {
               type="submit"
               disabled={isSubmitting}
               className="rounded-md border-2 border-AAsecondary px-6
-                               py-2 font-mono text-sm text-AAsecondary
+                               py-2 font-tech text-sm text-AAsecondary
                                transition-all duration-300 ease-in-out
                                hover:bg-AAsecondary hover:bg-opacity-10
                                focus:outline-none focus:ring-2 focus:ring-AAsecondary focus:ring-opacity-50
