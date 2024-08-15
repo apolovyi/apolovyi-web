@@ -78,7 +78,7 @@ export default function GetInTouch() {
         >
           <input type="hidden" name="form-name" value="contact" />
 
-          {/* Honeypot field */}
+          {/* Honeypot field  */}
           <p className="hidden">
             <label>
               Don&apos;t fill this out if you&apos;re human:{" "}
