@@ -1,20 +1,28 @@
 import type { Metadata } from "next";
 
+const siteName = "Artem Polovyi - Software Engineer";
+const siteUrl = "https://apolovyi.me";
+const description =
+  "Full-stack engineer with over 7 years of experience. Specializing in scalable web applications and cloud technologies.";
+
 export const metadata: Metadata = {
-  title: "Artem Polovyi - Software Engineer",
-  description:
-    "I've been working as a full-stack engineer for more than 7 years. Get in touch with me to know more.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description,
   openGraph: {
-    title: "Artem Polovyi - Software Engineer",
-    description:
-      "I've been working as a full-stack engineer for more than 7 years. Get in touch with me to know more.",
-    url: "https://apolovyi.me",
-    siteName: "Artem Polovyi",
+    title: siteName,
+    description,
+    url: siteUrl,
+    siteName,
     images: [
       {
-        url: "/me-circle.png",
-        width: 800,
-        height: 600,
+        url: "/img/me-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Artem Polovyi - Software Engineer",
       },
     ],
     locale: "en_US",
@@ -31,15 +39,24 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  twitter: {
-    title: "Artem Polovyi - Software Engineer",
-    card: "summary_large_image",
-  },
   icons: {
-    shortcut: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  alternates: {
+    canonical: siteUrl,
   },
   verification: {
     google: "your-google-site-verification-code",
     yandex: "your-yandex-verification-code",
   },
+  keywords: [
+    "Software Engineer",
+    "Full-stack Developer",
+    "Web Development",
+    "Cloud Technologies",
+  ],
 };
