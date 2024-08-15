@@ -83,6 +83,7 @@ export default function AboutMe(props) {
                     src={"/img/me-bg.jpg"}
                     className={"object-contain rounded-lg"}
                     alt="Artem Polovyi"
+                    // placeholder="blur"
                     width={400}
                     height={320}
                 />
@@ -97,6 +98,7 @@ export default function AboutMe(props) {
                     src={"/img/me-bg.jpg"}
                     className={"object-contain rounded-lg"}
                     alt="Artem Polovyi"
+                    // placeholder="blur"
                     width={400}
                     height={320}
                 />

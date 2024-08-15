@@ -4,7 +4,7 @@ import {useState} from "react";
 
 function MyApp({Component, pageProps}) {
     const [sharedState, setSharedState] = useState({
-        finishedLoading: false,
+        finishedLoading: true,
     });
     return (
         <AppContext.Provider value={{sharedState, setSharedState}}>
