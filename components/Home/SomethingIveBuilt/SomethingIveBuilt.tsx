@@ -28,14 +28,14 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 
       {/* Content */}
       <div
-        className={`absolute top-0 h-full w-full lg:w-1/2 ${
+        className={`absolute top-0 h-full w-full font-body lg:w-1/2 ${
           isEven ? "lg:right-0" : "lg:left-0"
         } flex flex-col justify-center p-8`}
       >
         <div className={`flex flex-col ${isEven ? "lg:items-end" : "lg:items-start"}`}>
-          <span className="text-base text-AAsecondary">{project.category}</span>
+          <span className="font-heading text-base text-AAsecondary">{project.category}</span>
           <a href={project.link} target="_blank" rel="noopener noreferrer">
-            <span className="text-xl font-bold text-gray-200 hover:text-AAsecondary">{project.title}</span>
+            <span className=" text-xl font-semibold text-gray-200 hover:text-AAsecondary">{project.title}</span>
           </a>
         </div>
         <div className={`my-4 rounded-md bg-AAtertiary p-6 shadow-lg ${isEven ? "lg:text-right" : "lg:text-left"}`}>
