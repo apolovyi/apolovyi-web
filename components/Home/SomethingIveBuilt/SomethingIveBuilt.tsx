@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import ArrowIcon from "../../Icons/ArrowIcon";
-import ExternalLink from "../../Icons/ExternalLink";
+import ArrowIcon from "components/Icons/ArrowIcon";
+import ExternalLink from "components/Icons/ExternalLink";
 
 export default function SomethingIveBuilt() {
   const projects = [

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import ArrowIcon from "../../Icons/ArrowIcon";
+import ArrowIcon from "components/Icons/ArrowIcon";
 
 const companies = [
   { name: "The Bicester Collection", key: "TheBicesterCollection" },

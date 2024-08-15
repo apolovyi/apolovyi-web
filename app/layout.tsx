@@ -1,5 +1,5 @@
-import "../styles/globals.css";
-import { AppProvider } from "../components/AppContextFolder/AppContext";
+import "styles/globals.css";
+import { AppProvider } from "components/AppContextFolder/AppContext";
 
 export const metadata = {
   title: "Artem Polovyi - Software Engineer",

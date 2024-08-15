@@ -1,5 +1,5 @@
 import React from "react";
-import ArrowIcon from "../../Icons/ArrowIcon";
+import ArrowIcon from "components/Icons/ArrowIcon";
 
 export default function GetInTouch() {
   return (
