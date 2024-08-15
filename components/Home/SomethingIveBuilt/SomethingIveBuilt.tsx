@@ -141,18 +141,21 @@ export default function SomethingIveBuilt() {
       className="flex w-full flex-col space-y-12 bg-AAprimary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
       {/* Title */}
-      <div data-aos="fade-up" className="flex flex-row items-center md:px-0">
+      <div
+        data-aos="fade-up"
+        className="flex flex-row items-center font-heading md:px-0"
+      >
         <ArrowIcon
           className={
             "h-5 w-5 flex-none translate-y-[2px] text-AAsecondary md:h-6 md:w-5"
           }
         />
         <div className="flex-none flex-row items-center space-x-2 pr-2">
-          <span className="font-sans text-sm text-AAsecondary sm:text-xl">
+          <span className="font-tech text-sm text-AAsecondary sm:text-xl">
             {" "}
             03.
           </span>
-          <span className="w-44 text-lg font-bold tracking-wider text-gray-200 opacity-85 md:w-56 md:text-2xl">
+          <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
             Some Things I&apos;ve Built
           </span>
         </div>
@@ -229,7 +232,7 @@ export default function SomethingIveBuilt() {
                 Role: {project.role}
               </div>
               <ul
-                className={`flex flex-wrap font-Text2 text-sm text-gray-200 ${
+                className={`flex flex-wrap font-tech text-sm text-gray-200 ${
                   index % 2 === 0 ? "lg:justify-end" : "lg:justify-start"
                 }`}
               >

@@ -11,7 +11,7 @@ export default function Logo() {
       >
         <motion.span
           initial={{ x: 1 }}
-          className="absolute flex h-full w-full items-center justify-center font-Header text-lg text-AAsecondary"
+          className="absolute flex h-full w-full items-center justify-center font-heading text-lg text-AAsecondary"
         >
           AP
         </motion.span>

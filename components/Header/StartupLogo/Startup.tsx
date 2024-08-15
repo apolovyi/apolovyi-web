@@ -113,7 +113,7 @@ const Startup = () => {
           initial={{ scale: 0, y: -4, x: -1 }}
           animate={{ scale: 1 }}
           transition={{ scale: { delay: 1.5, duration: 1.5 } }}
-          className="font-Text2 text-4xl text-AAsecondary"
+          className="font-heading text-4xl text-AAsecondary"
         >
           AP
         </motion.span>

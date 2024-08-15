@@ -25,7 +25,7 @@ export default function DesktopMenu(props: { finishedLoading: boolean }) {
   );
 
   return (
-    <nav className="hidden flex-row items-center space-x-8 font-mono text-xs md:flex">
+    <nav className="font-tech hidden flex-row items-center space-x-8 text-xs md:flex">
       {menuItems.map((item, index) => (
         <motion.div
           key={item.id}
