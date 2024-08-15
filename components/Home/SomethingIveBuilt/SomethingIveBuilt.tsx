@@ -156,7 +156,7 @@ export default function SomethingIveBuilt() {
                 Role: {project.role}
               </div>
               <ul
-                className={`flex flex-wrap font-tech text-sm text-gray-200 ${
+                className={`flex flex-wrap font-tech text-sm text-gray-200 lg:max-w-80 ${
                   index % 2 === 0 ? "lg:justify-end" : "lg:justify-start"
                 }`}
               >
