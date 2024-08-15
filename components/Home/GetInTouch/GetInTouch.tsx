@@ -5,9 +5,7 @@ import ArrowIcon from "components/Icons/ArrowIcon";
 
 export default function GetInTouch() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -47,24 +45,19 @@ export default function GetInTouch() {
         {/* Section Number and Title */}
         <div className="flex items-center space-x-2">
           <ArrowIcon className="h-5 w-5 text-AAsecondary" />
-          <span className="font-tech text-sm text-AAsecondary sm:text-xl">
-            04.
-          </span>
+          <span className="font-tech text-sm text-AAsecondary sm:text-xl">04.</span>
           <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
             What&apos;s Next?
           </h2>
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-center text-4xl font-bold tracking-wide text-gray-200 sm:text-5xl">
-          Let&apos;s Connect
-        </h1>
+        <h1 className="text-center text-4xl font-bold tracking-wide text-gray-200 sm:text-5xl">Let&apos;s Connect</h1>
 
         {/* Description */}
         <p className="text-center font-body text-lg leading-relaxed text-gray-400">
-          I&apos;m always excited about new opportunities and collaborations.
-          Whether you have a project in mind, a question about my work, or just
-          want to say hello, I&apos;d love to hear from you. Let&apos;s start a
+          I&apos;m always excited about new opportunities and collaborations. Whether you have a project in mind, a
+          question about my work, or just want to say hello, I&apos;d love to hear from you. Let&apos;s start a
           conversation and explore how we can create something amazing together!
         </p>
 
@@ -81,16 +74,12 @@ export default function GetInTouch() {
           {/* Honeypot field  */}
           <p className="hidden">
             <label>
-              Don&apos;t fill this out if you&apos;re human:{" "}
-              <input name="bot-field" />
+              Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
             </label>
           </p>
 
           <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="mb-2 block font-tech text-sm text-gray-400"
-            >
+            <label htmlFor="name" className="mb-2 block font-tech text-sm text-gray-400">
               Name
             </label>
             <input
@@ -102,10 +91,7 @@ export default function GetInTouch() {
             />
           </div>
           <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="mb-2 block font-tech text-sm text-gray-400"
-            >
+            <label htmlFor="email" className="mb-2 block font-tech text-sm text-gray-400">
               Email
             </label>
             <input
@@ -117,10 +103,7 @@ export default function GetInTouch() {
             />
           </div>
           <div className="mb-4">
-            <label
-              htmlFor="message"
-              className="mb-2 block font-tech text-sm text-gray-400"
-            >
+            <label htmlFor="message" className="mb-2 block font-tech text-sm text-gray-400">
               Message
             </label>
             <textarea
@@ -147,14 +130,8 @@ export default function GetInTouch() {
           </div>
         </form>
 
-        {submitStatus === "success" && (
-          <p className="mt-4 text-green-500">Message sent successfully!</p>
-        )}
-        {submitStatus === "error" && (
-          <p className="mt-4 text-red-500">
-            Failed to send message. Please try again.
-          </p>
-        )}
+        {submitStatus === "success" && <p className="mt-4 text-green-500">Message sent successfully!</p>}
+        {submitStatus === "error" && <p className="mt-4 text-red-500">Failed to send message. Please try again.</p>}
       </div>
     </div>
   );

@@ -74,15 +74,12 @@ export default function MyName(props: { finishedLoading: boolean }) {
         }}
         className="sm:text-md mt-10 font-body text-sm tracking-wider text-gray-400 md:text-lg"
       >
-        As a{" "}
-        <span className="text-AAsecondary">full-stack software engineer </span>
-        with strong problem-solving skills, I specialize in creating exceptional
-        digital experiences.
+        As a <span className="text-AAsecondary">full-stack software engineer </span>
+        with strong problem-solving skills, I specialize in creating exceptional digital experiences.
         <br />
         Currently, I am passionate about creating
         <span className="text-AAsecondary"> robust solutions</span>, exploring
-        <span className="text-AAsecondary"> innovative technologies</span>, and
-        driving
+        <span className="text-AAsecondary"> innovative technologies</span>, and driving
         <span className="text-AAsecondary"> digital transformation</span>.
       </motion.h3>
 
@@ -101,11 +98,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
         }}
         className="mt-12"
       >
-        <a
-          href={"/cv/CV_Artem_Polovyi_EN.pdf"}
-          target={"_blank"}
-          rel="noreferrer"
-        >
+        <a href={"/cv/CV_Artem_Polovyi_EN.pdf"} target={"_blank"} rel="noreferrer">
           <button className="rounded border border-AAsecondary bg-AAprimary px-4 py-3 font-heading text-AAsecondary sm:px-8 sm:py-4">
             Check out my resume!
           </button>

@@ -25,12 +25,7 @@ const Header = (props: { finishedLoading: boolean }) => {
 
   return (
     <>
-      <MobileMenu
-        rotate={rotate}
-        setRotate={setRotate}
-        setShowElement={setShowElement}
-        showElement={showElement}
-      />
+      <MobileMenu rotate={rotate} setRotate={setRotate} setShowElement={setShowElement} showElement={showElement} />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -40,13 +35,7 @@ const Header = (props: { finishedLoading: boolean }) => {
         className={`fixed left-0 right-0 top-0 z-50 flex w-full justify-between px-6
           py-2 transition-all duration-300 ease-in-out sm:px-12 sm:py-4
           ${isScrolled ? "shadow-lg backdrop-blur-sm" : ""}
-          ${
-            showElement
-              ? "bg-AAprimary bg-opacity-70"
-              : isScrolled
-              ? "bg-AAprimary bg-opacity-50"
-              : "bg-transparent"
-          }
+          ${showElement ? "bg-AAprimary bg-opacity-70" : isScrolled ? "bg-AAprimary bg-opacity-50" : "bg-transparent"}
         `}
       >
         <Logo />

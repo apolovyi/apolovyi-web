@@ -14,11 +14,7 @@ const IconClickableWithAnimation = (props) => {
       className=""
     >
       <a href={props.href} className="" target={"_blank"} rel="noreferrer">
-        <props.Icon
-          className={
-            "h-6 w-6 fill-current text-gray-400 hover:cursor-pointer hover:text-AAsecondary"
-          }
-        />
+        <props.Icon className={"h-6 w-6 fill-current text-gray-400 hover:cursor-pointer hover:text-AAsecondary"} />
       </a>
     </motion.div>
   );
@@ -35,20 +31,11 @@ export default function SocialMediaEmail(props: { finishedLoading: boolean }) {
         <div className="flex flex-col items-center justify-center space-y-8">
           <div className="flex flex-col items-center justify-center space-y-5">
             {/* Github Icon */}
-            <IconClickableWithAnimation
-              Icon={GithubIcon}
-              href={"https://github.com/apolovyi"}
-            />
+            <IconClickableWithAnimation Icon={GithubIcon} href={"https://github.com/apolovyi"} />
             {/* Linkedin icon */}
-            <IconClickableWithAnimation
-              Icon={LinkedinIcon}
-              href={"https://www.linkedin.com/in/apolovyi/"}
-            />
+            <IconClickableWithAnimation Icon={LinkedinIcon} href={"https://www.linkedin.com/in/apolovyi/"} />
             {/* Instagram Icon */}
-            <IconClickableWithAnimation
-              Icon={InstagramIcon}
-              href={"https://www.instagram.com/artem_polevoi/"}
-            />
+            <IconClickableWithAnimation Icon={InstagramIcon} href={"https://www.instagram.com/artem_polevoi/"} />
           </div>
           <div className="h-28 w-0.5 bg-gray-400"></div>
         </div>
@@ -69,11 +56,7 @@ export default function SocialMediaEmail(props: { finishedLoading: boolean }) {
             }}
             className=""
           >
-            <a
-              href="mailto:info@apolovyi.me"
-              target={"_blank"}
-              rel="noreferrer"
-            >
+            <a href="mailto:info@apolovyi.me" target={"_blank"} rel="noreferrer">
               <span className=" font-heading tracking-wider text-gray-400 hover:cursor-pointer hover:text-AAsecondary">
                 info<span className="text-AAsecondary">@</span>apolovyi
                 <span className="text-AAsecondary">.</span>com

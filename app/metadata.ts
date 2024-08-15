@@ -40,10 +40,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png", sizes: "32x32" },
-    ],
+    icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "32x32" }],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   alternates: {
@@ -53,10 +50,5 @@ export const metadata: Metadata = {
     google: "your-google-site-verification-code",
     yandex: "your-yandex-verification-code",
   },
-  keywords: [
-    "Software Engineer",
-    "Full-stack Developer",
-    "Web Development",
-    "Cloud Technologies",
-  ],
+  keywords: ["Software Engineer", "Full-stack Developer", "Web Development", "Cloud Technologies"],
 };
