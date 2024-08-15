@@ -1,7 +1,41 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import ArrowIcon from "components/Icons/ArrowIcon";
 
 export default function GetInTouch() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        form.reset();
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div
       id="GetInTouchSection"
@@ -36,8 +70,7 @@ export default function GetInTouch() {
         {/* Netlify Form */}
         <form
           name="contact"
-          method="POST"
-          data-netlify="true"
+          onSubmit={handleSubmit}
           className="w-full max-w-md"
         >
           <input type="hidden" name="form-name" value="contact" />
@@ -89,16 +122,27 @@ export default function GetInTouch() {
           <div className="flex justify-center">
             <button
               type="submit"
+              disabled={isSubmitting}
               className="rounded-md border-2 border-AAsecondary px-6
-                               py-2 font-mono text-sm text-AAsecondary
-                               transition-all duration-300 ease-in-out
-                               hover:bg-AAsecondary hover:bg-opacity-10
-                               focus:outline-none focus:ring-2 focus:ring-AAsecondary focus:ring-opacity-50"
+                           py-2 font-mono text-sm text-AAsecondary
+                           transition-all duration-300 ease-in-out
+                           hover:bg-AAsecondary hover:bg-opacity-10
+                           focus:outline-none focus:ring-2 focus:ring-AAsecondary focus:ring-opacity-50
+                           disabled:opacity-50"
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </div>
         </form>
+
+        {submitStatus === "success" && (
+          <p className="mt-4 text-green-500">Message sent successfully!</p>
+        )}
+        {submitStatus === "error" && (
+          <p className="mt-4 text-red-500">
+            Failed to send message. Please try again.
+          </p>
+        )}
       </div>
     </div>
   );
