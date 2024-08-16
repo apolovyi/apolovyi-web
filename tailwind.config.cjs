@@ -17,8 +17,8 @@ module.exports = {
       fontFamily: {
         body: ["var(--font-quicksand)", "sans-serif"],
         heading: ["var(--font-comfortaa)", "sans-serif"],
-        tech: ["var(--font-space-mono)", "monospace"],
-        "sub-heading": ["var(--font-merriweather)"],
+        tech: ["var(--font-ibm-plex-mono)", "monospace"],
+        "sub-heading": ["var(--font-merriweather)", "serif"],
       },
       colors: {
         AAprimary: "#0b192f",

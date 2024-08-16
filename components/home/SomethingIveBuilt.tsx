@@ -46,7 +46,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
         </div>
         <div className={`w-full ${isEven ? "lg:flex lg:justify-end" : ""}`}>
           <ul
-            className={`flex w-4/6 flex-wrap font-tech text-sm text-gray-200 ${
+            className={`flex w-4/6 flex-wrap font-tech text-sm font-extralight text-gray-200 ${
               isEven ? "lg:justify-end" : "lg:justify-start"
             }`}
           >
