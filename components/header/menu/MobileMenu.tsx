@@ -64,7 +64,7 @@ const MobileMenu = ({ rotate, setRotate, showElement, setShowElement }: MobileMe
             </span>
           </a>
         ))}
-        <a href="/cv/CV_Artem_Polovyi_EN.pdf" target="_blank" rel="noopener noreferrer">
+        <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noopener noreferrer">
           <button
             className="rounded border border-AAsecondary px-5
                         py-2 font-heading text-xs text-AAsecondary hover:bg-ResumeButtonHover sm:px-10 sm:py-4"

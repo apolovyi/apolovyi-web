@@ -98,7 +98,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
         }}
         className="mt-12"
       >
-        <a href={"/cv/CV_Artem_Polovyi_EN.pdf"} target={"_blank"} rel="noreferrer">
+        <a href={"/cv/CV_Artem_Polovyi_EN_WEB.pdf"} target={"_blank"} rel="noreferrer">
           <button className="rounded border border-AAsecondary bg-AAprimary px-4 py-3 font-heading text-AAsecondary sm:px-8 sm:py-4">
             Check out my resume!
           </button>
