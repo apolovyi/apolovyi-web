@@ -32,7 +32,4 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/typography")],
-  variants: {
-    scrollbar: ["rounded"],
-  },
 };

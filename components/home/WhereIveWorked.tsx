@@ -41,7 +41,7 @@ export default function WhereIveWorked() {
 
 const CompaniesBar = ({ activeCompany, setActiveCompany }) => {
   return (
-    <div className="scrollbar-hide flex w-screen flex-col items-start justify-start overflow-hidden pb-4 sm:items-center sm:justify-center md:w-auto md:flex-row md:pb-0">
+    <div className="flex w-screen flex-col items-start justify-start overflow-hidden pb-4 sm:items-center sm:justify-center md:w-auto md:flex-row md:pb-0">
       <div className="relative order-2 hidden h-0.5 translate-y-1 rounded bg-gray-500 md:order-1 md:block md:h-[390px] md:w-0.5">
         <motion.div
           animate={{
