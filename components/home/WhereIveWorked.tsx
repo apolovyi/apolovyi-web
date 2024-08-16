@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import ArrowIcon from "components/Icons/ArrowIcon";
+import ArrowIcon from "@/components/icons/ArrowIcon";
 
 const companies = [
   { name: "The Bicester Collection", key: "TheBicesterCollection" },
@@ -11,7 +11,7 @@ const companies = [
   { name: "SilverTours GmbH", key: "SilverToursGmbH" },
 ];
 
-export default function WhereIHaveWorked() {
+export default function WhereIveWorked() {
   const [activeCompany, setActiveCompany] = useState("TheBicesterCollection");
 
   return (

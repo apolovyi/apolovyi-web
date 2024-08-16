@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ArrowIcon from "components/Icons/ArrowIcon";
+import ArrowIcon from "@/components/icons/ArrowIcon";
 
 export default function AboutMe(props) {
   const technologies = [

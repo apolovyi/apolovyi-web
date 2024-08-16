@@ -1,7 +1,7 @@
 import Image from "next/image";
-import ArrowIcon from "components/Icons/ArrowIcon";
-import ExternalLink from "components/Icons/ExternalLink";
-import { ProjectItemProps, projects } from "@/components/const/projects";
+import ArrowIcon from "@/components/icons/ArrowIcon";
+import ExternalLink from "@/components/icons/ExternalLink";
+import { ProjectItemProps, projects } from "@/components/const/Projects";
 
 const ProjectItem = ({ project, index }: ProjectItemProps) => {
   const isEven = index % 2 === 0;

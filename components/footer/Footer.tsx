@@ -1,7 +1,7 @@
 import React from "react";
-import GithubIcon from "components/Icons/GithubIcon";
-import LinkedinIcon from "components/Icons/LinkedinIcon";
-import InstagramIcon from "components/Icons/InstagramIcon";
+import GithubIcon from "@/components/icons/GithubIcon";
+import LinkedinIcon from "@/components/icons/LinkedinIcon";
+import InstagramIcon from "@/components/icons/InstagramIcon";
 
 const ClickableIcon = (props) => {
   return (

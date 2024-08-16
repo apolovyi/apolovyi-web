@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Logo from "./Headercomp/Logo";
-import DesktopMenu from "./Headercomp/DesktopMenu";
-import IconMenu from "./Headercomp/IconMenu";
-import MobileMenu from "./Headercomp/MobileMenu";
+import Logo from "@/components/header/menu/Logo";
+import DesktopMenu from "@/components/header/menu/DesktopMenu";
+import IconMenu from "@/components/header/menu/IconMenu";
+import MobileMenu from "@/components/header/menu/MobileMenu";
 import { motion } from "framer-motion";
 
 const Header = (props: { finishedLoading: boolean }) => {
