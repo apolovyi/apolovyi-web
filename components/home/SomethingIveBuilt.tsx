@@ -13,7 +13,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
         <div className="relative h-full w-full overflow-hidden rounded-lg">
           <Image
             src={project.image}
-            alt={project.title}
+            alt={project.company}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             style={{
@@ -35,13 +35,23 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
         <div className={`flex flex-col ${isEven ? "lg:items-end" : "lg:items-start"}`}>
           <span className="font-heading text-base text-AAsecondary">{project.category}</span>
           <a href={project.link} target="_blank" rel="noopener noreferrer">
-            <span className=" text-xl font-semibold text-gray-200 hover:text-AAsecondary">{project.title}</span>
+            <span className="font-sub-heading text-xl font-light text-gray-200 hover:text-AAsecondary">
+              {project.company}
+            </span>
           </a>
         </div>
-        <div className={`my-4 rounded-md bg-AAtertiary p-6 shadow-lg ${isEven ? "lg:text-right" : "lg:text-left"}`}>
-          <p className="text-xs text-gray-400 sm:text-sm md:text-lg">{project.description}</p>
+        <div
+          className={`my-4 rounded-md bg-AAtertiary p-6 opacity-85 shadow-lg ${
+            isEven ? "lg:text-right" : "lg:text-left"
+          }`}
+        >
+          <p className="font-body text-xs font-light text-gray-400 sm:text-sm md:text-lg">{project.description}</p>
         </div>
-        <div className={`mb-4 text-sm text-AAsecondary ${isEven ? "lg:text-right" : "lg:text-left"}`}>
+        <div
+          className={`mb-4 font-heading text-sm font-extralight text-AAsecondary ${
+            isEven ? "lg:text-right" : "lg:text-left"
+          }`}
+        >
           Role: {project.role}
         </div>
         <div className={`w-full ${isEven ? "lg:flex lg:justify-end" : ""}`}>
