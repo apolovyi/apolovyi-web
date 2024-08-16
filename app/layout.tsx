@@ -1,4 +1,4 @@
-import { Comfortaa, Merriweather, Quicksand, Space_Mono } from "next/font/google";
+import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/google";
 import { AppProvider } from "@/components/shared/AppContext";
 import "styles/globals.css";
 
@@ -14,11 +14,11 @@ const quicksand = Quicksand({
   display: "swap",
 });
 
-const spaceMono = Space_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-space-mono",
+  variable: "--font-ibm-plex-mono",
   display: "swap",
-  weight: ["400", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
 const merriweather = Merriweather({
@@ -30,7 +30,10 @@ const merriweather = Merriweather({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html className={`${comfortaa.variable} ${quicksand.variable} ${spaceMono.variable} ${merriweather.variable}`}>
+    <html
+      lang="en"
+      className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
+    >
       <body>
         <AppProvider>{children}</AppProvider>
       </body>
