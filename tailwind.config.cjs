@@ -17,36 +17,17 @@ module.exports = {
       fontFamily: {
         body: ["var(--font-quicksand)", "sans-serif"],
         heading: ["var(--font-comfortaa)", "sans-serif"],
-        tech: ["var(--font-ibm-plex-mono)", "monospace"],
         "sub-heading": ["var(--font-merriweather)", "serif"],
+        tech: ["var(--font-ibm-plex-mono)", "monospace"],
       },
       colors: {
-        AAprimary: "#0b192f",
-        AAsecondary: "#64ffda",
-        AAError: "#ff6489",
-        AAtertiary: "#112340",
-        ResumeButtonHover: "#153040",
-        MobileNavBarColor: "#112340",
-        StartupBackground: "#020c1b",
-      },
-      screens: {
-        sm: "640px",
-        // => @media (min-width: 640px) { ... }
-
-        md: "768px",
-        // => @media (min-width: 768px) { ... }
-
-        lg: "1024px",
-        // => @media (min-width: 1024px) { ... }
-
-        xl: "1280px",
-        // => @media (min-width: 1280px) { ... }
-
-        "2xl": "1536px",
-        // => @media (min-width: 1536px) { ... }
-        "3xl": "1920px",
-        "4xl": "2560px",
-        "5xl": "3840px",
+        primary: "#0b192f",
+        secondary: "#64ffda",
+        error: "#ff6489",
+        tertiary: "#112340",
+        "resume-hover": "#153040",
+        navbar: "#112340",
+        startup: "#020c1b",
       },
     },
   },

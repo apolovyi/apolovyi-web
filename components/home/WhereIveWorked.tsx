@@ -18,12 +18,12 @@ export default function WhereIveWorked() {
     <div
       id="WhereIHaveWorkedSection"
       data-aos="fade-up"
-      className="aos-init aos-animate flex flex-col items-center justify-center space-y-12 bg-AAprimary py-24"
+      className="aos-init aos-animate flex flex-col items-center justify-center space-y-12 bg-primary py-24"
     >
       <section className="flex flex-row items-center">
         <div className="flex flex-row items-center">
-          <ArrowIcon className={"h-4 w-4 flex-none text-AAsecondary md:h-6 md:w-5"} />
-          <span className="font-tech text-sm text-AAsecondary sm:text-xl"> 02.</span>
+          <ArrowIcon className={"h-4 w-4 flex-none text-secondary md:h-6 md:w-5"} />
+          <span className="font-tech text-sm text-secondary sm:text-xl"> 02.</span>
         </div>
         <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
           Where I&apos;ve Worked
@@ -47,7 +47,7 @@ const CompaniesBar = ({ activeCompany, setActiveCompany }) => {
           animate={{
             y: companies.findIndex((company) => company.key === activeCompany) * 64,
           }}
-          className={`absolute h-0.5 w-10 rounded bg-AAsecondary md:h-16 md:w-0.5`}
+          className={`absolute h-0.5 w-10 rounded bg-secondary md:h-16 md:w-0.5`}
         ></motion.div>
       </div>
       <div className="order-1 flex flex-col space-y-1 pl-8 md:order-2 md:pl-0">
@@ -67,7 +67,7 @@ const CompaniesBar = ({ activeCompany, setActiveCompany }) => {
             animate={{
               x: companies.findIndex((company) => company.key === activeCompany) * 128,
             }}
-            className="h-0.5 w-[128px] rounded bg-AAsecondary"
+            className="h-0.5 w-[128px] rounded bg-secondary"
           ></motion.div>
         </div>
       </div>
@@ -79,8 +79,8 @@ const CompanyButton = ({ company, isActive, onClick, index }) => (
   <button
     onClick={onClick}
     className={`h-16 w-32 flex-none rounded py-3 text-center font-tech
-      text-xs duration-500 hover:bg-ResumeButtonHover hover:text-AAsecondary sm:text-sm md:w-44 md:px-4 md:pl-6 md:text-left
-      ${isActive ? "bg-ResumeButtonHover text-AAsecondary" : "text-gray-500"}`}
+      text-xs duration-500 hover:bg-resume-hover hover:text-secondary sm:text-sm md:w-44 md:px-4 md:pl-6 md:text-left
+      ${isActive ? "bg-resume-hover text-secondary" : "text-gray-500"}`}
   >
     {company.name}
   </button>
@@ -277,7 +277,7 @@ const JobDescription = ({ company }) => {
     let highlightedText = text;
     keywords.forEach((keyword) => {
       const regex = new RegExp(keyword, "gi");
-      highlightedText = highlightedText.replace(regex, (match) => `<span class="text-AAsecondary">${match}</span>`);
+      highlightedText = highlightedText.replace(regex, (match) => `<span class="text-secondary">${match}</span>`);
     });
     return highlightedText;
   };
@@ -286,11 +286,11 @@ const JobDescription = ({ company }) => {
     <div className="flex max-w-xl flex-col space-y-5 px-4 md:px-0">
       <div className="spacey-y-2 flex flex-col">
         <span className="font-Arimo text-sm tracking-wide text-gray-100 sm:text-lg">
-          {job.title} <span className="text-AAsecondary">@ {companies.find((c) => c.key === company).name}</span>
+          {job.title} <span className="text-secondary">@ {companies.find((c) => c.key === company).name}</span>
         </span>
         <span className="font-tech text-xs text-gray-500">{job.date}</span>
         <span
-          className="font-tech text-xs text-AAsecondary hover:cursor-pointer"
+          className="font-tech text-xs text-secondary hover:cursor-pointer"
           style={{ fontSize: "0.6rem" }}
           onClick={() => window.open(job.url, "_blank")}
         >
@@ -300,7 +300,7 @@ const JobDescription = ({ company }) => {
       <div className="flex flex-col space-y-4 text-xs sm:text-sm">
         {job.tasks.map((item, index) => (
           <div key={index} className="flex flex-row space-x-1">
-            <ArrowIcon className={" h-5 w-4 flex-none text-AAsecondary"} />
+            <ArrowIcon className={" h-5 w-4 flex-none text-secondary"} />
             <span
               className="text-xs text-gray-500 sm:text-sm"
               dangerouslySetInnerHTML={{

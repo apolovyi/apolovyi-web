@@ -22,7 +22,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
             }}
             className="p-4"
           />
-          <div className="absolute inset-0 rounded-lg bg-AAprimary p-1 opacity-70 transition-opacity duration-300 hover:opacity-0 lg:opacity-30"></div>
+          <div className="absolute inset-0 rounded-lg bg-primary p-1 opacity-70 transition-opacity duration-300 hover:opacity-0 lg:opacity-30"></div>
         </div>
       </div>
 
@@ -33,22 +33,22 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
         } flex flex-col justify-center p-8`}
       >
         <div className={`flex flex-col ${isEven ? "lg:items-end" : "lg:items-start"}`}>
-          <span className="font-heading text-base text-AAsecondary">{project.category}</span>
+          <span className="font-heading text-base text-secondary">{project.category}</span>
           <a href={project.link} target="_blank" rel="noopener noreferrer">
-            <span className="font-sub-heading text-xl font-light text-gray-200 hover:text-AAsecondary">
+            <span className="font-sub-heading text-xl font-light text-gray-200 hover:text-secondary">
               {project.company}
             </span>
           </a>
         </div>
         <div
-          className={`my-4 rounded-md bg-AAtertiary p-6 opacity-85 shadow-lg ${
+          className={`my-4 rounded-md bg-tertiary p-6 opacity-85 shadow-lg ${
             isEven ? "lg:text-right" : "lg:text-left"
           }`}
         >
           <p className="font-body text-xs font-light text-gray-400 sm:text-sm md:text-lg">{project.description}</p>
         </div>
         <div
-          className={`mb-4 font-heading text-sm font-extralight text-AAsecondary ${
+          className={`mb-4 font-heading text-sm font-extralight text-secondary ${
             isEven ? "lg:text-right" : "lg:text-left"
           }`}
         >
@@ -81,13 +81,13 @@ const SomethingIveBuilt = () => {
   return (
     <div
       id="SomethingIveBuiltSection"
-      className="flex w-full flex-col space-y-12 bg-AAprimary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
+      className="flex w-full flex-col space-y-12 bg-primary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
       {/* Title */}
       <div data-aos="fade-up" className="flex flex-row items-center font-heading md:px-0">
-        <ArrowIcon className={"h-5 w-5 flex-none translate-y-[2px] text-AAsecondary md:h-6 md:w-5"} />
+        <ArrowIcon className={"h-5 w-5 flex-none translate-y-[2px] text-secondary md:h-6 md:w-5"} />
         <div className="flex-none flex-row items-center space-x-2 pr-2">
-          <span className="font-tech text-sm text-AAsecondary sm:text-xl"> 03.</span>
+          <span className="font-tech text-sm text-secondary sm:text-xl"> 03.</span>
           <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
             Some Things I&apos;ve Built
           </span>

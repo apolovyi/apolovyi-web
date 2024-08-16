@@ -39,13 +39,13 @@ export default function GetInTouch() {
     <div
       id="GetInTouchSection"
       data-aos="fade-up"
-      className="flex min-h-screen w-full flex-col items-center justify-center space-y-8 bg-AAprimary px-4 py-24 sm:px-8"
+      className="flex min-h-screen w-full flex-col items-center justify-center space-y-8 bg-primary px-4 py-24 sm:px-8"
     >
       <div className="flex max-w-2xl flex-col items-center space-y-6">
         {/* Section Number and Title */}
         <div className="flex items-center space-x-2">
-          <ArrowIcon className="h-5 w-5 text-AAsecondary" />
-          <span className="font-tech text-sm text-AAsecondary sm:text-xl">04.</span>
+          <ArrowIcon className="h-5 w-5 text-secondary" />
+          <span className="font-tech text-sm text-secondary sm:text-xl">04.</span>
           <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
             What&apos;s Next?
           </h2>
@@ -87,7 +87,7 @@ export default function GetInTouch() {
               name="name"
               id="name"
               required
-              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-gray-300 focus:border-AAsecondary focus:outline-none"
+              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-gray-300 focus:border-secondary focus:outline-none"
             />
           </div>
           <div className="mb-4">
@@ -99,7 +99,7 @@ export default function GetInTouch() {
               name="email"
               id="email"
               required
-              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-gray-300 focus:border-AAsecondary focus:outline-none"
+              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-gray-300 focus:border-secondary focus:outline-none"
             />
           </div>
           <div className="mb-4">
@@ -111,18 +111,18 @@ export default function GetInTouch() {
               id="message"
               required
               rows={4}
-              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-gray-300 focus:border-AAsecondary focus:outline-none"
+              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-gray-300 focus:border-secondary focus:outline-none"
             ></textarea>
           </div>
           <div className="flex justify-center">
             <button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-md border-2 border-AAsecondary px-6
-                               py-2 font-tech text-sm text-AAsecondary
+              className="rounded-md border-2 border-secondary px-6
+                               py-2 font-tech text-sm text-secondary
                                transition-all duration-300 ease-in-out
-                               hover:bg-AAsecondary hover:bg-opacity-10
-                               focus:outline-none focus:ring-2 focus:ring-AAsecondary focus:ring-opacity-50
+                               hover:bg-secondary hover:bg-opacity-10
+                               focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50
                                disabled:opacity-50"
             >
               {isSubmitting ? "Sending..." : "Send Message"}

@@ -20,7 +20,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="font-tech tracking-wider text-AAsecondary"
+        className="font-tech tracking-wider text-secondary"
       >
         Hi, my name is
       </motion.span>
@@ -72,15 +72,16 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="sm:text-md mt-10 font-body text-sm tracking-wider text-gray-400 md:text-lg"
+        className="sm:text-md mt-10 font-body text-sm tracking-wider text-gray-400 md:max-w-xl md:text-lg"
       >
-        As a <span className="text-AAsecondary">full-stack software engineer </span>
+        As a <span className="text-secondary">full-stack software engineer </span>
         with strong problem-solving skills, I specialize in creating exceptional digital experiences.
         <br />
+        <br />
         Currently, I am passionate about creating
-        <span className="text-AAsecondary"> robust solutions</span>, exploring
-        <span className="text-AAsecondary"> innovative technologies</span>, and driving
-        <span className="text-AAsecondary"> digital transformation</span>.
+        <span className="text-secondary"> robust solutions</span>, exploring
+        <span className="text-secondary"> innovative technologies</span>, and driving
+        <span className="text-secondary"> digital transformation</span>.
       </motion.h3>
 
       <motion.div
@@ -99,7 +100,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
         className="mt-12"
       >
         <a href={"/cv/CV_Artem_Polovyi_EN_WEB.pdf"} target={"_blank"} rel="noreferrer">
-          <button className="rounded border border-AAsecondary bg-AAprimary px-4 py-3 font-heading text-AAsecondary sm:px-8 sm:py-4">
+          <button className="rounded border border-secondary bg-primary px-4 py-3 font-heading text-secondary hover:bg-resume-hover sm:px-8 sm:py-4">
             Check out my resume!
           </button>
         </a>

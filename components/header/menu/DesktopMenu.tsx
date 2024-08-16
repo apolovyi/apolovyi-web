@@ -38,14 +38,10 @@ export default function DesktopMenu(props: { finishedLoading: boolean }) {
             delay: props.finishedLoading ? 0 : 5.4 + index * 0.1,
             duration: props.finishedLoading ? 0 : 1.2,
           }}
-          className="text-AAsecondary"
+          className="text-secondary"
         >
-          <a
-            href={item.href}
-            className="duration-300 hover:text-AAsecondary"
-            onClick={(e) => handleScroll(e, item.href)}
-          >
-            &gt; {item.id}. <span className="text-white hover:text-AAsecondary">{item.name}</span>
+          <a href={item.href} className="duration-300 hover:text-secondary" onClick={(e) => handleScroll(e, item.href)}>
+            &gt; {item.id}. <span className="text-white hover:text-secondary">{item.name}</span>
           </a>
         </motion.div>
       ))}
@@ -68,7 +64,7 @@ export default function DesktopMenu(props: { finishedLoading: boolean }) {
           href="/cv/CV_Artem_Polovyi_EN_WEB.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="border-spacing-2 rounded-sm border border-AAsecondary px-3 py-2 text-AAsecondary hover:bg-ResumeButtonHover"
+          className="border-spacing-2 rounded-sm border border-secondary px-3 py-2 text-secondary hover:bg-resume-hover"
         >
           Resume
         </a>

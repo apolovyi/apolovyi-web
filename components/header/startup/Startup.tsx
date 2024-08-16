@@ -23,7 +23,7 @@ const Startup = () => {
       transition={{
         opacity: { delay: 4.99, duration: 0 },
       }}
-      className="absolute flex h-full w-full items-center justify-center bg-StartupBackground"
+      className="absolute flex h-full w-full items-center justify-center bg-startup"
     >
       <motion.div
         initial={{ opacity: 0, x: 0, y: 0, scale: "100%" }}
@@ -49,7 +49,7 @@ const Startup = () => {
             rotate: { delay: 0.5, duration: 0.5 },
             x: { delay: 0.8, duration: 1 },
           }}
-          className="absolute h-2 w-12 rounded bg-AAsecondary "
+          className="absolute h-2 w-12 rounded bg-secondary "
         ></motion.div>
         <motion.div
           initial={{ scale: 0, x: 0 }}
@@ -59,7 +59,7 @@ const Startup = () => {
             rotate: { delay: 0.5, duration: 0.5 },
             x: { delay: 0.8, duration: 1 },
           }}
-          className="absolute h-2 w-12 rounded bg-AAsecondary "
+          className="absolute h-2 w-12 rounded bg-secondary "
         ></motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
@@ -71,7 +71,7 @@ const Startup = () => {
             y: { delay: 1.2, duration: 2 },
             x: { delay: 1.5, duration: 0.5 },
           }}
-          className="absolute h-2 w-12 rounded bg-AAsecondary "
+          className="absolute h-2 w-12 rounded bg-secondary "
         ></motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
@@ -83,7 +83,7 @@ const Startup = () => {
             y: { delay: 1.2, duration: 2 },
             x: { delay: 1.5, duration: 0.5 },
           }}
-          className="absolute h-2 w-12 rounded bg-AAsecondary "
+          className="absolute h-2 w-12 rounded bg-secondary "
         ></motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
@@ -95,7 +95,7 @@ const Startup = () => {
             y: { delay: 1.2, duration: 2 },
             x: { delay: 1.5, duration: 0.5 },
           }}
-          className="absolute h-2 w-12 rounded bg-AAsecondary "
+          className="absolute h-2 w-12 rounded bg-secondary "
         ></motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
@@ -107,13 +107,13 @@ const Startup = () => {
             y: { delay: 1.2, duration: 2 },
             x: { delay: 1.5, duration: 0.5 },
           }}
-          className="absolute h-2 w-12 rounded bg-AAsecondary "
+          className="absolute h-2 w-12 rounded bg-secondary "
         ></motion.div>
         <motion.span
           initial={{ scale: 0, y: -4, x: -1 }}
           animate={{ scale: 1 }}
           transition={{ scale: { delay: 1.5, duration: 1.5 } }}
-          className="font-heading text-4xl text-AAsecondary"
+          className="font-heading text-4xl text-secondary"
         >
           AP
         </motion.span>
