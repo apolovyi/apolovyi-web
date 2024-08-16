@@ -1,4 +1,4 @@
-import { Comfortaa, Quicksand, Space_Mono } from "next/font/google";
+import { Comfortaa, Merriweather, Quicksand, Space_Mono } from "next/font/google";
 import { AppProvider } from "./shared/AppContext";
 import "styles/globals.css";
 
@@ -18,12 +18,22 @@ const spaceMono = Space_Mono({
   subsets: ["latin"],
   variable: "--font-space-mono",
   display: "swap",
-  weight: ["400", "700"], // Space Mono is available in regular (400) and bold (700)
+  weight: ["400", "700"],
+});
+
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  variable: "--font-merriweather",
+  display: "swap",
+  weight: ["300", "400", "700", "900"],
 });
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={`${comfortaa.variable} ${quicksand.variable} ${spaceMono.variable}`}>
+    <html
+      lang="en"
+      className={`${comfortaa.variable} ${quicksand.variable} ${spaceMono.variable} ${merriweather.variable}`}
+    >
       <body>
         <AppProvider>{children}</AppProvider>
       </body>

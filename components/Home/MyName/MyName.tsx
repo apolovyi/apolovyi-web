@@ -54,7 +54,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="mt-4 font-body text-3xl font-bold text-gray-400 sm:text-5xl md:text-6xl lg:text-7xl"
+        className="font mt-4 font-sub-heading text-3xl font-light text-gray-400 sm:text-4xl md:text-4xl lg:text-6xl"
       >
         I bring ideas to life.
       </motion.h2>
