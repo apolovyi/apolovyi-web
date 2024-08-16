@@ -5,16 +5,16 @@ import { useAppContext } from "@/components/shared/AppContext";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-import Header from "components/Header/Header";
-import Startup from "components/Header/StartupLogo/Startup";
-import MyName from "components/Home/MyName/MyName";
-import SocialMediaAround from "components/Home/SocialMediaAround/SocialMediaAround";
-import AboutMe from "components/Home/AboutMe/AboutMe";
-import WhereIHaveWorked from "components/Home/WhereIHaveWorked/WhereIHaveWorked";
-import SomethingIveBuilt from "components/Home/SomethingIveBuilt/SomethingIveBuilt";
-import GetInTouch from "components/Home/GetInTouch/GetInTouch";
-import Footer from "components/Footer/Footer";
-import ScreenSizeDetector from "components/CustomComponents/ScreenSizeDetector";
+import Header from "@/components/header/Header";
+import Startup from "@/components/header/startup/Startup";
+import MyName from "@/components/home/MyName";
+import SocialMediaAround from "@/components/home/SocialMediaAround";
+import AboutMe from "@/components/home/AboutMe";
+import WhereIveWorked from "@/components/home/WhereIveWorked";
+import SomethingIveBuilt from "@/components/home/SomethingIveBuilt";
+import GetInTouch from "@/components/home/GetInTouch";
+import Footer from "@/components/footer/Footer";
+import ScreenSizeDetector from "@/components/dev/ScreenSizeDetector";
 
 const Home = () => {
   const [showElement, setShowElement] = useState(true);
@@ -47,7 +47,7 @@ const Home = () => {
       {sharedState.finishedLoading && (
         <>
           <AboutMe />
-          <WhereIHaveWorked />
+          <WhereIveWorked />
           <SomethingIveBuilt />
           <GetInTouch />
           <Footer hideSocialsInDesktop={true} />

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ArrowIcon from "components/Icons/ArrowIcon";
+import ArrowIcon from "@/components/icons/ArrowIcon";
 
 export default function GetInTouch() {
   const [isSubmitting, setIsSubmitting] = useState(false);
