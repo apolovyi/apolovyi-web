@@ -65,7 +65,7 @@ export default function DesktopMenu(props: { finishedLoading: boolean }) {
         }}
       >
         <a
-          href="/cv/CV_Artem_Polovyi_EN.pdf"
+          href="/cv/CV_Artem_Polovyi_EN_WEB.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="border-spacing-2 rounded-sm border border-AAsecondary px-3 py-2 text-AAsecondary hover:bg-ResumeButtonHover"
