@@ -18,6 +18,7 @@ module.exports = {
         body: ["var(--font-quicksand)", "sans-serif"],
         heading: ["var(--font-comfortaa)", "sans-serif"],
         tech: ["var(--font-space-mono)", "monospace"],
+        "sub-heading": ["var(--font-merriweather)"],
       },
       colors: {
         AAprimary: "#0b192f",
