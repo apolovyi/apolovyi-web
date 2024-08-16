@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useAppContext } from "./shared/AppContext";
+import { useAppContext } from "@/components/shared/AppContext";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
