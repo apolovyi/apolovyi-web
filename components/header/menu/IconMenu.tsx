@@ -16,7 +16,7 @@ const IconMenu = (props: { rotate; setRotate; setShowElement; showElement; finis
           transition={
             props.rotate ? { y: 0.15, rotate: { delay: 0.2 } } : { y: { delay: 0.2 }, rotate: { duration: 0.2 } }
           }
-          className="h-0.5 w-8 rounded bg-AAsecondary"
+          className="h-0.5 w-8 rounded bg-secondary"
         ></motion.div>
       </div>
       <motion.div
@@ -24,7 +24,7 @@ const IconMenu = (props: { rotate; setRotate; setShowElement; showElement; finis
         transition={{ opacity: { duration: 0 } }}
         className="flex justify-end"
       >
-        <div className="h-0.5 w-6 rounded bg-AAsecondary"></div>
+        <div className="h-0.5 w-6 rounded bg-secondary"></div>
       </motion.div>
       <div className="flex justify-end">
         <motion.div
@@ -32,7 +32,7 @@ const IconMenu = (props: { rotate; setRotate; setShowElement; showElement; finis
           transition={
             props.rotate ? { y: 0.15, rotate: { delay: 0.2 } } : { y: { delay: 0.2 }, rotate: { duration: 0.2 } }
           }
-          className="h-0.5 w-4 rounded bg-AAsecondary"
+          className="h-0.5 w-4 rounded bg-secondary"
         ></motion.div>
       </div>
     </div>

@@ -16,7 +16,7 @@ const ExternalLink = ({ url }: ExternalLinkProps) => {
       strokeLinejoin="round"
       className="delay-50 h-6 w-6 text-gray-300 transition
     duration-200 ease-in-out hover:-translate-y-1 hover:scale-110 
-    hover:cursor-pointer hover:text-AAsecondary"
+    hover:cursor-pointer hover:text-secondary"
     >
       <title>External Link</title>
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>

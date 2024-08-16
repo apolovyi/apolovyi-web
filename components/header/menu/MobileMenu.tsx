@@ -46,7 +46,7 @@ const MobileMenu = ({ rotate, setRotate, showElement, setShowElement }: MobileMe
       <div onClick={closeMenu} className="bg-MobileNavColor/30 h-full w-1/4 backdrop-blur-sm hover:cursor-pointer" />
       <div
         className="flex h-full w-3/4 flex-col items-center
-                justify-center space-y-8 bg-MobileNavBarColor font-body"
+                justify-center space-y-8 bg-navbar font-body"
       >
         {menuItems.map((item) => (
           <a
@@ -55,10 +55,10 @@ const MobileMenu = ({ rotate, setRotate, showElement, setShowElement }: MobileMe
             onClick={(e) => handleScroll(e, item.href)}
             className="flex flex-col space-y-2 text-center"
           >
-            <span className="font-tech text-xs text-AAsecondary">{item.id}.</span>
+            <span className="font-tech text-xs text-secondary">{item.id}.</span>
             <span
               className="font-heading text-sm text-white duration-300
-                            hover:cursor-pointer hover:text-AAsecondary sm:text-base"
+                            hover:cursor-pointer hover:text-secondary sm:text-base"
             >
               {item.name}
             </span>
@@ -66,8 +66,8 @@ const MobileMenu = ({ rotate, setRotate, showElement, setShowElement }: MobileMe
         ))}
         <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noopener noreferrer">
           <button
-            className="rounded border border-AAsecondary px-5
-                        py-2 font-heading text-xs text-AAsecondary hover:bg-ResumeButtonHover sm:px-10 sm:py-4"
+            className="rounded border border-secondary px-5
+                        py-2 font-heading text-xs text-secondary hover:bg-resume-hover sm:px-10 sm:py-4"
           >
             Resume
           </button>

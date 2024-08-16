@@ -14,7 +14,7 @@ const IconClickableWithAnimation = (props) => {
       className=""
     >
       <a href={props.href} className="" target={"_blank"} rel="noreferrer">
-        <props.Icon className={"h-6 w-6 fill-current text-gray-400 hover:cursor-pointer hover:text-AAsecondary"} />
+        <props.Icon className={"h-6 w-6 fill-current text-gray-400 hover:cursor-pointer hover:text-secondary"} />
       </a>
     </motion.div>
   );
@@ -59,11 +59,11 @@ export default function SocialMediaEmail(props: { finishedLoading: boolean }) {
             <a
               href="mailto:info@apolovyi.me"
               rel="noreferrer"
-              className="inline-block font-tech tracking-wider text-gray-400 transition-colors duration-300 hover:text-AAsecondary"
+              className="inline-block font-tech tracking-wider text-gray-400 transition-colors duration-300 hover:text-secondary"
             >
               <span className="sr-only">Email address</span>
-              info<span className="text-AAsecondary">@</span>apolovyi
-              <span className="text-AAsecondary">.</span>me
+              info<span className="text-secondary">@</span>apolovyi
+              <span className="text-secondary">.</span>me
             </a>
           </motion.div>
 

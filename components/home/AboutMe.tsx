@@ -8,12 +8,12 @@ export default function AboutMe(props) {
     ["AWS", "PostgreSQL", "Docker", "Jenkins", "GitLab"],
   ];
   return (
-    <div id="aboutSection" data-aos="fade-up" className="flex snap-start flex-col items-center bg-AAprimary py-20">
+    <div id="aboutSection" data-aos="fade-up" className="flex snap-start flex-col items-center bg-primary py-20">
       <div className="flex w-full flex-col space-y-8 px-4 sm:w-[500px] sm:px-0 md:w-[700px] lg:w-[900px]">
         <div className="flex flex-row items-center">
           <div className="mr-4 flex flex-row items-center">
-            <ArrowIcon className={"h-4 w-4 flex-none translate-y-[0.5px] text-AAsecondary md:h-6 md:w-5"} />
-            <span className="font-tech text-sm text-AAsecondary sm:text-xl"> 01.</span>
+            <ArrowIcon className={"h-4 w-4 flex-none translate-y-[0.5px] text-secondary md:h-6 md:w-5"} />
+            <span className="font-tech text-sm text-secondary sm:text-xl"> 01.</span>
             <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
               About Me
             </span>
@@ -33,12 +33,11 @@ export default function AboutMe(props) {
             <div className="font-body">
               <span className="text-gray-400">
                 I specialize in backend technologies (
-                <span className="font-tech text-AAsecondary">Spring Boot, Kotlin, Java</span>
-                ), frontend development (
-                <span className="font-tech text-AAsecondary">React, JavaScript, TypeScript</span>
-                ), DevOps (<span className="font-tech text-AAsecondary">Jenkins, GitLab</span>
+                <span className="font-tech text-secondary">Spring Boot, Kotlin, Java</span>
+                ), frontend development (<span className="font-tech text-secondary">React, JavaScript, TypeScript</span>
+                ), DevOps (<span className="font-tech text-secondary">Jenkins, GitLab</span>
                 ), and test automation. My experience includes working on projects for renowned companies like
-                <span className="text-AAsecondary"> Infineon</span> and <span className="text-AAsecondary">Audi</span>,
+                <span className="text-secondary"> Infineon</span> and <span className="text-secondary">Audi</span>,
                 where I&apos;ve contributed to developing and maintaining high-traffic applications and optimizing
                 system performance.
               </span>
@@ -58,7 +57,7 @@ export default function AboutMe(props) {
                 <div className="flex flex-col space-y-4 text-sm sm:text-base">
                   {technologies[0].map((tech, index) => (
                     <div key={index} className="flex flex-row items-center space-x-2">
-                      <ArrowIcon className={"h-3 w-3 text-AAsecondary"} />
+                      <ArrowIcon className={"h-3 w-3 text-secondary"} />
                       <span className="text-xs text-gray-400 sm:text-sm">{tech}</span>
                     </div>
                   ))}
@@ -68,7 +67,7 @@ export default function AboutMe(props) {
                 <div className="flex flex-col space-y-4 text-sm sm:text-base">
                   {technologies[1].map((tech, index) => (
                     <div key={index} className="flex flex-row items-center space-x-2">
-                      <ArrowIcon className={"h-3 w-3 text-AAsecondary"} />
+                      <ArrowIcon className={"h-3 w-3 text-secondary"} />
                       <span className="text-xs text-gray-400 sm:text-sm">{tech}</span>
                     </div>
                   ))}
@@ -78,9 +77,9 @@ export default function AboutMe(props) {
           </div>
           {/* Image in Desktop and Tablet */}
           <div className="group relative hidden md:block md:h-72 md:w-72 lg:h-96 lg:w-96">
-            <div className="absolute h-5/6 w-5/6 translate-x-5 translate-y-5 rounded border-2 border-AAsecondary duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
+            <div className="absolute h-5/6 w-5/6 translate-x-5 translate-y-5 rounded border-2 border-secondary duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
             <div className="absolute h-5/6 w-5/6 overflow-hidden rounded">
-              <div className="absolute h-full w-full overflow-hidden rounded bg-AAsecondary opacity-10 duration-300 group-hover:opacity-0"></div>
+              <div className="absolute h-full w-full overflow-hidden rounded bg-secondary opacity-10 duration-300 group-hover:opacity-0"></div>
               <Image
                 src={"/img/me-bg.jpg"}
                 className={"rounded-lg object-contain"}
@@ -93,7 +92,7 @@ export default function AboutMe(props) {
           </div>
           {/* Image in Mobile */}
           <div className="relative flex h-48 w-full items-center justify-center md:hidden">
-            <div className="absolute h-full w-48 translate-x-5 translate-y-5 rounded border-2 border-AAsecondary"></div>
+            <div className="absolute h-full w-48 translate-x-5 translate-y-5 rounded border-2 border-secondary"></div>
             <div className="absolute h-full w-48 overflow-hidden rounded">
               <Image
                 src={"/img/me-bg.jpg"}
@@ -104,7 +103,7 @@ export default function AboutMe(props) {
                 height={320}
               />
             </div>
-            <div className="absolute h-full w-48 overflow-hidden rounded bg-AAsecondary opacity-10 md:opacity-60"></div>
+            <div className="absolute h-full w-48 overflow-hidden rounded bg-secondary opacity-10 md:opacity-60"></div>
           </div>
         </div>
       </div>

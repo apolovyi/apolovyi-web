@@ -39,7 +39,7 @@ const Home = () => {
   const isProd = process.env.NODE_ENV === "production";
 
   return (
-    <main className="relative min-h-screen w-full snap-mandatory bg-AAprimary">
+    <main className="relative min-h-screen w-full snap-mandatory bg-primary">
       {!sharedState.finishedLoading && showElement && <Startup />}
       <Header finishedLoading={sharedState.finishedLoading} />
       <MyName finishedLoading={sharedState.finishedLoading} />
