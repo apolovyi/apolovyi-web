@@ -30,10 +30,7 @@ const merriweather = Merriweather({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html
-      lang="en"
-      className={`${comfortaa.variable} ${quicksand.variable} ${spaceMono.variable} ${merriweather.variable}`}
-    >
+    <html className={`${comfortaa.variable} ${quicksand.variable} ${spaceMono.variable} ${merriweather.variable}`}>
       <body>
         <AppProvider>{children}</AppProvider>
       </body>
