@@ -35,11 +35,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       lang="en"
       className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
     >
-      <head>
-        <Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
-      </head>
       <body>
         <AppProvider>{children}</AppProvider>
+        <Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
       </body>
     </html>
   );
