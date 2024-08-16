@@ -1,5 +1,5 @@
 import { Comfortaa, Merriweather, Quicksand, Space_Mono } from "next/font/google";
-import { AppProvider } from "./shared/AppContext";
+import { AppProvider } from "@/components/shared/AppContext";
 import "styles/globals.css";
 
 const comfortaa = Comfortaa({
