@@ -1,6 +1,7 @@
 import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/google";
 import { AppProvider } from "@/components/shared/AppContext";
 import "styles/globals.css";
+import Script from "next/script";
 
 const comfortaa = Comfortaa({
   subsets: ["latin"],
@@ -34,6 +35,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       lang="en"
       className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
     >
+      <head>
+        <Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
+      </head>
       <body>
         <AppProvider>{children}</AppProvider>
       </body>
