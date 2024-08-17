@@ -39,7 +39,7 @@ function Header({ finishedLoading }: Readonly<HeaderProps>) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ opacity: { delay: finishedLoading ? 0 : 4.9, duration: 0 } }}
-        className={`fixed left-0 right-0 top-0 z-50 flex w-full justify-between px-6 py-2 transition-all duration-300 ease-in-out sm:px-12 sm:py-4
+        className={`fixed left-0 right-0 top-0 z-50 flex w-full justify-between px-6 py-4 transition-all duration-300 ease-in-out sm:px-12 sm:py-6
           ${isScrolled ? "shadow-lg backdrop-blur-sm" : ""}
           ${
             showElement
