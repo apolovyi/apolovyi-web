@@ -6,7 +6,7 @@ import InstagramIcon from "@/components/icons/InstagramIcon";
 const ClickableIcon = (props) => {
   return (
     <a href={props.href} className="" target={"_blank"} rel="noreferrer">
-      <props.Icon className={"h-5 w-5 fill-current text-gray-400 hover:cursor-pointer hover:text-secondary"} />
+      <props.Icon className={"h-5 w-5 fill-current text-scd hover:cursor-pointer hover:text-secondary"} />
     </a>
   );
 };

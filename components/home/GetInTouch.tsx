@@ -46,16 +46,16 @@ export default function GetInTouch() {
         <div className="flex items-center space-x-2">
           <ArrowIcon className="h-5 w-5 text-secondary" />
           <span className="font-tech text-sm text-secondary sm:text-xl">04.</span>
-          <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
+          <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-heading opacity-85 md:text-2xl">
             What&apos;s Next?
           </h2>
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-center text-4xl font-bold tracking-wide text-gray-200 sm:text-5xl">Let&apos;s Connect</h1>
+        <h1 className="text-center text-4xl font-bold tracking-wide text-heading sm:text-5xl">Let&apos;s Connect</h1>
 
         {/* Description */}
-        <p className="text-center font-body text-lg leading-relaxed text-gray-400">
+        <p className="text-center font-body text-lg leading-relaxed text-scd">
           I&apos;m always excited about new opportunities and collaborations. Whether you have a project in mind, a
           question about my work, or just want to say hello, I&apos;d love to hear from you. Let&apos;s start a
           conversation and explore how we can create something amazing together!
@@ -79,7 +79,7 @@ export default function GetInTouch() {
           </p>
 
           <div className="mb-4">
-            <label htmlFor="name" className="mb-2 block font-tech text-sm text-gray-400">
+            <label htmlFor="name" className="mb-2 block font-tech text-sm text-scd">
               Name
             </label>
             <input
@@ -87,11 +87,11 @@ export default function GetInTouch() {
               name="name"
               id="name"
               required
-              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-gray-300 focus:border-secondary focus:outline-none"
+              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-scd-light focus:border-secondary focus:outline-none"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="mb-2 block font-tech text-sm text-gray-400">
+            <label htmlFor="email" className="mb-2 block font-tech text-sm text-scd">
               Email
             </label>
             <input
@@ -99,11 +99,11 @@ export default function GetInTouch() {
               name="email"
               id="email"
               required
-              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-gray-300 focus:border-secondary focus:outline-none"
+              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-scd-light focus:border-secondary focus:outline-none"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="message" className="mb-2 block font-tech text-sm text-gray-400">
+            <label htmlFor="message" className="mb-2 block font-tech text-sm text-scd">
               Message
             </label>
             <textarea
@@ -111,7 +111,7 @@ export default function GetInTouch() {
               id="message"
               required
               rows={4}
-              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-gray-300 focus:border-secondary focus:outline-none"
+              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-scd-light focus:border-secondary focus:outline-none"
             ></textarea>
           </div>
           <div className="flex justify-center">
@@ -130,8 +130,8 @@ export default function GetInTouch() {
           </div>
         </form>
 
-        {submitStatus === "success" && <p className="mt-4 text-green-500">Message sent successfully!</p>}
-        {submitStatus === "error" && <p className="mt-4 text-red-500">Failed to send message. Please try again.</p>}
+        {submitStatus === "success" && <p className="mt-4 text-success">Message sent successfully!</p>}
+        {submitStatus === "error" && <p className="mt-4 text-error">Failed to send message. Please try again.</p>}
       </div>
     </div>
   );

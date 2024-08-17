@@ -20,15 +20,15 @@ export default function WhereIveWorked() {
       data-aos="fade-up"
       className="aos-init aos-animate flex flex-col items-center justify-center space-y-12 bg-primary py-24"
     >
-      <section className="flex flex-row items-center">
+      <section className="flex flex-row items-center ">
         <div className="flex flex-row items-center">
           <ArrowIcon className={"h-4 w-4 flex-none text-secondary md:h-6 md:w-5"} />
           <span className="font-tech text-sm text-secondary sm:text-xl"> 02.</span>
         </div>
-        <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
+        <span className="px-3 font-heading text-lg font-bold tracking-wider text-heading opacity-85 md:text-2xl">
           Where I&apos;ve Worked
         </span>
-        <div className="h-[0.2px] w-16 bg-gray-400 sm:w-44 md:w-80"></div>
+        <div className="h-[0.2px] w-16 bg-tertiary sm:w-44 md:w-80"></div>
       </section>
 
       <section className="flex flex-col items-center justify-center space-y-4 md:flex-row md:items-start md:justify-center md:space-x-4 md:space-y-0">
@@ -79,8 +79,8 @@ const CompanyButton = ({ company, isActive, onClick, index }) => (
   <button
     onClick={onClick}
     className={`h-16 w-32 flex-none rounded py-3 text-center font-tech
-      text-xs duration-500 hover:bg-resume-hover hover:text-secondary sm:text-sm md:w-44 md:px-4 md:pl-6 md:text-left
-      ${isActive ? "bg-resume-hover text-secondary" : "text-gray-500"}`}
+      text-xs duration-500 hover:bg-resume-hover hover:text-primary sm:text-sm md:w-44 md:px-4 md:pl-6 md:text-left
+      ${isActive ? "bg-resume-hover text-primary" : "text-paragraph"}`}
   >
     {company.name}
   </button>
@@ -285,10 +285,10 @@ const JobDescription = ({ company }) => {
   return (
     <div className="flex max-w-xl flex-col space-y-5 px-4 md:px-0">
       <div className="spacey-y-2 flex flex-col">
-        <span className="font-Arimo text-sm tracking-wide text-gray-100 sm:text-lg">
+        <span className="font-body text-sm tracking-wide text-paragraph-light sm:text-lg">
           {job.title} <span className="text-secondary">@ {companies.find((c) => c.key === company).name}</span>
         </span>
-        <span className="font-tech text-xs text-gray-500">{job.date}</span>
+        <span className="font-tech text-xs text-paragraph">{job.date}</span>
         <span
           className="font-tech text-xs text-secondary hover:cursor-pointer"
           style={{ fontSize: "0.6rem" }}
@@ -302,7 +302,7 @@ const JobDescription = ({ company }) => {
           <div key={index} className="flex flex-row space-x-1">
             <ArrowIcon className={" h-5 w-4 flex-none text-secondary"} />
             <span
-              className="text-xs text-gray-500 sm:text-sm"
+              className="text-xs text-paragraph sm:text-sm"
               dangerouslySetInnerHTML={{
                 __html: getTasksTextWithHighlightedKeyword(item.text, item.keywords),
               }}
