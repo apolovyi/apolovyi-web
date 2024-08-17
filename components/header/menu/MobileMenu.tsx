@@ -1,14 +1,10 @@
 import { motion } from "framer-motion";
-import { useCallback } from "react";
+import { memo, useCallback } from "react";
+import { menuItems, scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
 
-interface MobileMenuProps {
-  rotate: boolean;
-  setRotate: React.Dispatch<React.SetStateAction<boolean>>;
-  showElement: boolean;
-  setShowElement: React.Dispatch<React.SetStateAction<boolean>>;
-}
+const MobileMenu = memo(function MobileMenu() {
+  const { rotate, setRotate, setShowElement } = useHeaderContext();
 
-const MobileMenu = ({ rotate, setRotate, showElement, setShowElement }: MobileMenuProps) => {
   const closeMenu = useCallback(() => {
     setRotate((prev) => !prev);
     setShowElement((prev) => !prev);
@@ -17,24 +13,11 @@ const MobileMenu = ({ rotate, setRotate, showElement, setShowElement }: MobileMe
   const handleScroll = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
       e.preventDefault();
-      const targetId = href.replace("#", "");
-      const elem = document.getElementById(targetId);
-      if (elem) {
-        const yOffset = -100; // Adjust this value based on your header height
-        const y = elem.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
+      scrollToSection(href);
       closeMenu();
     },
     [closeMenu],
   );
-
-  const menuItems = [
-    { id: "01", name: "About", href: "#aboutSection" },
-    { id: "02", name: "Experience", href: "#WhereIHaveWorkedSection" },
-    { id: "03", name: "Work", href: "#SomethingIveBuiltSection" },
-    { id: "04", name: "Contact", href: "#GetInTouchSection" },
-  ];
 
   return (
     <motion.div
@@ -43,11 +26,11 @@ const MobileMenu = ({ rotate, setRotate, showElement, setShowElement }: MobileMe
       transition={{ x: { duration: 0.4 } }}
       className="fixed z-20 flex h-screen w-full duration-300 md:hidden"
     >
-      <div onClick={closeMenu} className="bg-MobileNavColor/30 h-full w-1/4 backdrop-blur-sm hover:cursor-pointer" />
       <div
-        className="flex h-full w-3/4 flex-col items-center
-                justify-center space-y-8 bg-navbar font-body"
-      >
+        onClick={closeMenu}
+        className="h-full w-1/4 bg-primary bg-opacity-30 backdrop-blur-sm hover:cursor-pointer"
+      />
+      <div className="flex h-full w-3/4 flex-col items-center justify-center space-y-8 bg-background-primary font-body">
         {menuItems.map((item) => (
           <a
             key={item.id}
@@ -55,26 +38,23 @@ const MobileMenu = ({ rotate, setRotate, showElement, setShowElement }: MobileMe
             onClick={(e) => handleScroll(e, item.href)}
             className="flex flex-col space-y-2 text-center"
           >
-            <span className="font-tech text-xs text-secondary">{item.id}.</span>
-            <span
-              className="font-heading text-sm text-white duration-300
-                            hover:cursor-pointer hover:text-secondary sm:text-base"
-            >
+            <span className="font-tech text-xs text-accent-coral">{item.id}.</span>
+            <span className="font-heading text-sm text-text-primary duration-300 hover:cursor-pointer hover:text-accent-coral sm:text-base">
               {item.name}
             </span>
           </a>
         ))}
-        <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noopener noreferrer">
-          <button
-            className="rounded border border-secondary px-5
-                        py-2 font-heading text-xs text-secondary hover:bg-resume-hover sm:px-10 sm:py-4"
-          >
-            Resume
-          </button>
+        <a
+          href="/cv/CV_Artem_Polovyi_EN_WEB.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded border border-accent-coral px-5 py-2 font-heading text-xs text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10 sm:px-10 sm:py-4"
+        >
+          Resume
         </a>
       </div>
     </motion.div>
   );
-};
+});
 
 export default MobileMenu;
