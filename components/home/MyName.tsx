@@ -37,7 +37,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="mt-4 font-heading text-3xl font-bold text-gray-300 sm:text-5xl md:text-6xl lg:text-7xl"
+        className="mt-4 font-heading text-3xl font-bold text-scd-light sm:text-5xl md:text-6xl lg:text-7xl"
       >
         Artem Polovyi.
       </motion.h1>
@@ -54,7 +54,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="font mt-4 font-sub-heading text-3xl font-light text-gray-400 sm:text-4xl md:text-4xl lg:text-6xl"
+        className="font mt-4 font-sub-heading text-3xl font-light text-scd sm:text-4xl md:text-4xl lg:text-6xl"
       >
         I bring ideas to life.
       </motion.h2>
@@ -72,7 +72,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
             duration: props.finishedLoading ? 0 : 0.2,
           },
         }}
-        className="sm:text-md mt-10 font-body text-sm tracking-wider text-gray-400 md:max-w-xl md:text-lg"
+        className="sm:text-md mt-10 font-body text-sm tracking-wider text-scd md:max-w-xl md:text-lg"
       >
         As a <span className="text-secondary">full-stack software engineer </span>
         with strong problem-solving skills, I specialize in creating exceptional digital experiences.
@@ -100,7 +100,7 @@ export default function MyName(props: { finishedLoading: boolean }) {
         className="mt-12"
       >
         <a href={"/cv/CV_Artem_Polovyi_EN_WEB.pdf"} target={"_blank"} rel="noreferrer">
-          <button className="rounded border border-secondary bg-primary px-4 py-3 font-heading text-secondary hover:bg-resume-hover sm:px-8 sm:py-4">
+          <button className="rounded border border-secondary bg-primary px-4 py-3 font-heading text-secondary hover:bg-resume-hover hover:text-primary sm:px-8 sm:py-4">
             Check out my resume!
           </button>
         </a>

@@ -14,24 +14,24 @@ export default function AboutMe(props) {
           <div className="mr-4 flex flex-row items-center">
             <ArrowIcon className={"h-4 w-4 flex-none translate-y-[0.5px] text-secondary md:h-6 md:w-5"} />
             <span className="font-tech text-sm text-secondary sm:text-xl"> 01.</span>
-            <span className="px-3 font-heading text-lg font-bold tracking-wider text-gray-200 opacity-85 md:text-2xl">
+            <span className="whitespace-nowrap px-3 font-heading text-lg font-bold tracking-wider text-heading opacity-85 md:text-2xl">
               About Me
             </span>
           </div>
-          <div className="ml-4 h-[0.2px] w-full bg-gray-400 sm:w-72"></div>
+          <div className="ml-4 h-[0.2px] w-full bg-tertiary sm:w-72"></div>
         </div>
 
         <div className="flex w-full flex-col space-y-8 sm:space-x-2 md:flex-row md:space-x-8 md:space-y-0">
           <div className="w-full space-y-4 font-body text-sm sm:text-base md:w-7/12">
             <div className="font-body">
-              <span className="text-gray-400">
+              <span className="text-scd">
                 Hello! I&apos;m Artem Polovyi, a skilled Full-Stack Software Engineer with extensive experience in
                 leading product and consulting companies. My expertise lies in designing and developing
                 high-performance, scalable, and highly available applications.
               </span>
             </div>
             <div className="font-body">
-              <span className="text-gray-400">
+              <span className="text-scd">
                 I specialize in backend technologies (
                 <span className="font-tech text-secondary">Spring Boot, Kotlin, Java</span>
                 ), frontend development (<span className="font-tech text-secondary">React, JavaScript, TypeScript</span>
@@ -43,14 +43,14 @@ export default function AboutMe(props) {
               </span>
             </div>
             <div className="font-body">
-              <span className="text-gray-400">
+              <span className="text-scd">
                 I have an agile mindset and extensive experience working in agile environments. My passion for
                 continuous learning and problem-solving drives me to stay updated with the latest technologies and best
                 practices in software development.
               </span>
             </div>
             <div className="tracking-wide">
-              <span className="text-gray-400">Here are a few technologies I&apos;ve been working with recently:</span>
+              <span className="text-scd">Here are a few technologies I&apos;ve been working with recently:</span>
             </div>
             <div className="flex flex-row space-x-16 font-tech font-light">
               <div className="flex flex-row items-center space-x-2">
@@ -58,7 +58,7 @@ export default function AboutMe(props) {
                   {technologies[0].map((tech, index) => (
                     <div key={index} className="flex flex-row items-center space-x-2">
                       <ArrowIcon className={"h-3 w-3 text-secondary"} />
-                      <span className="text-xs text-gray-400 sm:text-sm">{tech}</span>
+                      <span className="text-xs text-scd sm:text-sm">{tech}</span>
                     </div>
                   ))}
                 </div>
@@ -68,7 +68,7 @@ export default function AboutMe(props) {
                   {technologies[1].map((tech, index) => (
                     <div key={index} className="flex flex-row items-center space-x-2">
                       <ArrowIcon className={"h-3 w-3 text-secondary"} />
-                      <span className="text-xs text-gray-400 sm:text-sm">{tech}</span>
+                      <span className="text-xs text-scd sm:text-sm">{tech}</span>
                     </div>
                   ))}
                 </div>

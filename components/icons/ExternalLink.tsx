@@ -14,7 +14,7 @@ const ExternalLink = ({ url }: ExternalLinkProps) => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="delay-50 h-6 w-6 text-gray-300 transition
+      className="delay-50 h-6 w-6 text-scd-light transition
     duration-200 ease-in-out hover:-translate-y-1 hover:scale-110 
     hover:cursor-pointer hover:text-secondary"
     >
