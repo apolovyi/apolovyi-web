@@ -1,7 +1,5 @@
-// Context
 import { createContext, useContext } from "react";
 
-// Menu Items
 export const menuItems = [
   { id: "01", name: "About", href: "#aboutSection" },
   { id: "02", name: "Experience", href: "#WhereIHaveWorkedSection" },
