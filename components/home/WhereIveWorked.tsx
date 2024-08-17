@@ -21,27 +21,30 @@ const WhereIveWorked = () => {
   const [activeCompany, setActiveCompany] = useState(companies[0].key);
 
   return (
-    <div
+    <section
       id="WhereIHaveWorkedSection"
       data-aos="fade-up"
-      className="flex flex-col items-center justify-center space-y-12 bg-background-primary py-24"
+      className="flex snap-start flex-col items-center bg-background-primary py-24"
     >
-      <section className="flex flex-row items-center">
-        <div className="flex flex-row items-center">
-          <ArrowIcon className="h-4 w-4 flex-none text-accent-coral md:h-6 md:w-5" />
-          <span className="font-tech text-sm text-accent-coral sm:text-xl"> 02.</span>
-        </div>
-        <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-          Where I&apos;ve Worked
-        </h2>
-        <div className="h-[0.2px] w-16 bg-accent-green sm:w-44 md:w-80"></div>
-      </section>
+      <div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
+        <header data-aos="fade-up" className="flex flex-row items-center font-heading">
+          <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
+          <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
+            <span className="font-tech text-xl text-accent-coral"> 02.</span>
+            <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
+              Where I&apos;ve Worked
+            </h2>
+          </div>
+          <div className="h-[0.2px] w-full bg-accent-green"></div>
+        </header>
+      </div>
 
-      <section className="flex flex-col items-center justify-center space-y-4 md:flex-row md:items-start md:justify-center md:space-x-4 md:space-y-0">
+      <div className="mt-12 flex flex-col items-start justify-center space-y-4 md:flex-row md:items-start md:justify-center md:space-x-6 md:space-y-0 lg:space-x-12">
+        {/*<div className="flex flex-col items-center justify-center space-y-4 md:flex-row md:items-start md:justify-center md:space-x-4 md:space-y-0">*/}
         <CompaniesBar activeCompany={activeCompany} setActiveCompany={setActiveCompany} />
         <JobDescription company={activeCompany} />
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
@@ -50,7 +53,7 @@ interface CompaniesBarProps {
   setActiveCompany: (key: string) => void;
 }
 
-const CompaniesBar: React.FC<CompaniesBarProps> = ({ activeCompany, setActiveCompany }) => {
+const CompaniesBar = ({ activeCompany, setActiveCompany }: CompaniesBarProps) => {
   return (
     <div className="flex w-screen flex-col items-start justify-start overflow-hidden pb-4 sm:items-center sm:justify-center md:w-auto md:flex-row md:pb-0">
       <div className="relative order-2 hidden h-0.5 translate-y-1 rounded bg-neutral-medium-gray md:order-1 md:block md:h-[390px] md:w-0.5">
@@ -91,7 +94,7 @@ interface CompanyButtonProps {
   onClick: () => void;
 }
 
-const CompanyButton: React.FC<CompanyButtonProps> = ({ company, isActive, onClick }) => (
+const CompanyButton = ({ company, isActive, onClick }: CompanyButtonProps) => (
   <button
     onClick={onClick}
     className={`h-16 w-32 flex-none rounded py-3 text-center
