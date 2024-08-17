@@ -1,19 +1,21 @@
 import type { Locale } from "i18n-config";
 
+interface Project {
+  category: string;
+  company: string;
+  description: string;
+  role: string;
+  image: string;
+  link: string;
+  technologies: string[];
+}
+
 interface Dictionary {
   projectsSection: {
     title: string;
     sectionNumber: string;
     viewProject: string;
-    projects: Array<{
-      category: string;
-      company: string;
-      description: string;
-      role: string;
-      image: string;
-      link: string;
-      technologies: string[];
-    }>;
+    projects: Project[];
   };
 }
 
