@@ -12,6 +12,7 @@
       "@/app/*": ["app/*"],
       "@/lib/*": ["lib/*"],
       "@/dictionaries/*": ["dictionaries/*"],
+      "@/i18n-config": ["i18n-config.ts"],
     },
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,

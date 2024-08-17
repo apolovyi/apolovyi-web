@@ -2,6 +2,7 @@ import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/goo
 import { AppProvider } from "@/components/shared/AppContext";
 import "styles/globals.css";
 import Script from "next/script";
+import type { Metadata } from "next";
 
 const comfortaa = Comfortaa({
   subsets: ["latin"],
@@ -28,6 +29,59 @@ const merriweather = Merriweather({
   display: "swap",
   weight: ["300", "400", "700", "900"],
 });
+
+const siteName = "Artem Polovyi - Software Engineer";
+const siteUrl = "https://apolovyi.me";
+const description =
+  "Full-stack engineer with over 7 years of experience. Specializing in scalable web applications and cloud technologies.";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description,
+  openGraph: {
+    title: siteName,
+    description,
+    url: siteUrl,
+    siteName,
+    images: [
+      {
+        url: "/img/me-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Artem Polovyi - Software Engineer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "32x32" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  verification: {
+    google: "your-google-site-verification-code",
+    yandex: "your-yandex-verification-code",
+  },
+  keywords: ["Software Engineer", "Full-stack Developer", "Web Development", "Cloud Technologies"],
+};
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (

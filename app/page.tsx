@@ -15,7 +15,7 @@ import MyProjects from "@/components/home/MyProjects";
 import GetInTouch from "@/components/home/GetInTouch";
 import Footer from "@/components/footer/Footer";
 import ScreenSizeDetector from "@/components/dev/ScreenSizeDetector";
-import { Locale } from "../i18n-config";
+import { Locale } from "@/i18n-config";
 
 function Home({ params: { lang } }: { params: { lang: Locale } }) {
   const [showElement, setShowElement] = useState(true);
