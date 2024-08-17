@@ -80,7 +80,6 @@ const SomethingIveBuilt = () => {
       id="SomethingIveBuiltSection"
       className="flex w-full flex-col space-y-12 bg-background-primary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
-      {/* Title */}
       <div className="mx-auto flex w-full flex-col px-4 sm:px-6 lg:px-8">
         <header data-aos="fade-up" className="flex flex-row items-center font-heading">
           <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
