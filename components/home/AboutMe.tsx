@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import ArrowIcon from "@/components/icons/ArrowIcon";
+import { getDictionary } from "@/lib/dictionary";
+import { Locale } from "@/i18n-config";
 
 const technologies = [
   ["Java", "Kotlin", "Spring Boot", "React", "TypeScript"],
@@ -24,7 +26,27 @@ function TechList({ techs }: TechListProps) {
   );
 }
 
-function AboutMe() {
+interface AboutMeProps {
+  lang: Locale;
+}
+
+interface AboutMeProps {
+  lang: Locale;
+}
+
+function AboutMe({ lang }: AboutMeProps) {
+  const dictionary = getDictionary(lang);
+  const { aboutMeSection } = dictionary;
+
+  const highlightTerms = (text: string) => {
+    let highlightedText = text;
+    aboutMeSection.highlightedTerms.forEach((term) => {
+      const regex = new RegExp(`\\b(${term})\\b`, "gi");
+      highlightedText = highlightedText.replace(regex, '<span class="font-tech text-accent-coral">$1</span>');
+    });
+    return <p className="text-text-secondary" dangerouslySetInnerHTML={{ __html: highlightedText }} />;
+  };
+
   return (
     <section
       id="aboutSection"
@@ -35,9 +57,9 @@ function AboutMe() {
         <header data-aos="fade-up" className="flex flex-row items-center font-heading">
           <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
           <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-            <span className="font-tech text-xl text-accent-coral"> 01.</span>
+            <span className="font-tech text-xl text-accent-coral">{aboutMeSection.sectionNumber}</span>
             <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-              About Me
+              {aboutMeSection.title}
             </h2>
           </div>
           <div className="h-[0.2px] w-full bg-accent-green"></div>
@@ -46,28 +68,10 @@ function AboutMe() {
         <div className="mt-8 flex flex-col items-start lg:flex-row lg:space-x-12">
           <div className="w-full lg:w-3/5">
             <div className="space-y-4 font-body text-base sm:text-lg">
-              <p className="text-text-secondary">
-                Hello! I&apos;m Artem Polovyi, a skilled Full-Stack Software Engineer with extensive experience in
-                leading product and consulting companies. My expertise lies in designing and developing
-                high-performance, scalable, and highly available applications.
-              </p>
-              <p className="text-text-secondary">
-                I specialize in backend technologies (
-                <span className="font-tech text-accent-coral">Spring Boot, Kotlin, Java</span>
-                ), frontend development (
-                <span className="font-tech text-accent-coral">React, JavaScript, TypeScript</span>
-                ), DevOps (<span className="font-tech text-accent-coral">Jenkins, GitLab</span>
-                ), and test automation. My experience includes working on projects for renowned companies like
-                <span className="text-accent-coral"> Infineon</span> and <span className="text-accent-coral">Audi</span>
-                , where I&apos;ve contributed to developing and maintaining high-traffic applications and optimizing
-                system performance.
-              </p>
-              <p className="text-text-secondary">
-                I have an agile mindset and extensive experience working in agile environments. My passion for
-                continuous learning and problem-solving drives me to stay updated with the latest technologies and best
-                practices in software development.
-              </p>
-              <p className="text-text-secondary">Here are a few technologies I&apos;ve been working with recently:</p>
+              <p className="text-text-secondary">{aboutMeSection.paragraphs.intro}</p>
+              {highlightTerms(aboutMeSection.paragraphs.specialization)}
+              <p className="text-text-secondary">{aboutMeSection.paragraphs.mindset}</p>
+              <p className="text-text-secondary">{aboutMeSection.paragraphs.technologies}</p>
               <div className="flex space-x-16 font-tech">
                 <TechList techs={technologies[0]} />
                 <TechList techs={technologies[1]} />

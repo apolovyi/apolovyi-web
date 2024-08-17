@@ -13,14 +13,27 @@
     "description": "As a full-stack software engineer with strong problem-solving skills, I specialize in creating exceptional digital experiences.",
     "cta": "Check out my resume!"
   },
-  "about": {
+  "aboutMeSection": {
     "title": "About Me",
-    "content": [
-      "Hello! I'm Artem Polovyi, a skilled Full-Stack Software Engineer with extensive experience in leading product and consulting companies. My expertise lies in designing and developing high-performance, scalable, and highly available applications.",
-      "I specialize in backend technologies (Spring Boot, Kotlin, Java), frontend development (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab), and test automation. My experience includes working on projects for renowned companies like Infineon and Audi, where I've contributed to developing and maintaining high-traffic applications and optimizing system performance.",
-      "I have an agile mindset and extensive experience working in agile environments. My passion for continuous learning and problem-solving drives me to stay updated with the latest technologies and best practices in software development."
-    ],
-    "skills": "Here are a few technologies I've been working with recently:"
+    "sectionNumber": "01.",
+    "paragraphs": {
+      "intro": "Hello! I'm Artem Polovyi, a skilled Full-Stack Software Engineer with extensive experience in leading product and consulting companies. My expertise lies in designing and developing high-performance, scalable, and highly available applications.",
+      "specialization": "I specialize in backend technologies (Spring Boot, Kotlin, Java), frontend development (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab), and test automation. My experience includes working on projects for renowned companies like Infineon and Audi, where I've contributed to developing and maintaining high-traffic applications and optimizing system performance.",
+      "mindset": "I have an agile mindset and extensive experience working in agile environments. My passion for continuous learning and problem-solving drives me to stay updated with the latest technologies and best practices in software development.",
+      "technologies": "Here are a few technologies I've been working with recently:"
+    },
+    "highlightedTerms": [
+      "Spring Boot",
+      "Kotlin",
+      "Java",
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "Jenkins",
+      "GitLab",
+      "Infineon",
+      "Audi"
+    ]
   },
   "experienceSection": {
     "title": "Where I've Worked",

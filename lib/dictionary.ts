@@ -20,7 +20,20 @@ interface Company {
   }[];
 }
 
+interface AboutMeSection {
+  title: string;
+  sectionNumber: string;
+  paragraphs: {
+    intro: string;
+    specialization: string;
+    mindset: string;
+    technologies: string;
+  };
+  highlightedTerms: string[];
+}
+
 interface Dictionary {
+  aboutMeSection: AboutMeSection;
   experienceSection: {
     title: string;
     sectionNumber: string;
