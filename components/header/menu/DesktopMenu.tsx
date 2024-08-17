@@ -11,7 +11,7 @@ function DesktopMenu() {
   }, []);
 
   return (
-    <nav className="hidden flex-row items-center space-x-8 font-tech text-xs md:flex">
+    <nav className="hidden flex-row items-center space-x-8 font-tech text-xs md:flex lg:text-lg ">
       {menuItems.map((item, index) => (
         <motion.div
           key={item.id}
@@ -46,7 +46,7 @@ function DesktopMenu() {
           href="/cv/CV_Artem_Polovyi_EN_WEB.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="border-spacing-2 rounded-sm border border-accent-coral px-3 py-2 text-accent-coral hover:bg-accent-coral hover:bg-opacity-10"
+          className="border-spacing-2 rounded-sm border border-accent-coral bg-background-primary px-3 py-2 text-accent-coral hover:bg-accent-coral hover:bg-opacity-10"
         >
           Resume
         </a>

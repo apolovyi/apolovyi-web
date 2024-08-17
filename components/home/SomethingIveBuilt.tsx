@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ArrowIcon from "@/components/icons/ArrowIcon";
 import ExternalLink from "@/components/icons/ExternalLink";
-import { ProjectItemProps, projects } from "@/components/const/Projects";
+import { ProjectItemProps, projects } from "@/components/const/projects";
 
 const ProjectItem = ({ project, index }: ProjectItemProps) => {
   const isEven = index % 2 === 0;
@@ -33,7 +33,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
         }`}
       >
         <div className={`flex flex-col ${isEven ? "lg:items-end" : "lg:items-start"}`}>
-          <span className="font-heading text-base text-accent-coral">{project.category}</span>
+          <span className="font-heading text-base font-light text-accent-coral">{project.category}</span>
           <a href={project.link} target="_blank" rel="noopener noreferrer" className="group">
             <span className="font-sub-heading text-xl font-light text-text-primary transition-colors duration-300 group-hover:text-accent-coral">
               {project.company}
@@ -41,24 +41,18 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
           </a>
         </div>
         <div
-          className={`my-4 rounded-md bg-accent-green bg-opacity-10 p-6 shadow-lg ${
+          className={`my-4 rounded-md bg-accent-green bg-opacity-60 p-6 shadow-lg ${
             isEven ? "lg:text-right" : "lg:text-left"
           }`}
         >
-          <p className="font-body text-xs font-light text-text-secondary sm:text-sm md:text-lg">
-            {project.description}
-          </p>
+          <p className="font-body text-xs font-light text-text-primary sm:text-sm md:text-lg">{project.description}</p>
         </div>
-        <div
-          className={`mb-4 font-heading text-sm font-extralight text-accent-coral ${
-            isEven ? "lg:text-right" : "lg:text-left"
-          }`}
-        >
+        <div className={`mb-4 font-heading text-base text-accent-coral ${isEven ? "lg:text-right" : "lg:text-left"}`}>
           Role: {project.role}
         </div>
         <div className={`w-full ${isEven ? "lg:flex lg:justify-end" : ""}`}>
           <ul
-            className={`flex w-4/6 flex-wrap font-tech text-sm font-extralight text-text-secondary ${
+            className={`flex w-4/6 flex-wrap font-tech text-sm font-light text-text-primary ${
               isEven ? "lg:justify-end" : "lg:justify-start"
             }`}
           >
@@ -87,10 +81,10 @@ const SomethingIveBuilt = () => {
     >
       {/* Title */}
       <header data-aos="fade-up" className="flex flex-row items-center font-heading md:px-0">
-        <ArrowIcon className="h-5 w-5 flex-none translate-y-[2px] text-accent-coral md:h-6 md:w-5" />
-        <div className="flex-none flex-row items-center space-x-2 pr-2">
-          <span className="font-tech text-sm text-accent-coral sm:text-xl"> 03.</span>
-          <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
+        <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
+        <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
+          <span className="font-tech text-xl text-accent-coral"> 03.</span>
+          <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
             Some Things I&apos;ve Built
           </h2>
         </div>

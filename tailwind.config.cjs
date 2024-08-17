@@ -30,15 +30,15 @@ module.exports = {
           light: "#E07A20",
         },
         accent: {
-          green: "#00A896",
-          coral: "#FF5A5A",
+          green: "#08a191",
+          coral: "#ea5555",
         },
         neutral: {
           offwhite: "#F7F7F7",
           "light-gray": "#E5E5E5",
           "medium-gray": "#A0A0A0",
-          "dark-gray": "#4A4A4A",
         },
+        "dark-gray": "#4A4A4A",
         text: {
           primary: "#2B2B2B",
           secondary: "#5F5F5F",
