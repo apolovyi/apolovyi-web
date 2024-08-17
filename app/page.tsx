@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 
 import Header from "@/components/header/Header";
 import Startup from "@/components/header/startup/Startup";
-import MyName from "@/components/home/MyName";
+import HeroSection from "@/components/home/HeroSection";
 import SocialMediaAround from "@/components/home/SocialMediaAround";
 import AboutMe from "@/components/home/AboutMe";
 import MyExperience from "@/components/home/MyExperience";
@@ -40,13 +40,13 @@ function Home({ params: { lang } }: { params: { lang: Locale } }) {
     <main className="relative min-h-screen w-full snap-mandatory bg-background-primary">
       {!sharedState.finishedLoading && showElement && <Startup />}
       <Header finishedLoading={sharedState.finishedLoading} />
-      <MyName finishedLoading={sharedState.finishedLoading} />
+      <HeroSection finishedLoading={sharedState.finishedLoading} />
       <SocialMediaAround finishedLoading={sharedState.finishedLoading} />
       {sharedState.finishedLoading && (
         <>
-          <AboutMe />
+          <AboutMe lang={lang} />
           <MyExperience lang={lang} />
-          <MyProjects params={{ lang }} />
+          <MyProjects lang={lang} />
           <GetInTouch />
           <Footer />
         </>
