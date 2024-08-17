@@ -9,8 +9,28 @@ interface Project {
   link: string;
   technologies: string[];
 }
+interface Company {
+  name: string;
+  title: string;
+  date: string;
+  url: string;
+  tasks: {
+    text: string;
+    keywords: string[];
+  }[];
+}
 
 interface Dictionary {
+  experienceSection: {
+    title: string;
+    sectionNumber: string;
+    companies: {
+      [key: string]: string;
+    };
+    roles: {
+      [key: string]: Company;
+    };
+  };
   projectsSection: {
     title: string;
     sectionNumber: string;
