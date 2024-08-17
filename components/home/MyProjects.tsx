@@ -3,7 +3,7 @@ import ExternalLink from "@/components/icons/ExternalLink";
 import React from "react";
 import ArrowIcon from "@/components/icons/ArrowIcon";
 import { getDictionary } from "@/lib/dictionary";
-import { Locale } from "../../i18n-config";
+import { Locale } from "@/i18n-config";
 
 interface ProjectItemProps {
   project: any;
