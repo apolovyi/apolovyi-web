@@ -25,7 +25,7 @@ const MyName = ({ finishedLoading }: { finishedLoading: boolean }) => {
       </AnimatedText>
       <AnimatedText
         delay={baseDelay + 0.1}
-        className="mt-4 font-heading text-3xl font-bold text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
+        className="mt-8 font-heading text-3xl font-bold text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
       >
         Artem Polovyi.
       </AnimatedText>
@@ -37,7 +37,7 @@ const MyName = ({ finishedLoading }: { finishedLoading: boolean }) => {
       </AnimatedText>
       <AnimatedText
         delay={baseDelay + 0.3}
-        className="mt-10 max-w-sm font-body text-sm tracking-wider text-text-secondary sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
+        className="mt-10 max-w-sm font-body text-base tracking-wider text-text-secondary sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
       >
         As a <span className="text-accent-coral">full-stack software engineer </span>
         with strong problem-solving skills, I specialize in creating exceptional digital experiences.

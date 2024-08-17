@@ -7,6 +7,8 @@ const nextConfig = {
     locales: ["en", "de", "ua", "ru"],
     defaultLocale: "en",
   },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
 };
-
 module.exports = nextConfig;

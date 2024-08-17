@@ -17,7 +17,7 @@ function TechList({ techs }: TechListProps) {
       {techs.map((tech, index) => (
         <li key={index} className="flex items-center space-x-2">
           <ArrowIcon className="h-3 w-3 text-accent-coral" />
-          <span className="text-sm text-text-secondary">{tech}</span>
+          <span className="text-base text-text-secondary md:text-lg">{tech}</span>
         </li>
       ))}
     </ul>
@@ -43,9 +43,9 @@ function AboutMe() {
           <div className="h-[0.2px] w-full bg-accent-green"></div>
         </header>
 
-        <div className="mt-12 flex flex-col items-start lg:flex-row lg:space-x-12">
+        <div className="mt-8 flex flex-col items-start lg:flex-row lg:space-x-12">
           <div className="w-full lg:w-3/5">
-            <div className="space-y-4 font-body text-sm sm:text-base">
+            <div className="space-y-4 font-body text-base sm:text-lg">
               <p className="text-text-secondary">
                 Hello! I&apos;m Artem Polovyi, a skilled Full-Stack Software Engineer with extensive experience in
                 leading product and consulting companies. My expertise lies in designing and developing
