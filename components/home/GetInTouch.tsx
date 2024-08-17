@@ -2,17 +2,21 @@
 
 import React, { useState } from "react";
 import ArrowIcon from "@/components/icons/ArrowIcon";
+import CheckCircleIcon from "@/components/icons/CheckCircleIcon";
+import XCircleIcon from "@/components/icons/XCircleIcon";
 
-export default function GetInTouch() {
+type SubmitStatus = "idle" | "success" | "error";
+
+function GetInTouch() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    const form = event.target as HTMLFormElement;
+    const form = event.currentTarget;
     const formData = new FormData(form);
 
     try {
@@ -36,103 +40,125 @@ export default function GetInTouch() {
   };
 
   return (
-    <div
+    <section
       id="GetInTouchSection"
       data-aos="fade-up"
-      className="flex min-h-screen w-full flex-col items-center justify-center space-y-8 bg-primary px-4 py-24 sm:px-8"
+      className="flex min-h-screen w-full flex-col items-center justify-center space-y-8 bg-background-primary px-4 py-24 sm:px-8"
     >
       <div className="flex max-w-2xl flex-col items-center space-y-6">
-        {/* Section Number and Title */}
-        <div className="flex items-center space-x-2">
-          <ArrowIcon className="h-5 w-5 text-secondary" />
-          <span className="font-tech text-sm text-secondary sm:text-xl">04.</span>
-          <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-heading opacity-85 md:text-2xl">
+        <header className="flex items-center space-x-2">
+          <ArrowIcon className="h-5 w-5 text-accent-coral" />
+          <span className="font-tech text-sm text-accent-coral sm:text-xl">04.</span>
+          <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
             What&apos;s Next?
           </h2>
-        </div>
+        </header>
 
-        {/* Main Heading */}
-        <h1 className="text-center text-4xl font-bold tracking-wide text-heading sm:text-5xl">Let&apos;s Connect</h1>
+        <h1 className="text-center text-4xl font-bold tracking-wide text-text-primary sm:text-5xl">
+          Let&apos;s Connect
+        </h1>
 
-        {/* Description */}
-        <p className="text-center font-body text-lg leading-relaxed text-scd">
+        <p className="text-center font-body text-lg leading-relaxed text-text-secondary">
           I&apos;m always excited about new opportunities and collaborations. Whether you have a project in mind, a
           question about my work, or just want to say hello, I&apos;d love to hear from you. Let&apos;s start a
           conversation and explore how we can create something amazing together!
         </p>
 
-        {/* Netlify Form with Honeypot */}
         <form
           name="contact"
           onSubmit={handleSubmit}
-          className="w-full max-w-md"
+          className="w-full max-w-md space-y-4"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="form-name" value="contact" />
-
-          {/* Honeypot field  */}
-          <p className="hidden">
+          <div className="hidden">
             <label>
               Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
             </label>
-          </p>
+          </div>
 
-          <div className="mb-4">
-            <label htmlFor="name" className="mb-2 block font-tech text-sm text-scd">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              required
-              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-scd-light focus:border-secondary focus:outline-none"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="mb-2 block font-tech text-sm text-scd">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              required
-              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-scd-light focus:border-secondary focus:outline-none"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="message" className="mb-2 block font-tech text-sm text-scd">
-              Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              required
-              rows={4}
-              className="w-full rounded-md border border-gray-700 bg-transparent px-4 py-2 text-scd-light focus:border-secondary focus:outline-none"
-            ></textarea>
-          </div>
+          <FormField label="Name" name="name" type="text" required />
+          <FormField label="Email" name="email" type="email" required />
+          <FormField label="Message" name="message" type="textarea" required rows={4} />
+
           <div className="flex justify-center">
             <button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-md border-2 border-secondary px-6
-                               py-2 font-tech text-sm text-secondary
-                               transition-all duration-300 ease-in-out
-                               hover:bg-secondary hover:bg-opacity-10
-                               focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50
-                               disabled:opacity-50"
+              className="rounded-md border-2 border-accent-coral px-6 py-2 font-tech text-sm text-accent-coral
+                         transition-all duration-300 ease-in-out
+                         hover:bg-accent-coral hover:bg-opacity-10
+                         focus:outline-none focus:ring-2 focus:ring-accent-coral focus:ring-opacity-50
+                         disabled:opacity-50"
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </div>
         </form>
 
-        {submitStatus === "success" && <p className="mt-4 text-success">Message sent successfully!</p>}
-        {submitStatus === "error" && <p className="mt-4 text-error">Failed to send message. Please try again.</p>}
+        {submitStatus !== "idle" && <StatusMessage status={submitStatus} />}
       </div>
+    </section>
+  );
+}
+
+interface FormFieldProps {
+  label: string;
+  name: string;
+  type: string;
+  required?: boolean;
+  rows?: number;
+}
+
+function FormField({ label, name, type, required, rows }: FormFieldProps) {
+  return (
+    <div>
+      <label htmlFor={name} className="mb-2 block font-tech text-sm text-text-secondary">
+        {label}
+      </label>
+      {type === "textarea" ? (
+        <textarea
+          name={name}
+          id={name}
+          required={required}
+          rows={rows}
+          className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary
+                     focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+        />
+      ) : (
+        <input
+          type={type}
+          name={name}
+          id={name}
+          required={required}
+          className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary
+                     focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+        />
+      )}
     </div>
   );
 }
+
+interface StatusMessageProps {
+  status: "success" | "error";
+}
+
+function StatusMessage({ status }: StatusMessageProps) {
+  const isSuccess = status === "success";
+  const Icon = isSuccess ? CheckCircleIcon : XCircleIcon;
+  const message = isSuccess ? "Message sent successfully!" : "Failed to send message. Please try again.";
+
+  return (
+    <div
+      className={`mt-4 flex items-center rounded-md p-4 ${
+        isSuccess ? "bg-success bg-opacity-10" : "bg-error bg-opacity-10"
+      }`}
+    >
+      <Icon className={`mr-3 h-5 w-5 ${isSuccess ? "text-success" : "text-error"}`} />
+      <span className={`text-sm ${isSuccess ? "text-success" : "text-error"}`}>{message}</span>
+    </div>
+  );
+}
+
+export default GetInTouch;
