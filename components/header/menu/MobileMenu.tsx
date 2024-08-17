@@ -1,9 +1,17 @@
 import { motion } from "framer-motion";
 import { memo, useCallback } from "react";
-import { menuItems, scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
+import { scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
+import { Locale } from "@/i18n-config";
+import { getDictionary } from "@/lib/dictionary";
 
-const MobileMenu = memo(function MobileMenu() {
+interface MobileMenuProps {
+  lang: Locale;
+}
+
+const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
   const { rotate, setRotate, setShowElement } = useHeaderContext();
+  const dictionary = getDictionary(lang);
+  const { header } = dictionary;
 
   const closeMenu = useCallback(() => {
     setRotate((prev) => !prev);
@@ -31,7 +39,7 @@ const MobileMenu = memo(function MobileMenu() {
         className="h-full w-1/4 bg-primary bg-opacity-30 backdrop-blur-sm hover:cursor-pointer"
       />
       <div className="flex h-full w-3/4 flex-col items-center justify-center space-y-8 bg-background-primary font-body">
-        {menuItems.map((item) => (
+        {header.menuItems.map((item) => (
           <a
             key={item.id}
             href={item.href}
@@ -45,12 +53,12 @@ const MobileMenu = memo(function MobileMenu() {
           </a>
         ))}
         <a
-          href="/cv/CV_Artem_Polovyi_EN_WEB.pdf"
+          href={header.resumeButton.href}
           target="_blank"
           rel="noopener noreferrer"
           className="rounded border border-accent-coral px-5 py-2 font-heading text-xs text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10 sm:px-10 sm:py-4"
         >
-          Resume
+          {header.resumeButton.text}
         </a>
       </div>
     </motion.div>

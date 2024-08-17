@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
 import { motion } from "framer-motion";
-import { menuItems, scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
+import { scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
+import { Locale } from "@/i18n-config";
+import { getDictionary } from "@/lib/dictionary";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,8 +27,14 @@ const itemVariants = {
   },
 };
 
-function DesktopMenu() {
+interface DesktopMenuProps {
+  lang: Locale;
+}
+
+function DesktopMenu({ lang }: DesktopMenuProps) {
   const { finishedLoading } = useHeaderContext();
+  const dictionary = getDictionary(lang);
+  const { header } = dictionary;
 
   const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
     e.preventDefault();
@@ -41,7 +49,7 @@ function DesktopMenu() {
       animate="visible"
       custom={finishedLoading}
     >
-      {menuItems.map((item) => (
+      {header.menuItems.map((item) => (
         <motion.div key={item.id} variants={itemVariants} className="text-accent-coral">
           <a
             href={item.href}
@@ -54,12 +62,12 @@ function DesktopMenu() {
       ))}
       <motion.div variants={itemVariants}>
         <a
-          href="/cv/CV_Artem_Polovyi_EN_WEB.pdf"
+          href={header.resumeButton.href}
           target="_blank"
           rel="noopener noreferrer"
           className="border-spacing-2 rounded-sm border border-accent-coral bg-background-primary px-3 py-2 text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10"
         >
-          Resume
+          {header.resumeButton.text}
         </a>
       </motion.div>
     </motion.nav>

@@ -1,10 +1,31 @@
 {
   "header": {
-    "about": "About",
-    "experience": "Experience",
-    "work": "Work",
-    "contact": "Contact",
-    "resume": "Resume"
+    "menuItems": [
+      {
+        "id": "01",
+        "name": "About",
+        "href": "#aboutSection"
+      },
+      {
+        "id": "02",
+        "name": "Experience",
+        "href": "#WhereIHaveWorkedSection"
+      },
+      {
+        "id": "03",
+        "name": "Work",
+        "href": "#SomethingIveBuiltSection"
+      },
+      {
+        "id": "04",
+        "name": "Contact",
+        "href": "#GetInTouchSection"
+      }
+    ],
+    "resumeButton": {
+      "text": "Resume",
+      "href": "/cv/CV_Artem_Polovyi_EN_WEB.pdf"
+    }
   },
   "heroSection": {
     "greeting": "Hi, my name is",

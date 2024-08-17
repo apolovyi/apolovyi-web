@@ -39,7 +39,7 @@ function Home({ params: { lang } }: { params: { lang: Locale } }) {
   return (
     <main className="relative min-h-screen w-full snap-mandatory bg-background-primary">
       {!sharedState.finishedLoading && showElement && <Startup />}
-      <Header finishedLoading={sharedState.finishedLoading} />
+      <Header finishedLoading={sharedState.finishedLoading} lang={lang} />
       <HeroSection finishedLoading={sharedState.finishedLoading} lang={lang} />
       <SocialMediaAround finishedLoading={sharedState.finishedLoading} />
       {sharedState.finishedLoading && (
