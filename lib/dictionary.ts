@@ -9,6 +9,7 @@ interface Project {
   link: string;
   technologies: string[];
 }
+
 interface Company {
   name: string;
   title: string;
@@ -41,25 +42,44 @@ interface HeroSection {
   cta: string;
 }
 
+interface MenuItem {
+  id: string;
+  name: string;
+  href: string;
+}
+
+interface Header {
+  menuItems: MenuItem[];
+  resumeButton: {
+    text: string;
+    href: string;
+  };
+}
+
+interface ExperienceSection {
+  title: string;
+  sectionNumber: string;
+  companies: {
+    [key: string]: string;
+  };
+  roles: {
+    [key: string]: Company;
+  };
+}
+
+interface ProjectsSection {
+  title: string;
+  sectionNumber: string;
+  viewProject: string;
+  projects: Project[];
+}
+
 interface Dictionary {
+  header: Header;
   heroSection: HeroSection;
   aboutMeSection: AboutMeSection;
-  experienceSection: {
-    title: string;
-    sectionNumber: string;
-    companies: {
-      [key: string]: string;
-    };
-    roles: {
-      [key: string]: Company;
-    };
-  };
-  projectsSection: {
-    title: string;
-    sectionNumber: string;
-    viewProject: string;
-    projects: Project[];
-  };
+  experienceSection: ExperienceSection;
+  projectsSection: ProjectsSection;
 }
 
 const dictionaries: Record<Locale, Dictionary> = {

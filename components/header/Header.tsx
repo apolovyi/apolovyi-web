@@ -5,15 +5,20 @@ import IconMenu from "@/components/header/menu/IconMenu";
 import MobileMenu from "@/components/header/menu/MobileMenu";
 import { motion } from "framer-motion";
 import { HeaderContext } from "@/components/header/menu/HeaderContext";
+import { getDictionary } from "@/lib/dictionary";
+import { Locale } from "@/i18n-config";
 
 interface HeaderProps {
   finishedLoading: boolean;
+  lang: Locale;
 }
 
-function Header({ finishedLoading }: Readonly<HeaderProps>) {
+function Header({ finishedLoading, lang }: Readonly<HeaderProps>) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showElement, setShowElement] = useState(true);
   const [rotate, setRotate] = useState(false);
+  const dictionary = getDictionary(lang);
+  const { header } = dictionary;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 0);
@@ -28,13 +33,15 @@ function Header({ finishedLoading }: Readonly<HeaderProps>) {
       showElement,
       setShowElement,
       finishedLoading,
+      headerTranslations: header,
+      lang,
     }),
-    [rotate, showElement, finishedLoading],
+    [rotate, showElement, finishedLoading, header, lang],
   );
 
   return (
     <HeaderContext.Provider value={contextValue}>
-      <MobileMenu />
+      <MobileMenu lang={lang} />
       <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -51,7 +58,7 @@ function Header({ finishedLoading }: Readonly<HeaderProps>) {
       >
         <Logo />
         <IconMenu />
-        <DesktopMenu />
+        <DesktopMenu lang={lang} />
       </motion.header>
     </HeaderContext.Provider>
   );
