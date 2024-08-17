@@ -1,7 +1,8 @@
 import Image from "next/image";
-import ArrowIcon from "@/components/icons/ArrowIcon";
 import ExternalLink from "@/components/icons/ExternalLink";
 import { ProjectItemProps, projects } from "@/components/const/projects";
+import React from "react";
+import ArrowIcon from "@/components/icons/ArrowIcon";
 
 const ProjectItem = ({ project, index }: ProjectItemProps) => {
   const isEven = index % 2 === 0;
@@ -80,16 +81,18 @@ const SomethingIveBuilt = () => {
       className="flex w-full flex-col space-y-12 bg-background-primary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
       {/* Title */}
-      <header data-aos="fade-up" className="flex flex-row items-center font-heading md:px-0">
-        <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
-        <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-          <span className="font-tech text-xl text-accent-coral"> 03.</span>
-          <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-            Some Things I&apos;ve Built
-          </h2>
-        </div>
-        <div className="h-[0.2px] w-full bg-accent-green md:w-1/2 xl:w-1/3"></div>
-      </header>
+      <div className="mx-auto flex w-full flex-col px-4 sm:px-6 lg:px-8">
+        <header data-aos="fade-up" className="flex flex-row items-center font-heading">
+          <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
+          <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
+            <span className="font-tech text-xl text-accent-coral"> 03.</span>
+            <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
+              Some Things I&apos;ve Built
+            </h2>
+          </div>
+          <div className="h-[0.2px] w-full bg-accent-green"></div>
+        </header>
+      </div>
 
       <div className="flex flex-col space-y-8 md:space-y-28 xl:space-y-36">
         {projects.map((project, index) => (
