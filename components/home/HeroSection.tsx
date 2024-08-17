@@ -15,7 +15,7 @@ const AnimatedText = ({ delay, children, className }) => (
   </motion.div>
 );
 
-const MyName = ({ finishedLoading }: { finishedLoading: boolean }) => {
+const HeroSection = ({ finishedLoading }: { finishedLoading: boolean }) => {
   const baseDelay = finishedLoading ? 0 : 6.4;
 
   return (
@@ -59,4 +59,4 @@ const MyName = ({ finishedLoading }: { finishedLoading: boolean }) => {
   );
 };
 
-export default MyName;
+export default HeroSection;
