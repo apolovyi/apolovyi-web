@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Logo from "@/components/header/menu/Logo";
 import DesktopMenu from "@/components/header/menu/DesktopMenu";
 import IconMenu from "@/components/header/menu/IconMenu";
 import MobileMenu from "@/components/header/menu/MobileMenu";
 import { motion } from "framer-motion";
+import { HeaderContext } from "@/components/header/menu/HeaderContext";
 
-const Header = ({ finishedLoading }: { finishedLoading: boolean }) => {
+interface HeaderProps {
+  finishedLoading: boolean;
+}
+
+function Header({ finishedLoading }: Readonly<HeaderProps>) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showElement, setShowElement] = useState(true);
   const [rotate, setRotate] = useState(false);
@@ -16,9 +21,20 @@ const Header = ({ finishedLoading }: { finishedLoading: boolean }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const contextValue = useMemo(
+    () => ({
+      rotate,
+      setRotate,
+      showElement,
+      setShowElement,
+      finishedLoading,
+    }),
+    [rotate, showElement, finishedLoading],
+  );
+
   return (
-    <>
-      <MobileMenu rotate={rotate} setRotate={setRotate} setShowElement={setShowElement} showElement={showElement} />
+    <HeaderContext.Provider value={contextValue}>
+      <MobileMenu />
       <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -34,17 +50,11 @@ const Header = ({ finishedLoading }: { finishedLoading: boolean }) => {
           }`}
       >
         <Logo />
-        <IconMenu
-          rotate={rotate}
-          setRotate={setRotate}
-          setShowElement={setShowElement}
-          showElement={showElement}
-          finishedLoading={finishedLoading}
-        />
-        <DesktopMenu finishedLoading={finishedLoading} />
+        <IconMenu />
+        <DesktopMenu />
       </motion.header>
-    </>
+    </HeaderContext.Provider>
   );
-};
+}
 
 export default Header;
