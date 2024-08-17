@@ -20,7 +20,7 @@ const MyName = ({ finishedLoading }: { finishedLoading: boolean }) => {
 
   return (
     <div className="flex h-full flex-col justify-center px-8 py-32 sm:px-8 sm:py-52 md:px-28 lg:px-32 xl:px-56 2xl:px-72">
-      <AnimatedText delay={baseDelay} className="font-tech tracking-wider text-accent-coral">
+      <AnimatedText delay={baseDelay} className="font-tech tracking-wider text-accent-coral lg:text-lg">
         Hi, my name is
       </AnimatedText>
       <AnimatedText
@@ -37,7 +37,7 @@ const MyName = ({ finishedLoading }: { finishedLoading: boolean }) => {
       </AnimatedText>
       <AnimatedText
         delay={baseDelay + 0.3}
-        className="mt-10 font-body text-sm tracking-wider text-text-secondary md:max-w-xl md:text-lg"
+        className="mt-10 max-w-sm font-body text-sm tracking-wider text-text-secondary sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
       >
         As a <span className="text-accent-coral">full-stack software engineer </span>
         with strong problem-solving skills, I specialize in creating exceptional digital experiences.
