@@ -9,7 +9,9 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
-      "@/app/*": ["app/*"]
+      "@/app/*": ["app/*"],
+      "@/lib/*": ["lib/*"],
+      "@/dictionaries/*": ["dictionaries/*"],
     },
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,

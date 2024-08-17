@@ -11,12 +11,13 @@ import MyName from "@/components/home/MyName";
 import SocialMediaAround from "@/components/home/SocialMediaAround";
 import AboutMe from "@/components/home/AboutMe";
 import WhereIveWorked from "@/components/home/WhereIveWorked";
-import SomethingIveBuilt from "@/components/home/SomethingIveBuilt";
+import MyProjects from "@/components/home/MyProjects";
 import GetInTouch from "@/components/home/GetInTouch";
 import Footer from "@/components/footer/Footer";
 import ScreenSizeDetector from "@/components/dev/ScreenSizeDetector";
+import { Locale } from "../i18n-config";
 
-const Home = () => {
+function Home({ params: { lang } }: { params: { lang: Locale } }) {
   const [showElement, setShowElement] = useState(true);
   const { sharedState, setSharedState } = useAppContext();
 
@@ -45,7 +46,7 @@ const Home = () => {
         <>
           <AboutMe />
           <WhereIveWorked />
-          <SomethingIveBuilt />
+          <MyProjects params={{ lang }} />
           <GetInTouch />
           <Footer />
         </>
@@ -53,6 +54,6 @@ const Home = () => {
       {!isProd && <ScreenSizeDetector />}
     </main>
   );
-};
+}
 
 export default Home;

@@ -1,0 +1,129 @@
+{
+  "header": {
+    "about": "About",
+    "experience": "Experience",
+    "work": "Work",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "intro": {
+    "greeting": "Hi, my name is",
+    "name": "Artem Polovyi",
+    "tagline": "I bring ideas to life",
+    "description": "As a full-stack software engineer with strong problem-solving skills, I specialize in creating exceptional digital experiences.",
+    "cta": "Check out my resume!"
+  },
+  "about": {
+    "title": "About Me",
+    "content": [
+      "Hello! I'm Artem Polovyi, a skilled Full-Stack Software Engineer with extensive experience in leading product and consulting companies. My expertise lies in designing and developing high-performance, scalable, and highly available applications.",
+      "I specialize in backend technologies (Spring Boot, Kotlin, Java), frontend development (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab), and test automation. My experience includes working on projects for renowned companies like Infineon and Audi, where I've contributed to developing and maintaining high-traffic applications and optimizing system performance.",
+      "I have an agile mindset and extensive experience working in agile environments. My passion for continuous learning and problem-solving drives me to stay updated with the latest technologies and best practices in software development."
+    ],
+    "skills": "Here are a few technologies I've been working with recently:"
+  },
+  "experience": {
+    "title": "Where I've Worked",
+    "viewMore": "View More",
+    "roles": {
+      "TheBicesterCollection": {
+        "title": "Full-Stack Engineer",
+        "date": "June 2023 - Present",
+        "responsibilities": [
+          "Spearheading the development of a cutting-edge e-commerce platform for a prestigious brand collective in New York City.",
+          "Implementing a headless CMS architecture to enhance content flexibility and improve overall site performance.",
+          "Optimizing the website for search engines (SEO) to increase visibility and organic traffic.",
+          "Leveraging Vercel's platform for seamless deployment and hosting, ensuring high availability and rapid content delivery.",
+          "Utilizing a modern tech stack including Next.js, TypeScript, Tailwind CSS, and Sanity to create a robust and scalable web application."
+        ]
+      }
+    }
+  },
+  "projectsSection": {
+    "title": "Some Things I've Built",
+    "sectionNumber": "03",
+    "viewProject": "View Project",
+    "projects": [
+      {
+        "category": "Enterprise Web Development",
+        "company": "Infineon Technologies",
+        "description": "Developed and maintained features on infineon.com to optimize user experience and functionality. Designed and conducted comprehensive unit and integration tests to increase software reliability. Utilized a wide range of technologies to deliver high-quality web solutions.",
+        "role": "Senior Full-Stack Engineer",
+        "image": "/img/projects/infineon.png",
+        "link": "https://www.infineon.com",
+        "technologies": ["JavaEE", "Spring", "OpenCMS", "JUnit", "TypeScript", "React", "AWS"]
+      },
+      {
+        "category": "Cloud Migration & Optimization",
+        "company": "voestalpine AG",
+        "description": "Successfully migrated voestalpine.com to the AWS cloud, significantly enhancing scalability and performance. Implemented advanced features using Java and Spring, while optimizing database operations with PostgreSQL. Leveraged various AWS services to ensure robust and efficient cloud infrastructure.",
+        "role": "Cloud Migration Specialist",
+        "image": "/img/projects/voestalpine.png",
+        "link": "https://www.voestalpine.com",
+        "technologies": ["JavaEE", "Spring", "OpenCMS", "AWS", "MySQL", "Oracle", "React", "CloudFormation"]
+      },
+      {
+        "category": "Financial Technology",
+        "company": "Spreadshirt Payout System",
+        "description": "Developed a high-performance application for payout generation, significantly improving financial operations. Created intuitive user interfaces to enhance user experience and application usability. Implemented robust backend logic to ensure accurate and timely payouts.",
+        "role": "Senior Full-Stack Engineer",
+        "image": "/img/projects/spreadshirt.png",
+        "link": "https://www.spreadshirt.com",
+        "technologies": ["Kotlin", "Spring Boot", "PostgreSQL", "Flyway", "JUnit", "TypeScript", "React"]
+      },
+      {
+        "category": "Car Rental Platform",
+        "company": "ABI Audi On Demand",
+        "description": "Collaborated in a Scrum team to optimize pricing, voucher management, and communication systems for the ABI Audi On Demand product. Developed and maintained multiple microservices and microfrontends handling loads of up to 200 QPS. Refactored code using Kotlin, increasing maintainability and reducing code lines by 30%.",
+        "role": "Full-Stack Engineer",
+        "image": "/img/projects/aod.png",
+        "link": "https://www.audi.com",
+        "technologies": ["Kotlin", "Spring Boot", "RabbitMQ", "Angular", "TypeScript", "Jenkins", "AWS"]
+      },
+      {
+        "category": "Travel & Lifestyle",
+        "company": "Turkey Nomad",
+        "description": "Developed a comprehensive platform for digital nomads in Turkey, featuring a travel blog and curated recommendations. This project showcases modern web development techniques and content management integration. The site offers valuable insights and resources for remote workers and travelers exploring Turkey.",
+        "role": "Lead Full-Stack Developer",
+        "image": "/img/projects/turkey-nomad.png",
+        "link": "https://turkeynomad.com",
+        "technologies": ["Next.js", "TypeScript", "Strapi CMS", "Vercel"]
+      },
+      {
+        "category": "Travel Technology",
+        "company": "blookery",
+        "description": "Developed the front-end of an innovative travel website specializing in blind bookings across Europe. Engineered responsive and intuitive user interfaces using React, ensuring seamless functionality across various devices and screen sizes. Implemented advanced JavaScript features to create dynamic and interactive elements, significantly improving user interaction and site navigation.",
+        "role": "Frontend Engineer",
+        "image": "/img/projects/blookery.png",
+        "link": "https://www.blookery.de",
+        "technologies": ["React", "JavaScript", "HTML", "CSS", "Jest"]
+      },
+      {
+        "category": "Car Rental Platform",
+        "company": "Billiger Mietwagen",
+        "description": "As a student developer, contributed to a leading car rental platform, significantly improving user experience. Implemented A/B tests to optimize product specifications and enhance conversion rates. Conducted thorough testing in each product iteration to ensure high-quality releases. Created internal tools for the customer service team, increasing efficiency by 50%.",
+        "role": "Student Full-Stack Developer",
+        "image": "/img/projects/billiger-mietwagen.png",
+        "link": "https://www.billiger-mietwagen.de",
+        "technologies": ["JavaScript", "HTML", "CSS", "jQuery", "PHP", "Optimizely"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "What's Next?",
+    "subtitle": "Let's Connect",
+    "content": "I'm always excited about new opportunities and collaborations. Whether you have a project in mind, a question about my work, or just want to say hello, I'd love to hear from you. Let's start a conversation and explore how we can create something amazing together!",
+    "formLabels": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    },
+    "sendButton": "Send Message",
+    "sending": "Sending...",
+    "successMessage": "Message sent successfully!",
+    "errorMessage": "Failed to send message. Please try again."
+  },
+  "footer": {
+    "rights": "© 2024 Artem Polovyi. All rights reserved."
+  }
+}
