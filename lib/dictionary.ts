@@ -32,7 +32,17 @@ interface AboutMeSection {
   highlightedTerms: string[];
 }
 
+interface HeroSection {
+  greeting: string;
+  name: string;
+  tagline: string;
+  description: string;
+  highlightedTerms: string[];
+  cta: string;
+}
+
 interface Dictionary {
+  heroSection: HeroSection;
   aboutMeSection: AboutMeSection;
   experienceSection: {
     title: string;

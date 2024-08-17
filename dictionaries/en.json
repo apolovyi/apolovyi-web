@@ -6,11 +6,17 @@
     "contact": "Contact",
     "resume": "Resume"
   },
-  "intro": {
+  "heroSection": {
     "greeting": "Hi, my name is",
-    "name": "Artem Polovyi",
-    "tagline": "I bring ideas to life",
-    "description": "As a full-stack software engineer with strong problem-solving skills, I specialize in creating exceptional digital experiences.",
+    "name": "Artem Polovyi.",
+    "tagline": "I bring ideas to life.",
+    "description": "As a full-stack software engineer with strong problem-solving skills, I specialize in creating exceptional digital experiences. Currently, I am passionate about creating robust solutions, exploring innovative technologies, and driving digital transformation.",
+    "highlightedTerms": [
+      "full-stack software engineer",
+      "robust solutions",
+      "innovative technologies",
+      "digital transformation"
+    ],
     "cta": "Check out my resume!"
   },
   "aboutMeSection": {
