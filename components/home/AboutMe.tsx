@@ -35,13 +35,12 @@ function AboutMe() {
         <header data-aos="fade-up" className="flex flex-row items-center font-heading">
           <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
           <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-            <span className="font-tech text-xl text-accent-coral"> 02.</span>
+            <span className="font-tech text-xl text-accent-coral"> 01.</span>
             <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
               About Me
             </h2>
           </div>
           <div className="h-[0.2px] w-full bg-accent-green"></div>
-          {/*<div className="h-[0.2px] w-full bg-accent-green md:w-1/2 xl:w-1/3"></div>*/}
         </header>
 
         <div className="mt-12 flex flex-col items-start lg:flex-row lg:space-x-12">
