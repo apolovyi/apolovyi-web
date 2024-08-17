@@ -31,19 +31,20 @@ function AboutMe() {
       data-aos="fade-up"
       className="flex snap-start flex-col items-center bg-background-primary py-20"
     >
-      <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <header className="mb-12 flex items-center">
-          <div className="flex items-center">
-            <ArrowIcon className="h-4 w-4 text-accent-coral md:h-5 md:w-5" />
-            <span className="font-tech text-sm text-accent-coral sm:text-base md:text-lg"> 01.</span>
-            <h2 className="ml-2 whitespace-nowrap font-heading text-lg font-bold tracking-wider text-text-primary md:text-xl lg:text-2xl">
+      <div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
+        <header data-aos="fade-up" className="flex flex-row items-center font-heading">
+          <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
+          <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
+            <span className="font-tech text-xl text-accent-coral"> 02.</span>
+            <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
               About Me
             </h2>
           </div>
-          <div className="ml-4 h-px w-full bg-accent-green sm:w-72"></div>
+          <div className="h-[0.2px] w-full bg-accent-green"></div>
+          {/*<div className="h-[0.2px] w-full bg-accent-green md:w-1/2 xl:w-1/3"></div>*/}
         </header>
 
-        <div className="flex flex-col items-start lg:flex-row lg:space-x-12">
+        <div className="mt-12 flex flex-col items-start lg:flex-row lg:space-x-12">
           <div className="w-full lg:w-3/5">
             <div className="space-y-4 font-body text-sm sm:text-base">
               <p className="text-text-secondary">

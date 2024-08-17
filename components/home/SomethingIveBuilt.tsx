@@ -7,7 +7,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
   const isEven = index % 2 === 0;
 
   return (
-    <div className="relative h-[450px] w-full lg:h-96">
+    <div className="relative h-[450px] w-full">
       {/* Image */}
       <div className={`absolute top-0 h-full w-full lg:w-2/3 ${isEven ? "lg:left-0" : "lg:right-0"}`}>
         <div className="relative h-full w-full overflow-hidden rounded-lg">
