@@ -22,33 +22,35 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
             }}
             className="p-4"
           />
-          <div className="absolute inset-0 rounded-lg bg-primary p-1 opacity-70 transition-opacity duration-300 hover:opacity-0 lg:opacity-30"></div>
+          <div className="absolute inset-0 rounded-lg bg-background-primary p-1 opacity-70 transition-opacity duration-300 hover:opacity-0 lg:opacity-30"></div>
         </div>
       </div>
 
       {/* Content */}
       <div
-        className={`absolute top-0 h-full w-full font-body lg:w-1/2 ${
+        className={`absolute top-0 flex h-full w-full flex-col justify-center p-8 font-body lg:w-1/2 ${
           isEven ? "lg:right-0" : "lg:left-0"
-        } flex flex-col justify-center p-8`}
+        }`}
       >
         <div className={`flex flex-col ${isEven ? "lg:items-end" : "lg:items-start"}`}>
-          <span className="font-heading text-base text-secondary">{project.category}</span>
-          <a href={project.link} target="_blank" rel="noopener noreferrer">
-            <span className="font-sub-heading text-xl font-light text-heading hover:text-secondary">
+          <span className="font-heading text-base text-accent-coral">{project.category}</span>
+          <a href={project.link} target="_blank" rel="noopener noreferrer" className="group">
+            <span className="font-sub-heading text-xl font-light text-text-primary transition-colors duration-300 group-hover:text-accent-coral">
               {project.company}
             </span>
           </a>
         </div>
         <div
-          className={`my-4 rounded-md bg-tertiary p-6 opacity-85 shadow-lg ${
+          className={`my-4 rounded-md bg-accent-green bg-opacity-10 p-6 shadow-lg ${
             isEven ? "lg:text-right" : "lg:text-left"
           }`}
         >
-          <p className="font-body text-xs font-light text-scd sm:text-sm md:text-lg">{project.description}</p>
+          <p className="font-body text-xs font-light text-text-secondary sm:text-sm md:text-lg">
+            {project.description}
+          </p>
         </div>
         <div
-          className={`mb-4 font-heading text-sm font-extralight text-secondary ${
+          className={`mb-4 font-heading text-sm font-extralight text-accent-coral ${
             isEven ? "lg:text-right" : "lg:text-left"
           }`}
         >
@@ -56,7 +58,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
         </div>
         <div className={`w-full ${isEven ? "lg:flex lg:justify-end" : ""}`}>
           <ul
-            className={`flex w-4/6 flex-wrap font-tech text-sm font-extralight text-heading ${
+            className={`flex w-4/6 flex-wrap font-tech text-sm font-extralight text-text-secondary ${
               isEven ? "lg:justify-end" : "lg:justify-start"
             }`}
           >
@@ -67,8 +69,8 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
             ))}
           </ul>
         </div>
-        <div className={`flex ${isEven ? "lg:justify-end" : "lg:justify-start"} mt-4`}>
-          <a href={project.link} target="_blank" rel="noreferrer">
+        <div className={`mt-4 flex ${isEven ? "lg:justify-end" : "lg:justify-start"}`}>
+          <a href={project.link} target="_blank" rel="noreferrer" className="text-accent-coral hover:text-accent-green">
             <ExternalLink url={project.link} />
           </a>
         </div>
@@ -79,21 +81,21 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 
 const SomethingIveBuilt = () => {
   return (
-    <div
+    <section
       id="SomethingIveBuiltSection"
-      className="flex w-full flex-col space-y-12 bg-primary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
+      className="flex w-full flex-col space-y-12 bg-background-primary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
       {/* Title */}
-      <div data-aos="fade-up" className="flex flex-row items-center font-heading md:px-0">
-        <ArrowIcon className={"h-5 w-5 flex-none translate-y-[2px] text-secondary md:h-6 md:w-5"} />
+      <header data-aos="fade-up" className="flex flex-row items-center font-heading md:px-0">
+        <ArrowIcon className="h-5 w-5 flex-none translate-y-[2px] text-accent-coral md:h-6 md:w-5" />
         <div className="flex-none flex-row items-center space-x-2 pr-2">
-          <span className="font-tech text-sm text-secondary sm:text-xl"> 03.</span>
-          <span className="px-3 font-heading text-lg font-bold tracking-wider text-heading opacity-85 md:text-2xl">
+          <span className="font-tech text-sm text-accent-coral sm:text-xl"> 03.</span>
+          <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
             Some Things I&apos;ve Built
-          </span>
+          </h2>
         </div>
-        <div className="h-[0.2px] w-full bg-tertiary md:w-1/2 xl:w-1/3"></div>
-      </div>
+        <div className="h-[0.2px] w-full bg-accent-green md:w-1/2 xl:w-1/3"></div>
+      </header>
 
       <div className="flex flex-col space-y-8 md:space-y-28 xl:space-y-36">
         {projects.map((project, index) => (
@@ -102,7 +104,7 @@ const SomethingIveBuilt = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

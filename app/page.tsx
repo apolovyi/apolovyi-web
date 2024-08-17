@@ -23,10 +23,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowElement(false);
-      setSharedState((prevState) => ({
-        ...prevState,
-        finishedLoading: true,
-      }));
+      setSharedState((prevState) => ({ ...prevState, finishedLoading: true }));
     }, 4940);
 
     return () => clearTimeout(timer);
@@ -39,7 +36,7 @@ const Home = () => {
   const isProd = process.env.NODE_ENV === "production";
 
   return (
-    <main className="relative min-h-screen w-full snap-mandatory bg-primary">
+    <main className="relative min-h-screen w-full snap-mandatory bg-background-primary">
       {!sharedState.finishedLoading && showElement && <Startup />}
       <Header finishedLoading={sharedState.finishedLoading} />
       <MyName finishedLoading={sharedState.finishedLoading} />
@@ -50,7 +47,7 @@ const Home = () => {
           <WhereIveWorked />
           <SomethingIveBuilt />
           <GetInTouch />
-          <Footer hideSocialsInDesktop={true} />
+          <Footer />
         </>
       )}
       {!isProd && <ScreenSizeDetector />}

@@ -1,110 +1,62 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function MyName(props: { finishedLoading: boolean }) {
+const AnimatedText = ({ delay, children, className }) => (
+  <motion.div
+    initial={{ y: 10, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{
+      opacity: { delay, duration: 0.2 },
+      y: { delay, duration: 0.2 },
+    }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
+
+const MyName = ({ finishedLoading }: { finishedLoading: boolean }) => {
+  const baseDelay = finishedLoading ? 0 : 6.4;
+
   return (
-    <div
-      className="flex h-full flex-col justify-center px-8
-      py-32 sm:px-8 sm:py-52  md:px-28 lg:px-32 xl:px-56 2xl:px-72  "
-    >
-      <motion.span
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          opacity: {
-            delay: props.finishedLoading ? 0 : 6.4,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-          y: {
-            delay: props.finishedLoading ? 0 : 6.4,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-        }}
-        className="font-tech tracking-wider text-secondary"
-      >
+    <div className="flex h-full flex-col justify-center px-8 py-32 sm:px-8 sm:py-52 md:px-28 lg:px-32 xl:px-56 2xl:px-72">
+      <AnimatedText delay={baseDelay} className="font-tech tracking-wider text-accent-coral">
         Hi, my name is
-      </motion.span>
-      <motion.h1
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          opacity: {
-            delay: props.finishedLoading ? 0 : 6.5,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-          y: {
-            delay: props.finishedLoading ? 0 : 6.5,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-        }}
-        className="mt-4 font-heading text-3xl font-bold text-scd-light sm:text-5xl md:text-6xl lg:text-7xl"
+      </AnimatedText>
+      <AnimatedText
+        delay={baseDelay + 0.1}
+        className="mt-4 font-heading text-3xl font-bold text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
       >
         Artem Polovyi.
-      </motion.h1>
-      <motion.h2
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          opacity: {
-            delay: props.finishedLoading ? 0 : 6.6,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-          y: {
-            delay: props.finishedLoading ? 0 : 6.6,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-        }}
-        className="font mt-4 font-sub-heading text-3xl font-light text-scd sm:text-4xl md:text-4xl lg:text-6xl"
+      </AnimatedText>
+      <AnimatedText
+        delay={baseDelay + 0.2}
+        className="mt-4 font-sub-heading text-3xl font-light text-text-secondary sm:text-4xl md:text-4xl lg:text-6xl"
       >
         I bring ideas to life.
-      </motion.h2>
-
-      <motion.h3
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          opacity: {
-            delay: props.finishedLoading ? 0 : 6.7,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-          y: {
-            delay: props.finishedLoading ? 0 : 6.7,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-        }}
-        className="sm:text-md mt-10 font-body text-sm tracking-wider text-scd md:max-w-xl md:text-lg"
+      </AnimatedText>
+      <AnimatedText
+        delay={baseDelay + 0.3}
+        className="mt-10 font-body text-sm tracking-wider text-text-secondary md:max-w-xl md:text-lg"
       >
-        As a <span className="text-secondary">full-stack software engineer </span>
+        As a <span className="text-accent-coral">full-stack software engineer </span>
         with strong problem-solving skills, I specialize in creating exceptional digital experiences.
         <br />
         <br />
         Currently, I am passionate about creating
-        <span className="text-secondary"> robust solutions</span>, exploring
-        <span className="text-secondary"> innovative technologies</span>, and driving
-        <span className="text-secondary"> digital transformation</span>.
-      </motion.h3>
-
-      <motion.div
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          opacity: {
-            delay: props.finishedLoading ? 0 : 6.8,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-          y: {
-            delay: props.finishedLoading ? 0 : 6.8,
-            duration: props.finishedLoading ? 0 : 0.2,
-          },
-        }}
-        className="mt-12"
-      >
-        <a href={"/cv/CV_Artem_Polovyi_EN_WEB.pdf"} target={"_blank"} rel="noreferrer">
-          <button className="rounded border border-secondary bg-primary px-4 py-3 font-heading text-secondary hover:bg-resume-hover hover:text-primary sm:px-8 sm:py-4">
+        <span className="text-accent-coral"> robust solutions</span>, exploring
+        <span className="text-accent-coral"> innovative technologies</span>, and driving
+        <span className="text-accent-coral"> digital transformation</span>.
+      </AnimatedText>
+      <AnimatedText delay={baseDelay + 0.4} className="mt-12">
+        <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noreferrer">
+          <button className="rounded border border-accent-coral bg-background-primary px-4 py-3 font-heading text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:text-background-primary sm:px-8 sm:py-4">
             Check out my resume!
           </button>
         </a>
-      </motion.div>
+      </AnimatedText>
     </div>
   );
-}
+};
+
+export default MyName;
