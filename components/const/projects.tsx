@@ -13,9 +13,9 @@ export const projects: Project[] = [
     company: "Infineon Technologies",
     description:
       "Developed and maintained features on infineon.com to optimize user experience and functionality. Designed and conducted comprehensive unit and integration tests to increase software reliability. Utilized a wide range of technologies to deliver high-quality web solutions.",
+    role: "Senior Full-Stack Engineer",
     image: "/img/projects/infineon.png",
     link: "https://www.infineon.com",
-    role: "Senior Full-Stack Engineer",
     technologies: ["JavaEE", "Spring", "OpenCMS", "JUnit", "TypeScript", "React", "AWS"],
   },
   {

@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 export const menuItems = [
   { id: "01", name: "About", href: "#aboutSection" },
   { id: "02", name: "Experience", href: "#WhereIHaveWorkedSection" },
-  { id: "03", name: "Work", href: "#SomethingIveBuiltSection" },
+  { id: "03", name: "Work", href: "#projectsSection" },
   { id: "04", name: "Contact", href: "#GetInTouchSection" },
 ];
 

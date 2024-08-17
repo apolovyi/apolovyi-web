@@ -1,10 +1,17 @@
 import Image from "next/image";
 import ExternalLink from "@/components/icons/ExternalLink";
-import { ProjectItemProps, projects } from "@/components/const/projects";
 import React from "react";
 import ArrowIcon from "@/components/icons/ArrowIcon";
+import { getDictionary } from "@/lib/dictionary";
+import { Locale } from "../../i18n-config";
 
-const ProjectItem = ({ project, index }: ProjectItemProps) => {
+interface ProjectItemProps {
+  project: any;
+  index: number;
+  viewProjectText: string;
+}
+
+const ProjectItem = ({ project, index, viewProjectText }: ProjectItemProps) => {
   const isEven = index % 2 === 0;
 
   return (
@@ -57,7 +64,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
               isEven ? "lg:justify-end" : "lg:justify-start"
             }`}
           >
-            {project.technologies.map((tech, techIndex) => (
+            {project.technologies.map((tech: string, techIndex: number) => (
               <li key={techIndex} className={`mb-2 mr-4 ${isEven ? "lg:ml-4 lg:mr-0" : ""}`}>
                 {tech}
               </li>
@@ -74,19 +81,22 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
   );
 };
 
-const SomethingIveBuilt = () => {
+const MyProjects = ({ params: { lang } }: { params: { lang: Locale } }) => {
+  const dict = getDictionary(lang);
+  const { projectsSection } = dict;
+
   return (
     <section
-      id="SomethingIveBuiltSection"
+      id="projectsSection"
       className="flex w-full flex-col space-y-12 bg-background-primary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
       <div className="mx-auto flex w-full flex-col px-4 sm:px-6 lg:px-8">
         <header data-aos="fade-up" className="flex flex-row items-center font-heading">
           <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
           <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-            <span className="font-tech text-xl text-accent-coral"> 03.</span>
+            <span className="font-tech text-xl text-accent-coral">{projectsSection.sectionNumber}.</span>
             <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-              Some Things I&apos;ve Built
+              {projectsSection.title}
             </h2>
           </div>
           <div className="h-[0.2px] w-full bg-accent-green"></div>
@@ -94,9 +104,9 @@ const SomethingIveBuilt = () => {
       </div>
 
       <div className="flex flex-col space-y-8 md:space-y-28 xl:space-y-36">
-        {projects.map((project, index) => (
+        {projectsSection.projects.map((project, index) => (
           <div key={index} data-aos="fade-up">
-            <ProjectItem project={project} index={index} />
+            <ProjectItem project={project} index={index} viewProjectText={projectsSection.viewProject} />
           </div>
         ))}
       </div>
@@ -104,4 +114,4 @@ const SomethingIveBuilt = () => {
   );
 };
 
-export default SomethingIveBuilt;
+export default MyProjects;
