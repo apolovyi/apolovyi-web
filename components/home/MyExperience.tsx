@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ArrowIcon from "@/components/icons/ArrowIcon";
-import { jobs } from "@/components/const/jobs";
+import { getDictionary } from "@/lib/dictionary";
+import { Locale } from "@/i18n-config";
 
 interface Company {
   name: string;
@@ -17,12 +18,17 @@ const companies: Company[] = [
   { name: "SilverTours GmbH", key: "SilverToursGmbH" },
 ];
 
-const WhereIveWorked = () => {
+interface MyExperienceProps {
+  lang: Locale;
+}
+
+const MyExperience = ({ lang }: MyExperienceProps) => {
   const [activeCompany, setActiveCompany] = useState(companies[0].key);
+  const dictionary = getDictionary(lang);
 
   return (
     <section
-      id="WhereIHaveWorkedSection"
+      id="experienceSection"
       data-aos="fade-up"
       className="flex snap-start flex-col items-center bg-background-primary py-24"
     >
@@ -32,7 +38,7 @@ const WhereIveWorked = () => {
           <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
             <span className="font-tech text-xl text-accent-coral"> 02.</span>
             <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-              Where I&apos;ve Worked
+              {dictionary.experienceSection.title}
             </h2>
           </div>
           <div className="h-[0.2px] w-full bg-accent-green"></div>
@@ -40,9 +46,8 @@ const WhereIveWorked = () => {
       </div>
 
       <div className="mt-12 flex flex-col items-start justify-center space-y-4 md:flex-row md:items-start md:justify-center md:space-x-6 md:space-y-0 lg:space-x-12">
-        {/*<div className="flex flex-col items-center justify-center space-y-4 md:flex-row md:items-start md:justify-center md:space-x-4 md:space-y-0">*/}
-        <CompaniesBar activeCompany={activeCompany} setActiveCompany={setActiveCompany} />
-        <JobDescription company={activeCompany} />
+        <CompaniesBar activeCompany={activeCompany} setActiveCompany={setActiveCompany} lang={lang} />
+        <JobDescription company={activeCompany} lang={lang} />
       </div>
     </section>
   );
@@ -51,9 +56,12 @@ const WhereIveWorked = () => {
 interface CompaniesBarProps {
   activeCompany: string;
   setActiveCompany: (key: string) => void;
+  lang: Locale;
 }
 
-const CompaniesBar = ({ activeCompany, setActiveCompany }: CompaniesBarProps) => {
+const CompaniesBar = ({ activeCompany, setActiveCompany, lang }: CompaniesBarProps) => {
+  const dictionary = getDictionary(lang);
+
   return (
     <div className="flex w-screen flex-col items-start justify-start overflow-hidden pb-4 sm:items-center sm:justify-center md:w-auto md:flex-row md:pb-0">
       <div className="relative order-2 hidden h-0.5 translate-y-1 rounded bg-neutral-medium-gray md:order-1 md:block md:h-[390px] md:w-0.5">
@@ -72,6 +80,11 @@ const CompaniesBar = ({ activeCompany, setActiveCompany }: CompaniesBarProps) =>
               company={company}
               isActive={activeCompany === company.key}
               onClick={() => setActiveCompany(company.key)}
+              companyName={
+                dictionary.experienceSection.companies[
+                  company.key as keyof typeof dictionary.experienceSection.companies
+                ]
+              }
             />
           ))}
         </div>
@@ -92,9 +105,10 @@ interface CompanyButtonProps {
   company: Company;
   isActive: boolean;
   onClick: () => void;
+  companyName: string;
 }
 
-const CompanyButton = ({ company, isActive, onClick }: CompanyButtonProps) => (
+const CompanyButton = ({ company, isActive, onClick, companyName }: CompanyButtonProps) => (
   <button
     onClick={onClick}
     className={`h-16 w-32 flex-none rounded py-3 text-center
@@ -106,16 +120,18 @@ const CompanyButton = ({ company, isActive, onClick }: CompanyButtonProps) => (
       }`}
     aria-pressed={isActive}
   >
-    {company.name}
+    {companyName}
   </button>
 );
 
 interface JobDescriptionProps {
   company: string;
+  lang: Locale;
 }
 
-const JobDescription: React.FC<JobDescriptionProps> = ({ company }) => {
-  const job = jobs[company];
+const JobDescription = ({ company, lang }: JobDescriptionProps) => {
+  const dictionary = getDictionary(lang);
+  const job = dictionary.experienceSection.roles[company as keyof typeof dictionary.experienceSection.roles];
 
   const getTasksTextWithHighlightedKeyword = (text: string, keywords: string[]) => {
     let highlightedText = text;
@@ -130,7 +146,10 @@ const JobDescription: React.FC<JobDescriptionProps> = ({ company }) => {
     <div className="flex max-w-xl flex-col space-y-5 px-4 md:px-0">
       <div className="flex flex-col space-y-2">
         <span className="font-body text-sm tracking-wide text-text-primary sm:text-lg">
-          {job.title} <span className="text-accent-coral">@ {companies.find((c) => c.key === company)?.name}</span>
+          {job.title}{" "}
+          <span className="text-accent-coral">
+            @ {dictionary.experienceSection.companies[company as keyof typeof dictionary.experienceSection.companies]}
+          </span>
         </span>
         <span className="font-tech text-xs text-text-secondary">{job.date}</span>
         <a
@@ -144,13 +163,13 @@ const JobDescription: React.FC<JobDescriptionProps> = ({ company }) => {
         </a>
       </div>
       <ul className="flex flex-col space-y-4 text-xs sm:text-sm">
-        {job.tasks.map((item, index) => (
+        {job.tasks.map((task: { text: string; keywords: string[] }, index: number) => (
           <li key={index} className="flex flex-row space-x-1">
             <ArrowIcon className="h-5 w-4 flex-none text-accent-coral" />
             <span
               className="text-text-secondary"
               dangerouslySetInnerHTML={{
-                __html: getTasksTextWithHighlightedKeyword(item.text, item.keywords),
+                __html: getTasksTextWithHighlightedKeyword(task.text, task.keywords),
               }}
             ></span>
           </li>
@@ -160,4 +179,4 @@ const JobDescription: React.FC<JobDescriptionProps> = ({ company }) => {
   );
 };
 
-export default WhereIveWorked;
+export default MyExperience;

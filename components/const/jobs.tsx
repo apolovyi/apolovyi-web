@@ -1,4 +1,4 @@
-export const jobs = {
+export const experience = {
   TheBicesterCollection: {
     title: "Full-Stack Engineer",
     date: "June 2023 - Present",

@@ -81,7 +81,11 @@ const ProjectItem = ({ project, index, viewProjectText }: ProjectItemProps) => {
   );
 };
 
-const MyProjects = ({ params: { lang } }: { params: { lang: Locale } }) => {
+interface MyProjectsProps {
+  lang: Locale;
+}
+
+const MyProjects = ({ lang }: MyProjectsProps) => {
   const dict = getDictionary(lang);
   const { projectsSection } = dict;
 

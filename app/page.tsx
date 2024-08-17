@@ -10,7 +10,7 @@ import Startup from "@/components/header/startup/Startup";
 import MyName from "@/components/home/MyName";
 import SocialMediaAround from "@/components/home/SocialMediaAround";
 import AboutMe from "@/components/home/AboutMe";
-import WhereIveWorked from "@/components/home/WhereIveWorked";
+import MyExperience from "@/components/home/MyExperience";
 import MyProjects from "@/components/home/MyProjects";
 import GetInTouch from "@/components/home/GetInTouch";
 import Footer from "@/components/footer/Footer";
@@ -45,7 +45,7 @@ function Home({ params: { lang } }: { params: { lang: Locale } }) {
       {sharedState.finishedLoading && (
         <>
           <AboutMe />
-          <WhereIveWorked />
+          <MyExperience lang={lang} />
           <MyProjects params={{ lang }} />
           <GetInTouch />
           <Footer />
