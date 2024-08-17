@@ -8,7 +8,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
   const isEven = index % 2 === 0;
 
   return (
-    <div className="relative h-[450px] w-full">
+    <div className="relative h-[500px] w-full">
       {/* Image */}
       <div className={`absolute top-0 h-full w-full lg:w-2/3 ${isEven ? "lg:left-0" : "lg:right-0"}`}>
         <div className="relative h-full w-full overflow-hidden rounded-lg">
@@ -46,7 +46,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
             isEven ? "lg:text-right" : "lg:text-left"
           }`}
         >
-          <p className="font-body text-xs font-light text-text-primary sm:text-sm md:text-lg">{project.description}</p>
+          <p className="font-body text-base font-light text-text-primary md:text-lg">{project.description}</p>
         </div>
         <div className={`mb-4 font-heading text-base text-accent-coral ${isEven ? "lg:text-right" : "lg:text-left"}`}>
           Role: {project.role}

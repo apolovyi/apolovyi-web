@@ -45,20 +45,25 @@ function GetInTouch() {
       data-aos="fade-up"
       className="flex min-h-screen w-full flex-col items-center justify-center space-y-8 bg-background-primary px-4 py-24 sm:px-8"
     >
-      <div className="flex max-w-2xl flex-col items-center space-y-6">
-        <header className="flex items-center space-x-2">
-          <ArrowIcon className="h-5 w-5 text-accent-coral" />
-          <span className="font-tech text-sm text-accent-coral sm:text-xl">04.</span>
-          <h2 className="px-3 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-            What&apos;s Next?
-          </h2>
-        </header>
+      <div className="flex max-w-5xl flex-col items-center space-y-6">
+        <div className="mx-auto flex w-full flex-col px-4 sm:px-6 lg:px-8">
+          <header data-aos="fade-up" className="flex flex-row items-center font-heading">
+            <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
+            <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
+              <span className="font-tech text-xl text-accent-coral"> 04.</span>
+              <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
+                What&apos;s Next?
+              </h2>
+            </div>
+            <div className="h-[0.2px] w-full bg-accent-green"></div>
+          </header>
+        </div>
 
-        <h1 className="text-center text-4xl font-bold tracking-wide text-text-primary sm:text-5xl">
+        <div className="mt-14 text-center text-3xl font-bold tracking-wide text-text-primary sm:text-5xl">
           Let&apos;s Connect
-        </h1>
+        </div>
 
-        <p className="text-center font-body text-lg leading-relaxed text-text-secondary">
+        <p className="text-center font-body text-lg leading-relaxed text-text-secondary md:px-32">
           I&apos;m always excited about new opportunities and collaborations. Whether you have a project in mind, a
           question about my work, or just want to say hello, I&apos;d love to hear from you. Let&apos;s start a
           conversation and explore how we can create something amazing together!
