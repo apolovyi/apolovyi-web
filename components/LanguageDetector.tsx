@@ -11,7 +11,7 @@ export default function LanguageDetector() {
     const detectedLang = localStorage.getItem("detectedLang") as Locale | null;
 
     if (!detectedLang) {
-      fetch("/api/detect-language")
+      fetch("/api/language")
         .then((response) => response.json())
         .then((data) => {
           const detectedLocale = data.locale as Locale;
