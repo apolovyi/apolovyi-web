@@ -4,7 +4,7 @@ export const menuItems = [
   { id: "01", name: "About", href: "#aboutSection" },
   { id: "02", name: "Experience", href: "#experienceSection" },
   { id: "03", name: "Work", href: "#projectsSection" },
-  { id: "04", name: "Contact", href: "#GetInTouchSection" },
+  { id: "04", name: "Contact", href: "#contactSection" },
 ];
 
 interface HeaderContextType {

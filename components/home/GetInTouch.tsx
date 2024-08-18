@@ -41,7 +41,7 @@ function GetInTouch() {
 
   return (
     <section
-      id="GetInTouchSection"
+      id="contactSection"
       data-aos="fade-up"
       className="flex min-h-screen w-full flex-col items-center justify-center space-y-8 bg-background-primary px-4 py-24 sm:px-8"
     >
