@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
-// import { Button } from "../../../ui/moving-border";
+import { Button } from "@/components/ui/moving-border";
 
 const AnimatedText = ({ delay, children, className }) => (
   <motion.div
@@ -62,15 +63,15 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
         <br />
         <p className="text-text-secondary">{highlightText(heroSection.paragraphs[1], heroSection.highlightedTerms)}</p>
       </AnimatedText>
+      <Button
+        borderRadius="1.75rem"
+        className="border-neutral-200 bg-white text-black dark:border-slate-800 dark:bg-slate-900 dark:text-white"
+      >
+        {heroSection.cta}
+      </Button>
       <AnimatedText delay={baseDelay + 0.4} className="mt-12">
         <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noreferrer">
-          {/*<Button*/}
-          {/*  borderRadius="1.75rem"*/}
-          {/*  className="border-neutral-200 bg-white text-black dark:border-slate-800 dark:bg-slate-900 dark:text-white"*/}
-          {/*>*/}
-          {/*  Borders are cool*/}
-          {/*</Button>*/}
-          <button className="rounded border border-accent-coral bg-background-primary px-4 py-3 font-heading text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:text-background-primary sm:px-8 sm:py-4">
+          <button className="bg-background-primary hover:text-background-primary rounded border border-accent-coral px-4 py-3 font-heading text-accent-coral transition-colors duration-300 hover:bg-accent-coral sm:px-8 sm:py-4">
             {heroSection.cta}
           </button>
         </a>
