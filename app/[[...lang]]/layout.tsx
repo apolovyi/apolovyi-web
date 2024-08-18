@@ -47,6 +47,7 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
       default: metadata.title.default,
       template: metadata.title.template,
     },
+    metadataBase: new URL("https://apolovyi.me"),
     description: metadata.description,
     openGraph: {
       title: metadata.openGraph.title,
@@ -60,7 +61,14 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
     robots: metadata.robots,
     icons: metadata.icons,
     alternates: {
-      canonical: metadata.alternates.canonical,
+      canonical: "/",
+      languages: {
+        en: "/en",
+        "en-US": "/en",
+        de: "/de",
+        ch: "/ch",
+        uk: "/uk",
+      },
     },
     keywords: metadata.keywords,
   };
