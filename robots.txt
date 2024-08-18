@@ -1,4 +1,0 @@
-Sitemap: https://apolovyi.me/sitemap.xml
-
-User-agent: *
-Disallow: /api
