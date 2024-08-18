@@ -76,10 +76,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
-  verification: {
-    google: "your-google-site-verification-code",
-    yandex: "your-yandex-verification-code",
-  },
   keywords: ["Software Engineer", "Full-stack Developer", "Web Development", "Cloud Technologies"],
 };
 
