@@ -152,8 +152,8 @@ interface Dictionary {
 const dictionaries: Record<Locale, Dictionary> = {
   en: require("@/dictionaries/en.json"),
   de: require("@/dictionaries/de.json"),
-  de_CH: require("@/dictionaries/de_CH.json"),
-  ua: require("@/dictionaries/ua.json"),
+  ch: require("@/dictionaries/ch.json"),
+  uk: require("@/dictionaries/uk.json"),
   ru: require("@/dictionaries/ru.json"),
 };
 

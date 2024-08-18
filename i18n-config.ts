@@ -1,18 +1,18 @@
 export const i18n = {
   defaultLocale: "en" as const,
-  locales: ["en", "de", "de_CH", "ua", "ru"] as const,
+  locales: ["en", "de", "ch", "uk", "ru"] as const,
   localeNames: {
     en: "English",
     de: "Deutsch",
-    de_CH: "Schweizerdeutsch",
-    ua: "Українська",
+    ch: "Schweizerdeutsch",
+    uk: "Українська",
     ru: "Русский",
   },
   localeEmojis: {
     en: "🇬🇧",
     de: "🇩🇪",
-    de_CH: "🇨🇭",
-    ua: "🇺🇦",
+    ch: "🇨🇭",
+    uk: "🇺🇦",
     ru: "🇷🇺",
   },
 };
