@@ -142,24 +142,15 @@
         "tasks": [
           {
             "text": "Developed and maintained features on infineon.com to optimize user experience and functionality.",
-            "keywords": [
-              "infineon.com",
-              "user experience"
-            ]
+            "keywords": ["infineon.com", "user experience"]
           },
           {
             "text": "Successfully migrated voestalpine.com to the AWS cloud, enhancing scalability and performance.",
-            "keywords": [
-              "voestalpine.com",
-              "AWS cloud"
-            ]
+            "keywords": ["voestalpine.com", "AWS cloud"]
           },
           {
             "text": "Designed and conducted comprehensive unit and integration tests to increase software reliability.",
-            "keywords": [
-              "unit tests",
-              "integration tests"
-            ]
+            "keywords": ["unit tests", "integration tests"]
           },
           {
             "text": "Optimized website performance, improving loading times and user satisfaction.",
@@ -192,27 +183,15 @@
         "tasks": [
           {
             "text": "Developed a high-performance application for payout generation, improving financial operations.",
-            "keywords": [
-              "payout generation"
-            ]
+            "keywords": ["payout generation"]
           },
           {
             "text": "Created intuitive user interfaces, enhancing user experience and application usability.",
-            "keywords": [
-              "user interfaces"
-            ]
+            "keywords": ["user interfaces"]
           },
           {
             "text": "Worked with technologies including PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript, and React.",
-            "keywords": [
-              "PostgreSQL",
-              "Flyway",
-              "Kotlin",
-              "Spring Boot",
-              "JUnit",
-              "TypeScript",
-              "React"
-            ]
+            "keywords": ["PostgreSQL", "Flyway", "Kotlin", "Spring Boot", "JUnit", "TypeScript", "React"]
           }
         ]
       },
@@ -223,23 +202,15 @@
         "tasks": [
           {
             "text": "Collaborated in a Scrum team to optimize pricing, voucher management, and communication systems for the ABI Audi On Demand product.",
-            "keywords": [
-              "Scrum",
-              "ABI Audi On Demand"
-            ]
+            "keywords": ["Scrum", "ABI Audi On Demand"]
           },
           {
             "text": "Developed and maintained multiple microservices and microfrontends handling loads of up to 200 QPS.",
-            "keywords": [
-              "microservices",
-              "microfrontends"
-            ]
+            "keywords": ["microservices", "microfrontends"]
           },
           {
             "text": "Refactored code using Kotlin, increasing maintainability and reducing code lines by 30%.",
-            "keywords": [
-              "Kotlin"
-            ]
+            "keywords": ["Kotlin"]
           },
           {
             "text": "Utilized technologies including PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry, and various AWS services.",
@@ -295,37 +266,23 @@
         "tasks": [
           {
             "text": "Developed new features for a leading car rental platform, improving user experience.",
-            "keywords": [
-              "car rental platform"
-            ]
+            "keywords": ["car rental platform"]
           },
           {
             "text": "Implemented A/B tests to optimize product specifications and enhance conversion rates.",
-            "keywords": [
-              "A/B tests"
-            ]
+            "keywords": ["A/B tests"]
           },
           {
             "text": "Conducted thorough testing in each product iteration to ensure high-quality releases.",
-            "keywords": [
-              "testing"
-            ]
+            "keywords": ["testing"]
           },
           {
             "text": "Created internal tools for the customer service team, increasing efficiency by 50%.",
-            "keywords": [
-              "internal tools"
-            ]
+            "keywords": ["internal tools"]
           },
           {
             "text": "Worked with technologies including JavaScript, HTML, CSS, jQuery, and PHP.",
-            "keywords": [
-              "JavaScript",
-              "HTML",
-              "CSS",
-              "jQuery",
-              "PHP"
-            ]
+            "keywords": ["JavaScript", "HTML", "CSS", "jQuery", "PHP"]
           }
         ]
       }
@@ -342,15 +299,7 @@
         "role": "Senior Full-Stack Engineer",
         "image": "/img/projects/infineon.png",
         "link": "https://www.infineon.com",
-        "technologies": [
-          "JavaEE",
-          "Spring",
-          "OpenCMS",
-          "JUnit",
-          "TypeScript",
-          "React",
-          "AWS"
-        ]
+        "technologies": ["JavaEE", "Spring", "OpenCMS", "JUnit", "TypeScript", "React", "AWS"]
       },
       {
         "category": "Cloud Migration & Optimization",
@@ -359,16 +308,7 @@
         "role": "Cloud Migration Specialist",
         "image": "/img/projects/voestalpine.png",
         "link": "https://www.voestalpine.com",
-        "technologies": [
-          "JavaEE",
-          "Spring",
-          "OpenCMS",
-          "AWS",
-          "MySQL",
-          "Oracle",
-          "React",
-          "CloudFormation"
-        ]
+        "technologies": ["JavaEE", "Spring", "OpenCMS", "AWS", "MySQL", "Oracle", "React", "CloudFormation"]
       },
       {
         "category": "Financial Technology",
@@ -377,15 +317,7 @@
         "role": "Senior Full-Stack Engineer",
         "image": "/img/projects/spreadshirt.png",
         "link": "https://www.spreadshirt.com",
-        "technologies": [
-          "Kotlin",
-          "Spring Boot",
-          "PostgreSQL",
-          "Flyway",
-          "JUnit",
-          "TypeScript",
-          "React"
-        ]
+        "technologies": ["Kotlin", "Spring Boot", "PostgreSQL", "Flyway", "JUnit", "TypeScript", "React"]
       },
       {
         "category": "Car Rental Platform",
@@ -394,15 +326,7 @@
         "role": "Full-Stack Engineer",
         "image": "/img/projects/aod.png",
         "link": "https://www.audi.com",
-        "technologies": [
-          "Kotlin",
-          "Spring Boot",
-          "RabbitMQ",
-          "Angular",
-          "TypeScript",
-          "Jenkins",
-          "AWS"
-        ]
+        "technologies": ["Kotlin", "Spring Boot", "RabbitMQ", "Angular", "TypeScript", "Jenkins", "AWS"]
       },
       {
         "category": "Travel & Lifestyle",
@@ -411,12 +335,7 @@
         "role": "Lead Full-Stack Developer",
         "image": "/img/projects/turkey-nomad.png",
         "link": "https://turkeynomad.com",
-        "technologies": [
-          "Next.js",
-          "TypeScript",
-          "Strapi CMS",
-          "Vercel"
-        ]
+        "technologies": ["Next.js", "TypeScript", "Strapi CMS", "Vercel"]
       },
       {
         "category": "Travel Technology",
@@ -425,13 +344,7 @@
         "role": "Frontend Engineer",
         "image": "/img/projects/blookery.png",
         "link": "https://www.blookery.de",
-        "technologies": [
-          "React",
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "Jest"
-        ]
+        "technologies": ["React", "JavaScript", "HTML", "CSS", "Jest"]
       },
       {
         "category": "Car Rental Platform",
@@ -440,14 +353,7 @@
         "role": "Student Full-Stack Developer",
         "image": "/img/projects/billiger-mietwagen.png",
         "link": "https://www.billiger-mietwagen.de",
-        "technologies": [
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "jQuery",
-          "PHP",
-          "Optimizely"
-        ]
+        "technologies": ["JavaScript", "HTML", "CSS", "jQuery", "PHP", "Optimizely"]
       }
     ]
   },
