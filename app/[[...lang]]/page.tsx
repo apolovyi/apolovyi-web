@@ -47,8 +47,8 @@ function Home({ params: { lang } }: { params: { lang: Locale } }) {
           <AboutMe lang={lang} />
           <MyExperience lang={lang} />
           <MyProjects lang={lang} />
-          <GetInTouch />
-          <Footer />
+          <GetInTouch lang={lang} />
+          <Footer lang={lang} />
         </>
       )}
       {!isProd && <ScreenSizeDetector />}

@@ -90,7 +90,6 @@
   },
   "aboutMeSection": {
     "title": "About Me",
-    "sectionNumber": "01.",
     "paragraphs": {
       "intro": "Hello! I'm Artem Polovyi, a skilled Full-Stack Software Engineer with extensive experience in leading product and consulting companies. My expertise lies in designing and developing high-performance, scalable, and highly available applications.",
       "specialization": "I specialize in backend technologies (Spring Boot, Kotlin, Java), frontend development (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab), and test automation. My experience includes working on projects for renowned companies like Infineon and Audi, where I've contributed to developing and maintaining high-traffic applications and optimizing system performance.",
@@ -112,7 +111,6 @@
   },
   "experienceSection": {
     "title": "Where I've Worked",
-    "sectionNumber": "02.",
     "companies": {
       "TheBicesterCollection": "The Bicester Collection",
       "VirtualIdentityAG": "Virtual Identity AG",
@@ -123,54 +121,42 @@
     },
     "roles": {
       "TheBicesterCollection": {
-        "title": "Full-Stack Engineer",
+        "title": "Lead Full-Stack Engineer",
         "date": "June 2023 - Present",
         "url": "https://www.thebicestercollection.com",
         "tasks": [
           {
-            "text": "Spearheading the development of a cutting-edge e-commerce platform for a prestigious brand collective in New York City.",
-            "keywords": [
-              "e-commerce platform"
-            ]
+            "text": "Leading the development of an innovative e-commerce platform for a prestigious brand collective in New York City.",
+            "keywords": ["e-commerce platform", "prestigious brand"]
           },
           {
-            "text": "Implementing a headless CMS architecture to enhance content flexibility and improve overall site performance.",
-            "keywords": [
-              "headless CMS"
-            ]
+            "text": "Implementing a headless CMS architecture to enhance content flexibility and site performance.",
+            "keywords": ["headless CMS", "content flexibility"]
           },
           {
-            "text": "Optimizing the website for search engines (SEO) to increase visibility and organic traffic.",
-            "keywords": [
-              "SEO"
-            ]
+            "text": "Optimizing the website for search engines (SEO) to boost visibility and organic traffic.",
+            "keywords": ["SEO", "organic traffic"]
           },
           {
             "text": "Leveraging Vercel's platform for seamless deployment and hosting, ensuring high availability and rapid content delivery.",
-            "keywords": [
-              "Vercel"
-            ]
+            "keywords": ["Vercel", "seamless deployment"]
           },
           {
-            "text": "Utilizing a modern tech stack including Next.js, TypeScript, Tailwind CSS, and Sanity to create a robust and scalable web application.",
-            "keywords": [
-              "Next.js",
-              "TypeScript",
-              "Tailwind CSS",
-              "Sanity"
-            ]
+            "text": "Utilizing a modern tech stack including Next.js, TypeScript, Tailwind CSS, and Sanity to build a robust and scalable web application.",
+            "keywords": ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"]
           }
         ]
       },
       "VirtualIdentityAG": {
-        "title": "Full-Stack Engineer",
+        "title": "Senior Full-Stack Engineer",
         "date": "Feb 2022 - Jan 2024",
         "url": "https://www.virtual-identity.com",
         "tasks": [
           {
             "text": "Developed and maintained features on infineon.com to optimize user experience and functionality.",
             "keywords": [
-              "infineon.com"
+              "infineon.com",
+              "user experience"
             ]
           },
           {
@@ -186,6 +172,10 @@
               "unit tests",
               "integration tests"
             ]
+          },
+          {
+            "text": "Optimized website performance, improving loading times and user satisfaction.",
+            "keywords": ["performance", "loading times"]
           },
           {
             "text": "Utilized technologies including Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms, and various AWS services.",
@@ -208,7 +198,7 @@
         ]
       },
       "Spreadshirt": {
-        "title": "Full-Stack Engineer",
+        "title": "Senior Full-Stack Engineer",
         "date": "Nov 2021 - Feb 2022",
         "url": "https://www.spreadshirt.com",
         "tasks": [
@@ -288,60 +278,28 @@
         "url": "https://www.blookery.de",
         "tasks": [
           {
-            "text": "Spearheaded the development of an innovative travel website specializing in blind bookings across Europe, enhancing user engagement and experience.",
-            "keywords": [
-              "blind bookings",
-              "user engagement"
-            ]
+            "text": "Led the development of a travel website specializing in blind bookings across Europe, boosting user engagement.",
+            "keywords": ["blind bookings", "user engagement"]
           },
           {
-            "text": "Engineered responsive and intuitive user interfaces using React, ensuring seamless functionality across various devices and screen sizes.",
-            "keywords": [
-              "React",
-              "responsive",
-              "user interfaces"
-            ]
+            "text": "Created responsive user interfaces with React, ensuring seamless functionality across devices.",
+            "keywords": ["React", "responsive"]
           },
           {
-            "text": "Implemented advanced JavaScript features to create dynamic and interactive elements, significantly improving user interaction and site navigation.",
-            "keywords": [
-              "JavaScript",
-              "dynamic",
-              "interactive"
-            ]
+            "text": "Implemented advanced JavaScript features to enhance site interactivity and navigation.",
+            "keywords": ["JavaScript"]
           },
           {
-            "text": "Collaborated with UX/UI designers to translate wireframes and mockups into pixel-perfect, accessible HTML/CSS layouts, adhering to WCAG guidelines.",
-            "keywords": [
-              "UX/UI",
-              "HTML/CSS",
-              "WCAG guidelines"
-            ]
+            "text": "Translated wireframes into accessible HTML/CSS layouts, adhering to WCAG guidelines.",
+            "keywords": ["HTML/CSS", "WCAG"]
           },
           {
-            "text": "Developed and maintained a comprehensive suite of unit and integration tests using Jest, ensuring code reliability and facilitating agile development practices.",
-            "keywords": [
-              "Jest",
-              "unit tests",
-              "integration tests"
-            ]
-          },
-          {
-            "text": "Optimized website performance through efficient code practices and asset management, resulting in improved loading times and overall user satisfaction.",
-            "keywords": [
-              "performance optimization",
-              "loading times"
-            ]
-          },
-          {
-            "text": "Participated in code reviews and contributed to the establishment of best practices and coding standards within the development team.",
-            "keywords": [
-              "code reviews",
-              "best practices"
-            ]
+            "text": "Developed unit and integration tests using Jest, ensuring code reliability.",
+            "keywords": ["unit", "integration tests"]
           }
         ]
       },
+
       "SilverToursGmbH": {
         "title": "Student Full-Stack Developer",
         "date": "Jan 2015 - Aug 2018",
@@ -387,7 +345,6 @@
   },
   "projectsSection": {
     "title": "Some Things I've Built",
-    "sectionNumber": "03",
     "viewProject": "View Project",
     "projects": [
       {
@@ -506,7 +463,7 @@
       }
     ]
   },
-  "contact": {
+  "contactSection": {
     "title": "What's Next?",
     "subtitle": "Let's Connect",
     "content": "I'm always excited about new opportunities and collaborations. Whether you have a project in mind, a question about my work, or just want to say hello, I'd love to hear from you. Let's start a conversation and explore how we can create something amazing together!",
@@ -521,6 +478,6 @@
     "errorMessage": "Failed to send message. Please try again."
   },
   "footer": {
-    "rights": "© 2024 Artem Polovyi. All rights reserved."
+    "rights": "All rights reserved."
   }
 }
