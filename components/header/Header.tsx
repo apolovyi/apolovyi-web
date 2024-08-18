@@ -1,12 +1,13 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { getDictionary } from "@/lib/dictionary";
+import { Locale } from "@/i18n-config";
 import Logo from "@/components/header/menu/Logo";
 import DesktopMenu from "@/components/header/menu/DesktopMenu";
 import IconMenu from "@/components/header/menu/IconMenu";
 import MobileMenu from "@/components/header/menu/MobileMenu";
-import { motion } from "framer-motion";
 import { HeaderContext } from "@/components/header/menu/HeaderContext";
-import { getDictionary } from "@/lib/dictionary";
-import { Locale } from "@/i18n-config";
+import LanguageSwitcher from "@/components/LanguageSwitcher"; // Import the new component
 
 interface HeaderProps {
   finishedLoading: boolean;
@@ -46,7 +47,7 @@ function Header({ finishedLoading, lang }: Readonly<HeaderProps>) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ opacity: { delay: finishedLoading ? 0 : 4.9, duration: 0 } }}
-        className={`fixed left-0 right-0 top-0 z-50 flex w-full justify-between px-6 py-4 transition-all duration-300 ease-in-out sm:px-12 sm:py-6
+        className={`fixed left-0 right-0 top-0 z-50 flex w-full items-center justify-between px-6 py-4 transition-all duration-300 ease-in-out sm:px-12 sm:py-6
           ${isScrolled ? "shadow-lg backdrop-blur-sm" : ""}
           ${
             showElement
@@ -57,8 +58,11 @@ function Header({ finishedLoading, lang }: Readonly<HeaderProps>) {
           }`}
       >
         <Logo />
-        <IconMenu />
-        <DesktopMenu lang={lang} />
+        <div className="flex items-center space-x-4">
+          <LanguageSwitcher currentLang={lang} />
+          <IconMenu />
+          <DesktopMenu lang={lang} />
+        </div>
       </motion.header>
     </HeaderContext.Provider>
   );

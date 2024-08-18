@@ -5,6 +5,7 @@ import Script from "next/script";
 import { i18n, Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/dictionary";
 import { Metadata } from "next";
+import LanguageDetector from "@/components/LanguageDetector";
 
 const comfortaa = Comfortaa({
   subsets: ["latin"],
@@ -33,11 +34,12 @@ const merriweather = Merriweather({
 });
 
 export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
+  return i18n.locales.map((locale) => ({ lang: [locale] }));
 }
 
-export function generateMetadata({ params }: { params: { lang: Locale } }): Metadata {
-  const dictionary = getDictionary(params.lang);
+export function generateMetadata({ params }: { params: { lang: string[] } }): Metadata {
+  const lang = (params.lang?.[0] || i18n.defaultLocale) as Locale;
+  const dictionary = getDictionary(lang);
   const { metadata } = dictionary;
 
   return {
@@ -52,7 +54,7 @@ export function generateMetadata({ params }: { params: { lang: Locale } }): Meta
       url: metadata.openGraph.url,
       siteName: metadata.openGraph.siteName,
       images: metadata.openGraph.images,
-      locale: params.lang,
+      locale: lang,
       type: metadata.openGraph.type as "website" | "article" | "book" | "profile", // Explicitly cast to allowed types
     },
     robots: metadata.robots,
@@ -64,13 +66,15 @@ export function generateMetadata({ params }: { params: { lang: Locale } }): Meta
   };
 }
 
-const RootLayout = ({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) => {
+const RootLayout = ({ children, params }: { children: React.ReactNode; params: { lang: string[] } }) => {
+  const lang = (params.lang?.[0] || i18n.defaultLocale) as Locale;
   return (
     <html
-      lang={params.lang}
+      lang={lang}
       className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
     >
       <body>
+        <LanguageDetector />
         <AppProvider>{children}</AppProvider>
         <Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
       </body>
