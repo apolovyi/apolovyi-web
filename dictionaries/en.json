@@ -39,9 +39,6 @@
         { "url": "/apple-icon.png", "sizes": "180x180", "type": "image/png" }
       ]
     },
-    "alternates": {
-      "canonical": "https://apolovyi.me"
-    },
     "keywords": ["Software Engineer", "Full-stack Developer", "Web Development", "Cloud Technologies"]
   },
   "header": {
