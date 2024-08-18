@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { i18n, Locale } from "@/i18n-config";
 
@@ -10,28 +10,87 @@ interface LanguageSwitcherProps {
 
 function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isUS, setIsUS] = useState(false);
+
+  useEffect(() => {
+    const userLanguage = navigator.language || (navigator as any).userLanguage;
+    console.log(userLanguage);
+    setIsUS(userLanguage.startsWith("en-US"));
+  }, []);
 
   const handleLanguageChange = (newLang: Locale) => {
     localStorage.setItem("detectedLang", newLang);
     router.push(`/${newLang}`);
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const getDisplayName = (locale: Locale) => {
+    return i18n.localeNames[locale];
+  };
+
+  const getFlag = (locale: Locale) => {
+    if (locale === "en" && isUS) {
+      return "🇺🇸";
+    }
+    return i18n.localeEmojis[locale];
   };
 
   return (
-    <div className="flex space-x-2">
-      {i18n.locales.map((locale) => (
-        <button
-          key={locale}
-          onClick={() => handleLanguageChange(locale)}
-          disabled={currentLang === locale}
-          className={`rounded px-2 py-1 text-sm ${
-            currentLang === locale
-              ? "bg-accent-coral text-background-primary"
-              : "text-text-secondary hover:text-accent-coral"
-          }`}
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center space-x-2 rounded px-3 py-2 text-sm text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral"
+      >
+        <span>{getFlag(currentLang)}</span>
+        <span>{getDisplayName(currentLang)}</span>
+        <svg
+          className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {locale.toUpperCase()}
-        </button>
-      ))}
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      {isOpen && (
+        <div className="w-55 absolute right-0 mt-2 rounded-md bg-background-primary shadow-lg ring-1 ring-black ring-opacity-5">
+          <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+            {i18n.locales.map((locale) => (
+              <button
+                key={locale}
+                onClick={() => handleLanguageChange(locale)}
+                className={`block w-full px-4 py-2 text-left text-sm ${
+                  currentLang === locale
+                    ? "bg-accent-coral bg-opacity-10 text-accent-coral"
+                    : "text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral"
+                }`}
+                role="menuitem"
+              >
+                <span className="whitespace-nowrap">
+                  <span className="mr-2">{getFlag(locale)}</span>
+                  {getDisplayName(locale)}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
