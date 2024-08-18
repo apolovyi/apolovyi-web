@@ -43,9 +43,6 @@ export interface Metadata {
     icon: Array<{ url: string; type?: string; sizes?: string }>;
     apple: Array<{ url: string; sizes: string; type: string }>;
   };
-  alternates: {
-    canonical: string;
-  };
   keywords: string[];
 }
 

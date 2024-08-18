@@ -56,7 +56,7 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
       siteName: metadata.openGraph.siteName,
       images: metadata.openGraph.images,
       locale: lang,
-      type: metadata.openGraph.type as "website" | "article" | "book" | "profile", // Explicitly cast to allowed types
+      type: metadata.openGraph.type as "website" | "article" | "book" | "profile",
     },
     robots: metadata.robots,
     icons: metadata.icons,
@@ -68,6 +68,7 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
         de: "/de",
         ch: "/ch",
         uk: "/uk",
+        ru: "/ru",
       },
     },
     keywords: metadata.keywords,
