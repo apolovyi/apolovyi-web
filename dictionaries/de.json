@@ -1,93 +1,78 @@
 {
   "metadata": {
     "title": {
-      "default": "Artem Polovyi - Software Engineer",
-      "template": "%s | Artem Polovyi - Software Engineer"
+      "default": "Artem Polovyi - Softwareentwickler",
+      "template": "%s | Artem Polovyi - Softwareentwickler"
     },
-    "description": "Full-stack engineer with over 7 years of experience. Specializing in scalable web applications and cloud technologies.",
+    "description": "Full-Stack-Ingenieur mit über 7 Jahren Erfahrung. Spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien.",
     "openGraph": {
-      "title": "Artem Polovyi - Software Engineer",
-      "description": "Full-stack engineer with over 7 years of experience. Specializing in scalable web applications and cloud technologies.",
-      "url": "https://apolovyi.me",
-      "siteName": "Artem Polovyi - Software Engineer",
+      "title": "Artem Polovyi - Softwareentwickler",
+      "description": "Full-Stack-Ingenieur mit über 7 Jahren Erfahrung. Spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien.",
+      "url": "https://apolovyi.me/de",
+      "siteName": "Artem Polovyi - Softwareentwickler",
       "images": [
         {
           "url": "/img/me-bg.jpg",
           "width": 1200,
           "height": 630,
-          "alt": "Artem Polovyi - Software Engineer"
+          "alt": "Artem Polovyi - Softwareentwickler"
         }
-      ],
-      "locale": "en_US",
-      "type": "website"
+      ]
     },
-    "metadata": {
-      "robots": {
-        "index": true,
-        "follow": true,
-        "nocache": true,
-        "max-image-preview": "large",
-        "max-snippet": 200
-      }
-    },
-    "keywords": [
-      "Software Engineer",
-      "Full-stack Developer",
-      "Web Development",
-      "Cloud Technologies"
-    ]
+    "keywords": ["Softwareentwickler", "Full-Stack-Entwickler", "Webentwicklung", "Cloud-Technologien"]
   },
   "header": {
     "menuItems": [
       {
         "id": "01",
-        "name": "About",
+        "name": "Über mich",
         "href": "#aboutSection"
       },
       {
         "id": "02",
-        "name": "Experience",
+        "name": "Erfahrung",
         "href": "#experienceSection"
       },
       {
         "id": "03",
-        "name": "Work",
+        "name": "Arbeit",
         "href": "#projectsSection"
       },
       {
         "id": "04",
-        "name": "Contact",
+        "name": "Kontakt",
         "href": "#contactSection"
       }
     ],
     "resumeButton": {
-      "text": "Resume",
-      "href": "/cv/CV_Artem_Polovyi_EN_WEB.pdf"
+      "text": "Lebenslauf",
+      "href": "/cv/CV_Artem_Polovyi_DE_WEB.pdf"
     }
   },
   "heroSection": {
-    "greeting": "Hi, my name is",
+    "greeting": "Hallo, mein Name ist",
     "name": "Artem Polovyi.",
-    "tagline": "I bring ideas to life.",
+    "tagline": "Ich bringe Ideen zum Leben.",
+    "resumeHref": "/cv/CV_Artem_Polovyi_DE_WEB.pdf",
     "paragraphs": [
-      "As a full-stack software engineer with strong problem-solving skills, I specialize in creating exceptional digital experiences",
-      "Currently, I am passionate about creating robust solutions, exploring innovative technologies, and driving digital transformation."
+      "Als Full-Stack-Softwareentwickler mit starken Problemlösungsfähigkeiten bin ich darauf spezialisiert, außergewöhnliche digitale Erlebnisse zu schaffen",
+      "Derzeit bin ich leidenschaftlich damit beschäftigt, robuste Lösungen zu entwickeln, innovative Technologien zu erforschen und die digitale Transformation voranzutreiben."
     ],
     "highlightedTerms": [
-      "full-stack software engineer",
-      "robust solutions",
-      "innovative technologies",
-      "digital transformation"
+      "Full-Stack-Softwareentwickler",
+      "robuste Lösungen",
+      "innovative Technologien",
+      "digitale Transformation"
     ],
-    "cta": "Check out my resume!"
+    "cta": "Mein Lebenslauf"
   },
   "aboutMeSection": {
-    "title": "About Me",
+    "title": "Über mich",
     "paragraphs": {
-      "intro": "Hello! I'm Artem Polovyi, a skilled Full-Stack Software Engineer with extensive experience in leading product and consulting companies. My expertise lies in designing and developing high-performance, scalable, and highly available applications.",
-      "specialization": "I specialize in backend technologies (Spring Boot, Kotlin, Java), frontend development (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab), and test automation. My experience includes working on projects for renowned companies like Infineon and Audi, where I've contributed to developing and maintaining high-traffic applications and optimizing system performance.",
-      "mindset": "I have an agile mindset and extensive experience working in agile environments. My passion for continuous learning and problem-solving drives me to stay updated with the latest technologies and best practices in software development.",
-      "technologies": "Here are a few technologies I've been working with recently:"
+      "intro": "Hallo! Ich bin Artem Polovyi, ein erfahrener Full-Stack-Softwareentwickler mit umfangreicher Erfahrung in führenden Produkt- und Beratungsunternehmen. Meine Expertise liegt in der Konzeption und Entwicklung von leistungsstarken, skalierbaren und hochverfügbaren Anwendungen.",
+      "specialization": "Ich bin spezialisiert auf Backend-Technologien (Spring Boot, Kotlin, Java), Frontend-Entwicklung (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab) und Testautomatisierung. Meine Erfahrung umfasst Projekte für renommierte Unternehmen wie Infineon und Audi, wo ich zur Entwicklung und Wartung von Anwendungen mit hohem Datenverkehr beigetragen und die Systemleistung optimiert habe.",
+      "mindset": "Ich habe eine agile Denkweise und umfangreiche Erfahrung in agilen Umgebungen. Meine Leidenschaft für kontinuierliches Lernen und Problemlösung treibt mich dazu an, stets auf dem neuesten Stand der Technologien und Best Practices in der Softwareentwicklung zu bleiben.",
+      "technologies": "Hier sind einige Technologien, mit denen ich in letzter Zeit gearbeitet habe:"
     },
     "highlightedTerms": [
       "Spring Boot",
@@ -103,7 +88,7 @@
     ]
   },
   "experienceSection": {
-    "title": "Where I've Worked",
+    "title": "Wo ich gearbeitet habe",
     "companies": {
       "TheBicesterCollection": "The Bicester Collection",
       "VirtualIdentityAG": "Virtual Identity AG",
@@ -114,84 +99,55 @@
     },
     "roles": {
       "TheBicesterCollection": {
-        "title": "Lead Full-Stack Engineer",
-        "date": "June 2023 - Present",
+        "title": "Leitender Full-Stack-Ingenieur",
+        "date": "Juni 2023 - Heute",
         "url": "https://www.thebicestercollection.com",
         "tasks": [
           {
-            "text": "Leading the development of an innovative e-commerce platform for a prestigious brand collective in New York City.",
-            "keywords": [
-              "e-commerce platform",
-              "prestigious brand"
-            ]
+            "text": "Leitung der Entwicklung einer innovativen E-Commerce-Plattform für ein prestigeträchtiges Markenkollektiv in New York City.",
+            "keywords": ["E-Commerce-Plattform", "prestigeträchtiges Markenkollektiv"]
           },
           {
-            "text": "Implementing a headless CMS architecture to enhance content flexibility and site performance.",
-            "keywords": [
-              "headless CMS",
-              "content flexibility"
-            ]
+            "text": "Implementierung einer Headless-CMS-Architektur zur Verbesserung der Inhaltsflexibilität und Website-Performance.",
+            "keywords": ["Headless-CMS", "Inhaltsflexibilität"]
           },
           {
-            "text": "Optimizing the website for search engines (SEO) to boost visibility and organic traffic.",
-            "keywords": [
-              "SEO",
-              "organic traffic"
-            ]
+            "text": "Optimierung der Website für Suchmaschinen (SEO) zur Steigerung der Sichtbarkeit und des organischen Traffics.",
+            "keywords": ["SEO", "organischer Traffic"]
           },
           {
-            "text": "Leveraging Vercel's platform for seamless deployment and hosting, ensuring high availability and rapid content delivery.",
-            "keywords": [
-              "Vercel",
-              "seamless deployment"
-            ]
+            "text": "Nutzung der Vercel-Plattform für nahtlose Bereitstellung und Hosting, um hohe Verfügbarkeit und schnelle Inhaltsauslieferung sicherzustellen.",
+            "keywords": ["Vercel", "nahtlose Bereitstellung"]
           },
           {
-            "text": "Utilizing a modern tech stack including Next.js, TypeScript, Tailwind CSS, and Sanity to build a robust and scalable web application.",
-            "keywords": [
-              "Next.js",
-              "TypeScript",
-              "Tailwind CSS",
-              "Sanity"
-            ]
+            "text": "Verwendung eines modernen Technologie-Stacks einschließlich Next.js, TypeScript, Tailwind CSS und Sanity zum Aufbau einer robusten und skalierbaren Webanwendung.",
+            "keywords": ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"]
           }
         ]
       },
       "VirtualIdentityAG": {
-        "title": "Senior Full-Stack Engineer",
+        "title": "Senior Full-Stack-Ingenieur",
         "date": "Feb 2022 - Jan 2024",
         "url": "https://www.virtual-identity.com",
         "tasks": [
           {
-            "text": "Developed and maintained features on infineon.com to optimize user experience and functionality.",
-            "keywords": [
-              "infineon.com",
-              "user experience"
-            ]
+            "text": "Entwicklung und Pflege von Funktionen auf infineon.com zur Optimierung der Benutzererfahrung und Funktionalität.",
+            "keywords": ["infineon.com", "Benutzererfahrung"]
           },
           {
-            "text": "Successfully migrated voestalpine.com to the AWS cloud, enhancing scalability and performance.",
-            "keywords": [
-              "voestalpine.com",
-              "AWS cloud"
-            ]
+            "text": "Erfolgreiche Migration von voestalpine.com in die AWS-Cloud, Verbesserung der Skalierbarkeit und Leistung.",
+            "keywords": ["voestalpine.com", "AWS-Cloud"]
           },
           {
-            "text": "Designed and conducted comprehensive unit and integration tests to increase software reliability.",
-            "keywords": [
-              "unit tests",
-              "integration tests"
-            ]
+            "text": "Entwurf und Durchführung umfassender Unit- und Integrationstests zur Erhöhung der Softwarezuverlässigkeit.",
+            "keywords": ["Unit-Tests", "Integrationstests"]
           },
           {
-            "text": "Optimized website performance, improving loading times and user satisfaction.",
-            "keywords": [
-              "performance",
-              "loading times"
-            ]
+            "text": "Optimierung der Website-Performance, Verbesserung der Ladezeiten und Benutzerzufriedenheit.",
+            "keywords": ["Performance", "Ladezeiten"]
           },
           {
-            "text": "Utilized technologies including Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms, and various AWS services.",
+            "text": "Verwendung von Technologien wie Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms und verschiedenen AWS-Diensten.",
             "keywords": [
               "Java",
               "Spring",
@@ -208,66 +164,47 @@
               "AWS"
             ]
           }
+
         ]
       },
       "Spreadshirt": {
-        "title": "Senior Full-Stack Engineer",
+        "title": "Senior Full-Stack-Ingenieur",
         "date": "Nov 2021 - Feb 2022",
         "url": "https://www.spreadshirt.com",
         "tasks": [
           {
-            "text": "Developed a high-performance application for payout generation, improving financial operations.",
-            "keywords": [
-              "payout generation"
-            ]
+            "text": "Entwicklung einer Hochleistungsanwendung zur Auszahlungsgenerierung, Verbesserung der Finanzabläufe.",
+            "keywords": ["Auszahlungsgenerierung"]
           },
           {
-            "text": "Created intuitive user interfaces, enhancing user experience and application usability.",
-            "keywords": [
-              "user interfaces"
-            ]
+            "text": "Erstellung intuitiver Benutzeroberflächen zur Verbesserung der Benutzererfahrung und Anwendungsnutzbarkeit.",
+            "keywords": ["Benutzeroberflächen"]
           },
           {
-            "text": "Worked with technologies including PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript, and React.",
-            "keywords": [
-              "PostgreSQL",
-              "Flyway",
-              "Kotlin",
-              "Spring Boot",
-              "JUnit",
-              "TypeScript",
-              "React"
-            ]
+            "text": "Arbeit mit Technologien wie PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript und React.",
+            "keywords": ["PostgreSQL", "Flyway", "Kotlin", "Spring Boot", "JUnit", "TypeScript", "React"]
           }
         ]
       },
       "ComsystoReplyGmbH": {
-        "title": "Full-Stack Engineer",
-        "date": "Feb 2019 - Oct 2021",
+        "title": "Full-Stack-Ingenieur",
+        "date": "Feb 2019 - Okt 2021",
         "url": "https://www.comsysto.com",
         "tasks": [
           {
-            "text": "Collaborated in a Scrum team to optimize pricing, voucher management, and communication systems for the ABI Audi On Demand product.",
-            "keywords": [
-              "Scrum",
-              "ABI Audi On Demand"
-            ]
+            "text": "Zusammenarbeit in einem Scrum-Team zur Optimierung von Preisgestaltung, Gutscheinverwaltung und Kommunikationssystemen für das ABI Audi On Demand Produkt.",
+            "keywords": ["Scrum", "ABI Audi On Demand"]
           },
           {
-            "text": "Developed and maintained multiple microservices and microfrontends handling loads of up to 200 QPS.",
-            "keywords": [
-              "microservices",
-              "microfrontends"
-            ]
+            "text": "Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen.",
+            "keywords": ["Microservices", "Microfrontends"]
           },
           {
-            "text": "Refactored code using Kotlin, increasing maintainability and reducing code lines by 30%.",
-            "keywords": [
-              "Kotlin"
-            ]
+            "text": "Refaktorisierung von Code mit Kotlin, Erhöhung der Wartbarkeit und Reduzierung der Codezeilen um 30%.",
+            "keywords": ["Kotlin"]
           },
           {
-            "text": "Utilized technologies including PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry, and various AWS services.",
+            "text": "Verwendung von Technologien wie PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry und verschiedenen AWS-Diensten.",
             "keywords": [
               "PostgreSQL",
               "Flyway",
@@ -286,224 +223,145 @@
         ]
       },
       "Blookery": {
-        "title": "Frontend Engineer",
-        "date": "May 2018 - Aug 2018",
+        "title": "Frontend-Ingenieur",
+        "date": "Mai 2018 - Aug 2018",
         "url": "https://www.blookery.de",
         "tasks": [
           {
-            "text": "Led the development of a travel website specializing in blind bookings across Europe, boosting user engagement.",
-            "keywords": [
-              "blind bookings",
-              "user engagement"
-            ]
+            "text": "Leitung der Entwicklung einer Reisewebsite, spezialisiert auf Blind Bookings in ganz Europa, Steigerung des Nutzerengagements.",
+            "keywords": ["Blind Bookings", "Nutzerengagement"]
           },
           {
-            "text": "Created responsive user interfaces with React, ensuring seamless functionality across devices.",
-            "keywords": [
-              "React",
-              "responsive"
-            ]
+            "text": "Erstellung responsiver Benutzeroberflächen mit React, Gewährleistung nahtloser Funktionalität über verschiedene Geräte hinweg.",
+            "keywords": ["React", "responsiv"]
           },
           {
-            "text": "Implemented advanced JavaScript features to enhance site interactivity and navigation.",
-            "keywords": [
-              "JavaScript"
-            ]
+            "text": "Implementierung fortgeschrittener JavaScript-Funktionen zur Verbesserung der Interaktivität und Navigation der Website.",
+            "keywords": ["JavaScript"]
           },
           {
-            "text": "Translated wireframes into accessible HTML/CSS layouts, adhering to WCAG guidelines.",
-            "keywords": [
-              "HTML/CSS",
-              "WCAG"
-            ]
+            "text": "Umsetzung von Wireframes in barrierefreie HTML/CSS-Layouts unter Berücksichtigung der WCAG-Richtlinien.",
+            "keywords": ["HTML/CSS", "WCAG"]
           },
           {
-            "text": "Developed unit and integration tests using Jest, ensuring code reliability.",
-            "keywords": [
-              "unit",
-              "integration tests"
-            ]
+            "text": "Entwicklung von Unit- und Integrationstests mit Jest zur Sicherstellung der Codezuverlässigkeit.",
+            "keywords": ["Unit-Tests", "Integrationstests"]
           }
         ]
       },
       "SilverToursGmbH": {
-        "title": "Student Full-Stack Developer",
+        "title": "Studentischer Full-Stack-Entwickler",
         "date": "Jan 2015 - Aug 2018",
         "url": "https://www.billiger-mietwagen.de",
         "tasks": [
           {
-            "text": "Developed new features for a leading car rental platform, improving user experience.",
-            "keywords": [
-              "car rental platform"
-            ]
+            "text": "Entwicklung neuer Funktionen für eine führende Autovermietungsplattform zur Verbesserung der Benutzererfahrung.",
+            "keywords": ["Autovermietungsplattform"]
           },
           {
-            "text": "Implemented A/B tests to optimize product specifications and enhance conversion rates.",
-            "keywords": [
-              "A/B tests"
-            ]
+            "text": "Implementierung von A/B-Tests zur Optimierung von Produktspezifikationen und Steigerung der Konversionsraten.",
+            "keywords": ["A/B-Tests"]
           },
           {
-            "text": "Conducted thorough testing in each product iteration to ensure high-quality releases.",
-            "keywords": [
-              "testing"
-            ]
+            "text": "Durchführung gründlicher Tests in jeder Produktiteration zur Sicherstellung qualitativ hochwertiger Releases.",
+            "keywords": ["Tests"]
           },
           {
-            "text": "Created internal tools for the customer service team, increasing efficiency by 50%.",
-            "keywords": [
-              "internal tools"
-            ]
+            "text": "Erstellung interner Tools für das Kundenserviceteam, wodurch die Effizienz um 50% gesteigert wurde.",
+            "keywords": ["interne Tools"]
           },
           {
-            "text": "Worked with technologies including JavaScript, HTML, CSS, jQuery, and PHP.",
-            "keywords": [
-              "JavaScript",
-              "HTML",
-              "CSS",
-              "jQuery",
-              "PHP"
-            ]
+            "text": "Arbeit mit Technologien wie JavaScript, HTML, CSS, jQuery und PHP.",
+            "keywords": ["JavaScript", "HTML", "CSS", "jQuery", "PHP"]
           }
         ]
       }
     }
   },
   "projectsSection": {
-    "title": "Some Things I've Built",
-    "viewProject": "View Project",
+    "title": "Einige Dinge, die ich entwickelt habe",
+    "viewProject": "Projekt ansehen",
     "projects": [
       {
-        "category": "Enterprise Web Development",
+        "category": "Enterprise-Webentwicklung",
         "company": "Infineon Technologies",
-        "description": "Developed and maintained features on infineon.com to optimize user experience and functionality. Designed and conducted comprehensive unit and integration tests to increase software reliability. Utilized a wide range of technologies to deliver high-quality web solutions.",
-        "role": "Senior Full-Stack Engineer",
+        "description": "Entwicklung und Wartung von Funktionen auf infineon.com zur Optimierung der Benutzererfahrung und Funktionalität. Entwurf und Durchführung umfassender Unit- und Integrationstests zur Erhöhung der Softwarezuverlässigkeit. Verwendung einer breiten Palette von Technologien zur Bereitstellung hochwertiger Weblösungen.",
+        "role": "Senior Full-Stack-Ingenieur",
         "image": "/img/projects/infineon.png",
         "link": "https://www.infineon.com",
-        "technologies": [
-          "JavaEE",
-          "Spring",
-          "OpenCMS",
-          "JUnit",
-          "TypeScript",
-          "React",
-          "AWS"
-        ]
+        "technologies": ["JavaEE", "Spring", "OpenCMS", "JUnit", "TypeScript", "React", "AWS"]
       },
       {
-        "category": "Cloud Migration & Optimization",
+        "category": "Cloud-Migration & Optimierung",
         "company": "voestalpine AG",
-        "description": "Successfully migrated voestalpine.com to the AWS cloud, significantly enhancing scalability and performance. Implemented advanced features using Java and Spring, while optimizing database operations with PostgreSQL. Leveraged various AWS services to ensure robust and efficient cloud infrastructure.",
-        "role": "Cloud Migration Specialist",
+        "description": "Erfolgreiche Migration von voestalpine.com in die AWS-Cloud, was Skalierbarkeit und Leistung erheblich verbesserte. Implementierung fortschrittlicher Funktionen mit Java und Spring bei gleichzeitiger Optimierung von Datenbankoperationen mit PostgreSQL. Nutzung verschiedener AWS-Dienste zur Gewährleistung einer robusten und effizienten Cloud-Infrastruktur.",
+        "role": "Cloud-Migrationsspezialist",
         "image": "/img/projects/voestalpine.png",
         "link": "https://www.voestalpine.com",
-        "technologies": [
-          "JavaEE",
-          "Spring",
-          "OpenCMS",
-          "AWS",
-          "MySQL",
-          "Oracle",
-          "React",
-          "CloudFormation"
-        ]
+        "technologies": ["JavaEE", "Spring", "OpenCMS", "AWS", "MySQL", "Oracle", "React", "CloudFormation"]
       },
       {
-        "category": "Financial Technology",
-        "company": "Spreadshirt Payout System",
-        "description": "Developed a high-performance application for payout generation, significantly improving financial operations. Created intuitive user interfaces to enhance user experience and application usability. Implemented robust backend logic to ensure accurate and timely payouts.",
-        "role": "Senior Full-Stack Engineer",
+        "category": "Finanztechnologie",
+        "company": "Spreadshirt Auszahlungssystem",
+        "description": "Entwicklung einer Hochleistungsanwendung zur Auszahlungsgenerierung, die die Finanzabläufe erheblich verbesserte. Erstellung intuitiver Benutzeroberflächen zur Verbesserung der Benutzererfahrung und Anwendungsnutzbarkeit. Implementierung robuster Backend-Logik zur Sicherstellung genauer und pünktlicher Auszahlungen.",
+        "role": "Senior Full-Stack-Ingenieur",
         "image": "/img/projects/spreadshirt.png",
         "link": "https://www.spreadshirt.com",
-        "technologies": [
-          "Kotlin",
-          "Spring Boot",
-          "PostgreSQL",
-          "Flyway",
-          "JUnit",
-          "TypeScript",
-          "React"
-        ]
+        "technologies": ["Kotlin", "Spring Boot", "PostgreSQL", "Flyway", "JUnit", "TypeScript", "React"]
       },
       {
-        "category": "Car Rental Platform",
+        "category": "Autovermietungsplattform",
         "company": "ABI Audi On Demand",
-        "description": "Collaborated in a Scrum team to optimize pricing, voucher management, and communication systems for the ABI Audi On Demand product. Developed and maintained multiple microservices and microfrontends handling loads of up to 200 QPS. Refactored code using Kotlin, increasing maintainability and reducing code lines by 30%.",
-        "role": "Full-Stack Engineer",
+        "description": "Zusammenarbeit in einem Scrum-Team zur Optimierung von Preisgestaltung, Gutscheinverwaltung und Kommunikationssystemen für das ABI Audi On Demand Produkt. Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen. Refaktorisierung von Code mit Kotlin, Erhöhung der Wartbarkeit und Reduzierung der Codezeilen um 30%.",
+        "role": "Full-Stack-Ingenieur",
         "image": "/img/projects/aod.png",
         "link": "https://www.audi.com",
-        "technologies": [
-          "Kotlin",
-          "Spring Boot",
-          "RabbitMQ",
-          "Angular",
-          "TypeScript",
-          "Jenkins",
-          "AWS"
-        ]
+        "technologies": ["Kotlin", "Spring Boot", "RabbitMQ", "Angular", "TypeScript", "Jenkins", "AWS"]
       },
       {
-        "category": "Travel & Lifestyle",
+        "category": "Reisen & Lifestyle",
         "company": "Turkey Nomad",
-        "description": "Developed a comprehensive platform for digital nomads in Turkey, featuring a travel blog and curated recommendations. This project showcases modern web development techniques and content management integration. The site offers valuable insights and resources for remote workers and travelers exploring Turkey.",
-        "role": "Lead Full-Stack Developer",
+        "description": "Entwicklung einer umfassenden Plattform für digitale Nomaden in der Türkei, mit einem Reiseblog und kuratierten Empfehlungen. Dieses Projekt zeigt moderne Webentwicklungstechniken und Content-Management-Integration. Die Website bietet wertvolle Einblicke und Ressourcen für Remote-Arbeiter und Reisende, die die Türkei erkunden.",
+        "role": "Leitender Full-Stack-Entwickler",
         "image": "/img/projects/turkey-nomad.png",
         "link": "https://turkeynomad.com",
-        "technologies": [
-          "Next.js",
-          "TypeScript",
-          "Strapi CMS",
-          "Vercel"
-        ]
+        "technologies": ["Next.js", "TypeScript", "Strapi CMS", "Vercel"]
       },
       {
-        "category": "Travel Technology",
+        "category": "Reisetechnologie",
         "company": "blookery",
-        "description": "Developed the front-end of an innovative travel website specializing in blind bookings across Europe. Engineered responsive and intuitive user interfaces using React, ensuring seamless functionality across various devices and screen sizes. Implemented advanced JavaScript features to create dynamic and interactive elements, significantly improving user interaction and site navigation.",
-        "role": "Frontend Engineer",
+        "description": "Entwicklung des Frontends einer innovativen Reisewebsite, die sich auf Blind Bookings in ganz Europa spezialisiert hat. Entwicklung responsiver und intuitiver Benutzeroberflächen mit React, um eine nahtlose Funktionalität auf verschiedenen Geräten und Bildschirmgrößen zu gewährleisten. Implementierung fortgeschrittener JavaScript-Funktionen zur Erstellung dynamischer und interaktiver Elemente, was die Benutzerinteraktion und Website-Navigation erheblich verbesserte.",
+        "role": "Frontend-Ingenieur",
         "image": "/img/projects/blookery.png",
         "link": "https://www.blookery.de",
-        "technologies": [
-          "React",
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "Jest"
-        ]
+        "technologies": ["React", "JavaScript", "HTML", "CSS", "Jest"]
       },
       {
-        "category": "Car Rental Platform",
+        "category": "Autovermietungsplattform",
         "company": "Billiger Mietwagen",
-        "description": "As a student developer, contributed to a leading car rental platform, significantly improving user experience. Implemented A/B tests to optimize product specifications and enhance conversion rates. Conducted thorough testing in each product iteration to ensure high-quality releases. Created internal tools for the customer service team, increasing efficiency by 50%.",
-        "role": "Student Full-Stack Developer",
+        "description": "Als studentischer Entwickler Beitrag zu einer führenden Autovermietungsplattform, wodurch die Benutzererfahrung erheblich verbessert wurde. Implementierung von A/B-Tests zur Optimierung von Produktspezifikationen und Steigerung der Konversionsraten. Durchführung gründlicher Tests in jeder Produktiteration zur Sicherstellung qualitativ hochwertiger Releases. Erstellung interner Tools für das Kundenserviceteam, wodurch die Effizienz um 50% gesteigert wurde.",
+        "role": "Studentischer Full-Stack-Entwickler",
         "image": "/img/projects/billiger-mietwagen.png",
         "link": "https://www.billiger-mietwagen.de",
-        "technologies": [
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "jQuery",
-          "PHP",
-          "Optimizely"
-        ]
+        "technologies": ["JavaScript", "HTML", "CSS", "jQuery", "PHP", "Optimizely"]
       }
     ]
   },
   "contactSection": {
-    "title": "What's Next?",
-    "subtitle": "Let's Connect",
-    "content": "I'm always excited about new opportunities and collaborations. Whether you have a project in mind, a question about my work, or just want to say hello, I'd love to hear from you. Let's start a conversation and explore how we can create something amazing together!",
+    "title": "Was kommt als Nächstes?",
+    "subtitle": "Lass uns in Kontakt treten",
+    "content": "Ich bin immer begeistert von neuen Möglichkeiten und Kooperationen. Ob du ein Projekt im Sinn hast, eine Frage zu meiner Arbeit oder einfach nur Hallo sagen möchtest, ich würde mich freuen, von dir zu hören. Lass uns ein Gespräch beginnen und erkunden, wie wir gemeinsam etwas Großartiges schaffen können!",
     "formLabels": {
       "name": "Name",
-      "email": "Email",
-      "message": "Message"
+      "email": "E-Mail",
+      "message": "Nachricht"
     },
-    "sendButton": "Send Message",
-    "sending": "Sending...",
-    "successMessage": "Message sent successfully!",
-    "errorMessage": "Failed to send message. Please try again."
+    "sendButton": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "successMessage": "Nachricht erfolgreich gesendet!",
+    "errorMessage": "Nachricht konnte nicht gesendet werden. Bitte versuche es erneut."
   },
   "footer": {
-    "rights": "All rights reserved."
+    "rights": "Alle Rechte vorbehalten."
   }
 }

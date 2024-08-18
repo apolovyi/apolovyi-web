@@ -85,7 +85,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
             <button className="relative p-[2px]">
               <div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary to-secondary" />
               <div className="group relative rounded-[6px] bg-white px-8 py-3 font-heading text-accent-coral transition duration-200 hover:bg-transparent hover:text-white">
-                <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noreferrer">
+                <a href={heroSection.resumeHref} target="_blank" rel="noreferrer">
                   {heroSection.cta}
                 </a>
               </div>

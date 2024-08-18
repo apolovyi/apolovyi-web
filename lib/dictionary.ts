@@ -7,22 +7,6 @@ export interface OpenGraphImage {
   alt: string;
 }
 
-export interface Robots {
-  index?: boolean;
-  follow?: boolean;
-  noarchive?: boolean;
-  nosnippet?: boolean;
-  noimageindex?: boolean;
-  nocache?: boolean;
-  notranslate?: boolean;
-  indexifembedded?: boolean;
-  nositelinkssearchbox?: boolean;
-  unavailable_after?: string;
-  "max-video-preview"?: number | string;
-  "max-image-preview"?: "none" | "standard" | "large";
-  "max-snippet"?: number;
-}
-
 export interface Metadata {
   title: {
     default: string;
@@ -35,10 +19,7 @@ export interface Metadata {
     url: string;
     siteName: string;
     images: OpenGraphImage[];
-    locale: string;
-    type: string;
   };
-  robots: Robots;
   keywords: string[];
 }
 
@@ -78,6 +59,7 @@ interface HeroSection {
   name: string;
   greeting: string;
   tagline: string;
+  resumeHref: string;
   paragraphs: string[];
   highlightedTerms: string[];
   cta: string;

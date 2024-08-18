@@ -8,7 +8,7 @@
     "openGraph": {
       "title": "Artem Polovyi - Software Engineer",
       "description": "Full-stack engineer with over 7 years of experience. Specializing in scalable web applications and cloud technologies.",
-      "url": "https://apolovyi.me",
+      "url": "https://apolovyi.me/en",
       "siteName": "Artem Polovyi - Software Engineer",
       "images": [
         {
@@ -17,18 +17,7 @@
           "height": 630,
           "alt": "Artem Polovyi - Software Engineer"
         }
-      ],
-      "locale": "en_US",
-      "type": "website"
-    },
-    "metadata": {
-      "robots": {
-        "index": true,
-        "follow": true,
-        "nocache": true,
-        "max-image-preview": "large",
-        "max-snippet": 200
-      }
+      ]
     },
     "keywords": ["Software Engineer", "Full-stack Developer", "Web Development", "Cloud Technologies"]
   },
@@ -64,6 +53,7 @@
     "greeting": "Hi, my name is",
     "name": "Artem Polovyi.",
     "tagline": "I bring ideas to life.",
+    "resumeHref": "/cv/CV_Artem_Polovyi_EN_WEB.pdf",
     "paragraphs": [
       "As a full-stack software engineer with strong problem-solving skills, I specialize in creating exceptional digital experiences",
       "Currently, I am passionate about creating robust solutions, exploring innovative technologies, and driving digital transformation."
