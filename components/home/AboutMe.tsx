@@ -57,7 +57,7 @@ function AboutMe({ lang }: AboutMeProps) {
         <header data-aos="fade-up" className="flex flex-row items-center font-heading">
           <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
           <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-            <span className="font-tech text-xl text-accent-coral">{aboutMeSection.sectionNumber}</span>
+            <span className="font-tech text-xl text-accent-coral">01.</span>
             <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
               {aboutMeSection.title}
             </h2>

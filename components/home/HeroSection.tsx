@@ -57,7 +57,9 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
         delay={baseDelay + 0.3}
         className="mt-10 max-w-sm font-body text-base tracking-wider text-text-secondary sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
       >
-        {highlightText(heroSection.description, heroSection.highlightedTerms)}
+        <p className="text-text-secondary">{highlightText(heroSection.paragraphs[0], heroSection.highlightedTerms)}</p>
+        <br />
+        <p className="text-text-secondary">{highlightText(heroSection.paragraphs[1], heroSection.highlightedTerms)}</p>
       </AnimatedText>
       <AnimatedText delay={baseDelay + 0.4} className="mt-12">
         <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noreferrer">
