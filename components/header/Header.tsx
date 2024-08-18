@@ -1,11 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
-import Logo from "@/components/header/menu/Logo";
+import { getDictionary } from "@/lib/dictionary";
+import Logo from "@/components/header/menu/Logo"; // Updated import
+import MobileMenu from "@/components/header/menu/MobileMenu";
 import DesktopMenu from "@/components/header/menu/DesktopMenu";
 import IconMenu from "@/components/header/menu/IconMenu";
-import MobileMenu from "@/components/header/menu/MobileMenu";
 import { HeaderContext } from "@/components/header/menu/HeaderContext";
 
 interface HeaderProps {
@@ -24,6 +24,10 @@ function Header({ finishedLoading, lang }: Readonly<HeaderProps>) {
     const handleScroll = () => setIsScrolled(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   const contextValue = useMemo(
@@ -56,7 +60,7 @@ function Header({ finishedLoading, lang }: Readonly<HeaderProps>) {
               : "bg-transparent"
           }`}
       >
-        <Logo />
+        <Logo onClick={scrollToTop} />
         <div className="flex items-center space-x-4">
           <DesktopMenu lang={lang} />
           <IconMenu />
