@@ -7,7 +7,6 @@ import DesktopMenu from "@/components/header/menu/DesktopMenu";
 import IconMenu from "@/components/header/menu/IconMenu";
 import MobileMenu from "@/components/header/menu/MobileMenu";
 import { HeaderContext } from "@/components/header/menu/HeaderContext";
-import LanguageSwitcher from "@/components/LanguageSwitcher"; // Import the new component
 
 interface HeaderProps {
   finishedLoading: boolean;
@@ -59,9 +58,8 @@ function Header({ finishedLoading, lang }: Readonly<HeaderProps>) {
       >
         <Logo />
         <div className="flex items-center space-x-4">
-          <LanguageSwitcher currentLang={lang} />
-          <IconMenu />
           <DesktopMenu lang={lang} />
+          <IconMenu />
         </div>
       </motion.header>
     </HeaderContext.Provider>
