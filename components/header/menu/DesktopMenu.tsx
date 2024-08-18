@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
 import { Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/dictionary";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -69,6 +70,9 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
         >
           {header.resumeButton.text}
         </a>
+      </motion.div>
+      <motion.div variants={itemVariants}>
+        <LanguageSwitcher currentLang={lang} />
       </motion.div>
     </motion.nav>
   );
