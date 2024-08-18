@@ -2,7 +2,9 @@ import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/goo
 import { AppProvider } from "@/components/shared/AppContext";
 import "@/styles/globals.css";
 import Script from "next/script";
-import type { Metadata } from "next";
+import { i18n, Locale } from "@/i18n-config";
+import { getDictionary } from "@/lib/dictionary";
+import { Metadata } from "next";
 
 const comfortaa = Comfortaa({
   subsets: ["latin"],
@@ -30,59 +32,42 @@ const merriweather = Merriweather({
   weight: ["300", "400", "700", "900"],
 });
 
-const siteName = "Artem Polovyi - Software Engineer";
-const siteUrl = "https://apolovyi.me";
-const description =
-  "Full-stack engineer with over 7 years of experience. Specializing in scalable web applications and cloud technologies.";
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: siteName,
-    template: `%s | ${siteName}`,
-  },
-  description,
-  openGraph: {
-    title: siteName,
-    description,
-    url: siteUrl,
-    siteName,
-    images: [
-      {
-        url: "/img/me-bg.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Artem Polovyi - Software Engineer",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+export function generateMetadata({ params }: { params: { lang: Locale } }): Metadata {
+  const dictionary = getDictionary(params.lang);
+  const { metadata } = dictionary;
+
+  return {
+    title: {
+      default: metadata.title.default,
+      template: metadata.title.template,
     },
-  },
-  icons: {
-    icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "32x32" }],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-  },
-  alternates: {
-    canonical: siteUrl,
-  },
-  keywords: ["Software Engineer", "Full-stack Developer", "Web Development", "Cloud Technologies"],
-};
+    description: metadata.description,
+    openGraph: {
+      title: metadata.openGraph.title,
+      description: metadata.openGraph.description,
+      url: metadata.openGraph.url,
+      siteName: metadata.openGraph.siteName,
+      images: metadata.openGraph.images,
+      locale: params.lang,
+      type: metadata.openGraph.type as "website" | "article" | "book" | "profile", // Explicitly cast to allowed types
+    },
+    robots: metadata.robots,
+    icons: metadata.icons,
+    alternates: {
+      canonical: metadata.alternates.canonical,
+    },
+    keywords: metadata.keywords,
+  };
+}
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = ({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) => {
   return (
     <html
-      lang="en"
+      lang={params.lang}
       className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
     >
       <body>

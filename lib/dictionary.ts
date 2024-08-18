@@ -1,5 +1,54 @@
 import type { Locale } from "@/i18n-config";
 
+export interface OpenGraphImage {
+  url: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+export interface Robots {
+  index?: boolean;
+  follow?: boolean;
+  noarchive?: boolean;
+  nosnippet?: boolean;
+  noimageindex?: boolean;
+  nocache?: boolean;
+  notranslate?: boolean;
+  indexifembedded?: boolean;
+  nositelinkssearchbox?: boolean;
+  unavailable_after?: string;
+  "max-video-preview"?: number | string;
+  "max-image-preview"?: "none" | "standard" | "large";
+  "max-snippet"?: number;
+}
+
+export interface Metadata {
+  title: {
+    default: string;
+    template: string;
+  };
+  description: string;
+  openGraph: {
+    title: string;
+    description: string;
+    url: string;
+    siteName: string;
+    images: OpenGraphImage[];
+    locale: string;
+    type: string;
+  };
+  robots: Robots;
+  icons: {
+    icon: Array<{ url: string; type?: string; sizes?: string }>;
+    apple: Array<{ url: string; sizes: string; type: string }>;
+  };
+  alternates: {
+    canonical: string;
+  };
+  keywords: string[];
+}
+
 interface Project {
   category: string;
   company: string;
@@ -74,6 +123,7 @@ interface ProjectsSection {
 }
 
 interface Dictionary {
+  metadata: Metadata;
   header: Header;
   heroSection: HeroSection;
   aboutMeSection: AboutMeSection;
