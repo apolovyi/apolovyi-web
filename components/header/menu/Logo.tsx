@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "framer-motion";
+import HexagonLogo from "@/components/header/menu/HexagonLogo";
 
 interface LineProps {
   id: string;
@@ -22,20 +23,21 @@ const lineConfigs: LineProps[] = [
 ];
 
 function Logo() {
-  return (
-    <motion.div initial={{ y: 0, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="relative h-12 w-10">
-      <motion.span
-        initial={{ x: 1 }}
-        className="absolute flex h-full w-full items-center justify-center font-heading text-lg text-accent-coral"
-      >
-        AP
-      </motion.span>
-
-      {lineConfigs.map(({ id, ...config }) => (
-        <Line key={id} {...config} />
-      ))}
-    </motion.div>
-  );
+  return <HexagonLogo />;
+  // return (
+  //   <motion.div initial={{ y: 0, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="relative h-12 w-10">
+  //     <motion.span
+  //       initial={{ x: 1 }}
+  //       className="absolute flex h-full w-full items-center justify-center font-heading text-lg text-accent-coral"
+  //     >
+  //       AP
+  //     </motion.span>
+  //
+  //     {lineConfigs.map(({ id, ...config }) => (
+  //       <Line key={id} {...config} />
+  //     ))}
+  //   </motion.div>
+  // );
 }
 
 export default memo(Logo);

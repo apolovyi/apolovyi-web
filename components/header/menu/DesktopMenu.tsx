@@ -44,7 +44,7 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 
   return (
     <motion.nav
-      className="hidden flex-row items-center space-x-8 font-tech text-xs md:flex lg:text-lg"
+      className="hidden flex-row items-center space-x-4 font-tech text-xs md:flex lg:text-lg"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
