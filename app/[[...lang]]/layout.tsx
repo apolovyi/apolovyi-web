@@ -1,6 +1,6 @@
 import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/google";
 import { AppProvider } from "@/components/shared/AppContext";
-import "@/styles/globals.css";
+import "@/app/globals.css";
 import Script from "next/script";
 import { i18n, Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/dictionary";
