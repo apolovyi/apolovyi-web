@@ -56,9 +56,15 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
       siteName: metadata.openGraph.siteName,
       images: metadata.openGraph.images,
       locale: lang,
-      type: metadata.openGraph.type as "website" | "article" | "book" | "profile",
+      type: "website",
     },
-    robots: metadata.robots,
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      "max-image-preview": "large",
+      "max-snippet": 200,
+    },
     icons: {
       icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "32x32" }],
       apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
