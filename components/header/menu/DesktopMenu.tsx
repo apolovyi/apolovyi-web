@@ -57,7 +57,7 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
             className="duration-300 hover:text-accent-coral"
             onClick={(e) => handleScroll(e, item.href)}
           >
-            &gt; {item.id}. <span className="text-text-primary hover:text-accent-coral">{item.name}</span>
+            &gt; {item.id}. <span className="font-heading text-text-primary hover:text-accent-coral">{item.name}</span>
           </a>
         </motion.div>
       ))}

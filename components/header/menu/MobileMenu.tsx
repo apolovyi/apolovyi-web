@@ -39,7 +39,10 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
         onClick={closeMenu}
         className="h-full w-1/4 bg-primary bg-opacity-30 backdrop-blur-sm hover:cursor-pointer"
       />
-      <div className="flex h-full w-3/4 flex-col items-center justify-center space-y-8 bg-background-primary font-body">
+      <div className="flex w-3/4 flex-col items-center justify-center bg-background-primary font-body">
+        <div className="mt-4">
+          <LanguageSwitcher currentLang={lang} />
+        </div>
         <div className="flex flex-col items-center justify-center space-y-8 pt-16">
           {header.menuItems.map((item) => (
             <a
@@ -62,9 +65,6 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
           >
             {header.resumeButton.text}
           </a>
-        </div>
-        <div className="mt-16">
-          <LanguageSwitcher currentLang={lang} />
         </div>
       </div>
     </motion.div>
