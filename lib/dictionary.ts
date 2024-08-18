@@ -39,10 +39,6 @@ export interface Metadata {
     type: string;
   };
   robots: Robots;
-  icons: {
-    icon: Array<{ url: string; type?: string; sizes?: string }>;
-    apple: Array<{ url: string; sizes: string; type: string }>;
-  };
   keywords: string[];
 }
 
