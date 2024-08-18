@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://apolovy.me/sitemap.xml",
+    sitemap: "https://apolovyi.me/sitemap.xml",
   };
 }
