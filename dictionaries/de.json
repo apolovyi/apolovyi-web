@@ -30,7 +30,12 @@
         "max-snippet": 200
       }
     },
-    "keywords": ["Software Engineer", "Full-stack Developer", "Web Development", "Cloud Technologies"]
+    "keywords": [
+      "Software Engineer",
+      "Full-stack Developer",
+      "Web Development",
+      "Cloud Technologies"
+    ]
   },
   "header": {
     "menuItems": [
@@ -115,23 +120,40 @@
         "tasks": [
           {
             "text": "Leading the development of an innovative e-commerce platform for a prestigious brand collective in New York City.",
-            "keywords": ["e-commerce platform", "prestigious brand"]
+            "keywords": [
+              "e-commerce platform",
+              "prestigious brand"
+            ]
           },
           {
             "text": "Implementing a headless CMS architecture to enhance content flexibility and site performance.",
-            "keywords": ["headless CMS", "content flexibility"]
+            "keywords": [
+              "headless CMS",
+              "content flexibility"
+            ]
           },
           {
             "text": "Optimizing the website for search engines (SEO) to boost visibility and organic traffic.",
-            "keywords": ["SEO", "organic traffic"]
+            "keywords": [
+              "SEO",
+              "organic traffic"
+            ]
           },
           {
             "text": "Leveraging Vercel's platform for seamless deployment and hosting, ensuring high availability and rapid content delivery.",
-            "keywords": ["Vercel", "seamless deployment"]
+            "keywords": [
+              "Vercel",
+              "seamless deployment"
+            ]
           },
           {
             "text": "Utilizing a modern tech stack including Next.js, TypeScript, Tailwind CSS, and Sanity to build a robust and scalable web application.",
-            "keywords": ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"]
+            "keywords": [
+              "Next.js",
+              "TypeScript",
+              "Tailwind CSS",
+              "Sanity"
+            ]
           }
         ]
       },
@@ -163,7 +185,10 @@
           },
           {
             "text": "Optimized website performance, improving loading times and user satisfaction.",
-            "keywords": ["performance", "loading times"]
+            "keywords": [
+              "performance",
+              "loading times"
+            ]
           },
           {
             "text": "Utilized technologies including Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms, and various AWS services.",
@@ -267,27 +292,40 @@
         "tasks": [
           {
             "text": "Led the development of a travel website specializing in blind bookings across Europe, boosting user engagement.",
-            "keywords": ["blind bookings", "user engagement"]
+            "keywords": [
+              "blind bookings",
+              "user engagement"
+            ]
           },
           {
             "text": "Created responsive user interfaces with React, ensuring seamless functionality across devices.",
-            "keywords": ["React", "responsive"]
+            "keywords": [
+              "React",
+              "responsive"
+            ]
           },
           {
             "text": "Implemented advanced JavaScript features to enhance site interactivity and navigation.",
-            "keywords": ["JavaScript"]
+            "keywords": [
+              "JavaScript"
+            ]
           },
           {
             "text": "Translated wireframes into accessible HTML/CSS layouts, adhering to WCAG guidelines.",
-            "keywords": ["HTML/CSS", "WCAG"]
+            "keywords": [
+              "HTML/CSS",
+              "WCAG"
+            ]
           },
           {
             "text": "Developed unit and integration tests using Jest, ensuring code reliability.",
-            "keywords": ["unit", "integration tests"]
+            "keywords": [
+              "unit",
+              "integration tests"
+            ]
           }
         ]
       },
-
       "SilverToursGmbH": {
         "title": "Student Full-Stack Developer",
         "date": "Jan 2015 - Aug 2018",
