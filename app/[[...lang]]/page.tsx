@@ -17,7 +17,7 @@ import ScreenSizeDetector from "@/components/dev/ScreenSizeDetector";
 import { Locale } from "@/i18n-config";
 import Startup from "@/components/header/startup/Startup";
 
-function Home({ params: { lang } }: { params: { lang: Locale } }) {
+function Home({ params: { lang = "en" } }: { params: { lang?: Locale } }) {
   const [showElement, setShowElement] = useState(true);
   const { sharedState, setSharedState } = useAppContext();
 
