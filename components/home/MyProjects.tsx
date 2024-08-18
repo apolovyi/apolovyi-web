@@ -15,7 +15,7 @@ const ProjectItem = ({ project, index, viewProjectText }: ProjectItemProps) => {
   const isEven = index % 2 === 0;
 
   return (
-    <div className="relative h-[500px] w-full">
+    <div className="relative h-[550px] w-full">
       {/* Image */}
       <div className={`absolute top-0 h-full w-full lg:w-2/3 ${isEven ? "lg:left-0" : "lg:right-0"}`}>
         <div className="relative h-full w-full overflow-hidden rounded-lg">
@@ -98,7 +98,7 @@ const MyProjects = ({ lang }: MyProjectsProps) => {
         <header data-aos="fade-up" className="flex flex-row items-center font-heading">
           <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
           <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-            <span className="font-tech text-xl text-accent-coral">{projectsSection.sectionNumber}.</span>
+            <span className="font-tech text-xl text-accent-coral">03.</span>
             <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
               {projectsSection.title}
             </h2>

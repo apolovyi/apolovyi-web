@@ -4,12 +4,21 @@ import React, { useState } from "react";
 import ArrowIcon from "@/components/icons/ArrowIcon";
 import CheckCircleIcon from "@/components/icons/CheckCircleIcon";
 import XCircleIcon from "@/components/icons/XCircleIcon";
+import { getDictionary } from "@/lib/dictionary";
+import { Locale } from "@/i18n-config";
 
 type SubmitStatus = "idle" | "success" | "error";
 
-function GetInTouch() {
+interface GetInTouchProps {
+  lang: Locale;
+}
+
+function GetInTouch({ lang }: GetInTouchProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+
+  const dictionary = getDictionary(lang);
+  const { contactSection } = dictionary;
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -52,7 +61,7 @@ function GetInTouch() {
             <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
               <span className="font-tech text-xl text-accent-coral"> 04.</span>
               <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-                What&apos;s Next?
+                {contactSection.title}
               </h2>
             </div>
             <div className="h-[0.2px] w-full bg-accent-green"></div>
@@ -60,32 +69,30 @@ function GetInTouch() {
         </div>
 
         <div className="mt-14 text-center text-3xl font-bold tracking-wide text-text-primary sm:text-5xl">
-          Let&apos;s Connect
+          {contactSection.subtitle}
         </div>
 
         <p className="text-center font-body text-lg leading-relaxed text-text-secondary md:px-32">
-          I&apos;m always excited about new opportunities and collaborations. Whether you have a project in mind, a
-          question about my work, or just want to say hello, I&apos;d love to hear from you. Let&apos;s start a
-          conversation and explore how we can create something amazing together!
+          {contactSection.content}
         </p>
 
         <form
-          name="contact"
+          name="contactSection"
           onSubmit={handleSubmit}
           className="w-full max-w-md space-y-4"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contactSection" />
           <div className="hidden">
             <label>
               Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
             </label>
           </div>
 
-          <FormField label="Name" name="name" type="text" required />
-          <FormField label="Email" name="email" type="email" required />
-          <FormField label="Message" name="message" type="textarea" required rows={4} />
+          <FormField label={contactSection.formLabels.name} name="name" type="text" required />
+          <FormField label={contactSection.formLabels.email} name="email" type="email" required />
+          <FormField label={contactSection.formLabels.message} name="message" type="textarea" required rows={4} />
 
           <div className="flex justify-center">
             <button
@@ -97,12 +104,12 @@ function GetInTouch() {
                          focus:outline-none focus:ring-2 focus:ring-accent-coral focus:ring-opacity-50
                          disabled:opacity-50"
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? contactSection.sending : contactSection.sendButton}
             </button>
           </div>
         </form>
 
-        {submitStatus !== "idle" && <StatusMessage status={submitStatus} />}
+        {submitStatus !== "idle" && <StatusMessage status={submitStatus} lang={lang} />}
       </div>
     </section>
   );
@@ -147,12 +154,16 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 
 interface StatusMessageProps {
   status: "success" | "error";
+  lang: Locale;
 }
 
-function StatusMessage({ status }: StatusMessageProps) {
+function StatusMessage({ status, lang }: StatusMessageProps) {
+  const dictionary = getDictionary(lang);
+  const { contactSection } = dictionary;
+
   const isSuccess = status === "success";
   const Icon = isSuccess ? CheckCircleIcon : XCircleIcon;
-  const message = isSuccess ? "Message sent successfully!" : "Failed to send message. Please try again.";
+  const message = isSuccess ? contactSection.successMessage : contactSection.errorMessage;
 
   return (
     <div

@@ -106,7 +106,6 @@ interface Header {
 
 interface ExperienceSection {
   title: string;
-  sectionNumber: string;
   companies: {
     [key: string]: string;
   };
@@ -115,11 +114,28 @@ interface ExperienceSection {
   };
 }
 
+interface Footer {
+  rights: string;
+}
 interface ProjectsSection {
   title: string;
-  sectionNumber: string;
   viewProject: string;
   projects: Project[];
+}
+
+interface ContactSection {
+  title: string;
+  subtitle: string;
+  content: string;
+  formLabels: {
+    name: string;
+    email: string;
+    message: string;
+  };
+  sendButton: string;
+  sending: string;
+  successMessage: string;
+  errorMessage: string;
 }
 
 interface Dictionary {
@@ -129,11 +145,14 @@ interface Dictionary {
   aboutMeSection: AboutMeSection;
   experienceSection: ExperienceSection;
   projectsSection: ProjectsSection;
+  contactSection: ContactSection;
+  footer: Footer;
 }
 
 const dictionaries: Record<Locale, Dictionary> = {
   en: require("@/dictionaries/en.json"),
   de: require("@/dictionaries/de.json"),
+  de_CH: require("@/dictionaries/de_CH.json"),
   ua: require("@/dictionaries/ua.json"),
   ru: require("@/dictionaries/ru.json"),
 };

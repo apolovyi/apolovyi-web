@@ -2,6 +2,8 @@ import React from "react";
 import GithubIcon from "@/components/icons/GithubIcon";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
 import InstagramIcon from "@/components/icons/InstagramIcon";
+import { Locale } from "@/i18n-config";
+import { getDictionary } from "@/lib/dictionary";
 
 type IconComponent = React.ComponentType<{ className?: string }>;
 
@@ -24,7 +26,13 @@ const IconsData: IconProps[] = [
   { href: "https://www.instagram.com/artem_polevoi/", Icon: InstagramIcon },
 ];
 
-function Footer() {
+interface FooterProps {
+  lang: Locale;
+}
+
+const Footer = ({ lang }: FooterProps) => {
+  const dict = getDictionary(lang);
+  const { footer } = dict;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -35,10 +43,10 @@ function Footer() {
         ))}
       </div>
       <p className="text-center font-body text-sm font-light text-text-secondary">
-        © {currentYear} Artem Polovyi. All rights reserved.
+        © {currentYear} Artem Polovyi. {footer.rights}
       </p>
     </footer>
   );
-}
+};
 
 export default Footer;
