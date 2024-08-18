@@ -8,13 +8,13 @@ module.exports = {
   content: ["./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
+    // container: {
+    //   center: true,
+    //   padding: "2rem",
+    //   screens: {
+    //     "2xl": "1400px",
+    //   },
+    // },
     rotate: {
       "-180": "-180deg",
       "-90": "-90deg",
@@ -72,7 +72,12 @@ module.exports = {
         },
         input: "var(--input)",
         ring: "var(--ring)",
-        background: "var(--background)",
+        // background: "var(--background)",
+        background: {
+          DEFAULT: "var(--background)",
+          primary: "#FFFFFF",
+          secondary: "#FAFAFA",
+        },
         foreground: "var(--foreground)",
         error: "#C90000",
         success: "#00C968",
@@ -117,6 +122,14 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -127,6 +140,7 @@ module.exports = {
         },
       },
       animation: {
+        aurora: "aurora 60s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
