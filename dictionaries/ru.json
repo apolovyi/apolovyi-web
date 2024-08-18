@@ -8,7 +8,7 @@
     "openGraph": {
       "title": "Артем Польовий - Інженер-програміст",
       "description": "Full-stack інженер з більш ніж 7-річним досвідом. Спеціалізується на масштабованих веб-додатках та хмарних технологіях.",
-      "url": "https://apolovyi.me",
+      "url": "https://apolovyi.me/ru",
       "siteName": "Артем Польовий - Інженер-програміст",
       "images": [
         {
@@ -17,18 +17,7 @@
           "height": 630,
           "alt": "Артем Польовий - Інженер-програміст"
         }
-      ],
-      "locale": "uk_UA",
-      "type": "website"
-    },
-    "metadata": {
-      "robots": {
-        "index": true,
-        "follow": true,
-        "nocache": true,
-        "max-image-preview": "large",
-        "max-snippet": 200
-      }
+      ]
     },
     "keywords": ["Інженер-програміст", "Full-stack розробник", "Веб-розробка", "Хмарні технології"]
   },
