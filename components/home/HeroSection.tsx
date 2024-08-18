@@ -3,7 +3,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
-import { Button } from "@/components/ui/moving-border";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
@@ -83,15 +82,23 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
           </AnimatedText>
 
           <AnimatedText delay={baseDelay + 0.4} className="mt-12">
-            <Button
-              borderRadius=".5rem"
-              // className="bg-background-primary hover:text-background-primary rounded border border-accent-coral px-4 py-3 font-heading text-accent-coral transition-colors duration-300 hover:bg-accent-coral sm:px-8 sm:py-4"
-              className="border-neutral-200 bg-white px-4 py-3 font-heading text-accent-coral hover:text-background-primary dark:border-slate-800 dark:bg-slate-900 dark:text-white sm:px-8 sm:py-4"
-            >
-              <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noreferrer">
-                {heroSection.cta}
-              </a>
-            </Button>
+            <button className="relative p-[2px]">
+              <div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary to-secondary" />
+              <div className="group relative rounded-[6px] bg-white px-8 py-3 font-heading text-accent-coral transition duration-200 hover:bg-transparent hover:text-white">
+                <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noreferrer">
+                  {heroSection.cta}
+                </a>
+              </div>
+            </button>
+            {/*<Button*/}
+            {/*  borderRadius=".5rem"*/}
+            {/*  // className="bg-background-primary hover:text-background-primary rounded border border-accent-coral px-4 py-3 font-heading text-accent-coral transition-colors duration-300 hover:bg-accent-coral sm:px-8 sm:py-4"*/}
+            {/*  className="border-neutral-200 bg-white px-4 py-3 font-heading text-accent-coral hover:text-background-primary dark:border-slate-800 dark:bg-slate-900 dark:text-white sm:px-8 sm:py-4"*/}
+            {/*>*/}
+            {/*  <a href="/cv/CV_Artem_Polovyi_EN_WEB.pdf" target="_blank" rel="noreferrer">*/}
+            {/*    {heroSection.cta}*/}
+            {/*  </a>*/}
+            {/*</Button>*/}
           </AnimatedText>
         </div>
       </motion.div>
