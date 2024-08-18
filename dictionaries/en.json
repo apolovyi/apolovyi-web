@@ -9,17 +9,17 @@
       {
         "id": "02",
         "name": "Experience",
-        "href": "#WhereIHaveWorkedSection"
+        "href": "#experienceSection"
       },
       {
         "id": "03",
         "name": "Work",
-        "href": "#SomethingIveBuiltSection"
+        "href": "#projectsSection"
       },
       {
         "id": "04",
         "name": "Contact",
-        "href": "#GetInTouchSection"
+        "href": "#contactSection"
       }
     ],
     "resumeButton": {
