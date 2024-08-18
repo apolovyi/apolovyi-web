@@ -23,7 +23,6 @@ interface Company {
 
 interface AboutMeSection {
   title: string;
-  sectionNumber: string;
   paragraphs: {
     intro: string;
     specialization: string;
@@ -34,10 +33,10 @@ interface AboutMeSection {
 }
 
 interface HeroSection {
-  greeting: string;
   name: string;
+  greeting: string;
   tagline: string;
-  description: string;
+  paragraphs: string[];
   highlightedTerms: string[];
   cta: string;
 }
