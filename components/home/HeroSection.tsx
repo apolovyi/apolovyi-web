@@ -5,6 +5,7 @@ import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
 import { Button } from "@/components/ui/moving-border";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 const AnimatedText = ({ delay, children, className }) => (
   <motion.div
@@ -52,9 +53,10 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
         className="flex h-full flex-col justify-center px-8 py-32 sm:px-8 sm:py-52 md:px-28 lg:px-32 xl:px-56 2xl:px-72"
       >
         <div className="">
-          <AnimatedText delay={baseDelay} className="font-tech tracking-wider text-accent-coral lg:text-lg">
-            {heroSection.greeting}
-          </AnimatedText>
+          <TextGenerateEffect
+            className="font-tech tracking-wider text-accent-coral lg:text-lg"
+            words={heroSection.greeting}
+          />
           <AnimatedText
             delay={baseDelay + 0.1}
             className="mt-8 font-heading text-3xl font-bold text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
