@@ -1,7 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50">
     <style>
+<!--        @font-face {-->
+<!--        font-family: 'IBM Plex Mono';-->
+<!--        src: url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200');-->
+<!--        font-weight: 200;-->
+<!--        }-->
+<!--        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300');-->
         .hexagon { fill: #fafafa; stroke: #ea5555; stroke-width: 2; }
-        .text { font-size: 40px; fill: #ea5555; font-weight: 200; }
+        .text { font-family: 'Quicksand'; font-size: 40px; fill: #ea5555; font-weight: 300; }
+<!--        .text { font-family: 'IBM Plex Mono', monospace; font-size: 40px; fill: #ea5555; font-weight: 200; }-->
     </style>
 
     <!-- Hexagon -->

@@ -59,7 +59,10 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
       type: metadata.openGraph.type as "website" | "article" | "book" | "profile",
     },
     robots: metadata.robots,
-    icons: metadata.icons,
+    icons: {
+      icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "32x32" }],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    },
     alternates: {
       canonical: "/",
       languages: {
