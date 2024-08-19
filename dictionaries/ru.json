@@ -136,8 +136,27 @@
     ],
     "cta": "Посмотрите мое резюме!"
   },
-
-
+  "aboutMeSection": {
+    "title": "Обо мне",
+    "paragraphs": {
+      "intro": "Здравствуйте! Я Артем Полевой, опытный Full-Stack разработчик программного обеспечения с обширным опытом работы в ведущих продуктовых и консалтинговых компаниях. Моя экспертиза заключается в проектировании и разработке высокопроизводительных, масштабируемых и отказоустойчивых приложений.",
+      "specialization": "Я специализируюсь на backend-технологиях (Spring Boot, Kotlin, Java), frontend-разработке (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab) и автоматизации тестирования. Мой опыт включает работу над проектами для известных компаний, таких как Infineon и Audi, где я участвовал в разработке и поддержке высоконагруженных приложений и оптимизации производительности систем.",
+      "mindset": "У меня гибкий подход к работе и большой опыт работы в agile-средах. Моя страсть к непрерывному обучению и решению проблем побуждает меня постоянно быть в курсе последних технологий и лучших практик в разработке программного обеспечения.",
+      "technologies": "Вот несколько технологий, с которыми я работал в последнее время:"
+    },
+    "highlightedTerms": [
+      "Spring Boot",
+      "Kotlin",
+      "Java",
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "Jenkins",
+      "GitLab",
+      "Infineon",
+      "Audi"
+    ]
+  },
   "experienceSection": {
     "title": "Где я работал",
     "companies": {
@@ -156,23 +175,40 @@
         "tasks": [
           {
             "text": "Руководство разработкой инновационной платформы электронной коммерции для престижного бренд-коллектива в Нью-Йорке.",
-            "keywords": ["платформа электронной коммерции", "престижный бренд"]
+            "keywords": [
+              "платформа электронной коммерции",
+              "престижный бренд"
+            ]
           },
           {
             "text": "Внедрение архитектуры headless CMS для повышения гибкости контента и производительности сайта.",
-            "keywords": ["headless CMS", "гибкость контента"]
+            "keywords": [
+              "headless CMS",
+              "гибкость контента"
+            ]
           },
           {
             "text": "Оптимизация веб-сайта для поисковых систем (SEO) для повышения видимости и органического трафика.",
-            "keywords": ["SEO", "органический трафик"]
+            "keywords": [
+              "SEO",
+              "органический трафик"
+            ]
           },
           {
             "text": "Использование платформы Vercel для бесперебойного развертывания и хостинга, обеспечивая высокую доступность и быструю доставку контента.",
-            "keywords": ["Vercel", "бесперебойное развертывание"]
+            "keywords": [
+              "Vercel",
+              "бесперебойное развертывание"
+            ]
           },
           {
             "text": "Использование современного технологического стека, включая Next.js, TypeScript, Tailwind CSS и Sanity для создания надежного и масштабируемого веб-приложения.",
-            "keywords": ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"]
+            "keywords": [
+              "Next.js",
+              "TypeScript",
+              "Tailwind CSS",
+              "Sanity"
+            ]
           }
         ]
       },
@@ -183,19 +219,31 @@
         "tasks": [
           {
             "text": "Разработка и поддержка функций на infineon.com для оптимизации пользовательского опыта и функциональности.",
-            "keywords": ["infineon.com", "пользовательский опыт"]
+            "keywords": [
+              "infineon.com",
+              "пользовательский опыт"
+            ]
           },
           {
             "text": "Успешная миграция voestalpine.com в облако AWS, повышение масштабируемости и производительности.",
-            "keywords": ["voestalpine.com", "облако AWS"]
+            "keywords": [
+              "voestalpine.com",
+              "облако AWS"
+            ]
           },
           {
             "text": "Разработка и проведение комплексных модульных и интеграционных тестов для повышения надежности программного обеспечения.",
-            "keywords": ["модульные тесты", "интеграционные тесты"]
+            "keywords": [
+              "модульные тесты",
+              "интеграционные тесты"
+            ]
           },
           {
             "text": "Оптимизация производительности веб-сайта, улучшение времени загрузки и удовлетворенности пользователей.",
-            "keywords": ["производительность", "время загрузки"]
+            "keywords": [
+              "производительность",
+              "время загрузки"
+            ]
           },
           {
             "text": "Использование технологий, включая Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms и различные сервисы AWS.",
@@ -224,15 +272,27 @@
         "tasks": [
           {
             "text": "Разработка высокопроизводительного приложения для генерации выплат, улучшение финансовых операций.",
-            "keywords": ["генерация выплат"]
+            "keywords": [
+              "генерация выплат"
+            ]
           },
           {
             "text": "Создание интуитивно понятных пользовательских интерфейсов, улучшение пользовательского опыта и удобства использования приложения.",
-            "keywords": ["пользовательские интерфейсы"]
+            "keywords": [
+              "пользовательские интерфейсы"
+            ]
           },
           {
             "text": "Работа с технологиями, включая PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript и React.",
-            "keywords": ["PostgreSQL", "Flyway", "Kotlin", "Spring Boot", "JUnit", "TypeScript", "React"]
+            "keywords": [
+              "PostgreSQL",
+              "Flyway",
+              "Kotlin",
+              "Spring Boot",
+              "JUnit",
+              "TypeScript",
+              "React"
+            ]
           }
         ]
       },
@@ -243,15 +303,23 @@
         "tasks": [
           {
             "text": "Сотрудничество в команде Scrum для оптимизации ценообразования, управления ваучерами и систем коммуникации для продукта ABI Audi On Demand.",
-            "keywords": ["Scrum", "ABI Audi On Demand"]
+            "keywords": [
+              "Scrum",
+              "ABI Audi On Demand"
+            ]
           },
           {
             "text": "Разработка и поддержка нескольких микросервисов и микрофронтендов, обрабатывающих нагрузку до 200 запросов в секунду.",
-            "keywords": ["микросервисы", "микрофронтенды"]
+            "keywords": [
+              "микросервисы",
+              "микрофронтенды"
+            ]
           },
           {
             "text": "Рефакторинг кода с использованием Kotlin, повышение удобства обслуживания и сокращение количества строк кода на 30%.",
-            "keywords": ["Kotlin"]
+            "keywords": [
+              "Kotlin"
+            ]
           },
           {
             "text": "Использование технологий, включая PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry и различные сервисы AWS.",
@@ -279,23 +347,37 @@
         "tasks": [
           {
             "text": "Руководство разработкой туристического веб-сайта, специализирующегося на слепом бронировании по всей Европе, повышение вовлеченности пользователей.",
-            "keywords": ["слепое бронирование", "вовлеченность пользователей"]
+            "keywords": [
+              "слепое бронирование",
+              "вовлеченность пользователей"
+            ]
           },
           {
             "text": "Создание адаптивных пользовательских интерфейсов с использованием React, обеспечение бесперебойной функциональности на различных устройствах.",
-            "keywords": ["React", "адаптивный"]
+            "keywords": [
+              "React",
+              "адаптивный"
+            ]
           },
           {
             "text": "Внедрение продвинутых функций JavaScript для улучшения интерактивности и навигации по сайту.",
-            "keywords": ["JavaScript"]
+            "keywords": [
+              "JavaScript"
+            ]
           },
           {
             "text": "Перевод макетов в доступные HTML/CSS layouts, соблюдая рекомендации WCAG.",
-            "keywords": ["HTML/CSS", "WCAG"]
+            "keywords": [
+              "HTML/CSS",
+              "WCAG"
+            ]
           },
           {
             "text": "Разработка модульных и интеграционных тестов с использованием Jest, обеспечение надежности кода.",
-            "keywords": ["модульные", "интеграционные тесты"]
+            "keywords": [
+              "модульные",
+              "интеграционные тесты"
+            ]
           }
         ]
       },
@@ -306,23 +388,37 @@
         "tasks": [
           {
             "text": "Разработка новых функций для ведущей платформы аренды автомобилей, улучшение пользовательского опыта.",
-            "keywords": ["платформа аренды автомобилей"]
+            "keywords": [
+              "платформа аренды автомобилей"
+            ]
           },
           {
             "text": "Внедрение A/B-тестов для оптимизации характеристик продукта и повышения коэффициента конверсии.",
-            "keywords": ["A/B-тесты"]
+            "keywords": [
+              "A/B-тесты"
+            ]
           },
           {
             "text": "Проведение тщательного тестирования в каждой итерации продукта для обеспечения высококачественных релизов.",
-            "keywords": ["тестирование"]
+            "keywords": [
+              "тестирование"
+            ]
           },
           {
             "text": "Создание внутренних инструментов для команды поддержки клиентов, повышение эффективности на 50%.",
-            "keywords": ["внутренние инструменты"]
+            "keywords": [
+              "внутренние инструменты"
+            ]
           },
           {
             "text": "Работа с технологиями, включая JavaScript, HTML, CSS, jQuery и PHP.",
-            "keywords": ["JavaScript", "HTML", "CSS", "jQuery", "PHP"]
+            "keywords": [
+              "JavaScript",
+              "HTML",
+              "CSS",
+              "jQuery",
+              "PHP"
+            ]
           }
         ]
       }
@@ -339,7 +435,15 @@
         "role": "Старший фул-стек инженер",
         "image": "/img/projects/infineon.png",
         "link": "https://www.infineon.com",
-        "technologies": ["JavaEE", "Spring", "OpenCMS", "JUnit", "TypeScript", "React", "AWS"]
+        "technologies": [
+          "JavaEE",
+          "Spring",
+          "OpenCMS",
+          "JUnit",
+          "TypeScript",
+          "React",
+          "AWS"
+        ]
       },
       {
         "category": "Миграция в облако и оптимизация",
@@ -348,7 +452,16 @@
         "role": "Специалист по облачной миграции",
         "image": "/img/projects/voestalpine.png",
         "link": "https://www.voestalpine.com",
-        "technologies": ["JavaEE", "Spring", "OpenCMS", "AWS", "MySQL", "Oracle", "React", "CloudFormation"]
+        "technologies": [
+          "JavaEE",
+          "Spring",
+          "OpenCMS",
+          "AWS",
+          "MySQL",
+          "Oracle",
+          "React",
+          "CloudFormation"
+        ]
       },
       {
         "category": "Финансовые технологии",
@@ -357,7 +470,15 @@
         "role": "Старший фул-стек инженер",
         "image": "/img/projects/spreadshirt.png",
         "link": "https://www.spreadshirt.com",
-        "technologies": ["Kotlin", "Spring Boot", "PostgreSQL", "Flyway", "JUnit", "TypeScript", "React"]
+        "technologies": [
+          "Kotlin",
+          "Spring Boot",
+          "PostgreSQL",
+          "Flyway",
+          "JUnit",
+          "TypeScript",
+          "React"
+        ]
       },
       {
         "category": "Платформа аренды автомобилей",
@@ -388,7 +509,12 @@
         "role": "Ведущий фул-стек разработчик",
         "image": "/img/projects/turkey-nomad.png",
         "link": "https://turkeynomad.com",
-        "technologies": ["Next.js", "TypeScript", "Strapi CMS", "Vercel"]
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Strapi CMS",
+          "Vercel"
+        ]
       },
       {
         "category": "Технологии для путешествий",
@@ -397,7 +523,13 @@
         "role": "Фронтенд инженер",
         "image": "/img/projects/blookery.png",
         "link": "https://www.blookery.de",
-        "technologies": ["React", "JavaScript", "HTML", "CSS", "Jest"]
+        "technologies": [
+          "React",
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "Jest"
+        ]
       },
       {
         "category": "Платформа аренды автомобилей",
@@ -406,7 +538,14 @@
         "role": "Студент фул-стек разработчик",
         "image": "/img/projects/billiger-mietwagen.png",
         "link": "https://www.billiger-mietwagen.de",
-        "technologies": ["JavaScript", "HTML", "CSS", "jQuery", "PHP", "Optimizely"]
+        "technologies": [
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "jQuery",
+          "PHP",
+          "Optimizely"
+        ]
       }
     ]
   },
