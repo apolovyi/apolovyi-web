@@ -44,7 +44,7 @@
       "JavaScript-Spezialist",
       "RESTful-API-Design",
       "Microservices-Architektur",
-      "DevOps-Ingenieur",
+      "DevOps-Entwickler",
       "CI/CD-Implementierung",
       "Docker-Containerisierung",
       "Kubernetes-Orchestrierung",
@@ -125,11 +125,11 @@
     "tagline": "Ich bring Idee zum Läbe.",
     "resumeHref": "/cv/CV_Artem_Polovyi_DE_WEB.pdf",
     "paragraphs": [
-      "Als Full-Stack Software Ingenieur mit starchä Problemlösigsfähigkeite, bin ich uf s'Schaffe vo ussergewöhnlichä digitalä Erläbnis spezialisiert",
+      "Als Full-Stack Software Entwickler mit starchä Problemlösigsfähigkeite, bin ich uf s'Schaffe vo ussergewöhnlichä digitalä Erläbnis spezialisiert",
       "Momentan bin ich begeisteret davo, robust Lösige z'entwickle, innovativi Technologie z'erforsche und digitali Transformation voraaztriebe."
     ],
     "highlightedTerms": [
-      "Full-Stack Software Ingenieur",
+      "Full-Stack Software Entwickler",
       "robust Lösige",
       "innovativi Technologie",
       "digitali Transformation"
@@ -139,7 +139,7 @@
   "aboutMeSection": {
     "title": "Über mich",
     "paragraphs": {
-      "intro": "Grüezi! Ich bi de Artem Polovyi, en erfahrene Full-Stack Software Ingenieur mit viel Erfahrig i füehrende Produkt- und Beratigsfirme. Mini Stärchi ligt im Entwerfe und Entwickle vo Hochleistigsaawändige, wo skalierbar und hochverfüegbar sind.",
+      "intro": "Grüezi! Ich bi de Artem Polovyi, en erfahrene Full-Stack Software Entwickler mit viel Erfahrig i füehrende Produkt- und Beratigsfirme. Mini Stärchi ligt im Entwerfe und Entwickle vo Hochleistigsaawändige, wo skalierbar und hochverfüegbar sind.",
       "specialization": "Ich bi spezialisiert uf Backend-Technologie (Spring Boot, Kotlin, Java), Frontend-Entwicklig (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab) und Test-Automatisierig. Mini Erfahrig umfasst Projekt für bekannti Firme wie Infineon und Audi, wo ich zur Entwicklig und Wartung vo Aawändige mit viel Verkehr bitreit und d'Systemleistig optimiert han.",
       "mindset": "Ich han es agils Mindset und viel Erfahrig im Schaffe i agile Umgebige. Mini Liideschaft fürs kontinuierlichi Lerne und Problemlöse tribt mich aa, immer uf em neuschte Stand vo de Technologie und Best Practices i de Softwareentwicklig z'bliibe.",
       "technologies": "Da sind es paar Technologie, mit dene ich i letschter Ziit gschaffet han:"
@@ -169,7 +169,7 @@
     },
     "roles": {
       "TheBicesterCollection": {
-        "title": "Leitende Full-Stack Ingenieur",
+        "title": "Leitende Full-Stack Entwickler",
         "date": "Juni 2023 - Jetzt",
         "url": "https://www.thebicestercollection.com",
         "tasks": [
@@ -213,7 +213,7 @@
         ]
       },
       "VirtualIdentityAG": {
-        "title": "Senior Full-Stack Ingenieur",
+        "title": "Senior Full-Stack Entwickler",
         "date": "Feb 2022 - Jan 2024",
         "url": "https://www.virtual-identity.com",
         "tasks": [
@@ -266,7 +266,7 @@
         ]
       },
       "Spreadshirt": {
-        "title": "Senior Full-Stack Ingenieur",
+        "title": "Senior Full-Stack Entwickler",
         "date": "Nov 2021 - Feb 2022",
         "url": "https://www.spreadshirt.com",
         "tasks": [
@@ -297,7 +297,7 @@
         ]
       },
       "ComsystoReplyGmbH": {
-        "title": "Full-Stack Ingenieur",
+        "title": "Full-Stack Entwickler",
         "date": "Feb 2019 - Okt 2021",
         "url": "https://www.comsysto.com",
         "tasks": [
@@ -341,7 +341,7 @@
         ]
       },
       "Blookery": {
-        "title": "Frontend Ingenieur",
+        "title": "Frontend Entwickler",
         "date": "Mai 2018 - Aug 2018",
         "url": "https://www.blookery.de",
         "tasks": [
@@ -432,7 +432,7 @@
         "category": "Unternehmens-Webentwicklig",
         "company": "Infineon Technologies",
         "description": "Han Features uf infineon.com entwicklet und gwartet zum d'Benutzererfrahrig und Funktionalität z'optimiere. Umfassendi Unit- und Integrationstests entworfe und dureghfüehrt zum d'Software-Zuverlässigkeit z'erhöhe. E breiti Palette vo Technologie igsetztum hochwertig Web-Lösige z'lifere.",
-        "role": "Senior Full-Stack Ingenieur",
+        "role": "Senior Full-Stack Entwickler",
         "image": "/img/projects/infineon.png",
         "link": "https://www.infineon.com",
         "technologies": [
@@ -467,7 +467,7 @@
         "category": "Finanztechnologie",
         "company": "Spreadshirt Uszahligs-System",
         "description": "E Hochleischtigsaawändig für d'Generierig vo Uszahlige entwicklet, wo d'Finanzprozess stark verbesseret het. Intuitivi Benutzeroberfläche erstellt zum d'Benutzererfrahrig und Aawändigsnutzbarkeit z'verbessere. Robust Backend-Logik umgsetzt zum gnau und pünktlichi Uszahlige sicherzstelle.",
-        "role": "Senior Full-Stack Ingenieur",
+        "role": "Senior Full-Stack Entwickler",
         "image": "/img/projects/spreadshirt.png",
         "link": "https://www.spreadshirt.com",
         "technologies": [
@@ -484,7 +484,7 @@
         "category": "Autovermietigs-Plattform",
         "company": "ABI Audi On Demand",
         "description": "Imene Scrum-Team zämegschaffet um d'Priisgestaltung, Gutschiin-Verwaltig und Kommunikationssystem für s'ABI Audi On Demand Produkt z'optimiere. Mehreri Microservices und Microfrontends entwicklet und gwartet, wo Laste bis zu 200 QPS bewältiged. Code mit Kotlin refaktorisiert, d'Wartbarkeit erhöht und d'Codeziile um 30% reduziert.",
-        "role": "Full-Stack Ingenieur",
+        "role": "Full-Stack Entwickler",
         "image": "/img/projects/aod.png",
         "link": "https://www.audi.com",
         "technologies": [
@@ -520,7 +520,7 @@
         "category": "Reisetechnologie",
         "company": "blookery",
         "description": "S'Frontend vonere innovative Reise-Website entwicklet, wo uf Blind Bookings in ganz Europa spezialisiert isch. Responsivi und intuitivi Benutzeroberfläche mit React bout, zum e nahtlosi Funktionalität über verschiedeni Grät und Bildschirmgrösse sicherzstelle. Fortgschritteni JavaScript-Features umgsetzt um dynamisch und interaktiv Element z'schaffe, was d'Benutzerinteraktion und Website-Navigation stark verbesseret het.",
-        "role": "Frontend Ingenieur",
+        "role": "Frontend Entwickler",
         "image": "/img/projects/blookery.png",
         "link": "https://www.blookery.de",
         "technologies": [

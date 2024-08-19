@@ -44,7 +44,7 @@
       "JavaScript-Spezialist",
       "RESTful-API-Design",
       "Microservices-Architektur",
-      "DevOps-Ingenieur",
+      "DevOps-Entwickler",
       "CI/CD-Implementierung",
       "Docker-Containerisierung",
       "Kubernetes-Orchestrierung",
@@ -169,7 +169,7 @@
     },
     "roles": {
       "TheBicesterCollection": {
-        "title": "Leitender Full-Stack-Ingenieur",
+        "title": "Leitender Full-Stack-Entwickler",
         "date": "Juni 2023 - Heute",
         "url": "https://www.thebicestercollection.com",
         "tasks": [
@@ -213,7 +213,7 @@
         ]
       },
       "VirtualIdentityAG": {
-        "title": "Senior Full-Stack-Ingenieur",
+        "title": "Senior Full-Stack-Entwickler",
         "date": "Feb 2022 - Jan 2024",
         "url": "https://www.virtual-identity.com",
         "tasks": [
@@ -266,7 +266,7 @@
         ]
       },
       "Spreadshirt": {
-        "title": "Senior Full-Stack-Ingenieur",
+        "title": "Senior Full-Stack-Entwickler",
         "date": "Nov 2021 - Feb 2022",
         "url": "https://www.spreadshirt.com",
         "tasks": [
@@ -297,7 +297,7 @@
         ]
       },
       "ComsystoReplyGmbH": {
-        "title": "Full-Stack-Ingenieur",
+        "title": "Full-Stack-Entwickler",
         "date": "Feb 2019 - Okt 2021",
         "url": "https://www.comsysto.com",
         "tasks": [
@@ -341,7 +341,7 @@
         ]
       },
       "Blookery": {
-        "title": "Frontend-Ingenieur",
+        "title": "Frontend-Entwickler",
         "date": "Mai 2018 - Aug 2018",
         "url": "https://www.blookery.de",
         "tasks": [
@@ -432,7 +432,7 @@
         "category": "Enterprise-Webentwicklung",
         "company": "Infineon Technologies",
         "description": "Entwicklung und Wartung von Funktionen auf infineon.com zur Optimierung der Benutzererfahrung und Funktionalität. Entwurf und Durchführung umfassender Unit- und Integrationstests zur Erhöhung der Softwarezuverlässigkeit. Verwendung einer breiten Palette von Technologien zur Bereitstellung hochwertiger Weblösungen.",
-        "role": "Senior Full-Stack-Ingenieur",
+        "role": "Senior Full-Stack-Entwickler",
         "image": "/img/projects/infineon.png",
         "link": "https://www.infineon.com",
         "technologies": [
@@ -467,7 +467,7 @@
         "category": "Finanztechnologie",
         "company": "Spreadshirt Auszahlungssystem",
         "description": "Entwicklung einer Hochleistungsanwendung zur Auszahlungsgenerierung, die die Finanzabläufe erheblich verbesserte. Erstellung intuitiver Benutzeroberflächen zur Verbesserung der Benutzererfahrung und Anwendungsnutzbarkeit. Implementierung robuster Backend-Logik zur Sicherstellung genauer und pünktlicher Auszahlungen.",
-        "role": "Senior Full-Stack-Ingenieur",
+        "role": "Senior Full-Stack-Entwickler",
         "image": "/img/projects/spreadshirt.png",
         "link": "https://www.spreadshirt.com",
         "technologies": [
@@ -484,7 +484,7 @@
         "category": "Autovermietungsplattform",
         "company": "ABI Audi On Demand",
         "description": "Zusammenarbeit in einem Scrum-Team zur Optimierung von Preisgestaltung, Gutscheinverwaltung und Kommunikationssystemen für das ABI Audi On Demand Produkt. Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen. Refaktorisierung von Code mit Kotlin, Erhöhung der Wartbarkeit und Reduzierung der Codezeilen um 30%.",
-        "role": "Full-Stack-Ingenieur",
+        "role": "Full-Stack-Entwickler",
         "image": "/img/projects/aod.png",
         "link": "https://www.audi.com",
         "technologies": [
@@ -520,7 +520,7 @@
         "category": "Reisetechnologie",
         "company": "blookery",
         "description": "Entwicklung des Frontends einer innovativen Reisewebsite, die sich auf Blind Bookings in ganz Europa spezialisiert hat. Entwicklung responsiver und intuitiver Benutzeroberflächen mit React, um eine nahtlose Funktionalität auf verschiedenen Geräten und Bildschirmgrößen zu gewährleisten. Implementierung fortgeschrittener JavaScript-Funktionen zur Erstellung dynamischer und interaktiver Elemente, was die Benutzerinteraktion und Website-Navigation erheblich verbesserte.",
-        "role": "Frontend-Ingenieur",
+        "role": "Frontend-Entwickler",
         "image": "/img/projects/blookery.png",
         "link": "https://www.blookery.de",
         "technologies": [
