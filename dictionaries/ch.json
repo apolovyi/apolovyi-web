@@ -1,25 +1,95 @@
 {
   "metadata": {
     "title": {
-      "default": "Artem Polovyi - Software Ingenieur",
-      "template": "%s | Artem Polovyi - Software Ingenieur"
+      "default": "Artem Polovyi - Full-Stack Softwareentwickler",
+      "template": "%s | Artem Polovyi - Full-Stack Softwareentwickler"
     },
-    "description": "Full-Stack Ingenieur mit über 7 Jahr Erfahrig. Spezialisiert uf skalierbar Webaawändige und Cloud-Technologie.",
+    "description": "Erfahrener Full-Stack-Entwickler, spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien. Betreut Kunden in den USA und Europa mit über 7 Jahren Expertise in Java, Kotlin, Spring Boot, React und AWS.",
     "openGraph": {
-      "title": "Artem Polovyi - Software Ingenieur",
-      "description": "Full-Stack Ingenieur mit über 7 Jahr Erfahrig. Spezialisiert uf skalierbar Webaawändige und Cloud-Technologie.",
+      "title": "Artem Polovyi - Full-Stack Softwareentwickler",
+      "description": "Erfahrener Full-Stack-Entwickler, spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien. Betreut Kunden in den USA und Europa mit über 7 Jahren Expertise in Java, Kotlin, Spring Boot, React und AWS.",
       "url": "https://apolovyi.me/ch",
-      "siteName": "Artem Polovyi - Software Ingenieur",
+      "siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
       "images": [
         {
           "url": "/img/me-bg.jpg",
           "width": 1200,
           "height": 630,
-          "alt": "Artem Polovyi - Software Ingenieur"
+          "alt": "Artem Polovyi - Full-Stack Softwareentwickler"
         }
       ]
     },
-    "keywords": ["Software Ingenieur", "Full-Stack Entwickler", "Webentwicklig", "Cloud-Technologie"]
+    "keywords": [
+      "Java",
+      "Kotlin",
+      "Spring Boot",
+      "React",
+      "TypeScript",
+      "AWS",
+      "PostgreSQL",
+      "Docker",
+      "Jenkins",
+      "GitLab",
+      "Full-Stack-Entwickler",
+      "Softwareingenieur",
+      "Webentwicklung",
+      "Cloud-Technologien",
+      "Java-Entwickler",
+      "Kotlin-Experte",
+      "Spring Boot-Spezialist",
+      "React-Entwickler",
+      "AWS-Lösungsarchitekt",
+      "PostgreSQL-Entwickler",
+      "TypeScript-Entwickler",
+      "JavaScript-Spezialist",
+      "RESTful-API-Design",
+      "Microservices-Architektur",
+      "DevOps-Ingenieur",
+      "CI/CD-Implementierung",
+      "Docker-Containerisierung",
+      "Kubernetes-Orchestrierung",
+      "Angular-Entwickler",
+      "RabbitMQ-Integration",
+      "Jenkins-Automatisierung",
+      "GitLab CI/CD",
+      "JUnit-Tests",
+      "Flyway-Datenbankmigration",
+      "OpenCMS-Content-Management",
+      "Stencil-Webkomponenten",
+      "Next.js-Entwickler",
+      "Tailwind CSS",
+      "Sanity-CMS-Integration",
+      "Vercel-Bereitstellung",
+      "Agile Methoden",
+      "Scrum-Praktiker",
+      "Testgetriebene Entwicklung (TDD)",
+      "Code-Review-Spezialist",
+      "Legacy-Code-Modernisierung",
+      "Tech-Lead-Erfahrung",
+      "Enterprise-Softwarelösungen",
+      "E-Commerce-Entwicklung",
+      "US-Entwickler",
+      "Europäischer Entwickler",
+      "Remote-Softwareentwickler",
+      "Skalierbare Webanwendungen",
+      "Hochleistungssysteme",
+      "Datenbankoptimierung",
+      "Frontend-Optimierung",
+      "Backend-Skalierbarkeit",
+      "Cloud-Migrationsspezialist",
+      "Web-Performance-Optimierung",
+      "SEO-Best-Practices",
+      "Barrierefreiheit (WCAG) Implementierung",
+      "UI/UX-Design-Prinzipien",
+      "Mobilgeräte-optimiertes Design",
+      "Browserübergreifende Kompatibilität",
+      "API-Integrationsspezialist",
+      "Datensicherheitsimplementierung",
+      "Internationalisierung (i18n)",
+      "Lokalisierung (l10n)",
+      "Leistungsüberwachung",
+      "Fehlerprotokollierung und Debugging"
+    ]
   },
   "header": {
     "menuItems": [
@@ -105,23 +175,40 @@
         "tasks": [
           {
             "text": "Leitig vo de Entwicklig vonere innovative E-Commerce-Plattform für e renommierti Markesammlig in New York City.",
-            "keywords": ["E-Commerce-Plattform", "renommierti Marke"]
+            "keywords": [
+              "E-Commerce-Plattform",
+              "renommierti Marke"
+            ]
           },
           {
             "text": "Umsetzig vonere Headless-CMS-Architektur zum Verbessere vo de Inhaltsflexibilität und Website-Leischtig.",
-            "keywords": ["Headless-CMS", "Inhaltsflexibilität"]
+            "keywords": [
+              "Headless-CMS",
+              "Inhaltsflexibilität"
+            ]
           },
           {
             "text": "Optimierig vo de Website für Suchmaschine (SEO) zum d'Sichtbarkeit und de organisch Traffic z'erhöhe.",
-            "keywords": ["SEO", "organisch Traffic"]
+            "keywords": [
+              "SEO",
+              "organisch Traffic"
+            ]
           },
           {
             "text": "Nutzung vo de Vercel-Plattform für es nahtloses Deployment und Hosting, zum e hochi Verfügbarkeit und schnelli Inhaltsuslieferig z'garantiere.",
-            "keywords": ["Vercel", "nahtloses Deployment"]
+            "keywords": [
+              "Vercel",
+              "nahtloses Deployment"
+            ]
           },
           {
             "text": "Verwändig vomene moderne Technologie-Stack mit Next.js, TypeScript, Tailwind CSS und Sanity zum Ufbaue vonere robuste und skalierbari Webaawändig.",
-            "keywords": ["Next.js", "TypeScript", "Tailwind CSS", "Sanity"]
+            "keywords": [
+              "Next.js",
+              "TypeScript",
+              "Tailwind CSS",
+              "Sanity"
+            ]
           }
         ]
       },
@@ -132,19 +219,31 @@
         "tasks": [
           {
             "text": "Entwicklig und Wartung vo Features uf infineon.com zum d'Benutzererfrahrig und Funktionalität z'optimiere.",
-            "keywords": ["infineon.com", "Benutzererfrahrig"]
+            "keywords": [
+              "infineon.com",
+              "Benutzererfrahrig"
+            ]
           },
           {
             "text": "Erfolgriichi Migration vo voestalpine.com in d'AWS-Cloud, zum d'Skalierbarkeit und Leischtig z'verbessere.",
-            "keywords": ["voestalpine.com", "AWS-Cloud"]
+            "keywords": [
+              "voestalpine.com",
+              "AWS-Cloud"
+            ]
           },
           {
             "text": "Entwurf und Durchfüehrig vo umfassende Unit- und Integrationstests zum d'Softwarezuverlässigkeit z'erhöhe.",
-            "keywords": ["Unit-Tests", "Integrationstests"]
+            "keywords": [
+              "Unit-Tests",
+              "Integrationstests"
+            ]
           },
           {
             "text": "Optimierig vo de Website-Performance, Verbesserig vo de Ladezyte und Benutzerzfridenheit.",
-            "keywords": ["Performance", "Ladezyte"]
+            "keywords": [
+              "Performance",
+              "Ladezyte"
+            ]
           },
           {
             "text": "Verwändig vo Technologie wie Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms und verschiedeni AWS-Dienscht.",
@@ -173,15 +272,27 @@
         "tasks": [
           {
             "text": "Entwicklig vonere Hochleischtigsaawändig für d'Generierig vo Uszahlige, zum d'Finanzprozess z'verbessere.",
-            "keywords": ["Uszahligsgenerierig"]
+            "keywords": [
+              "Uszahligsgenerierig"
+            ]
           },
           {
             "text": "Erstellig vo intuitive Benutzeroberfläche, zum d'Benutzererfrahrig und Aawändigsnutzbarkeit z'verbessere.",
-            "keywords": ["Benutzeroberfläche"]
+            "keywords": [
+              "Benutzeroberfläche"
+            ]
           },
           {
             "text": "Arbet mit Technologie wie PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript und React.",
-            "keywords": ["PostgreSQL", "Flyway", "Kotlin", "Spring Boot", "JUnit", "TypeScript", "React"]
+            "keywords": [
+              "PostgreSQL",
+              "Flyway",
+              "Kotlin",
+              "Spring Boot",
+              "JUnit",
+              "TypeScript",
+              "React"
+            ]
           }
         ]
       },
@@ -192,15 +303,23 @@
         "tasks": [
           {
             "text": "Zämearbet imene Scrum-Team zum d'Priisgestaltung, Gutschiin-Verwaltig und Kommunikationssystem für s'ABI Audi On Demand Produkt z'optimiere.",
-            "keywords": ["Scrum", "ABI Audi On Demand"]
+            "keywords": [
+              "Scrum",
+              "ABI Audi On Demand"
+            ]
           },
           {
             "text": "Entwicklig und Wartung vo mehrere Microservices und Microfrontends, wo Laste bis zu 200 QPS bewältiged.",
-            "keywords": ["Microservices", "Microfrontends"]
+            "keywords": [
+              "Microservices",
+              "Microfrontends"
+            ]
           },
           {
             "text": "Refaktorisierig vo Code mit Kotlin, Erhöhig vo de Wartbarkeit und Reduktion vo de Codeziile um 30%.",
-            "keywords": ["Kotlin"]
+            "keywords": [
+              "Kotlin"
+            ]
           },
           {
             "text": "Verwändig vo Technologie wie PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry und verschiedeni AWS-Dienscht.",
@@ -228,23 +347,37 @@
         "tasks": [
           {
             "text": "Leitig vo de Entwicklig vonere Reise-Website, spezialisiert uf Blind Bookings in ganz Europa, zum s'Benutzerengagement z'steigere.",
-            "keywords": ["Blind Bookings", "Benutzerengagement"]
+            "keywords": [
+              "Blind Bookings",
+              "Benutzerengagement"
+            ]
           },
           {
             "text": "Erstellig vo responsive Benutzeroberfläche mit React, zum e nahtlosi Funktionalität über verschiedeni Grät z'garantiere.",
-            "keywords": ["React", "responsiv"]
+            "keywords": [
+              "React",
+              "responsiv"
+            ]
           },
           {
             "text": "Umsetzig vo fortgschrittene JavaScript-Funktione zum d'Interaktivität und Navigation vo de Website z'verbessere.",
-            "keywords": ["JavaScript"]
+            "keywords": [
+              "JavaScript"
+            ]
           },
           {
             "text": "Umwandlig vo Wireframes in barrierefreii HTML/CSS-Layouts, wo de WCAG-Richtlinie entspräched.",
-            "keywords": ["HTML/CSS", "WCAG"]
+            "keywords": [
+              "HTML/CSS",
+              "WCAG"
+            ]
           },
           {
             "text": "Entwicklig vo Unit- und Integrationstests mit Jest, zum d'Codezuverlässigkeit sicherzstelle.",
-            "keywords": ["Unit-Tests", "Integrationstests"]
+            "keywords": [
+              "Unit-Tests",
+              "Integrationstests"
+            ]
           }
         ]
       },
@@ -255,23 +388,37 @@
         "tasks": [
           {
             "text": "Entwicklig vo neue Features für e füehrendi Autovermietigsplattform, zum d'Benutzererfrahrig z'verbessere.",
-            "keywords": ["Autovermietigsplattform"]
+            "keywords": [
+              "Autovermietigsplattform"
+            ]
           },
           {
             "text": "Umsetzig vo A/B-Tests zum d'Produktspezifikatione z'optimiere und d'Konversionsrate z'steigere.",
-            "keywords": ["A/B-Tests"]
+            "keywords": [
+              "A/B-Tests"
+            ]
           },
           {
             "text": "Durchfüehrig vo gründliche Tests in jedere Produktiteration zum qualitativ hochwertige Releases sicherzstelle.",
-            "keywords": ["Tests"]
+            "keywords": [
+              "Tests"
+            ]
           },
           {
             "text": "Erstellig vo interne Tools für s'Kundeserviceteam, wo d'Effizienz um 50% gsteigeret händ.",
-            "keywords": ["interni Tools"]
+            "keywords": [
+              "interni Tools"
+            ]
           },
           {
             "text": "Arbet mit Technologie wie JavaScript, HTML, CSS, jQuery und PHP.",
-            "keywords": ["JavaScript", "HTML", "CSS", "jQuery", "PHP"]
+            "keywords": [
+              "JavaScript",
+              "HTML",
+              "CSS",
+              "jQuery",
+              "PHP"
+            ]
           }
         ]
       }
@@ -288,7 +435,15 @@
         "role": "Senior Full-Stack Ingenieur",
         "image": "/img/projects/infineon.png",
         "link": "https://www.infineon.com",
-        "technologies": ["JavaEE", "Spring", "OpenCMS", "JUnit", "TypeScript", "React", "AWS"]
+        "technologies": [
+          "JavaEE",
+          "Spring",
+          "OpenCMS",
+          "JUnit",
+          "TypeScript",
+          "React",
+          "AWS"
+        ]
       },
       {
         "category": "Cloud-Migration & Optimierig",
@@ -297,7 +452,16 @@
         "role": "Cloud-Migrations-Spezialischt",
         "image": "/img/projects/voestalpine.png",
         "link": "https://www.voestalpine.com",
-        "technologies": ["JavaEE", "Spring", "OpenCMS", "AWS", "MySQL", "Oracle", "React", "CloudFormation"]
+        "technologies": [
+          "JavaEE",
+          "Spring",
+          "OpenCMS",
+          "AWS",
+          "MySQL",
+          "Oracle",
+          "React",
+          "CloudFormation"
+        ]
       },
       {
         "category": "Finanztechnologie",
@@ -306,7 +470,15 @@
         "role": "Senior Full-Stack Ingenieur",
         "image": "/img/projects/spreadshirt.png",
         "link": "https://www.spreadshirt.com",
-        "technologies": ["Kotlin", "Spring Boot", "PostgreSQL", "Flyway", "JUnit", "TypeScript", "React"]
+        "technologies": [
+          "Kotlin",
+          "Spring Boot",
+          "PostgreSQL",
+          "Flyway",
+          "JUnit",
+          "TypeScript",
+          "React"
+        ]
       },
       {
         "category": "Autovermietigs-Plattform",
@@ -315,7 +487,15 @@
         "role": "Full-Stack Ingenieur",
         "image": "/img/projects/aod.png",
         "link": "https://www.audi.com",
-        "technologies": ["Kotlin", "Spring Boot", "RabbitMQ", "Angular", "TypeScript", "Jenkins", "AWS"]
+        "technologies": [
+          "Kotlin",
+          "Spring Boot",
+          "RabbitMQ",
+          "Angular",
+          "TypeScript",
+          "Jenkins",
+          "AWS"
+        ]
       },
       {
         "category": "Reise & Lifestyle",
@@ -324,7 +504,12 @@
         "role": "Leitende Full-Stack Entwickler",
         "image": "/img/projects/turkey-nomad.png",
         "link": "https://turkeynomad.com",
-        "technologies": ["Next.js", "TypeScript", "Strapi CMS", "Vercel"]
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Strapi CMS",
+          "Vercel"
+        ]
       },
       {
         "category": "Reisetechnologie",
@@ -333,7 +518,13 @@
         "role": "Frontend Ingenieur",
         "image": "/img/projects/blookery.png",
         "link": "https://www.blookery.de",
-        "technologies": ["React", "JavaScript", "HTML", "CSS", "Jest"]
+        "technologies": [
+          "React",
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "Jest"
+        ]
       },
       {
         "category": "Autovermietigs-Plattform",
@@ -342,7 +533,14 @@
         "role": "Studäntische Full-Stack Entwickler",
         "image": "/img/projects/billiger-mietwagen.png",
         "link": "https://www.billiger-mietwagen.de",
-        "technologies": ["JavaScript", "HTML", "CSS", "jQuery", "PHP", "Optimizely"]
+        "technologies": [
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "jQuery",
+          "PHP",
+          "Optimizely"
+        ]
       }
     ]
   },
