@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import ArrowIcon from "@/components/icons/ArrowIcon";
 import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
@@ -30,73 +29,57 @@ const MyExperience = ({ lang }: MyExperienceProps) => {
     <section
       id="experienceSection"
       data-aos="fade-up"
-      className="flex snap-start flex-col items-center bg-background-primary py-24"
+      className="flex snap-start flex-col items-center bg-background-primary py-12 md:py-24"
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
-        <header data-aos="fade-up" className="flex flex-row items-center font-heading">
+        <header data-aos="fade-up" className="mb-8 flex flex-row items-center font-heading">
           <ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
           <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-            <span className="font-tech text-xl text-accent-coral"> 02.</span>
+            <span className="font-tech text-xl text-accent-coral">02.</span>
             <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
               {dictionary.experienceSection.title}
             </h2>
           </div>
           <div className="h-[0.2px] w-full bg-accent-green"></div>
         </header>
-      </div>
 
-      <div className="mt-12 flex flex-col items-start justify-center space-y-4 md:flex-row md:items-start md:justify-center md:space-x-6 md:space-y-0 lg:space-x-12">
-        <CompaniesBar activeCompany={activeCompany} setActiveCompany={setActiveCompany} lang={lang} />
-        <JobDescription company={activeCompany} lang={lang} />
+        <div className="flex flex-col md:flex-row md:space-x-8">
+          <CompaniesBar
+            companies={companies}
+            activeCompany={activeCompany}
+            setActiveCompany={setActiveCompany}
+            lang={lang}
+          />
+          <JobDescription company={activeCompany} lang={lang} />
+        </div>
       </div>
     </section>
   );
 };
 
 interface CompaniesBarProps {
+  companies: Company[];
   activeCompany: string;
   setActiveCompany: (key: string) => void;
   lang: Locale;
 }
 
-const CompaniesBar = ({ activeCompany, setActiveCompany, lang }: CompaniesBarProps) => {
+const CompaniesBar = ({ companies, activeCompany, setActiveCompany, lang }: CompaniesBarProps) => {
   const dictionary = getDictionary(lang);
 
   return (
-    <div className="flex w-screen flex-col items-start justify-start overflow-hidden pb-4 sm:items-center sm:justify-center md:w-auto md:flex-row md:pb-0">
-      <div className="relative order-2 hidden h-0.5 translate-y-1 rounded bg-neutral-medium-gray md:order-1 md:block md:h-[390px] md:w-0.5">
-        <motion.div
-          animate={{
-            y: companies.findIndex((company) => company.key === activeCompany) * 64,
-          }}
-          className="absolute h-0.5 w-10 rounded bg-accent-coral md:h-16 md:w-0.5"
-        ></motion.div>
-      </div>
-      <div className="order-1 flex flex-col space-y-1 pl-8 md:order-2 md:pl-0">
-        <div className="flex flex-row md:flex-col">
-          {companies.map((company) => (
-            <CompanyButton
-              key={company.key}
-              company={company}
-              isActive={activeCompany === company.key}
-              onClick={() => setActiveCompany(company.key)}
-              companyName={
-                dictionary.experienceSection.companies[
-                  company.key as keyof typeof dictionary.experienceSection.companies
-                ]
-              }
-            />
-          ))}
-        </div>
-        <div className="block h-0.5 rounded bg-neutral-medium-gray md:hidden">
-          <motion.div
-            animate={{
-              x: companies.findIndex((company) => company.key === activeCompany) * 128,
-            }}
-            className="h-0.5 w-[128px] rounded bg-accent-coral"
-          ></motion.div>
-        </div>
-      </div>
+    <div className="mb-4 flex overflow-x-auto md:mb-0 md:flex-col md:overflow-x-visible">
+      {companies.map((company) => (
+        <CompanyButton
+          key={company.key}
+          company={company}
+          isActive={activeCompany === company.key}
+          onClick={() => setActiveCompany(company.key)}
+          companyName={
+            dictionary.experienceSection.companies[company.key as keyof typeof dictionary.experienceSection.companies]
+          }
+        />
+      ))}
     </div>
   );
 };
@@ -111,8 +94,7 @@ interface CompanyButtonProps {
 const CompanyButton = ({ company, isActive, onClick, companyName }: CompanyButtonProps) => (
   <button
     onClick={onClick}
-    className={`h-16 w-32 flex-none rounded py-3 text-center
-      font-tech text-xs transition-colors duration-300 sm:text-sm md:w-44 md:px-4 md:pl-6 md:text-left
+    className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left
       ${
         isActive
           ? "bg-accent-coral text-background-primary"
@@ -133,7 +115,7 @@ const JobDescription = ({ company, lang }: JobDescriptionProps) => {
   const dictionary = getDictionary(lang);
   const job = dictionary.experienceSection.roles[company as keyof typeof dictionary.experienceSection.roles];
 
-  const getTasksTextWithHighlightedKeyword = (text: string, keywords: string[]) => {
+  const highlightKeywords = (text: string, keywords: string[]) => {
     let highlightedText = text;
     keywords.forEach((keyword) => {
       const regex = new RegExp(keyword, "gi");
@@ -143,35 +125,34 @@ const JobDescription = ({ company, lang }: JobDescriptionProps) => {
   };
 
   return (
-    <div className="flex max-w-xl flex-col space-y-5 px-4 md:px-0">
-      <div className="flex flex-col space-y-2">
-        <span className="font-body text-sm tracking-wide text-text-primary sm:text-lg">
-          {job.title}{" "}
-          <span className="text-accent-coral">
+    <div className="flex flex-col space-y-4">
+      <div>
+        <div className="flex flex-col sm:flex-row sm:items-center">
+          <span className="font-body text-lg font-semibold text-text-primary">{job.title}</span>
+          <span className="text-base text-accent-coral sm:ml-2 md:text-lg">
             @ {dictionary.experienceSection.companies[company as keyof typeof dictionary.experienceSection.companies]}
           </span>
-        </span>
-        <span className="font-tech text-xs text-text-secondary">{job.date}</span>
+        </div>
+        <p className="mt-2 font-tech text-sm text-text-secondary">{job.date}</p>
         <a
           href={job.url}
           target="_blank"
           rel="noopener noreferrer"
           className="font-tech text-xs text-accent-coral hover:underline"
-          style={{ fontSize: "0.6rem" }}
         >
           {job.url}
         </a>
       </div>
-      <ul className="flex flex-col space-y-4 text-xs sm:text-sm">
+      <ul className="space-y-2">
         {job.tasks.map((task: { text: string; keywords: string[] }, index: number) => (
-          <li key={index} className="flex flex-row space-x-1">
-            <ArrowIcon className="h-5 w-4 flex-none text-accent-coral" />
+          <li key={index} className="flex items-start space-x-2">
+            <ArrowIcon className="mt-1 h-5 w-4 flex-none text-accent-coral" />
             <span
-              className="text-text-secondary"
+              className="text-sm text-text-secondary"
               dangerouslySetInnerHTML={{
-                __html: getTasksTextWithHighlightedKeyword(task.text, task.keywords),
+                __html: highlightKeywords(task.text, task.keywords),
               }}
-            ></span>
+            />
           </li>
         ))}
       </ul>

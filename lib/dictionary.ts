@@ -33,17 +33,6 @@ interface Project {
   technologies: string[];
 }
 
-interface Company {
-  name: string;
-  title: string;
-  date: string;
-  url: string;
-  tasks: {
-    text: string;
-    keywords: string[];
-  }[];
-}
-
 interface AboutMeSection {
   title: string;
   paragraphs: {
@@ -87,6 +76,16 @@ interface ExperienceSection {
   roles: {
     [key: string]: Company;
   };
+}
+interface Company {
+  name: string;
+  title: string;
+  date: string;
+  url: string;
+  tasks: {
+    text: string;
+    keywords: string[];
+  }[];
 }
 
 interface Footer {
