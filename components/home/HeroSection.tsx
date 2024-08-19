@@ -3,8 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const AnimatedText = ({ delay, children, className }) => (
   <motion.div
@@ -41,6 +41,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
 
   return (
     <AuroraBackground>
+      {/*<WavyBackground className="mx-auto max-w-4xl pb-40">*/}
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -93,6 +94,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
           </AnimatedText>
         </div>
       </motion.div>
+      {/*</WavyBackground>*/}
     </AuroraBackground>
   );
 };
