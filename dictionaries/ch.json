@@ -488,12 +488,17 @@
         "image": "/img/projects/aod.png",
         "link": "https://www.audi.com",
         "technologies": [
+          "PostgreSQL",
+          "Flyway",
+          "Java",
           "Kotlin",
           "Spring Boot",
+          "JUnit",
           "RabbitMQ",
-          "Angular",
           "TypeScript",
+          "Angular",
           "Jenkins",
+          "CloudFoundry",
           "AWS"
         ]
       },

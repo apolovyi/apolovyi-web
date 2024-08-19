@@ -366,7 +366,20 @@
         "role": "Фул-стек инженер",
         "image": "/img/projects/aod.png",
         "link": "https://www.audi.com",
-        "technologies": ["Kotlin", "Spring Boot", "RabbitMQ", "Angular", "TypeScript", "Jenkins", "AWS"]
+        "technologies": [
+          "PostgreSQL",
+          "Flyway",
+          "Java",
+          "Kotlin",
+          "Spring Boot",
+          "JUnit",
+          "RabbitMQ",
+          "TypeScript",
+          "Angular",
+          "Jenkins",
+          "CloudFoundry",
+          "AWS"
+        ]
       },
       {
         "category": "Путешествия и образ жизни",
