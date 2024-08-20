@@ -95,6 +95,17 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
         <LanguageDetector />
         <AppProvider>{children}</AppProvider>
         <Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
+        <Script
+          src="https://cloud.umami.is/script.js"
+          strategy="afterInteractive"
+          data-website-id="851d0366-78bf-4def-90ee-32f5764df198"
+          defer
+        />
+        {/*<script*/}
+        {/*  defer*/}
+        {/*  src="https://cloud.umami.is/script.js"*/}
+        {/*  data-website-id="851d0366-78bf-4def-90ee-32f5764df198"*/}
+        {/*></script>*/}
       </body>
     </html>
   );
