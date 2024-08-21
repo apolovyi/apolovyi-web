@@ -42,17 +42,20 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
   const dictionary = getDictionary(lang);
   const { metadata } = dictionary;
 
+  const baseUrl = "https://apolovyi.me";
+  const currentPath = `/${lang}`;
+
   return {
     title: {
       default: metadata.title.default,
       template: metadata.title.template,
     },
-    metadataBase: new URL("https://apolovyi.me"),
+    metadataBase: new URL(baseUrl),
     description: metadata.description,
     openGraph: {
       title: metadata.openGraph.title,
       description: metadata.openGraph.description,
-      url: metadata.openGraph.url,
+      url: `${baseUrl}${currentPath}`,
       siteName: metadata.openGraph.siteName,
       images: metadata.openGraph.images,
       locale: lang,
@@ -70,14 +73,13 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
       apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
     },
     alternates: {
-      canonical: "/",
+      canonical: `${baseUrl}`,
       languages: {
-        en: "/en",
-        "en-US": "/en",
-        de: "/de",
-        ch: "/ch",
-        uk: "/uk",
-        ru: "/ru",
+        en: `${baseUrl}/en`,
+        de: `${baseUrl}/de`,
+        ch: `${baseUrl}/ch`,
+        uk: `${baseUrl}/uk`,
+        ru: `${baseUrl}/ru`,
       },
     },
     keywords: metadata.keywords,
