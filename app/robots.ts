@@ -8,5 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: "/api/",
     },
     sitemap: "https://apolovyi.me/sitemap.xml",
+    host: "https://apolovyi.me",
   };
 }
