@@ -103,11 +103,6 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
           data-website-id="851d0366-78bf-4def-90ee-32f5764df198"
           defer
         />
-        {/*<script*/}
-        {/*  defer*/}
-        {/*  src="https://cloud.umami.is/script.js"*/}
-        {/*  data-website-id="851d0366-78bf-4def-90ee-32f5764df198"*/}
-        {/*></script>*/}
       </body>
     </html>
   );

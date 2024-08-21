@@ -7,42 +7,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
-    },
-    {
-      url: "https://apolovyi.me/en",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    // {
-    //   url: "https://apolovyi.me/en-us",
-    //   lastModified: new Date(),
-    //   changeFrequency: "weekly",
-    //   priority: 1,
-    // },
-    {
-      url: "https://apolovyi.me/de",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: "https://apolovyi.me/ch",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: "https://apolovyi.me/ua",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: "https://apolovyi.me/ru",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
+      alternates: {
+        languages: {
+          en: "https://apolovyi.me/en",
+          de: "https://apolovyi.me/de",
+          ch: "https://apolovyi.me/ch",
+          uk: "https://apolovyi.me/uk",
+          ru: "https://apolovyi.me/ru",
+        },
+      },
     },
   ];
 }
