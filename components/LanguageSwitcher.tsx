@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { i18n, Locale } from "@/i18n-config";
 
@@ -8,61 +8,80 @@ interface LanguageSwitcherProps {
   currentLang?: Locale;
 }
 
-function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
-  const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const [isUS, setIsUS] = useState(false);
+const useDetectLanguage = (currentLang?: Locale) => {
   const [language, setLanguage] = useState<Locale>(currentLang || i18n.defaultLocale);
+  const [isUS, setIsUS] = useState(false);
 
   useEffect(() => {
     const userLanguage = navigator.language || (navigator as any).userLanguage;
-    console.log(userLanguage);
     setIsUS(userLanguage.startsWith("en-US"));
 
-    // If currentLang is not provided, try to detect the language
     if (!currentLang) {
       const detectedLang = localStorage.getItem("detectedLang") as Locale | null;
-      if (detectedLang && i18n.locales.includes(detectedLang)) {
-        setLanguage(detectedLang);
-      } else {
-        // If no detected language, use the browser language or default
-        const browserLang = userLanguage.split("-")[0] as Locale;
-        setLanguage(i18n.locales.includes(browserLang) ? browserLang : i18n.defaultLocale);
-      }
+      const browserLang = userLanguage.split("-")[0] as Locale;
+
+      setLanguage(
+        detectedLang && i18n.locales.includes(detectedLang)
+          ? detectedLang
+          : i18n.locales.includes(browserLang)
+          ? browserLang
+          : i18n.defaultLocale,
+      );
     }
   }, [currentLang]);
 
-  const handleLanguageChange = (newLang: Locale) => {
-    localStorage.setItem("detectedLang", newLang);
-    setLanguage(newLang);
-    router.push(`/${newLang}`);
-    setIsOpen(false);
-  };
+  return { language, setLanguage, isUS };
+};
+
+const useOutsideClick = (callback: () => void) => {
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        callback();
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [callback]);
 
-  const getDisplayName = (locale: Locale) => {
-    return i18n.localeNames[locale];
+  return ref;
+};
+
+const LanguageOption = ({ locale, currentLanguage, onClick, getFlag, getDisplayName }) => (
+  <button
+    onClick={() => onClick(locale)}
+    className={`block w-full px-4 py-2 text-left text-sm ${
+      currentLanguage === locale
+        ? "bg-accent-coral bg-opacity-10 text-accent-coral"
+        : "text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral"
+    }`}
+    role="menuitem"
+  >
+    <span className="whitespace-nowrap">
+      <span className="mr-2">{getFlag(locale)}</span>
+      {getDisplayName(locale)}
+    </span>
+  </button>
+);
+
+function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage, isUS } = useDetectLanguage(currentLang);
+  const dropdownRef = useOutsideClick(() => setIsOpen(false));
+
+  const handleLanguageChange = (newLang: Locale) => {
+    localStorage.setItem("detectedLang", newLang);
+    setLanguage(newLang);
+    router.push(newLang === "en" ? "/" : `/${newLang}`);
+    setIsOpen(false);
   };
 
-  const getFlag = (locale: Locale) => {
-    if (locale === "en" && isUS) {
-      return "🇺🇸";
-    }
-    return i18n.localeEmojis[locale];
-  };
+  const getDisplayName = useMemo(() => (locale: Locale) => i18n.localeNames[locale], []);
+  const getFlag = useMemo(() => (locale: Locale) => locale === "en" && isUS ? "🇺🇸" : i18n.localeEmojis[locale], [isUS]);
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -86,21 +105,14 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
         <div className="w-55 absolute right-0 mt-2 rounded-md bg-background-primary shadow-lg ring-1 ring-black ring-opacity-5">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             {i18n.locales.map((locale) => (
-              <button
+              <LanguageOption
                 key={locale}
-                onClick={() => handleLanguageChange(locale)}
-                className={`block w-full px-4 py-2 text-left text-sm ${
-                  language === locale
-                    ? "bg-accent-coral bg-opacity-10 text-accent-coral"
-                    : "text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral"
-                }`}
-                role="menuitem"
-              >
-                <span className="whitespace-nowrap">
-                  <span className="mr-2">{getFlag(locale)}</span>
-                  {getDisplayName(locale)}
-                </span>
-              </button>
+                locale={locale}
+                currentLanguage={language}
+                onClick={handleLanguageChange}
+                getFlag={getFlag}
+                getDisplayName={getDisplayName}
+              />
             ))}
           </div>
         </div>
