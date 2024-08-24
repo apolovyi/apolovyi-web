@@ -70,9 +70,6 @@ interface Header {
 
 interface ExperienceSection {
   title: string;
-  companies: {
-    [key: string]: string;
-  };
   roles: {
     [key: string]: Company;
   };

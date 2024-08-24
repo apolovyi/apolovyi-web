@@ -68,15 +68,16 @@ export const projects: Project[] = [
     role: "Frontend Engineer",
     technologies: ["React", "JavaScript", "HTML", "CSS", "Jest"],
   },
-  // {
-  //     category: "Volunteer Project",
-  //     company: "SmartDorm",
-  //     description: "Developed a web application to streamline and automate management processes in the student dormitory Geschwister Scholl. Migrated and consolidated data into a central database to ensure 100% data consistency. Reduced administrative work by 35% through digitalization and automation. Implemented a CI/CD pipeline to optimize the development process.",
-  //     image: "/img/projects/blookery.png",
-  //     link: "https://smartdorm.schollheim.net",
-  //     role: "Lead Full-Stack Developer (Volunteer)",
-  //     technologies: ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"],
-  // }
+  {
+    category: "Volunteer Project",
+    company: "SmartDorm",
+    description:
+      "Developed a web application to streamline and automate management processes in the student dormitory Geschwister Scholl. Migrated and consolidated data into a central database to ensure 100% data consistency. Reduced administrative work by 35% through digitalization and automation. Implemented a CI/CD pipeline to optimize the development process.",
+    image: "/img/projects/schollheim.png",
+    link: "https://smartdorm.schollheim.net",
+    role: "Lead Full-Stack Developer",
+    technologies: ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"],
+  },
   {
     category: "Car Rental Platform",
     company: "Billiger Mietwagen",

@@ -158,14 +158,6 @@
   },
   "experienceSection": {
     "title": "Wo ich gearbeitet habe",
-    "companies": {
-      "TheBicesterCollection": "The Bicester Collection",
-      "VirtualIdentityAG": "Virtual Identity AG",
-      "Spreadshirt": "Spreadshirt",
-      "ComsystoReplyGmbH": "Comsysto Reply GmbH",
-      "Blookery": "Blookery",
-      "SilverToursGmbH": "SilverTours GmbH"
-    },
     "roles": {
       "TheBicesterCollection": {
         "title": "Leitender Full-Stack-Entwickler",
@@ -261,6 +253,32 @@
               "OpenCms",
               "AWS"
             ]
+          }
+        ]
+      },
+      "SmartDorm": {
+        "title": "Lead Full-Stack-Entwickler (Ehrenamtlich)",
+        "date": "Jan 2020 - Heute",
+        "tasks": [
+          {
+            "text": "Entwickelte eine Webanwendung zur Optimierung und Automatisierung von Verwaltungsprozessen im Studentenwohnheim Geschwister Scholl.",
+            "keywords": ["Webanwendung", "Prozessautomatisierung"]
+          },
+          {
+            "text": "Migrierte und konsolidierte Daten in eine zentrale Datenbank, um 100% Datenkonsistenz zu gewährleisten.",
+            "keywords": ["Datenmigration", "Datenbankkonsolidierung"]
+          },
+          {
+            "text": "Reduzierte den Verwaltungsaufwand durch Digitalisierung und Automatisierung um 35%.",
+            "keywords": ["Digitalisierung", "Automatisierung", "Effizienzsteigerung"]
+          },
+          {
+            "text": "Implementierte eine CI/CD-Pipeline zur Optimierung des Entwicklungsprozesses.",
+            "keywords": ["CI/CD", "Entwicklungsoptimierung"]
+          },
+          {
+            "text": "Verwendete Technologien wie PostgreSQL, Kotlin, Spring Boot, React und GitLab.",
+            "keywords": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
           }
         ]
       },
@@ -461,6 +479,15 @@
           "React",
           "CloudFormation"
         ]
+      },
+      {
+        "category": "Freiwilligenprojekt",
+        "company": "SmartDorm",
+        "description": "Entwickelte eine Webanwendung zur Optimierung und Automatisierung von Verwaltungsprozessen im Studentenwohnheim Geschwister Scholl. Migrierte und konsolidierte Daten in eine zentrale Datenbank, um 100% Datenkonsistenz zu gewährleisten. Reduzierte den Verwaltungsaufwand durch Digitalisierung und Automatisierung um 35%. Implementierte eine CI/CD-Pipeline zur Optimierung des Entwicklungsprozesses.",
+        "image": "/img/projects/schollheim.png",
+        "link": "https://smartdorm.schollheim.net",
+        "role": "Lead Full-Stack-Entwickler (Ehrenamtlich)",
+        "technologies": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
       },
       {
         "category": "Finanztechnologie",
