@@ -11,6 +11,7 @@ interface Company {
 const companies: Company[] = [
   { name: "The Bicester Collection", key: "TheBicesterCollection" },
   { name: "Virtual Identity AG", key: "VirtualIdentityAG" },
+  { name: "SmartDorm", key: "SmartDorm" },
   { name: "Spreadshirt", key: "Spreadshirt" },
   { name: "Comsysto Reply GmbH", key: "ComsystoReplyGmbH" },
   { name: "Blookery", key: "Blookery" },
@@ -22,8 +23,9 @@ interface MyExperienceProps {
 }
 
 const MyExperience = ({ lang }: MyExperienceProps) => {
-  const [activeCompany, setActiveCompany] = useState(companies[0].key);
   const dictionary = getDictionary(lang);
+  const experienceSectionTitle = dictionary.experienceSection.title;
+  const [activeCompany, setActiveCompany] = useState(companies[0].key);
 
   return (
     <section
@@ -37,7 +39,7 @@ const MyExperience = ({ lang }: MyExperienceProps) => {
           <div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
             <span className="font-tech text-xl text-accent-coral">02.</span>
             <h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-              {dictionary.experienceSection.title}
+              {experienceSectionTitle}
             </h2>
           </div>
           <div className="h-[0.2px] w-full bg-accent-green"></div>
@@ -64,9 +66,7 @@ interface CompaniesBarProps {
   lang: Locale;
 }
 
-const CompaniesBar = ({ companies, activeCompany, setActiveCompany, lang }: CompaniesBarProps) => {
-  const dictionary = getDictionary(lang);
-
+const CompaniesBar = ({ companies, activeCompany, setActiveCompany }: CompaniesBarProps) => {
   return (
     <div className="mb-4 flex overflow-x-auto md:mb-0 md:flex-col md:overflow-x-visible">
       {companies.map((company) => (
@@ -75,9 +75,7 @@ const CompaniesBar = ({ companies, activeCompany, setActiveCompany, lang }: Comp
           company={company}
           isActive={activeCompany === company.key}
           onClick={() => setActiveCompany(company.key)}
-          companyName={
-            dictionary.experienceSection.companies[company.key as keyof typeof dictionary.experienceSection.companies]
-          }
+          companyName={company.name}
         />
       ))}
     </div>
@@ -130,7 +128,7 @@ const JobDescription = ({ company, lang }: JobDescriptionProps) => {
         <div className="flex flex-col sm:flex-row sm:items-center">
           <span className="font-body text-lg font-semibold text-text-primary">{job.title}</span>
           <span className="text-base text-accent-coral sm:ml-2 md:text-lg">
-            @ {dictionary.experienceSection.companies[company as keyof typeof dictionary.experienceSection.companies]}
+            @ {companies.find((c) => c.key === company)?.name || company}
           </span>
         </div>
         <p className="mt-2 font-tech text-sm text-text-secondary">{job.date}</p>

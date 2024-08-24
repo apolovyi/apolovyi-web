@@ -158,14 +158,6 @@
   },
   "experienceSection": {
     "title": "Wo ich gschaffet han",
-    "companies": {
-      "TheBicesterCollection": "The Bicester Collection",
-      "VirtualIdentityAG": "Virtual Identity AG",
-      "Spreadshirt": "Spreadshirt",
-      "ComsystoReplyGmbH": "Comsysto Reply GmbH",
-      "Blookery": "Blookery",
-      "SilverToursGmbH": "SilverTours GmbH"
-    },
     "roles": {
       "TheBicesterCollection": {
         "title": "Leitende Full-Stack Entwickler",
@@ -261,6 +253,32 @@
               "OpenCms",
               "AWS"
             ]
+          }
+        ]
+      },
+      "SmartDorm": {
+        "title": "Lead Full-Stack-Entwickler (Freiwillig)",
+        "date": "Jan 2020 - Hüt",
+        "tasks": [
+          {
+            "text": "Han e Webaawändig entwicklet zum d'Verwaltigsprozäss im Studentewohnheim Geschwister Scholl z'optimiere und z'automatisiere.",
+            "keywords": ["Webaawändig", "Prozässautomatisierig"]
+          },
+          {
+            "text": "Han d'Date in e zentrali Datebank migriert und konsolidiert, zum 100% Datekonsistenz z'gwährleiste.",
+            "keywords": ["Datemigration", "Datebankkonsolidierig"]
+          },
+          {
+            "text": "Han de Verwaltigsufwand dur Digitalisierig und Automatisierig um 35% reduziert.",
+            "keywords": ["Digitalisierig", "Automatisierig", "Effizienzsteigerig"]
+          },
+          {
+            "text": "Han e CI/CD-Pipeline implementiert zum de Entwickligsprozäss z'optimiere.",
+            "keywords": ["CI/CD", "Entwickligsoptimierig"]
+          },
+          {
+            "text": "Han Technologie wie PostgreSQL, Kotlin, Spring Boot, React und GitLab verwändet.",
+            "keywords": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
           }
         ]
       },
@@ -461,6 +479,15 @@
           "React",
           "CloudFormation"
         ]
+      },
+      {
+        "category": "Freiwilligeprojekt",
+        "company": "SmartDorm",
+        "description": "Han e Webaawändig entwicklet zum d'Verwaltigsprozäss im Studentewohnheim Geschwister Scholl z'optimiere und z'automatisiere. Han d'Date in e zentrali Datebank migriert und konsolidiert, zum 100% Datekonsistenz z'gwährleiste. Han de Verwaltigsufwand dur Digitalisierig und Automatisierig um 35% reduziert. Han e CI/CD-Pipeline implementiert zum de Entwickligsprozäss z'optimiere.",
+        "image": "/img/projects/schollheim.png",
+        "link": "https://smartdorm.schollheim.net",
+        "role": "Lead Full-Stack-Entwickler (Freiwillig)",
+        "technologies": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
       },
       {
         "category": "Finanztechnologie",

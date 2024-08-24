@@ -158,14 +158,6 @@
   },
   "experienceSection": {
     "title": "Where I've Worked",
-    "companies": {
-      "TheBicesterCollection": "The Bicester Collection",
-      "VirtualIdentityAG": "Virtual Identity AG",
-      "Spreadshirt": "Spreadshirt",
-      "ComsystoReplyGmbH": "Comsysto Reply GmbH",
-      "Blookery": "Blookery",
-      "SilverToursGmbH": "SilverTours GmbH"
-    },
     "roles": {
       "TheBicesterCollection": {
         "title": "Lead Full-Stack Engineer",
@@ -261,6 +253,33 @@
               "OpenCms",
               "AWS"
             ]
+          }
+        ]
+      },
+      "SmartDorm": {
+        "title": "Lead Full-Stack Developer (Volunteer)",
+        "date": "Jan 2020 - Present",
+        "url": "https://smartdorm.schollheim.net",
+        "tasks": [
+          {
+            "text": "Developed a web application to streamline and automate management processes in the student dormitory Geschwister Scholl.",
+            "keywords": ["web application", "process automation"]
+          },
+          {
+            "text": "Migrated and consolidated data into a central database to ensure 100% data consistency.",
+            "keywords": ["data migration", "database consolidation"]
+          },
+          {
+            "text": "Reduced administrative work by 35% through digitalization and automation.",
+            "keywords": ["digitalization", "automation", "efficiency improvement"]
+          },
+          {
+            "text": "Implemented a CI/CD pipeline to optimize the development process.",
+            "keywords": ["CI/CD", "development optimization"]
+          },
+          {
+            "text": "Utilized technologies including PostgreSQL, Kotlin, Spring Boot, React, and GitLab.",
+            "keywords": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
           }
         ]
       },
@@ -462,6 +481,15 @@
           "React",
           "CloudFormation"
         ]
+      },
+      {
+        "category": "Volunteer Project",
+        "company": "SmartDorm",
+        "description": "Developed a web application to streamline and automate management processes in the student dormitory Geschwister Scholl. Migrated and consolidated data into a central database to ensure 100% data consistency. Reduced administrative work by 35% through digitalization and automation. Implemented a CI/CD pipeline to optimize the development process.",
+        "image": "/img/projects/schollheim.png",
+        "link": "https://smartdorm.schollheim.net",
+        "role": "Lead Full-Stack Developer",
+        "technologies": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
       },
       {
         "category": "Financial Technology",

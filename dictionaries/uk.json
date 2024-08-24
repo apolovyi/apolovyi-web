@@ -158,14 +158,6 @@
   },
   "experienceSection": {
     "title": "Де я працював",
-    "companies": {
-      "TheBicesterCollection": "The Bicester Collection",
-      "VirtualIdentityAG": "Virtual Identity AG",
-      "Spreadshirt": "Spreadshirt",
-      "ComsystoReplyGmbH": "Comsysto Reply GmbH",
-      "Blookery": "Blookery",
-      "SilverToursGmbH": "SilverTours GmbH"
-    },
     "roles": {
       "TheBicesterCollection": {
         "title": "Провідний Full-Stack інженер",
@@ -261,6 +253,32 @@
               "OpenCms",
               "AWS"
             ]
+          }
+        ]
+      },
+      "SmartDorm": {
+        "title": "Провідний Full-Stack розробник (Волонтер)",
+        "date": "Січень 2020 - Теперішній час",
+        "tasks": [
+          {
+            "text": "Розробив веб-додаток для оптимізації та автоматизації процесів управління в студентському гуртожитку Geschwister Scholl.",
+            "keywords": ["веб-додаток", "автоматизація процесів"]
+          },
+          {
+            "text": "Мігрував та консолідував дані в центральну базу даних для забезпечення 100% узгодженості даних.",
+            "keywords": ["міграція даних", "консолідація бази даних"]
+          },
+          {
+            "text": "Зменшив адміністративну роботу на 35% за допомогою цифровізації та автоматизації.",
+            "keywords": ["цифровізація", "автоматизація", "підвищення ефективності"]
+          },
+          {
+            "text": "Впровадив CI/CD конвеєр для оптимізації процесу розробки.",
+            "keywords": ["CI/CD", "оптимізація розробки"]
+          },
+          {
+            "text": "Використовував технології, включаючи PostgreSQL, Kotlin, Spring Boot, React та GitLab.",
+            "keywords": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
           }
         ]
       },
@@ -461,6 +479,15 @@
           "React",
           "CloudFormation"
         ]
+      },
+      {
+        "category": "Волонтерський проект",
+        "company": "SmartDorm",
+        "description": "Розробив веб-додаток для оптимізації та автоматизації процесів управління в студентському гуртожитку Geschwister Scholl. Мігрував та консолідував дані в центральну базу даних для забезпечення 100% узгодженості даних. Зменшив адміністративну роботу на 35% за допомогою цифровізації та автоматизації. Впровадив CI/CD конвеєр для оптимізації процесу розробки.",
+        "image": "/img/projects/schollheim.png",
+        "link": "https://smartdorm.schollheim.net",
+        "role": "Провідний Full-Stack розробник (Волонтер)",
+        "technologies": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
       },
       {
         "category": "Фінансові технології",
