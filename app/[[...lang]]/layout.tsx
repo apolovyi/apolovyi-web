@@ -1,5 +1,5 @@
+import { lazy, Suspense } from "react";
 import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/google";
-import { AppProvider } from "@/components/shared/AppContext";
 import "@/app/globals.css";
 import Script from "next/script";
 import { i18n, Locale } from "@/i18n-config";
@@ -7,7 +7,14 @@ import { getDictionary } from "@/lib/dictionary";
 import { Metadata } from "next";
 import LanguageDetector from "@/components/LanguageDetector";
 import StructuredData from "@/components/StructuredData";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 
+// Lazy load components
+const LazyAppProvider = lazy(() =>
+  import("@/components/shared/AppContext").then((mod) => ({ default: mod.AppProvider })),
+);
+
+// Fonts
 const comfortaa = Comfortaa({
   subsets: ["latin"],
   variable: "--font-comfortaa",
@@ -73,14 +80,7 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
       apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
     },
     alternates: {
-      languages: {
-        "x-default": `${baseUrl}`,
-        en: `${baseUrl}/en`,
-        de: `${baseUrl}/de`,
-        ch: `${baseUrl}/ch`,
-        uk: `${baseUrl}/uk`,
-        ru: `${baseUrl}/ru`,
-      },
+      languages: Object.fromEntries(i18n.locales.map((locale) => [locale, `${baseUrl}/${locale}`])),
     },
     keywords: metadata.keywords,
   };
@@ -96,9 +96,11 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
     >
       <body>
         <LanguageDetector />
-        <AppProvider>{children}</AppProvider>
-        <Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
+        <Suspense fallback={<LoadingSpinner />}>
+          <LazyAppProvider>{children}</LazyAppProvider>
+        </Suspense>
         <StructuredData />
+        <Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
       </body>
     </html>
   );
