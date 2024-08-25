@@ -52,7 +52,7 @@ const ProfileImage = () => (
       <div className="absolute h-full w-full overflow-hidden rounded">
         <div className="absolute inset-0 bg-accent-coral opacity-10 transition-opacity duration-300 group-hover:opacity-0"></div>
         <Image
-          src="/img/me-bg.jpg"
+          src="/static/img/me-bg.jpg"
           alt="Artem Polovyi"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

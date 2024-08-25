@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { i18n, Locale } from "@/i18n-config";
+import Cookies from "js-cookie";
 
 interface LanguageSwitcherProps {
   currentLang?: Locale;
@@ -17,7 +18,7 @@ const useDetectLanguage = (currentLang?: Locale) => {
     setIsUS(userLanguage.startsWith("en-US"));
 
     if (!currentLang) {
-      const detectedLang = localStorage.getItem("detectedLang") as Locale | null;
+      const detectedLang = Cookies.get("detectedLang") as Locale | undefined;
       const browserLang = userLanguage.split("-")[0] as Locale;
 
       setLanguage(
@@ -74,9 +75,9 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
   const dropdownRef = useOutsideClick(() => setIsOpen(false));
 
   const handleLanguageChange = (newLang: Locale) => {
-    localStorage.setItem("detectedLang", newLang);
+    Cookies.set("detectedLang", newLang, { expires: 365 }); // Set cookie to expire in 1 year
     setLanguage(newLang);
-    router.push(newLang === "en" ? "/" : `/${newLang}`);
+    router.push(`/${newLang}`);
     setIsOpen(false);
   };
 
