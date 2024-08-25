@@ -46,7 +46,7 @@ const SectionHeader = ({ title }: SectionHeaderProps) => (
 );
 
 const ProfileImage = () => (
-  <div className="relative mx-auto h-60 w-60 sm:h-80 sm:w-80">
+  <div className="relative mx-auto h-60 w-60 sm:h-80 sm:w-80 ">
     <div className="group absolute inset-0">
       <div className="absolute h-full w-full translate-x-5 translate-y-5 rounded border-2 border-accent-coral transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
       <div className="absolute h-full w-full overflow-hidden rounded">
@@ -54,9 +54,9 @@ const ProfileImage = () => (
         <Image
           src="/img/me-bg.jpg"
           alt="Artem Polovyi"
-          layout="fill"
-          objectFit="cover"
-          className="rounded"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="rounded object-cover"
           loading="lazy"
         />
       </div>
