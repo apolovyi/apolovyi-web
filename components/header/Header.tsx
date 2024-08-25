@@ -54,7 +54,7 @@ function Header({ finishedLoading, lang }: Readonly<HeaderProps>) {
           ${isScrolled ? "shadow-lg backdrop-blur-sm" : ""}
           ${
             showElement
-              ? "bg-background-primary bg-opacity-70"
+              ? "bg-background-primary bg-opacity-0"
               : isScrolled
               ? "bg-background-primary bg-opacity-50"
               : "bg-transparent"
