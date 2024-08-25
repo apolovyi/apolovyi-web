@@ -105,7 +105,7 @@ module.exports = {
           DEFAULT: "var(--accent)",
           foreground: "var(--accent-foreground)",
           coral: "#ea5555",
-          green: "#08a191",
+          green: "#005bb0",
         },
         popover: {
           DEFAULT: "var(--popover)",
