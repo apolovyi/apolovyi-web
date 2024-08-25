@@ -1,4 +1,4 @@
-import type { Locale } from "@/i18n-config";
+import type { Locale } from '@/i18n-config';
 
 export interface OpenGraphImage {
   url: string;
@@ -121,17 +121,17 @@ interface Dictionary {
 }
 
 const dictionaries: Record<Locale, Dictionary> = {
-  en: require("@/dictionaries/en.json"),
-  de: require("@/dictionaries/de.json"),
-  ch: require("@/dictionaries/ch.json"),
-  uk: require("@/dictionaries/uk.json"),
-  ru: require("@/dictionaries/ru.json"),
+  en: require('@/dictionaries/en.json'),
+  de: require('@/dictionaries/de.json'),
+  ch: require('@/dictionaries/ch.json'),
+  uk: require('@/dictionaries/uk.json'),
+  ru: require('@/dictionaries/ru.json'),
 };
 
 export function getDictionary(locale: Locale): Dictionary {
   if (!dictionaries[locale]) {
     console.warn(`Locale '${locale}' not found, falling back to 'en'`);
-    locale = "en" as Locale;
+    locale = 'en' as Locale;
   }
 
   return dictionaries[locale];

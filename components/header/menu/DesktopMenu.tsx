@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
-import { motion } from "framer-motion";
-import { scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
-import { Locale } from "@/i18n-config";
-import { getDictionary } from "@/lib/dictionary";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import React, { useCallback } from 'react';
+import { motion } from 'framer-motion';
+import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext';
+import { Locale } from '@/i18n-config';
+import { getDictionary } from '@/lib/dictionary';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -22,7 +22,7 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      type: "spring",
+      type: 'spring',
       duration: 0.8,
     },
   },

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import ArrowIcon from "@/components/icons/ArrowIcon";
-import CheckCircleIcon from "@/components/icons/CheckCircleIcon";
-import XCircleIcon from "@/components/icons/XCircleIcon";
-import { getDictionary } from "@/lib/dictionary";
-import { Locale } from "@/i18n-config";
+import React, { useState } from 'react';
+import ArrowIcon from '@/components/icons/ArrowIcon';
+import CheckCircleIcon from '@/components/icons/CheckCircleIcon';
+import XCircleIcon from '@/components/icons/XCircleIcon';
+import { getDictionary } from '@/lib/dictionary';
+import { Locale } from '@/i18n-config';
 
-type SubmitStatus = "idle" | "success" | "error";
+type SubmitStatus = 'idle' | 'success' | 'error';
 
 interface GetInTouchProps {
   lang: Locale;
@@ -15,7 +15,7 @@ interface GetInTouchProps {
 
 function GetInTouch({ lang }: GetInTouchProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
 
   const dictionary = getDictionary(lang);
   const { contactSection } = dictionary;
@@ -23,26 +23,26 @@ function GetInTouch({ lang }: GetInTouchProps) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus("idle");
+    setSubmitStatus('idle');
 
     const form = event.currentTarget;
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("/__forms.html", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      const response = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as any).toString(),
       });
 
       if (response.ok) {
-        setSubmitStatus("success");
+        setSubmitStatus('success');
         form.reset();
       } else {
-        setSubmitStatus("error");
+        setSubmitStatus('error');
       }
     } catch (error) {
-      setSubmitStatus("error");
+      setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
@@ -109,7 +109,7 @@ function GetInTouch({ lang }: GetInTouchProps) {
           </div>
         </form>
 
-        {submitStatus !== "idle" && <StatusMessage status={submitStatus} lang={lang} />}
+        {submitStatus !== 'idle' && <StatusMessage status={submitStatus} lang={lang} />}
       </div>
     </section>
   );
@@ -129,7 +129,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
       <label htmlFor={name} className="mb-2 block font-tech text-sm text-text-secondary">
         {label}
       </label>
-      {type === "textarea" ? (
+      {type === 'textarea' ? (
         <textarea
           name={name}
           id={name}
@@ -153,7 +153,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 }
 
 interface StatusMessageProps {
-  status: "success" | "error";
+  status: 'success' | 'error';
   lang: Locale;
 }
 
@@ -161,18 +161,18 @@ function StatusMessage({ status, lang }: StatusMessageProps) {
   const dictionary = getDictionary(lang);
   const { contactSection } = dictionary;
 
-  const isSuccess = status === "success";
+  const isSuccess = status === 'success';
   const Icon = isSuccess ? CheckCircleIcon : XCircleIcon;
   const message = isSuccess ? contactSection.successMessage : contactSection.errorMessage;
 
   return (
     <div
       className={`mt-4 flex items-center rounded-md p-4 ${
-        isSuccess ? "bg-success bg-opacity-10" : "bg-error bg-opacity-10"
+        isSuccess ? 'bg-success bg-opacity-10' : 'bg-error bg-opacity-10'
       }`}
     >
-      <Icon className={`mr-3 h-5 w-5 ${isSuccess ? "text-success" : "text-error"}`} />
-      <span className={`text-sm ${isSuccess ? "text-success" : "text-error"}`}>{message}</span>
+      <Icon className={`mr-3 h-5 w-5 ${isSuccess ? 'text-success' : 'text-error'}`} />
+      <span className={`text-sm ${isSuccess ? 'text-success' : 'text-error'}`}>{message}</span>
     </div>
   );
 }

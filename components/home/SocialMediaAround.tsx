@@ -1,8 +1,8 @@
-import React from "react";
-import { motion } from "framer-motion";
-import GithubIcon from "@/components/icons/GithubIcon";
-import LinkedinIcon from "@/components/icons/LinkedinIcon";
-import InstagramIcon from "@/components/icons/InstagramIcon";
+import React from 'react';
+import { motion } from 'framer-motion';
+import GithubIcon from '@/components/icons/GithubIcon';
+import LinkedinIcon from '@/components/icons/LinkedinIcon';
+import InstagramIcon from '@/components/icons/InstagramIcon';
 
 interface IconProps {
   href: string;
@@ -23,12 +23,12 @@ const IconClickableWithAnimation = React.memo(({ href, Icon, label }: IconProps)
   </motion.div>
 ));
 
-IconClickableWithAnimation.displayName = "IconClickableWithAnimation";
+IconClickableWithAnimation.displayName = 'IconClickableWithAnimation';
 
 const socialLinks: IconProps[] = [
-  { Icon: GithubIcon, href: "https://github.com/apolovyi", label: "GitHub Profile" },
-  { Icon: LinkedinIcon, href: "https://www.linkedin.com/in/apolovyi/", label: "LinkedIn Profile" },
-  { Icon: InstagramIcon, href: "https://www.instagram.com/artem_polevoi/", label: "Instagram Profile" },
+  { Icon: GithubIcon, href: 'https://github.com/apolovyi', label: 'GitHub Profile' },
+  { Icon: LinkedinIcon, href: 'https://www.linkedin.com/in/apolovyi/', label: 'LinkedIn Profile' },
+  { Icon: InstagramIcon, href: 'https://www.instagram.com/artem_polevoi/', label: 'Instagram Profile' },
 ];
 
 interface SocialMediaEmailProps {
@@ -41,8 +41,8 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
   return (
     <>
       <motion.div
-        initial={{ y: "100%" }}
-        animate={{ y: "0%" }}
+        initial={{ y: '100%' }}
+        animate={{ y: '0%' }}
         transition={{ y: { delay: animationDelay, duration: 0.5 } }}
         className="fixed bottom-0 left-0 z-10 hidden flex-row items-center justify-between px-12 lg:flex"
       >
@@ -57,8 +57,8 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
       </motion.div>
 
       <motion.div
-        initial={{ y: "170%" }}
-        animate={{ y: "0%" }}
+        initial={{ y: '170%' }}
+        animate={{ y: '0%' }}
         transition={{ y: { delay: animationDelay, duration: 0.5 } }}
         className="fixed -right-10 bottom-0 z-10 hidden flex-row items-center justify-between lg:flex"
       >

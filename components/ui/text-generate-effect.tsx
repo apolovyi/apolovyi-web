@@ -1,7 +1,7 @@
-"use client";
-import { useCallback, useEffect } from "react";
-import { motion, stagger, useAnimate } from "framer-motion";
-import { cn } from "@/lib/utils";
+'use client';
+import { useCallback, useEffect } from 'react';
+import { motion, stagger, useAnimate } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 export const TextGenerateEffect = ({
   words,
@@ -15,14 +15,14 @@ export const TextGenerateEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+  let wordsArray = words.split(' ');
 
   const animateText = useCallback(() => {
     animate(
-      "span",
+      'span',
       {
         opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
+        filter: filter ? 'blur(0px)' : 'none',
       },
       {
         duration: duration,
@@ -44,10 +44,10 @@ export const TextGenerateEffect = ({
               key={word + idx}
               className="opacity-0"
               style={{
-                filter: filter ? "blur(10px)" : "none",
+                filter: filter ? 'blur(10px)' : 'none',
               }}
             >
-              {word}{" "}
+              {word}{' '}
             </motion.span>
           );
         })}
@@ -56,7 +56,7 @@ export const TextGenerateEffect = ({
   };
 
   return (
-    <div className={cn("", className)}>
+    <div className={cn('', className)}>
       <div className="mt-4">
         <div className="">{renderWords()}</div>
       </div>

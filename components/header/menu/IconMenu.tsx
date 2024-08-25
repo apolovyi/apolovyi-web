@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useHeaderContext } from "@/components/header/menu/HeaderContext";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useHeaderContext } from '@/components/header/menu/HeaderContext';
 
 function IconMenu() {
   const { rotate, setRotate, showElement, setShowElement } = useHeaderContext();
@@ -29,7 +29,7 @@ function IconMenu() {
       </motion.div>
       <div className="flex justify-end">
         <motion.div
-          animate={rotate ? { y: -10, width: "150%", rotate: -45 } : { y: 0, rotate: 0, width: "50%" }}
+          animate={rotate ? { y: -10, width: '150%', rotate: -45 } : { y: 0, rotate: 0, width: '50%' }}
           transition={rotate ? { y: 0.15, rotate: { delay: 0.2 } } : { y: { delay: 0.2 }, rotate: { duration: 0.2 } }}
           className="h-0.5 w-4 rounded bg-accent-coral"
         ></motion.div>

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react';
 
 type SharedState = {
   finishedLoading: boolean;
@@ -31,7 +31,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
 export const useAppContext = () => {
   const context = useContext(AppContext);
   if (context === defaultContextValue) {
-    throw new Error("useAppContext must be used within an AppProvider");
+    throw new Error('useAppContext must be used within an AppProvider');
   }
   return context;
 };
