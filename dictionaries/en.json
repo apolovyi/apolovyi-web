@@ -444,7 +444,6 @@
   },
   "projectsSection": {
     "title": "Some Things I've Built",
-    "viewProject": "View Project",
     "projects": [
       {
         "category": "Enterprise Web Development",
