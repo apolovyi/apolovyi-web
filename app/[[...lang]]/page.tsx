@@ -37,7 +37,7 @@ function Home({ params: { lang = "en" } }: { params: { lang?: Locale } }) {
   const isProd = process.env.NODE_ENV === "production";
 
   return (
-    <main className="relative min-h-screen w-full snap-mandatory bg-background-primary">
+    <main className="relative w-full snap-mandatory bg-background-primary">
       {!sharedState.finishedLoading && showElement && <Startup />}
       <Header finishedLoading={sharedState.finishedLoading} lang={lang} />
       <HeroSection finishedLoading={sharedState.finishedLoading} lang={lang} />
