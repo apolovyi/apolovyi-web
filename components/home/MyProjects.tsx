@@ -28,11 +28,11 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
               objectFit: "contain",
               objectPosition: "center",
             }}
-            className="h-auto w-full p-4"
+            className="h-auto w-full rounded-lg p-4"
             priority={false}
             quality={100}
-            // placeholder="blur"
-            // blurDataURL={project.placeholder}
+            placeholder="blur"
+            blurDataURL={project.placeholder}
           />
           <div className="absolute inset-0 rounded-lg bg-background-primary p-1 opacity-70 transition-opacity duration-300 hover:opacity-0 lg:opacity-30"></div>
         </div>
