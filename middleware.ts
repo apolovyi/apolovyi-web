@@ -1,15 +1,12 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { i18n } from "@/i18n-config";
+import { i18n, isValidLocale, Locale } from "./i18n-config";
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  console.log("Middleware called for pathname:", pathname);
-
   // Redirect /en/* to /*
   if (pathname.startsWith("/en/") || pathname === "/en") {
-    console.log("Redirecting from /en to /");
     return NextResponse.redirect(new URL(pathname.replace(/^\/en/, ""), request.url));
   }
 
@@ -19,29 +16,33 @@ export function middleware(request: NextRequest) {
   );
 
   if (pathnameIsMissingLocale) {
-    // If no locale is specified, use the default locale or the one from the cookie
-    const locale = request.cookies.get("NEXT_LOCALE")?.value || i18n.defaultLocale;
+    // Determine the locale to use
+    let locale: Locale = i18n.defaultLocale;
 
-    // Only redirect if the locale is not the default locale (assuming 'en' is default)
-    if (locale !== "en") {
-      console.log(`Adding locale ${locale} to URL`);
+    // Check for stored language preference
+    const storedLang = request.cookies.get("NEXT_LOCALE")?.value;
+    if (storedLang && isValidLocale(storedLang)) {
+      locale = storedLang;
+    } else {
+      // Detect language from Accept-Language header
+      const acceptLanguage = request.headers.get("Accept-Language");
+      if (acceptLanguage) {
+        const detectedLocale = acceptLanguage.split(",")[0].split("-")[0];
+        if (isValidLocale(detectedLocale)) {
+          locale = detectedLocale;
+        }
+      }
+    }
+
+    // Only redirect if the locale is not the default locale
+    if (locale !== i18n.defaultLocale) {
       return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
     }
   }
 
-  console.log("No redirect necessary");
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
