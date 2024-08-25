@@ -16,22 +16,22 @@ module.exports = {
       "-180": "-180deg",
       "-90": "-90deg",
       "-45": "-45deg",
-      0: "0",
-      45: "45deg",
-      90: "90deg",
-      135: "135deg",
-      180: "180deg",
-      270: "270deg",
+      "0": "0",
+      "45": "45deg",
+      "90": "90deg",
+      "135": "135deg",
+      "180": "180deg",
+      "270": "270deg",
     },
     extend: {
       screens: {
         tall: { raw: "(min-height: 820px)" },
       },
       fontFamily: {
-        body: ["var(--font-quicksand)", "sans-serif"],
-        heading: ["var(--font-comfortaa)", "sans-serif"],
+        "body": ["var(--font-quicksand)", "sans-serif"],
+        "heading": ["var(--font-comfortaa)", "sans-serif"],
         "sub-heading": ["var(--font-merriweather)", "serif"],
-        tech: ["var(--font-ibm-plex-mono)", "monospace"],
+        "tech": ["var(--font-ibm-plex-mono)", "monospace"],
       },
       // colors: {
       //   primary: {
@@ -66,7 +66,7 @@ module.exports = {
       colors: {
         border: "var(--border)",
         neutral: {
-          offwhite: "#F7F7F7",
+          "offwhite": "#F7F7F7",
           "light-gray": "#E5E5E5",
           "medium-gray": "#A0A0A0",
         },
@@ -122,7 +122,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        aurora: {
+        "aurora": {
           from: {
             backgroundPosition: "50% 50%, 50% 50%",
           },
@@ -140,7 +140,7 @@ module.exports = {
         },
       },
       animation: {
-        aurora: "aurora 60s linear infinite",
+        "aurora": "aurora 60s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
