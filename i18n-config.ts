@@ -18,3 +18,7 @@ export const i18n = {
 };
 
 export type Locale = (typeof i18n)["locales"][number];
+
+export function isValidLocale(tested: string): tested is Locale {
+  return i18n.locales.includes(tested as Locale);
+}
