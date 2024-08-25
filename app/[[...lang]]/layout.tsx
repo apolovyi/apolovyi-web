@@ -87,6 +87,85 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
 
 const RootLayout = ({ children, params }: { children: React.ReactNode; params: { lang: string[] } }) => {
   const lang = (params.lang?.[0] || i18n.defaultLocale) as Locale;
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Artem Polovyi",
+    url: "https://apolovyi.me",
+    image: "https://apolovyi.me/img/me-circle.png",
+    jobTitle: "Senior Full-Stack Software Engineer",
+    email: "mailto:info@apolovyi.me",
+    sameAs: ["https://www.linkedin.com/in/apolovyi", "https://github.com/apolovyi"],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Zurich",
+      addressCountry: "Switzerland",
+    },
+    alumniOf: [
+      {
+        "@type": "EducationalOrganization",
+        name: "Munich University of Applied Sciences",
+        degree: "M.Sc.",
+        fieldOfStudy: "Computer Vision and Machine Learning",
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "TH Köln - University of Applied Sciences",
+        degree: "B.Sc.",
+        fieldOfStudy: "Networks and Distributed Systems",
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "Telecommunications University Kyiv",
+        degree: "B.Sc.",
+        fieldOfStudy: "IT Security Management",
+      },
+    ],
+    knowsLanguage: ["English", "German", "Ukrainian", "Russian"],
+    worksFor: [
+      {
+        "@type": "Organization",
+        name: "Virtual Identity AG",
+        jobTitle: "Senior Full-Stack Engineer",
+        startDate: "2022-02",
+        endDate: "2024-01",
+        url: "https://www.virtual-identity.com/",
+      },
+      {
+        "@type": "Organization",
+        name: "Spreadshirt",
+        jobTitle: "Senior Full-Stack Engineer",
+        startDate: "2021-11",
+        endDate: "2022-02",
+        url: "https://www.spreadshirt.com/",
+      },
+      {
+        "@type": "Organization",
+        name: "Comsysto Reply GmbH",
+        jobTitle: "Full-Stack Engineer",
+        startDate: "2019-02",
+        endDate: "2021-10",
+        url: "https://www.comsysto-reply.de/",
+      },
+      {
+        "@type": "Organization",
+        name: "SilverTours GmbH",
+        jobTitle: "Student Full-Stack Developer",
+        startDate: "2015-01",
+        endDate: "2018-08",
+        url: "https://www.silvertours.com/",
+      },
+    ],
+    skills: ["Java", "Kotlin", "JavaScript", "TypeScript", "Spring Boot", "React", "AWS", "DevOps", "Test Automation"],
+    award: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Certification",
+      name: "AWS Certified Developer – Associate",
+      dateAwarded: "2020-12",
+    },
+  };
+
   return (
     <html
       lang={lang}
@@ -101,6 +180,12 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
           strategy="afterInteractive"
           data-website-id="851d0366-78bf-4def-90ee-32f5764df198"
           defer
+        />
+        <Script
+          id="ld-json"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </body>
     </html>
