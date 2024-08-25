@@ -11,7 +11,7 @@
       "siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
       "images": [
         {
-          "url": "/img/me-bg.jpg",
+          "url": "/static/img/me-bg.jpg",
           "width": 1200,
           "height": 630,
           "alt": "Artem Polovyi - Full-Stack Softwareentwickler"
@@ -160,7 +160,7 @@
     "title": "Wo ich gschaffet han",
     "roles": {
       "TheBicesterCollection": {
-        "title": "Leitende Full-Stack Entwickler",
+        "title": "Lead Full-Stack Entwickler",
         "date": "Juni 2023 - Jetzt",
         "url": "https://www.thebicestercollection.com",
         "tasks": [
@@ -450,7 +450,7 @@
         "company": "Infineon Technologies",
         "description": "Han Features uf infineon.com entwicklet und gwartet zum d'Benutzererfrahrig und Funktionalität z'optimiere. Umfassendi Unit- und Integrationstests entworfe und dureghfüehrt zum d'Software-Zuverlässigkeit z'erhöhe. E breiti Palette vo Technologie igsetztum hochwertig Web-Lösige z'lifere.",
         "role": "Senior Full-Stack Entwickler",
-        "image": "/img/projects/infineon.png",
+        "image": "/static/img/projects/infineon.png",
         "link": "https://www.infineon.com",
         "technologies": [
           "JavaEE",
@@ -467,7 +467,7 @@
         "company": "voestalpine AG",
         "description": "Han erfolgriich voestalpine.com in d'AWS-Cloud migriert und d'Skalierbarkeit und Leischtig stark verbesseret. Fortgschritteni Features mit Java und Spring umgsetzt, währed d'Datebank-Operatione mit PostgreSQL optimiert worde sind. Verschiedeni AWS-Dienscht igsetztum e robust und effizient Cloud-Infrastruktur sicherzstelle.",
         "role": "Cloud-Migrations-Spezialischt",
-        "image": "/img/projects/voestalpine.png",
+        "image": "/static/img/projects/voestalpine.png",
         "link": "https://www.voestalpine.com",
         "technologies": [
           "JavaEE",
@@ -484,7 +484,7 @@
         "category": "Freiwilligeprojekt",
         "company": "SmartDorm",
         "description": "Han e Webaawändig entwicklet zum d'Verwaltigsprozäss im Studentewohnheim Geschwister Scholl z'optimiere und z'automatisiere. Han d'Date in e zentrali Datebank migriert und konsolidiert, zum 100% Datekonsistenz z'gwährleiste. Han de Verwaltigsufwand dur Digitalisierig und Automatisierig um 35% reduziert. Han e CI/CD-Pipeline implementiert zum de Entwickligsprozäss z'optimiere.",
-        "image": "/img/projects/schollheim.png",
+        "image": "/static/img/projects/schollheim.png",
         "link": "https://smartdorm.schollheim.net",
         "role": "Lead Full-Stack-Entwickler (Freiwillig)",
         "technologies": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
@@ -494,7 +494,7 @@
         "company": "Spreadshirt Uszahligs-System",
         "description": "E Hochleischtigsaawändig für d'Generierig vo Uszahlige entwicklet, wo d'Finanzprozess stark verbesseret het. Intuitivi Benutzeroberfläche erstellt zum d'Benutzererfrahrig und Aawändigsnutzbarkeit z'verbessere. Robust Backend-Logik umgsetzt zum gnau und pünktlichi Uszahlige sicherzstelle.",
         "role": "Senior Full-Stack Entwickler",
-        "image": "/img/projects/spreadshirt.png",
+        "image": "/static/img/projects/spreadshirt.png",
         "link": "https://www.spreadshirt.com",
         "technologies": [
           "Kotlin",
@@ -511,7 +511,7 @@
         "company": "ABI Audi On Demand",
         "description": "Imene Scrum-Team zämegschaffet um d'Priisgestaltung, Gutschiin-Verwaltig und Kommunikationssystem für s'ABI Audi On Demand Produkt z'optimiere. Mehreri Microservices und Microfrontends entwicklet und gwartet, wo Laste bis zu 200 QPS bewältiged. Code mit Kotlin refaktorisiert, d'Wartbarkeit erhöht und d'Codeziile um 30% reduziert.",
         "role": "Full-Stack Entwickler",
-        "image": "/img/projects/aod.png",
+        "image": "/static/img/projects/aod.png",
         "link": "https://www.audi.com",
         "technologies": [
           "PostgreSQL",
@@ -532,8 +532,8 @@
         "category": "Reise & Lifestyle",
         "company": "Turkey Nomad",
         "description": "E umfassendi Plattform für digitali Nomade id Türkei entwicklet, mit eme Reiseblog und usgewählte Empfehlige. Das Projäkt zeigt moderni Webentwickligstechnike und d'Integration vo Content-Management. D'Website bietet wertvolli Isichte und Ressource für Fernarbeiter und Reisendi, wo d'Türkei erkundid.",
-        "role": "Leitende Full-Stack Entwickler",
-        "image": "/img/projects/turkey-nomad.png",
+        "role": "Lead Full-Stack Entwickler",
+        "image": "/static/img/projects/turkey-nomad.png",
         "link": "https://turkeynomad.com",
         "technologies": [
           "Next.js",
@@ -547,7 +547,7 @@
         "company": "blookery",
         "description": "S'Frontend vonere innovative Reise-Website entwicklet, wo uf Blind Bookings in ganz Europa spezialisiert isch. Responsivi und intuitivi Benutzeroberfläche mit React bout, zum e nahtlosi Funktionalität über verschiedeni Grät und Bildschirmgrösse sicherzstelle. Fortgschritteni JavaScript-Features umgsetzt um dynamisch und interaktiv Element z'schaffe, was d'Benutzerinteraktion und Website-Navigation stark verbesseret het.",
         "role": "Frontend Entwickler",
-        "image": "/img/projects/blookery.png",
+        "image": "/static/img/projects/blookery.png",
         "link": "https://www.blookery.de",
         "technologies": [
           "React",
@@ -562,7 +562,7 @@
         "company": "Billiger Mietwagen",
         "description": "Als Studänte-Entwickler zu enere füehrende Autovermietigsplattform bitreit und d'Benutzererfrahrig stark verbesseret. A/B-Tests umgsetzt zum d'Produktspezifikatione z'optimiere und d'Konversionsrate z'steigere. Gründlichi Tests in jedere Produktiteration dureghfüehrt zum qualitativ hochwertige Releases sicherzstelle. Interni Tools für s'Kundeserviceteam erstellt, wo d'Effizienz um 50% gsteigeret händ.",
         "role": "Studäntische Full-Stack Entwickler",
-        "image": "/img/projects/billiger-mietwagen.png",
+        "image": "/static/img/projects/billiger-mietwagen.png",
         "link": "https://www.billiger-mietwagen.de",
         "technologies": [
           "JavaScript",
