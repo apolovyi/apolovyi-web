@@ -73,7 +73,6 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
       apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
     },
     alternates: {
-      canonical: `${baseUrl}`,
       languages: {
         en: `${baseUrl}/en`,
         de: `${baseUrl}/de`,
