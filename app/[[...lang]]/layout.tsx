@@ -70,8 +70,8 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
       type: "website",
     },
     robots: {
-      index: true,
-      follow: true,
+      "index": true,
+      "follow": true,
       "max-image-preview": "large",
       "max-snippet": 200,
     },
