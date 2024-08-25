@@ -1,16 +1,16 @@
-import { NextRequest, NextResponse } from "next/server";
-import { i18n, isValidLocale, Locale } from "@/i18n-config";
+import { NextRequest, NextResponse } from 'next/server';
+import { i18n, isValidLocale, Locale } from '@/i18n-config';
 
 function getLocale(request: NextRequest): Locale {
-  const storedLang = request.cookies.get("detectedLang")?.value;
+  const storedLang = request.cookies.get('detectedLang')?.value;
   if (storedLang && isValidLocale(storedLang)) {
     console.log(`[Middleware] Using stored language: ${storedLang}`);
     return storedLang;
   }
 
-  const acceptLanguage = request.headers.get("Accept-Language");
+  const acceptLanguage = request.headers.get('Accept-Language');
   if (acceptLanguage) {
-    const detectedLocale = acceptLanguage.split(",")[0].split("-")[0];
+    const detectedLocale = acceptLanguage.split(',')[0].split('-')[0];
     if (isValidLocale(detectedLocale)) {
       console.log(`[Middleware] Using detected locale: ${detectedLocale}`);
       return detectedLocale;
@@ -26,8 +26,8 @@ export function middleware(request: NextRequest) {
   console.log(`[Middleware] Incoming request for path: ${pathname}`);
 
   // Redirect /en/* to /*
-  if (pathname.startsWith("/en/") || pathname === "/en") {
-    const newPathname = pathname.replace(/^\/en/, "") || "/";
+  if (pathname.startsWith('/en/') || pathname === '/en') {
+    const newPathname = pathname.replace(/^\/en/, '') || '/';
     console.log(`[Middleware] Redirecting from /en to: ${newPathname}`);
     return NextResponse.redirect(new URL(newPathname, request.url));
   }
@@ -61,6 +61,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    "/((?!api|cv|img|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)",
+    '/((?!api|cv|img|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)',
   ],
 };

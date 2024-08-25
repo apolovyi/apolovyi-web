@@ -1,44 +1,44 @@
-import { lazy, Suspense } from "react";
-import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/google";
-import "@/app/globals.css";
-import Script from "next/script";
-import { i18n, Locale } from "@/i18n-config";
-import { getDictionary } from "@/lib/dictionary";
-import { Metadata } from "next";
-import LanguageDetector from "@/components/LanguageDetector";
-import StructuredData from "@/components/StructuredData";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { lazy, Suspense } from 'react';
+import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from 'next/font/google';
+import '@/app/globals.css';
+import Script from 'next/script';
+import { i18n, Locale } from '@/i18n-config';
+import { getDictionary } from '@/lib/dictionary';
+import { Metadata } from 'next';
+import LanguageDetector from '@/components/LanguageDetector';
+import StructuredData from '@/components/StructuredData';
+import { LoadingSpinner } from '@/components/LoadingSpinner';
 
 // Lazy load components
 const LazyAppProvider = lazy(() =>
-  import("@/components/shared/AppContext").then((mod) => ({ default: mod.AppProvider })),
+  import('@/components/shared/AppContext').then((mod) => ({ default: mod.AppProvider })),
 );
 
 // Fonts
 const comfortaa = Comfortaa({
-  subsets: ["latin"],
-  variable: "--font-comfortaa",
-  display: "swap",
+  subsets: ['latin'],
+  variable: '--font-comfortaa',
+  display: 'swap',
 });
 
 const quicksand = Quicksand({
-  subsets: ["latin"],
-  variable: "--font-quicksand",
-  display: "swap",
+  subsets: ['latin'],
+  variable: '--font-quicksand',
+  display: 'swap',
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-ibm-plex-mono",
-  display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  subsets: ['latin'],
+  variable: '--font-ibm-plex-mono',
+  display: 'swap',
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
 });
 
 const merriweather = Merriweather({
-  subsets: ["latin"],
-  variable: "--font-merriweather",
-  display: "swap",
-  weight: ["300", "400", "700", "900"],
+  subsets: ['latin'],
+  variable: '--font-merriweather',
+  display: 'swap',
+  weight: ['300', '400', '700', '900'],
 });
 
 export async function generateStaticParams() {
@@ -50,7 +50,7 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
   const dictionary = getDictionary(lang);
   const { metadata } = dictionary;
 
-  const baseUrl = "https://apolovyi.me";
+  const baseUrl = 'https://apolovyi.me';
   const currentPath = `/${lang}`;
 
   return {
@@ -67,17 +67,17 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
       siteName: metadata.openGraph.siteName,
       images: metadata.openGraph.images,
       locale: lang,
-      type: "website",
+      type: 'website',
     },
     robots: {
-      "index": true,
-      "follow": true,
-      "max-image-preview": "large",
-      "max-snippet": 200,
+      'index': true,
+      'follow': true,
+      'max-image-preview': 'large',
+      'max-snippet': 200,
     },
     icons: {
-      icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "32x32" }],
-      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+      icon: [{ url: '/favicon.ico' }, { url: '/icon.png', type: 'image/png', sizes: '32x32' }],
+      apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
     },
     alternates: {
       languages: Object.fromEntries(i18n.locales.map((locale) => [locale, `${baseUrl}/${locale}`])),

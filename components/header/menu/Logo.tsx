@@ -1,5 +1,5 @@
-import React, { memo } from "react";
-import HexagonLogo from "@/components/header/menu/HexagonLogo";
+import React, { memo } from 'react';
+import HexagonLogo from '@/components/header/menu/HexagonLogo';
 
 interface LogoProps {
   onClick?: () => void;
