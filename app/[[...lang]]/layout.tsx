@@ -74,6 +74,7 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
     },
     alternates: {
       languages: {
+        "x-default": `${baseUrl}`,
         en: `${baseUrl}/en`,
         de: `${baseUrl}/de`,
         ch: `${baseUrl}/ch`,
