@@ -23,12 +23,13 @@ export interface Metadata {
   keywords: string[];
 }
 
-interface Project {
+export interface Project {
   category: string;
   company: string;
   description: string;
   role: string;
   image: string;
+  placeholder?: string;
   link: string;
   technologies: string[];
 }
@@ -90,7 +91,6 @@ interface Footer {
 }
 interface ProjectsSection {
   title: string;
-  viewProject: string;
   projects: Project[];
 }
 

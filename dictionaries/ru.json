@@ -443,7 +443,6 @@
   },
   "projectsSection": {
     "title": "Некоторые мои проекты",
-    "viewProject": "Посмотреть проект",
     "projects": [
       {
         "category": "Корпоративная веб-разработка",
