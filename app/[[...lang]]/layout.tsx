@@ -1,22 +1,16 @@
-import { Suspense, lazy } from "react";
-
-import { Metadata } from "next";
-import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/google";
+import {Metadata} from "next";
+import {Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand} from "next/font/google";
 import Script from "next/script";
 
 import "@/app/globals.css";
-import { Locale, i18n } from "@/i18n-config";
+import {i18n, Locale} from "@/i18n-config";
 
 import LanguageDetector from "@/components/LanguageDetector";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
 import StructuredData from "@/components/StructuredData";
 
-import { getDictionary } from "@/lib/dictionary";
+import {getDictionary} from "@/lib/dictionary";
+import {AppProvider} from "@/components/shared/AppContext";
 
-// Lazy load components
-const LazyAppProvider = lazy(() =>
-  import("@/components/shared/AppContext").then((mod) => ({ default: mod.AppProvider })),
-);
 
 // Fonts
 const comfortaa = Comfortaa({
@@ -100,9 +94,7 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
     >
       <body>
         <LanguageDetector />
-        <Suspense fallback={<LoadingSpinner />}>
-          <LazyAppProvider>{children}</LazyAppProvider>
-        </Suspense>
+        <AppProvider>{children}</AppProvider>
         <StructuredData />
         <Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
       </body>
