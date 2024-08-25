@@ -43,7 +43,7 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
         <div className="mt-4">
           <LanguageSwitcher currentLang={lang} />
         </div>
-        <div className="flex flex-col items-center justify-center space-y-8 pt-16">
+        <div className="mt-10 flex flex-col items-center justify-center space-y-8">
           {header.menuItems.map((item) => (
             <a
               key={item.id}
