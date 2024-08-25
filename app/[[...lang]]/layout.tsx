@@ -6,6 +6,7 @@ import { i18n, Locale } from "@/i18n-config";
 import { getDictionary } from "@/lib/dictionary";
 import { Metadata } from "next";
 import LanguageDetector from "@/components/LanguageDetector";
+import StructuredData from "@/components/StructuredData";
 
 const comfortaa = Comfortaa({
   subsets: ["latin"],
@@ -146,11 +147,7 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
           data-website-id="851d0366-78bf-4def-90ee-32f5764df198"
           defer
         />
-        <Script
-          id="ld-json"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <StructuredData />
       </body>
     </html>
   );
