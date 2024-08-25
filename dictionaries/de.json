@@ -11,7 +11,7 @@
       "siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
       "images": [
         {
-          "url": "/static/img/me-bg.jpg",
+          "url": "/img/me-bg.jpg",
           "width": 1200,
           "height": 630,
           "alt": "Artem Polovyi - Full-Stack Softwareentwickler"
@@ -450,7 +450,7 @@
         "company": "Infineon Technologies",
         "description": "Entwicklung und Wartung von Funktionen auf infineon.com zur Optimierung der Benutzererfahrung und Funktionalität. Entwurf und Durchführung umfassender Unit- und Integrationstests zur Erhöhung der Softwarezuverlässigkeit. Verwendung einer breiten Palette von Technologien zur Bereitstellung hochwertiger Weblösungen.",
         "role": "Senior Full-Stack-Entwickler",
-        "image": "/static/img/projects/infineon.png",
+        "image": "/img/projects/infineon.png",
         "link": "https://www.infineon.com",
         "technologies": [
           "JavaEE",
@@ -467,7 +467,7 @@
         "company": "voestalpine AG",
         "description": "Erfolgreiche Migration von voestalpine.com in die AWS-Cloud, was Skalierbarkeit und Leistung erheblich verbesserte. Implementierung fortschrittlicher Funktionen mit Java und Spring bei gleichzeitiger Optimierung von Datenbankoperationen mit PostgreSQL. Nutzung verschiedener AWS-Dienste zur Gewährleistung einer robusten und effizienten Cloud-Infrastruktur.",
         "role": "Cloud-Migrationsspezialist",
-        "image": "/static/img/projects/voestalpine.png",
+        "image": "/img/projects/voestalpine.png",
         "link": "https://www.voestalpine.com",
         "technologies": [
           "JavaEE",
@@ -484,7 +484,7 @@
         "category": "Freiwilligenprojekt",
         "company": "SmartDorm",
         "description": "Entwickelte eine Webanwendung zur Optimierung und Automatisierung von Verwaltungsprozessen im Studentenwohnheim Geschwister Scholl. Migrierte und konsolidierte Daten in eine zentrale Datenbank, um 100% Datenkonsistenz zu gewährleisten. Reduzierte den Verwaltungsaufwand durch Digitalisierung und Automatisierung um 35%. Implementierte eine CI/CD-Pipeline zur Optimierung des Entwicklungsprozesses.",
-        "image": "/static/img/projects/schollheim.png",
+        "image": "/img/projects/schollheim.png",
         "link": "https://smartdorm.schollheim.net",
         "role": "Lead Full-Stack-Entwickler (Ehrenamtlich)",
         "technologies": ["PostgreSQL", "Kotlin", "Spring Boot", "React", "GitLab"]
@@ -494,7 +494,7 @@
         "company": "Spreadshirt Auszahlungssystem",
         "description": "Entwicklung einer Hochleistungsanwendung zur Auszahlungsgenerierung, die die Finanzabläufe erheblich verbesserte. Erstellung intuitiver Benutzeroberflächen zur Verbesserung der Benutzererfahrung und Anwendungsnutzbarkeit. Implementierung robuster Backend-Logik zur Sicherstellung genauer und pünktlicher Auszahlungen.",
         "role": "Senior Full-Stack-Entwickler",
-        "image": "/static/img/projects/spreadshirt.png",
+        "image": "/img/projects/spreadshirt.png",
         "link": "https://www.spreadshirt.com",
         "technologies": [
           "Kotlin",
@@ -511,7 +511,7 @@
         "company": "ABI Audi On Demand",
         "description": "Zusammenarbeit in einem Scrum-Team zur Optimierung von Preisgestaltung, Gutscheinverwaltung und Kommunikationssystemen für das ABI Audi On Demand Produkt. Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen. Refaktorisierung von Code mit Kotlin, Erhöhung der Wartbarkeit und Reduzierung der Codezeilen um 30%.",
         "role": "Full-Stack-Entwickler",
-        "image": "/static/img/projects/aod.png",
+        "image": "/img/projects/aod.png",
         "link": "https://www.audi.com",
         "technologies": [
           "PostgreSQL",
@@ -533,7 +533,7 @@
         "company": "Turkey Nomad",
         "description": "Entwicklung einer umfassenden Plattform für digitale Nomaden in der Türkei, mit einem Reiseblog und kuratierten Empfehlungen. Dieses Projekt zeigt moderne Webentwicklungstechniken und Content-Management-Integration. Die Website bietet wertvolle Einblicke und Ressourcen für Remote-Arbeiter und Reisende, die die Türkei erkunden.",
         "role": "Lead Full-Stack-Entwickler",
-        "image": "/static/img/projects/turkey-nomad.png",
+        "image": "/img/projects/turkey-nomad.png",
         "link": "https://turkeynomad.com",
         "technologies": [
           "Next.js",
@@ -547,7 +547,7 @@
         "company": "blookery",
         "description": "Entwicklung des Frontends einer innovativen Reisewebsite, die sich auf Blind Bookings in ganz Europa spezialisiert hat. Entwicklung responsiver und intuitiver Benutzeroberflächen mit React, um eine nahtlose Funktionalität auf verschiedenen Geräten und Bildschirmgrößen zu gewährleisten. Implementierung fortgeschrittener JavaScript-Funktionen zur Erstellung dynamischer und interaktiver Elemente, was die Benutzerinteraktion und Website-Navigation erheblich verbesserte.",
         "role": "Frontend-Entwickler",
-        "image": "/static/img/projects/blookery.png",
+        "image": "/img/projects/blookery.png",
         "link": "https://www.blookery.de",
         "technologies": [
           "React",
@@ -562,7 +562,7 @@
         "company": "Billiger Mietwagen",
         "description": "Als studentischer Entwickler Beitrag zu einer führenden Autovermietungsplattform, wodurch die Benutzererfahrung erheblich verbessert wurde. Implementierung von A/B-Tests zur Optimierung von Produktspezifikationen und Steigerung der Konversionsraten. Durchführung gründlicher Tests in jeder Produktiteration zur Sicherstellung qualitativ hochwertiger Releases. Erstellung interner Tools für das Kundenserviceteam, wodurch die Effizienz um 50% gesteigert wurde.",
         "role": "Studentischer Full-Stack-Entwickler",
-        "image": "/static/img/projects/billiger-mietwagen.png",
+        "image": "/img/projects/billiger-mietwagen.png",
         "link": "https://www.billiger-mietwagen.de",
         "technologies": [
           "JavaScript",
