@@ -10,10 +10,7 @@ module.exports = {
   theme: {
     // container: {
     //   center: true,
-    //   padding: "2rem",
-    //   screens: {
-    //     "2xl": "1400px",
-    //   },
+    //   padding: "3rem",
     // },
     rotate: {
       "-180": "-180deg",
@@ -27,6 +24,9 @@ module.exports = {
       270: "270deg",
     },
     extend: {
+      screens: {
+        tall: { raw: "(min-height: 820px)" },
+      },
       fontFamily: {
         body: ["var(--font-quicksand)", "sans-serif"],
         heading: ["var(--font-comfortaa)", "sans-serif"],

@@ -14,20 +14,19 @@ export const AuroraBackground = ({
   ...props
 }: AuroraBackgroundProps) => {
   return (
-    <main>
-      <div
-        className={cn(
-          "relative flex h-[100vh]",
-          // "transition-bg relative flex h-[100vh] flex-col items-center justify-center bg-zinc-50  text-slate-950 dark:bg-zinc-900",
-          className,
-        )}
-        {...props}
-      >
-        <div className="absolute inset-0 overflow-hidden">
-          <div
-            //   I'm sorry but this is what peak developer performance looks like // trigger warning
-            className={cn(
-              `
+    <div
+      className={cn(
+        "relative flex",
+        // "transition-bg relative flex h-[100vh] flex-col items-center justify-center bg-zinc-50  text-slate-950 dark:bg-zinc-900",
+        className,
+      )}
+      {...props}
+    >
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          //   I'm sorry but this is what peak developer performance looks like // trigger warning
+          className={cn(
+            `
             pointer-events-none
             absolute
             -inset-[10px]
@@ -43,12 +42,11 @@ export const AuroraBackground = ({
             after:[background-image:var(--white-gradient),var(--aurora)]
             after:[background-size:200%,_100%] dark:invert-0 dark:[background-image:var(--dark-gradient),var(--aurora)] after:dark:[background-image:var(--dark-gradient),var(--aurora)]`,
 
-              showRadialGradient && `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`,
-            )}
-          ></div>
-        </div>
-        {children}
+            showRadialGradient && `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`,
+          )}
+        ></div>
       </div>
-    </main>
+      {children}
+    </div>
   );
 };
