@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Locale } from '@/i18n-config';
-import { getDictionary } from '@/lib/dictionary';
-import Logo from '@/components/header/menu/Logo'; // Updated import
-import MobileMenu from '@/components/header/menu/MobileMenu';
-import IconMenu from '@/components/header/menu/IconMenu';
-import { HeaderContext } from '@/components/header/menu/HeaderContext';
-import { useScrollDetection } from '@/lib/hooks';
-import DesktopMenu from '@/components/header/menu/DesktopMenu';
+import React, { useState } from "react";
+
+import { Locale } from "@/i18n-config";
+import { motion } from "framer-motion";
+
+import DesktopMenu from "@/components/header/menu/DesktopMenu";
+import { HeaderContext } from "@/components/header/menu/HeaderContext";
+import IconMenu from "@/components/header/menu/IconMenu";
+import Logo from "@/components/header/menu/Logo";
+// Updated import
+import MobileMenu from "@/components/header/menu/MobileMenu";
+
+import { getDictionary } from "@/lib/dictionary";
+import { useScrollDetection } from "@/lib/hooks";
 
 interface HeaderProps {
   finishedLoading: boolean;
@@ -37,13 +41,13 @@ const Header = ({ finishedLoading, lang }: HeaderProps) => {
 
   const getHeaderClassName = () => {
     const baseClass =
-      'fixed left-0 right-0 top-0 z-50 flex w-full items-center justify-between px-6 py-4 transition-all duration-300 ease-in-out';
-    const scrollClass = isScrolled ? 'shadow-lg backdrop-blur-sm' : '';
+      "fixed left-0 right-0 top-0 z-50 flex w-full items-center justify-between px-6 py-4 transition-all duration-300 ease-in-out";
+    const scrollClass = isScrolled ? "shadow-lg backdrop-blur-sm" : "";
     const bgClass = headerState.showElement
-      ? 'bg-background-primary bg-opacity-0'
+      ? "bg-background-primary bg-opacity-0"
       : isScrolled
-      ? 'bg-background-primary bg-opacity-50'
-      : 'bg-transparent';
+      ? "bg-background-primary bg-opacity-50"
+      : "bg-transparent";
     return `${baseClass} ${scrollClass} ${bgClass}`;
   };
 
@@ -56,7 +60,7 @@ const Header = ({ finishedLoading, lang }: HeaderProps) => {
         transition={{ opacity: { delay: finishedLoading ? 0 : 4.9, duration: 0 } }}
         className={getHeaderClassName()}
       >
-        <Logo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+        <Logo onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} />
         <div className="flex items-center space-x-4">
           <DesktopMenu lang={lang} />
           <IconMenu />

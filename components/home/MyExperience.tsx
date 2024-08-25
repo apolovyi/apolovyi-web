@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import ArrowIcon from '@/components/icons/ArrowIcon';
-import { getDictionary } from '@/lib/dictionary';
-import { Locale } from '@/i18n-config';
+import React, { useState } from "react";
+
+import { Locale } from "@/i18n-config";
+
+import ArrowIcon from "@/components/icons/ArrowIcon";
+
+import { getDictionary } from "@/lib/dictionary";
 
 interface Company {
   name: string;
@@ -9,13 +12,13 @@ interface Company {
 }
 
 const companies: Company[] = [
-  { name: 'The Bicester Collection', key: 'TheBicesterCollection' },
-  { name: 'Virtual Identity AG', key: 'VirtualIdentityAG' },
-  { name: 'SmartDorm', key: 'SmartDorm' },
-  { name: 'Spreadshirt', key: 'Spreadshirt' },
-  { name: 'Comsysto Reply GmbH', key: 'ComsystoReplyGmbH' },
-  { name: 'Blookery', key: 'Blookery' },
-  { name: 'SilverTours GmbH', key: 'SilverToursGmbH' },
+  { name: "The Bicester Collection", key: "TheBicesterCollection" },
+  { name: "Virtual Identity AG", key: "VirtualIdentityAG" },
+  { name: "SmartDorm", key: "SmartDorm" },
+  { name: "Spreadshirt", key: "Spreadshirt" },
+  { name: "Comsysto Reply GmbH", key: "ComsystoReplyGmbH" },
+  { name: "Blookery", key: "Blookery" },
+  { name: "SilverTours GmbH", key: "SilverToursGmbH" },
 ];
 
 interface MyExperienceProps {
@@ -95,8 +98,8 @@ const CompanyButton = ({ company, isActive, onClick, companyName }: CompanyButto
     className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left
       ${
         isActive
-          ? 'bg-accent-coral text-background-primary'
-          : 'text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral'
+          ? "bg-accent-coral text-background-primary"
+          : "text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral"
       }`}
     aria-pressed={isActive}
   >
@@ -116,7 +119,7 @@ const JobDescription = ({ company, lang }: JobDescriptionProps) => {
   const highlightKeywords = (text: string, keywords: string[]) => {
     let highlightedText = text;
     keywords.forEach((keyword) => {
-      const regex = new RegExp(keyword, 'gi');
+      const regex = new RegExp(keyword, "gi");
       highlightedText = highlightedText.replace(regex, (match) => `<span class="text-accent-coral">${match}</span>`);
     });
     return highlightedText;
