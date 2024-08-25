@@ -49,11 +49,11 @@ const ProjectItem = ({ project, index, viewProjectText }: ProjectItemProps) => {
           </a>
         </div>
         <div
-          className={`my-4 rounded-md bg-accent-green bg-opacity-60 p-6 shadow-lg ${
+          className={`my-4 rounded-md bg-accent-green bg-opacity-75 p-6 shadow-xl ${
             isEven ? "lg:text-right" : "lg:text-left"
           }`}
         >
-          <p className="font-body text-base font-light text-text-primary md:text-lg">{project.description}</p>
+          <p className="font-body text-base font-light text-neutral-light-gray md:text-lg">{project.description}</p>
         </div>
         <div className={`mb-4 font-heading text-base text-accent-coral ${isEven ? "lg:text-right" : "lg:text-left"}`}>
           Role: {project.role}
