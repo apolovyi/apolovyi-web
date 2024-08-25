@@ -37,7 +37,7 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
     >
       <div
         onClick={closeMenu}
-        className="h-full w-1/4 bg-primary bg-opacity-30 backdrop-blur-sm hover:cursor-pointer"
+        className="h-full w-1/4 bg-background-primary bg-opacity-20 backdrop-blur-sm hover:cursor-pointer"
       />
       <div className="flex w-3/4 flex-col items-center justify-center bg-background-primary font-body">
         <div className="mt-4">
