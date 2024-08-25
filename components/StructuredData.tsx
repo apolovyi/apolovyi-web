@@ -15,7 +15,8 @@ const StructuredData = () => {
     address: {
       "@type": "PostalAddress",
       addressLocality: "Zurich",
-      addressCountry: "Switzerland",
+      addressCountry: "CH",
+      postalCode: "8001",
     },
     founder: {
       "@type": "Person",
