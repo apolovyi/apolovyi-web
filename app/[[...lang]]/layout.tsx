@@ -106,20 +106,14 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
       {
         "@type": "EducationalOrganization",
         name: "Munich University of Applied Sciences",
-        degree: "M.Sc.",
-        fieldOfStudy: "Computer Vision and Machine Learning",
       },
       {
         "@type": "EducationalOrganization",
         name: "TH Köln - University of Applied Sciences",
-        degree: "B.Sc.",
-        fieldOfStudy: "Networks and Distributed Systems",
       },
       {
         "@type": "EducationalOrganization",
         name: "Telecommunications University Kyiv",
-        degree: "B.Sc.",
-        fieldOfStudy: "IT Security Management",
       },
     ],
     knowsLanguage: ["English", "German", "Ukrainian", "Russian"],
@@ -127,43 +121,14 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
       {
         "@type": "Organization",
         name: "Virtual Identity AG",
-        jobTitle: "Senior Full-Stack Engineer",
-        startDate: "2022-02",
-        endDate: "2024-01",
         url: "https://www.virtual-identity.com/",
       },
       {
         "@type": "Organization",
-        name: "Spreadshirt",
-        jobTitle: "Senior Full-Stack Engineer",
-        startDate: "2021-11",
-        endDate: "2022-02",
-        url: "https://www.spreadshirt.com/",
-      },
-      {
-        "@type": "Organization",
         name: "Comsysto Reply GmbH",
-        jobTitle: "Full-Stack Engineer",
-        startDate: "2019-02",
-        endDate: "2021-10",
         url: "https://www.comsysto-reply.de/",
       },
-      {
-        "@type": "Organization",
-        name: "SilverTours GmbH",
-        jobTitle: "Student Full-Stack Developer",
-        startDate: "2015-01",
-        endDate: "2018-08",
-        url: "https://www.silvertours.com/",
-      },
     ],
-    skills: ["Java", "Kotlin", "JavaScript", "TypeScript", "Spring Boot", "React", "AWS", "DevOps", "Test Automation"],
-    award: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "Certification",
-      name: "AWS Certified Developer – Associate",
-      dateAwarded: "2020-12",
-    },
   };
 
   return (
