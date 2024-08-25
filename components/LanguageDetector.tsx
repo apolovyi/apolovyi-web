@@ -16,10 +16,12 @@ export default function LanguageDetector() {
       if (!existingLang) {
         const currentLocale = pathname.split("/")[1] as Locale;
         if (i18n.locales.includes(currentLocale)) {
+          console.log(`[LanguageDetector] set locale: ${currentLocale}`);
           localStorage.setItem("detectedLang", currentLocale);
         } else {
           const defaultLocale = i18n.defaultLocale;
           localStorage.setItem("detectedLang", defaultLocale);
+          console.log(`[LanguageDetector] set locale by default: ${defaultLocale}`);
         }
       }
     };
