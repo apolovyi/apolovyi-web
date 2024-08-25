@@ -184,7 +184,6 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
         <Script
           id="ld-json"
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </body>
