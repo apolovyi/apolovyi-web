@@ -1,6 +1,7 @@
-import { i18n, Locale } from '@/i18n-config';
-import { useEffect, useState } from 'react';
-import Cookies from 'js-cookie';
+import { useEffect, useState } from "react";
+
+import { Locale, i18n } from "@/i18n-config";
+import Cookies from "js-cookie";
 
 export const useDetectLanguage = (currentLang?: Locale) => {
   const [language, setLanguage] = useState<Locale>(currentLang || i18n.defaultLocale);
@@ -8,11 +9,11 @@ export const useDetectLanguage = (currentLang?: Locale) => {
 
   useEffect(() => {
     const userLanguage = navigator.language || (navigator as any).userLanguage;
-    setIsUS(userLanguage.startsWith('en-US'));
+    setIsUS(userLanguage.startsWith("en-US"));
 
     if (!currentLang) {
-      const detectedLang = Cookies.get('detectedLang') as Locale | undefined;
-      const browserLang = userLanguage.split('-')[0] as Locale;
+      const detectedLang = Cookies.get("detectedLang") as Locale | undefined;
+      const browserLang = userLanguage.split("-")[0] as Locale;
 
       setLanguage(
         detectedLang && i18n.locales.includes(detectedLang)

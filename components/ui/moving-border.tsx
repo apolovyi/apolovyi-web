@@ -1,12 +1,15 @@
-'use client';
-import React, { useRef } from 'react';
-import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransform } from 'framer-motion';
-import { cn } from '@/lib/utils';
+"use client";
+
+import React, { useRef } from "react";
+
+import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransform } from "framer-motion";
+
+import { cn } from "@/lib/utils";
 
 export function Button({
-  borderRadius = '1.75rem',
+  borderRadius = "1.75rem",
   children,
-  as: Component = 'button',
+  as: Component = "button",
   containerClassName,
   borderClassName,
   duration,
@@ -24,7 +27,7 @@ export function Button({
 }) {
   return (
     <Component
-      className={cn('relative overflow-hidden bg-transparent p-[1px] ', containerClassName)}
+      className={cn("relative overflow-hidden bg-transparent p-[1px] ", containerClassName)}
       style={{
         borderRadius: borderRadius,
       }}
@@ -34,7 +37,7 @@ export function Button({
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
-              'h-20 w-20 bg-[radial-gradient(var(--accent)_40%,transparent_60%)] opacity-[0.8]',
+              "h-20 w-20 bg-[radial-gradient(var(--accent)_40%,transparent_60%)] opacity-[0.8]",
               borderClassName,
             )}
           />
@@ -43,7 +46,7 @@ export function Button({
 
       <div
         className={cn(
-          'flex h-full w-full items-center justify-center whitespace-nowrap border border-accent-coral bg-slate-900/[0.8] text-base antialiased backdrop-blur-xl hover:bg-accent-coral hover:text-background-primary',
+          "flex h-full w-full items-center justify-center whitespace-nowrap border border-accent-coral bg-slate-900/[0.8] text-base antialiased backdrop-blur-xl hover:bg-accent-coral hover:text-background-primary",
           className,
         )}
         style={{
@@ -99,10 +102,10 @@ export const MovingBorder = ({
       </svg>
       <motion.div
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 0,
-          display: 'inline-block',
+          display: "inline-block",
           transform,
         }}
       >

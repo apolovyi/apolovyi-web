@@ -5,7 +5,7 @@ interface ExternalLinkProps {
 const ExternalLink = ({ url }: ExternalLinkProps) => {
   return (
     <svg
-      onClick={() => window.open(url, '_blank')}
+      onClick={() => window.open(url, "_blank")}
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       viewBox="0 0 24 24"

@@ -1,9 +1,12 @@
-import { motion } from 'framer-motion';
-import { memo, useCallback } from 'react';
-import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext';
-import { Locale } from '@/i18n-config';
-import { getDictionary } from '@/lib/dictionary';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { memo, useCallback } from "react";
+
+import { Locale } from "@/i18n-config";
+import { motion } from "framer-motion";
+
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
+
+import { getDictionary } from "@/lib/dictionary";
 
 interface MobileMenuProps {
   lang: Locale;
@@ -30,8 +33,8 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 
   return (
     <motion.div
-      initial={{ x: '100%' }}
-      animate={rotate ? { x: '0' } : { x: '100%' }}
+      initial={{ x: "100%" }}
+      animate={rotate ? { x: "0" } : { x: "100%" }}
       transition={{ x: { duration: 0.4 } }}
       className="fixed z-20 flex h-screen w-full duration-300 md:hidden"
     >

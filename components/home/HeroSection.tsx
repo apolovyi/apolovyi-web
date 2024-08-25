@@ -1,10 +1,14 @@
-'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { getDictionary } from '@/lib/dictionary';
-import { Locale } from '@/i18n-config';
-import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
-import { AuroraBackground } from '@/components/ui/aurora-background';
+"use client";
+
+import React from "react";
+
+import { Locale } from "@/i18n-config";
+import { motion } from "framer-motion";
+
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+
+import { getDictionary } from "@/lib/dictionary";
 
 const AnimatedText = ({ delay, children, className }) => (
   <motion.div
@@ -33,7 +37,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
   const highlightText = (text: string, terms: string[]) => {
     let highlightedText = text;
     terms.forEach((term) => {
-      const regex = new RegExp(`(${term})`, 'gi');
+      const regex = new RegExp(`(${term})`, "gi");
       highlightedText = highlightedText.replace(regex, '<span class="text-accent-coral">$1</span>');
     });
     return <span dangerouslySetInnerHTML={{ __html: highlightedText }} />;
@@ -48,7 +52,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
         transition={{
           delay: 0.1,
           duration: 0.8,
-          ease: 'easeInOut',
+          ease: "easeInOut",
         }}
         className="mx-8 flex min-h-screen flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0"
         // className="container mx-auto flex min-h-screen flex-col justify-center px-8"

@@ -1,9 +1,12 @@
-import React from 'react';
-import GithubIcon from '@/components/icons/GithubIcon';
-import LinkedinIcon from '@/components/icons/LinkedinIcon';
-import InstagramIcon from '@/components/icons/InstagramIcon';
-import { Locale } from '@/i18n-config';
-import { getDictionary } from '@/lib/dictionary';
+import React from "react";
+
+import { Locale } from "@/i18n-config";
+
+import GithubIcon from "@/components/icons/GithubIcon";
+import InstagramIcon from "@/components/icons/InstagramIcon";
+import LinkedinIcon from "@/components/icons/LinkedinIcon";
+
+import { getDictionary } from "@/lib/dictionary";
 
 type IconComponent = React.ComponentType<{ className?: string }>;
 
@@ -21,9 +24,9 @@ const ClickableIcon = React.memo(function ClickableIcon({ href, Icon }: IconProp
 });
 
 const IconsData: IconProps[] = [
-  { href: 'https://github.com/apolovyi', Icon: GithubIcon },
-  { href: 'https://www.linkedin.com/in/apolovyi/', Icon: LinkedinIcon },
-  { href: 'https://www.instagram.com/artem_polevoi/', Icon: InstagramIcon },
+  { href: "https://github.com/apolovyi", Icon: GithubIcon },
+  { href: "https://www.linkedin.com/in/apolovyi/", Icon: LinkedinIcon },
+  { href: "https://www.instagram.com/artem_polevoi/", Icon: InstagramIcon },
 ];
 
 interface FooterProps {

@@ -1,11 +1,12 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+
+import { motion } from "framer-motion";
 
 const Startup = () => {
   let widthBy2 = 0;
   let heightBy2 = 0;
   let greaterThanSmall = false;
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     if (window.innerWidth > 768) {
       widthBy2 = window.innerWidth / 2 - 48 - 20;
       heightBy2 = window.innerHeight / 2 - 44;
@@ -26,12 +27,12 @@ const Startup = () => {
       className="bg-startup absolute flex h-full w-full items-center justify-center"
     >
       <motion.div
-        initial={{ opacity: 0, x: 0, y: 0, scale: '100%' }}
+        initial={{ opacity: 0, x: 0, y: 0, scale: "100%" }}
         animate={{
           opacity: [1, 0, 1],
           x: -widthBy2,
           y: -heightBy2,
-          scale: greaterThanSmall ? '57%' : '50%',
+          scale: greaterThanSmall ? "57%" : "50%",
         }}
         transition={{
           opacity: { delay: 3, duration: 1.5 },

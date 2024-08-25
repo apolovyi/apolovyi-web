@@ -1,12 +1,16 @@
-import React from 'react';
-import Image from 'next/image';
-import ArrowIcon from '@/components/icons/ArrowIcon';
-import { getDictionary } from '@/lib/dictionary';
-import { Locale } from '@/i18n-config';
+import React from "react";
+
+import Image from "next/image";
+
+import { Locale } from "@/i18n-config";
+
+import ArrowIcon from "@/components/icons/ArrowIcon";
+
+import { getDictionary } from "@/lib/dictionary";
 
 const technologies = [
-  ['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript'],
-  ['AWS', 'PostgreSQL', 'Docker', 'Jenkins', 'GitLab'],
+  ["Java", "Kotlin", "Spring Boot", "React", "TypeScript"],
+  ["AWS", "PostgreSQL", "Docker", "Jenkins", "GitLab"],
 ];
 
 interface AboutMeProps {
@@ -70,7 +74,7 @@ const AboutMe = ({ lang }: AboutMeProps) => {
   const highlightTerms = (text: string) => {
     let highlightedText = text;
     aboutMeSection.highlightedTerms.forEach((term) => {
-      const regex = new RegExp(`\\b(${term})\\b`, 'gi');
+      const regex = new RegExp(`\\b(${term})\\b`, "gi");
       highlightedText = highlightedText.replace(regex, '<span class="font-tech text-accent-coral">$1</span>');
     });
     return <p className="text-text-secondary" dangerouslySetInnerHTML={{ __html: highlightedText }} />;
