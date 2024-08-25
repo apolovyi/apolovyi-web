@@ -50,11 +50,11 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="flex min-h-screen flex-col justify-center pt-20 tall:pt-0"
+        className="mx-8 flex min-h-screen flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0"
         // className="container mx-auto flex min-h-screen flex-col justify-center px-8"
         // className="flex flex-col justify-center px-8 py-32 sm:px-8 sm:py-52 md:px-28 lg:px-32 xl:px-56 2xl:px-72"
       >
-        <div className="mx-8 ">
+        <div className="">
           <TextGenerateEffect
             className="font-tech tracking-wider text-accent-coral lg:text-lg"
             words={heroSection.greeting}
