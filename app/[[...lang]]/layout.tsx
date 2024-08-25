@@ -64,7 +64,6 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
     robots: {
       index: true,
       follow: true,
-      nocache: true,
       "max-image-preview": "large",
       "max-snippet": 200,
     },
