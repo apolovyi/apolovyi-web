@@ -46,7 +46,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{
-          delay: 0.3,
+          delay: 0.1,
           duration: 0.8,
           ease: "easeInOut",
         }}
@@ -60,19 +60,19 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
             words={heroSection.greeting}
           />
           <AnimatedText
-            delay={baseDelay + 0.1}
+            delay={baseDelay + 0.2}
             className="mt-8 font-heading text-3xl font-bold text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
           >
             {heroSection.name}
           </AnimatedText>
           <AnimatedText
-            delay={baseDelay + 0.2}
+            delay={baseDelay + 0.4}
             className="mt-4 font-sub-heading text-3xl font-light text-text-secondary sm:text-4xl md:text-4xl lg:text-6xl"
           >
             {heroSection.tagline}
           </AnimatedText>
           <AnimatedText
-            delay={baseDelay + 0.3}
+            delay={baseDelay + 0.6}
             className="mt-10 max-w-sm font-body text-base tracking-wider text-text-secondary sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
           >
             <p className="text-text-secondary">
@@ -83,8 +83,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
               {highlightText(heroSection.paragraphs[1], heroSection.highlightedTerms)}
             </p>
           </AnimatedText>
-
-          <AnimatedText delay={baseDelay + 0.4} className="mt-12">
+          <AnimatedText delay={baseDelay + 0.8} className="mt-12">
             <a href={heroSection.resumeHref} target="_blank" rel="noreferrer">
               <button className="relative p-[2px]">
                 <div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary to-secondary" />

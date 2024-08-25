@@ -13,9 +13,7 @@ import MyExperience from "@/components/home/MyExperience";
 import MyProjects from "@/components/home/MyProjects";
 import GetInTouch from "@/components/home/GetInTouch";
 import Footer from "@/components/footer/Footer";
-import ScreenSizeDetector from "@/components/dev/ScreenSizeDetector";
 import { Locale } from "@/i18n-config";
-import Startup from "@/components/header/startup/Startup";
 
 function Home({ params: { lang = "en" } }: { params: { lang?: Locale } }) {
   const [showElement, setShowElement] = useState(true);
@@ -38,7 +36,7 @@ function Home({ params: { lang = "en" } }: { params: { lang?: Locale } }) {
 
   return (
     <main className="relative w-full snap-mandatory bg-background-primary">
-      {!sharedState.finishedLoading && showElement && <Startup />}
+      {/*{!sharedState.finishedLoading && showElement && <Startup />}*/}
       <Header finishedLoading={sharedState.finishedLoading} lang={lang} />
       <HeroSection finishedLoading={sharedState.finishedLoading} lang={lang} />
       <SocialMediaAround finishedLoading={sharedState.finishedLoading} />
@@ -51,7 +49,7 @@ function Home({ params: { lang = "en" } }: { params: { lang?: Locale } }) {
           <Footer lang={lang} />
         </>
       )}
-      {!isProd && <ScreenSizeDetector />}
+      {/*{!isProd && <ScreenSizeDetector />}*/}
     </main>
   );
 }
