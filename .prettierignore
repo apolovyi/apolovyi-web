@@ -1,7 +1,6 @@
 yarn.lock
 node_modules
 .next
-dictionaries
 public
 claude_chats
 out
