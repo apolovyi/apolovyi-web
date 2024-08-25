@@ -2,16 +2,15 @@ import Image from "next/image";
 import ExternalLink from "@/components/icons/ExternalLink";
 import React from "react";
 import ArrowIcon from "@/components/icons/ArrowIcon";
-import { getDictionary } from "@/lib/dictionary";
+import { getDictionary, Project } from "@/lib/dictionary";
 import { Locale } from "@/i18n-config";
 
 interface ProjectItemProps {
-  project: any;
+  project: Project;
   index: number;
-  viewProjectText: string;
 }
 
-const ProjectItem = ({ project, index, viewProjectText }: ProjectItemProps) => {
+const ProjectItem = ({ project, index }: ProjectItemProps) => {
   const isEven = index % 2 === 0;
 
   return (
@@ -22,13 +21,18 @@ const ProjectItem = ({ project, index, viewProjectText }: ProjectItemProps) => {
           <Image
             src={project.image}
             alt={project.company}
-            fill
+            width={800}
+            height={400}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             style={{
               objectFit: "contain",
               objectPosition: "center",
             }}
-            className="p-4"
+            className="h-auto w-full p-4"
+            priority={false}
+            quality={100}
+            // placeholder="blur"
+            // blurDataURL={project.placeholder}
           />
           <div className="absolute inset-0 rounded-lg bg-background-primary p-1 opacity-70 transition-opacity duration-300 hover:opacity-0 lg:opacity-30"></div>
         </div>
@@ -85,7 +89,7 @@ interface MyProjectsProps {
   lang: Locale;
 }
 
-const MyProjects = ({ lang }: MyProjectsProps) => {
+export default async function MyProjects({ lang }: MyProjectsProps) {
   const dict = getDictionary(lang);
   const { projectsSection } = dict;
 
@@ -110,12 +114,10 @@ const MyProjects = ({ lang }: MyProjectsProps) => {
       <div className="flex flex-col space-y-8 md:space-y-28 xl:space-y-36">
         {projectsSection.projects.map((project, index) => (
           <div key={index} data-aos="fade-up">
-            <ProjectItem project={project} index={index} viewProjectText={projectsSection.viewProject} />
+            <ProjectItem project={project} index={index} />
           </div>
         ))}
       </div>
     </section>
   );
-};
-
-export default MyProjects;
+}
