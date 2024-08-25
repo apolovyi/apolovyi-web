@@ -89,49 +89,6 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
 const RootLayout = ({ children, params }: { children: React.ReactNode; params: { lang: string[] } }) => {
   const lang = (params.lang?.[0] || i18n.defaultLocale) as Locale;
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Artem Polovyi",
-    url: "https://apolovyi.me",
-    image: "https://apolovyi.me/img/me-circle.png",
-    jobTitle: "Senior Full-Stack Software Engineer",
-    email: "mailto:info@apolovyi.me",
-    sameAs: ["https://www.linkedin.com/in/apolovyi", "https://github.com/apolovyi"],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Zurich",
-      addressCountry: "Switzerland",
-    },
-    alumniOf: [
-      {
-        "@type": "EducationalOrganization",
-        name: "Munich University of Applied Sciences",
-      },
-      {
-        "@type": "EducationalOrganization",
-        name: "TH Köln - University of Applied Sciences",
-      },
-      {
-        "@type": "EducationalOrganization",
-        name: "Telecommunications University Kyiv",
-      },
-    ],
-    knowsLanguage: ["English", "German", "Ukrainian", "Russian"],
-    worksFor: [
-      {
-        "@type": "Organization",
-        name: "Virtual Identity AG",
-        url: "https://www.virtual-identity.com/",
-      },
-      {
-        "@type": "Organization",
-        name: "Comsysto Reply GmbH",
-        url: "https://www.comsysto-reply.de/",
-      },
-    ],
-  };
-
   return (
     <html
       lang={lang}
