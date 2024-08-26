@@ -2,7 +2,8 @@ import { Metadata } from 'next'
 import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from 'next/font/google'
 import Script from 'next/script'
 
-import { i18n, Locale } from '@/i18n-config'
+import { Locale, i18n } from '@/i18n-config'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import '@/app/globals.css'
 
@@ -12,7 +13,6 @@ import { WebVitals } from '@/components/WebVitals'
 import { AppProvider } from '@/components/shared/AppContext'
 
 import { getDictionary } from '@/lib/dictionary'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 
 // Fonts
 const comfortaa = Comfortaa({
@@ -94,18 +94,18 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
 			lang={lang}
 			className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
 		>
-		<body>
-		<WebVitals />
-		<LanguageDetector />
-		<AppProvider>{children}</AppProvider>
-		<StructuredData />
-		<SpeedInsights />
-		<Script
-			src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"
-			strategy="afterInteractive"
-			defer
-		/>
-		</body>
+			<body>
+				<WebVitals />
+				<LanguageDetector />
+				<AppProvider>{children}</AppProvider>
+				<StructuredData />
+				<SpeedInsights />
+				<Script
+					src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"
+					strategy="afterInteractive"
+					defer
+				/>
+			</body>
 		</html>
 	)
 }
