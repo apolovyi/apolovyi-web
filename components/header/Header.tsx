@@ -7,7 +7,6 @@ import DesktopMenu from "@/components/header/menu/DesktopMenu";
 import { HeaderContext } from "@/components/header/menu/HeaderContext";
 import IconMenu from "@/components/header/menu/IconMenu";
 import Logo from "@/components/header/menu/Logo";
-// Updated import
 import MobileMenu from "@/components/header/menu/MobileMenu";
 
 import { getDictionary } from "@/lib/dictionary";
