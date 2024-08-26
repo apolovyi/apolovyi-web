@@ -1,40 +1,40 @@
-import { memo, useCallback } from "react";
+import { memo, useCallback } from 'react'
 
-import { Locale } from "@/i18n-config";
-import { motion } from "framer-motion";
+import { Locale } from '@/i18n-config'
+import { motion } from 'framer-motion'
 
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
 
-import { getDictionary } from "@/lib/dictionary";
+import { getDictionary } from '@/lib/dictionary'
 
 interface MobileMenuProps {
-	lang: Locale;
+	lang: Locale
 }
 
 const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
-	const { rotate, setRotate, setShowElement } = useHeaderContext();
-	const dictionary = getDictionary(lang);
-	const { header } = dictionary;
+	const { rotate, setRotate, setShowElement } = useHeaderContext()
+	const dictionary = getDictionary(lang)
+	const { header } = dictionary
 
 	const closeMenu = useCallback(() => {
-		setRotate((prev) => !prev);
-		setShowElement((prev) => !prev);
-	}, [setRotate, setShowElement]);
+		setRotate((prev) => !prev)
+		setShowElement((prev) => !prev)
+	}, [setRotate, setShowElement])
 
 	const handleScroll = useCallback(
 		(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-			e.preventDefault();
-			scrollToSection(href);
-			closeMenu();
+			e.preventDefault()
+			scrollToSection(href)
+			closeMenu()
 		},
 		[closeMenu],
-	);
+	)
 
 	return (
 		<motion.div
-			initial={{ x: "100%" }}
-			animate={rotate ? { x: "0" } : { x: "100%" }}
+			initial={{ x: '100%' }}
+			animate={rotate ? { x: '0' } : { x: '100%' }}
 			transition={{ x: { duration: 0.4 } }}
 			className="fixed z-20 flex h-screen w-full duration-300 md:hidden"
 		>
@@ -55,10 +55,9 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 							className="flex flex-col space-y-2 text-center"
 						>
 							<span className="font-tech text-xs text-accent-coral">{item.id}.</span>
-							<span
-								className="font-heading text-sm text-text-primary duration-300 hover:cursor-pointer hover:text-accent-coral sm:text-base">
-                {item.name}
-              </span>
+							<span className="font-heading text-sm text-text-primary duration-300 hover:cursor-pointer hover:text-accent-coral sm:text-base">
+								{item.name}
+							</span>
 						</a>
 					))}
 					<a
@@ -72,7 +71,7 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 				</div>
 			</div>
 		</motion.div>
-	);
-});
+	)
+})
 
-export default MobileMenu;
+export default MobileMenu

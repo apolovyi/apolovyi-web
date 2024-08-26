@@ -1,12 +1,12 @@
-import React, { useCallback } from "react";
+import React, { useCallback } from 'react'
 
-import { Locale } from "@/i18n-config";
-import { motion } from "framer-motion";
+import { Locale } from '@/i18n-config'
+import { motion } from 'framer-motion'
 
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { scrollToSection, useHeaderContext } from "@/components/header/menu/HeaderContext";
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
 
-import { getDictionary } from "@/lib/dictionary";
+import { getDictionary } from '@/lib/dictionary'
 
 const containerVariants = {
 	hidden: { opacity: 0 },
@@ -17,7 +17,7 @@ const containerVariants = {
 			delayChildren: finishedLoading ? 0 : 5.4,
 		},
 	}),
-};
+}
 
 const itemVariants = {
 	hidden: { y: -20, opacity: 0 },
@@ -25,25 +25,25 @@ const itemVariants = {
 		y: 0,
 		opacity: 1,
 		transition: {
-			type: "spring",
+			type: 'spring',
 			duration: 0.8,
 		},
 	},
-};
+}
 
 interface DesktopMenuProps {
-	lang: Locale;
+	lang: Locale
 }
 
 function DesktopMenu({ lang }: DesktopMenuProps) {
-	const { finishedLoading } = useHeaderContext();
-	const dictionary = getDictionary(lang);
-	const { header } = dictionary;
+	const { finishedLoading } = useHeaderContext()
+	const dictionary = getDictionary(lang)
+	const { header } = dictionary
 
 	const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-		e.preventDefault();
-		scrollToSection(href);
-	}, []);
+		e.preventDefault()
+		scrollToSection(href)
+	}, [])
 
 	return (
 		<motion.nav
@@ -54,7 +54,11 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 			custom={finishedLoading}
 		>
 			{header.menuItems.map((item) => (
-				<motion.div key={item.id} variants={itemVariants} className="text-accent-coral">
+				<motion.div
+					key={item.id}
+					variants={itemVariants}
+					className="text-accent-coral"
+				>
 					<a
 						href={item.href}
 						className="duration-300 hover:text-accent-coral"
@@ -78,7 +82,7 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 				<LanguageSwitcher currentLang={lang} />
 			</motion.div>
 		</motion.nav>
-	);
+	)
 }
 
-export default DesktopMenu;
+export default DesktopMenu

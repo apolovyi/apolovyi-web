@@ -1,34 +1,34 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-import { Locale } from "@/i18n-config";
+import { Locale } from '@/i18n-config'
 
-import ArrowIcon from "@/components/icons/ArrowIcon";
+import ArrowIcon from '@/components/icons/ArrowIcon'
 
-import { getDictionary } from "@/lib/dictionary";
+import { getDictionary } from '@/lib/dictionary'
 
 interface Company {
-	name: string;
-	key: string;
+	name: string
+	key: string
 }
 
 const companies: Company[] = [
-	{ name: "The Bicester Collection", key: "TheBicesterCollection" },
-	{ name: "Virtual Identity AG", key: "VirtualIdentityAG" },
-	{ name: "SmartDorm", key: "SmartDorm" },
-	{ name: "Spreadshirt", key: "Spreadshirt" },
-	{ name: "Comsysto Reply GmbH", key: "ComsystoReplyGmbH" },
-	{ name: "Blookery", key: "Blookery" },
-	{ name: "SilverTours GmbH", key: "SilverToursGmbH" },
-];
+	{ name: 'The Bicester Collection', key: 'TheBicesterCollection' },
+	{ name: 'Virtual Identity AG', key: 'VirtualIdentityAG' },
+	{ name: 'SmartDorm', key: 'SmartDorm' },
+	{ name: 'Spreadshirt', key: 'Spreadshirt' },
+	{ name: 'Comsysto Reply GmbH', key: 'ComsystoReplyGmbH' },
+	{ name: 'Blookery', key: 'Blookery' },
+	{ name: 'SilverTours GmbH', key: 'SilverToursGmbH' },
+]
 
 interface MyExperienceProps {
-	lang: Locale;
+	lang: Locale
 }
 
 const MyExperience = ({ lang }: MyExperienceProps) => {
-	const dictionary = getDictionary(lang);
-	const experienceSectionTitle = dictionary.experienceSection.title;
-	const [activeCompany, setActiveCompany] = useState(companies[0].key);
+	const dictionary = getDictionary(lang)
+	const experienceSectionTitle = dictionary.experienceSection.title
+	const [activeCompany, setActiveCompany] = useState(companies[0].key)
 
 	return (
 		<section
@@ -37,7 +37,10 @@ const MyExperience = ({ lang }: MyExperienceProps) => {
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
-				<header data-aos="fade-up" className="mb-8 flex flex-row items-center font-heading">
+				<header
+					data-aos="fade-up"
+					className="mb-8 flex flex-row items-center font-heading"
+				>
 					<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
 					<div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
 						<span className="font-tech text-xl text-accent-coral">02.</span>
@@ -55,18 +58,21 @@ const MyExperience = ({ lang }: MyExperienceProps) => {
 						setActiveCompany={setActiveCompany}
 						lang={lang}
 					/>
-					<JobDescription company={activeCompany} lang={lang} />
+					<JobDescription
+						company={activeCompany}
+						lang={lang}
+					/>
 				</div>
 			</div>
 		</section>
-	);
-};
+	)
+}
 
 interface CompaniesBarProps {
-	companies: Company[];
-	activeCompany: string;
-	setActiveCompany: (key: string) => void;
-	lang: Locale;
+	companies: Company[]
+	activeCompany: string
+	setActiveCompany: (key: string) => void
+	lang: Locale
 }
 
 const CompaniesBar = ({ companies, activeCompany, setActiveCompany }: CompaniesBarProps) => {
@@ -82,14 +88,14 @@ const CompaniesBar = ({ companies, activeCompany, setActiveCompany }: CompaniesB
 				/>
 			))}
 		</div>
-	);
-};
+	)
+}
 
 interface CompanyButtonProps {
-	company: Company;
-	isActive: boolean;
-	onClick: () => void;
-	companyName: string;
+	company: Company
+	isActive: boolean
+	onClick: () => void
+	companyName: string
 }
 
 const CompanyButton = ({ company, isActive, onClick, companyName }: CompanyButtonProps) => (
@@ -98,32 +104,32 @@ const CompanyButton = ({ company, isActive, onClick, companyName }: CompanyButto
 		className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left
       ${
 				isActive
-					? "bg-accent-coral text-background-primary"
-					: "text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral"
+					? 'bg-accent-coral text-background-primary'
+					: 'text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral'
 			}`}
 		aria-pressed={isActive}
 	>
 		{companyName}
 	</button>
-);
+)
 
 interface JobDescriptionProps {
-	company: string;
-	lang: Locale;
+	company: string
+	lang: Locale
 }
 
 const JobDescription = ({ company, lang }: JobDescriptionProps) => {
-	const dictionary = getDictionary(lang);
-	const job = dictionary.experienceSection.roles[company as keyof typeof dictionary.experienceSection.roles];
+	const dictionary = getDictionary(lang)
+	const job = dictionary.experienceSection.roles[company as keyof typeof dictionary.experienceSection.roles]
 
 	const highlightKeywords = (text: string, keywords: string[]) => {
-		let highlightedText = text;
+		let highlightedText = text
 		keywords.forEach((keyword) => {
-			const regex = new RegExp(keyword, "gi");
-			highlightedText = highlightedText.replace(regex, (match) => `<span class="text-accent-coral">${match}</span>`);
-		});
-		return highlightedText;
-	};
+			const regex = new RegExp(keyword, 'gi')
+			highlightedText = highlightedText.replace(regex, (match) => `<span class="text-accent-coral">${match}</span>`)
+		})
+		return highlightedText
+	}
 
 	return (
 		<div className="flex flex-col space-y-4">
@@ -146,7 +152,10 @@ const JobDescription = ({ company, lang }: JobDescriptionProps) => {
 			</div>
 			<ul className="space-y-2">
 				{job.tasks.map((task: { text: string; keywords: string[] }, index: number) => (
-					<li key={index} className="flex items-start space-x-2">
+					<li
+						key={index}
+						className="flex items-start space-x-2"
+					>
 						<ArrowIcon className="mt-1 h-5 w-4 flex-none text-accent-coral" />
 						<span
 							className="text-sm text-text-secondary"
@@ -158,7 +167,7 @@ const JobDescription = ({ company, lang }: JobDescriptionProps) => {
 				))}
 			</ul>
 		</div>
-	);
-};
+	)
+}
 
-export default MyExperience;
+export default MyExperience

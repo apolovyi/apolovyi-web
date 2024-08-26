@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import React from "react";
+import React from 'react'
 
-import { Locale } from "@/i18n-config";
-import { motion } from "framer-motion";
+import { Locale } from '@/i18n-config'
+import { motion } from 'framer-motion'
 
-import { AuroraBackground } from "@/components/ui/aurora-background";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { AuroraBackground } from '@/components/ui/aurora-background'
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
 
-import { getDictionary } from "@/lib/dictionary";
+import { getDictionary } from '@/lib/dictionary'
 
 const AnimatedText = ({ delay, children, className }) => (
 	<motion.div
@@ -22,26 +22,26 @@ const AnimatedText = ({ delay, children, className }) => (
 	>
 		{children}
 	</motion.div>
-);
+)
 
 interface HeroSectionProps {
-	finishedLoading: boolean;
-	lang: Locale;
+	finishedLoading: boolean
+	lang: Locale
 }
 
 const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
-	const baseDelay = finishedLoading ? 0 : 6.4;
-	const dictionary = getDictionary(lang);
-	const { heroSection } = dictionary;
+	const baseDelay = finishedLoading ? 0 : 6.4
+	const dictionary = getDictionary(lang)
+	const { heroSection } = dictionary
 
 	const highlightText = (text: string, terms: string[]) => {
-		let highlightedText = text;
+		let highlightedText = text
 		terms.forEach((term) => {
-			const regex = new RegExp(`(${term})`, "gi");
-			highlightedText = highlightedText.replace(regex, '<span class="text-accent-coral">$1</span>');
-		});
-		return <span dangerouslySetInnerHTML={{ __html: highlightedText }} />;
-	};
+			const regex = new RegExp(`(${term})`, 'gi')
+			highlightedText = highlightedText.replace(regex, '<span class="text-accent-coral">$1</span>')
+		})
+		return <span dangerouslySetInnerHTML={{ __html: highlightedText }} />
+	}
 
 	return (
 		<AuroraBackground>
@@ -52,7 +52,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
 				transition={{
 					delay: 0.1,
 					duration: 0.8,
-					ease: "easeInOut",
+					ease: 'easeInOut',
 				}}
 				className="mx-8 flex min-h-screen flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0"
 				// className="container mx-auto flex min-h-screen flex-col justify-center px-8"
@@ -79,16 +79,19 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
 						delay={baseDelay + 0.6}
 						className="mt-10 max-w-sm font-body text-base tracking-wider text-text-secondary sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
 					>
-						<p className="text-text-secondary">
-							{highlightText(heroSection.paragraphs[0], heroSection.highlightedTerms)}
-						</p>
+						<p className="text-text-secondary">{highlightText(heroSection.paragraphs[0], heroSection.highlightedTerms)}</p>
 						<br />
-						<p className="text-text-secondary">
-							{highlightText(heroSection.paragraphs[1], heroSection.highlightedTerms)}
-						</p>
+						<p className="text-text-secondary">{highlightText(heroSection.paragraphs[1], heroSection.highlightedTerms)}</p>
 					</AnimatedText>
-					<AnimatedText delay={baseDelay + 0.8} className="mt-12">
-						<a href={heroSection.resumeHref} target="_blank" rel="noreferrer">
+					<AnimatedText
+						delay={baseDelay + 0.8}
+						className="mt-12"
+					>
+						<a
+							href={heroSection.resumeHref}
+							target="_blank"
+							rel="noreferrer"
+						>
 							<button className="relative p-[2px]">
 								<div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary to-secondary" />
 								<div className="group relative rounded-[6px] bg-white px-8 py-3 font-heading text-accent-coral transition duration-200 hover:bg-transparent hover:text-white">
@@ -101,7 +104,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
 			</motion.div>
 			{/*</WavyBackground>*/}
 		</AuroraBackground>
-	);
-};
+	)
+}
 
-export default HeroSection;
+export default HeroSection

@@ -1,42 +1,42 @@
-import type { MetadataRoute } from "next";
+import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
 	return [
 		{
-			url: "https://apolovyi.me",
+			url: 'https://apolovyi.me',
 			lastModified: new Date(),
-			changeFrequency: "weekly",
+			changeFrequency: 'weekly',
 			priority: 1,
 		},
 		{
-			url: "https://apolovyi.me/en",
+			url: 'https://apolovyi.me/en',
 			lastModified: new Date(),
-			changeFrequency: "weekly",
+			changeFrequency: 'weekly',
 			priority: 0.8,
 		},
 		{
-			url: "https://apolovyi.me/de",
+			url: 'https://apolovyi.me/de',
 			lastModified: new Date(),
-			changeFrequency: "weekly",
+			changeFrequency: 'weekly',
 			priority: 0.8,
 		},
 		{
-			url: "https://apolovyi.me/ch",
+			url: 'https://apolovyi.me/ch',
 			lastModified: new Date(),
-			changeFrequency: "weekly",
+			changeFrequency: 'weekly',
 			priority: 0.8,
 		},
 		{
-			url: "https://apolovyi.me/uk",
+			url: 'https://apolovyi.me/uk',
 			lastModified: new Date(),
-			changeFrequency: "weekly",
+			changeFrequency: 'weekly',
 			priority: 0.8,
 		},
 		{
-			url: "https://apolovyi.me/ru",
+			url: 'https://apolovyi.me/ru',
 			lastModified: new Date(),
-			changeFrequency: "weekly",
+			changeFrequency: 'weekly',
 			priority: 0.8,
 		},
-	];
+	]
 }
