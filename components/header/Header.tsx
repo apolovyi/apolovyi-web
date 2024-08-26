@@ -40,10 +40,9 @@ const Header = ({ finishedLoading, lang }: HeaderProps) => {
 
 	const getHeaderClassName = () => {
 		const baseClass =
-			'fixed left-0 right-0 top-0 z-50 flex w-full items-center justify-between px-6 py-4 transition-all duration-300 ease-in-out'
-		const scrollClass = isScrolled ? 'shadow-lg backdrop-blur-sm' : ''
-		const bgClass = isScrolled ? 'bg-background-primary' : 'bg-transparent'
-		return `${baseClass} ${scrollClass} ${bgClass}`
+			'fixed left-0 right-0 top-0 z-50 flex w-full items-center justify-between px-6 py-4 transition-all duration-300 ease-in-out bg-transparent'
+		const scrollClass = isScrolled ? 'shadow-md backdrop-blur-md' : ''
+		return `${baseClass} ${scrollClass}`
 	}
 
 	return (
