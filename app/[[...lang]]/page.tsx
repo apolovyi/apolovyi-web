@@ -42,7 +42,6 @@ function Home({params: {lang = "en"}}: { params: { lang?: Locale } }) {
 
 	return (
 		<main className="relative w-full snap-mandatory bg-background-primary">
-			{/*<Suspense fallback={<LoadingSpinner />}>*/}
 			<Header finishedLoading={sharedState.finishedLoading} lang={lang}/>
 			<HeroSection finishedLoading={sharedState.finishedLoading} lang={lang}/>
 			<SocialMediaAround finishedLoading={sharedState.finishedLoading}/>
@@ -55,7 +54,6 @@ function Home({params: {lang = "en"}}: { params: { lang?: Locale } }) {
 					<Footer lang={lang}/>
 				</>
 			)}
-			{/*</Suspense>*/}
 		</main>
 	);
 }
