@@ -38,8 +38,11 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 			transition={{ x: { duration: 0.4 } }}
 			className="fixed z-20 flex h-screen w-full duration-300 md:hidden"
 		>
-			<div onClick={closeMenu} className="h-full w-1/4 bg-opacity-20 backdrop-blur-sm hover:cursor-pointer" />
-			<div className="flex w-3/4 flex-col items-center justify-center font-body">
+			<div
+				onClick={closeMenu}
+				className="h-full w-1/4 bg-background-primary bg-opacity-20 backdrop-blur-sm hover:cursor-pointer"
+			/>
+			<div className="flex w-3/4 flex-col items-center justify-center bg-background-primary font-body">
 				<div className="mt-4">
 					<LanguageSwitcher currentLang={lang} />
 				</div>
@@ -52,9 +55,10 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 							className="flex flex-col space-y-2 text-center"
 						>
 							<span className="font-tech text-xs text-accent-coral">{item.id}.</span>
-							<span className="font-heading text-sm text-text-primary duration-300 hover:cursor-pointer hover:text-accent-coral sm:text-base">
-								{item.name}
-							</span>
+							<span
+								className="font-heading text-sm text-text-primary duration-300 hover:cursor-pointer hover:text-accent-coral sm:text-base">
+                {item.name}
+              </span>
 						</a>
 					))}
 					<a
