@@ -42,7 +42,7 @@ const Header = ({ finishedLoading, lang }: HeaderProps) => {
 		const baseClass =
 			"fixed left-0 right-0 top-0 z-50 flex w-full items-center justify-between px-6 py-4 transition-all duration-300 ease-in-out";
 		const scrollClass = isScrolled ? "shadow-lg backdrop-blur-sm" : "";
-		const bgClass = isScrolled ? "bg-white bg-opacity-75" : "bg-transparent";
+		const bgClass = isScrolled ? "bg-background" : "bg-transparent";
 		return `${baseClass} ${scrollClass} ${bgClass}`;
 	};
 

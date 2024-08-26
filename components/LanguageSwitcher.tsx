@@ -4,7 +4,7 @@ import React, { useMemo, useState } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { Locale, i18n } from "@/i18n-config";
+import { i18n, Locale } from "@/i18n-config";
 import Cookies from "js-cookie";
 
 import { useDetectLanguage, useOutsideClick } from "@/lib/hooks";
@@ -65,7 +65,7 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
 				</svg>
 			</button>
 			{isOpen && (
-				<div className="w-55 absolute right-0 mt-2 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+				<div className="w-55 absolute right-0 mt-2 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 bg-background">
 					<div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
 						{i18n.locales.map((locale) => (
 							<LanguageOption
