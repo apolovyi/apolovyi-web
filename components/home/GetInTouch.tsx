@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-import { Locale } from "@/i18n-config";
+import {Locale} from "@/i18n-config";
 
 import ArrowIcon from "@/components/icons/ArrowIcon";
 import CheckCircleIcon from "@/components/icons/CheckCircleIcon";
 import XCircleIcon from "@/components/icons/XCircleIcon";
 
-import { getDictionary } from "@/lib/dictionary";
+import {getDictionary} from "@/lib/dictionary";
 
 type SubmitStatus = "idle" | "success" | "error";
 
@@ -55,7 +55,7 @@ function GetInTouch({ lang }: GetInTouchProps) {
     <section
       id="contactSection"
       data-aos="fade-up"
-      className="flex min-h-screen w-full flex-col items-center justify-center space-y-8 bg-background-primary px-4 py-24 sm:px-8"
+      className="flex w-full flex-col space-y-12 bg-background-primary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
       <div className="flex max-w-5xl flex-col items-center space-y-6">
         <div className="mx-auto flex w-full flex-col px-4 sm:px-6 lg:px-8">

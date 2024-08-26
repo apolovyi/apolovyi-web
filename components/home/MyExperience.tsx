@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-import { Locale } from "@/i18n-config";
+import {Locale} from "@/i18n-config";
 
 import ArrowIcon from "@/components/icons/ArrowIcon";
 
-import { getDictionary } from "@/lib/dictionary";
+import {getDictionary} from "@/lib/dictionary";
 
 interface Company {
   name: string;
@@ -34,7 +34,7 @@ const MyExperience = ({ lang }: MyExperienceProps) => {
     <section
       id="experienceSection"
       data-aos="fade-up"
-      className="flex snap-start flex-col items-center bg-background-primary py-12 md:py-24"
+      className="flex w-full flex-col space-y-12 bg-background-primary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
         <header data-aos="fade-up" className="mb-8 flex flex-row items-center font-heading">
