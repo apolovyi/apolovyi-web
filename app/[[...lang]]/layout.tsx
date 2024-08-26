@@ -2,8 +2,9 @@ import { Metadata } from "next";
 import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/google";
 import Script from "next/script";
 
-import "@/app/globals.css";
 import { Locale, i18n } from "@/i18n-config";
+
+import "@/app/globals.css";
 
 import LanguageDetector from "@/components/LanguageDetector";
 import StructuredData from "@/components/StructuredData";
