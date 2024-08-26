@@ -3,35 +3,35 @@
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from "react";
 
 type SharedState = {
-  finishedLoading: boolean;
+	finishedLoading: boolean;
 };
 
 type AppContextType = {
-  sharedState: SharedState;
-  setSharedState: Dispatch<SetStateAction<SharedState>>;
+	sharedState: SharedState;
+	setSharedState: Dispatch<SetStateAction<SharedState>>;
 };
 
 const defaultContextValue: AppContextType = {
-  sharedState: { finishedLoading: true },
-  setSharedState: () => {},
+	sharedState: { finishedLoading: true },
+	setSharedState: () => {},
 };
 
 export const AppContext = createContext<AppContextType>(defaultContextValue);
 
 type AppProviderProps = {
-  children: ReactNode;
+	children: ReactNode;
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-  const [sharedState, setSharedState] = useState<SharedState>(defaultContextValue.sharedState);
+	const [sharedState, setSharedState] = useState<SharedState>(defaultContextValue.sharedState);
 
-  return <AppContext.Provider value={{ sharedState, setSharedState }}>{children}</AppContext.Provider>;
+	return <AppContext.Provider value={{ sharedState, setSharedState }}>{children}</AppContext.Provider>;
 };
 
 export const useAppContext = () => {
-  const context = useContext(AppContext);
-  if (context === defaultContextValue) {
-    throw new Error("useAppContext must be used within an AppProvider");
-  }
-  return context;
+	const context = useContext(AppContext);
+	if (context === defaultContextValue) {
+		throw new Error("useAppContext must be used within an AppProvider");
+	}
+	return context;
 };

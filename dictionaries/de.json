@@ -1,627 +1,627 @@
 {
-  "metadata": {
-    "title": {
-      "default": "Artem Polovyi - Full-Stack Softwareentwickler",
-      "template": "%s | Artem Polovyi - Full-Stack Softwareentwickler"
-    },
-    "description": "Erfahrener Full-Stack-Entwickler, spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien. Betreut Kunden in den USA und Europa mit über 7 Jahren Expertise in Java, Kotlin, Spring Boot, React und AWS.",
-    "openGraph": {
-      "title": "Artem Polovyi - Full-Stack Softwareentwickler",
-      "description": "Erfahrener Full-Stack-Entwickler, spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien. Betreut Kunden in den USA und Europa mit über 7 Jahren Expertise in Java, Kotlin, Spring Boot, React und AWS.",
-      "siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
-      "images": [
-        {
-          "url": "/img/me-bg.jpg",
-          "width": 1200,
-          "height": 630,
-          "alt": "Artem Polovyi - Full-Stack Softwareentwickler"
-        }
-      ]
-    },
-    "keywords": [
-      "Java",
-      "Kotlin",
-      "Spring Boot",
-      "React",
-      "TypeScript",
-      "AWS",
-      "PostgreSQL",
-      "Docker",
-      "Jenkins",
-      "GitLab",
-      "Full-Stack-Entwickler",
-      "Softwareingenieur",
-      "Webentwicklung",
-      "Cloud-Technologien",
-      "Java-Entwickler",
-      "Kotlin-Experte",
-      "Spring Boot-Spezialist",
-      "React-Entwickler",
-      "AWS-Lösungsarchitekt",
-      "PostgreSQL-Entwickler",
-      "TypeScript-Entwickler",
-      "JavaScript-Spezialist",
-      "RESTful-API-Design",
-      "Microservices-Architektur",
-      "DevOps-Entwickler",
-      "CI/CD-Implementierung",
-      "Docker-Containerisierung",
-      "Kubernetes-Orchestrierung",
-      "Angular-Entwickler",
-      "RabbitMQ-Integration",
-      "Jenkins-Automatisierung",
-      "GitLab CI/CD",
-      "JUnit-Tests",
-      "Flyway-Datenbankmigration",
-      "OpenCMS-Content-Management",
-      "Stencil-Webkomponenten",
-      "Next.js-Entwickler",
-      "Tailwind CSS",
-      "Sanity-CMS-Integration",
-      "Vercel-Bereitstellung",
-      "Agile Methoden",
-      "Scrum-Praktiker",
-      "Testgetriebene Entwicklung (TDD)",
-      "Code-Review-Spezialist",
-      "Legacy-Code-Modernisierung",
-      "Tech-Lead-Erfahrung",
-      "Enterprise-Softwarelösungen",
-      "E-Commerce-Entwicklung",
-      "US-Entwickler",
-      "Europäischer Entwickler",
-      "Remote-Softwareentwickler",
-      "Skalierbare Webanwendungen",
-      "Hochleistungssysteme",
-      "Datenbankoptimierung",
-      "Frontend-Optimierung",
-      "Backend-Skalierbarkeit",
-      "Cloud-Migrationsspezialist",
-      "Web-Performance-Optimierung",
-      "SEO-Best-Practices",
-      "Barrierefreiheit (WCAG) Implementierung",
-      "UI/UX-Design-Prinzipien",
-      "Mobilgeräte-optimiertes Design",
-      "Browserübergreifende Kompatibilität",
-      "API-Integrationsspezialist",
-      "Datensicherheitsimplementierung",
-      "Internationalisierung (i18n)",
-      "Lokalisierung (l10n)",
-      "Leistungsüberwachung",
-      "Fehlerprotokollierung und Debugging"
-    ]
-  },
-  "header": {
-    "menuItems": [
-      {
-        "id": "01",
-        "name": "Über mich",
-        "href": "#aboutSection"
-      },
-      {
-        "id": "02",
-        "name": "Erfahrung",
-        "href": "#experienceSection"
-      },
-      {
-        "id": "03",
-        "name": "Arbeit",
-        "href": "#projectsSection"
-      },
-      {
-        "id": "04",
-        "name": "Kontakt",
-        "href": "#contactSection"
-      }
-    ],
-    "resumeButton": {
-      "text": "Lebenslauf",
-      "href": "/cv/CV_Artem_Polovyi_DE_WEB.pdf"
-    }
-  },
-  "heroSection": {
-    "greeting": "Hallo, mein Name ist",
-    "name": "Artem Polovyi.",
-    "tagline": "Ich bringe Ideen zum Leben.",
-    "resumeHref": "/cv/CV_Artem_Polovyi_DE_WEB.pdf",
-    "paragraphs": [
-      "Als Full-Stack-Softwareentwickler mit starken Problemlösungsfähigkeiten bin ich darauf spezialisiert, außergewöhnliche digitale Erlebnisse zu schaffen",
-      "Derzeit bin ich leidenschaftlich damit beschäftigt, robuste Lösungen zu entwickeln, innovative Technologien zu erforschen und die digitale Transformation voranzutreiben."
-    ],
-    "highlightedTerms": [
-      "Full-Stack-Softwareentwickler",
-      "robuste Lösungen",
-      "innovative Technologien",
-      "digitale Transformation"
-    ],
-    "cta": "Mein Lebenslauf"
-  },
-  "aboutMeSection": {
-    "title": "Über mich",
-    "paragraphs": {
-      "intro": "Hallo! Ich bin Artem Polovyi, ein erfahrener Full-Stack-Softwareentwickler mit umfangreicher Erfahrung in führenden Produkt- und Beratungsunternehmen. Meine Expertise liegt in der Konzeption und Entwicklung von leistungsstarken, skalierbaren und hochverfügbaren Anwendungen.",
-      "specialization": "Ich bin spezialisiert auf Backend-Technologien (Spring Boot, Kotlin, Java), Frontend-Entwicklung (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab) und Testautomatisierung. Meine Erfahrung umfasst Projekte für renommierte Unternehmen wie Infineon und Audi, wo ich zur Entwicklung und Wartung von Anwendungen mit hohem Datenverkehr beigetragen und die Systemleistung optimiert habe.",
-      "mindset": "Ich habe eine agile Denkweise und umfangreiche Erfahrung in agilen Umgebungen. Meine Leidenschaft für kontinuierliches Lernen und Problemlösung treibt mich dazu an, stets auf dem neuesten Stand der Technologien und Best Practices in der Softwareentwicklung zu bleiben.",
-      "technologies": "Hier sind einige Technologien, mit denen ich in letzter Zeit gearbeitet habe:"
-    },
-    "highlightedTerms": [
-      "Spring Boot",
-      "Kotlin",
-      "Java",
-      "React",
-      "JavaScript",
-      "TypeScript",
-      "Jenkins",
-      "GitLab",
-      "Infineon",
-      "Audi"
-    ]
-  },
-  "experienceSection": {
-    "title": "Wo ich gearbeitet habe",
-    "roles": {
-      "TheBicesterCollection": {
-        "title": "Lead Full-Stack-Entwickler",
-        "date": "Juni 2023 - Heute",
-        "url": "https://www.thebicestercollection.com",
-        "tasks": [
-          {
-            "text": "Leitung der Entwicklung einer innovativen E-Commerce-Plattform für ein prestigeträchtiges Markenkollektiv in New York City.",
-            "keywords": [
-              "E-Commerce-Plattform",
-              "prestigeträchtiges Markenkollektiv"
-            ]
-          },
-          {
-            "text": "Implementierung einer Headless-CMS-Architektur zur Verbesserung der Inhaltsflexibilität und Website-Performance.",
-            "keywords": [
-              "Headless-CMS",
-              "Inhaltsflexibilität"
-            ]
-          },
-          {
-            "text": "Optimierung der Website für Suchmaschinen (SEO) zur Steigerung der Sichtbarkeit und des organischen Traffics.",
-            "keywords": [
-              "SEO",
-              "organischer Traffic"
-            ]
-          },
-          {
-            "text": "Nutzung der Vercel-Plattform für nahtlose Bereitstellung und Hosting, um hohe Verfügbarkeit und schnelle Inhaltsauslieferung sicherzustellen.",
-            "keywords": [
-              "Vercel",
-              "nahtlose Bereitstellung"
-            ]
-          },
-          {
-            "text": "Verwendung eines modernen Technologie-Stacks einschließlich Next.js, TypeScript, Tailwind CSS und Sanity zum Aufbau einer robusten und skalierbaren Webanwendung.",
-            "keywords": [
-              "Next.js",
-              "TypeScript",
-              "Tailwind CSS",
-              "Sanity"
-            ]
-          }
-        ]
-      },
-      "VirtualIdentityAG": {
-        "title": "Senior Full-Stack-Entwickler",
-        "date": "Feb 2022 - Jan 2024",
-        "url": "https://www.virtual-identity.com",
-        "tasks": [
-          {
-            "text": "Entwicklung und Pflege von Funktionen auf infineon.com zur Optimierung der Benutzererfahrung und Funktionalität.",
-            "keywords": [
-              "infineon.com",
-              "Benutzererfahrung"
-            ]
-          },
-          {
-            "text": "Erfolgreiche Migration von voestalpine.com in die AWS-Cloud, Verbesserung der Skalierbarkeit und Leistung.",
-            "keywords": [
-              "voestalpine.com",
-              "AWS-Cloud"
-            ]
-          },
-          {
-            "text": "Entwurf und Durchführung umfassender Unit- und Integrationstests zur Erhöhung der Softwarezuverlässigkeit.",
-            "keywords": [
-              "Unit-Tests",
-              "Integrationstests"
-            ]
-          },
-          {
-            "text": "Optimierung der Website-Performance, Verbesserung der Ladezeiten und Benutzerzufriedenheit.",
-            "keywords": [
-              "Performance",
-              "Ladezeiten"
-            ]
-          },
-          {
-            "text": "Verwendung von Technologien wie Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms und verschiedenen AWS-Diensten.",
-            "keywords": [
-              "Java",
-              "Spring",
-              "JUnit",
-              "MySQL",
-              "Oracle",
-              "PostgreSQL",
-              "Flyway",
-              "TypeScript",
-              "React",
-              "Stencil",
-              "Web Components",
-              "OpenCms",
-              "AWS"
-            ]
-          }
-        ]
-      },
-      "SmartDorm": {
-        "title": "Lead Full-Stack-Entwickler (Ehrenamtlich)",
-        "date": "Jan 2020 - Heute",
-        "tasks": [
-          {
-            "text": "Entwickelte eine Webanwendung zur Optimierung und Automatisierung von Verwaltungsprozessen im Studentenwohnheim Geschwister Scholl.",
-            "keywords": [
-              "Webanwendung",
-              "Prozessautomatisierung"
-            ]
-          },
-          {
-            "text": "Migrierte und konsolidierte Daten in eine zentrale Datenbank, um 100% Datenkonsistenz zu gewährleisten.",
-            "keywords": [
-              "Datenmigration",
-              "Datenbankkonsolidierung"
-            ]
-          },
-          {
-            "text": "Reduzierte den Verwaltungsaufwand durch Digitalisierung und Automatisierung um 35%.",
-            "keywords": [
-              "Digitalisierung",
-              "Automatisierung",
-              "Effizienzsteigerung"
-            ]
-          },
-          {
-            "text": "Implementierte eine CI/CD-Pipeline zur Optimierung des Entwicklungsprozesses.",
-            "keywords": [
-              "CI/CD",
-              "Entwicklungsoptimierung"
-            ]
-          },
-          {
-            "text": "Verwendete Technologien wie PostgreSQL, Kotlin, Spring Boot, React und GitLab.",
-            "keywords": [
-              "PostgreSQL",
-              "Kotlin",
-              "Spring Boot",
-              "React",
-              "GitLab"
-            ]
-          }
-        ]
-      },
-      "Spreadshirt": {
-        "title": "Senior Full-Stack-Entwickler",
-        "date": "Nov 2021 - Feb 2022",
-        "url": "https://www.spreadshirt.com",
-        "tasks": [
-          {
-            "text": "Entwicklung einer Hochleistungsanwendung zur Auszahlungsgenerierung, Verbesserung der Finanzabläufe.",
-            "keywords": [
-              "Auszahlungsgenerierung"
-            ]
-          },
-          {
-            "text": "Erstellung intuitiver Benutzeroberflächen zur Verbesserung der Benutzererfahrung und Anwendungsnutzbarkeit.",
-            "keywords": [
-              "Benutzeroberflächen"
-            ]
-          },
-          {
-            "text": "Arbeit mit Technologien wie PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript und React.",
-            "keywords": [
-              "PostgreSQL",
-              "Flyway",
-              "Kotlin",
-              "Spring Boot",
-              "JUnit",
-              "TypeScript",
-              "React"
-            ]
-          }
-        ]
-      },
-      "ComsystoReplyGmbH": {
-        "title": "Full-Stack-Entwickler",
-        "date": "Feb 2019 - Okt 2021",
-        "url": "https://www.comsysto.com",
-        "tasks": [
-          {
-            "text": "Zusammenarbeit in einem Scrum-Team zur Optimierung von Preisgestaltung, Gutscheinverwaltung und Kommunikationssystemen für das ABI Audi On Demand Produkt.",
-            "keywords": [
-              "Scrum",
-              "ABI Audi On Demand"
-            ]
-          },
-          {
-            "text": "Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen.",
-            "keywords": [
-              "Microservices",
-              "Microfrontends"
-            ]
-          },
-          {
-            "text": "Refaktorisierung von Code mit Kotlin, Erhöhung der Wartbarkeit und Reduzierung der Codezeilen um 30%.",
-            "keywords": [
-              "Kotlin"
-            ]
-          },
-          {
-            "text": "Verwendung von Technologien wie PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry und verschiedenen AWS-Diensten.",
-            "keywords": [
-              "PostgreSQL",
-              "Flyway",
-              "Java",
-              "Kotlin",
-              "Spring Boot",
-              "JUnit",
-              "RabbitMQ",
-              "TypeScript",
-              "Angular",
-              "Jenkins",
-              "CloudFoundry",
-              "AWS"
-            ]
-          }
-        ]
-      },
-      "Blookery": {
-        "title": "Frontend-Entwickler",
-        "date": "Mai 2018 - Aug 2018",
-        "url": "https://www.blookery.de",
-        "tasks": [
-          {
-            "text": "Leitung der Entwicklung einer Reisewebsite, spezialisiert auf Blind Bookings in ganz Europa, Steigerung des Nutzerengagements.",
-            "keywords": [
-              "Blind Bookings",
-              "Nutzerengagement"
-            ]
-          },
-          {
-            "text": "Erstellung responsiver Benutzeroberflächen mit React, Gewährleistung nahtloser Funktionalität über verschiedene Geräte hinweg.",
-            "keywords": [
-              "React",
-              "responsiv"
-            ]
-          },
-          {
-            "text": "Implementierung fortgeschrittener JavaScript-Funktionen zur Verbesserung der Interaktivität und Navigation der Website.",
-            "keywords": [
-              "JavaScript"
-            ]
-          },
-          {
-            "text": "Umsetzung von Wireframes in barrierefreie HTML/CSS-Layouts unter Berücksichtigung der WCAG-Richtlinien.",
-            "keywords": [
-              "HTML/CSS",
-              "WCAG"
-            ]
-          },
-          {
-            "text": "Entwicklung von Unit- und Integrationstests mit Jest zur Sicherstellung der Codezuverlässigkeit.",
-            "keywords": [
-              "Unit-Tests",
-              "Integrationstests"
-            ]
-          }
-        ]
-      },
-      "SilverToursGmbH": {
-        "title": "Studentischer Full-Stack-Entwickler",
-        "date": "Jan 2015 - Aug 2018",
-        "url": "https://www.billiger-mietwagen.de",
-        "tasks": [
-          {
-            "text": "Entwicklung neuer Funktionen für eine führende Autovermietungsplattform zur Verbesserung der Benutzererfahrung.",
-            "keywords": [
-              "Autovermietungsplattform"
-            ]
-          },
-          {
-            "text": "Implementierung von A/B-Tests zur Optimierung von Produktspezifikationen und Steigerung der Konversionsraten.",
-            "keywords": [
-              "A/B-Tests"
-            ]
-          },
-          {
-            "text": "Durchführung gründlicher Tests in jeder Produktiteration zur Sicherstellung qualitativ hochwertiger Releases.",
-            "keywords": [
-              "Tests"
-            ]
-          },
-          {
-            "text": "Erstellung interner Tools für das Kundenserviceteam, wodurch die Effizienz um 50% gesteigert wurde.",
-            "keywords": [
-              "interne Tools"
-            ]
-          },
-          {
-            "text": "Arbeit mit Technologien wie JavaScript, HTML, CSS, jQuery und PHP.",
-            "keywords": [
-              "JavaScript",
-              "HTML",
-              "CSS",
-              "jQuery",
-              "PHP"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "projectsSection": {
-    "title": "Einige Dinge, die ich entwickelt habe",
-    "projects": [
-      {
-        "category": "Enterprise-Webentwicklung",
-        "company": "Infineon Technologies",
-        "description": "Entwicklung und Wartung von Funktionen auf infineon.com zur Optimierung der Benutzererfahrung und Funktionalität. Entwurf und Durchführung umfassender Unit- und Integrationstests zur Erhöhung der Softwarezuverlässigkeit. Verwendung einer breiten Palette von Technologien zur Bereitstellung hochwertiger Weblösungen.",
-        "role": "Senior Full-Stack-Entwickler",
-        "image": "/img/projects/infineon.png",
-        "link": "https://www.infineon.com",
-        "technologies": [
-          "JavaEE",
-          "Spring",
-          "OpenCMS",
-          "JUnit",
-          "TypeScript",
-          "React",
-          "AWS"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA2klEQVR4nG3SXQ6CMBAEYO5/QgFR0UT6jzdYM9OuXYgPk77QLztbhtltgkwab07vZApO5uDkikTP3FJg7jnKo0RZS5LnnuS1ZxkUG3m+eTK+R9E5VnRJDc2xormjA5AKAnvLxW1ywWnAMfRJZ0yZgAIMR7A0cDyAJn7rsEF1ygNaKjpoXUXthD8wGBC1058pi4Jcfq9noTM2xf+V7wSTrNghKvA1GaCuVazQGTuCikVifBT8Dlx2Cy/bWIhYkCVbLDHAnvhtFixYP24XzwFCqIVYaTVZNcvrU/MFgGWWzfJnacYAAAAASUVORK5CYII="
-      },
-      {
-        "category": "Cloud-Migration & Optimierung",
-        "company": "voestalpine AG",
-        "description": "Erfolgreiche Migration von voestalpine.com in die AWS-Cloud, was Skalierbarkeit und Leistung erheblich verbesserte. Implementierung fortschrittlicher Funktionen mit Java und Spring bei gleichzeitiger Optimierung von Datenbankoperationen mit PostgreSQL. Nutzung verschiedener AWS-Dienste zur Gewährleistung einer robusten und effizienten Cloud-Infrastruktur.",
-        "role": "Cloud-Migrationsspezialist",
-        "image": "/img/projects/voestalpine.png",
-        "link": "https://www.voestalpine.com",
-        "technologies": [
-          "JavaEE",
-          "Spring",
-          "OpenCMS",
-          "AWS",
-          "MySQL",
-          "Oracle",
-          "React",
-          "CloudFormation"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABNUlEQVR4nHWSWXLEIAwFuf/tZryw73iSW7yUBHhITfLRVS4ErSewaCWj5oiSInIMyNEjEYFwb6LnWkmB99ac0ErCVQuuq+L1avj+uiC6aBz2DtFbBEeY33jDtdlgymuOaDXjagWvq0FMWRcZeKs7RsEN6NtbQi/yKQ4oOaJS2lYgkreItOmWSDgtYfUJqxZojWos1/DunTinKc0QbxmJ+mGjDhh5QMudMczB69xoEQdnEekahlTcyVi2iM4d6twWppzEPXGXGgSakh4tBQi6Gx6Rkq2iY4M8ngureJVqHj/wn0BCo3gMTnbLnpA78cB5M8RU56s4YHh8BUdTjpRdyOlIuCTbn4tsMJJKakz76ZxWsPxIFiH8J5zptoWR8vwQSha6v4X7Z8LtgWPvrEI5hHoR+uDxA1YMDTpXpNyXAAAAAElFTkSuQmCC"
-      },
-      {
-        "category": "Freiwilligenprojekt",
-        "company": "SmartDorm",
-        "description": "Entwickelte eine Webanwendung zur Optimierung und Automatisierung von Verwaltungsprozessen im Studentenwohnheim Geschwister Scholl. Migrierte und konsolidierte Daten in eine zentrale Datenbank, um 100% Datenkonsistenz zu gewährleisten. Reduzierte den Verwaltungsaufwand durch Digitalisierung und Automatisierung um 35%. Implementierte eine CI/CD-Pipeline zur Optimierung des Entwicklungsprozesses.",
-        "image": "/img/projects/schollheim.png",
-        "link": "https://smartdorm.schollheim.net",
-        "role": "Lead Full-Stack-Entwickler (Ehrenamtlich)",
-        "technologies": [
-          "PostgreSQL",
-          "Kotlin",
-          "Spring Boot",
-          "React",
-          "GitLab"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACS3RFWHRSYXcACmV4aWYKICAgICAyODAKNDU3ODY5NjYwMDAwNDk0OTJhMDAwODAwMDAwMDBiMDAwMDAxMDQwMDAxMDAwMDAwZTYwZTAwMDAwMTAxMDQwMDAxMDAwMDAwCjJlMDYwMDAwMDIwMTAzMDAwMzAwMDAwMDkyMDAwMDAwMGUwMTAyMDAwYjAwMDAwMDk4MDAwMDAwMTIwMTAzMDAwMTAwMDAwMAowMTAwMDAwMDFhMDEwNTAwMDEwMDAwMDBhNDAwMDAwMDFiMDEwNTAwMDEwMDAwMDBhYzAwMDAwMDI4MDEwMzAwMDEwMDAwMDAKMDMwMDAwMDAzMTAxMDIwMDBkMDAwMDAwYjQwMDAwMDAzMjAxMDIwMDE0MDAwMDAwYzIwMDAwMDA2OTg3MDQwMDAxMDAwMDAwCmQ2MDAwMDAwMDAwMDAwMDAwODAwMDgwMDA4MDA1MzYzNzI2NTY1NmU3MzY4NmY3NDAwMDA2YzA2MDAwMDFkMDAwMDAwNmMwNgowMDAwMWQwMDAwMDA0NzQ5NGQ1MDIwMzIyZTMxMzAyZTMzMzgwMDAwMzIzMDMyMzQzYTMwMzgzYTMxMzkyMDMxMzYzYTM0MzgKM2EzMTM1MDAwMzAwODY5MjA3MDAxMjAwMDAwMDAwMDEwMDAwMDJhMDA0MDAwMTAwMDAwMGU2MGUwMDAwMDNhMDA0MDAwMTAwCjAwMDAyZTA2MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDUzNjM3MjY1NjU2ZTczNjg2Zjc0CvgBkN4AAAASdEVYdENvbW1lbnQAU2NyZWVuc2hvdPsRqwoAAAIrSURBVHicBcGJV9kBAMDx39+4vR29arVVw6s1dInXgSwR61Dp0qEoYZgjylEyhoaQ5tXWeuttb//Ed5+PIH7yHGlLO4rOHiZFfej7B/g4pGRFpcamnsahN+M2W/hsWeN4dYvE5h7p3QOy+24Khz5KniBXvgj1QJRG8BRB/PQl0tYOFG9EqCX9zMiGmVeMsToxxbbOiHN2Ae+ClZDVxsnmHqndAzJOD3mXn2+fQlwFotRDp9xEEjRjZwjiZy3I2l8z2i1B3SfFMKhgQTXJmnaanRkzh3NL+FY2iGzuEt894NzpIef2U/SFKQej1CJxGrEUzXiau9QXBPGLVmQdXYyKetG8H8A4omJxXMvGBwN20zxHllUC69tEdxwknW4u3H7y/jClUIxqNEEjfk4zleHuPMd9poAgaWlD9robpeQdWtkQRuU4Fo2OTYOJ/fklPNYNglt2Thwuztw+sv4QxXCMSixJPZGmeZ7lLpPnPnfJQ6GEIGltR971FmVvP9rBEWbHJlnS6bGZ5nBYrHg3tgnbncRdHtK+IF9DUUonSarJNDfpLLfZAj/zJR4uKzyWawiStg7kPWJU/VKmhkcxTWhY1hvZmlvEaV3Ht20n4nSR9PrJBI8pxOJUkmmu01mauQI/imUeSlUer675W/+OIHnViVwkQSWVoxtVYdZMsWIwsbO4zOG6Db/dQfTISyoQInt8wmXijOpFlptcgdtimV+VGr9rDf40mvxr3vEfCV7Ppv3yr8MAAAAASUVORK5CYII="
-      },
-      {
-        "category": "Finanztechnologie",
-        "company": "Spreadshirt Auszahlungssystem",
-        "description": "Entwicklung einer Hochleistungsanwendung zur Auszahlungsgenerierung, die die Finanzabläufe erheblich verbesserte. Erstellung intuitiver Benutzeroberflächen zur Verbesserung der Benutzererfahrung und Anwendungsnutzbarkeit. Implementierung robuster Backend-Logik zur Sicherstellung genauer und pünktlicher Auszahlungen.",
-        "role": "Senior Full-Stack-Entwickler",
-        "image": "/img/projects/spreadshirt.png",
-        "link": "https://www.spreadshirt.com",
-        "technologies": [
-          "Kotlin",
-          "Spring Boot",
-          "PostgreSQL",
-          "Flyway",
-          "JUnit",
-          "TypeScript",
-          "React"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAABWElEQVR4nIWUW27EIAxF2f+uOpMnb0JIpt2MK9tAIJ22H0dEkTg24hrxih6IrYH+hV/Y4HNHIpOQHb6ORIjDGzi8BVxT/b4REFc5N58JRCn02iOIaBQge17p2xZ0jzNEchaSLzg4kODhCAFEUAsQMq/EChuiC/LCSC5sdcbAjjhLCLeMUFknwhMzIwsLgcWIWkTBRidjubDzE+w89NQiE5MLuXUmWJ7FCpEQUKwVCD0+wEzI86LKR2ZBJqKKc8deruAbqdDDB+gReWQa8TT08iwunbp1yWKUSkKoH8LHH8KpF3ZdZuG9w/bY77v778gjy8xN1ovyBd07U9xZkQWtQRTJ2xtubrdGJ+cUYxNqbDRDsVmGLoeUwSZ7Jehd9gxLSrAp3BRsB8JLFgSkTEk7HXUyeDquEbxGL3kPqYxeGa/YbORN7eziw8ECfiA8HM3jcMYNzhjpcfgGES/6xlVD7WoAAAAASUVORK5CYII="
-      },
-      {
-        "category": "Autovermietungsplattform",
-        "company": "ABI Audi On Demand",
-        "description": "Zusammenarbeit in einem Scrum-Team zur Optimierung von Preisgestaltung, Gutscheinverwaltung und Kommunikationssystemen für das ABI Audi On Demand Produkt. Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen. Refaktorisierung von Code mit Kotlin, Erhöhung der Wartbarkeit und Reduzierung der Codezeilen um 30%.",
-        "role": "Full-Stack-Entwickler",
-        "image": "/img/projects/aod.png",
-        "link": "https://www.audi.com",
-        "technologies": [
-          "PostgreSQL",
-          "Flyway",
-          "Java",
-          "Kotlin",
-          "Spring Boot",
-          "JUnit",
-          "RabbitMQ",
-          "TypeScript",
-          "Angular",
-          "Jenkins",
-          "CloudFoundry",
-          "AWS"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA1ElEQVR4nHXMaa6DMAwE4Nz/TCxlyQoJAdq+48yTszQRgh+fxrbkYX+nQ3BE38Phsxdv4ovT2+DY7rGPX0DeW3Qmhyt2YjMDn60GW4V2dliFbE/8miwK24UzkQ0krK5nCeYNB9kSR7SA0xw2U9FaWeQ95tSEzKoJK5HRkonIVDS/x1YxIFsSwwtN5kJl0wB5QTdmeA8zFzp4QU39j8zGQjxgeupQUwE9dT8i51DwB0yNLWoy6CCHFuLq1YJfzJedybGBGppQIFPWJZw8FM2vJmXSt/gHPH+ZxG6mpEYAAAAASUVORK5CYII="
-      },
-      {
-        "category": "Reisen & Lifestyle",
-        "company": "Turkey Nomad",
-        "description": "Entwicklung einer umfassenden Plattform für digitale Nomaden in der Türkei, mit einem Reiseblog und kuratierten Empfehlungen. Dieses Projekt zeigt moderne Webentwicklungstechniken und Content-Management-Integration. Die Website bietet wertvolle Einblicke und Ressourcen für Remote-Arbeiter und Reisende, die die Türkei erkunden.",
-        "role": "Lead Full-Stack-Entwickler",
-        "image": "/img/projects/turkey-nomad.png",
-        "link": "https://turkeynomad.com",
-        "technologies": [
-          "Next.js",
-          "TypeScript",
-          "Strapi CMS",
-          "Vercel"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABRUlEQVR4nG2R2W6FMAxE8///WCAQlgSysPZxKjsON636MJIxztGMrfYQEYNH9B5x2xD+Ef/zHikEpBhxpIRj33EeB67zxH1deO4b388DRYPloV/XV1tV+1XgBA4Be4zY/0Cf+8L3c0MV0LY6bM5htfaXqMcisECL0wK9jo9LRYOry4/dsryyVe0KfHXZrTgt8c8quiogu8yw84xlmirlHolmiuPa6Z5idnkeGUiDi4DmcWRNovwtcAIXqMQvLvf02aWiwRdiDMZhqGS4N5kMX4pT2el7pCS7JCANjgIyPanHIKKaegw3poJahr7RY45NLhUNmmHIEK3Rd6ROpLnH8AKdJtg5H+oTPV+cgQwjkNbQXQfdtuhEuu24x2CBUnw+lkSnq0cfkOQ4atA9P2JI06JtGrRfoqbhXgZnKO2VD0XRxWUd+wcjUzYEHXnv6QAAAABJRU5ErkJggg=="
-      },
-      {
-        "category": "Reisetechnologie",
-        "company": "blookery",
-        "description": "Entwicklung des Frontends einer innovativen Reisewebsite, die sich auf Blind Bookings in ganz Europa spezialisiert hat. Entwicklung responsiver und intuitiver Benutzeroberflächen mit React, um eine nahtlose Funktionalität auf verschiedenen Geräten und Bildschirmgrößen zu gewährleisten. Implementierung fortgeschrittener JavaScript-Funktionen zur Erstellung dynamischer und interaktiver Elemente, was die Benutzerinteraktion und Website-Navigation erheblich verbesserte.",
-        "role": "Frontend-Entwickler",
-        "image": "/img/projects/blookery.png",
-        "link": "https://www.blookery.de",
-        "technologies": [
-          "React",
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "Jest"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB3klEQVR4nH3T6XKiQBQF4H7/d1AQwURlRyGLWMNUMa8SekXnBc5ULxhJnPz4CqnGy+HebjKWIVQRQpaRISbVBvw/hCOrCLLaQJURxirCWEYgKltBZiuIPIDI1wZ3WBE+xIvQPlusIXNL5QHGPABRqQeZeBCpD56uDJZNAtAvmMOzlSF0oFSH8qFSH0TGS4h4CR574IkH5tDEt1JrcFeNJRY3PIjEhlKJByL3C4j9Any/BIstGnvGkGi+u36i+qWxfTF3gXQwGS8+CzJXkDrDTwV1MYebr5uKLkBsusUP6ayPu9+2HVNCb5aS2P7pYvPemT+nK+PDme6pltz30rv1kdjp+mB6utPDWYDBWD8wnzh30zaTNlM2+y+w+84IQYsQgxF9Q53ZniymvbgGmU4HL+0pYNUT6M0z6OEZg0MdVmlP4I49NRuoagOijlvI4xbiuAOvLVbvDdpo8Qxr7Bp3RL2DrHdQ9Q5jvQUZXxNII4Vw+FsGdpPP6DVNOPIthXpLMWqvKcjYllBtCemItjK4dj48JM4HyHMF2VZQRgld59KWIJdfNcauhuoaQxovEJPfd9y9XtdU94Kxa4xL1+DaNSDX/h2X/h1jfzLUTQv55zul9S1G44SLc+1P+Nuf8A/cSRYM9Dl7fQAAAABJRU5ErkJggg=="
-      },
-      {
-        "category": "Autovermietungsplattform",
-        "company": "Billiger Mietwagen",
-        "description": "Als studentischer Entwickler Beitrag zu einer führenden Autovermietungsplattform, wodurch die Benutzererfahrung erheblich verbessert wurde. Implementierung von A/B-Tests zur Optimierung von Produktspezifikationen und Steigerung der Konversionsraten. Durchführung gründlicher Tests in jeder Produktiteration zur Sicherstellung qualitativ hochwertiger Releases. Erstellung interner Tools für das Kundenserviceteam, wodurch die Effizienz um 50% gesteigert wurde.",
-        "role": "Studentischer Full-Stack-Entwickler",
-        "image": "/img/projects/billiger-mietwagen.png",
-        "link": "https://www.billiger-mietwagen.de",
-        "technologies": [
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "jQuery",
-          "PHP",
-          "Optimizely"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACMElEQVR4nHXSWXLDVBRFUc1/WEDiXtLr+/sk2U6YxaasGAoK+Di/q85thg8pHCRzlMxZEldJ3CQytsDUPHN1qGrRRaOzQucZkyZMvGHCFe0vaH9CuyPaHhh2sGVOf4ItcmtvsL7BYlBZo9OMThM63tBvTLkTyh1Q5pPZfDB8StnbvcDLv0DHXOwbVDuo4ogOtzd2Rtkjs/1k1h/M+jeGgxROUji/wR8s/jXuP8FpB1W4ovz5p5097M1e2KR+ZThK5SyFi2SukhklMbXI3MJ73B9w398+7qvh/4G/MJx749Irt14Ye2aSxCwR1QKqenR16DdoXjt8g9qf0f/V8Lo0bktjXCpTL8w9o3pCS0S3gKkOUy2maMzfL/y6rjuj7RFlP1GvHb7Ace1MqzAvDbVU9FIwS8b0hJWIbR7XHK4YXFbYPGPTiA3XHTXutL+LNj/oMG8LauvoTTCbYNeKXQtuyfie8BLx4vHN4qvBF4XLEy6OuHDFvlB/wrgD2n4ymPuKvS+4PR2/CX5rhLUSlkxcErEHonhis4RqCEXh84RPIz5eceGC9SesOzK45x3/2AiPlbink+5C2hp5q+S1kJdE7pEsntQcqRliUcQyE9NESLcd9uHCEL+fpK8H+eu+pzxXynOhPDr1LtR7o26FumbqEik9UMSRmyVXQy6KVGZSnohpZCi/f1H3PGnfD9r3nfa9IV8r8lyQR0ceDblXZCu0NdGWSOueJp7aLKUZStWUovgDfbeQJMoGsU0AAAAASUVORK5CYII="
-      }
-    ]
-  },
-  "contactSection": {
-    "title": "Was kommt als Nächstes?",
-    "subtitle": "Lass uns in Kontakt treten",
-    "content": "Ich bin immer begeistert von neuen Möglichkeiten und Kooperationen. Ob du ein Projekt im Sinn hast, eine Frage zu meiner Arbeit oder einfach nur Hallo sagen möchtest, ich würde mich freuen, von dir zu hören. Lass uns ein Gespräch beginnen und erkunden, wie wir gemeinsam etwas Großartiges schaffen können!",
-    "formLabels": {
-      "name": "Name",
-      "email": "E-Mail",
-      "message": "Nachricht"
-    },
-    "sendButton": "Nachricht senden",
-    "sending": "Wird gesendet...",
-    "successMessage": "Nachricht erfolgreich gesendet!",
-    "errorMessage": "Nachricht konnte nicht gesendet werden. Bitte versuche es erneut."
-  },
-  "footer": {
-    "rights": "Alle Rechte vorbehalten."
-  }
+	"metadata": {
+		"title": {
+			"default": "Artem Polovyi - Full-Stack Softwareentwickler",
+			"template": "%s | Artem Polovyi - Full-Stack Softwareentwickler"
+		},
+		"description": "Erfahrener Full-Stack-Entwickler, spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien. Betreut Kunden in den USA und Europa mit über 7 Jahren Expertise in Java, Kotlin, Spring Boot, React und AWS.",
+		"openGraph": {
+			"title": "Artem Polovyi - Full-Stack Softwareentwickler",
+			"description": "Erfahrener Full-Stack-Entwickler, spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien. Betreut Kunden in den USA und Europa mit über 7 Jahren Expertise in Java, Kotlin, Spring Boot, React und AWS.",
+			"siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
+			"images": [
+				{
+					"url": "/img/me-bg.jpg",
+					"width": 1200,
+					"height": 630,
+					"alt": "Artem Polovyi - Full-Stack Softwareentwickler"
+				}
+			]
+		},
+		"keywords": [
+			"Java",
+			"Kotlin",
+			"Spring Boot",
+			"React",
+			"TypeScript",
+			"AWS",
+			"PostgreSQL",
+			"Docker",
+			"Jenkins",
+			"GitLab",
+			"Full-Stack-Entwickler",
+			"Softwareingenieur",
+			"Webentwicklung",
+			"Cloud-Technologien",
+			"Java-Entwickler",
+			"Kotlin-Experte",
+			"Spring Boot-Spezialist",
+			"React-Entwickler",
+			"AWS-Lösungsarchitekt",
+			"PostgreSQL-Entwickler",
+			"TypeScript-Entwickler",
+			"JavaScript-Spezialist",
+			"RESTful-API-Design",
+			"Microservices-Architektur",
+			"DevOps-Entwickler",
+			"CI/CD-Implementierung",
+			"Docker-Containerisierung",
+			"Kubernetes-Orchestrierung",
+			"Angular-Entwickler",
+			"RabbitMQ-Integration",
+			"Jenkins-Automatisierung",
+			"GitLab CI/CD",
+			"JUnit-Tests",
+			"Flyway-Datenbankmigration",
+			"OpenCMS-Content-Management",
+			"Stencil-Webkomponenten",
+			"Next.js-Entwickler",
+			"Tailwind CSS",
+			"Sanity-CMS-Integration",
+			"Vercel-Bereitstellung",
+			"Agile Methoden",
+			"Scrum-Praktiker",
+			"Testgetriebene Entwicklung (TDD)",
+			"Code-Review-Spezialist",
+			"Legacy-Code-Modernisierung",
+			"Tech-Lead-Erfahrung",
+			"Enterprise-Softwarelösungen",
+			"E-Commerce-Entwicklung",
+			"US-Entwickler",
+			"Europäischer Entwickler",
+			"Remote-Softwareentwickler",
+			"Skalierbare Webanwendungen",
+			"Hochleistungssysteme",
+			"Datenbankoptimierung",
+			"Frontend-Optimierung",
+			"Backend-Skalierbarkeit",
+			"Cloud-Migrationsspezialist",
+			"Web-Performance-Optimierung",
+			"SEO-Best-Practices",
+			"Barrierefreiheit (WCAG) Implementierung",
+			"UI/UX-Design-Prinzipien",
+			"Mobilgeräte-optimiertes Design",
+			"Browserübergreifende Kompatibilität",
+			"API-Integrationsspezialist",
+			"Datensicherheitsimplementierung",
+			"Internationalisierung (i18n)",
+			"Lokalisierung (l10n)",
+			"Leistungsüberwachung",
+			"Fehlerprotokollierung und Debugging"
+		]
+	},
+	"header": {
+		"menuItems": [
+			{
+				"id": "01",
+				"name": "Über mich",
+				"href": "#aboutSection"
+			},
+			{
+				"id": "02",
+				"name": "Erfahrung",
+				"href": "#experienceSection"
+			},
+			{
+				"id": "03",
+				"name": "Arbeit",
+				"href": "#projectsSection"
+			},
+			{
+				"id": "04",
+				"name": "Kontakt",
+				"href": "#contactSection"
+			}
+		],
+		"resumeButton": {
+			"text": "Lebenslauf",
+			"href": "/cv/CV_Artem_Polovyi_DE_WEB.pdf"
+		}
+	},
+	"heroSection": {
+		"greeting": "Hallo, mein Name ist",
+		"name": "Artem Polovyi.",
+		"tagline": "Ich bringe Ideen zum Leben.",
+		"resumeHref": "/cv/CV_Artem_Polovyi_DE_WEB.pdf",
+		"paragraphs": [
+			"Als Full-Stack-Softwareentwickler mit starken Problemlösungsfähigkeiten bin ich darauf spezialisiert, außergewöhnliche digitale Erlebnisse zu schaffen",
+			"Derzeit bin ich leidenschaftlich damit beschäftigt, robuste Lösungen zu entwickeln, innovative Technologien zu erforschen und die digitale Transformation voranzutreiben."
+		],
+		"highlightedTerms": [
+			"Full-Stack-Softwareentwickler",
+			"robuste Lösungen",
+			"innovative Technologien",
+			"digitale Transformation"
+		],
+		"cta": "Mein Lebenslauf"
+	},
+	"aboutMeSection": {
+		"title": "Über mich",
+		"paragraphs": {
+			"intro": "Hallo! Ich bin Artem Polovyi, ein erfahrener Full-Stack-Softwareentwickler mit umfangreicher Erfahrung in führenden Produkt- und Beratungsunternehmen. Meine Expertise liegt in der Konzeption und Entwicklung von leistungsstarken, skalierbaren und hochverfügbaren Anwendungen.",
+			"specialization": "Ich bin spezialisiert auf Backend-Technologien (Spring Boot, Kotlin, Java), Frontend-Entwicklung (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab) und Testautomatisierung. Meine Erfahrung umfasst Projekte für renommierte Unternehmen wie Infineon und Audi, wo ich zur Entwicklung und Wartung von Anwendungen mit hohem Datenverkehr beigetragen und die Systemleistung optimiert habe.",
+			"mindset": "Ich habe eine agile Denkweise und umfangreiche Erfahrung in agilen Umgebungen. Meine Leidenschaft für kontinuierliches Lernen und Problemlösung treibt mich dazu an, stets auf dem neuesten Stand der Technologien und Best Practices in der Softwareentwicklung zu bleiben.",
+			"technologies": "Hier sind einige Technologien, mit denen ich in letzter Zeit gearbeitet habe:"
+		},
+		"highlightedTerms": [
+			"Spring Boot",
+			"Kotlin",
+			"Java",
+			"React",
+			"JavaScript",
+			"TypeScript",
+			"Jenkins",
+			"GitLab",
+			"Infineon",
+			"Audi"
+		]
+	},
+	"experienceSection": {
+		"title": "Wo ich gearbeitet habe",
+		"roles": {
+			"TheBicesterCollection": {
+				"title": "Lead Full-Stack-Entwickler",
+				"date": "Juni 2023 - Heute",
+				"url": "https://www.thebicestercollection.com",
+				"tasks": [
+					{
+						"text": "Leitung der Entwicklung einer innovativen E-Commerce-Plattform für ein prestigeträchtiges Markenkollektiv in New York City.",
+						"keywords": [
+							"E-Commerce-Plattform",
+							"prestigeträchtiges Markenkollektiv"
+						]
+					},
+					{
+						"text": "Implementierung einer Headless-CMS-Architektur zur Verbesserung der Inhaltsflexibilität und Website-Performance.",
+						"keywords": [
+							"Headless-CMS",
+							"Inhaltsflexibilität"
+						]
+					},
+					{
+						"text": "Optimierung der Website für Suchmaschinen (SEO) zur Steigerung der Sichtbarkeit und des organischen Traffics.",
+						"keywords": [
+							"SEO",
+							"organischer Traffic"
+						]
+					},
+					{
+						"text": "Nutzung der Vercel-Plattform für nahtlose Bereitstellung und Hosting, um hohe Verfügbarkeit und schnelle Inhaltsauslieferung sicherzustellen.",
+						"keywords": [
+							"Vercel",
+							"nahtlose Bereitstellung"
+						]
+					},
+					{
+						"text": "Verwendung eines modernen Technologie-Stacks einschließlich Next.js, TypeScript, Tailwind CSS und Sanity zum Aufbau einer robusten und skalierbaren Webanwendung.",
+						"keywords": [
+							"Next.js",
+							"TypeScript",
+							"Tailwind CSS",
+							"Sanity"
+						]
+					}
+				]
+			},
+			"VirtualIdentityAG": {
+				"title": "Senior Full-Stack-Entwickler",
+				"date": "Feb 2022 - Jan 2024",
+				"url": "https://www.virtual-identity.com",
+				"tasks": [
+					{
+						"text": "Entwicklung und Pflege von Funktionen auf infineon.com zur Optimierung der Benutzererfahrung und Funktionalität.",
+						"keywords": [
+							"infineon.com",
+							"Benutzererfahrung"
+						]
+					},
+					{
+						"text": "Erfolgreiche Migration von voestalpine.com in die AWS-Cloud, Verbesserung der Skalierbarkeit und Leistung.",
+						"keywords": [
+							"voestalpine.com",
+							"AWS-Cloud"
+						]
+					},
+					{
+						"text": "Entwurf und Durchführung umfassender Unit- und Integrationstests zur Erhöhung der Softwarezuverlässigkeit.",
+						"keywords": [
+							"Unit-Tests",
+							"Integrationstests"
+						]
+					},
+					{
+						"text": "Optimierung der Website-Performance, Verbesserung der Ladezeiten und Benutzerzufriedenheit.",
+						"keywords": [
+							"Performance",
+							"Ladezeiten"
+						]
+					},
+					{
+						"text": "Verwendung von Technologien wie Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms und verschiedenen AWS-Diensten.",
+						"keywords": [
+							"Java",
+							"Spring",
+							"JUnit",
+							"MySQL",
+							"Oracle",
+							"PostgreSQL",
+							"Flyway",
+							"TypeScript",
+							"React",
+							"Stencil",
+							"Web Components",
+							"OpenCms",
+							"AWS"
+						]
+					}
+				]
+			},
+			"SmartDorm": {
+				"title": "Lead Full-Stack-Entwickler (Ehrenamtlich)",
+				"date": "Jan 2020 - Heute",
+				"tasks": [
+					{
+						"text": "Entwickelte eine Webanwendung zur Optimierung und Automatisierung von Verwaltungsprozessen im Studentenwohnheim Geschwister Scholl.",
+						"keywords": [
+							"Webanwendung",
+							"Prozessautomatisierung"
+						]
+					},
+					{
+						"text": "Migrierte und konsolidierte Daten in eine zentrale Datenbank, um 100% Datenkonsistenz zu gewährleisten.",
+						"keywords": [
+							"Datenmigration",
+							"Datenbankkonsolidierung"
+						]
+					},
+					{
+						"text": "Reduzierte den Verwaltungsaufwand durch Digitalisierung und Automatisierung um 35%.",
+						"keywords": [
+							"Digitalisierung",
+							"Automatisierung",
+							"Effizienzsteigerung"
+						]
+					},
+					{
+						"text": "Implementierte eine CI/CD-Pipeline zur Optimierung des Entwicklungsprozesses.",
+						"keywords": [
+							"CI/CD",
+							"Entwicklungsoptimierung"
+						]
+					},
+					{
+						"text": "Verwendete Technologien wie PostgreSQL, Kotlin, Spring Boot, React und GitLab.",
+						"keywords": [
+							"PostgreSQL",
+							"Kotlin",
+							"Spring Boot",
+							"React",
+							"GitLab"
+						]
+					}
+				]
+			},
+			"Spreadshirt": {
+				"title": "Senior Full-Stack-Entwickler",
+				"date": "Nov 2021 - Feb 2022",
+				"url": "https://www.spreadshirt.com",
+				"tasks": [
+					{
+						"text": "Entwicklung einer Hochleistungsanwendung zur Auszahlungsgenerierung, Verbesserung der Finanzabläufe.",
+						"keywords": [
+							"Auszahlungsgenerierung"
+						]
+					},
+					{
+						"text": "Erstellung intuitiver Benutzeroberflächen zur Verbesserung der Benutzererfahrung und Anwendungsnutzbarkeit.",
+						"keywords": [
+							"Benutzeroberflächen"
+						]
+					},
+					{
+						"text": "Arbeit mit Technologien wie PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript und React.",
+						"keywords": [
+							"PostgreSQL",
+							"Flyway",
+							"Kotlin",
+							"Spring Boot",
+							"JUnit",
+							"TypeScript",
+							"React"
+						]
+					}
+				]
+			},
+			"ComsystoReplyGmbH": {
+				"title": "Full-Stack-Entwickler",
+				"date": "Feb 2019 - Okt 2021",
+				"url": "https://www.comsysto.com",
+				"tasks": [
+					{
+						"text": "Zusammenarbeit in einem Scrum-Team zur Optimierung von Preisgestaltung, Gutscheinverwaltung und Kommunikationssystemen für das ABI Audi On Demand Produkt.",
+						"keywords": [
+							"Scrum",
+							"ABI Audi On Demand"
+						]
+					},
+					{
+						"text": "Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen.",
+						"keywords": [
+							"Microservices",
+							"Microfrontends"
+						]
+					},
+					{
+						"text": "Refaktorisierung von Code mit Kotlin, Erhöhung der Wartbarkeit und Reduzierung der Codezeilen um 30%.",
+						"keywords": [
+							"Kotlin"
+						]
+					},
+					{
+						"text": "Verwendung von Technologien wie PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry und verschiedenen AWS-Diensten.",
+						"keywords": [
+							"PostgreSQL",
+							"Flyway",
+							"Java",
+							"Kotlin",
+							"Spring Boot",
+							"JUnit",
+							"RabbitMQ",
+							"TypeScript",
+							"Angular",
+							"Jenkins",
+							"CloudFoundry",
+							"AWS"
+						]
+					}
+				]
+			},
+			"Blookery": {
+				"title": "Frontend-Entwickler",
+				"date": "Mai 2018 - Aug 2018",
+				"url": "https://www.blookery.de",
+				"tasks": [
+					{
+						"text": "Leitung der Entwicklung einer Reisewebsite, spezialisiert auf Blind Bookings in ganz Europa, Steigerung des Nutzerengagements.",
+						"keywords": [
+							"Blind Bookings",
+							"Nutzerengagement"
+						]
+					},
+					{
+						"text": "Erstellung responsiver Benutzeroberflächen mit React, Gewährleistung nahtloser Funktionalität über verschiedene Geräte hinweg.",
+						"keywords": [
+							"React",
+							"responsiv"
+						]
+					},
+					{
+						"text": "Implementierung fortgeschrittener JavaScript-Funktionen zur Verbesserung der Interaktivität und Navigation der Website.",
+						"keywords": [
+							"JavaScript"
+						]
+					},
+					{
+						"text": "Umsetzung von Wireframes in barrierefreie HTML/CSS-Layouts unter Berücksichtigung der WCAG-Richtlinien.",
+						"keywords": [
+							"HTML/CSS",
+							"WCAG"
+						]
+					},
+					{
+						"text": "Entwicklung von Unit- und Integrationstests mit Jest zur Sicherstellung der Codezuverlässigkeit.",
+						"keywords": [
+							"Unit-Tests",
+							"Integrationstests"
+						]
+					}
+				]
+			},
+			"SilverToursGmbH": {
+				"title": "Studentischer Full-Stack-Entwickler",
+				"date": "Jan 2015 - Aug 2018",
+				"url": "https://www.billiger-mietwagen.de",
+				"tasks": [
+					{
+						"text": "Entwicklung neuer Funktionen für eine führende Autovermietungsplattform zur Verbesserung der Benutzererfahrung.",
+						"keywords": [
+							"Autovermietungsplattform"
+						]
+					},
+					{
+						"text": "Implementierung von A/B-Tests zur Optimierung von Produktspezifikationen und Steigerung der Konversionsraten.",
+						"keywords": [
+							"A/B-Tests"
+						]
+					},
+					{
+						"text": "Durchführung gründlicher Tests in jeder Produktiteration zur Sicherstellung qualitativ hochwertiger Releases.",
+						"keywords": [
+							"Tests"
+						]
+					},
+					{
+						"text": "Erstellung interner Tools für das Kundenserviceteam, wodurch die Effizienz um 50% gesteigert wurde.",
+						"keywords": [
+							"interne Tools"
+						]
+					},
+					{
+						"text": "Arbeit mit Technologien wie JavaScript, HTML, CSS, jQuery und PHP.",
+						"keywords": [
+							"JavaScript",
+							"HTML",
+							"CSS",
+							"jQuery",
+							"PHP"
+						]
+					}
+				]
+			}
+		}
+	},
+	"projectsSection": {
+		"title": "Einige Dinge, die ich entwickelt habe",
+		"projects": [
+			{
+				"category": "Enterprise-Webentwicklung",
+				"company": "Infineon Technologies",
+				"description": "Entwicklung und Wartung von Funktionen auf infineon.com zur Optimierung der Benutzererfahrung und Funktionalität. Entwurf und Durchführung umfassender Unit- und Integrationstests zur Erhöhung der Softwarezuverlässigkeit. Verwendung einer breiten Palette von Technologien zur Bereitstellung hochwertiger Weblösungen.",
+				"role": "Senior Full-Stack-Entwickler",
+				"image": "/img/projects/infineon.png",
+				"link": "https://www.infineon.com",
+				"technologies": [
+					"JavaEE",
+					"Spring",
+					"OpenCMS",
+					"JUnit",
+					"TypeScript",
+					"React",
+					"AWS"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA2klEQVR4nG3SXQ6CMBAEYO5/QgFR0UT6jzdYM9OuXYgPk77QLztbhtltgkwab07vZApO5uDkikTP3FJg7jnKo0RZS5LnnuS1ZxkUG3m+eTK+R9E5VnRJDc2xormjA5AKAnvLxW1ywWnAMfRJZ0yZgAIMR7A0cDyAJn7rsEF1ygNaKjpoXUXthD8wGBC1058pi4Jcfq9noTM2xf+V7wSTrNghKvA1GaCuVazQGTuCikVifBT8Dlx2Cy/bWIhYkCVbLDHAnvhtFixYP24XzwFCqIVYaTVZNcvrU/MFgGWWzfJnacYAAAAASUVORK5CYII="
+			},
+			{
+				"category": "Cloud-Migration & Optimierung",
+				"company": "voestalpine AG",
+				"description": "Erfolgreiche Migration von voestalpine.com in die AWS-Cloud, was Skalierbarkeit und Leistung erheblich verbesserte. Implementierung fortschrittlicher Funktionen mit Java und Spring bei gleichzeitiger Optimierung von Datenbankoperationen mit PostgreSQL. Nutzung verschiedener AWS-Dienste zur Gewährleistung einer robusten und effizienten Cloud-Infrastruktur.",
+				"role": "Cloud-Migrationsspezialist",
+				"image": "/img/projects/voestalpine.png",
+				"link": "https://www.voestalpine.com",
+				"technologies": [
+					"JavaEE",
+					"Spring",
+					"OpenCMS",
+					"AWS",
+					"MySQL",
+					"Oracle",
+					"React",
+					"CloudFormation"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABNUlEQVR4nHWSWXLEIAwFuf/tZryw73iSW7yUBHhITfLRVS4ErSewaCWj5oiSInIMyNEjEYFwb6LnWkmB99ac0ErCVQuuq+L1avj+uiC6aBz2DtFbBEeY33jDtdlgymuOaDXjagWvq0FMWRcZeKs7RsEN6NtbQi/yKQ4oOaJS2lYgkreItOmWSDgtYfUJqxZojWos1/DunTinKc0QbxmJ+mGjDhh5QMudMczB69xoEQdnEekahlTcyVi2iM4d6twWppzEPXGXGgSakh4tBQi6Gx6Rkq2iY4M8ngureJVqHj/wn0BCo3gMTnbLnpA78cB5M8RU56s4YHh8BUdTjpRdyOlIuCTbn4tsMJJKakz76ZxWsPxIFiH8J5zptoWR8vwQSha6v4X7Z8LtgWPvrEI5hHoR+uDxA1YMDTpXpNyXAAAAAElFTkSuQmCC"
+			},
+			{
+				"category": "Freiwilligenprojekt",
+				"company": "SmartDorm",
+				"description": "Entwickelte eine Webanwendung zur Optimierung und Automatisierung von Verwaltungsprozessen im Studentenwohnheim Geschwister Scholl. Migrierte und konsolidierte Daten in eine zentrale Datenbank, um 100% Datenkonsistenz zu gewährleisten. Reduzierte den Verwaltungsaufwand durch Digitalisierung und Automatisierung um 35%. Implementierte eine CI/CD-Pipeline zur Optimierung des Entwicklungsprozesses.",
+				"image": "/img/projects/schollheim.png",
+				"link": "https://smartdorm.schollheim.net",
+				"role": "Lead Full-Stack-Entwickler (Ehrenamtlich)",
+				"technologies": [
+					"PostgreSQL",
+					"Kotlin",
+					"Spring Boot",
+					"React",
+					"GitLab"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACS3RFWHRSYXcACmV4aWYKICAgICAyODAKNDU3ODY5NjYwMDAwNDk0OTJhMDAwODAwMDAwMDBiMDAwMDAxMDQwMDAxMDAwMDAwZTYwZTAwMDAwMTAxMDQwMDAxMDAwMDAwCjJlMDYwMDAwMDIwMTAzMDAwMzAwMDAwMDkyMDAwMDAwMGUwMTAyMDAwYjAwMDAwMDk4MDAwMDAwMTIwMTAzMDAwMTAwMDAwMAowMTAwMDAwMDFhMDEwNTAwMDEwMDAwMDBhNDAwMDAwMDFiMDEwNTAwMDEwMDAwMDBhYzAwMDAwMDI4MDEwMzAwMDEwMDAwMDAKMDMwMDAwMDAzMTAxMDIwMDBkMDAwMDAwYjQwMDAwMDAzMjAxMDIwMDE0MDAwMDAwYzIwMDAwMDA2OTg3MDQwMDAxMDAwMDAwCmQ2MDAwMDAwMDAwMDAwMDAwODAwMDgwMDA4MDA1MzYzNzI2NTY1NmU3MzY4NmY3NDAwMDA2YzA2MDAwMDFkMDAwMDAwNmMwNgowMDAwMWQwMDAwMDA0NzQ5NGQ1MDIwMzIyZTMxMzAyZTMzMzgwMDAwMzIzMDMyMzQzYTMwMzgzYTMxMzkyMDMxMzYzYTM0MzgKM2EzMTM1MDAwMzAwODY5MjA3MDAxMjAwMDAwMDAwMDEwMDAwMDJhMDA0MDAwMTAwMDAwMGU2MGUwMDAwMDNhMDA0MDAwMTAwCjAwMDAyZTA2MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDUzNjM3MjY1NjU2ZTczNjg2Zjc0CvgBkN4AAAASdEVYdENvbW1lbnQAU2NyZWVuc2hvdPsRqwoAAAIrSURBVHicBcGJV9kBAMDx39+4vR29arVVw6s1dInXgSwR61Dp0qEoYZgjylEyhoaQ5tXWeuttb//Ed5+PIH7yHGlLO4rOHiZFfej7B/g4pGRFpcamnsahN+M2W/hsWeN4dYvE5h7p3QOy+24Khz5KniBXvgj1QJRG8BRB/PQl0tYOFG9EqCX9zMiGmVeMsToxxbbOiHN2Ae+ClZDVxsnmHqndAzJOD3mXn2+fQlwFotRDp9xEEjRjZwjiZy3I2l8z2i1B3SfFMKhgQTXJmnaanRkzh3NL+FY2iGzuEt894NzpIef2U/SFKQej1CJxGrEUzXiau9QXBPGLVmQdXYyKetG8H8A4omJxXMvGBwN20zxHllUC69tEdxwknW4u3H7y/jClUIxqNEEjfk4zleHuPMd9poAgaWlD9robpeQdWtkQRuU4Fo2OTYOJ/fklPNYNglt2Thwuztw+sv4QxXCMSixJPZGmeZ7lLpPnPnfJQ6GEIGltR971FmVvP9rBEWbHJlnS6bGZ5nBYrHg3tgnbncRdHtK+IF9DUUonSarJNDfpLLfZAj/zJR4uKzyWawiStg7kPWJU/VKmhkcxTWhY1hvZmlvEaV3Ht20n4nSR9PrJBI8pxOJUkmmu01mauQI/imUeSlUer675W/+OIHnViVwkQSWVoxtVYdZMsWIwsbO4zOG6Db/dQfTISyoQInt8wmXijOpFlptcgdtimV+VGr9rDf40mvxr3vEfCV7Ppv3yr8MAAAAASUVORK5CYII="
+			},
+			{
+				"category": "Finanztechnologie",
+				"company": "Spreadshirt Auszahlungssystem",
+				"description": "Entwicklung einer Hochleistungsanwendung zur Auszahlungsgenerierung, die die Finanzabläufe erheblich verbesserte. Erstellung intuitiver Benutzeroberflächen zur Verbesserung der Benutzererfahrung und Anwendungsnutzbarkeit. Implementierung robuster Backend-Logik zur Sicherstellung genauer und pünktlicher Auszahlungen.",
+				"role": "Senior Full-Stack-Entwickler",
+				"image": "/img/projects/spreadshirt.png",
+				"link": "https://www.spreadshirt.com",
+				"technologies": [
+					"Kotlin",
+					"Spring Boot",
+					"PostgreSQL",
+					"Flyway",
+					"JUnit",
+					"TypeScript",
+					"React"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAABWElEQVR4nIWUW27EIAxF2f+uOpMnb0JIpt2MK9tAIJ22H0dEkTg24hrxih6IrYH+hV/Y4HNHIpOQHb6ORIjDGzi8BVxT/b4REFc5N58JRCn02iOIaBQge17p2xZ0jzNEchaSLzg4kODhCAFEUAsQMq/EChuiC/LCSC5sdcbAjjhLCLeMUFknwhMzIwsLgcWIWkTBRidjubDzE+w89NQiE5MLuXUmWJ7FCpEQUKwVCD0+wEzI86LKR2ZBJqKKc8deruAbqdDDB+gReWQa8TT08iwunbp1yWKUSkKoH8LHH8KpF3ZdZuG9w/bY77v778gjy8xN1ovyBd07U9xZkQWtQRTJ2xtubrdGJ+cUYxNqbDRDsVmGLoeUwSZ7Jehd9gxLSrAp3BRsB8JLFgSkTEk7HXUyeDquEbxGL3kPqYxeGa/YbORN7eziw8ECfiA8HM3jcMYNzhjpcfgGES/6xlVD7WoAAAAASUVORK5CYII="
+			},
+			{
+				"category": "Autovermietungsplattform",
+				"company": "ABI Audi On Demand",
+				"description": "Zusammenarbeit in einem Scrum-Team zur Optimierung von Preisgestaltung, Gutscheinverwaltung und Kommunikationssystemen für das ABI Audi On Demand Produkt. Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen. Refaktorisierung von Code mit Kotlin, Erhöhung der Wartbarkeit und Reduzierung der Codezeilen um 30%.",
+				"role": "Full-Stack-Entwickler",
+				"image": "/img/projects/aod.png",
+				"link": "https://www.audi.com",
+				"technologies": [
+					"PostgreSQL",
+					"Flyway",
+					"Java",
+					"Kotlin",
+					"Spring Boot",
+					"JUnit",
+					"RabbitMQ",
+					"TypeScript",
+					"Angular",
+					"Jenkins",
+					"CloudFoundry",
+					"AWS"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA1ElEQVR4nHXMaa6DMAwE4Nz/TCxlyQoJAdq+48yTszQRgh+fxrbkYX+nQ3BE38Phsxdv4ovT2+DY7rGPX0DeW3Qmhyt2YjMDn60GW4V2dliFbE/8miwK24UzkQ0krK5nCeYNB9kSR7SA0xw2U9FaWeQ95tSEzKoJK5HRkonIVDS/x1YxIFsSwwtN5kJl0wB5QTdmeA8zFzp4QU39j8zGQjxgeupQUwE9dT8i51DwB0yNLWoy6CCHFuLq1YJfzJedybGBGppQIFPWJZw8FM2vJmXSt/gHPH+ZxG6mpEYAAAAASUVORK5CYII="
+			},
+			{
+				"category": "Reisen & Lifestyle",
+				"company": "Turkey Nomad",
+				"description": "Entwicklung einer umfassenden Plattform für digitale Nomaden in der Türkei, mit einem Reiseblog und kuratierten Empfehlungen. Dieses Projekt zeigt moderne Webentwicklungstechniken und Content-Management-Integration. Die Website bietet wertvolle Einblicke und Ressourcen für Remote-Arbeiter und Reisende, die die Türkei erkunden.",
+				"role": "Lead Full-Stack-Entwickler",
+				"image": "/img/projects/turkey-nomad.png",
+				"link": "https://turkeynomad.com",
+				"technologies": [
+					"Next.js",
+					"TypeScript",
+					"Strapi CMS",
+					"Vercel"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABRUlEQVR4nG2R2W6FMAxE8///WCAQlgSysPZxKjsON636MJIxztGMrfYQEYNH9B5x2xD+Ef/zHikEpBhxpIRj33EeB67zxH1deO4b388DRYPloV/XV1tV+1XgBA4Be4zY/0Cf+8L3c0MV0LY6bM5htfaXqMcisECL0wK9jo9LRYOry4/dsryyVe0KfHXZrTgt8c8quiogu8yw84xlmirlHolmiuPa6Z5idnkeGUiDi4DmcWRNovwtcAIXqMQvLvf02aWiwRdiDMZhqGS4N5kMX4pT2el7pCS7JCANjgIyPanHIKKaegw3poJahr7RY45NLhUNmmHIEK3Rd6ROpLnH8AKdJtg5H+oTPV+cgQwjkNbQXQfdtuhEuu24x2CBUnw+lkSnq0cfkOQ4atA9P2JI06JtGrRfoqbhXgZnKO2VD0XRxWUd+wcjUzYEHXnv6QAAAABJRU5ErkJggg=="
+			},
+			{
+				"category": "Reisetechnologie",
+				"company": "blookery",
+				"description": "Entwicklung des Frontends einer innovativen Reisewebsite, die sich auf Blind Bookings in ganz Europa spezialisiert hat. Entwicklung responsiver und intuitiver Benutzeroberflächen mit React, um eine nahtlose Funktionalität auf verschiedenen Geräten und Bildschirmgrößen zu gewährleisten. Implementierung fortgeschrittener JavaScript-Funktionen zur Erstellung dynamischer und interaktiver Elemente, was die Benutzerinteraktion und Website-Navigation erheblich verbesserte.",
+				"role": "Frontend-Entwickler",
+				"image": "/img/projects/blookery.png",
+				"link": "https://www.blookery.de",
+				"technologies": [
+					"React",
+					"JavaScript",
+					"HTML",
+					"CSS",
+					"Jest"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB3klEQVR4nH3T6XKiQBQF4H7/d1AQwURlRyGLWMNUMa8SekXnBc5ULxhJnPz4CqnGy+HebjKWIVQRQpaRISbVBvw/hCOrCLLaQJURxirCWEYgKltBZiuIPIDI1wZ3WBE+xIvQPlusIXNL5QHGPABRqQeZeBCpD56uDJZNAtAvmMOzlSF0oFSH8qFSH0TGS4h4CR574IkH5tDEt1JrcFeNJRY3PIjEhlKJByL3C4j9Any/BIstGnvGkGi+u36i+qWxfTF3gXQwGS8+CzJXkDrDTwV1MYebr5uKLkBsusUP6ayPu9+2HVNCb5aS2P7pYvPemT+nK+PDme6pltz30rv1kdjp+mB6utPDWYDBWD8wnzh30zaTNlM2+y+w+84IQYsQgxF9Q53ZniymvbgGmU4HL+0pYNUT6M0z6OEZg0MdVmlP4I49NRuoagOijlvI4xbiuAOvLVbvDdpo8Qxr7Bp3RL2DrHdQ9Q5jvQUZXxNII4Vw+FsGdpPP6DVNOPIthXpLMWqvKcjYllBtCemItjK4dj48JM4HyHMF2VZQRgld59KWIJdfNcauhuoaQxovEJPfd9y9XtdU94Kxa4xL1+DaNSDX/h2X/h1jfzLUTQv55zul9S1G44SLc+1P+Nuf8A/cSRYM9Dl7fQAAAABJRU5ErkJggg=="
+			},
+			{
+				"category": "Autovermietungsplattform",
+				"company": "Billiger Mietwagen",
+				"description": "Als studentischer Entwickler Beitrag zu einer führenden Autovermietungsplattform, wodurch die Benutzererfahrung erheblich verbessert wurde. Implementierung von A/B-Tests zur Optimierung von Produktspezifikationen und Steigerung der Konversionsraten. Durchführung gründlicher Tests in jeder Produktiteration zur Sicherstellung qualitativ hochwertiger Releases. Erstellung interner Tools für das Kundenserviceteam, wodurch die Effizienz um 50% gesteigert wurde.",
+				"role": "Studentischer Full-Stack-Entwickler",
+				"image": "/img/projects/billiger-mietwagen.png",
+				"link": "https://www.billiger-mietwagen.de",
+				"technologies": [
+					"JavaScript",
+					"HTML",
+					"CSS",
+					"jQuery",
+					"PHP",
+					"Optimizely"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACMElEQVR4nHXSWXLDVBRFUc1/WEDiXtLr+/sk2U6YxaasGAoK+Di/q85thg8pHCRzlMxZEldJ3CQytsDUPHN1qGrRRaOzQucZkyZMvGHCFe0vaH9CuyPaHhh2sGVOf4ItcmtvsL7BYlBZo9OMThM63tBvTLkTyh1Q5pPZfDB8StnbvcDLv0DHXOwbVDuo4ogOtzd2Rtkjs/1k1h/M+jeGgxROUji/wR8s/jXuP8FpB1W4ovz5p5097M1e2KR+ZThK5SyFi2SukhklMbXI3MJ73B9w398+7qvh/4G/MJx749Irt14Ye2aSxCwR1QKqenR16DdoXjt8g9qf0f/V8Lo0bktjXCpTL8w9o3pCS0S3gKkOUy2maMzfL/y6rjuj7RFlP1GvHb7Ace1MqzAvDbVU9FIwS8b0hJWIbR7XHK4YXFbYPGPTiA3XHTXutL+LNj/oMG8LauvoTTCbYNeKXQtuyfie8BLx4vHN4qvBF4XLEy6OuHDFvlB/wrgD2n4ymPuKvS+4PR2/CX5rhLUSlkxcErEHonhis4RqCEXh84RPIz5eceGC9SesOzK45x3/2AiPlbink+5C2hp5q+S1kJdE7pEsntQcqRliUcQyE9NESLcd9uHCEL+fpK8H+eu+pzxXynOhPDr1LtR7o26FumbqEik9UMSRmyVXQy6KVGZSnohpZCi/f1H3PGnfD9r3nfa9IV8r8lyQR0ceDblXZCu0NdGWSOueJp7aLKUZStWUovgDfbeQJMoGsU0AAAAASUVORK5CYII="
+			}
+		]
+	},
+	"contactSection": {
+		"title": "Was kommt als Nächstes?",
+		"subtitle": "Lass uns in Kontakt treten",
+		"content": "Ich bin immer begeistert von neuen Möglichkeiten und Kooperationen. Ob du ein Projekt im Sinn hast, eine Frage zu meiner Arbeit oder einfach nur Hallo sagen möchtest, ich würde mich freuen, von dir zu hören. Lass uns ein Gespräch beginnen und erkunden, wie wir gemeinsam etwas Großartiges schaffen können!",
+		"formLabels": {
+			"name": "Name",
+			"email": "E-Mail",
+			"message": "Nachricht"
+		},
+		"sendButton": "Nachricht senden",
+		"sending": "Wird gesendet...",
+		"successMessage": "Nachricht erfolgreich gesendet!",
+		"errorMessage": "Nachricht konnte nicht gesendet werden. Bitte versuche es erneut."
+	},
+	"footer": {
+		"rights": "Alle Rechte vorbehalten."
+	}
 }

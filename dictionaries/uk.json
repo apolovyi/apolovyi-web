@@ -1,627 +1,627 @@
 {
-  "metadata": {
-    "title": {
-      "default": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення",
-      "template": "%s | Артем Польовий - Full-Stack Розробник Програмного Забезпечення"
-    },
-    "description": "Досвідчений full-stack інженер, що спеціалізується на масштабованих веб-додатках та хмарних технологіях. Обслуговує клієнтів у США та Європі з понад 7-річним досвідом роботи з Java, Kotlin, Spring Boot, React та AWS.",
-    "openGraph": {
-      "title": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення",
-      "description": "Досвідчений full-stack інженер, що спеціалізується на масштабованих веб-додатках та хмарних технологіях. Обслуговує клієнтів у США та Європі з понад 7-річним досвідом роботи з Java, Kotlin, Spring Boot, React та AWS.",
-      "siteName": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення",
-      "images": [
-        {
-          "url": "/img/me-bg.jpg",
-          "width": 1200,
-          "height": 630,
-          "alt": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення"
-        }
-      ]
-    },
-    "keywords": [
-      "Java",
-      "Kotlin",
-      "Spring Boot",
-      "React",
-      "TypeScript",
-      "AWS",
-      "PostgreSQL",
-      "Docker",
-      "Jenkins",
-      "GitLab",
-      "Full-Stack розробник",
-      "Інженер-програміст",
-      "Веб-розробка",
-      "Хмарні технології",
-      "Java розробник",
-      "Експерт з Kotlin",
-      "Спеціаліст зі Spring Boot",
-      "React розробник",
-      "AWS архітектор рішень",
-      "PostgreSQL розробник",
-      "TypeScript розробник",
-      "Спеціаліст з JavaScript",
-      "Проектування RESTful API",
-      "Мікросервісна архітектура",
-      "DevOps інженер",
-      "Впровадження CI/CD",
-      "Контейнеризація Docker",
-      "Оркестрація Kubernetes",
-      "Angular розробник",
-      "Інтеграція RabbitMQ",
-      "Автоматизація Jenkins",
-      "GitLab CI/CD",
-      "Тестування JUnit",
-      "Міграція баз даних Flyway",
-      "Управління контентом OpenCMS",
-      "Веб-компоненти Stencil",
-      "Next.js розробник",
-      "Tailwind CSS",
-      "Інтеграція Sanity CMS",
-      "Розгортання на Vercel",
-      "Гнучкі методології",
-      "Практик Scrum",
-      "Розробка через тестування (TDD)",
-      "Спеціаліст з перевірки коду",
-      "Модернізація застарілого коду",
-      "Досвід технічного керівництва",
-      "Корпоративні програмні рішення",
-      "Розробка електронної комерції",
-      "Розробник для США",
-      "Європейський розробник",
-      "Віддалений розробник ПЗ",
-      "Масштабовані веб-додатки",
-      "Високопродуктивні системи",
-      "Оптимізація баз даних",
-      "Оптимізація фронтенду",
-      "Масштабованість бекенду",
-      "Спеціаліст з міграції в хмару",
-      "Оптимізація веб-продуктивності",
-      "Найкращі практики SEO",
-      "Реалізація доступності (WCAG)",
-      "Принципи UI/UX дизайну",
-      "Адаптивний дизайн",
-      "Кросбраузерна сумісність",
-      "Спеціаліст з інтеграції API",
-      "Реалізація безпеки даних",
-      "Інтернаціоналізація (i18n)",
-      "Локалізація (l10n)",
-      "Моніторинг продуктивності",
-      "Логування та відлагодження помилок"
-    ]
-  },
-  "header": {
-    "menuItems": [
-      {
-        "id": "01",
-        "name": "Про мене",
-        "href": "#aboutSection"
-      },
-      {
-        "id": "02",
-        "name": "Досвід",
-        "href": "#experienceSection"
-      },
-      {
-        "id": "03",
-        "name": "Проекти",
-        "href": "#projectsSection"
-      },
-      {
-        "id": "04",
-        "name": "Контакти",
-        "href": "#contactSection"
-      }
-    ],
-    "resumeButton": {
-      "text": "Резюме",
-      "href": "/cv/CV_Artem_Polovyi_EN_WEB.pdf"
-    }
-  },
-  "heroSection": {
-    "greeting": "Привіт, мене звати",
-    "name": "Артем Польовий.",
-    "tagline": "Я втілюю ідеї в життя.",
-    "resumeHref": "/cv/CV_Artem_Polovyi_EN_WEB.pdf",
-    "paragraphs": [
-      "Як full-stack інженер-програміст з сильними навичками вирішення проблем, я спеціалізуюся на створенні виняткових цифрових рішень",
-      "Зараз я захоплений створенням надійних рішень, дослідженням інноваційних технологій та сприянням цифровій трансформації."
-    ],
-    "highlightedTerms": [
-      "full-stack інженер-програміст",
-      "надійні рішення",
-      "інноваційні технології",
-      "цифрова трансформація"
-    ],
-    "cta": "Перегляньте моє резюме!"
-  },
-  "aboutMeSection": {
-    "title": "Про мене",
-    "paragraphs": {
-      "intro": "Привіт! Я Артем Польовий, досвідчений Full-Stack інженер-програміст з великим досвідом роботи в провідних продуктових та консалтингових компаніях. Моя експертиза полягає в проектуванні та розробці високопродуктивних, масштабованих та високодоступних додатків.",
-      "specialization": "Я спеціалізуюся на backend-технологіях (Spring Boot, Kotlin, Java), frontend-розробці (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab) та автоматизації тестування. Мій досвід включає роботу над проектами для відомих компаній, таких як Infineon та Audi, де я брав участь у розробці та підтримці додатків з високим трафіком та оптимізації продуктивності систем.",
-      "mindset": "Я маю гнучкий спосіб мислення та великий досвід роботи в agile-середовищах. Моя пристрасть до постійного навчання та вирішення проблем спонукає мене бути в курсі останніх технологій та найкращих практик у розробці програмного забезпечення.",
-      "technologies": "Ось кілька технологій, з якими я нещодавно працював:"
-    },
-    "highlightedTerms": [
-      "Spring Boot",
-      "Kotlin",
-      "Java",
-      "React",
-      "JavaScript",
-      "TypeScript",
-      "Jenkins",
-      "GitLab",
-      "Infineon",
-      "Audi"
-    ]
-  },
-  "experienceSection": {
-    "title": "Де я працював",
-    "roles": {
-      "TheBicesterCollection": {
-        "title": "Провідний Full-Stack інженер",
-        "date": "Червень 2023 - Теперішній час",
-        "url": "https://www.thebicestercollection.com",
-        "tasks": [
-          {
-            "text": "Керівництво розробкою інноваційної e-commerce платформи для престижного бренд-колективу в Нью-Йорку.",
-            "keywords": [
-              "e-commerce платформа",
-              "престижний бренд"
-            ]
-          },
-          {
-            "text": "Впровадження архітектури headless CMS для підвищення гнучкості контенту та продуктивності сайту.",
-            "keywords": [
-              "headless CMS",
-              "гнучкість контенту"
-            ]
-          },
-          {
-            "text": "Оптимізація веб-сайту для пошукових систем (SEO) для підвищення видимості та органічного трафіку.",
-            "keywords": [
-              "SEO",
-              "органічний трафік"
-            ]
-          },
-          {
-            "text": "Використання платформи Vercel для безперебійного розгортання та хостингу, забезпечення високої доступності та швидкої доставки контенту.",
-            "keywords": [
-              "Vercel",
-              "безперебійне розгортання"
-            ]
-          },
-          {
-            "text": "Використання сучасного технологічного стеку, включаючи Next.js, TypeScript, Tailwind CSS та Sanity для створення надійного та масштабованого веб-додатку.",
-            "keywords": [
-              "Next.js",
-              "TypeScript",
-              "Tailwind CSS",
-              "Sanity"
-            ]
-          }
-        ]
-      },
-      "VirtualIdentityAG": {
-        "title": "Старший Full-Stack інженер",
-        "date": "Лютий 2022 - Січень 2024",
-        "url": "https://www.virtual-identity.com",
-        "tasks": [
-          {
-            "text": "Розробка та підтримка функцій на infineon.com для оптимізації користувацького досвіду та функціональності.",
-            "keywords": [
-              "infineon.com",
-              "користувацький досвід"
-            ]
-          },
-          {
-            "text": "Успішна міграція voestalpine.com до хмари AWS, підвищення масштабованості та продуктивності.",
-            "keywords": [
-              "voestalpine.com",
-              "хмара AWS"
-            ]
-          },
-          {
-            "text": "Розробка та проведення комплексних модульних та інтеграційних тестів для підвищення надійності програмного забезпечення.",
-            "keywords": [
-              "модульні тести",
-              "інтеграційні тести"
-            ]
-          },
-          {
-            "text": "Оптимізація продуктивності веб-сайту, покращення часу завантаження та задоволеності користувачів.",
-            "keywords": [
-              "продуктивність",
-              "час завантаження"
-            ]
-          },
-          {
-            "text": "Використання технологій, включаючи Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms та різні сервіси AWS.",
-            "keywords": [
-              "Java",
-              "Spring",
-              "JUnit",
-              "MySQL",
-              "Oracle",
-              "PostgreSQL",
-              "Flyway",
-              "TypeScript",
-              "React",
-              "Stencil",
-              "Web Components",
-              "OpenCms",
-              "AWS"
-            ]
-          }
-        ]
-      },
-      "SmartDorm": {
-        "title": "Провідний Full-Stack розробник (Волонтер)",
-        "date": "Січень 2020 - Теперішній час",
-        "tasks": [
-          {
-            "text": "Розробив веб-додаток для оптимізації та автоматизації процесів управління в студентському гуртожитку Geschwister Scholl.",
-            "keywords": [
-              "веб-додаток",
-              "автоматизація процесів"
-            ]
-          },
-          {
-            "text": "Мігрував та консолідував дані в центральну базу даних для забезпечення 100% узгодженості даних.",
-            "keywords": [
-              "міграція даних",
-              "консолідація бази даних"
-            ]
-          },
-          {
-            "text": "Зменшив адміністративну роботу на 35% за допомогою цифровізації та автоматизації.",
-            "keywords": [
-              "цифровізація",
-              "автоматизація",
-              "підвищення ефективності"
-            ]
-          },
-          {
-            "text": "Впровадив CI/CD конвеєр для оптимізації процесу розробки.",
-            "keywords": [
-              "CI/CD",
-              "оптимізація розробки"
-            ]
-          },
-          {
-            "text": "Використовував технології, включаючи PostgreSQL, Kotlin, Spring Boot, React та GitLab.",
-            "keywords": [
-              "PostgreSQL",
-              "Kotlin",
-              "Spring Boot",
-              "React",
-              "GitLab"
-            ]
-          }
-        ]
-      },
-      "Spreadshirt": {
-        "title": "Старший Full-Stack інженер",
-        "date": "Листопад 2021 - Лютий 2022",
-        "url": "https://www.spreadshirt.com",
-        "tasks": [
-          {
-            "text": "Розробка високопродуктивного додатку для генерації виплат, покращення фінансових операцій.",
-            "keywords": [
-              "генерація виплат"
-            ]
-          },
-          {
-            "text": "Створення інтуїтивних користувацьких інтерфейсів, покращення користувацького досвіду та зручності використання додатку.",
-            "keywords": [
-              "користувацькі інтерфейси"
-            ]
-          },
-          {
-            "text": "Робота з технологіями, включаючи PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript та React.",
-            "keywords": [
-              "PostgreSQL",
-              "Flyway",
-              "Kotlin",
-              "Spring Boot",
-              "JUnit",
-              "TypeScript",
-              "React"
-            ]
-          }
-        ]
-      },
-      "ComsystoReplyGmbH": {
-        "title": "Full-Stack інженер",
-        "date": "Лютий 2019 - Жовтень 2021",
-        "url": "https://www.comsysto.com",
-        "tasks": [
-          {
-            "text": "Співпраця в Scrum команді для оптимізації ціноутворення, управління ваучерами та систем комунікації для продукту ABI Audi On Demand.",
-            "keywords": [
-              "Scrum",
-              "ABI Audi On Demand"
-            ]
-          },
-          {
-            "text": "Розробка та підтримка кількох мікросервісів та мікрофронтендів, що обробляють навантаження до 200 QPS.",
-            "keywords": [
-              "мікросервіси",
-              "мікрофронтенди"
-            ]
-          },
-          {
-            "text": "Рефакторинг коду з використанням Kotlin, підвищення підтримуваності та зменшення кількості рядків коду на 30%.",
-            "keywords": [
-              "Kotlin"
-            ]
-          },
-          {
-            "text": "Використання технологій, включаючи PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry та різні сервіси AWS.",
-            "keywords": [
-              "PostgreSQL",
-              "Flyway",
-              "Java",
-              "Kotlin",
-              "Spring Boot",
-              "JUnit",
-              "RabbitMQ",
-              "TypeScript",
-              "Angular",
-              "Jenkins",
-              "CloudFoundry",
-              "AWS"
-            ]
-          }
-        ]
-      },
-      "Blookery": {
-        "title": "Frontend інженер",
-        "date": "Травень 2018 - Серпень 2018",
-        "url": "https://www.blookery.de",
-        "tasks": [
-          {
-            "text": "Керівництво розробкою туристичного веб-сайту, що спеціалізується на сліпих бронюваннях по всій Європі, підвищення залученості користувачів.",
-            "keywords": [
-              "сліпі бронювання",
-              "залученість користувачів"
-            ]
-          },
-          {
-            "text": "Створення адаптивних користувацьких інтерфейсів за допомогою React, забезпечення безперебійної функціональності на різних пристроях.",
-            "keywords": [
-              "React",
-              "адаптивний"
-            ]
-          },
-          {
-            "text": "Впровадження передових функцій JavaScript для підвищення інтерактивності та навігації сайту.",
-            "keywords": [
-              "JavaScript"
-            ]
-          },
-          {
-            "text": "Переведення макетів у доступні HTML/CSS верстки, дотримуючись рекомендацій WCAG.",
-            "keywords": [
-              "HTML/CSS",
-              "WCAG"
-            ]
-          },
-          {
-            "text": "Розробка модульних та інтеграційних тестів з використанням Jest, забезпечення надійності коду.",
-            "keywords": [
-              "модульні",
-              "інтеграційні тести"
-            ]
-          }
-        ]
-      },
-      "SilverToursGmbH": {
-        "title": "Фул-стек розробник",
-        "date": "Січень 2015 - Серпень 2018",
-        "url": "https://www.billiger-mietwagen.de",
-        "tasks": [
-          {
-            "text": "Розробка нових функцій для провідної платформи оренди автомобілів, покращення користувацького досвіду.",
-            "keywords": [
-              "платформа оренди автомобілів"
-            ]
-          },
-          {
-            "text": "Впровадження A/B тестів для оптимізації специфікацій продукту та підвищення конверсії.",
-            "keywords": [
-              "A/B тести"
-            ]
-          },
-          {
-            "text": "Проведення ретельного тестування в кожній ітерації продукту для забезпечення високоякісних релізів.",
-            "keywords": [
-              "тестування"
-            ]
-          },
-          {
-            "text": "Створення внутрішніх інструментів для команди обслуговування клієнтів, підвищення ефективності на 50%.",
-            "keywords": [
-              "внутрішні інструменти"
-            ]
-          },
-          {
-            "text": "Робота з технологіями, включаючи JavaScript, HTML, CSS, jQuery та PHP.",
-            "keywords": [
-              "JavaScript",
-              "HTML",
-              "CSS",
-              "jQuery",
-              "PHP"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "projectsSection": {
-    "title": "Деякі з моїх проектів",
-    "projects": [
-      {
-        "category": "Корпоративна веб-розробка",
-        "company": "Infineon Technologies",
-        "description": "Розробив та підтримував функції на infineon.com для оптимізації користувацького досвіду та функціональності. Розробив та провів комплексні модульні та інтеграційні тести для підвищення надійності програмного забезпечення. Використовував широкий спектр технологій для створення високоякісних веб-рішень.",
-        "role": "Старший фул-стек інженер",
-        "image": "/img/projects/infineon.png",
-        "link": "https://www.infineon.com",
-        "technologies": [
-          "JavaEE",
-          "Spring",
-          "OpenCMS",
-          "JUnit",
-          "TypeScript",
-          "React",
-          "AWS"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA2klEQVR4nG3SXQ6CMBAEYO5/QgFR0UT6jzdYM9OuXYgPk77QLztbhtltgkwab07vZApO5uDkikTP3FJg7jnKo0RZS5LnnuS1ZxkUG3m+eTK+R9E5VnRJDc2xormjA5AKAnvLxW1ywWnAMfRJZ0yZgAIMR7A0cDyAJn7rsEF1ygNaKjpoXUXthD8wGBC1058pi4Jcfq9noTM2xf+V7wSTrNghKvA1GaCuVazQGTuCikVifBT8Dlx2Cy/bWIhYkCVbLDHAnvhtFixYP24XzwFCqIVYaTVZNcvrU/MFgGWWzfJnacYAAAAASUVORK5CYII="
-      },
-      {
-        "category": "Міграція та оптимізація хмарних технологій",
-        "company": "voestalpine AG",
-        "description": "Успішно перенес voestalpine.com у хмару AWS, значно підвищивши масштабованість та продуктивність. Реалізував передові функції за допомогою Java та Spring, оптимізуючи операції з базами даних за допомогою PostgreSQL. Використовував різні сервіси AWS для забезпечення надійної та ефективної хмарної інфраструктури.",
-        "role": "Спеціаліст з хмарної міграції",
-        "image": "/img/projects/voestalpine.png",
-        "link": "https://www.voestalpine.com",
-        "technologies": [
-          "JavaEE",
-          "Spring",
-          "OpenCMS",
-          "AWS",
-          "MySQL",
-          "Oracle",
-          "React",
-          "CloudFormation"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABNUlEQVR4nHWSWXLEIAwFuf/tZryw73iSW7yUBHhITfLRVS4ErSewaCWj5oiSInIMyNEjEYFwb6LnWkmB99ac0ErCVQuuq+L1avj+uiC6aBz2DtFbBEeY33jDtdlgymuOaDXjagWvq0FMWRcZeKs7RsEN6NtbQi/yKQ4oOaJS2lYgkreItOmWSDgtYfUJqxZojWos1/DunTinKc0QbxmJ+mGjDhh5QMudMczB69xoEQdnEekahlTcyVi2iM4d6twWppzEPXGXGgSakh4tBQi6Gx6Rkq2iY4M8ngureJVqHj/wn0BCo3gMTnbLnpA78cB5M8RU56s4YHh8BUdTjpRdyOlIuCTbn4tsMJJKakz76ZxWsPxIFiH8J5zptoWR8vwQSha6v4X7Z8LtgWPvrEI5hHoR+uDxA1YMDTpXpNyXAAAAAElFTkSuQmCC"
-      },
-      {
-        "category": "Волонтерський проект",
-        "company": "SmartDorm",
-        "description": "Розробив веб-додаток для оптимізації та автоматизації процесів управління в студентському гуртожитку Geschwister Scholl. Мігрував та консолідував дані в центральну базу даних для забезпечення 100% узгодженості даних. Зменшив адміністративну роботу на 35% за допомогою цифровізації та автоматизації. Впровадив CI/CD конвеєр для оптимізації процесу розробки.",
-        "image": "/img/projects/schollheim.png",
-        "link": "https://smartdorm.schollheim.net",
-        "role": "Провідний Full-Stack розробник (Волонтер)",
-        "technologies": [
-          "PostgreSQL",
-          "Kotlin",
-          "Spring Boot",
-          "React",
-          "GitLab"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACS3RFWHRSYXcACmV4aWYKICAgICAyODAKNDU3ODY5NjYwMDAwNDk0OTJhMDAwODAwMDAwMDBiMDAwMDAxMDQwMDAxMDAwMDAwZTYwZTAwMDAwMTAxMDQwMDAxMDAwMDAwCjJlMDYwMDAwMDIwMTAzMDAwMzAwMDAwMDkyMDAwMDAwMGUwMTAyMDAwYjAwMDAwMDk4MDAwMDAwMTIwMTAzMDAwMTAwMDAwMAowMTAwMDAwMDFhMDEwNTAwMDEwMDAwMDBhNDAwMDAwMDFiMDEwNTAwMDEwMDAwMDBhYzAwMDAwMDI4MDEwMzAwMDEwMDAwMDAKMDMwMDAwMDAzMTAxMDIwMDBkMDAwMDAwYjQwMDAwMDAzMjAxMDIwMDE0MDAwMDAwYzIwMDAwMDA2OTg3MDQwMDAxMDAwMDAwCmQ2MDAwMDAwMDAwMDAwMDAwODAwMDgwMDA4MDA1MzYzNzI2NTY1NmU3MzY4NmY3NDAwMDA2YzA2MDAwMDFkMDAwMDAwNmMwNgowMDAwMWQwMDAwMDA0NzQ5NGQ1MDIwMzIyZTMxMzAyZTMzMzgwMDAwMzIzMDMyMzQzYTMwMzgzYTMxMzkyMDMxMzYzYTM0MzgKM2EzMTM1MDAwMzAwODY5MjA3MDAxMjAwMDAwMDAwMDEwMDAwMDJhMDA0MDAwMTAwMDAwMGU2MGUwMDAwMDNhMDA0MDAwMTAwCjAwMDAyZTA2MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDUzNjM3MjY1NjU2ZTczNjg2Zjc0CvgBkN4AAAASdEVYdENvbW1lbnQAU2NyZWVuc2hvdPsRqwoAAAIrSURBVHicBcGJV9kBAMDx39+4vR29arVVw6s1dInXgSwR61Dp0qEoYZgjylEyhoaQ5tXWeuttb//Ed5+PIH7yHGlLO4rOHiZFfej7B/g4pGRFpcamnsahN+M2W/hsWeN4dYvE5h7p3QOy+24Khz5KniBXvgj1QJRG8BRB/PQl0tYOFG9EqCX9zMiGmVeMsToxxbbOiHN2Ae+ClZDVxsnmHqndAzJOD3mXn2+fQlwFotRDp9xEEjRjZwjiZy3I2l8z2i1B3SfFMKhgQTXJmnaanRkzh3NL+FY2iGzuEt894NzpIef2U/SFKQej1CJxGrEUzXiau9QXBPGLVmQdXYyKetG8H8A4omJxXMvGBwN20zxHllUC69tEdxwknW4u3H7y/jClUIxqNEEjfk4zleHuPMd9poAgaWlD9robpeQdWtkQRuU4Fo2OTYOJ/fklPNYNglt2Thwuztw+sv4QxXCMSixJPZGmeZ7lLpPnPnfJQ6GEIGltR971FmVvP9rBEWbHJlnS6bGZ5nBYrHg3tgnbncRdHtK+IF9DUUonSarJNDfpLLfZAj/zJR4uKzyWawiStg7kPWJU/VKmhkcxTWhY1hvZmlvEaV3Ht20n4nSR9PrJBI8pxOJUkmmu01mauQI/imUeSlUer675W/+OIHnViVwkQSWVoxtVYdZMsWIwsbO4zOG6Db/dQfTISyoQInt8wmXijOpFlptcgdtimV+VGr9rDf40mvxr3vEfCV7Ppv3yr8MAAAAASUVORK5CYII="
-      },
-      {
-        "category": "Фінансові технології",
-        "company": "Spreadshirt Payout System",
-        "description": "Розробив високопродуктивний додаток для генерації виплат, значно покращивши фінансові операції. Створив інтуїтивно зрозумілі користувацькі інтерфейси для покращення користувацького досвіду та зручності використання додатку. Реалізував надійну бекенд-логіку для забезпечення точних та своєчасних виплат.",
-        "role": "Старший фул-стек інженер",
-        "image": "/img/projects/spreadshirt.png",
-        "link": "https://www.spreadshirt.com",
-        "technologies": [
-          "Kotlin",
-          "Spring Boot",
-          "PostgreSQL",
-          "Flyway",
-          "JUnit",
-          "TypeScript",
-          "React"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAABWElEQVR4nIWUW27EIAxF2f+uOpMnb0JIpt2MK9tAIJ22H0dEkTg24hrxih6IrYH+hV/Y4HNHIpOQHb6ORIjDGzi8BVxT/b4REFc5N58JRCn02iOIaBQge17p2xZ0jzNEchaSLzg4kODhCAFEUAsQMq/EChuiC/LCSC5sdcbAjjhLCLeMUFknwhMzIwsLgcWIWkTBRidjubDzE+w89NQiE5MLuXUmWJ7FCpEQUKwVCD0+wEzI86LKR2ZBJqKKc8deruAbqdDDB+gReWQa8TT08iwunbp1yWKUSkKoH8LHH8KpF3ZdZuG9w/bY77v778gjy8xN1ovyBd07U9xZkQWtQRTJ2xtubrdGJ+cUYxNqbDRDsVmGLoeUwSZ7Jehd9gxLSrAp3BRsB8JLFgSkTEk7HXUyeDquEbxGL3kPqYxeGa/YbORN7eziw8ECfiA8HM3jcMYNzhjpcfgGES/6xlVD7WoAAAAASUVORK5CYII="
-      },
-      {
-        "category": "Платформа оренди автомобілів",
-        "company": "ABI Audi On Demand",
-        "description": "Співпрацював у Scrum-команді для оптимізації ціноутворення, управління ваучерами та систем комунікації для продукту ABI Audi On Demand. Розробив та підтримував кілька мікросервісів та мікрофронтендів, які обробляють навантаження до 200 QPS. Провів рефакторинг коду за допомогою Kotlin, підвищивши підтримуваність та зменшивши кількість рядків коду на 30%.",
-        "role": "Фул-стек інженер",
-        "image": "/img/projects/aod.png",
-        "link": "https://www.audi.com",
-        "technologies": [
-          "PostgreSQL",
-          "Flyway",
-          "Java",
-          "Kotlin",
-          "Spring Boot",
-          "JUnit",
-          "RabbitMQ",
-          "TypeScript",
-          "Angular",
-          "Jenkins",
-          "CloudFoundry",
-          "AWS"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA1ElEQVR4nHXMaa6DMAwE4Nz/TCxlyQoJAdq+48yTszQRgh+fxrbkYX+nQ3BE38Phsxdv4ovT2+DY7rGPX0DeW3Qmhyt2YjMDn60GW4V2dliFbE/8miwK24UzkQ0krK5nCeYNB9kSR7SA0xw2U9FaWeQ95tSEzKoJK5HRkonIVDS/x1YxIFsSwwtN5kJl0wB5QTdmeA8zFzp4QU39j8zGQjxgeupQUwE9dT8i51DwB0yNLWoy6CCHFuLq1YJfzJedybGBGppQIFPWJZw8FM2vJmXSt/gHPH+ZxG6mpEYAAAAASUVORK5CYII="
-      },
-      {
-        "category": "Подорожі та спосіб життя",
-        "company": "Turkey Nomad",
-        "description": "Розробив комплексну платформу для цифрових кочівників у Туреччині, що включає блог про подорожі та відібрані рекомендації. Цей проект демонструє сучасні методи веб-розробки та інтеграцію управління контентом. Сайт пропонує цінні ідеї та ресурси для віддалених працівників та мандрівників, які досліджують Туреччину.",
-        "role": "фул-стек розробник",
-        "image": "/img/projects/turkey-nomad.png",
-        "link": "https://turkeynomad.com",
-        "technologies": [
-          "Next.js",
-          "TypeScript",
-          "Strapi CMS",
-          "Vercel"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABRUlEQVR4nG2R2W6FMAxE8///WCAQlgSysPZxKjsON636MJIxztGMrfYQEYNH9B5x2xD+Ef/zHikEpBhxpIRj33EeB67zxH1deO4b388DRYPloV/XV1tV+1XgBA4Be4zY/0Cf+8L3c0MV0LY6bM5htfaXqMcisECL0wK9jo9LRYOry4/dsryyVe0KfHXZrTgt8c8quiogu8yw84xlmirlHolmiuPa6Z5idnkeGUiDi4DmcWRNovwtcAIXqMQvLvf02aWiwRdiDMZhqGS4N5kMX4pT2el7pCS7JCANjgIyPanHIKKaegw3poJahr7RY45NLhUNmmHIEK3Rd6ROpLnH8AKdJtg5H+oTPV+cgQwjkNbQXQfdtuhEuu24x2CBUnw+lkSnq0cfkOQ4atA9P2JI06JtGrRfoqbhXgZnKO2VD0XRxWUd+wcjUzYEHXnv6QAAAABJRU5ErkJggg=="
-      },
-      {
-        "category": "Технології подорожей",
-        "company": "blookery",
-        "description": "Розробив фронтенд інноваційного туристичного веб-сайту, що спеціалізується на сліпих бронюваннях по всій Європі. Спроектував адаптивні та інтуїтивно зрозумілі користувацькі інтерфейси за допомогою React, забезпечуючи безперебійну функціональність на різних пристроях та розмірах екранів. Реалізував розширені функції JavaScript для створення динамічних та інтерактивних елементів, значно покращивши взаємодію з користувачем та навігацію по сайту.",
-        "role": "Фронтенд інженер",
-        "image": "/img/projects/blookery.png",
-        "link": "https://www.blookery.de",
-        "technologies": [
-          "React",
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "Jest"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB3klEQVR4nH3T6XKiQBQF4H7/d1AQwURlRyGLWMNUMa8SekXnBc5ULxhJnPz4CqnGy+HebjKWIVQRQpaRISbVBvw/hCOrCLLaQJURxirCWEYgKltBZiuIPIDI1wZ3WBE+xIvQPlusIXNL5QHGPABRqQeZeBCpD56uDJZNAtAvmMOzlSF0oFSH8qFSH0TGS4h4CR574IkH5tDEt1JrcFeNJRY3PIjEhlKJByL3C4j9Any/BIstGnvGkGi+u36i+qWxfTF3gXQwGS8+CzJXkDrDTwV1MYebr5uKLkBsusUP6ayPu9+2HVNCb5aS2P7pYvPemT+nK+PDme6pltz30rv1kdjp+mB6utPDWYDBWD8wnzh30zaTNlM2+y+w+84IQYsQgxF9Q53ZniymvbgGmU4HL+0pYNUT6M0z6OEZg0MdVmlP4I49NRuoagOijlvI4xbiuAOvLVbvDdpo8Qxr7Bp3RL2DrHdQ9Q5jvQUZXxNII4Vw+FsGdpPP6DVNOPIthXpLMWqvKcjYllBtCemItjK4dj48JM4HyHMF2VZQRgld59KWIJdfNcauhuoaQxovEJPfd9y9XtdU94Kxa4xL1+DaNSDX/h2X/h1jfzLUTQv55zul9S1G44SLc+1P+Nuf8A/cSRYM9Dl7fQAAAABJRU5ErkJggg=="
-      },
-      {
-        "category": "Платформа оренди автомобілів",
-        "company": "Billiger Mietwagen",
-        "description": "Як студент-розробник, зробив внесок у провідну платформу оренди автомобілів, значно покращивши користувацький досвід. Впровадив A/B тести для оптимізації специфікацій продукту та підвищення конверсії. Проводив ретельне тестування в кожній ітерації продукту для забезпечення високоякісних релізів. Створив внутрішні інструменти для команди обслуговування клієнтів, підвищивши ефективність на 50%.",
-        "role": "Фул-стек розробник",
-        "image": "/img/projects/billiger-mietwagen.png",
-        "link": "https://www.billiger-mietwagen.de",
-        "technologies": [
-          "JavaScript",
-          "HTML",
-          "CSS",
-          "jQuery",
-          "PHP",
-          "Optimizely"
-        ],
-        "placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACMElEQVR4nHXSWXLDVBRFUc1/WEDiXtLr+/sk2U6YxaasGAoK+Di/q85thg8pHCRzlMxZEldJ3CQytsDUPHN1qGrRRaOzQucZkyZMvGHCFe0vaH9CuyPaHhh2sGVOf4ItcmtvsL7BYlBZo9OMThM63tBvTLkTyh1Q5pPZfDB8StnbvcDLv0DHXOwbVDuo4ogOtzd2Rtkjs/1k1h/M+jeGgxROUji/wR8s/jXuP8FpB1W4ovz5p5097M1e2KR+ZThK5SyFi2SukhklMbXI3MJ73B9w398+7qvh/4G/MJx749Irt14Ye2aSxCwR1QKqenR16DdoXjt8g9qf0f/V8Lo0bktjXCpTL8w9o3pCS0S3gKkOUy2maMzfL/y6rjuj7RFlP1GvHb7Ace1MqzAvDbVU9FIwS8b0hJWIbR7XHK4YXFbYPGPTiA3XHTXutL+LNj/oMG8LauvoTTCbYNeKXQtuyfie8BLx4vHN4qvBF4XLEy6OuHDFvlB/wrgD2n4ymPuKvS+4PR2/CX5rhLUSlkxcErEHonhis4RqCEXh84RPIz5eceGC9SesOzK45x3/2AiPlbink+5C2hp5q+S1kJdE7pEsntQcqRliUcQyE9NESLcd9uHCEL+fpK8H+eu+pzxXynOhPDr1LtR7o26FumbqEik9UMSRmyVXQy6KVGZSnohpZCi/f1H3PGnfD9r3nfa9IV8r8lyQR0ceDblXZCu0NdGWSOueJp7aLKUZStWUovgDfbeQJMoGsU0AAAAASUVORK5CYII="
-      }
-    ]
-  },
-  "contactSection": {
-    "title": "Що далі?",
-    "subtitle": "Давайте зв'яжемося",
-    "content": "Я завжди радий новим можливостям та співпраці. Чи маєте ви проект на думці, питання щодо моєї роботи, або просто хочете привітатися - я буду радий почути від вас. Давайте почнемо розмову та дослідимо, як ми можемо створити щось дивовижне разом!",
-    "formLabels": {
-      "name": "Ім'я",
-      "email": "Електронна пошта",
-      "message": "Повідомлення"
-    },
-    "sendButton": "Надіслати повідомлення",
-    "sending": "Надсилання...",
-    "successMessage": "Повідомлення успішно надіслано!",
-    "errorMessage": "Не вдалося надіслати повідомлення. Будь ласка, спробуйте ще раз."
-  },
-  "footer": {
-    "rights": "Усі права захищено."
-  }
+	"metadata": {
+		"title": {
+			"default": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення",
+			"template": "%s | Артем Польовий - Full-Stack Розробник Програмного Забезпечення"
+		},
+		"description": "Досвідчений full-stack інженер, що спеціалізується на масштабованих веб-додатках та хмарних технологіях. Обслуговує клієнтів у США та Європі з понад 7-річним досвідом роботи з Java, Kotlin, Spring Boot, React та AWS.",
+		"openGraph": {
+			"title": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення",
+			"description": "Досвідчений full-stack інженер, що спеціалізується на масштабованих веб-додатках та хмарних технологіях. Обслуговує клієнтів у США та Європі з понад 7-річним досвідом роботи з Java, Kotlin, Spring Boot, React та AWS.",
+			"siteName": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення",
+			"images": [
+				{
+					"url": "/img/me-bg.jpg",
+					"width": 1200,
+					"height": 630,
+					"alt": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення"
+				}
+			]
+		},
+		"keywords": [
+			"Java",
+			"Kotlin",
+			"Spring Boot",
+			"React",
+			"TypeScript",
+			"AWS",
+			"PostgreSQL",
+			"Docker",
+			"Jenkins",
+			"GitLab",
+			"Full-Stack розробник",
+			"Інженер-програміст",
+			"Веб-розробка",
+			"Хмарні технології",
+			"Java розробник",
+			"Експерт з Kotlin",
+			"Спеціаліст зі Spring Boot",
+			"React розробник",
+			"AWS архітектор рішень",
+			"PostgreSQL розробник",
+			"TypeScript розробник",
+			"Спеціаліст з JavaScript",
+			"Проектування RESTful API",
+			"Мікросервісна архітектура",
+			"DevOps інженер",
+			"Впровадження CI/CD",
+			"Контейнеризація Docker",
+			"Оркестрація Kubernetes",
+			"Angular розробник",
+			"Інтеграція RabbitMQ",
+			"Автоматизація Jenkins",
+			"GitLab CI/CD",
+			"Тестування JUnit",
+			"Міграція баз даних Flyway",
+			"Управління контентом OpenCMS",
+			"Веб-компоненти Stencil",
+			"Next.js розробник",
+			"Tailwind CSS",
+			"Інтеграція Sanity CMS",
+			"Розгортання на Vercel",
+			"Гнучкі методології",
+			"Практик Scrum",
+			"Розробка через тестування (TDD)",
+			"Спеціаліст з перевірки коду",
+			"Модернізація застарілого коду",
+			"Досвід технічного керівництва",
+			"Корпоративні програмні рішення",
+			"Розробка електронної комерції",
+			"Розробник для США",
+			"Європейський розробник",
+			"Віддалений розробник ПЗ",
+			"Масштабовані веб-додатки",
+			"Високопродуктивні системи",
+			"Оптимізація баз даних",
+			"Оптимізація фронтенду",
+			"Масштабованість бекенду",
+			"Спеціаліст з міграції в хмару",
+			"Оптимізація веб-продуктивності",
+			"Найкращі практики SEO",
+			"Реалізація доступності (WCAG)",
+			"Принципи UI/UX дизайну",
+			"Адаптивний дизайн",
+			"Кросбраузерна сумісність",
+			"Спеціаліст з інтеграції API",
+			"Реалізація безпеки даних",
+			"Інтернаціоналізація (i18n)",
+			"Локалізація (l10n)",
+			"Моніторинг продуктивності",
+			"Логування та відлагодження помилок"
+		]
+	},
+	"header": {
+		"menuItems": [
+			{
+				"id": "01",
+				"name": "Про мене",
+				"href": "#aboutSection"
+			},
+			{
+				"id": "02",
+				"name": "Досвід",
+				"href": "#experienceSection"
+			},
+			{
+				"id": "03",
+				"name": "Проекти",
+				"href": "#projectsSection"
+			},
+			{
+				"id": "04",
+				"name": "Контакти",
+				"href": "#contactSection"
+			}
+		],
+		"resumeButton": {
+			"text": "Резюме",
+			"href": "/cv/CV_Artem_Polovyi_EN_WEB.pdf"
+		}
+	},
+	"heroSection": {
+		"greeting": "Привіт, мене звати",
+		"name": "Артем Польовий.",
+		"tagline": "Я втілюю ідеї в життя.",
+		"resumeHref": "/cv/CV_Artem_Polovyi_EN_WEB.pdf",
+		"paragraphs": [
+			"Як full-stack інженер-програміст з сильними навичками вирішення проблем, я спеціалізуюся на створенні виняткових цифрових рішень",
+			"Зараз я захоплений створенням надійних рішень, дослідженням інноваційних технологій та сприянням цифровій трансформації."
+		],
+		"highlightedTerms": [
+			"full-stack інженер-програміст",
+			"надійні рішення",
+			"інноваційні технології",
+			"цифрова трансформація"
+		],
+		"cta": "Перегляньте моє резюме!"
+	},
+	"aboutMeSection": {
+		"title": "Про мене",
+		"paragraphs": {
+			"intro": "Привіт! Я Артем Польовий, досвідчений Full-Stack інженер-програміст з великим досвідом роботи в провідних продуктових та консалтингових компаніях. Моя експертиза полягає в проектуванні та розробці високопродуктивних, масштабованих та високодоступних додатків.",
+			"specialization": "Я спеціалізуюся на backend-технологіях (Spring Boot, Kotlin, Java), frontend-розробці (React, JavaScript, TypeScript), DevOps (Jenkins, GitLab) та автоматизації тестування. Мій досвід включає роботу над проектами для відомих компаній, таких як Infineon та Audi, де я брав участь у розробці та підтримці додатків з високим трафіком та оптимізації продуктивності систем.",
+			"mindset": "Я маю гнучкий спосіб мислення та великий досвід роботи в agile-середовищах. Моя пристрасть до постійного навчання та вирішення проблем спонукає мене бути в курсі останніх технологій та найкращих практик у розробці програмного забезпечення.",
+			"technologies": "Ось кілька технологій, з якими я нещодавно працював:"
+		},
+		"highlightedTerms": [
+			"Spring Boot",
+			"Kotlin",
+			"Java",
+			"React",
+			"JavaScript",
+			"TypeScript",
+			"Jenkins",
+			"GitLab",
+			"Infineon",
+			"Audi"
+		]
+	},
+	"experienceSection": {
+		"title": "Де я працював",
+		"roles": {
+			"TheBicesterCollection": {
+				"title": "Провідний Full-Stack інженер",
+				"date": "Червень 2023 - Теперішній час",
+				"url": "https://www.thebicestercollection.com",
+				"tasks": [
+					{
+						"text": "Керівництво розробкою інноваційної e-commerce платформи для престижного бренд-колективу в Нью-Йорку.",
+						"keywords": [
+							"e-commerce платформа",
+							"престижний бренд"
+						]
+					},
+					{
+						"text": "Впровадження архітектури headless CMS для підвищення гнучкості контенту та продуктивності сайту.",
+						"keywords": [
+							"headless CMS",
+							"гнучкість контенту"
+						]
+					},
+					{
+						"text": "Оптимізація веб-сайту для пошукових систем (SEO) для підвищення видимості та органічного трафіку.",
+						"keywords": [
+							"SEO",
+							"органічний трафік"
+						]
+					},
+					{
+						"text": "Використання платформи Vercel для безперебійного розгортання та хостингу, забезпечення високої доступності та швидкої доставки контенту.",
+						"keywords": [
+							"Vercel",
+							"безперебійне розгортання"
+						]
+					},
+					{
+						"text": "Використання сучасного технологічного стеку, включаючи Next.js, TypeScript, Tailwind CSS та Sanity для створення надійного та масштабованого веб-додатку.",
+						"keywords": [
+							"Next.js",
+							"TypeScript",
+							"Tailwind CSS",
+							"Sanity"
+						]
+					}
+				]
+			},
+			"VirtualIdentityAG": {
+				"title": "Старший Full-Stack інженер",
+				"date": "Лютий 2022 - Січень 2024",
+				"url": "https://www.virtual-identity.com",
+				"tasks": [
+					{
+						"text": "Розробка та підтримка функцій на infineon.com для оптимізації користувацького досвіду та функціональності.",
+						"keywords": [
+							"infineon.com",
+							"користувацький досвід"
+						]
+					},
+					{
+						"text": "Успішна міграція voestalpine.com до хмари AWS, підвищення масштабованості та продуктивності.",
+						"keywords": [
+							"voestalpine.com",
+							"хмара AWS"
+						]
+					},
+					{
+						"text": "Розробка та проведення комплексних модульних та інтеграційних тестів для підвищення надійності програмного забезпечення.",
+						"keywords": [
+							"модульні тести",
+							"інтеграційні тести"
+						]
+					},
+					{
+						"text": "Оптимізація продуктивності веб-сайту, покращення часу завантаження та задоволеності користувачів.",
+						"keywords": [
+							"продуктивність",
+							"час завантаження"
+						]
+					},
+					{
+						"text": "Використання технологій, включаючи Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms та різні сервіси AWS.",
+						"keywords": [
+							"Java",
+							"Spring",
+							"JUnit",
+							"MySQL",
+							"Oracle",
+							"PostgreSQL",
+							"Flyway",
+							"TypeScript",
+							"React",
+							"Stencil",
+							"Web Components",
+							"OpenCms",
+							"AWS"
+						]
+					}
+				]
+			},
+			"SmartDorm": {
+				"title": "Провідний Full-Stack розробник (Волонтер)",
+				"date": "Січень 2020 - Теперішній час",
+				"tasks": [
+					{
+						"text": "Розробив веб-додаток для оптимізації та автоматизації процесів управління в студентському гуртожитку Geschwister Scholl.",
+						"keywords": [
+							"веб-додаток",
+							"автоматизація процесів"
+						]
+					},
+					{
+						"text": "Мігрував та консолідував дані в центральну базу даних для забезпечення 100% узгодженості даних.",
+						"keywords": [
+							"міграція даних",
+							"консолідація бази даних"
+						]
+					},
+					{
+						"text": "Зменшив адміністративну роботу на 35% за допомогою цифровізації та автоматизації.",
+						"keywords": [
+							"цифровізація",
+							"автоматизація",
+							"підвищення ефективності"
+						]
+					},
+					{
+						"text": "Впровадив CI/CD конвеєр для оптимізації процесу розробки.",
+						"keywords": [
+							"CI/CD",
+							"оптимізація розробки"
+						]
+					},
+					{
+						"text": "Використовував технології, включаючи PostgreSQL, Kotlin, Spring Boot, React та GitLab.",
+						"keywords": [
+							"PostgreSQL",
+							"Kotlin",
+							"Spring Boot",
+							"React",
+							"GitLab"
+						]
+					}
+				]
+			},
+			"Spreadshirt": {
+				"title": "Старший Full-Stack інженер",
+				"date": "Листопад 2021 - Лютий 2022",
+				"url": "https://www.spreadshirt.com",
+				"tasks": [
+					{
+						"text": "Розробка високопродуктивного додатку для генерації виплат, покращення фінансових операцій.",
+						"keywords": [
+							"генерація виплат"
+						]
+					},
+					{
+						"text": "Створення інтуїтивних користувацьких інтерфейсів, покращення користувацького досвіду та зручності використання додатку.",
+						"keywords": [
+							"користувацькі інтерфейси"
+						]
+					},
+					{
+						"text": "Робота з технологіями, включаючи PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript та React.",
+						"keywords": [
+							"PostgreSQL",
+							"Flyway",
+							"Kotlin",
+							"Spring Boot",
+							"JUnit",
+							"TypeScript",
+							"React"
+						]
+					}
+				]
+			},
+			"ComsystoReplyGmbH": {
+				"title": "Full-Stack інженер",
+				"date": "Лютий 2019 - Жовтень 2021",
+				"url": "https://www.comsysto.com",
+				"tasks": [
+					{
+						"text": "Співпраця в Scrum команді для оптимізації ціноутворення, управління ваучерами та систем комунікації для продукту ABI Audi On Demand.",
+						"keywords": [
+							"Scrum",
+							"ABI Audi On Demand"
+						]
+					},
+					{
+						"text": "Розробка та підтримка кількох мікросервісів та мікрофронтендів, що обробляють навантаження до 200 QPS.",
+						"keywords": [
+							"мікросервіси",
+							"мікрофронтенди"
+						]
+					},
+					{
+						"text": "Рефакторинг коду з використанням Kotlin, підвищення підтримуваності та зменшення кількості рядків коду на 30%.",
+						"keywords": [
+							"Kotlin"
+						]
+					},
+					{
+						"text": "Використання технологій, включаючи PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry та різні сервіси AWS.",
+						"keywords": [
+							"PostgreSQL",
+							"Flyway",
+							"Java",
+							"Kotlin",
+							"Spring Boot",
+							"JUnit",
+							"RabbitMQ",
+							"TypeScript",
+							"Angular",
+							"Jenkins",
+							"CloudFoundry",
+							"AWS"
+						]
+					}
+				]
+			},
+			"Blookery": {
+				"title": "Frontend інженер",
+				"date": "Травень 2018 - Серпень 2018",
+				"url": "https://www.blookery.de",
+				"tasks": [
+					{
+						"text": "Керівництво розробкою туристичного веб-сайту, що спеціалізується на сліпих бронюваннях по всій Європі, підвищення залученості користувачів.",
+						"keywords": [
+							"сліпі бронювання",
+							"залученість користувачів"
+						]
+					},
+					{
+						"text": "Створення адаптивних користувацьких інтерфейсів за допомогою React, забезпечення безперебійної функціональності на різних пристроях.",
+						"keywords": [
+							"React",
+							"адаптивний"
+						]
+					},
+					{
+						"text": "Впровадження передових функцій JavaScript для підвищення інтерактивності та навігації сайту.",
+						"keywords": [
+							"JavaScript"
+						]
+					},
+					{
+						"text": "Переведення макетів у доступні HTML/CSS верстки, дотримуючись рекомендацій WCAG.",
+						"keywords": [
+							"HTML/CSS",
+							"WCAG"
+						]
+					},
+					{
+						"text": "Розробка модульних та інтеграційних тестів з використанням Jest, забезпечення надійності коду.",
+						"keywords": [
+							"модульні",
+							"інтеграційні тести"
+						]
+					}
+				]
+			},
+			"SilverToursGmbH": {
+				"title": "Фул-стек розробник",
+				"date": "Січень 2015 - Серпень 2018",
+				"url": "https://www.billiger-mietwagen.de",
+				"tasks": [
+					{
+						"text": "Розробка нових функцій для провідної платформи оренди автомобілів, покращення користувацького досвіду.",
+						"keywords": [
+							"платформа оренди автомобілів"
+						]
+					},
+					{
+						"text": "Впровадження A/B тестів для оптимізації специфікацій продукту та підвищення конверсії.",
+						"keywords": [
+							"A/B тести"
+						]
+					},
+					{
+						"text": "Проведення ретельного тестування в кожній ітерації продукту для забезпечення високоякісних релізів.",
+						"keywords": [
+							"тестування"
+						]
+					},
+					{
+						"text": "Створення внутрішніх інструментів для команди обслуговування клієнтів, підвищення ефективності на 50%.",
+						"keywords": [
+							"внутрішні інструменти"
+						]
+					},
+					{
+						"text": "Робота з технологіями, включаючи JavaScript, HTML, CSS, jQuery та PHP.",
+						"keywords": [
+							"JavaScript",
+							"HTML",
+							"CSS",
+							"jQuery",
+							"PHP"
+						]
+					}
+				]
+			}
+		}
+	},
+	"projectsSection": {
+		"title": "Деякі з моїх проектів",
+		"projects": [
+			{
+				"category": "Корпоративна веб-розробка",
+				"company": "Infineon Technologies",
+				"description": "Розробив та підтримував функції на infineon.com для оптимізації користувацького досвіду та функціональності. Розробив та провів комплексні модульні та інтеграційні тести для підвищення надійності програмного забезпечення. Використовував широкий спектр технологій для створення високоякісних веб-рішень.",
+				"role": "Старший фул-стек інженер",
+				"image": "/img/projects/infineon.png",
+				"link": "https://www.infineon.com",
+				"technologies": [
+					"JavaEE",
+					"Spring",
+					"OpenCMS",
+					"JUnit",
+					"TypeScript",
+					"React",
+					"AWS"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA2klEQVR4nG3SXQ6CMBAEYO5/QgFR0UT6jzdYM9OuXYgPk77QLztbhtltgkwab07vZApO5uDkikTP3FJg7jnKo0RZS5LnnuS1ZxkUG3m+eTK+R9E5VnRJDc2xormjA5AKAnvLxW1ywWnAMfRJZ0yZgAIMR7A0cDyAJn7rsEF1ygNaKjpoXUXthD8wGBC1058pi4Jcfq9noTM2xf+V7wSTrNghKvA1GaCuVazQGTuCikVifBT8Dlx2Cy/bWIhYkCVbLDHAnvhtFixYP24XzwFCqIVYaTVZNcvrU/MFgGWWzfJnacYAAAAASUVORK5CYII="
+			},
+			{
+				"category": "Міграція та оптимізація хмарних технологій",
+				"company": "voestalpine AG",
+				"description": "Успішно перенес voestalpine.com у хмару AWS, значно підвищивши масштабованість та продуктивність. Реалізував передові функції за допомогою Java та Spring, оптимізуючи операції з базами даних за допомогою PostgreSQL. Використовував різні сервіси AWS для забезпечення надійної та ефективної хмарної інфраструктури.",
+				"role": "Спеціаліст з хмарної міграції",
+				"image": "/img/projects/voestalpine.png",
+				"link": "https://www.voestalpine.com",
+				"technologies": [
+					"JavaEE",
+					"Spring",
+					"OpenCMS",
+					"AWS",
+					"MySQL",
+					"Oracle",
+					"React",
+					"CloudFormation"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABNUlEQVR4nHWSWXLEIAwFuf/tZryw73iSW7yUBHhITfLRVS4ErSewaCWj5oiSInIMyNEjEYFwb6LnWkmB99ac0ErCVQuuq+L1avj+uiC6aBz2DtFbBEeY33jDtdlgymuOaDXjagWvq0FMWRcZeKs7RsEN6NtbQi/yKQ4oOaJS2lYgkreItOmWSDgtYfUJqxZojWos1/DunTinKc0QbxmJ+mGjDhh5QMudMczB69xoEQdnEekahlTcyVi2iM4d6twWppzEPXGXGgSakh4tBQi6Gx6Rkq2iY4M8ngureJVqHj/wn0BCo3gMTnbLnpA78cB5M8RU56s4YHh8BUdTjpRdyOlIuCTbn4tsMJJKakz76ZxWsPxIFiH8J5zptoWR8vwQSha6v4X7Z8LtgWPvrEI5hHoR+uDxA1YMDTpXpNyXAAAAAElFTkSuQmCC"
+			},
+			{
+				"category": "Волонтерський проект",
+				"company": "SmartDorm",
+				"description": "Розробив веб-додаток для оптимізації та автоматизації процесів управління в студентському гуртожитку Geschwister Scholl. Мігрував та консолідував дані в центральну базу даних для забезпечення 100% узгодженості даних. Зменшив адміністративну роботу на 35% за допомогою цифровізації та автоматизації. Впровадив CI/CD конвеєр для оптимізації процесу розробки.",
+				"image": "/img/projects/schollheim.png",
+				"link": "https://smartdorm.schollheim.net",
+				"role": "Провідний Full-Stack розробник (Волонтер)",
+				"technologies": [
+					"PostgreSQL",
+					"Kotlin",
+					"Spring Boot",
+					"React",
+					"GitLab"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACS3RFWHRSYXcACmV4aWYKICAgICAyODAKNDU3ODY5NjYwMDAwNDk0OTJhMDAwODAwMDAwMDBiMDAwMDAxMDQwMDAxMDAwMDAwZTYwZTAwMDAwMTAxMDQwMDAxMDAwMDAwCjJlMDYwMDAwMDIwMTAzMDAwMzAwMDAwMDkyMDAwMDAwMGUwMTAyMDAwYjAwMDAwMDk4MDAwMDAwMTIwMTAzMDAwMTAwMDAwMAowMTAwMDAwMDFhMDEwNTAwMDEwMDAwMDBhNDAwMDAwMDFiMDEwNTAwMDEwMDAwMDBhYzAwMDAwMDI4MDEwMzAwMDEwMDAwMDAKMDMwMDAwMDAzMTAxMDIwMDBkMDAwMDAwYjQwMDAwMDAzMjAxMDIwMDE0MDAwMDAwYzIwMDAwMDA2OTg3MDQwMDAxMDAwMDAwCmQ2MDAwMDAwMDAwMDAwMDAwODAwMDgwMDA4MDA1MzYzNzI2NTY1NmU3MzY4NmY3NDAwMDA2YzA2MDAwMDFkMDAwMDAwNmMwNgowMDAwMWQwMDAwMDA0NzQ5NGQ1MDIwMzIyZTMxMzAyZTMzMzgwMDAwMzIzMDMyMzQzYTMwMzgzYTMxMzkyMDMxMzYzYTM0MzgKM2EzMTM1MDAwMzAwODY5MjA3MDAxMjAwMDAwMDAwMDEwMDAwMDJhMDA0MDAwMTAwMDAwMGU2MGUwMDAwMDNhMDA0MDAwMTAwCjAwMDAyZTA2MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDUzNjM3MjY1NjU2ZTczNjg2Zjc0CvgBkN4AAAASdEVYdENvbW1lbnQAU2NyZWVuc2hvdPsRqwoAAAIrSURBVHicBcGJV9kBAMDx39+4vR29arVVw6s1dInXgSwR61Dp0qEoYZgjylEyhoaQ5tXWeuttb//Ed5+PIH7yHGlLO4rOHiZFfej7B/g4pGRFpcamnsahN+M2W/hsWeN4dYvE5h7p3QOy+24Khz5KniBXvgj1QJRG8BRB/PQl0tYOFG9EqCX9zMiGmVeMsToxxbbOiHN2Ae+ClZDVxsnmHqndAzJOD3mXn2+fQlwFotRDp9xEEjRjZwjiZy3I2l8z2i1B3SfFMKhgQTXJmnaanRkzh3NL+FY2iGzuEt894NzpIef2U/SFKQej1CJxGrEUzXiau9QXBPGLVmQdXYyKetG8H8A4omJxXMvGBwN20zxHllUC69tEdxwknW4u3H7y/jClUIxqNEEjfk4zleHuPMd9poAgaWlD9robpeQdWtkQRuU4Fo2OTYOJ/fklPNYNglt2Thwuztw+sv4QxXCMSixJPZGmeZ7lLpPnPnfJQ6GEIGltR971FmVvP9rBEWbHJlnS6bGZ5nBYrHg3tgnbncRdHtK+IF9DUUonSarJNDfpLLfZAj/zJR4uKzyWawiStg7kPWJU/VKmhkcxTWhY1hvZmlvEaV3Ht20n4nSR9PrJBI8pxOJUkmmu01mauQI/imUeSlUer675W/+OIHnViVwkQSWVoxtVYdZMsWIwsbO4zOG6Db/dQfTISyoQInt8wmXijOpFlptcgdtimV+VGr9rDf40mvxr3vEfCV7Ppv3yr8MAAAAASUVORK5CYII="
+			},
+			{
+				"category": "Фінансові технології",
+				"company": "Spreadshirt Payout System",
+				"description": "Розробив високопродуктивний додаток для генерації виплат, значно покращивши фінансові операції. Створив інтуїтивно зрозумілі користувацькі інтерфейси для покращення користувацького досвіду та зручності використання додатку. Реалізував надійну бекенд-логіку для забезпечення точних та своєчасних виплат.",
+				"role": "Старший фул-стек інженер",
+				"image": "/img/projects/spreadshirt.png",
+				"link": "https://www.spreadshirt.com",
+				"technologies": [
+					"Kotlin",
+					"Spring Boot",
+					"PostgreSQL",
+					"Flyway",
+					"JUnit",
+					"TypeScript",
+					"React"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAABWElEQVR4nIWUW27EIAxF2f+uOpMnb0JIpt2MK9tAIJ22H0dEkTg24hrxih6IrYH+hV/Y4HNHIpOQHb6ORIjDGzi8BVxT/b4REFc5N58JRCn02iOIaBQge17p2xZ0jzNEchaSLzg4kODhCAFEUAsQMq/EChuiC/LCSC5sdcbAjjhLCLeMUFknwhMzIwsLgcWIWkTBRidjubDzE+w89NQiE5MLuXUmWJ7FCpEQUKwVCD0+wEzI86LKR2ZBJqKKc8deruAbqdDDB+gReWQa8TT08iwunbp1yWKUSkKoH8LHH8KpF3ZdZuG9w/bY77v778gjy8xN1ovyBd07U9xZkQWtQRTJ2xtubrdGJ+cUYxNqbDRDsVmGLoeUwSZ7Jehd9gxLSrAp3BRsB8JLFgSkTEk7HXUyeDquEbxGL3kPqYxeGa/YbORN7eziw8ECfiA8HM3jcMYNzhjpcfgGES/6xlVD7WoAAAAASUVORK5CYII="
+			},
+			{
+				"category": "Платформа оренди автомобілів",
+				"company": "ABI Audi On Demand",
+				"description": "Співпрацював у Scrum-команді для оптимізації ціноутворення, управління ваучерами та систем комунікації для продукту ABI Audi On Demand. Розробив та підтримував кілька мікросервісів та мікрофронтендів, які обробляють навантаження до 200 QPS. Провів рефакторинг коду за допомогою Kotlin, підвищивши підтримуваність та зменшивши кількість рядків коду на 30%.",
+				"role": "Фул-стек інженер",
+				"image": "/img/projects/aod.png",
+				"link": "https://www.audi.com",
+				"technologies": [
+					"PostgreSQL",
+					"Flyway",
+					"Java",
+					"Kotlin",
+					"Spring Boot",
+					"JUnit",
+					"RabbitMQ",
+					"TypeScript",
+					"Angular",
+					"Jenkins",
+					"CloudFoundry",
+					"AWS"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA1ElEQVR4nHXMaa6DMAwE4Nz/TCxlyQoJAdq+48yTszQRgh+fxrbkYX+nQ3BE38Phsxdv4ovT2+DY7rGPX0DeW3Qmhyt2YjMDn60GW4V2dliFbE/8miwK24UzkQ0krK5nCeYNB9kSR7SA0xw2U9FaWeQ95tSEzKoJK5HRkonIVDS/x1YxIFsSwwtN5kJl0wB5QTdmeA8zFzp4QU39j8zGQjxgeupQUwE9dT8i51DwB0yNLWoy6CCHFuLq1YJfzJedybGBGppQIFPWJZw8FM2vJmXSt/gHPH+ZxG6mpEYAAAAASUVORK5CYII="
+			},
+			{
+				"category": "Подорожі та спосіб життя",
+				"company": "Turkey Nomad",
+				"description": "Розробив комплексну платформу для цифрових кочівників у Туреччині, що включає блог про подорожі та відібрані рекомендації. Цей проект демонструє сучасні методи веб-розробки та інтеграцію управління контентом. Сайт пропонує цінні ідеї та ресурси для віддалених працівників та мандрівників, які досліджують Туреччину.",
+				"role": "фул-стек розробник",
+				"image": "/img/projects/turkey-nomad.png",
+				"link": "https://turkeynomad.com",
+				"technologies": [
+					"Next.js",
+					"TypeScript",
+					"Strapi CMS",
+					"Vercel"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABRUlEQVR4nG2R2W6FMAxE8///WCAQlgSysPZxKjsON636MJIxztGMrfYQEYNH9B5x2xD+Ef/zHikEpBhxpIRj33EeB67zxH1deO4b388DRYPloV/XV1tV+1XgBA4Be4zY/0Cf+8L3c0MV0LY6bM5htfaXqMcisECL0wK9jo9LRYOry4/dsryyVe0KfHXZrTgt8c8quiogu8yw84xlmirlHolmiuPa6Z5idnkeGUiDi4DmcWRNovwtcAIXqMQvLvf02aWiwRdiDMZhqGS4N5kMX4pT2el7pCS7JCANjgIyPanHIKKaegw3poJahr7RY45NLhUNmmHIEK3Rd6ROpLnH8AKdJtg5H+oTPV+cgQwjkNbQXQfdtuhEuu24x2CBUnw+lkSnq0cfkOQ4atA9P2JI06JtGrRfoqbhXgZnKO2VD0XRxWUd+wcjUzYEHXnv6QAAAABJRU5ErkJggg=="
+			},
+			{
+				"category": "Технології подорожей",
+				"company": "blookery",
+				"description": "Розробив фронтенд інноваційного туристичного веб-сайту, що спеціалізується на сліпих бронюваннях по всій Європі. Спроектував адаптивні та інтуїтивно зрозумілі користувацькі інтерфейси за допомогою React, забезпечуючи безперебійну функціональність на різних пристроях та розмірах екранів. Реалізував розширені функції JavaScript для створення динамічних та інтерактивних елементів, значно покращивши взаємодію з користувачем та навігацію по сайту.",
+				"role": "Фронтенд інженер",
+				"image": "/img/projects/blookery.png",
+				"link": "https://www.blookery.de",
+				"technologies": [
+					"React",
+					"JavaScript",
+					"HTML",
+					"CSS",
+					"Jest"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB3klEQVR4nH3T6XKiQBQF4H7/d1AQwURlRyGLWMNUMa8SekXnBc5ULxhJnPz4CqnGy+HebjKWIVQRQpaRISbVBvw/hCOrCLLaQJURxirCWEYgKltBZiuIPIDI1wZ3WBE+xIvQPlusIXNL5QHGPABRqQeZeBCpD56uDJZNAtAvmMOzlSF0oFSH8qFSH0TGS4h4CR574IkH5tDEt1JrcFeNJRY3PIjEhlKJByL3C4j9Any/BIstGnvGkGi+u36i+qWxfTF3gXQwGS8+CzJXkDrDTwV1MYebr5uKLkBsusUP6ayPu9+2HVNCb5aS2P7pYvPemT+nK+PDme6pltz30rv1kdjp+mB6utPDWYDBWD8wnzh30zaTNlM2+y+w+84IQYsQgxF9Q53ZniymvbgGmU4HL+0pYNUT6M0z6OEZg0MdVmlP4I49NRuoagOijlvI4xbiuAOvLVbvDdpo8Qxr7Bp3RL2DrHdQ9Q5jvQUZXxNII4Vw+FsGdpPP6DVNOPIthXpLMWqvKcjYllBtCemItjK4dj48JM4HyHMF2VZQRgld59KWIJdfNcauhuoaQxovEJPfd9y9XtdU94Kxa4xL1+DaNSDX/h2X/h1jfzLUTQv55zul9S1G44SLc+1P+Nuf8A/cSRYM9Dl7fQAAAABJRU5ErkJggg=="
+			},
+			{
+				"category": "Платформа оренди автомобілів",
+				"company": "Billiger Mietwagen",
+				"description": "Як студент-розробник, зробив внесок у провідну платформу оренди автомобілів, значно покращивши користувацький досвід. Впровадив A/B тести для оптимізації специфікацій продукту та підвищення конверсії. Проводив ретельне тестування в кожній ітерації продукту для забезпечення високоякісних релізів. Створив внутрішні інструменти для команди обслуговування клієнтів, підвищивши ефективність на 50%.",
+				"role": "Фул-стек розробник",
+				"image": "/img/projects/billiger-mietwagen.png",
+				"link": "https://www.billiger-mietwagen.de",
+				"technologies": [
+					"JavaScript",
+					"HTML",
+					"CSS",
+					"jQuery",
+					"PHP",
+					"Optimizely"
+				],
+				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACMElEQVR4nHXSWXLDVBRFUc1/WEDiXtLr+/sk2U6YxaasGAoK+Di/q85thg8pHCRzlMxZEldJ3CQytsDUPHN1qGrRRaOzQucZkyZMvGHCFe0vaH9CuyPaHhh2sGVOf4ItcmtvsL7BYlBZo9OMThM63tBvTLkTyh1Q5pPZfDB8StnbvcDLv0DHXOwbVDuo4ogOtzd2Rtkjs/1k1h/M+jeGgxROUji/wR8s/jXuP8FpB1W4ovz5p5097M1e2KR+ZThK5SyFi2SukhklMbXI3MJ73B9w398+7qvh/4G/MJx749Irt14Ye2aSxCwR1QKqenR16DdoXjt8g9qf0f/V8Lo0bktjXCpTL8w9o3pCS0S3gKkOUy2maMzfL/y6rjuj7RFlP1GvHb7Ace1MqzAvDbVU9FIwS8b0hJWIbR7XHK4YXFbYPGPTiA3XHTXutL+LNj/oMG8LauvoTTCbYNeKXQtuyfie8BLx4vHN4qvBF4XLEy6OuHDFvlB/wrgD2n4ymPuKvS+4PR2/CX5rhLUSlkxcErEHonhis4RqCEXh84RPIz5eceGC9SesOzK45x3/2AiPlbink+5C2hp5q+S1kJdE7pEsntQcqRliUcQyE9NESLcd9uHCEL+fpK8H+eu+pzxXynOhPDr1LtR7o26FumbqEik9UMSRmyVXQy6KVGZSnohpZCi/f1H3PGnfD9r3nfa9IV8r8lyQR0ceDblXZCu0NdGWSOueJp7aLKUZStWUovgDfbeQJMoGsU0AAAAASUVORK5CYII="
+			}
+		]
+	},
+	"contactSection": {
+		"title": "Що далі?",
+		"subtitle": "Давайте зв'яжемося",
+		"content": "Я завжди радий новим можливостям та співпраці. Чи маєте ви проект на думці, питання щодо моєї роботи, або просто хочете привітатися - я буду радий почути від вас. Давайте почнемо розмову та дослідимо, як ми можемо створити щось дивовижне разом!",
+		"formLabels": {
+			"name": "Ім'я",
+			"email": "Електронна пошта",
+			"message": "Повідомлення"
+		},
+		"sendButton": "Надіслати повідомлення",
+		"sending": "Надсилання...",
+		"successMessage": "Повідомлення успішно надіслано!",
+		"errorMessage": "Не вдалося надіслати повідомлення. Будь ласка, спробуйте ще раз."
+	},
+	"footer": {
+		"rights": "Усі права захищено."
+	}
 }

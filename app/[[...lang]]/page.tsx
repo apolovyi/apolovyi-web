@@ -1,19 +1,20 @@
 "use client";
 
-import {useEffect} from "react";
+import { useEffect } from "react";
 
-import {Locale} from "@/i18n-config";
+import { Locale } from "@/i18n-config";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import {useAppContext} from "@/components/shared/AppContext";
+
+import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
-import HeroSection from "@/components/home/HeroSection";
-import SocialMediaAround from "@/components/home/SocialMediaAround";
 import AboutMe from "@/components/home/AboutMe";
+import GetInTouch from "@/components/home/GetInTouch";
+import HeroSection from "@/components/home/HeroSection";
 import MyExperience from "@/components/home/MyExperience";
 import MyProjects from "@/components/home/MyProjects";
-import GetInTouch from "@/components/home/GetInTouch";
-import Footer from "@/components/footer/Footer";
+import SocialMediaAround from "@/components/home/SocialMediaAround";
+import { useAppContext } from "@/components/shared/AppContext";
 
 // // Lazy load all components
 // const Header = lazy(() => import("@/components/header/Header"));
@@ -25,33 +26,33 @@ import Footer from "@/components/footer/Footer";
 // const GetInTouch = lazy(() => import("@/components/home/GetInTouch"));
 // const Footer = lazy(() => import("@/components/footer/Footer"));
 
-function Home({params: {lang = "en"}}: { params: { lang?: Locale } }) {
-	const {sharedState, setSharedState} = useAppContext();
+function Home({ params: { lang = "en" } }: { params: { lang?: Locale } }) {
+	const { sharedState, setSharedState } = useAppContext();
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			setSharedState((prevState) => ({...prevState, finishedLoading: true}));
+			setSharedState((prevState) => ({ ...prevState, finishedLoading: true }));
 		}, 4940);
 
 		return () => clearTimeout(timer);
 	}, [setSharedState]);
 
 	useEffect(() => {
-		Aos.init({duration: 1000, once: true});
+		Aos.init({ duration: 1000, once: true });
 	}, []);
 
 	return (
 		<main className="relative w-full snap-mandatory bg-background-primary">
-			<Header finishedLoading={sharedState.finishedLoading} lang={lang}/>
-			<HeroSection finishedLoading={sharedState.finishedLoading} lang={lang}/>
-			<SocialMediaAround finishedLoading={sharedState.finishedLoading}/>
+			<Header finishedLoading={sharedState.finishedLoading} lang={lang} />
+			<HeroSection finishedLoading={sharedState.finishedLoading} lang={lang} />
+			<SocialMediaAround finishedLoading={sharedState.finishedLoading} />
 			{sharedState.finishedLoading && (
 				<>
-					<AboutMe lang={lang}/>
-					<MyExperience lang={lang}/>
-					<MyProjects lang={lang}/>
-					<GetInTouch lang={lang}/>
-					<Footer lang={lang}/>
+					<AboutMe lang={lang} />
+					<MyExperience lang={lang} />
+					<MyProjects lang={lang} />
+					<GetInTouch lang={lang} />
+					<Footer lang={lang} />
 				</>
 			)}
 		</main>
