@@ -2,11 +2,11 @@ import React from "react";
 
 import Image from "next/image";
 
-import { Locale } from "@/i18n-config";
+import {Locale} from "@/i18n-config";
 
 import ArrowIcon from "@/components/icons/ArrowIcon";
 
-import { getDictionary } from "@/lib/dictionary";
+import {getDictionary} from "@/lib/dictionary";
 
 const technologies = [
   ["Java", "Kotlin", "Spring Boot", "React", "TypeScript"],
@@ -84,7 +84,7 @@ const AboutMe = ({ lang }: AboutMeProps) => {
     <section
       id="aboutSection"
       data-aos="fade-up"
-      className="flex snap-start flex-col items-center bg-background-primary py-20"
+      className="flex w-full flex-col space-y-12 bg-background-primary px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
         <SectionHeader title={aboutMeSection.title} />
