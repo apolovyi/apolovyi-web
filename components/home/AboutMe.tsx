@@ -1,53 +1,57 @@
-import React from "react";
+import React from 'react'
 
-import Image from "next/image";
+import Image from 'next/image'
 
-import { Locale } from "@/i18n-config";
+import { Locale } from '@/i18n-config'
 
-import ArrowIcon from "@/components/icons/ArrowIcon";
+import ArrowIcon from '@/components/icons/ArrowIcon'
 
-import { getDictionary } from "@/lib/dictionary";
+import { getDictionary } from '@/lib/dictionary'
 
 const technologies = [
-	["Java", "Kotlin", "Spring Boot", "React", "TypeScript"],
-	["AWS", "PostgreSQL", "Docker", "Jenkins", "GitLab"],
-];
+	['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript'],
+	['AWS', 'PostgreSQL', 'Docker', 'Jenkins', 'GitLab'],
+]
 
 interface AboutMeProps {
-	lang: Locale;
+	lang: Locale
 }
 
 type TechListProps = {
-	techs: string[];
-};
+	techs: string[]
+}
 
 const TechList = ({ techs }: TechListProps) => (
 	<ul className="flex flex-col space-y-2">
 		{techs.map((tech) => (
-			<li key={tech} className="flex items-center space-x-2">
+			<li
+				key={tech}
+				className="flex items-center space-x-2"
+			>
 				<ArrowIcon className="h-3 w-3 text-accent-coral" />
 				<span className="text-base text-text-secondary md:text-lg">{tech}</span>
 			</li>
 		))}
 	</ul>
-);
+)
 
 type SectionHeaderProps = {
-	title: string;
-};
+	title: string
+}
 
 const SectionHeader = ({ title }: SectionHeaderProps) => (
-	<header data-aos="fade-up" className="flex flex-row items-center font-heading">
+	<header
+		data-aos="fade-up"
+		className="flex flex-row items-center font-heading"
+	>
 		<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
 		<div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
 			<span className="font-tech text-xl text-accent-coral">01.</span>
-			<h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-				{title}
-			</h2>
+			<h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">{title}</h2>
 		</div>
 		<div className="h-[0.2px] w-full bg-accent-green"></div>
 	</header>
-);
+)
 
 const ProfileImage = () => (
 	<div className="relative mx-auto h-60 w-60 sm:h-80 sm:w-80 ">
@@ -66,19 +70,24 @@ const ProfileImage = () => (
 			</div>
 		</div>
 	</div>
-);
+)
 
 const AboutMe = ({ lang }: AboutMeProps) => {
-	const { aboutMeSection } = getDictionary(lang);
+	const { aboutMeSection } = getDictionary(lang)
 
 	const highlightTerms = (text: string) => {
-		let highlightedText = text;
+		let highlightedText = text
 		aboutMeSection.highlightedTerms.forEach((term) => {
-			const regex = new RegExp(`\\b(${term})\\b`, "gi");
-			highlightedText = highlightedText.replace(regex, '<span class="font-tech text-accent-coral">$1</span>');
-		});
-		return <p className="text-text-secondary" dangerouslySetInnerHTML={{ __html: highlightedText }} />;
-	};
+			const regex = new RegExp(`\\b(${term})\\b`, 'gi')
+			highlightedText = highlightedText.replace(regex, '<span class="font-tech text-accent-coral">$1</span>')
+		})
+		return (
+			<p
+				className="text-text-secondary"
+				dangerouslySetInnerHTML={{ __html: highlightedText }}
+			/>
+		)
+	}
 
 	return (
 		<section
@@ -98,7 +107,10 @@ const AboutMe = ({ lang }: AboutMeProps) => {
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.technologies}</p>
 							<div className="flex space-x-16 font-tech">
 								{technologies.map((techList, index) => (
-									<TechList key={index} techs={techList} />
+									<TechList
+										key={index}
+										techs={techList}
+									/>
 								))}
 							</div>
 						</div>
@@ -109,7 +121,7 @@ const AboutMe = ({ lang }: AboutMeProps) => {
 				</div>
 			</div>
 		</section>
-	);
-};
+	)
+}
 
-export default AboutMe;
+export default AboutMe
