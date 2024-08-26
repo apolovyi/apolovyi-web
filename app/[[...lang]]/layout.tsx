@@ -70,17 +70,26 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
 			type: 'website',
 		},
 		robots: {
-			'index': true,
-			'follow': true,
-			'max-image-preview': 'large',
-			'max-snippet': 200,
+			index: true,
+			follow: true,
 		},
 		icons: {
-			icon: [{ url: '/favicon.ico' }, { url: '/icon.png', type: 'image/png', sizes: '32x32' }],
-			apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+			icon: [
+				{ url: '/fav/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+				{ url: '/fav/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+			],
+			apple: [{ url: '/fav/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+			other: [{ rel: 'mask-icon', url: '/fav/safari-pinned-tab.svg', color: '#5bbad5' }],
 		},
 		alternates: {
-			languages: Object.fromEntries(i18n.locales.map((locale) => [locale, `${baseUrl}/${locale}`])),
+			canonical: `${baseUrl}${currentPath}`,
+			languages: {
+				'x-default': baseUrl,
+				...Object.fromEntries(i18n.locales.map((locale) => [locale, `${baseUrl}/${locale}`])),
+			},
+		},
+		other: {
+			'msapplication-TileColor': '#d8f0f9',
 		},
 		keywords: metadata.keywords,
 	}
