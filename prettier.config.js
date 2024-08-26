@@ -15,6 +15,7 @@ module.exports = {
 		"^(react/(.*)$)|^(react$)",
 		"^(next/(.*)$)|^(next$)",
 		"<THIRD_PARTY_MODULES>",
+		"^@/app/(.*)$",
 		"^@/components/(.*)$",
 		"^@/lib/(.*)$",
 		"^@/styles/(.*)$",
