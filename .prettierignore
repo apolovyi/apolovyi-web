@@ -5,3 +5,4 @@ public
 claude_chats
 out
 .idea
+package-lock.json
