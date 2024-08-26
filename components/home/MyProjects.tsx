@@ -38,7 +38,8 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 						placeholder="blur"
 						blurDataURL={project.placeholder}
 					/>
-					<div className="absolute inset-0 rounded-lg p-1 opacity-70 transition-opacity duration-300 hover:opacity-0 lg:opacity-30"></div>
+					<div
+						className="absolute inset-0 rounded-lg bg-background-primary p-1 opacity-70 transition-opacity duration-300 hover:opacity-0 lg:opacity-30"></div>
 				</div>
 			</div>
 
@@ -51,7 +52,8 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 				<div className={`flex flex-col ${isEven ? "lg:items-end" : "lg:items-start"}`}>
 					<span className="font-heading text-base font-light text-accent-coral">{project.category}</span>
 					<a href={project.link} target="_blank" rel="noopener noreferrer" className="group">
-						<span className="font-sub-heading text-xl font-light text-text-primary transition-colors duration-300 group-hover:text-accent-coral">
+						<span
+							className="font-sub-heading text-xl font-light text-text-primary transition-colors duration-300 group-hover:text-accent-coral">
 							{project.company}
 						</span>
 					</a>
