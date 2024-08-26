@@ -7,15 +7,15 @@ import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransf
 import { cn } from "@/lib/utils";
 
 export function Button({
-	borderRadius = "1.75rem",
-	children,
-	as: Component = "button",
-	containerClassName,
-	borderClassName,
-	duration,
-	className,
-	...otherProps
-}: {
+												 borderRadius = "1.75rem",
+												 children,
+												 as: Component = "button",
+												 containerClassName,
+												 borderClassName,
+												 duration,
+												 className,
+												 ...otherProps
+											 }: {
 	borderRadius?: string;
 	children: React.ReactNode;
 	as?: any;
@@ -46,7 +46,7 @@ export function Button({
 
 			<div
 				className={cn(
-					"flex h-full w-full items-center justify-center whitespace-nowrap border border-accent-coral bg-slate-900/[0.8] text-base antialiased backdrop-blur-xl hover:bg-accent-coral hover:text-background-primary",
+					"flex h-full w-full items-center justify-center whitespace-nowrap border border-accent-coral bg-slate-900/[0.8] text-base antialiased backdrop-blur-xl hover:bg-accent-coral hover:text-accent-green",
 					className,
 				)}
 				style={{
@@ -60,12 +60,12 @@ export function Button({
 }
 
 export const MovingBorder = ({
-	children,
-	duration = 2000,
-	rx,
-	ry,
-	...otherProps
-}: {
+															 children,
+															 duration = 2000,
+															 rx,
+															 ry,
+															 ...otherProps
+														 }: {
 	children: React.ReactNode;
 	duration?: number;
 	rx?: string;
