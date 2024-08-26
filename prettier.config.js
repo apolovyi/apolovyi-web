@@ -30,6 +30,8 @@ module.exports = {
 			files: ['*.json', '*.jsonc'],
 			options: {
 				printWidth: 1,
+				// tabWidth: 4,
+				// useTabs: true,
 			},
 		},
 	],

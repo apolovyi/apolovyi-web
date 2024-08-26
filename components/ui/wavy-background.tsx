@@ -1,7 +1,9 @@
 'use client'
 
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+
 import { createNoise3D } from 'simplex-noise'
+
 import { cn } from '@/lib/utils'
 
 export const WavyBackground = ({
@@ -36,7 +38,9 @@ export const WavyBackground = ({
 
 	useEffect(() => {
 		const noise = createNoise3D()
-		let w: number, h: number, nt = 0
+		let w: number,
+			h: number,
+			nt = 0
 		let ctx: CanvasRenderingContext2D | null
 		let animationId: number
 
@@ -88,11 +92,7 @@ export const WavyBackground = ({
 	}, [blur, backgroundFill, colors, getSpeed, waveOpacity, waveWidth])
 
 	useEffect(() => {
-		setIsSafari(
-			typeof window !== 'undefined' &&
-			navigator.userAgent.includes('Safari') &&
-			!navigator.userAgent.includes('Chrome'),
-		)
+		setIsSafari(typeof window !== 'undefined' && navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome'))
 	}, [])
 
 	return (
@@ -102,7 +102,10 @@ export const WavyBackground = ({
 				ref={canvasRef}
 				style={isSafari ? { filter: `blur(${blur}px)` } : {}}
 			/>
-			<div className={cn('relative z-10', className)} {...props}>
+			<div
+				className={cn('relative z-10', className)}
+				{...props}
+			>
 				{children}
 			</div>
 		</div>
