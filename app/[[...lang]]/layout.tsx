@@ -1,17 +1,16 @@
-import {Metadata} from "next";
-import {Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand} from "next/font/google";
+import { Metadata } from "next";
+import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/google";
 import Script from "next/script";
 
 import "@/app/globals.css";
-import {i18n, Locale} from "@/i18n-config";
+import { Locale, i18n } from "@/i18n-config";
 
 import LanguageDetector from "@/components/LanguageDetector";
 import StructuredData from "@/components/StructuredData";
+import { WebVitals } from "@/components/WebVitals";
+import { AppProvider } from "@/components/shared/AppContext";
 
-import {getDictionary} from "@/lib/dictionary";
-import {AppProvider} from "@/components/shared/AppContext";
-import {WebVitals} from "@/components/WebVitals";
-
+import { getDictionary } from "@/lib/dictionary";
 
 // Fonts
 const comfortaa = Comfortaa({
@@ -41,13 +40,13 @@ const merriweather = Merriweather({
 });
 
 export async function generateStaticParams() {
-	return i18n.locales.map((locale) => ({lang: [locale]}));
+	return i18n.locales.map((locale) => ({ lang: [locale] }));
 }
 
-export function generateMetadata({params}: { params: { lang: string[] } }): Metadata {
+export function generateMetadata({ params }: { params: { lang: string[] } }): Metadata {
 	const lang = (params.lang?.[0] || i18n.defaultLocale) as Locale;
 	const dictionary = getDictionary(lang);
-	const {metadata} = dictionary;
+	const { metadata } = dictionary;
 
 	const baseUrl = "https://apolovyi.me";
 	const currentPath = `/${lang}`;
@@ -75,8 +74,8 @@ export function generateMetadata({params}: { params: { lang: string[] } }): Meta
 			"max-snippet": 200,
 		},
 		icons: {
-			icon: [{url: "/favicon.ico"}, {url: "/icon.png", type: "image/png", sizes: "32x32"}],
-			apple: [{url: "/apple-icon.png", sizes: "180x180", type: "image/png"}],
+			icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "32x32" }],
+			apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
 		},
 		alternates: {
 			languages: Object.fromEntries(i18n.locales.map((locale) => [locale, `${baseUrl}/${locale}`])),
@@ -85,7 +84,7 @@ export function generateMetadata({params}: { params: { lang: string[] } }): Meta
 	};
 }
 
-const RootLayout = ({children, params}: { children: React.ReactNode; params: { lang: string[] } }) => {
+const RootLayout = ({ children, params }: { children: React.ReactNode; params: { lang: string[] } }) => {
 	const lang = (params.lang?.[0] || i18n.defaultLocale) as Locale;
 
 	return (
@@ -93,13 +92,13 @@ const RootLayout = ({children, params}: { children: React.ReactNode; params: { l
 			lang={lang}
 			className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
 		>
-		<body>
-		<WebVitals/>
-		<LanguageDetector/>
-		<AppProvider>{children}</AppProvider>
-		<StructuredData/>
-		<Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer/>
-		</body>
+			<body>
+				<WebVitals />
+				<LanguageDetector />
+				<AppProvider>{children}</AppProvider>
+				<StructuredData />
+				<Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
+			</body>
 		</html>
 	);
 };
