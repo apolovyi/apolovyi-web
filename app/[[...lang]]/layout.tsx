@@ -3,7 +3,7 @@ import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from "next/font/goo
 import Script from "next/script";
 
 import "@/app/globals.css";
-import { Locale, i18n } from "@/i18n-config";
+import { i18n, Locale } from "@/i18n-config";
 
 import LanguageDetector from "@/components/LanguageDetector";
 import StructuredData from "@/components/StructuredData";
@@ -92,13 +92,13 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
 			lang={lang}
 			className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
 		>
-			<body>
-				<WebVitals />
-				<LanguageDetector />
-				<AppProvider>{children}</AppProvider>
-				<StructuredData />
-				<Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
-			</body>
+		<body>
+		<WebVitals />
+		<LanguageDetector />
+		<AppProvider>{children}</AppProvider>
+		<StructuredData />
+		<Script src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe" strategy="afterInteractive" defer />
+		</body>
 		</html>
 	);
 };
