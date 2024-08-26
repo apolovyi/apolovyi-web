@@ -7,17 +7,17 @@ import { createNoise3D } from 'simplex-noise'
 import { cn } from '@/lib/utils'
 
 export const WavyBackground = ({
-	children,
-	className,
-	containerClassName,
-	colors,
-	waveWidth,
-	backgroundFill,
-	blur = 10,
-	speed = 'fast',
-	waveOpacity = 0.5,
-	...props
-}: {
+																 children,
+																 className,
+																 containerClassName,
+																 colors,
+																 waveWidth,
+																 backgroundFill,
+																 blur = 10,
+																 speed = 'fast',
+																 waveOpacity = 0.5,
+																 ...props
+															 }: {
 	children?: any
 	className?: string
 	containerClassName?: string
@@ -50,7 +50,7 @@ export const WavyBackground = ({
 		h = ctx.canvas.height = window.innerHeight
 		ctx.filter = `blur(${blur}px)`
 		nt = 0
-		window.onresize = function () {
+		window.onresize = function() {
 			w = ctx.canvas.width = window.innerWidth
 			h = ctx.canvas.height = window.innerHeight
 			ctx.filter = `blur(${blur}px)`
@@ -88,7 +88,7 @@ export const WavyBackground = ({
 		return () => {
 			cancelAnimationFrame(animationId)
 		}
-	}, [])
+	}, [animationId, init])
 
 	const [isSafari, setIsSafari] = useState(false)
 	useEffect(() => {
