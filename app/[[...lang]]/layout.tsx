@@ -52,6 +52,7 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
 
 	const baseUrl = 'https://apolovyi.me'
 	const currentPath = `/${lang}`
+	const fullUrl = `${baseUrl}${currentPath}`
 
 	return {
 		title: {
@@ -63,7 +64,7 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
 		openGraph: {
 			title: metadata.openGraph.title,
 			description: metadata.openGraph.description,
-			url: `${baseUrl}${currentPath}`,
+			url: fullUrl,
 			siteName: metadata.openGraph.siteName,
 			images: metadata.openGraph.images,
 			locale: lang,
@@ -82,10 +83,10 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
 			other: [{ rel: 'mask-icon', url: '/fav/safari-pinned-tab.svg', color: '#5bbad5' }],
 		},
 		alternates: {
-			canonical: `${baseUrl}${currentPath}`,
+			canonical: fullUrl,
 			languages: {
 				'x-default': baseUrl,
-				...Object.fromEntries(i18n.locales.map((locale) => [locale, `${baseUrl}/${locale}`])),
+				...Object.fromEntries(i18n.locales.map((locale) => [locale, locale === lang ? fullUrl : `${baseUrl}/${locale}`])),
 			},
 		},
 		other: {
