@@ -46,12 +46,12 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: { params: { lang: string[] } }): Metadata {
-	const lang = (params.lang?.[0] || i18n.defaultLocale) as Locale
-	const dictionary = getDictionary(lang)
+	const lang = params.lang?.[0] || i18n.defaultLocale
+	const dictionary = getDictionary(lang as Locale)
 	const { metadata } = dictionary
 
 	const baseUrl = 'https://apolovyi.me'
-	const currentPath = `/${lang}`
+	const currentPath = lang === i18n.defaultLocale ? '' : `/${lang}`
 	const fullUrl = `${baseUrl}${currentPath}`
 
 	return {
@@ -86,7 +86,7 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
 			canonical: fullUrl,
 			languages: {
 				'x-default': baseUrl,
-				...Object.fromEntries(i18n.locales.map((locale) => [locale, locale === lang ? fullUrl : `${baseUrl}/${locale}`])),
+				...Object.fromEntries(i18n.locales.map((locale) => [locale, locale === i18n.defaultLocale ? baseUrl : `${baseUrl}/${locale}`])),
 			},
 		},
 		other: {
