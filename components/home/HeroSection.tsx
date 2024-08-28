@@ -58,7 +58,7 @@ const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
 				// className="container mx-auto flex min-h-screen flex-col justify-center px-8"
 				// className="flex flex-col justify-center px-8 py-32 sm:px-8 sm:py-52 md:px-28 lg:px-32 xl:px-56 2xl:px-72"
 			>
-				<div className="">
+				<div className="z-10">
 					<TextGenerateEffect
 						className="font-tech tracking-wider text-accent-coral lg:text-lg"
 						words={heroSection.greeting}

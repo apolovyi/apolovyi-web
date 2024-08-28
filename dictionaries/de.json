@@ -540,7 +540,7 @@
 				"description": "Zusammenarbeit in einem Scrum-Team zur Optimierung von Preisgestaltung, Gutscheinverwaltung und Kommunikationssystemen für das ABI Audi On Demand Produkt. Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen. Refaktorisierung von Code mit Kotlin, Erhöhung der Wartbarkeit und Reduzierung der Codezeilen um 30%.",
 				"role": "Full-Stack-Entwickler",
 				"image": "/img/projects/aod.png",
-				"link": "https://www.audi.com",
+				"link": "https://audiondemand.audi.de/rent.html",
 				"technologies": [
 					"PostgreSQL",
 					"Flyway",

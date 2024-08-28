@@ -22,23 +22,29 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 			{/* Image */}
 			<div className={`absolute top-0 h-full w-full lg:w-2/3 ${isEven ? 'lg:left-0' : 'lg:right-0'}`}>
 				<div className="relative h-full w-full overflow-hidden rounded-lg">
-					<Image
-						src={project.image}
-						alt={project.company}
-						width={800}
-						height={400}
-						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-						style={{
-							objectFit: 'contain',
-							objectPosition: 'center',
-						}}
-						className="h-auto w-full rounded-lg p-4"
-						priority={false}
-						quality={100}
-						placeholder="blur"
-						blurDataURL={project.placeholder}
-					/>
-					<div className="absolute inset-0 rounded-lg bg-background-primary p-1 opacity-70 transition-opacity duration-300 hover:opacity-0 lg:opacity-30"></div>
+					<a
+						href={project.link}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<Image
+							src={project.image}
+							alt={project.company}
+							width={800}
+							height={400}
+							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+							style={{
+								objectFit: 'contain',
+								objectPosition: 'center',
+							}}
+							className="h-auto w-full rounded-lg p-4"
+							priority={false}
+							quality={100}
+							placeholder="blur"
+							blurDataURL={project.placeholder}
+						/>
+						<div className="absolute inset-0 rounded-lg bg-background-primary p-4 opacity-75 transition-opacity duration-300 hover:opacity-0 lg:opacity-25"></div>
+					</a>
 				</div>
 			</div>
 
@@ -61,15 +67,15 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 						</span>
 					</a>
 				</div>
-				<div className={`my-4 rounded-md bg-accent-green bg-opacity-75 p-6 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
-					<p className="font-body text-base font-light text-neutral-light-gray md:text-lg">{project.description}</p>
+				<div className={`my-4 rounded-md bg-accent-green bg-opacity-85 px-6 py-10 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
+					<p className="font-body text-base font-light text-neutral-light-gray xl:text-xl">{project.description}</p>
 				</div>
-				<div className={`mb-4 font-heading text-base text-accent-coral ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
+				<div className={`mb-4 font-heading text-accent-coral lg:text-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
 					Role: {project.role}
 				</div>
 				<div className={`w-full ${isEven ? 'lg:flex lg:justify-end' : ''}`}>
 					<ul
-						className={`flex w-4/6 flex-wrap font-tech text-sm font-light text-text-primary ${
+						className={`flex w-4/6 flex-wrap font-tech text-base font-light text-text-primary lg:text-lg ${
 							isEven ? 'lg:justify-end' : 'lg:justify-start'
 						}`}
 					>
