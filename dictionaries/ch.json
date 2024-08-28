@@ -540,7 +540,7 @@
 				"description": "Imene Scrum-Team zämegschaffet um d'Priisgestaltung, Gutschiin-Verwaltig und Kommunikationssystem für s'ABI Audi On Demand Produkt z'optimiere. Mehreri Microservices und Microfrontends entwicklet und gwartet, wo Laste bis zu 200 QPS bewältiged. Code mit Kotlin refaktorisiert, d'Wartbarkeit erhöht und d'Codeziile um 30% reduziert.",
 				"role": "Full-Stack Entwickler",
 				"image": "/img/projects/aod.png",
-				"link": "https://www.audi.com",
+				"link": "https://audiondemand.audi.de/rent.html",
 				"technologies": [
 					"PostgreSQL",
 					"Flyway",
