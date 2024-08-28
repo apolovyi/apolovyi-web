@@ -18,10 +18,10 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 	const isEven = index % 2 === 0
 
 	return (
-		<div className="relative h-[600px] w-full sm:h-[500px]">
+		<div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-8">
 			{/* Image */}
-			<div className={`absolute top-0 h-full w-full lg:w-2/3 ${isEven ? 'lg:left-0' : 'lg:right-0'}`}>
-				<div className="relative h-full w-full overflow-hidden rounded-lg">
+			<div className={`w-full lg:w-2/3 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+				<div className="relative overflow-hidden rounded-lg">
 					<a
 						href={project.link}
 						target="_blank"
@@ -43,52 +43,44 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 							placeholder="blur"
 							blurDataURL={project.placeholder}
 						/>
-						<div className="absolute inset-0 rounded-lg bg-background-primary p-4 opacity-75 transition-opacity duration-300 hover:opacity-0 lg:opacity-25"></div>
+						<div className="absolute inset-0 rounded-lg bg-background-primary p-4 opacity-10 transition-opacity duration-300 hover:opacity-0 md:opacity-45"></div>
 					</a>
 				</div>
 			</div>
 
 			{/* Content */}
-			<div
-				className={`absolute top-0 flex h-full w-full flex-col justify-center p-8 font-body lg:w-1/2 ${
-					isEven ? 'lg:right-0' : 'lg:left-0'
-				}`}
-			>
-				<div className={`flex flex-col ${isEven ? 'lg:items-end' : 'lg:items-start'}`}>
-					<span className="font-heading text-base font-light text-accent-coral">{project.category}</span>
-					<a
-						href={project.link}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="group"
-					>
-						<span className="font-sub-heading text-xl font-light text-text-primary transition-colors duration-300 group-hover:text-accent-coral">
-							{project.company}
-						</span>
-					</a>
-				</div>
+			<div className={`mt-6 flex w-full flex-col lg:mt-0 lg:w-1/2 ${isEven ? 'lg:order-2 lg:items-end' : 'lg:order-1 lg:items-start'}`}>
+				<span className="font-heading text-base font-light text-accent-coral">{project.category}</span>
+				<a
+					href={project.link}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="group"
+				>
+					<span className="font-sub-heading text-xl font-light text-text-primary transition-colors duration-300 group-hover:text-accent-coral">
+						{project.company}
+					</span>
+				</a>
 				<div className={`my-4 rounded-md bg-accent-green bg-opacity-85 px-6 py-10 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
 					<p className="font-body text-base font-light text-neutral-light-gray xl:text-xl">{project.description}</p>
 				</div>
 				<div className={`mb-4 font-heading text-accent-coral lg:text-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
 					Role: {project.role}
 				</div>
-				<div className={`w-full ${isEven ? 'lg:flex lg:justify-end' : ''}`}>
-					<ul
-						className={`flex w-4/6 flex-wrap font-tech text-base font-light text-text-primary lg:text-lg ${
-							isEven ? 'lg:justify-end' : 'lg:justify-start'
-						}`}
-					>
-						{project.technologies.map((tech: string, techIndex: number) => (
-							<li
-								key={techIndex}
-								className={`mb-2 mr-4 ${isEven ? 'lg:ml-4 lg:mr-0' : ''}`}
-							>
-								{tech}
-							</li>
-						))}
-					</ul>
-				</div>
+				<ul
+					className={`flex flex-wrap font-tech text-base font-light text-text-primary lg:text-lg ${
+						isEven ? 'lg:justify-end' : 'lg:justify-start'
+					}`}
+				>
+					{project.technologies.map((tech: string, techIndex: number) => (
+						<li
+							key={techIndex}
+							className={`mb-2 mr-4 ${isEven ? 'lg:ml-4 lg:mr-0' : ''}`}
+						>
+							{tech}
+						</li>
+					))}
+				</ul>
 				<div className={`mt-4 flex ${isEven ? 'lg:justify-end' : 'lg:justify-start'}`}>
 					<a
 						href={project.link}
@@ -115,36 +107,36 @@ export default function MyProjects({ lang }: MyProjectsProps) {
 	return (
 		<section
 			id="projectsSection"
-			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
+			className="px-4 py-16 lg:py-32"
 		>
-			<div className="mx-auto flex w-full flex-col px-4 sm:px-6 lg:px-8">
+			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<header
 					data-aos="fade-up"
-					className="flex flex-row items-center font-heading"
+					className="mb-12 flex items-center"
 				>
 					<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
-					<div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
+					<div className="ml-2 flex items-center space-x-2">
 						<span className="font-tech text-xl text-accent-coral">03.</span>
-						<h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
+						<h2 className="whitespace-nowrap font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
 							{projectsSection.title}
 						</h2>
 					</div>
-					<div className="h-[0.2px] w-full bg-accent-green"></div>
+					<div className="ml-4 h-[0.2px] flex-grow bg-accent-green"></div>
 				</header>
-			</div>
 
-			<div className="flex flex-col space-y-8 md:space-y-28 xl:space-y-36">
-				{projectsSection.projects.map((project, index) => (
-					<div
-						key={index}
-						data-aos="fade-up"
-					>
-						<ProjectItem
-							project={project}
-							index={index}
-						/>
-					</div>
-				))}
+				<div className="space-y-20 lg:space-y-32">
+					{projectsSection.projects.map((project, index) => (
+						<div
+							key={index}
+							data-aos="fade-up"
+						>
+							<ProjectItem
+								project={project}
+								index={index}
+							/>
+						</div>
+					))}
+				</div>
 			</div>
 		</section>
 	)

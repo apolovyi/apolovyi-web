@@ -55,7 +55,7 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 							className="flex flex-col space-y-2 text-center"
 						>
 							<span className="font-tech text-xs text-accent-coral">{item.id}.</span>
-							<span className="font-heading text-sm text-text-primary duration-300 hover:cursor-pointer hover:text-accent-coral sm:text-base">
+							<span className="font-body text-sm text-text-primary duration-300 hover:cursor-pointer hover:text-accent-coral sm:text-base">
 								{item.name}
 							</span>
 						</a>
