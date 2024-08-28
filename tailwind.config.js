@@ -64,6 +64,7 @@ module.exports = {
 			//   success: "#00C968",
 			// },
 			colors: {
+				highlight: 'rgba(172,220,255,0.87)',
 				border: 'var(--border)',
 				neutral: {
 					'offwhite': '#F7F7F7',

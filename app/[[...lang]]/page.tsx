@@ -42,7 +42,7 @@ function Home({ params: { lang = 'en' } }: { params: { lang?: Locale } }) {
 	}, [])
 
 	return (
-		<main className="relative w-full snap-mandatory bg-background-primary">
+		<main className="relative w-full snap-mandatory bg-background-primary selection:bg-highlight">
 			<Header
 				finishedLoading={sharedState.finishedLoading}
 				lang={lang}
