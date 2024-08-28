@@ -9,8 +9,8 @@ import ArrowIcon from '@/components/icons/ArrowIcon'
 import { getDictionary } from '@/lib/dictionary'
 
 const technologies = [
-	['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript'],
-	['AWS', 'PostgreSQL', 'Docker', 'Jenkins', 'GitLab'],
+	['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'Next.js'],
+	['AWS', 'PostgreSQL', 'Docker', 'Jenkins', 'GitLab', 'Sanity CMS'],
 ]
 
 interface AboutMeProps {
