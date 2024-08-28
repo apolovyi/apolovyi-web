@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
+import { HoverUnderlineFromLeftToRight } from '@/components/shared/HoverAnimation'
 
 import { getDictionary } from '@/lib/dictionary'
 
@@ -57,14 +58,18 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 				<motion.div
 					key={item.id}
 					variants={itemVariants}
-					className="text-accent-coral"
 				>
 					<a
 						href={item.href}
-						className="duration-300 hover:text-accent-coral"
+						className="group duration-300"
 						onClick={(e) => handleScroll(e, item.href)}
 					>
-						&gt; {item.id}. <span className="font-heading text-text-primary hover:text-accent-coral">{item.name}</span>
+						<HoverUnderlineFromLeftToRight className="bg-primary">
+							<div className="flex items-center whitespace-nowrap">
+								<span className="mr-2 text-accent-coral group-hover:text-accent-coral">&gt; {item.id}.</span>
+								<span className="font-body text-sm text-text-primary transition-all xl:text-lg">{item.name}</span>
+							</div>
+						</HoverUnderlineFromLeftToRight>
 					</a>
 				</motion.div>
 			))}
