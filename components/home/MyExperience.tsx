@@ -101,7 +101,7 @@ interface CompanyButtonProps {
 const CompanyButton = ({ company, isActive, onClick, companyName }: CompanyButtonProps) => (
 	<button
 		onClick={onClick}
-		className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left
+		className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left lg:text-base
       ${
 				isActive
 					? 'bg-accent-coral text-background-primary'
@@ -132,11 +132,11 @@ const JobDescription = ({ company, lang }: JobDescriptionProps) => {
 	}
 
 	return (
-		<div className="flex flex-col space-y-4">
+		<div className="flex min-h-[350px] flex-col space-y-4">
 			<div>
-				<div className="flex flex-col sm:flex-row sm:items-center">
+				<div className="flex flex-col lg:flex-row lg:items-center">
 					<span className="font-body text-lg font-semibold text-text-primary">{job.title}</span>
-					<span className="text-base text-accent-coral sm:ml-2 md:text-lg">
+					<span className="text-base text-accent-coral lg:ml-2 lg:text-lg">
 						@ {companies.find((c) => c.key === company)?.name || company}
 					</span>
 				</div>
@@ -158,7 +158,7 @@ const JobDescription = ({ company, lang }: JobDescriptionProps) => {
 					>
 						<ArrowIcon className="mt-1 h-5 w-4 flex-none text-accent-coral" />
 						<span
-							className="text-sm text-text-secondary"
+							className="text-sm text-text-secondary lg:text-base"
 							dangerouslySetInnerHTML={{
 								__html: highlightKeywords(task.text, task.keywords),
 							}}
