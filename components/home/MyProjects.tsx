@@ -64,7 +64,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 				<div className={`my-4 rounded-md bg-accent-green bg-opacity-85 px-6 py-10 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
 					<p className="font-body text-base font-light text-neutral-light-gray xl:text-xl">{project.description}</p>
 				</div>
-				<div className={`mb-4 font-heading text-accent-coral lg:text-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
+				<div className={`mb-4 font-heading text-sm text-accent-coral lg:text-base ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
 					Role: {project.role}
 				</div>
 				<ul
@@ -107,7 +107,8 @@ export default function MyProjects({ lang }: MyProjectsProps) {
 	return (
 		<section
 			id="projectsSection"
-			className="px-4 py-16 lg:py-32"
+			data-aos="fade-up"
+			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<header

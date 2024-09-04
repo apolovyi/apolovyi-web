@@ -501,7 +501,7 @@
 				"placeholder": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABNUlEQVR4nHWSWXLEIAwFuf/tZryw73iSW7yUBHhITfLRVS4ErSewaCWj5oiSInIMyNEjEYFwb6LnWkmB99ac0ErCVQuuq+L1avj+uiC6aBz2DtFbBEeY33jDtdlgymuOaDXjagWvq0FMWRcZeKs7RsEN6NtbQi/yKQ4oOaJS2lYgkreItOmWSDgtYfUJqxZojWos1/DunTinKc0QbxmJ+mGjDhh5QMudMczB69xoEQdnEekahlTcyVi2iM4d6twWppzEPXGXGgSakh4tBQi6Gx6Rkq2iY4M8ngureJVqHj/wn0BCo3gMTnbLnpA78cB5M8RU56s4YHh8BUdTjpRdyOlIuCTbn4tsMJJKakz76ZxWsPxIFiH8J5zptoWR8vwQSha6v4X7Z8LtgWPvrEI5hHoR+uDxA1YMDTpXpNyXAAAAAElFTkSuQmCC"
 			},
 			{
-				"category": "Волонтерський проект",
+				"category": "Управління у студентському гуртожитку",
 				"company": "SmartDorm",
 				"description": "Розробив веб-додаток для оптимізації та автоматизації процесів управління в студентському гуртожитку Geschwister Scholl. Мігрував та консолідував дані в центральну базу даних для забезпечення 100% узгодженості даних. Зменшив адміністративну роботу на 35% за допомогою цифровізації та автоматизації. Впровадив CI/CD конвеєр для оптимізації процесу розробки.",
 				"image": "/img/projects/schollheim.png",

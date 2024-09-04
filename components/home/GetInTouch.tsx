@@ -57,8 +57,8 @@ function GetInTouch({ lang }: GetInTouchProps) {
 			data-aos="fade-up"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
-			<div className="flex max-w-5xl flex-col items-center space-y-6">
-				<div className="mx-auto flex w-full flex-col px-4 sm:px-6 lg:px-8">
+			<div className="flex flex-col items-center space-y-6">
+				<div className="mx-auto flex w-full flex-col px-4 sm:px-6 ">
 					<header
 						data-aos="fade-up"
 						className="flex flex-row items-center font-heading"
@@ -73,10 +73,13 @@ function GetInTouch({ lang }: GetInTouchProps) {
 						<div className="h-[0.2px] w-full bg-accent-green"></div>
 					</header>
 				</div>
+				<div className="mx-auto flex max-w-3xl flex-col px-4 sm:px-6 "></div>
 
 				<div className="mt-14 text-center text-3xl font-bold tracking-wide text-text-primary sm:text-5xl">{contactSection.subtitle}</div>
 
-				<p className="text-center font-body text-lg leading-relaxed text-text-secondary md:px-32">{contactSection.content}</p>
+				<p className="mx-auto max-w-4xl text-center font-body text-lg leading-relaxed text-text-secondary md:px-32">
+					{contactSection.content}
+				</p>
 
 				<form
 					name="contactSection"
