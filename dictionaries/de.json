@@ -159,6 +159,42 @@
 	"experienceSection": {
 		"title": "Wo ich gearbeitet habe",
 		"roles": {
+			"Flowable": {
+				"title": "Softwareentwickler",
+				"date": "Oktober 2024 - Heute",
+				"url": "https://www.flowable.com",
+				"tasks": [
+					{
+						"text": "Bewertung von Sicherheitslücken und Implementierung von Sicherheitsmaßnahmen zur Verbesserung der Systemsicherheit und Compliance.",
+						"keywords": [
+							"Sicherheit",
+							"Compliance"
+						]
+					},
+					{
+						"text": "Evaluierung von Aufwand und Komplexität für Systemaktualisierungen und Verbesserungen zur effizienten Ressourcenplanung.",
+						"keywords": [
+							"Systemaktualisierungen",
+							"Projektplanung"
+						]
+					},
+					{
+						"text": "Durchführung technischer Aktualisierungen und Abhängigkeitsverwaltung zur Aufrechterhaltung der Systemintegrität und Leistungsoptimierung.",
+						"keywords": [
+							"technische Aktualisierungen",
+							"Abhängigkeitsverwaltung"
+						]
+					},
+					{
+						"text": "Entwicklung und Modellierung von Geschäftsprozessen mittels BPMN und CMMN zur Schaffung optimierter Workflows und Steigerung der Geschäftseffizienz.",
+						"keywords": [
+							"BPMN",
+							"CMMN",
+							"Geschäftsprozesse"
+						]
+					}
+				]
+			},
 			"TheBicesterCollection": {
 				"title": "Lead Full-Stack-Entwickler",
 				"date": "Juni 2024 - Heute",

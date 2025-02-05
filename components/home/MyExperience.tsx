@@ -12,6 +12,7 @@ interface Company {
 }
 
 const companies: Company[] = [
+	{ name: 'Flowable Mimacom Group', key: 'Flowable' },
 	{ name: 'The Bicester Collection', key: 'TheBicesterCollection' },
 	{ name: 'Virtual Identity AG', key: 'VirtualIdentityAG' },
 	{ name: 'SmartDorm', key: 'SmartDorm' },
@@ -103,10 +104,10 @@ const CompanyButton = ({ company, isActive, onClick, companyName }: CompanyButto
 		onClick={onClick}
 		className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left lg:text-base
       ${
-				isActive
-					? 'bg-accent-coral text-background-primary'
-					: 'text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral'
-			}`}
+			isActive
+				? 'bg-accent-coral text-background-primary'
+				: 'text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral'
+		}`}
 		aria-pressed={isActive}
 	>
 		{companyName}

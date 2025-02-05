@@ -159,6 +159,42 @@
 	"experienceSection": {
 		"title": "Where I've Worked",
 		"roles": {
+			"Flowable": {
+				"title": "Software Engineer",
+				"date": "Oct 2024 - Present",
+				"url": "https://www.flowable.com",
+				"tasks": [
+					{
+						"text": "Assessing solution vulnerabilities and implementing security measures to enhance system security and compliance standards.",
+						"keywords": [
+							"security",
+							"compliance"
+						]
+					},
+					{
+						"text": "Evaluating effort and complexity for system upgrades and enhancements to ensure efficient resource allocation and project planning.",
+						"keywords": [
+							"system upgrades",
+							"project planning"
+						]
+					},
+					{
+						"text": "Performing technical upgrades and dependency management to maintain system integrity and optimize performance.",
+						"keywords": [
+							"technical upgrades",
+							"dependency management"
+						]
+					},
+					{
+						"text": "Designing and modeling sophisticated business processes using BPMN and CMMN to create optimized workflows and enhance business efficiency.",
+						"keywords": [
+							"BPMN",
+							"CMMN",
+							"business processes"
+						]
+					}
+				]
+			},
 			"TheBicesterCollection": {
 				"title": "Lead Full-Stack Engineer",
 				"date": "June 2024 - Present",

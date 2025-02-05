@@ -159,6 +159,42 @@
 	"experienceSection": {
 		"title": "Wo ich gschaffet han",
 		"roles": {
+			"Flowable": {
+				"title": "Softwareentwickler",
+				"date": "Oktober 2024 - Jetzt",
+				"url": "https://www.flowable.com",
+				"tasks": [
+					{
+						"text": "Analysiere vo Sicherheitslücke und Umsetzig vo Sicherheitsmassnahme zum d'System-Sicherheit und Compliance z'verbessere.",
+						"keywords": [
+							"Sicherheit",
+							"Compliance"
+						]
+					},
+					{
+						"text": "Bewertig vom Ufwand und Komplexität vo Systemupdates und Verbesserige für e effizient Ressourceplanig.",
+						"keywords": [
+							"Systemupdates",
+							"Projektplanig"
+						]
+					},
+					{
+						"text": "Durchfüehrig vo technische Updates und Verwaltung vo Abhängigkeite zum d'Systemintegrität z'erhalte und d'Leischtig z'optimiere.",
+						"keywords": [
+							"technischi Updates",
+							"Abhängigkeiteverwaltung"
+						]
+					},
+					{
+						"text": "Entwicklig und Modellierig vo Gschäftsprozäss mit BPMN und CMMN zum optimierti Workflows z'schaffe und d'Gschäftseffizienz z'steigere.",
+						"keywords": [
+							"BPMN",
+							"CMMN",
+							"Gschäftsprozäss"
+						]
+					}
+				]
+			},
 			"TheBicesterCollection": {
 				"title": "Lead Full-Stack Entwickler",
 				"date": "Juni 2024 - Jetzt",
