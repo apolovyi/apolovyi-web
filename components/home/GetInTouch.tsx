@@ -66,7 +66,8 @@ function GetInTouch({ lang }: GetInTouchProps) {
 						<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
 						<div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
 							<span className="font-tech text-xl text-accent-coral"> 04.</span>
-							<h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
+							<h2
+								className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
 								{contactSection.title}
 							</h2>
 						</div>
@@ -75,7 +76,8 @@ function GetInTouch({ lang }: GetInTouchProps) {
 				</div>
 				<div className="mx-auto flex max-w-3xl flex-col px-4 sm:px-6 "></div>
 
-				<div className="mt-14 text-center text-3xl font-bold tracking-wide text-text-primary sm:text-5xl">{contactSection.subtitle}</div>
+				<div
+					className="mt-14 text-center text-3xl font-bold tracking-wide text-text-primary sm:text-5xl">{contactSection.subtitle}</div>
 
 				<p className="mx-auto max-w-4xl text-center font-body text-lg leading-relaxed text-text-secondary md:px-32">
 					{contactSection.content}
@@ -199,7 +201,8 @@ function StatusMessage({ status, lang }: StatusMessageProps) {
 	const message = isSuccess ? contactSection.successMessage : contactSection.errorMessage
 
 	return (
-		<div className={`mt-4 flex items-center rounded-md p-4 ${isSuccess ? 'bg-success bg-opacity-10' : 'bg-error bg-opacity-10'}`}>
+		<div
+			className={`mt-4 flex items-center rounded-md p-4 ${isSuccess ? 'bg-success bg-opacity-10' : 'bg-error bg-opacity-10'}`}>
 			<Icon className={`mr-3 h-5 w-5 ${isSuccess ? 'text-success' : 'text-error'}`} />
 			<span className={`text-sm ${isSuccess ? 'text-success' : 'text-error'}`}>{message}</span>
 		</div>
