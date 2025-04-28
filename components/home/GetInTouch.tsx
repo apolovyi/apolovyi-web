@@ -29,24 +29,29 @@ function GetInTouch({ lang }: GetInTouchProps) {
 		setSubmitStatus('idle')
 
 		const form = event.currentTarget
-		const formData = new FormData(form)
 
 		try {
-			const response = await fetch('/__forms.html', {
+			const formData = new FormData(form)
+
+			fetch('/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(formData as any).toString(),
 			})
-
-			if (response.ok) {
-				setSubmitStatus('success')
-				form.reset()
-			} else {
-				setSubmitStatus('error')
-			}
+				.then(() => {
+					setSubmitStatus('success')
+					form.reset()
+				})
+				.catch((error) => {
+					console.error('Form submission error:', error)
+					setSubmitStatus('error')
+				})
+				.finally(() => {
+					setIsSubmitting(false)
+				})
 		} catch (error) {
+			console.error('Form error:', error)
 			setSubmitStatus('error')
-		} finally {
 			setIsSubmitting(false)
 		}
 	}
@@ -85,16 +90,14 @@ function GetInTouch({ lang }: GetInTouchProps) {
 
 				<form
 					name="contactSection"
+					method="POST"
 					onSubmit={handleSubmit}
 					className="w-full max-w-md space-y-4"
 					data-netlify="true"
-					data-netlify-honeypot="bot-field"
+					netlify-honeypot="bot-field"
 				>
-					<input
-						type="hidden"
-						name="form-name"
-						value="contactSection"
-					/>
+					<input type="hidden" name="form-name" value="contactSection" />
+
 					<div className="hidden">
 						<label>
 							Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
