@@ -25,6 +25,9 @@ function GetInTouch({ lang }: GetInTouchProps) {
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
+		event.stopPropagation()
+
+		console.log('Form submission started')
 		setIsSubmitting(true)
 		setSubmitStatus('idle')
 
@@ -36,24 +39,27 @@ function GetInTouch({ lang }: GetInTouchProps) {
 			// Debug: Log the form data being sent
 			console.log('Form data being sent:')
 			for (let [key, value] of formData.entries()) {
-				console.log(key, value)
+				console.log(`${key}: ${value}`)
 			}
 
+			console.log('Sending fetch request...')
 			const response = await fetch('/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(formData as any).toString(),
 			})
 
+			console.log('Response received')
 			console.log('Response status:', response.status)
-			console.log('Response headers:', response.headers)
+			console.log('Response status text:', response.statusText)
+			console.log('Response URL:', response.url)
+			console.log('Response redirected:', response.redirected)
 
 			if (response.ok) {
 				const responseText = await response.text()
-				console.log('Form submitted successfully')
-				console.log('Success response body:', responseText)
-				console.log('Response URL:', response.url)
-				console.log('Response redirected:', response.redirected)
+				console.log('Form submitted successfully!')
+				console.log('Success response body length:', responseText.length)
+				console.log('Success response body preview:', responseText.substring(0, 500))
 				setSubmitStatus('success')
 				form.reset()
 			} else {
@@ -65,6 +71,7 @@ function GetInTouch({ lang }: GetInTouchProps) {
 			console.error('Form submission error:', error)
 			setSubmitStatus('error')
 		} finally {
+			console.log('Form submission completed')
 			setIsSubmitting(false)
 		}
 	}
