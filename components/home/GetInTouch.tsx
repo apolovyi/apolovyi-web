@@ -60,7 +60,7 @@ function GetInTouch({ lang }: GetInTouchProps) {
 				console.log('Form submitted successfully!')
 				console.log('Success response body length:', responseText.length)
 				console.log('Success response body preview:', responseText.substring(0, 500))
-				setSubmitStatus('success')
+				setSubmitStatus('error')
 				form.reset()
 			} else {
 				const responseText = await response.text()
