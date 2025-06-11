@@ -33,25 +33,22 @@ function GetInTouch({ lang }: GetInTouchProps) {
 		try {
 			const formData = new FormData(form)
 
-			fetch('/', {
+			const response = await fetch('/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(formData as any).toString(),
 			})
-				.then(() => {
-					setSubmitStatus('success')
-					form.reset()
-				})
-				.catch((error) => {
-					console.error('Form submission error:', error)
-					setSubmitStatus('error')
-				})
-				.finally(() => {
-					setIsSubmitting(false)
-				})
+
+			if (response.ok) {
+				setSubmitStatus('success')
+				form.reset()
+			} else {
+				throw new Error(`HTTP error! status: ${response.status}`)
+			}
 		} catch (error) {
-			console.error('Form error:', error)
+			console.error('Form submission error:', error)
 			setSubmitStatus('error')
+		} finally {
 			setIsSubmitting(false)
 		}
 	}
@@ -89,14 +86,14 @@ function GetInTouch({ lang }: GetInTouchProps) {
 				</p>
 
 				<form
-					name="contactSection"
+					name="contact"
 					method="POST"
 					onSubmit={handleSubmit}
 					className="w-full max-w-md space-y-4"
 					data-netlify="true"
-					netlify-honeypot="bot-field"
+					data-netlify-honeypot="bot-field"
 				>
-					<input type="hidden" name="form-name" value="contactSection" />
+					<input type="hidden" name="form-name" value="contact" />
 
 					<div className="hidden">
 						<label>
