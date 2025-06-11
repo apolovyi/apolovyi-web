@@ -33,16 +33,32 @@ function GetInTouch({ lang }: GetInTouchProps) {
 		try {
 			const formData = new FormData(form)
 
+			// Debug: Log the form data being sent
+			console.log('Form data being sent:')
+			for (let [key, value] of formData.entries()) {
+				console.log(key, value)
+			}
+
 			const response = await fetch('/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(formData as any).toString(),
 			})
 
+			console.log('Response status:', response.status)
+			console.log('Response headers:', response.headers)
+
 			if (response.ok) {
+				const responseText = await response.text()
+				console.log('Form submitted successfully')
+				console.log('Success response body:', responseText)
+				console.log('Response URL:', response.url)
+				console.log('Response redirected:', response.redirected)
 				setSubmitStatus('success')
 				form.reset()
 			} else {
+				const responseText = await response.text()
+				console.error('Response error:', responseText)
 				throw new Error(`HTTP error! status: ${response.status}`)
 			}
 		} catch (error) {
@@ -88,6 +104,7 @@ function GetInTouch({ lang }: GetInTouchProps) {
 				<form
 					name="contact"
 					method="POST"
+					action="/"
 					onSubmit={handleSubmit}
 					className="w-full max-w-md space-y-4"
 					data-netlify="true"
@@ -95,9 +112,10 @@ function GetInTouch({ lang }: GetInTouchProps) {
 				>
 					<input type="hidden" name="form-name" value="contact" />
 
-					<div className="hidden">
+					<div style={{ display: 'none' }}>
 						<label>
-							Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+							Don&apos;t fill this out if you&apos;re human:
+							<input name="bot-field" tabIndex={-1} autoComplete="off" />
 						</label>
 					</div>
 
