@@ -43,7 +43,7 @@ function GetInTouch({ lang }: GetInTouchProps) {
 			}
 
 			console.log('Sending fetch request...')
-			const response = await fetch('/', {
+			const response = await fetch('/__forms.html', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(formData as any).toString(),
@@ -52,15 +52,10 @@ function GetInTouch({ lang }: GetInTouchProps) {
 			console.log('Response received')
 			console.log('Response status:', response.status)
 			console.log('Response status text:', response.statusText)
-			console.log('Response URL:', response.url)
-			console.log('Response redirected:', response.redirected)
 
 			if (response.ok) {
-				const responseText = await response.text()
 				console.log('Form submitted successfully!')
-				console.log('Success response body length:', responseText.length)
-				console.log('Success response body preview:', responseText.substring(0, 500))
-				setSubmitStatus('error')
+				setSubmitStatus('success')
 				form.reset()
 			} else {
 				const responseText = await response.text()
