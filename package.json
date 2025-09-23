@@ -12,7 +12,8 @@
     "start": "next start",
     "generate-placeholders": "node scripts/generatePlaceholders.js",
     "lint": "eslint .",
-    "validate:dictionaries": "node scripts/validateDictionaries.js"
+    "validate:dictionaries": "node scripts/validateDictionaries.js",
+    "prepare": "husky"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
@@ -43,6 +44,7 @@
     "eslint": "~8.57.0",
     "eslint-config-next": "^15.5.3",
     "eslint-config-prettier": "~9.1.0",
+    "husky": "^9.1.7",
     "postcss": "~8.4.41",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8",
