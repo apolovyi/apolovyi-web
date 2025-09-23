@@ -1,30 +1,23 @@
 'use client'
 
-import {useEffect, useState} from 'react'
+import {lazy, Suspense, useEffect, useState} from 'react'
 
 import {Locale} from '@/i18n-config'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 
-import Footer from '@/components/footer/Footer'
+// Keep Header and SocialMediaAround eager; lazy-load below-the-fold sections
 import Header from '@/components/header/Header'
-import AboutMe from '@/components/home/AboutMe'
-import GetInTouch from '@/components/home/GetInTouch'
-import HeroSection from '@/components/home/HeroSection'
-import MyExperience from '@/components/home/MyExperience'
-import MyProjects from '@/components/home/MyProjects'
 import SocialMediaAround from '@/components/home/SocialMediaAround'
-import {useAppContext} from '@/components/shared/AppContext'
 
-// // Lazy load all components
-// const Header = lazy(() => import("@/components/header/Header"));
-// const HeroSection = lazy(() => import("@/components/home/HeroSection"));
-// const SocialMediaAround = lazy(() => import("@/components/home/SocialMediaAround"));
-// const AboutMe = lazy(() => import("@/components/home/AboutMe"));
-// const MyExperience = lazy(() => import("@/components/home/MyExperience"));
-// const MyProjects = lazy(() => import("@/components/home/MyProjects"));
-// const GetInTouch = lazy(() => import("@/components/home/GetInTouch"));
-// const Footer = lazy(() => import("@/components/footer/Footer"));
+const HeroSection = lazy(() => import('@/components/home/HeroSection'))
+const AboutMe = lazy(() => import('@/components/home/AboutMe'))
+const MyExperience = lazy(() => import('@/components/home/MyExperience'))
+const MyProjects = lazy(() => import('@/components/home/MyProjects'))
+const GetInTouch = lazy(() => import('@/components/home/GetInTouch'))
+const Footer = lazy(() => import('@/components/footer/Footer'))
+
+import {useAppContext} from '@/components/shared/AppContext'
 
 interface PageProps {
 	params: Promise<{ lang?: Locale }>
@@ -59,18 +52,20 @@ function Home({params}: PageProps) {
 				finishedLoading={sharedState.finishedLoading}
 				lang={lang}
 			/>
-			<HeroSection
-				finishedLoading={sharedState.finishedLoading}
-				lang={lang}
-			/>
+			<Suspense fallback={null}>
+				<HeroSection
+					finishedLoading={sharedState.finishedLoading}
+					lang={lang}
+				/>
+			</Suspense>
 			<SocialMediaAround finishedLoading={sharedState.finishedLoading} />
 			{sharedState.finishedLoading && (
 				<>
-					<AboutMe lang={lang} />
-					<MyExperience lang={lang} />
-					<MyProjects lang={lang} />
-					<GetInTouch lang={lang} />
-					<Footer lang={lang} />
+					<Suspense fallback={null}><AboutMe lang={lang} /></Suspense>
+					<Suspense fallback={null}><MyExperience lang={lang} /></Suspense>
+					<Suspense fallback={null}><MyProjects lang={lang} /></Suspense>
+					<Suspense fallback={null}><GetInTouch lang={lang} /></Suspense>
+					<Suspense fallback={null}><Footer lang={lang} /></Suspense>
 				</>
 			)}
 		</main>

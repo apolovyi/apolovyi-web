@@ -33,14 +33,14 @@ const ibmPlexMono = IBM_Plex_Mono({
 	subsets: ['latin'],
 	variable: '--font-ibm-plex-mono',
 	display: 'swap',
-	weight: ['100', '200', '300', '400', '500', '600', '700'],
+	weight: ['400', '600'],
 })
 
 const merriweather = Merriweather({
 	subsets: ['latin'],
 	variable: '--font-merriweather',
 	display: 'swap',
-	weight: ['300', '400', '700', '900'],
+	weight: ['400', '700'],
 })
 
 export async function generateStaticParams() {
