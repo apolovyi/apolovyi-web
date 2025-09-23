@@ -35,14 +35,60 @@ export interface Project {
   technologies: string[]
 }
 
+export interface MenuItem { id: string; name: string; href: string }
+export interface Header {
+  menuItems: MenuItem[]
+  resumeButton: { text: string; href: string }
+}
+
+export interface HeroSection {
+  name: string
+  greeting: string
+  tagline: string
+  resumeHref: string
+  paragraphs: string[]
+  highlightedTerms: string[]
+  cta: string
+}
+
+export interface AboutMeSection {
+  title: string
+  paragraphs: {
+    intro: string
+    specialization: string
+    mindset: string
+    technologies: string
+  }
+  highlightedTerms: string[]
+}
+
+export interface RoleTask { text: string; keywords: string[] }
+export interface Role { title: string; date: string; url?: string; tasks: RoleTask[] }
+export interface ExperienceSection { title: string; roles: Record<string, Role> }
+
+export interface ProjectsSection { title: string; projects: Project[] }
+
+export interface ContactSection {
+  title: string
+  subtitle: string
+  content: string
+  formLabels: { name: string; email: string; message: string }
+  sendButton: string
+  sending: string
+  successMessage: string
+  errorMessage: string
+}
+
+export interface Footer { rights: string }
+
 export interface Dictionary {
   metadata: Metadata
-  header: any
-  heroSection: any
-  aboutMeSection: any
-  experienceSection: any
-  projectsSection: { title: string; projects: Project[] }
-  contactSection: any
-  footer: { rights: string }
+  header: Header
+  heroSection: HeroSection
+  aboutMeSection: AboutMeSection
+  experienceSection: ExperienceSection
+  projectsSection: ProjectsSection
+  contactSection: ContactSection
+  footer: Footer
 }
 

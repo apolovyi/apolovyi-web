@@ -23,29 +23,70 @@ export const metadataSchema = z.object({
   keywords: z.array(z.string()),
 })
 
-// We validate strictly for metadata and projects, and keep other sections flexible (any)
+// Expanded schema that validates key sections strictly
+const menuItemSchema = z.object({ id: z.string(), name: z.string(), href: z.string() })
+const headerSchema = z.object({
+  menuItems: z.array(menuItemSchema),
+  resumeButton: z.object({ text: z.string(), href: z.string() }),
+})
+
+const heroSectionSchema = z.object({
+  name: z.string(),
+  greeting: z.string(),
+  tagline: z.string(),
+  resumeHref: z.string(),
+  paragraphs: z.array(z.string()),
+  highlightedTerms: z.array(z.string()),
+  cta: z.string(),
+})
+
+const aboutMeSectionSchema = z.object({
+  title: z.string(),
+  paragraphs: z.object({
+    intro: z.string(),
+    specialization: z.string(),
+    mindset: z.string(),
+    technologies: z.string(),
+  }),
+  highlightedTerms: z.array(z.string()),
+})
+
+const roleTaskSchema = z.object({ text: z.string(), keywords: z.array(z.string()) })
+const roleSchema = z.object({ title: z.string(), date: z.string(), url: z.string().optional(), tasks: z.array(roleTaskSchema) })
+const experienceSectionSchema = z.object({ title: z.string(), roles: z.record(z.string(), roleSchema) })
+
+const projectSchema = z.object({
+  category: z.string(),
+  company: z.string(),
+  description: z.string(),
+  role: z.string(),
+  image: z.string(),
+  link: z.string(),
+  placeholder: z.string().optional(),
+  technologies: z.array(z.string()),
+})
+
+const projectsSectionSchema = z.object({ title: z.string(), projects: z.array(projectSchema) })
+
+const contactSectionSchema = z.object({
+  title: z.string(),
+  subtitle: z.string(),
+  content: z.string(),
+  formLabels: z.object({ name: z.string(), email: z.string(), message: z.string() }),
+  sendButton: z.string(),
+  sending: z.string(),
+  successMessage: z.string(),
+  errorMessage: z.string(),
+})
+
 export const dictionarySchema = z.object({
   metadata: metadataSchema,
-  header: z.any(),
-  heroSection: z.any(),
-  aboutMeSection: z.any(),
-  experienceSection: z.any(),
-  projectsSection: z.object({
-    title: z.string(),
-    projects: z.array(
-      z.object({
-        category: z.string(),
-        company: z.string(),
-        description: z.string(),
-        role: z.string(),
-        image: z.string(),
-        link: z.string(),
-        placeholder: z.string().optional(),
-        technologies: z.array(z.string()),
-      }),
-    ),
-  }),
-  contactSection: z.any(),
+  header: headerSchema,
+  heroSection: heroSectionSchema,
+  aboutMeSection: aboutMeSectionSchema,
+  experienceSection: experienceSectionSchema,
+  projectsSection: projectsSectionSchema,
+  contactSection: contactSectionSchema,
   footer: z.object({ rights: z.string() }),
 })
 
