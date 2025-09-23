@@ -29,7 +29,7 @@ export function Button({
 		<Component
 			className={cn('relative overflow-hidden bg-transparent p-[1px]', containerClassName)}
 			style={{
-				borderRadius: borderRadius,
+				borderRadius,
 			}}
 			{...otherProps}
 		>

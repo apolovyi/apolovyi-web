@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { Locale, i18n } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
+import { i18n } from '@/i18n-config'
 import Cookies from 'js-cookie'
 
 export const useDetectLanguage = (currentLang?: Locale) => {

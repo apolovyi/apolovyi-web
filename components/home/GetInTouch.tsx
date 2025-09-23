@@ -2,13 +2,15 @@
 
 import React, { useRef, useState } from 'react'
 
-import { Locale } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import CheckCircleIcon from '@/components/icons/CheckCircleIcon'
 import XCircleIcon from '@/components/icons/XCircleIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useAttachAOS } from '@/components/shared/useAOS'
+
+import { logger } from '@/lib/logger'
 
 type SubmitStatus = 'idle' | 'success' | 'error'
 
@@ -31,7 +33,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 		event.preventDefault()
 		event.stopPropagation()
 
-		console.log('Form submission started')
+		logger.warn('Form submission started')
 		setIsSubmitting(true)
 		setSubmitStatus('idle')
 
@@ -41,9 +43,9 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 			const formData = new FormData(form)
 
 			// Debug: Log the form data being sent
-			console.log('Form data being sent:')
+			logger.warn('Form data being sent:')
 			for (const [key, value] of formData.entries()) {
-				console.log(`${key}: ${value}`)
+				logger.warn(`${key}: ${value}`)
 			}
 
 			// Prepare URL encoded body without any casts
@@ -56,31 +58,31 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 				}
 			})
 
-			console.log('Sending fetch request...')
+			logger.warn('Sending fetch request...')
 			const response = await fetch('/__forms.html', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: params.toString(),
 			})
 
-			console.log('Response received')
-			console.log('Response status:', response.status)
-			console.log('Response status text:', response.statusText)
+			logger.warn('Response received')
+			logger.warn('Response status:', response.status)
+			logger.warn('Response status text:', response.statusText)
 
 			if (response.ok) {
-				console.log('Form submitted successfully!')
+				logger.warn('Form submitted successfully!')
 				setSubmitStatus('success')
 				form.reset()
 			} else {
 				const responseText = await response.text()
-				console.error('Response error:', responseText)
+				logger.error('Response error:', responseText)
 				throw new Error(`HTTP error! status: ${response.status}`)
 			}
 		} catch (error) {
-			console.error('Form submission error:', error)
+			logger.error('Form submission error:', error)
 			setSubmitStatus('error')
 		} finally {
-			console.log('Form submission completed')
+			logger.warn('Form submission completed')
 			setIsSubmitting(false)
 		}
 	}

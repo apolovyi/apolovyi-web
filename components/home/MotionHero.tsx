@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { Locale } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
 import { motion } from 'framer-motion'
 
 import { useDictionary } from '@/components/shared/DictionaryContext'

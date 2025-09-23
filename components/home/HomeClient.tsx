@@ -2,7 +2,7 @@
 
 import { Suspense, lazy, useEffect } from 'react'
 
-import { Locale } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
 import 'aos/dist/aos.css'
 
 // Keep Header and SocialMediaAround eager; lazy-load below-the-fold sections

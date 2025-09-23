@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 
 import Image from 'next/image'
 
-import { Locale } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import ExternalLink from '@/components/icons/ExternalLink'
@@ -109,7 +109,7 @@ export default function MyProjects({ lang: _lang }: MyProjectsProps) {
 		const items = itemRefs.current.filter(Boolean) as HTMLDivElement[]
 		if (!items.length) return
 		items.forEach((el) => el.setAttribute('data-aos', 'fade-up'))
-		import('aos').then((mod) => mod.default.refreshHard())
+		void import('aos').then((mod) => mod.default.refreshHard())
 	}, [projectsSection.projects.length])
 
 	return (

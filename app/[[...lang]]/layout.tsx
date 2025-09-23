@@ -1,8 +1,9 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from 'next/font/google'
 import Script from 'next/script'
 
-import { Locale, i18n } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
+import { i18n } from '@/i18n-config'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 

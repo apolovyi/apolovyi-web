@@ -26,6 +26,12 @@ jobs:
       - name: Validate dictionaries
         run: npm run validate:dictionaries
 
+      - name: Prettier check
+        run: npm run format:check
+
+      - name: Lint (CI strict)
+        run: npm run lint:ci
+
       - name: Build
         run: npm run build
 

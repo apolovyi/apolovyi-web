@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react'
 
-import { Locale } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
 import { motion } from 'framer-motion'
 
 import LanguageSwitcher from '@/components/LanguageSwitcher'

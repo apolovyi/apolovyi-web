@@ -1,4 +1,4 @@
-import { Locale } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
 
 import HomeClient from '@/components/home/HomeClient'
 

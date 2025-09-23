@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Locale } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
 import { motion } from 'framer-motion'
 
 import DesktopMenu from '@/components/header/menu/DesktopMenu'

@@ -1,6 +1,8 @@
 import type { Locale } from '@/i18n-config'
 import 'server-only'
 
+import { logger } from '@/lib/logger'
+
 import { dictionarySchema } from './dictionary.schema'
 import type { Dictionary } from './dictionary.types'
 
@@ -27,7 +29,7 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
 	if (process.env.NODE_ENV !== 'production') {
 		const parsed = dictionarySchema.safeParse(dict)
 		if (!parsed.success) {
-			console.warn('[dictionary] Validation warning for locale', locale, parsed.error.format())
+			logger.warn('[dictionary] Validation warning for locale', locale, parsed.error.format())
 		}
 	}
 

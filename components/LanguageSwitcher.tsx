@@ -4,7 +4,8 @@ import React, { useMemo, useState } from 'react'
 
 import { useRouter } from 'next/navigation'
 
-import { Locale, i18n } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
+import { i18n } from '@/i18n-config'
 import Cookies from 'js-cookie'
 
 import { useDetectLanguage, useOutsideClick } from '@/lib/hooks'

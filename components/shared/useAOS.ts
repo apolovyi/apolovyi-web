@@ -10,7 +10,7 @@ type AOSModule = { default: { init: (opts?: Record<string, unknown>) => void; re
 let aosImportPromise: Promise<AOSModule> | null = null
 
 async function loadAOS(): Promise<AOSModule> {
-	if (!aosImportPromise) aosImportPromise = import('aos') as Promise<AOSModule>
+	if (aosImportPromise === null) aosImportPromise = import('aos') as Promise<AOSModule>
 	return aosImportPromise
 }
 
@@ -36,7 +36,7 @@ export function useAttachAOS<T extends HTMLElement>(
 		if (attrs?.anchorPlacement) el.setAttribute('data-aos-anchor-placement', attrs.anchorPlacement)
 
 		let canceled = false
-		;(async () => {
+		void (async () => {
 			const mod = await loadAOS()
 			if (canceled) return
 			if (!aosInitDone) {

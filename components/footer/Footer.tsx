@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Locale } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
 
 import GithubIcon from '@/components/icons/GithubIcon'
 import InstagramIcon from '@/components/icons/InstagramIcon'

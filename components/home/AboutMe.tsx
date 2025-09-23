@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 
 import Image from 'next/image'
 
-import { Locale } from '@/i18n-config'
+import type { Locale } from '@/i18n-config'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
