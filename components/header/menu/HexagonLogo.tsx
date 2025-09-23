@@ -1,10 +1,5 @@
 import React from 'react'
 
-interface LogoProps {
-	width?: number
-	height?: number
-	color?: string
-}
 
 const HexagonLogo = () => (
 	<svg

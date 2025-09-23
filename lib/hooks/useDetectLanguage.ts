@@ -8,7 +8,8 @@ export const useDetectLanguage = (currentLang?: Locale) => {
 	const [isUS, setIsUS] = useState(false)
 
 	useEffect(() => {
-		const userLanguage = navigator.language || (navigator as any).userLanguage
+		const maybeUserLanguage = (navigator as Record<string, unknown>).userLanguage
+		const userLanguage = typeof maybeUserLanguage === 'string' ? maybeUserLanguage : navigator.language
 		setIsUS(userLanguage.startsWith('en-US'))
 
 		if (!currentLang) {

@@ -27,7 +27,7 @@ export const WavyBackground = ({
 	blur?: number
 	speed?: 'slow' | 'fast'
 	waveOpacity?: number
-	[key: string]: any
+	[key: string]: unknown
 }) => {
 	const canvasRef = useRef<HTMLCanvasElement>(null)
 	const [isSafari, setIsSafari] = useState(false)
@@ -41,13 +41,12 @@ export const WavyBackground = ({
 		let w: number,
 			h: number,
 			nt = 0
-		let ctx: CanvasRenderingContext2D | null
 		let animationId: number
 
 		const canvas = canvasRef.current
 		if (!canvas) return
 
-		ctx = canvas.getContext('2d')
+		const ctx = canvas.getContext('2d')
 		if (!ctx) return
 
 		const drawWave = (n: number) => {

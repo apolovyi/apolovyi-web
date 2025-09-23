@@ -1,4 +1,10 @@
 import type { Locale } from '@/i18n-config'
+import en from '@/dictionaries/en.json'
+import de from '@/dictionaries/de.json'
+import ch from '@/dictionaries/ch.json'
+import uk from '@/dictionaries/uk.json'
+import ru from '@/dictionaries/ru.json'
+
 
 export interface OpenGraphImage {
 	url: string
@@ -121,11 +127,11 @@ interface Dictionary {
 }
 
 const dictionaries: Record<Locale, Dictionary> = {
-	en: require('@/dictionaries/en.json'),
-	de: require('@/dictionaries/de.json'),
-	ch: require('@/dictionaries/ch.json'),
-	uk: require('@/dictionaries/uk.json'),
-	ru: require('@/dictionaries/ru.json'),
+	en,
+	de,
+	ch,
+	uk,
+	ru,
 }
 
 export function getDictionary(locale: Locale): Dictionary {

@@ -82,7 +82,6 @@ const CompaniesBar = ({ companies, activeCompany, setActiveCompany }: CompaniesB
 			{companies.map((company) => (
 				<CompanyButton
 					key={company.key}
-					company={company}
 					isActive={activeCompany === company.key}
 					onClick={() => setActiveCompany(company.key)}
 					companyName={company.name}
@@ -93,13 +92,12 @@ const CompaniesBar = ({ companies, activeCompany, setActiveCompany }: CompaniesB
 }
 
 interface CompanyButtonProps {
-	company: Company
 	isActive: boolean
 	onClick: () => void
 	companyName: string
 }
 
-const CompanyButton = ({ company, isActive, onClick, companyName }: CompanyButtonProps) => (
+const CompanyButton = ({ isActive, onClick, companyName }: CompanyButtonProps) => (
 	<button
 		onClick={onClick}
 		className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left lg:text-base

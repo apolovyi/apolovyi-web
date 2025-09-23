@@ -38,15 +38,25 @@ function GetInTouch({ lang }: GetInTouchProps) {
 
 			// Debug: Log the form data being sent
 			console.log('Form data being sent:')
-			for (let [key, value] of formData.entries()) {
+			for (const [key, value] of formData.entries()) {
 				console.log(`${key}: ${value}`)
 			}
+
+			// Prepare URL encoded body without any casts
+			const params = new URLSearchParams()
+			formData.forEach((value, key) => {
+				if (typeof value === 'string') {
+					params.append(key, value)
+				} else {
+					params.append(key, value.name)
+				}
+			})
 
 			console.log('Sending fetch request...')
 			const response = await fetch('/__forms.html', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-				body: new URLSearchParams(formData as any).toString(),
+				body: params.toString(),
 			})
 
 			console.log('Response received')
