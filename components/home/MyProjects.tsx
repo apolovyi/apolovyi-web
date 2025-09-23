@@ -33,13 +33,8 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 							width={800}
 							height={400}
 							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-							style={{
-								objectFit: 'contain',
-								objectPosition: 'center',
-							}}
-							className="h-auto w-full rounded-lg p-4"
+							className="h-auto w-full rounded-lg p-4 object-contain object-center"
 							priority={false}
-							quality={100}
 							placeholder="blur"
 							blurDataURL={project.placeholder}
 						/>
