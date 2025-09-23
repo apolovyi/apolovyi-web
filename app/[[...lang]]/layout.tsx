@@ -44,7 +44,10 @@ const merriweather = Merriweather({
 })
 
 export async function generateStaticParams() {
-	return i18n.locales.map((locale) => ({lang: [locale]}))
+	return [
+		{ lang: [] },
+		...i18n.locales.map((locale) => ({ lang: [locale] })),
+	]
 }
 
 export async function generateMetadata({params}: { params: Promise<{ lang: string[] }> }): Promise<Metadata> {

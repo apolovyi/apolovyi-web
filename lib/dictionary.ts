@@ -22,7 +22,7 @@ export interface Metadata {
 	openGraph: {
 		title: string
 		description: string
-		url: string
+		url?: string
 		siteName: string
 		images: OpenGraphImage[]
 	}
@@ -78,9 +78,19 @@ interface Header {
 interface ExperienceSection {
 	title: string
 	roles: {
-		[key: string]: Company
+		[key: string]: Role
 	}
 }
+interface Role {
+	title: string
+	date: string
+	url?: string
+	tasks: {
+		text: string
+		keywords: string[]
+	}[]
+}
+
 interface Company {
 	name: string
 	title: string

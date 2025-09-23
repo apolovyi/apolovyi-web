@@ -140,14 +140,16 @@ const JobDescription = ({ company, lang }: JobDescriptionProps) => {
 					</span>
 				</div>
 				<p className="mt-2 font-tech text-sm text-text-secondary">{job.date}</p>
-				<a
-					href={job.url}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="font-tech text-xs text-accent-coral hover:underline"
-				>
-					{job.url}
-				</a>
+				{job.url ? (
+					<a
+						href={job.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="font-tech text-xs text-accent-coral hover:underline"
+					>
+						{job.url}
+					</a>
+				) : null}
 			</div>
 			<ul className="space-y-2">
 				{job.tasks.map((task: { text: string; keywords: string[] }, index: number) => (
