@@ -14,7 +14,8 @@ import {AppProvider} from '@/components/shared/AppContext'
 
 import {Analytics} from '@vercel/analytics/react'
 
-import {getDictionary} from '@/lib/dictionary'
+import { getDictionary as getServerDictionary } from '@/lib/dictionary.server'
+import { DictionaryProvider } from '@/components/shared/DictionaryContext'
 
 // Fonts
 const comfortaa = Comfortaa({
@@ -53,7 +54,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({params}: { params: Promise<{ lang: string[] }> }): Promise<Metadata> {
 	const resolvedParams = await params
 	const lang = resolvedParams.lang?.[0] || i18n.defaultLocale
-	const dictionary = getDictionary(lang as Locale)
+	const dictionary = await getServerDictionary(lang as Locale)
 	const {metadata} = dictionary
 
 	const baseUrl = 'https://apolovyi.me'
@@ -110,6 +111,7 @@ interface LayoutProps {
 const RootLayout = async ({children, params}: LayoutProps) => {
 	const resolvedParams = await params
 	const lang = (resolvedParams.lang?.[0] || i18n.defaultLocale) as Locale
+	const dictionary = await getServerDictionary(lang)
 
 	return (
 		<html
@@ -120,7 +122,9 @@ const RootLayout = async ({children, params}: LayoutProps) => {
 		<WebVitals />
 		<Analytics />
 		<LanguageDetector />
-		<AppProvider>{children}</AppProvider>
+		<DictionaryProvider dictionary={dictionary}>
+			<AppProvider>{children}</AppProvider>
+		</DictionaryProvider>
 		<StructuredData />
 		<SpeedInsights />
 		<Script

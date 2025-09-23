@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
 
-import { getDictionary } from '@/lib/dictionary'
+import { useDictionary } from '@/components/shared/DictionaryContext'
 
 interface MobileMenuProps {
 	lang: Locale
@@ -14,8 +14,7 @@ interface MobileMenuProps {
 
 const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 	const { rotate, setRotate, setShowElement } = useHeaderContext()
-	const dictionary = getDictionary(lang)
-	const { header } = dictionary
+	const { header } = useDictionary()
 
 	const closeMenu = useCallback(() => {
 		setRotate((prev) => !prev)

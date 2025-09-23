@@ -6,7 +6,7 @@ import GithubIcon from '@/components/icons/GithubIcon'
 import InstagramIcon from '@/components/icons/InstagramIcon'
 import LinkedinIcon from '@/components/icons/LinkedinIcon'
 
-import { getDictionary } from '@/lib/dictionary'
+import { useDictionary } from '@/components/shared/DictionaryContext'
 
 type IconComponent = React.ComponentType<{ className?: string }>
 
@@ -38,7 +38,7 @@ interface FooterProps {
 }
 
 const Footer = ({ lang }: FooterProps) => {
-	const dict = getDictionary(lang)
+	const dict = useDictionary()
 	const { footer } = dict
 	const currentYear = new Date().getFullYear()
 

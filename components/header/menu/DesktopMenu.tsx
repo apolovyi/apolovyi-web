@@ -7,7 +7,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher'
 import {scrollToSection, useHeaderContext} from '@/components/header/menu/HeaderContext'
 import {HoverUnderlineFromLeftToRight} from '@/components/shared/HoverAnimation'
 
-import {getDictionary} from '@/lib/dictionary'
+import { useDictionary } from '@/components/shared/DictionaryContext'
 
 const containerVariants: Variants = {
 	hidden: {opacity: 0},
@@ -39,8 +39,7 @@ interface DesktopMenuProps {
 
 function DesktopMenu({lang}: DesktopMenuProps) {
 	const {finishedLoading} = useHeaderContext()
-	const dictionary = getDictionary(lang)
-	const {header} = dictionary
+	const { header } = useDictionary()
 
 	const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
 		e.preventDefault()

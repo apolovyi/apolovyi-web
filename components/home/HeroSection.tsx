@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
 
-import { getDictionary } from '@/lib/dictionary'
+import { useDictionary } from '@/components/shared/DictionaryContext'
 
 const AnimatedText = ({ delay, children, className }) => (
 	<motion.div
@@ -31,7 +31,7 @@ interface HeroSectionProps {
 
 const HeroSection = ({ finishedLoading, lang }: HeroSectionProps) => {
 	const baseDelay = finishedLoading ? 0 : 6.4
-	const dictionary = getDictionary(lang)
+	const dictionary = useDictionary()
 	const { heroSection } = dictionary
 
 	const highlightText = (text: string, terms: string[]) => {

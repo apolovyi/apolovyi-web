@@ -9,7 +9,7 @@ import IconMenu from '@/components/header/menu/IconMenu'
 import Logo from '@/components/header/menu/Logo'
 import MobileMenu from '@/components/header/menu/MobileMenu'
 
-import { getDictionary } from '@/lib/dictionary'
+import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useScrollDetection } from '@/lib/hooks'
 
 interface HeaderProps {
@@ -20,8 +20,7 @@ interface HeaderProps {
 const useHeaderState = (finishedLoading: boolean, lang: Locale) => {
 	const [showElement, setShowElement] = useState(true)
 	const [rotate, setRotate] = useState(false)
-	const dictionary = getDictionary(lang)
-	const { header } = dictionary
+	const { header } = useDictionary()
 
 	return {
 		rotate,

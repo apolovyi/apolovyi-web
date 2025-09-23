@@ -7,7 +7,8 @@ import { Locale } from '@/i18n-config'
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import ExternalLink from '@/components/icons/ExternalLink'
 
-import { Project, getDictionary } from '@/lib/dictionary'
+import type { Project } from '@/lib/dictionary.types'
+import { useDictionary } from '@/components/shared/DictionaryContext'
 
 interface ProjectItemProps {
 	project: Project
@@ -96,7 +97,7 @@ interface MyProjectsProps {
 }
 
 export default function MyProjects({ lang }: MyProjectsProps) {
-	const dict = getDictionary(lang)
+	const dict = useDictionary()
 	const { projectsSection } = dict
 
 	return (

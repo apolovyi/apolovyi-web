@@ -8,7 +8,7 @@ import ArrowIcon from '@/components/icons/ArrowIcon'
 import CheckCircleIcon from '@/components/icons/CheckCircleIcon'
 import XCircleIcon from '@/components/icons/XCircleIcon'
 
-import { getDictionary } from '@/lib/dictionary'
+import { useDictionary } from '@/components/shared/DictionaryContext'
 
 type SubmitStatus = 'idle' | 'success' | 'error'
 
@@ -20,7 +20,7 @@ function GetInTouch({ lang }: GetInTouchProps) {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
 
-	const dictionary = getDictionary(lang)
+	const dictionary = useDictionary()
 	const { contactSection } = dictionary
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -167,10 +167,7 @@ function GetInTouch({ lang }: GetInTouchProps) {
 				</form>
 
 				{submitStatus !== 'idle' && (
-					<StatusMessage
-						status={submitStatus}
-						lang={lang}
-					/>
+					<StatusMessage status={submitStatus} />
 				)}
 			</div>
 		</section>
@@ -219,11 +216,10 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 
 interface StatusMessageProps {
 	status: 'success' | 'error'
-	lang: Locale
 }
 
-function StatusMessage({ status, lang }: StatusMessageProps) {
-	const dictionary = getDictionary(lang)
+function StatusMessage({ status }: StatusMessageProps) {
+	const dictionary = useDictionary()
 	const { contactSection } = dictionary
 
 	const isSuccess = status === 'success'

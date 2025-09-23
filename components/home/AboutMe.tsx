@@ -6,7 +6,7 @@ import { Locale } from '@/i18n-config'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 
-import { getDictionary } from '@/lib/dictionary'
+import { useDictionary } from '@/components/shared/DictionaryContext'
 
 const technologies = [
 	['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'Next.js'],
@@ -73,7 +73,7 @@ const ProfileImage = () => (
 )
 
 const AboutMe = ({ lang }: AboutMeProps) => {
-	const { aboutMeSection } = getDictionary(lang)
+	const { aboutMeSection } = useDictionary()
 
 	const highlightTerms = (text: string) => {
 		let highlightedText = text

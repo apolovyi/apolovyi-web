@@ -4,7 +4,7 @@ import { Locale } from '@/i18n-config'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 
-import { getDictionary } from '@/lib/dictionary'
+import { useDictionary } from '@/components/shared/DictionaryContext'
 
 interface Company {
 	name: string
@@ -27,7 +27,7 @@ interface MyExperienceProps {
 }
 
 const MyExperience = ({ lang }: MyExperienceProps) => {
-	const dictionary = getDictionary(lang)
+	const dictionary = useDictionary()
 	const experienceSectionTitle = dictionary.experienceSection.title
 	const [activeCompany, setActiveCompany] = useState(companies[0].key)
 
@@ -118,7 +118,7 @@ interface JobDescriptionProps {
 }
 
 const JobDescription = ({ company, lang }: JobDescriptionProps) => {
-	const dictionary = getDictionary(lang)
+	const dictionary = useDictionary()
 	const job = dictionary.experienceSection.roles[company as keyof typeof dictionary.experienceSection.roles]
 
 	const highlightKeywords = (text: string, keywords: string[]) => {
