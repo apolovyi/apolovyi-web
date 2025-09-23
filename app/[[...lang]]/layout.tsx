@@ -1,20 +1,20 @@
-import { Metadata } from 'next'
-import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from 'next/font/google'
+import {Metadata} from 'next'
+import {Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand} from 'next/font/google'
 import Script from 'next/script'
 
-import { i18n, Locale } from '@/i18n-config'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import {i18n, Locale} from '@/i18n-config'
+import {SpeedInsights} from '@vercel/speed-insights/next'
 
 import '@/app/globals.css'
 
 import LanguageDetector from '@/components/LanguageDetector'
 import StructuredData from '@/components/StructuredData'
-import { WebVitals } from '@/components/WebVitals'
-import { AppProvider } from '@/components/shared/AppContext'
+import {WebVitals} from '@/components/WebVitals'
+import {AppProvider} from '@/components/shared/AppContext'
 
-import { Analytics } from '@vercel/analytics/react'
+import {Analytics} from '@vercel/analytics/react'
 
-import { getDictionary } from '@/lib/dictionary'
+import {getDictionary} from '@/lib/dictionary'
 
 // Fonts
 const comfortaa = Comfortaa({
@@ -44,13 +44,14 @@ const merriweather = Merriweather({
 })
 
 export async function generateStaticParams() {
-	return i18n.locales.map((locale) => ({ lang: [locale] }))
+	return i18n.locales.map((locale) => ({lang: [locale]}))
 }
 
-export function generateMetadata({ params }: { params: { lang: string[] } }): Metadata {
-	const lang = params.lang?.[0] || i18n.defaultLocale
+export async function generateMetadata({params}: { params: Promise<{ lang: string[] }> }): Promise<Metadata> {
+	const resolvedParams = await params
+	const lang = resolvedParams.lang?.[0] || i18n.defaultLocale
 	const dictionary = getDictionary(lang as Locale)
-	const { metadata } = dictionary
+	const {metadata} = dictionary
 
 	const baseUrl = 'https://apolovyi.me'
 	const currentPath = lang === i18n.defaultLocale ? '' : `/${lang}`
@@ -78,11 +79,11 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
 		},
 		icons: {
 			icon: [
-				{ url: '/fav/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-				{ url: '/fav/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+				{url: '/fav/favicon-16x16.png', sizes: '16x16', type: 'image/png'},
+				{url: '/fav/favicon-32x32.png', sizes: '32x32', type: 'image/png'},
 			],
-			apple: [{ url: '/fav/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
-			other: [{ rel: 'mask-icon', url: '/fav/safari-pinned-tab.svg', color: '#5bbad5' }],
+			apple: [{url: '/fav/apple-touch-icon.png', sizes: '180x180', type: 'image/png'}],
+			other: [{rel: 'mask-icon', url: '/fav/safari-pinned-tab.svg', color: '#5bbad5'}],
 		},
 		alternates: {
 			canonical: fullUrl,
@@ -98,8 +99,14 @@ export function generateMetadata({ params }: { params: { lang: string[] } }): Me
 	}
 }
 
-const RootLayout = ({ children, params }: { children: React.ReactNode; params: { lang: string[] } }) => {
-	const lang = (params.lang?.[0] || i18n.defaultLocale) as Locale
+interface LayoutProps {
+	children: React.ReactNode
+	params: Promise<{ lang: string[] }>
+}
+
+const RootLayout = async ({children, params}: LayoutProps) => {
+	const resolvedParams = await params
+	const lang = (resolvedParams.lang?.[0] || i18n.defaultLocale) as Locale
 
 	return (
 		<html
@@ -116,7 +123,6 @@ const RootLayout = ({ children, params }: { children: React.ReactNode; params: {
 		<Script
 			src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"
 			strategy="afterInteractive"
-			defer
 		/>
 		</body>
 		</html>

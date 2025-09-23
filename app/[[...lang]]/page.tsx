@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect } from 'react'
+import {useEffect, useState} from 'react'
 
-import { Locale } from '@/i18n-config'
+import {Locale} from '@/i18n-config'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 
@@ -14,7 +14,7 @@ import HeroSection from '@/components/home/HeroSection'
 import MyExperience from '@/components/home/MyExperience'
 import MyProjects from '@/components/home/MyProjects'
 import SocialMediaAround from '@/components/home/SocialMediaAround'
-import { useAppContext } from '@/components/shared/AppContext'
+import {useAppContext} from '@/components/shared/AppContext'
 
 // // Lazy load all components
 // const Header = lazy(() => import("@/components/header/Header"));
@@ -26,19 +26,31 @@ import { useAppContext } from '@/components/shared/AppContext'
 // const GetInTouch = lazy(() => import("@/components/home/GetInTouch"));
 // const Footer = lazy(() => import("@/components/footer/Footer"));
 
-function Home({ params: { lang = 'en' } }: { params: { lang?: Locale } }) {
-	const { sharedState, setSharedState } = useAppContext()
+interface PageProps {
+	params: Promise<{ lang?: Locale }>
+}
+
+function Home({params}: PageProps) {
+	const [lang, setLang] = useState<Locale>('en')
+	const {sharedState, setSharedState} = useAppContext()
+
+	// Resolve params in useEffect since this is a client component
+	useEffect(() => {
+		params.then((resolvedParams) => {
+			setLang(resolvedParams.lang ?? 'en')
+		})
+	}, [params])
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			setSharedState((prevState) => ({ ...prevState, finishedLoading: true }))
+			setSharedState((prevState) => ({...prevState, finishedLoading: true}))
 		}, 4940)
 
 		return () => clearTimeout(timer)
 	}, [setSharedState])
 
 	useEffect(() => {
-		Aos.init({ duration: 1000, once: true })
+		Aos.init({duration: 1000, once: true})
 	}, [])
 
 	return (
