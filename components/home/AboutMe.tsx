@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { Locale } from '@/i18n-config'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
-
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useAttachAOS } from '@/components/shared/useAOS'
 
@@ -42,7 +41,8 @@ type SectionHeaderProps = {
 }
 
 const SectionHeader = ({ title, aosRef }: SectionHeaderProps) => (
-	<header ref={aosRef}
+	<header
+		ref={aosRef}
 		className="flex flex-row items-center font-heading"
 	>
 		<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
@@ -55,7 +55,7 @@ const SectionHeader = ({ title, aosRef }: SectionHeaderProps) => (
 )
 
 const ProfileImage = () => (
-	<div className="relative mx-auto h-60 w-60 sm:h-80 sm:w-80 ">
+	<div className="relative mx-auto h-60 w-60 sm:h-80 sm:w-80">
 		<div className="group absolute inset-0">
 			<div className="absolute h-full w-full translate-x-5 translate-y-5 rounded border-2 border-accent-coral transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
 			<div className="absolute h-full w-full overflow-hidden rounded">
@@ -73,13 +73,12 @@ const ProfileImage = () => (
 	</div>
 )
 
-const AboutMe = ({ lang }: AboutMeProps) => {
+const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 	const { aboutMeSection } = useDictionary()
-		const sectionRef = useRef<HTMLElement>(null)
-		const headerRef = useRef<HTMLElement>(null)
-		useAttachAOS(sectionRef, 'fade-up')
-		useAttachAOS(headerRef, 'fade-up')
-
+	const sectionRef = useRef<HTMLElement>(null)
+	const headerRef = useRef<HTMLElement>(null)
+	useAttachAOS(sectionRef, 'fade-up')
+	useAttachAOS(headerRef, 'fade-up')
 
 	const highlightTerms = (text: string) => {
 		let highlightedText = text
@@ -96,12 +95,16 @@ const AboutMe = ({ lang }: AboutMeProps) => {
 	}
 
 	return (
-		<section ref={sectionRef}
+		<section
+			ref={sectionRef}
 			id="aboutSection"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
-				<SectionHeader title={aboutMeSection.title} aosRef={headerRef} />
+				<SectionHeader
+					title={aboutMeSection.title}
+					aosRef={headerRef}
+				/>
 
 				<div className="mt-8 flex flex-col items-start lg:flex-row lg:space-x-12">
 					<div className="w-full lg:w-3/5">

@@ -9,7 +9,7 @@ module.exports = {
 	singleAttributePerLine: true,
 	printWidth: 140,
 	tabWidth: 2,
-	plugins: [require('@trivago/prettier-plugin-sort-imports'), require('prettier-plugin-tailwindcss')],
+	plugins: ['@trivago/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
 	arrowParens: 'always',
 	quoteProps: 'consistent',
 	importOrder: [

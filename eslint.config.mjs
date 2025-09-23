@@ -15,10 +15,15 @@ const config = [
   ...compat.config({
     extends: ['next/core-web-vitals', 'prettier'],
   }),
-  // Apply Next TypeScript rules only to TS/TSX files
+  // Apply Next TypeScript rules only to TS/TSX files and tweak a few rules
   ...compat.config({ extends: ['next/typescript'] }).map((cfg) => ({
     ...cfg,
     files: ['**/*.ts', '**/*.tsx'],
+    rules: {
+      ...cfg.rules,
+      // Allow intentionally unused variables prefixed with _
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+    },
   })),
 ]
 

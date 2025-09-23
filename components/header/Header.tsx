@@ -8,8 +8,8 @@ import { HeaderContext } from '@/components/header/menu/HeaderContext'
 import IconMenu from '@/components/header/menu/IconMenu'
 import Logo from '@/components/header/menu/Logo'
 import MobileMenu from '@/components/header/menu/MobileMenu'
-
 import { useDictionary } from '@/components/shared/DictionaryContext'
+
 import { useScrollDetection } from '@/lib/hooks'
 
 interface HeaderProps {

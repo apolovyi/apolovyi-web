@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-import {cn} from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 interface HoverUnderlineProps {
 	children: React.ReactNode
 	className?: string
 }
 
-const HoverUnderlineFromCenterToSides = ({children, className}: HoverUnderlineProps): React.ReactElement => {
+const HoverUnderlineFromCenterToSides = ({ children, className }: HoverUnderlineProps): React.ReactElement => {
 	return (
 		<div className="group relative text-base uppercase leading-8 tracking-widest">
 			{children}
@@ -21,7 +21,7 @@ const HoverUnderlineFromCenterToSides = ({children, className}: HoverUnderlinePr
 	)
 }
 
-const HoverUnderlineFromLeftToRight = ({children, className}: HoverUnderlineProps): React.ReactElement => {
+const HoverUnderlineFromLeftToRight = ({ children, className }: HoverUnderlineProps): React.ReactElement => {
 	return (
 		<div className="group relative text-base uppercase leading-8 tracking-widest">
 			{children}
@@ -35,4 +35,4 @@ const HoverUnderlineFromLeftToRight = ({children, className}: HoverUnderlineProp
 	)
 }
 
-export {HoverUnderlineFromCenterToSides, HoverUnderlineFromLeftToRight}
+export { HoverUnderlineFromCenterToSides, HoverUnderlineFromLeftToRight }

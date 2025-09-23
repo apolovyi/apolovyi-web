@@ -5,7 +5,6 @@ import { Locale } from '@/i18n-config'
 import GithubIcon from '@/components/icons/GithubIcon'
 import InstagramIcon from '@/components/icons/InstagramIcon'
 import LinkedinIcon from '@/components/icons/LinkedinIcon'
-
 import { useDictionary } from '@/components/shared/DictionaryContext'
 
 type IconComponent = React.ComponentType<{ className?: string }>
@@ -37,7 +36,7 @@ interface FooterProps {
 	lang: Locale
 }
 
-const Footer = ({ lang }: FooterProps) => {
+const Footer = ({ lang: _lang }: FooterProps) => {
 	const dict = useDictionary()
 	const { footer } = dict
 	const currentYear = new Date().getFullYear()

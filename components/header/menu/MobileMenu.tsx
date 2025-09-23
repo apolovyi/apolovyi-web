@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
-
 import { useDictionary } from '@/components/shared/DictionaryContext'
 
 interface MobileMenuProps {

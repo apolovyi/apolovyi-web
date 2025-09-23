@@ -1,13 +1,12 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 import { Locale } from '@/i18n-config'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import CheckCircleIcon from '@/components/icons/CheckCircleIcon'
 import XCircleIcon from '@/components/icons/XCircleIcon'
-
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useAttachAOS } from '@/components/shared/useAOS'
 
@@ -17,17 +16,16 @@ interface GetInTouchProps {
 	lang: Locale
 }
 
-function GetInTouch({ lang }: GetInTouchProps) {
+function GetInTouch({ lang: _lang }: GetInTouchProps) {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
 
 	const dictionary = useDictionary()
 	const { contactSection } = dictionary
-		const sectionRef = useRef<HTMLElement>(null)
-		const headerRef = useRef<HTMLElement>(null)
-		useAttachAOS(sectionRef, 'fade-up')
-		useAttachAOS(headerRef, 'fade-up')
-
+	const sectionRef = useRef<HTMLElement>(null)
+	const headerRef = useRef<HTMLElement>(null)
+	useAttachAOS(sectionRef, 'fade-up')
+	useAttachAOS(headerRef, 'fade-up')
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -88,30 +86,30 @@ function GetInTouch({ lang }: GetInTouchProps) {
 	}
 
 	return (
-		<section ref={sectionRef}
+		<section
+			ref={sectionRef}
 			id="contactSection"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="flex flex-col items-center space-y-6">
-				<div className="mx-auto flex w-full flex-col px-4 sm:px-6 ">
-					<header ref={headerRef}
+				<div className="mx-auto flex w-full flex-col px-4 sm:px-6">
+					<header
+						ref={headerRef}
 						className="flex flex-row items-center font-heading"
 					>
 						<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
 						<div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
 							<span className="font-tech text-xl text-accent-coral"> 04.</span>
-							<h2
-								className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
+							<h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
 								{contactSection.title}
 							</h2>
 						</div>
 						<div className="h-[0.2px] w-full bg-accent-green"></div>
 					</header>
 				</div>
-				<div className="mx-auto flex max-w-3xl flex-col px-4 sm:px-6 "></div>
+				<div className="mx-auto flex max-w-3xl flex-col px-4 sm:px-6"></div>
 
-				<div
-					className="mt-14 text-center text-3xl font-bold tracking-wide text-text-primary sm:text-5xl">{contactSection.subtitle}</div>
+				<div className="mt-14 text-center text-3xl font-bold tracking-wide text-text-primary sm:text-5xl">{contactSection.subtitle}</div>
 
 				<p className="mx-auto max-w-4xl text-center font-body text-lg leading-relaxed text-text-secondary md:px-32">
 					{contactSection.content}
@@ -126,12 +124,20 @@ function GetInTouch({ lang }: GetInTouchProps) {
 					data-netlify="true"
 					data-netlify-honeypot="bot-field"
 				>
-					<input type="hidden" name="form-name" value="contact" />
+					<input
+						type="hidden"
+						name="form-name"
+						value="contact"
+					/>
 
 					<div style={{ display: 'none' }}>
 						<label>
 							Don&apos;t fill this out if you&apos;re human:
-							<input name="bot-field" tabIndex={-1} autoComplete="off" />
+							<input
+								name="bot-field"
+								tabIndex={-1}
+								autoComplete="off"
+							/>
 						</label>
 					</div>
 
@@ -159,20 +165,14 @@ function GetInTouch({ lang }: GetInTouchProps) {
 						<button
 							type="submit"
 							disabled={isSubmitting}
-							className="rounded-md border-2 border-accent-coral px-6 py-2 font-tech text-sm text-accent-coral
-                         transition-all duration-300 ease-in-out
-                         hover:bg-accent-coral hover:bg-opacity-10
-                         focus:outline-none focus:ring-2 focus:ring-accent-coral focus:ring-opacity-50
-                         disabled:opacity-50"
+							className="rounded-md border-2 border-accent-coral px-6 py-2 font-tech text-sm text-accent-coral transition-all duration-300 ease-in-out hover:bg-accent-coral hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-accent-coral focus:ring-opacity-50 disabled:opacity-50"
 						>
 							{isSubmitting ? contactSection.sending : contactSection.sendButton}
 						</button>
 					</div>
 				</form>
 
-				{submitStatus !== 'idle' && (
-					<StatusMessage status={submitStatus} />
-				)}
+				{submitStatus !== 'idle' && <StatusMessage status={submitStatus} />}
 			</div>
 		</section>
 	)
@@ -201,8 +201,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					id={name}
 					required={required}
 					rows={rows}
-					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary
-                     focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
 				/>
 			) : (
 				<input
@@ -210,8 +209,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					name={name}
 					id={name}
 					required={required}
-					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary
-                     focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
 				/>
 			)}
 		</div>
@@ -231,8 +229,7 @@ function StatusMessage({ status }: StatusMessageProps) {
 	const message = isSuccess ? contactSection.successMessage : contactSection.errorMessage
 
 	return (
-		<div
-			className={`mt-4 flex items-center rounded-md p-4 ${isSuccess ? 'bg-success bg-opacity-10' : 'bg-error bg-opacity-10'}`}>
+		<div className={`mt-4 flex items-center rounded-md p-4 ${isSuccess ? 'bg-success bg-opacity-10' : 'bg-error bg-opacity-10'}`}>
 			<Icon className={`mr-3 h-5 w-5 ${isSuccess ? 'text-success' : 'text-error'}`} />
 			<span className={`text-sm ${isSuccess ? 'text-success' : 'text-error'}`}>{message}</span>
 		</div>

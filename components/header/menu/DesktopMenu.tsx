@@ -1,16 +1,15 @@
-import React, {useCallback} from 'react'
+import React, { useCallback } from 'react'
 
-import {Locale} from '@/i18n-config'
-import {motion, Variants} from 'framer-motion'
+import { Locale } from '@/i18n-config'
+import { Variants, motion } from 'framer-motion'
 
 import LanguageSwitcher from '@/components/LanguageSwitcher'
-import {scrollToSection, useHeaderContext} from '@/components/header/menu/HeaderContext'
-import {HoverUnderlineFromLeftToRight} from '@/components/shared/HoverAnimation'
-
+import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { HoverUnderlineFromLeftToRight } from '@/components/shared/HoverAnimation'
 
 const containerVariants: Variants = {
-	hidden: {opacity: 0},
+	hidden: { opacity: 0 },
 	visible: (finishedLoading: boolean) => ({
 		opacity: 1,
 		transition: {
@@ -21,7 +20,7 @@ const containerVariants: Variants = {
 }
 
 const itemVariants: Variants = {
-	hidden: {y: -20, opacity: 0},
+	hidden: { y: -20, opacity: 0 },
 	visible: {
 		y: 0,
 		opacity: 1,
@@ -37,8 +36,8 @@ interface DesktopMenuProps {
 	lang: Locale
 }
 
-function DesktopMenu({lang}: DesktopMenuProps) {
-	const {finishedLoading} = useHeaderContext()
+function DesktopMenu({ lang }: DesktopMenuProps) {
+	const { finishedLoading } = useHeaderContext()
 	const { header } = useDictionary()
 
 	const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {

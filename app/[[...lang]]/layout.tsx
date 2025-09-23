@@ -1,21 +1,20 @@
-import {Metadata} from 'next'
-import {Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand} from 'next/font/google'
+import { Metadata } from 'next'
+import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from 'next/font/google'
 import Script from 'next/script'
 
-import {i18n, Locale} from '@/i18n-config'
-import {SpeedInsights} from '@vercel/speed-insights/next'
+import { Locale, i18n } from '@/i18n-config'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import '@/app/globals.css'
 
 import LanguageDetector from '@/components/LanguageDetector'
 import StructuredData from '@/components/StructuredData'
-import {WebVitals} from '@/components/WebVitals'
-import {AppProvider} from '@/components/shared/AppContext'
-
-import {Analytics} from '@vercel/analytics/react'
+import { WebVitals } from '@/components/WebVitals'
+import { AppProvider } from '@/components/shared/AppContext'
+import { DictionaryProvider } from '@/components/shared/DictionaryContext'
 
 import { getDictionary as getServerDictionary } from '@/lib/dictionary.server'
-import { DictionaryProvider } from '@/components/shared/DictionaryContext'
 
 // Fonts
 const comfortaa = Comfortaa({
@@ -45,17 +44,14 @@ const merriweather = Merriweather({
 })
 
 export async function generateStaticParams() {
-	return [
-		{ lang: [] },
-		...i18n.locales.map((locale) => ({ lang: [locale] })),
-	]
+	return [{ lang: [] }, ...i18n.locales.map((locale) => ({ lang: [locale] }))]
 }
 
-export async function generateMetadata({params}: { params: Promise<{ lang: string[] }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string[] }> }): Promise<Metadata> {
 	const resolvedParams = await params
 	const lang = resolvedParams.lang?.[0] || i18n.defaultLocale
 	const dictionary = await getServerDictionary(lang as Locale)
-	const {metadata} = dictionary
+	const { metadata } = dictionary
 
 	const baseUrl = 'https://apolovyi.me'
 	const currentPath = lang === i18n.defaultLocale ? '' : `/${lang}`
@@ -83,11 +79,11 @@ export async function generateMetadata({params}: { params: Promise<{ lang: strin
 		},
 		icons: {
 			icon: [
-				{url: '/fav/favicon-16x16.png', sizes: '16x16', type: 'image/png'},
-				{url: '/fav/favicon-32x32.png', sizes: '32x32', type: 'image/png'},
+				{ url: '/fav/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+				{ url: '/fav/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
 			],
-			apple: [{url: '/fav/apple-touch-icon.png', sizes: '180x180', type: 'image/png'}],
-			other: [{rel: 'mask-icon', url: '/fav/safari-pinned-tab.svg', color: '#5bbad5'}],
+			apple: [{ url: '/fav/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+			other: [{ rel: 'mask-icon', url: '/fav/safari-pinned-tab.svg', color: '#5bbad5' }],
 		},
 		alternates: {
 			canonical: fullUrl,
@@ -108,7 +104,7 @@ interface LayoutProps {
 	params: Promise<{ lang: string[] }>
 }
 
-const RootLayout = async ({children, params}: LayoutProps) => {
+const RootLayout = async ({ children, params }: LayoutProps) => {
 	const resolvedParams = await params
 	const lang = (resolvedParams.lang?.[0] || i18n.defaultLocale) as Locale
 	const dictionary = await getServerDictionary(lang)
@@ -118,20 +114,20 @@ const RootLayout = async ({children, params}: LayoutProps) => {
 			lang={lang}
 			className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
 		>
-		<body>
-		<WebVitals />
-		<Analytics />
-		<LanguageDetector />
-		<DictionaryProvider dictionary={dictionary}>
-			<AppProvider>{children}</AppProvider>
-		</DictionaryProvider>
-		<StructuredData />
-		<SpeedInsights />
-		<Script
-			src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"
-			strategy="afterInteractive"
-		/>
-		</body>
+			<body>
+				<WebVitals />
+				<Analytics />
+				<LanguageDetector />
+				<DictionaryProvider dictionary={dictionary}>
+					<AppProvider>{children}</AppProvider>
+				</DictionaryProvider>
+				<StructuredData />
+				<SpeedInsights />
+				<Script
+					src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"
+					strategy="afterInteractive"
+				/>
+			</body>
 		</html>
 	)
 }

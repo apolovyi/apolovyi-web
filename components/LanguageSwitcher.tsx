@@ -44,7 +44,7 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
 	}
 
 	const getDisplayName = useMemo(() => (locale: Locale) => i18n.localeNames[locale], [])
-	const getFlag = useMemo(() => (locale: Locale) => locale === 'en' && isUS ? '🇺🇸' : i18n.localeEmojis[locale], [isUS])
+	const getFlag = useMemo(() => (locale: Locale) => (locale === 'en' && isUS ? '🇺🇸' : i18n.localeEmojis[locale]), [isUS])
 
 	return (
 		<div

@@ -1,9 +1,6 @@
-import React, { useState, useRef } from 'react'
-
-import { Locale } from '@/i18n-config'
+import React, { useRef, useState } from 'react'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
-
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useAttachAOS } from '@/components/shared/useAOS'
 
@@ -23,27 +20,24 @@ const companies: Company[] = [
 	{ name: 'SilverTours GmbH', key: 'SilverToursGmbH' },
 ]
 
-interface MyExperienceProps {
-	lang: Locale
-}
-
-const MyExperience = ({ lang }: MyExperienceProps) => {
+const MyExperience = () => {
 	const dictionary = useDictionary()
 	const experienceSectionTitle = dictionary.experienceSection.title
 	const [activeCompany, setActiveCompany] = useState(companies[0].key)
-		const sectionRef = useRef<HTMLElement>(null)
-		const headerRef = useRef<HTMLElement>(null)
-		useAttachAOS(sectionRef, 'fade-up')
-		useAttachAOS(headerRef, 'fade-up')
-
+	const sectionRef = useRef<HTMLElement>(null)
+	const headerRef = useRef<HTMLElement>(null)
+	useAttachAOS(sectionRef, 'fade-up')
+	useAttachAOS(headerRef, 'fade-up')
 
 	return (
-		<section ref={sectionRef}
+		<section
+			ref={sectionRef}
 			id="experienceSection"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
-				<header ref={headerRef}
+				<header
+					ref={headerRef}
 					className="mb-8 flex flex-row items-center font-heading"
 				>
 					<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
@@ -61,12 +55,8 @@ const MyExperience = ({ lang }: MyExperienceProps) => {
 						companies={companies}
 						activeCompany={activeCompany}
 						setActiveCompany={setActiveCompany}
-						lang={lang}
 					/>
-					<JobDescription
-						company={activeCompany}
-						lang={lang}
-					/>
+					<JobDescription company={activeCompany} />
 				</div>
 			</div>
 		</section>
@@ -77,7 +67,6 @@ interface CompaniesBarProps {
 	companies: Company[]
 	activeCompany: string
 	setActiveCompany: (key: string) => void
-	lang: Locale
 }
 
 const CompaniesBar = ({ companies, activeCompany, setActiveCompany }: CompaniesBarProps) => {
@@ -104,8 +93,7 @@ interface CompanyButtonProps {
 const CompanyButton = ({ isActive, onClick, companyName }: CompanyButtonProps) => (
 	<button
 		onClick={onClick}
-		className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left lg:text-base
-      ${
+		className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left lg:text-base ${
 			isActive
 				? 'bg-accent-coral text-background-primary'
 				: 'text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral'
@@ -118,10 +106,9 @@ const CompanyButton = ({ isActive, onClick, companyName }: CompanyButtonProps) =
 
 interface JobDescriptionProps {
 	company: string
-	lang: Locale
 }
 
-const JobDescription = ({ company, lang }: JobDescriptionProps) => {
+const JobDescription = ({ company }: JobDescriptionProps) => {
 	const dictionary = useDictionary()
 	const job = dictionary.experienceSection.roles[company as keyof typeof dictionary.experienceSection.roles]
 

@@ -6,10 +6,10 @@ import { Locale } from '@/i18n-config'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import ExternalLink from '@/components/icons/ExternalLink'
-
-import type { Project } from '@/lib/dictionary.types'
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useAttachAOS } from '@/components/shared/useAOS'
+
+import type { Project } from '@/lib/dictionary.types'
 
 interface ProjectItemProps {
 	project: Project
@@ -35,7 +35,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 							width={800}
 							height={400}
 							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-							className="h-auto w-full rounded-lg p-4 object-contain object-center"
+							className="h-auto w-full rounded-lg object-contain object-center p-4"
 							priority={false}
 							placeholder="blur"
 							blurDataURL={project.placeholder}
@@ -97,29 +97,30 @@ interface MyProjectsProps {
 	lang: Locale
 }
 
-export default function MyProjects({ lang }: MyProjectsProps) {
+export default function MyProjects({ lang: _lang }: MyProjectsProps) {
 	const dict = useDictionary()
 	const { projectsSection } = dict
-		const sectionRef = useRef<HTMLElement>(null)
-		const headerRef = useRef<HTMLElement>(null)
-		useAttachAOS(sectionRef, 'fade-up')
-		useAttachAOS(headerRef, 'fade-up')
-		const itemRefs = useRef<Array<HTMLDivElement | null>>([])
-		useEffect(() => {
-			const items = itemRefs.current.filter(Boolean) as HTMLDivElement[]
-			if (!items.length) return
-			items.forEach((el) => el.setAttribute('data-aos', 'fade-up'))
-			import('aos').then((mod) => mod.default.refreshHard())
-		}, [projectsSection.projects.length])
-
+	const sectionRef = useRef<HTMLElement>(null)
+	const headerRef = useRef<HTMLElement>(null)
+	useAttachAOS(sectionRef, 'fade-up')
+	useAttachAOS(headerRef, 'fade-up')
+	const itemRefs = useRef<Array<HTMLDivElement | null>>([])
+	useEffect(() => {
+		const items = itemRefs.current.filter(Boolean) as HTMLDivElement[]
+		if (!items.length) return
+		items.forEach((el) => el.setAttribute('data-aos', 'fade-up'))
+		import('aos').then((mod) => mod.default.refreshHard())
+	}, [projectsSection.projects.length])
 
 	return (
-		<section ref={sectionRef}
+		<section
+			ref={sectionRef}
 			id="projectsSection"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
-				<header ref={headerRef}
+				<header
+					ref={headerRef}
 					className="mb-12 flex items-center"
 				>
 					<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
@@ -136,7 +137,9 @@ export default function MyProjects({ lang }: MyProjectsProps) {
 					{projectsSection.projects.map((project, index) => (
 						<div
 							key={index}
-							ref={(el) => { itemRefs.current[index] = el }}
+							ref={(el) => {
+								itemRefs.current[index] = el
+							}}
 						>
 							<ProjectItem
 								project={project}

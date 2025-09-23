@@ -1,1 +1,1 @@
-npm run validate:dictionaries
+npx lint-staged && npm run validate:dictionaries

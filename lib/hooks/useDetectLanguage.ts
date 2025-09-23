@@ -20,8 +20,8 @@ export const useDetectLanguage = (currentLang?: Locale) => {
 				detectedLang && i18n.locales.includes(detectedLang)
 					? detectedLang
 					: i18n.locales.includes(browserLang)
-					? browserLang
-					: i18n.defaultLocale,
+						? browserLang
+						: i18n.defaultLocale,
 			)
 		}
 	}, [currentLang])
