@@ -3,7 +3,6 @@
 import {lazy, Suspense, useEffect, useState} from 'react'
 
 import {Locale} from '@/i18n-config'
-import Aos from 'aos'
 import 'aos/dist/aos.css'
 
 // Keep Header and SocialMediaAround eager; lazy-load below-the-fold sections
@@ -34,7 +33,7 @@ export default function HomeClient({ lang }: HomeClientProps) {
   }, [setSharedState])
 
   useEffect(() => {
-    Aos.init({duration: 1000, once: true})
+    import('aos').then((mod) => mod.default.init({ duration: 1000, once: true }))
   }, [])
 
   return (
