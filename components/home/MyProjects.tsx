@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import Image from 'next/image'
 
@@ -9,6 +9,7 @@ import ExternalLink from '@/components/icons/ExternalLink'
 
 import type { Project } from '@/lib/dictionary.types'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { useAttachAOS } from '@/components/shared/useAOS'
 
 interface ProjectItemProps {
 	project: Project
@@ -99,16 +100,26 @@ interface MyProjectsProps {
 export default function MyProjects({ lang }: MyProjectsProps) {
 	const dict = useDictionary()
 	const { projectsSection } = dict
+		const sectionRef = useRef<HTMLElement>(null)
+		const headerRef = useRef<HTMLElement>(null)
+		useAttachAOS(sectionRef, 'fade-up')
+		useAttachAOS(headerRef, 'fade-up')
+		const itemRefs = useRef<Array<HTMLDivElement | null>>([])
+		useEffect(() => {
+			const items = itemRefs.current.filter(Boolean) as HTMLDivElement[]
+			if (!items.length) return
+			items.forEach((el) => el.setAttribute('data-aos', 'fade-up'))
+			import('aos').then((mod) => mod.default.refreshHard())
+		}, [projectsSection.projects.length])
+
 
 	return (
-		<section
+		<section ref={sectionRef}
 			id="projectsSection"
-			data-aos="fade-up"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
-				<header
-					data-aos="fade-up"
+				<header ref={headerRef}
 					className="mb-12 flex items-center"
 				>
 					<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
@@ -125,7 +136,7 @@ export default function MyProjects({ lang }: MyProjectsProps) {
 					{projectsSection.projects.map((project, index) => (
 						<div
 							key={index}
-							data-aos="fade-up"
+							ref={(el) => { itemRefs.current[index] = el }}
 						>
 							<ProjectItem
 								project={project}

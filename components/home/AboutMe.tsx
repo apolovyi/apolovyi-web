@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import Image from 'next/image'
 
@@ -7,6 +7,7 @@ import { Locale } from '@/i18n-config'
 import ArrowIcon from '@/components/icons/ArrowIcon'
 
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { useAttachAOS } from '@/components/shared/useAOS'
 
 const technologies = [
 	['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'Next.js'],
@@ -37,11 +38,11 @@ const TechList = ({ techs }: TechListProps) => (
 
 type SectionHeaderProps = {
 	title: string
+	aosRef?: React.RefObject<HTMLElement>
 }
 
-const SectionHeader = ({ title }: SectionHeaderProps) => (
-	<header suppressHydrationWarning
-		data-aos="fade-up"
+const SectionHeader = ({ title, aosRef }: SectionHeaderProps) => (
+	<header ref={aosRef}
 		className="flex flex-row items-center font-heading"
 	>
 		<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
@@ -74,6 +75,11 @@ const ProfileImage = () => (
 
 const AboutMe = ({ lang }: AboutMeProps) => {
 	const { aboutMeSection } = useDictionary()
+		const sectionRef = useRef<HTMLElement>(null)
+		const headerRef = useRef<HTMLElement>(null)
+		useAttachAOS(sectionRef, 'fade-up')
+		useAttachAOS(headerRef, 'fade-up')
+
 
 	const highlightTerms = (text: string) => {
 		let highlightedText = text
@@ -90,13 +96,12 @@ const AboutMe = ({ lang }: AboutMeProps) => {
 	}
 
 	return (
-		<section suppressHydrationWarning
+		<section ref={sectionRef}
 			id="aboutSection"
-			data-aos="fade-up"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
-				<SectionHeader title={aboutMeSection.title} />
+				<SectionHeader title={aboutMeSection.title} aosRef={headerRef} />
 
 				<div className="mt-8 flex flex-col items-start lg:flex-row lg:space-x-12">
 					<div className="w-full lg:w-3/5">

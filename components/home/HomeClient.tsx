@@ -32,9 +32,6 @@ export default function HomeClient({ lang }: HomeClientProps) {
     return () => clearTimeout(timer)
   }, [setSharedState])
 
-  useEffect(() => {
-    import('aos').then((mod) => mod.default.init({ duration: 1000, once: true }))
-  }, [])
 
   return (
     <main className="relative w-full snap-mandatory bg-background-primary selection:bg-highlight">

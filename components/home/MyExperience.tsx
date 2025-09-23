@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 import { Locale } from '@/i18n-config'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { useAttachAOS } from '@/components/shared/useAOS'
 
 interface Company {
 	name: string
@@ -30,16 +31,19 @@ const MyExperience = ({ lang }: MyExperienceProps) => {
 	const dictionary = useDictionary()
 	const experienceSectionTitle = dictionary.experienceSection.title
 	const [activeCompany, setActiveCompany] = useState(companies[0].key)
+		const sectionRef = useRef<HTMLElement>(null)
+		const headerRef = useRef<HTMLElement>(null)
+		useAttachAOS(sectionRef, 'fade-up')
+		useAttachAOS(headerRef, 'fade-up')
+
 
 	return (
-		<section suppressHydrationWarning
+		<section ref={sectionRef}
 			id="experienceSection"
-			data-aos="fade-up"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
-				<header suppressHydrationWarning
-					data-aos="fade-up"
+				<header ref={headerRef}
 					className="mb-8 flex flex-row items-center font-heading"
 				>
 					<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />

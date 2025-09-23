@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 import { Locale } from '@/i18n-config'
 
@@ -9,6 +9,7 @@ import CheckCircleIcon from '@/components/icons/CheckCircleIcon'
 import XCircleIcon from '@/components/icons/XCircleIcon'
 
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { useAttachAOS } from '@/components/shared/useAOS'
 
 type SubmitStatus = 'idle' | 'success' | 'error'
 
@@ -22,6 +23,11 @@ function GetInTouch({ lang }: GetInTouchProps) {
 
 	const dictionary = useDictionary()
 	const { contactSection } = dictionary
+		const sectionRef = useRef<HTMLElement>(null)
+		const headerRef = useRef<HTMLElement>(null)
+		useAttachAOS(sectionRef, 'fade-up')
+		useAttachAOS(headerRef, 'fade-up')
+
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -82,15 +88,13 @@ function GetInTouch({ lang }: GetInTouchProps) {
 	}
 
 	return (
-		<section suppressHydrationWarning
+		<section ref={sectionRef}
 			id="contactSection"
-			data-aos="fade-up"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="flex flex-col items-center space-y-6">
 				<div className="mx-auto flex w-full flex-col px-4 sm:px-6 ">
-					<header suppressHydrationWarning
-						data-aos="fade-up"
+					<header ref={headerRef}
 						className="flex flex-row items-center font-heading"
 					>
 						<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
