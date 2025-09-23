@@ -40,7 +40,7 @@ type SectionHeaderProps = {
 }
 
 const SectionHeader = ({ title }: SectionHeaderProps) => (
-	<header
+	<header suppressHydrationWarning
 		data-aos="fade-up"
 		className="flex flex-row items-center font-heading"
 	>
@@ -90,7 +90,7 @@ const AboutMe = ({ lang }: AboutMeProps) => {
 	}
 
 	return (
-		<section
+		<section suppressHydrationWarning
 			id="aboutSection"
 			data-aos="fade-up"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"

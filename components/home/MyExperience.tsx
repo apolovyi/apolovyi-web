@@ -32,13 +32,13 @@ const MyExperience = ({ lang }: MyExperienceProps) => {
 	const [activeCompany, setActiveCompany] = useState(companies[0].key)
 
 	return (
-		<section
+		<section suppressHydrationWarning
 			id="experienceSection"
 			data-aos="fade-up"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
-				<header
+				<header suppressHydrationWarning
 					data-aos="fade-up"
 					className="mb-8 flex flex-row items-center font-heading"
 				>

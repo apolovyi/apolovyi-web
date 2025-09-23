@@ -82,14 +82,14 @@ function GetInTouch({ lang }: GetInTouchProps) {
 	}
 
 	return (
-		<section
+		<section suppressHydrationWarning
 			id="contactSection"
 			data-aos="fade-up"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="flex flex-col items-center space-y-6">
 				<div className="mx-auto flex w-full flex-col px-4 sm:px-6 ">
-					<header
+					<header suppressHydrationWarning
 						data-aos="fade-up"
 						className="flex flex-row items-center font-heading"
 					>

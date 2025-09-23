@@ -118,7 +118,7 @@ const RootLayout = async ({children, params}: LayoutProps) => {
 			lang={lang}
 			className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
 		>
-		<body>
+		<body suppressHydrationWarning>
 		<WebVitals />
 		<Analytics />
 		<LanguageDetector />
