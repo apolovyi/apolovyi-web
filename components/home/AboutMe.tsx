@@ -1,8 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import type { Locale } from '@/i18n-config'
 import { animate } from 'motion'
-import type { DOMKeyframesDefinition } from 'motion'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
@@ -54,33 +53,63 @@ const SectionHeader = ({ title, aosRef }: SectionHeaderProps) => (
 	</header>
 )
 
-const ProfileImage = () => (
-	<div className="relative mx-auto h-60 w-60 sm:h-80 sm:w-80">
-		<div className="group absolute inset-0">
-			<div className="absolute h-full w-full translate-x-5 translate-y-5 rounded border-2 border-accent-coral transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
-			<div className="absolute h-full w-full overflow-hidden rounded">
-				<div className="absolute inset-0 bg-accent-coral opacity-10 transition-opacity duration-300 group-hover:opacity-0"></div>
-				<picture>
-					<source
-						srcSet="/img/me-bg.avif"
-						type="image/avif"
-					/>
-					<source
-						srcSet="/img/me-bg.webp"
-						type="image/webp"
-					/>
-					<img
-						src="/img/me-bg.jpg"
-						alt="Artem Polovyi"
-						loading="lazy"
-						className="absolute inset-0 h-full w-full rounded object-cover opacity-0"
-						onLoad={(e) => animate(e.currentTarget as HTMLImageElement, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
-					/>
-				</picture>
+const ProfileImage = () => {
+	const imgRef = useRef<HTMLImageElement>(null)
+
+	useEffect(() => {
+		const img = imgRef.current
+		if (!img) return
+
+		const fadeIn = () => {
+			// @ts-expect-error Motion One supports object keyframes at runtime
+			animate(
+				img,
+				{ opacity: [0, 1] },
+				{
+					duration: 0.35,
+					easing: 'ease-out',
+					fill: 'forwards',
+				},
+			)
+		}
+
+		if (img.complete && img.naturalWidth > 0) {
+			fadeIn()
+		} else {
+			img.addEventListener('load', fadeIn, { once: true })
+			return () => img.removeEventListener('load', fadeIn)
+		}
+	}, [])
+
+	return (
+		<div className="relative mx-auto h-60 w-60 sm:h-80 sm:w-80">
+			<div className="group absolute inset-0">
+				<div className="absolute h-full w-full translate-x-5 translate-y-5 rounded border-2 border-accent-coral transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
+				<div className="absolute h-full w-full overflow-hidden rounded">
+					<div className="absolute inset-0 bg-accent-coral opacity-10 transition-opacity duration-300 group-hover:opacity-0"></div>
+					<picture>
+						<source
+							srcSet="/img/me-bg.avif"
+							type="image/avif"
+						/>
+						<source
+							srcSet="/img/me-bg.webp"
+							type="image/webp"
+						/>
+						<img
+							ref={imgRef}
+							src="/img/me-bg.jpg"
+							alt="Artem Polovyi"
+							loading="lazy"
+							decoding="async"
+							className="absolute inset-0 h-full w-full rounded object-cover opacity-0"
+						/>
+					</picture>
+				</div>
 			</div>
 		</div>
-	</div>
-)
+	)
+}
 
 const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 	const { aboutMeSection } = useDictionary()
