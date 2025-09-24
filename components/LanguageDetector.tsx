@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation'
 
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
-import Cookies from 'js-cookie'
 
+import { getCookie, setCookie } from '@/lib/cookies'
 import { logger } from '@/lib/logger'
 
 export default function LanguageDetector() {
@@ -16,17 +16,17 @@ export default function LanguageDetector() {
 
 	useEffect(() => {
 		const setLanguageInCookie = () => {
-			const existingLang = Cookies.get('detectedLang')
+			const existingLang = getCookie('detectedLang')
 
 			// Only set the language if it's not already in the cookie
 			if (!existingLang) {
 				const currentLocale = pathname.split('/')[1] as Locale
 				if (i18n.locales.includes(currentLocale)) {
 					logger.warn(`[LanguageDetector] set locale: ${currentLocale}`)
-					Cookies.set('detectedLang', currentLocale, { expires: 365 }) // Set cookie to expire in 1 year
+					setCookie('detectedLang', currentLocale, { expires: 365 })
 				} else {
 					const defaultLocale = i18n.defaultLocale
-					Cookies.set('detectedLang', defaultLocale, { expires: 365 })
+					setCookie('detectedLang', defaultLocale, { expires: 365 })
 					logger.warn(`[LanguageDetector] set locale by default: ${defaultLocale}`)
 				}
 			}
