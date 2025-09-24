@@ -16,7 +16,8 @@
 		"lint:fix": "eslint . --fix",
 		"lint:ci": "eslint . --max-warnings=0",
 		"validate:dictionaries": "node scripts/validateDictionaries.js",
-		"prepare": "husky"
+		"prepare": "husky",
+		"lint-staged": "lint-staged --concurrent 4"
 	},
 	"dependencies": {
 		"@vercel/analytics": "^1.5.0",
@@ -59,11 +60,11 @@
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
-			"eslint --fix",
-			"prettier --write"
+			"eslint --fix --cache --cache-location .eslintcache",
+			"prettier --cache --cache-location .prettier-cache --write"
 		],
 		"*.{css,md,json}": [
-			"prettier --write"
+			"prettier --cache --cache-location .prettier-cache --write"
 		]
 	},
 	"browserslist": {

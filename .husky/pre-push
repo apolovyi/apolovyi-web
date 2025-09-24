@@ -1,6 +1,30 @@
 #!/bin/sh
 set -e
 
+# Skip LHCI unless relevant paths changed in the push range
+# Read refs from stdin provided by Git
+read local_ref local_sha remote_ref remote_sha
+
+# Default: if remote_sha is all zeros (new branch), compare against empty tree
+if [ "$remote_sha" = "0000000000000000000000000000000000000000" ] || [ -z "$remote_sha" ]; then
+  base_tree=$(git hash-object -t tree /dev/null)
+  CHANGED_FILES=$(git diff --name-only "$base_tree" "$local_sha")
+else
+  CHANGED_FILES=$(git diff --name-only "$remote_sha" "$local_sha")
+fi
+
+# Define relevant patterns for site affecting changes
+RELEVANT_REGEX='^(app/|components/|public/|styles/|lib/|next\.config\.js|tailwind\.config\.js|postcss\.config\.js|package\.json|package-lock\.json)'
+
+if echo "$CHANGED_FILES" | grep -E "$RELEVANT_REGEX" >/dev/null; then
+  echo "Relevant changes detected for LHCI. Running Lighthouse checks..."
+else
+  echo "No relevant changes for LHCI. Skipping Lighthouse checks."
+  exit 0
+fi
+
+
+
 # Silence Node Experimental warnings during LHCI runs
 export NODE_OPTIONS=--no-warnings
 # Ensure our LH gating is active for consistent runs

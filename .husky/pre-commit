@@ -1,1 +1,4 @@
-npx lint-staged && npm run validate:dictionaries
+#!/usr/bin/env sh
+
+# Fast pre-commit: lint only staged files
+npm run -s lint-staged || exit 1
