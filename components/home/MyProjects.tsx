@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 
-import Image from 'next/image'
-
 import type { Locale } from '@/i18n-config'
 import { animate } from 'motion'
 import type { DOMKeyframesDefinition } from 'motion'
@@ -78,19 +76,27 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<Image
-							ref={imgRef}
-							src={project.image}
-							alt={project.company}
-							width={800}
-							height={400}
-							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-							className="h-auto w-full rounded-lg object-contain object-center p-4 opacity-0"
-							priority={false}
-							placeholder="blur"
-							blurDataURL={project.placeholder}
-							onLoad={(e) => animate(e.currentTarget, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
-						/>
+						<picture>
+							<source
+								srcSet={project.image.replace(/\.(png|jpg|jpeg)$/i, '.avif')}
+								type="image/avif"
+							/>
+							<source
+								srcSet={project.image.replace(/\.(png|jpg|jpeg)$/i, '.webp')}
+								type="image/webp"
+							/>
+							<img
+								ref={imgRef}
+								src={project.image}
+								alt={project.company}
+								width={800}
+								height={400}
+								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+								loading="lazy"
+								className="h-auto w-full rounded-lg object-contain object-center p-4 opacity-0"
+								onLoad={(e) => animate(e.currentTarget as HTMLImageElement, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
+							/>
+						</picture>
 						<div className="absolute inset-0 rounded-lg bg-background-primary p-4 opacity-10 transition-opacity duration-300 hover:opacity-0 md:opacity-45"></div>
 					</a>
 				</div>

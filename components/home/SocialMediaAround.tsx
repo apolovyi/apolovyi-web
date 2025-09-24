@@ -22,7 +22,7 @@ const IconClickableWithAnimation = React.memo(({ href, Icon, label }: IconProps)
 		<a
 			href={href}
 			target="_blank"
-			rel="noreferrer"
+			rel="noopener noreferrer"
 			aria-label={label}
 			className="inline-flex h-12 w-12 items-center justify-center"
 		>

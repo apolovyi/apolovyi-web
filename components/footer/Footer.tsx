@@ -24,7 +24,7 @@ const ClickableIcon = React.memo(function ClickableIcon({ href, Icon, label }: I
 			ref={ref}
 			href={href}
 			target="_blank"
-			rel="noreferrer"
+			rel="noopener noreferrer"
 			aria-label={label}
 			className="inline-flex h-12 w-12 items-center justify-center"
 		>
