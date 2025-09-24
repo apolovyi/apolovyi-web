@@ -48,12 +48,12 @@ const server = http.createServer((req, res) => {
       filePath = path.join(filePath, 'index.html')
       stat = fs.statSync(filePath)
     }
-  } catch (e) {
+  } catch {
     // Fallback for SPA-style routes: try index.html
     filePath = path.join(ROOT, 'index.html')
     try {
       stat = fs.statSync(filePath)
-    } catch (e2) {
+    } catch {
       send(res, 404, 'Not Found')
       return
     }
@@ -66,7 +66,7 @@ const server = http.createServer((req, res) => {
     const stream = fs.createReadStream(filePath)
     res.writeHead(200, { 'Content-Type': type, 'Cache-Control': 'no-cache' })
     stream.pipe(res)
-  } catch (e) {
+  } catch {
     send(res, 500, 'Internal Server Error')
   }
 })
