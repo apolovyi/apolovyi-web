@@ -26,13 +26,43 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 	const extLinkRef = useRef<HTMLAnchorElement>(null)
 	const imgCardRef = useRef<HTMLDivElement>(null)
 	const contentCardRef = useRef<HTMLDivElement>(null)
+	const imgRef = useRef<HTMLImageElement>(null)
 	useHoverTapMotion(imgLinkRef)
 	useHoverTapMotion(titleLinkRef)
 	useHoverTapMotion(extLinkRef)
 	useHoverLiftMotion(imgCardRef)
 	useHoverLiftMotion(contentCardRef)
-
 	const isEven = index % 2 === 0
+	useMotionInView(imgCardRef, isEven ? 'fade-right' : 'fade-left', { mode: 'toggle' })
+	useMotionInView(contentCardRef, isEven ? 'fade-left' : 'fade-right', { mode: 'toggle' })
+
+	// tiny GPU-friendly parallax for the image element
+	useEffect(() => {
+		const img = imgRef.current
+		if (!img) return
+		let raf = 0
+		const max = 8 // px
+		const update = () => {
+			raf = 0
+			const rect = img.getBoundingClientRect()
+			const vh = window.innerHeight
+			const center = rect.top + rect.height / 2
+			const delta = center - vh / 2
+			const y = Math.max(-max, Math.min(max, (delta / vh) * max))
+			img.style.transform = `translateY(${y}px)`
+		}
+		const onScroll = () => {
+			if (raf) return
+			raf = requestAnimationFrame(update)
+		}
+		window.addEventListener('scroll', onScroll, { passive: true })
+		update()
+		return () => {
+			window.removeEventListener('scroll', onScroll)
+			if (raf) cancelAnimationFrame(raf)
+			img.style.transform = ''
+		}
+	}, [])
 
 	return (
 		<div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-8">
@@ -49,6 +79,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 						rel="noopener noreferrer"
 					>
 						<Image
+							ref={imgRef}
 							src={project.image}
 							alt={project.company}
 							width={800}

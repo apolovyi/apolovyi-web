@@ -80,8 +80,12 @@ const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 	const { aboutMeSection } = useDictionary()
 	const sectionRef = useRef<HTMLElement>(null)
 	const headerRef = useRef<HTMLElement>(null)
-	useMotionInView(sectionRef, 'fade-up')
-	useMotionInView(headerRef, 'fade-up')
+	const contentRef = useRef<HTMLDivElement>(null)
+	const profileRef = useRef<HTMLDivElement>(null)
+	useMotionInView(sectionRef, 'fade-up', { mode: 'toggle' })
+	useMotionInView(headerRef, 'fade-up', { mode: 'toggle' })
+	useMotionInView(contentRef, 'fade-right', { mode: 'toggle' })
+	useMotionInView(profileRef, 'fade-left', { mode: 'toggle' })
 
 	const highlightTerms = (text: string) => {
 		let highlightedText = text
@@ -110,7 +114,10 @@ const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 				/>
 
 				<div className="mt-8 flex flex-col items-start lg:flex-row lg:space-x-12">
-					<div className="w-full lg:w-3/5">
+					<div
+						ref={contentRef}
+						className="w-full lg:w-3/5"
+					>
 						<div className="space-y-4 font-body text-base sm:text-lg">
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.intro}</p>
 							{highlightTerms(aboutMeSection.paragraphs.specialization)}
@@ -126,7 +133,10 @@ const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 							</div>
 						</div>
 					</div>
-					<div className="mt-12 w-full lg:mt-0 lg:w-2/5">
+					<div
+						ref={profileRef}
+						className="mt-12 w-full lg:mt-0 lg:w-2/5"
+					>
 						<ProfileImage />
 					</div>
 				</div>

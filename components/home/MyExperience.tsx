@@ -27,8 +27,12 @@ const MyExperience = () => {
 	const [activeCompany, setActiveCompany] = useState(companies[0].key)
 	const sectionRef = useRef<HTMLElement>(null)
 	const headerRef = useRef<HTMLElement>(null)
-	useMotionInView(sectionRef, 'fade-up')
-	useMotionInView(headerRef, 'fade-up')
+	const leftColRef = useRef<HTMLDivElement>(null)
+	const rightColRef = useRef<HTMLDivElement>(null)
+	useMotionInView(sectionRef, 'fade-up', { mode: 'toggle' })
+	useMotionInView(headerRef, 'fade-up', { mode: 'toggle' })
+	useMotionInView(leftColRef, 'fade-right', { mode: 'toggle' })
+	useMotionInView(rightColRef, 'fade-left', { mode: 'toggle' })
 
 	return (
 		<section
@@ -52,12 +56,19 @@ const MyExperience = () => {
 				</header>
 
 				<div className="flex flex-col md:flex-row md:space-x-8">
-					<CompaniesBar
-						companies={companies}
-						activeCompany={activeCompany}
-						setActiveCompany={setActiveCompany}
-					/>
-					<JobDescription company={activeCompany} />
+					<div ref={leftColRef}>
+						<CompaniesBar
+							companies={companies}
+							activeCompany={activeCompany}
+							setActiveCompany={setActiveCompany}
+						/>
+					</div>
+					<div
+						ref={rightColRef}
+						className="mt-6 md:mt-0"
+					>
+						<JobDescription company={activeCompany} />
+					</div>
 				</div>
 			</div>
 		</section>
