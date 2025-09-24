@@ -140,15 +140,12 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 					))}
 				</ul>
 				<div className={`mt-4 flex ${isEven ? 'lg:justify-end' : 'lg:justify-start'}`}>
-					<a
+					<ExternalLink
 						ref={extLinkRef}
-						href={project.link}
-						target="_blank"
+						url={project.link}
 						rel="noreferrer"
 						className="text-accent-coral hover:text-accent-green"
-					>
-						<ExternalLink url={project.link} />
-					</a>
+					/>
 				</div>
 			</div>
 		</div>

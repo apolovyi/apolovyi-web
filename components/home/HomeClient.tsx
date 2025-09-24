@@ -22,7 +22,7 @@ interface HomeClientProps {
 	lang: Locale
 }
 
-export default function HomeClient({ lang }: HomeClientProps) {
+export default function HomeClient({ lang }: Readonly<HomeClientProps>) {
 	const { sharedState, setSharedState } = useAppContext()
 
 	useEffect(() => {
@@ -32,6 +32,7 @@ export default function HomeClient({ lang }: HomeClientProps) {
 				window.removeEventListener('scroll', onScroll)
 			}
 		}
+
 		window.addEventListener('scroll', onScroll, { passive: true })
 		// Fallback: unlock after a long idle period to not impact perf audits
 		const idleTimer = window.setTimeout(() => setSharedState((prev) => ({ ...prev, finishedLoading: true })), 25000)

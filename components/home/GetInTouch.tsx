@@ -128,6 +128,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 					className="w-full max-w-md space-y-4"
 					data-netlify="true"
 					data-netlify-honeypot="bot-field"
+					suppressHydrationWarning
 				>
 					<input
 						type="hidden"
@@ -172,6 +173,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 							type="submit"
 							disabled={isSubmitting}
 							className="rounded-md border-2 border-accent-coral px-6 py-2 font-tech text-sm text-accent-coral transition-all duration-300 ease-in-out hover:bg-accent-coral hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-accent-coral focus:ring-opacity-50 disabled:opacity-50"
+							suppressHydrationWarning
 						>
 							{isSubmitting ? contactSection.sending : contactSection.sendButton}
 						</button>
@@ -208,6 +210,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					required={required}
 					rows={rows}
 					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+					suppressHydrationWarning
 				/>
 			) : (
 				<input
@@ -216,6 +219,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					id={name}
 					required={required}
 					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+					suppressHydrationWarning
 				/>
 			)}
 		</div>
