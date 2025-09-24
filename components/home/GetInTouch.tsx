@@ -16,10 +16,10 @@ import { logger } from '@/lib/logger'
 type SubmitStatus = 'idle' | 'success' | 'error'
 
 interface GetInTouchProps {
-	lang: Locale
+	readonly lang: Locale
 }
 
-function GetInTouch({ lang: _lang }: GetInTouchProps) {
+function GetInTouch({ lang: _lang }: Readonly<GetInTouchProps>) {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 	const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
 
@@ -187,14 +187,14 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 }
 
 interface FormFieldProps {
-	label: string
-	name: string
-	type: string
-	required?: boolean
-	rows?: number
+	readonly label: string
+	readonly name: string
+	readonly type: string
+	readonly required?: boolean
+	readonly rows?: number
 }
 
-function FormField({ label, name, type, required, rows }: FormFieldProps) {
+function FormField({ label, name, type, required, rows }: Readonly<FormFieldProps>) {
 	return (
 		<div>
 			<label
@@ -227,10 +227,10 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 }
 
 interface StatusMessageProps {
-	status: 'success' | 'error'
+	readonly status: 'success' | 'error'
 }
 
-function StatusMessage({ status }: StatusMessageProps) {
+function StatusMessage({ status }: Readonly<StatusMessageProps>) {
 	const dictionary = useDictionary()
 	const { contactSection } = dictionary
 

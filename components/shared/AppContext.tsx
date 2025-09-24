@@ -1,7 +1,7 @@
 'use client'
 
 import type { Dispatch, ReactNode, SetStateAction } from 'react'
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useMemo, useState } from 'react'
 
 type SharedState = {
 	finishedLoading: boolean
@@ -26,7 +26,8 @@ type AppProviderProps = {
 export const AppProvider = ({ children }: AppProviderProps) => {
 	const [sharedState, setSharedState] = useState<SharedState>(defaultContextValue.sharedState)
 
-	return <AppContext.Provider value={{ sharedState, setSharedState }}>{children}</AppContext.Provider>
+	const value = useMemo(() => ({ sharedState, setSharedState }), [sharedState, setSharedState])
+	return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }
 
 export const useAppContext = () => {
