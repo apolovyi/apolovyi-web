@@ -35,3 +35,13 @@ jobs:
       - name: Build
         run: npm run build
 
+
+      - name: Lighthouse CI (desktop)
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          configPath: ./lighthouserc.desktop.json
+
+      - name: Lighthouse CI (mobile)
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          configPath: ./lighthouserc.mobile.json
