@@ -36,12 +36,36 @@ jobs:
         run: npm run build
 
 
-      - name: Lighthouse CI (desktop)
-        uses: treosh/lighthouse-ci-action@v11
-        with:
-          configPath: ./lighthouserc.desktop.json
+      - name: Lighthouse collect (desktop)
+        run: |
+          rm -rf .lighthouseci || true
+          npx @lhci/cli collect --config=./lighthouserc.desktop.json
 
-      - name: Lighthouse CI (mobile)
-        uses: treosh/lighthouse-ci-action@v11
+      - name: Lighthouse summary (desktop)
+        run: node scripts/print-lhci-summary.mjs
+
+      - name: Upload Lighthouse artifacts (desktop)
+        uses: actions/upload-artifact@v4
         with:
-          configPath: ./lighthouserc.mobile.json
+          name: lighthouse-desktop
+          path: .lighthouseci
+
+      - name: Lighthouse assert (desktop)
+        run: npx @lhci/cli assert --config=./lighthouserc.desktop.json
+
+      - name: Lighthouse collect (mobile)
+        run: |
+          rm -rf .lighthouseci || true
+          npx @lhci/cli collect --config=./lighthouserc.mobile.json
+
+      - name: Lighthouse summary (mobile)
+        run: node scripts/print-lhci-summary.mjs
+
+      - name: Upload Lighthouse artifacts (mobile)
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-mobile
+          path: .lighthouseci
+
+      - name: Lighthouse assert (mobile)
+        run: npx @lhci/cli assert --config=./lighthouserc.mobile.json

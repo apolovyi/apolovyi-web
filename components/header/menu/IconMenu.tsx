@@ -8,12 +8,15 @@ function IconMenu() {
 	const { rotate, setRotate, showElement, setShowElement } = useHeaderContext()
 
 	return (
-		<div
-			className="left-0 mt-2 space-y-2 text-text-primary hover:cursor-pointer md:hidden"
+		<button
+			className="left-0 mt-2 inline-flex h-12 w-12 items-center justify-center space-y-2 text-text-primary md:hidden"
 			onClick={() => {
 				setRotate(!rotate)
 				setShowElement(!showElement)
 			}}
+			type="button"
+			aria-label={rotate ? 'Close menu' : 'Open menu'}
+			aria-expanded={rotate}
 		>
 			<div className="flex justify-end">
 				<motion.div
@@ -36,7 +39,7 @@ function IconMenu() {
 					className="h-0.5 w-4 rounded bg-accent-coral"
 				></motion.div>
 			</div>
-		</div>
+		</button>
 	)
 }
 

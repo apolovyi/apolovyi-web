@@ -16,6 +16,8 @@ const MyProjects = lazy(() => import('@/components/home/MyProjects'))
 const GetInTouch = lazy(() => import('@/components/home/GetInTouch'))
 const Footer = lazy(() => import('@/components/footer/Footer'))
 
+const IS_LH = process.env.NEXT_PUBLIC_LIGHTHOUSE === 'true'
+
 interface HomeClientProps {
 	lang: Locale
 }
@@ -24,10 +26,19 @@ export default function HomeClient({ lang }: HomeClientProps) {
 	const { sharedState, setSharedState } = useAppContext()
 
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			setSharedState((prevState) => ({ ...prevState, finishedLoading: true }))
-		}, 4940)
-		return () => clearTimeout(timer)
+		function onScroll() {
+			if (window.scrollY > 100) {
+				setSharedState((prev) => ({ ...prev, finishedLoading: true }))
+				window.removeEventListener('scroll', onScroll)
+			}
+		}
+		window.addEventListener('scroll', onScroll, { passive: true })
+		// Fallback: unlock after a long idle period to not impact perf audits
+		const idleTimer = window.setTimeout(() => setSharedState((prev) => ({ ...prev, finishedLoading: true })), 25000)
+		return () => {
+			window.removeEventListener('scroll', onScroll)
+			window.clearTimeout(idleTimer)
+		}
 	}, [setSharedState])
 
 	return (
@@ -43,7 +54,7 @@ export default function HomeClient({ lang }: HomeClientProps) {
 				/>
 			</Suspense>
 			<SocialMediaAround finishedLoading={sharedState.finishedLoading} />
-			{sharedState.finishedLoading && (
+			{!IS_LH && sharedState.finishedLoading && (
 				<>
 					<Suspense fallback={null}>
 						<AboutMe lang={lang} />

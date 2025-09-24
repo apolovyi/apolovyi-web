@@ -3,10 +3,11 @@
 		"collect": {
 			"startServerCommand": "npm run build && node scripts/static-server.mjs",
 			"startServerReadyPattern": "STATIC_SERVER_READY",
+			"startServerReadyTimeout": 180000,
 			"url": [
 				"http://localhost:4173/"
 			],
-			"numberOfRuns": 1,
+			"numberOfRuns": 3,
 			"settings": {
 				"preset": "desktop"
 			}

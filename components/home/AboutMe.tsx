@@ -1,7 +1,5 @@
 import React, { useRef } from 'react'
 
-import Image from 'next/image'
-
 import type { Locale } from '@/i18n-config'
 import { animate } from 'motion'
 import type { DOMKeyframesDefinition } from 'motion'
@@ -62,15 +60,23 @@ const ProfileImage = () => (
 			<div className="absolute h-full w-full translate-x-5 translate-y-5 rounded border-2 border-accent-coral transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
 			<div className="absolute h-full w-full overflow-hidden rounded">
 				<div className="absolute inset-0 bg-accent-coral opacity-10 transition-opacity duration-300 group-hover:opacity-0"></div>
-				<Image
-					src="/img/me-bg.jpg"
-					alt="Artem Polovyi"
-					fill
-					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-					className="rounded object-cover opacity-0"
-					loading="lazy"
-					onLoad={(e) => animate(e.currentTarget, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
-				/>
+				<picture>
+					<source
+						srcSet="/img/me-bg.avif"
+						type="image/avif"
+					/>
+					<source
+						srcSet="/img/me-bg.webp"
+						type="image/webp"
+					/>
+					<img
+						src="/img/me-bg.jpg"
+						alt="Artem Polovyi"
+						loading="lazy"
+						className="absolute inset-0 h-full w-full rounded object-cover opacity-0"
+						onLoad={(e) => animate(e.currentTarget as HTMLImageElement, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
+					/>
+				</picture>
 			</div>
 		</div>
 	</div>

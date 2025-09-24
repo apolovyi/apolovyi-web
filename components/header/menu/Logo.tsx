@@ -8,16 +8,18 @@ interface LogoProps {
 }
 
 function Logo({ onClick }: LogoProps) {
-	const ref = useRef<HTMLDivElement>(null)
+	const ref = useRef<HTMLButtonElement>(null)
 	useHoverTapMotion(ref)
 	return (
-		<div
+		<button
 			ref={ref}
 			onClick={onClick}
-			className="cursor-pointer"
+			type="button"
+			aria-label="Scroll to top"
+			className="inline-flex h-11 w-11 cursor-pointer items-center justify-center bg-transparent p-0"
 		>
 			<HexagonLogo />
-		</div>
+		</button>
 	)
 }
 

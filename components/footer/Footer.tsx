@@ -13,9 +13,10 @@ type IconComponent = React.ComponentType<{ className?: string }>
 interface IconProps {
 	href: string
 	Icon: IconComponent
+	label: string
 }
 
-const ClickableIcon = React.memo(function ClickableIcon({ href, Icon }: IconProps) {
+const ClickableIcon = React.memo(function ClickableIcon({ href, Icon, label }: IconProps) {
 	const ref = useRef<HTMLAnchorElement>(null)
 	useHoverTapMotion(ref)
 	return (
@@ -24,6 +25,8 @@ const ClickableIcon = React.memo(function ClickableIcon({ href, Icon }: IconProp
 			href={href}
 			target="_blank"
 			rel="noreferrer"
+			aria-label={label}
+			className="inline-flex h-12 w-12 items-center justify-center"
 		>
 			<Icon className="h-5 w-5 fill-current text-text-secondary transition-colors duration-300 hover:cursor-pointer hover:text-accent-coral" />
 		</a>
@@ -31,9 +34,9 @@ const ClickableIcon = React.memo(function ClickableIcon({ href, Icon }: IconProp
 })
 
 const IconsData: IconProps[] = [
-	{ href: 'https://github.com/apolovyi', Icon: GithubIcon },
-	{ href: 'https://www.linkedin.com/in/apolovyi/', Icon: LinkedinIcon },
-	{ href: 'https://www.instagram.com/artem_polevoi/', Icon: InstagramIcon },
+	{ href: 'https://github.com/apolovyi', Icon: GithubIcon, label: 'GitHub Profile' },
+	{ href: 'https://www.linkedin.com/in/apolovyi/', Icon: LinkedinIcon, label: 'LinkedIn Profile' },
+	{ href: 'https://www.instagram.com/artem_polevoi/', Icon: InstagramIcon, label: 'Instagram Profile' },
 ]
 
 interface FooterProps {

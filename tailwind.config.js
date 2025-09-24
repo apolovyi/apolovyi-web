@@ -82,7 +82,7 @@ module.exports = {
 				success: '#00C968',
 				text: {
 					primary: '#2B2B2B',
-					secondary: '#5F5F5F',
+					secondary: '#4A4A4A',
 				},
 				primary: {
 					DEFAULT: 'var(--primary)',
@@ -103,7 +103,7 @@ module.exports = {
 				accent: {
 					DEFAULT: 'var(--accent)',
 					foreground: 'var(--accent-foreground)',
-					coral: '#ea5555',
+					coral: '#c23b3b',
 					green: '#005bb0',
 				},
 				popover: {

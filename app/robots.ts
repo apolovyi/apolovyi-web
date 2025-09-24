@@ -9,6 +9,5 @@ export default function robots(): MetadataRoute.Robots {
 			allow: '/',
 		},
 		sitemap: 'https://apolovyi.me/sitemap.xml',
-		host: 'https://apolovyi.me',
 	}
 }

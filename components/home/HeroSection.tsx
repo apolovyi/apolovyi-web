@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 
 import type { Locale } from '@/i18n-config'
 
-const MotionHero = dynamic(() => import('./MotionHero'), { ssr: false })
+const MotionHero = dynamic(() => import('./MotionHero'), { ssr: true })
 
 interface HeroSectionProps {
 	finishedLoading: boolean
