@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
 import type { Locale } from '@/i18n-config'
-import { animate } from 'motion'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
@@ -61,16 +60,11 @@ const ProfileImage = () => {
 		if (!img) return
 
 		const fadeIn = () => {
-			// @ts-expect-error Motion One supports object keyframes at runtime
-			animate(
-				img,
-				{ opacity: [0, 1] },
-				{
-					duration: 0.35,
-					easing: 'ease-out',
-					fill: 'forwards',
-				},
-			)
+			img.animate([{ opacity: 0 }, { opacity: 1 }], {
+				duration: 350,
+				fill: 'forwards',
+				easing: 'ease-out',
+			})
 		}
 
 		if (img.complete && img.naturalWidth > 0) {
