@@ -3,10 +3,12 @@ import React, { useRef } from 'react'
 import Image from 'next/image'
 
 import type { Locale } from '@/i18n-config'
+import { animate } from 'motion'
+import type { DOMKeyframesDefinition } from 'motion'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
-import { useAttachAOS } from '@/components/shared/useAOS'
+import { useMotionInView } from '@/components/shared/useMotionInView'
 
 const technologies = [
 	['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'Next.js'],
@@ -65,8 +67,9 @@ const ProfileImage = () => (
 					alt="Artem Polovyi"
 					fill
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-					className="rounded object-cover"
+					className="rounded object-cover opacity-0"
 					loading="lazy"
+					onLoad={(e) => animate(e.currentTarget, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
 				/>
 			</div>
 		</div>
@@ -77,8 +80,8 @@ const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 	const { aboutMeSection } = useDictionary()
 	const sectionRef = useRef<HTMLElement>(null)
 	const headerRef = useRef<HTMLElement>(null)
-	useAttachAOS(sectionRef, 'fade-up')
-	useAttachAOS(headerRef, 'fade-up')
+	useMotionInView(sectionRef, 'fade-up')
+	useMotionInView(headerRef, 'fade-up')
 
 	const highlightTerms = (text: string) => {
 		let highlightedText = text

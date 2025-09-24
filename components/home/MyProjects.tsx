@@ -3,11 +3,15 @@ import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 import type { Locale } from '@/i18n-config'
+import { animate } from 'motion'
+import type { DOMKeyframesDefinition } from 'motion'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import ExternalLink from '@/components/icons/ExternalLink'
 import { useDictionary } from '@/components/shared/DictionaryContext'
-import { useAttachAOS } from '@/components/shared/useAOS'
+import { useHoverLiftMotion } from '@/components/shared/useHoverLiftMotion'
+import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
+import { useMotionInView } from '@/components/shared/useMotionInView'
 
 import type { Project } from '@/lib/dictionary.types'
 
@@ -17,14 +21,29 @@ interface ProjectItemProps {
 }
 
 const ProjectItem = ({ project, index }: ProjectItemProps) => {
+	const imgLinkRef = useRef<HTMLAnchorElement>(null)
+	const titleLinkRef = useRef<HTMLAnchorElement>(null)
+	const extLinkRef = useRef<HTMLAnchorElement>(null)
+	const imgCardRef = useRef<HTMLDivElement>(null)
+	const contentCardRef = useRef<HTMLDivElement>(null)
+	useHoverTapMotion(imgLinkRef)
+	useHoverTapMotion(titleLinkRef)
+	useHoverTapMotion(extLinkRef)
+	useHoverLiftMotion(imgCardRef)
+	useHoverLiftMotion(contentCardRef)
+
 	const isEven = index % 2 === 0
 
 	return (
 		<div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-8">
 			{/* Image */}
 			<div className={`w-full lg:w-2/3 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-				<div className="relative overflow-hidden rounded-lg">
+				<div
+					ref={imgCardRef}
+					className="relative overflow-hidden rounded-lg"
+				>
 					<a
+						ref={imgLinkRef}
 						href={project.link}
 						target="_blank"
 						rel="noopener noreferrer"
@@ -35,10 +54,11 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 							width={800}
 							height={400}
 							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-							className="h-auto w-full rounded-lg object-contain object-center p-4"
+							className="h-auto w-full rounded-lg object-contain object-center p-4 opacity-0"
 							priority={false}
 							placeholder="blur"
 							blurDataURL={project.placeholder}
+							onLoad={(e) => animate(e.currentTarget, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
 						/>
 						<div className="absolute inset-0 rounded-lg bg-background-primary p-4 opacity-10 transition-opacity duration-300 hover:opacity-0 md:opacity-45"></div>
 					</a>
@@ -49,6 +69,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 			<div className={`mt-6 flex w-full flex-col lg:mt-0 lg:w-1/2 ${isEven ? 'lg:order-2 lg:items-end' : 'lg:order-1 lg:items-start'}`}>
 				<span className="font-heading text-base font-light text-accent-coral">{project.category}</span>
 				<a
+					ref={titleLinkRef}
 					href={project.link}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -58,7 +79,10 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 						{project.company}
 					</span>
 				</a>
-				<div className={`my-4 rounded-md bg-accent-green bg-opacity-85 px-6 py-10 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
+				<div
+					ref={contentCardRef}
+					className={`my-4 rounded-md bg-accent-green bg-opacity-85 px-6 py-10 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}
+				>
 					<p className="font-body text-base font-light text-neutral-light-gray xl:text-xl">{project.description}</p>
 				</div>
 				<div className={`mb-4 font-heading text-sm text-accent-coral lg:text-base ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
@@ -80,6 +104,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 				</ul>
 				<div className={`mt-4 flex ${isEven ? 'lg:justify-end' : 'lg:justify-start'}`}>
 					<a
+						ref={extLinkRef}
 						href={project.link}
 						target="_blank"
 						rel="noreferrer"
@@ -102,14 +127,38 @@ export default function MyProjects({ lang: _lang }: MyProjectsProps) {
 	const { projectsSection } = dict
 	const sectionRef = useRef<HTMLElement>(null)
 	const headerRef = useRef<HTMLElement>(null)
-	useAttachAOS(sectionRef, 'fade-up')
-	useAttachAOS(headerRef, 'fade-up')
+	useMotionInView(sectionRef, 'fade-up')
+	useMotionInView(headerRef, 'fade-up')
 	const itemRefs = useRef<Array<HTMLDivElement | null>>([])
 	useEffect(() => {
 		const items = itemRefs.current.filter(Boolean) as HTMLDivElement[]
 		if (!items.length) return
-		items.forEach((el) => el.setAttribute('data-aos', 'fade-up'))
-		void import('aos').then((mod) => mod.default.refreshHard())
+		const observers: IntersectionObserver[] = []
+		items.forEach((el, i) => {
+			el.style.opacity = '0'
+			el.style.transform = 'translateY(6px)'
+			const io = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						const target = entry.target as HTMLElement
+						if (entry.isIntersecting) {
+							animate(target, { opacity: 1, transform: 'translateY(0px)' } as DOMKeyframesDefinition, {
+								duration: 0.45,
+								delay: i * 0.03,
+							})
+						} else {
+							animate(target, { opacity: 0, transform: 'translateY(6px)' } as DOMKeyframesDefinition, {
+								duration: 0.35,
+							})
+						}
+					})
+				},
+				{ threshold: 0.15 },
+			)
+			io.observe(el)
+			observers.push(io)
+		})
+		return () => observers.forEach((o) => o.disconnect())
 	}, [projectsSection.projects.length])
 
 	return (

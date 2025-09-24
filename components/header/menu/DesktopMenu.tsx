@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useRef } from 'react'
 
 import type { Locale } from '@/i18n-config'
 import type { Variants } from 'framer-motion'
@@ -8,6 +8,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { HoverUnderlineFromLeftToRight } from '@/components/shared/HoverAnimation'
+import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 
 const containerVariants: Variants = {
 	hidden: { opacity: 0 },
@@ -46,6 +47,45 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 		scrollToSection(href)
 	}, [])
 
+	const MotionLink = ({
+		href,
+		onClick,
+		children,
+	}: {
+		href: string
+		onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+		children: React.ReactNode
+	}) => {
+		const linkRef = useRef<HTMLAnchorElement>(null)
+		useHoverTapMotion(linkRef)
+		return (
+			<a
+				ref={linkRef}
+				href={href}
+				className="group duration-300"
+				onClick={onClick}
+			>
+				{children}
+			</a>
+		)
+	}
+
+	const MotionExternal = ({ href, children }: { href: string; children: React.ReactNode }) => {
+		const linkRef = useRef<HTMLAnchorElement>(null)
+		useHoverTapMotion(linkRef)
+		return (
+			<a
+				ref={linkRef}
+				href={href}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="border-spacing-2 rounded-sm border border-accent-coral px-3 py-2 text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10"
+			>
+				{children}
+			</a>
+		)
+	}
+
 	return (
 		<motion.nav
 			className="hidden flex-row items-center space-x-4 font-tech text-xs md:flex lg:space-x-10 xl:text-lg 2xl:space-x-16"
@@ -59,9 +99,8 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 					key={item.id}
 					variants={itemVariants}
 				>
-					<a
+					<MotionLink
 						href={item.href}
-						className="group duration-300"
 						onClick={(e) => handleScroll(e, item.href)}
 					>
 						<HoverUnderlineFromLeftToRight className="bg-primary">
@@ -70,18 +109,11 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 								<span className="font-body text-sm text-text-primary transition-all xl:text-lg">{item.name}</span>
 							</div>
 						</HoverUnderlineFromLeftToRight>
-					</a>
+					</MotionLink>
 				</motion.div>
 			))}
 			<motion.div variants={itemVariants}>
-				<a
-					href={header.resumeButton.href}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="border-spacing-2 rounded-sm border border-accent-coral px-3 py-2 text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10"
-				>
-					{header.resumeButton.text}
-				</a>
+				<MotionExternal href={header.resumeButton.href}>{header.resumeButton.text}</MotionExternal>
 			</motion.div>
 			<motion.div variants={itemVariants}>
 				<LanguageSwitcher currentLang={lang} />

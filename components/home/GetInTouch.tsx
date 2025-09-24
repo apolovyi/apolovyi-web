@@ -8,7 +8,8 @@ import ArrowIcon from '@/components/icons/ArrowIcon'
 import CheckCircleIcon from '@/components/icons/CheckCircleIcon'
 import XCircleIcon from '@/components/icons/XCircleIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
-import { useAttachAOS } from '@/components/shared/useAOS'
+import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
+import { useMotionInView } from '@/components/shared/useMotionInView'
 
 import { logger } from '@/lib/logger'
 
@@ -26,8 +27,10 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 	const { contactSection } = dictionary
 	const sectionRef = useRef<HTMLElement>(null)
 	const headerRef = useRef<HTMLElement>(null)
-	useAttachAOS(sectionRef, 'fade-up')
-	useAttachAOS(headerRef, 'fade-up')
+	const submitBtnRef = useRef<HTMLButtonElement>(null)
+	useMotionInView(sectionRef, 'fade-up')
+	useMotionInView(headerRef, 'fade-up')
+	useHoverTapMotion(submitBtnRef)
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -165,6 +168,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 
 					<div className="flex justify-center">
 						<button
+							ref={submitBtnRef}
 							type="submit"
 							disabled={isSubmitting}
 							className="rounded-md border-2 border-accent-coral px-6 py-2 font-tech text-sm text-accent-coral transition-all duration-300 ease-in-out hover:bg-accent-coral hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-accent-coral focus:ring-opacity-50 disabled:opacity-50"

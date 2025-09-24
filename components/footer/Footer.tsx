@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import type { Locale } from '@/i18n-config'
 
@@ -6,6 +6,7 @@ import GithubIcon from '@/components/icons/GithubIcon'
 import InstagramIcon from '@/components/icons/InstagramIcon'
 import LinkedinIcon from '@/components/icons/LinkedinIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 
 type IconComponent = React.ComponentType<{ className?: string }>
 
@@ -15,8 +16,11 @@ interface IconProps {
 }
 
 const ClickableIcon = React.memo(function ClickableIcon({ href, Icon }: IconProps) {
+	const ref = useRef<HTMLAnchorElement>(null)
+	useHoverTapMotion(ref)
 	return (
 		<a
+			ref={ref}
 			href={href}
 			target="_blank"
 			rel="noreferrer"

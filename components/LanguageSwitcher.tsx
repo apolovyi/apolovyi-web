@@ -1,12 +1,14 @@
 'use client'
 
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 
 import { useRouter } from 'next/navigation'
 
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
 import Cookies from 'js-cookie'
+
+import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 
 import { useDetectLanguage, useOutsideClick } from '@/lib/hooks'
 
@@ -36,6 +38,8 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
 	const [isOpen, setIsOpen] = useState(false)
 	const { language, setLanguage, isUS } = useDetectLanguage(currentLang)
 	const dropdownRef = useOutsideClick(() => setIsOpen(false))
+	const triggerRef = useRef<HTMLButtonElement>(null)
+	useHoverTapMotion(triggerRef)
 
 	const handleLanguageChange = (newLang: Locale) => {
 		Cookies.set('detectedLang', newLang, { expires: 365 }) // Set cookie to expire in 1 year
@@ -53,6 +57,7 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
 			ref={dropdownRef}
 		>
 			<button
+				ref={triggerRef}
 				onClick={() => setIsOpen(!isOpen)}
 				className="flex items-center space-x-2 rounded px-3 py-2 text-sm text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral"
 			>

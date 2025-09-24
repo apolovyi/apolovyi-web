@@ -2,7 +2,8 @@ import React, { useRef, useState } from 'react'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
-import { useAttachAOS } from '@/components/shared/useAOS'
+import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
+import { useMotionInView } from '@/components/shared/useMotionInView'
 
 interface Company {
 	name: string
@@ -26,8 +27,8 @@ const MyExperience = () => {
 	const [activeCompany, setActiveCompany] = useState(companies[0].key)
 	const sectionRef = useRef<HTMLElement>(null)
 	const headerRef = useRef<HTMLElement>(null)
-	useAttachAOS(sectionRef, 'fade-up')
-	useAttachAOS(headerRef, 'fade-up')
+	useMotionInView(sectionRef, 'fade-up')
+	useMotionInView(headerRef, 'fade-up')
 
 	return (
 		<section
@@ -90,19 +91,24 @@ interface CompanyButtonProps {
 	companyName: string
 }
 
-const CompanyButton = ({ isActive, onClick, companyName }: CompanyButtonProps) => (
-	<button
-		onClick={onClick}
-		className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left lg:text-base ${
-			isActive
-				? 'bg-accent-coral text-background-primary'
-				: 'text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral'
-		}`}
-		aria-pressed={isActive}
-	>
-		{companyName}
-	</button>
-)
+const CompanyButton = ({ isActive, onClick, companyName }: CompanyButtonProps) => {
+	const ref = React.useRef<HTMLButtonElement>(null)
+	useHoverTapMotion(ref)
+	return (
+		<button
+			ref={ref}
+			onClick={onClick}
+			className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left lg:text-base ${
+				isActive
+					? 'bg-accent-coral text-background-primary'
+					: 'text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral'
+			}`}
+			aria-pressed={isActive}
+		>
+			{companyName}
+		</button>
+	)
+}
 
 interface JobDescriptionProps {
 	company: string

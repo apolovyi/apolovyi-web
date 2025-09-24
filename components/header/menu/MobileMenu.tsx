@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react'
+import { memo, useCallback, useRef } from 'react'
 
 import type { Locale } from '@/i18n-config'
 import { motion } from 'framer-motion'
@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 
 interface MobileMenuProps {
 	lang: Locale
@@ -29,6 +30,44 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 		[closeMenu],
 	)
 
+	const MotionLink = ({
+		href,
+		onClick,
+		children,
+	}: {
+		href: string
+		onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+		children: React.ReactNode
+	}) => {
+		const ref = useRef<HTMLAnchorElement>(null)
+		useHoverTapMotion(ref)
+		return (
+			<a
+				ref={ref}
+				href={href}
+				onClick={onClick}
+				className="flex flex-col space-y-2 text-center"
+			>
+				{children}
+			</a>
+		)
+	}
+	const MotionExternal = ({ href, children }: { href: string; children: React.ReactNode }) => {
+		const ref = useRef<HTMLAnchorElement>(null)
+		useHoverTapMotion(ref)
+		return (
+			<a
+				ref={ref}
+				href={href}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="rounded border border-accent-coral px-5 py-2 font-heading text-xs text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10 sm:px-10 sm:py-4"
+			>
+				{children}
+			</a>
+		)
+	}
+
 	return (
 		<motion.div
 			initial={{ x: '100%' }}
@@ -46,26 +85,18 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 				</div>
 				<div className="mt-10 flex flex-col items-center justify-center space-y-8">
 					{header.menuItems.map((item) => (
-						<a
+						<MotionLink
 							key={item.id}
 							href={item.href}
 							onClick={(e) => handleScroll(e, item.href)}
-							className="flex flex-col space-y-2 text-center"
 						>
 							<span className="font-tech text-xs text-accent-coral">{item.id}.</span>
 							<span className="font-body text-sm text-text-primary duration-300 hover:cursor-pointer hover:text-accent-coral sm:text-base">
 								{item.name}
 							</span>
-						</a>
+						</MotionLink>
 					))}
-					<a
-						href={header.resumeButton.href}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="rounded border border-accent-coral px-5 py-2 font-heading text-xs text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10 sm:px-10 sm:py-4"
-					>
-						{header.resumeButton.text}
-					</a>
+					<MotionExternal href={header.resumeButton.href}>{header.resumeButton.text}</MotionExternal>
 				</div>
 			</div>
 		</motion.div>
