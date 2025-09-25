@@ -6,6 +6,11 @@ export NODE_OPTIONS=--no-warnings
 # Ensure our LH gating is active for consistent runs
 export NEXT_PUBLIC_LIGHTHOUSE=true
 
+# Run smoke tests on the static build
+echo "▶ Running smoke tests..."
+npm run test:smoke
+
+
 # Desktop: collect -> print summary -> assert
 rm -rf .lighthouseci || true
 npx @lhci/cli collect --config=./lighthouserc.desktop.json || (node scripts/print-lhci-summary.mjs; exit 1)
