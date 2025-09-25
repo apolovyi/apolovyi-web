@@ -6,10 +6,10 @@ import { useRouter } from 'next/navigation'
 
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
-import Cookies from 'js-cookie'
 
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 
+import { setCookie } from '@/lib/cookies'
 import { useDetectLanguage, useOutsideClick } from '@/lib/hooks'
 
 interface LanguageSwitcherProps {
@@ -42,7 +42,7 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
 	useHoverTapMotion(triggerRef)
 
 	const handleLanguageChange = (newLang: Locale) => {
-		Cookies.set('detectedLang', newLang, { expires: 365 }) // Set cookie to expire in 1 year
+		setCookie('detectedLang', newLang, { days: 365 }) // Set cookie to expire in 1 year
 		setLanguage(newLang)
 		router.push(`/${newLang}`)
 		setIsOpen(false)
