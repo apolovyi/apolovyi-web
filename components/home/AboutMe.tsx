@@ -73,7 +73,7 @@ const ProfileImage = () => (
 						src="/img/me-bg.jpg"
 						alt="Artem Polovyi"
 						loading="lazy"
-						className="absolute inset-0 h-full w-full rounded object-cover opacity-0"
+						className="absolute inset-0 h-full w-full rounded object-cover opacity-100"
 						onLoad={(e) => animate(e.currentTarget as HTMLImageElement, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
 					/>
 				</picture>
