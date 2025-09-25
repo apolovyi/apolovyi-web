@@ -7,8 +7,6 @@ import { i18n } from '@/i18n-config'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
-import '@/app/globals.css'
-
 import LanguageDetector from '@/components/LanguageDetector'
 import StructuredData from '@/components/StructuredData'
 import { WebVitals } from '@/components/WebVitals'
@@ -59,24 +57,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 	const currentPath = lang === i18n.defaultLocale ? '' : `/${lang}`
 	const fullUrl = `${baseUrl}${currentPath}`
 
-	// During perf audits (LH), avoid fetching heavy OG images
 	const isLighthouse = process.env.NEXT_PUBLIC_LIGHTHOUSE === 'true'
 	const ogImages = isLighthouse
-		? [
-				{
-					url: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==',
-					width: 1,
-					height: 1,
-					alt: 'placeholder',
-				},
-			]
+		? [{ url: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==', width: 1, height: 1, alt: 'placeholder' }]
 		: metadata.openGraph.images
 
 	return {
-		title: {
-			default: metadata.title.default,
-			template: metadata.title.template,
-		},
+		title: { default: metadata.title.default, template: metadata.title.template },
 		metadataBase: new URL(baseUrl),
 		description: metadata.description,
 		openGraph: {
@@ -88,10 +75,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 			locale: lang,
 			type: 'website',
 		},
-		robots: {
-			index: true,
-			follow: true,
-		},
+		robots: { index: true, follow: true },
 		icons: {
 			icon: [
 				{ url: '/fav/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -104,24 +88,17 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 			canonical: fullUrl,
 			languages: {
 				'x-default': baseUrl,
-				...Object.fromEntries(i18n.locales.map((locale) => [locale, locale === i18n.defaultLocale ? baseUrl : `${baseUrl}/${locale}`])),
+				...Object.fromEntries(i18n.locales.map((l) => [l, l === i18n.defaultLocale ? baseUrl : `${baseUrl}/${l}`])),
 			},
 		},
-		other: {
-			'msapplication-TileColor': '#d8f0f9',
-		},
+		other: { 'msapplication-TileColor': '#d8f0f9' },
 		keywords: metadata.keywords,
 	}
 }
 
-interface LayoutProps {
-	children: React.ReactNode
-	params: Promise<{ lang: string[] }>
-}
-
-const RootLayout = async ({ children, params }: LayoutProps) => {
-	const resolvedParams = await params
-	const lang = (resolvedParams.lang?.[0] || i18n.defaultLocale) as Locale
+export default async function LangLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
+	const { lang: langParam } = await params
+	const lang = (langParam || i18n.defaultLocale) as Locale
 	const dictionary = await getServerDictionary(lang)
 
 	return (
@@ -138,7 +115,6 @@ const RootLayout = async ({ children, params }: LayoutProps) => {
 						}}
 					/>
 				)}
-
 				<WebVitals />
 				{ENABLE_VERCEL_ANALYTICS && <Analytics />}
 				<LanguageDetector />
@@ -157,5 +133,3 @@ const RootLayout = async ({ children, params }: LayoutProps) => {
 		</html>
 	)
 }
-
-export default RootLayout
