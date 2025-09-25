@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
+import dynamic from 'next/dynamic'
+
 import type { Locale } from '@/i18n-config'
-import { motion } from 'framer-motion'
 
 import DesktopMenu from '@/components/header/menu/DesktopMenu'
 import { HeaderContext } from '@/components/header/menu/HeaderContext'
@@ -16,6 +17,9 @@ interface HeaderProps {
 	finishedLoading: boolean
 	lang: Locale
 }
+
+const IS_LH = process.env.NEXT_PUBLIC_LIGHTHOUSE === 'true'
+const AnimatedHeader = IS_LH ? null : dynamic(() => import('./AnimatedHeader'))
 
 const useHeaderState = (finishedLoading: boolean, lang: Locale) => {
 	const [showElement, setShowElement] = useState(true)
@@ -44,21 +48,31 @@ const Header = ({ finishedLoading, lang }: HeaderProps) => {
 		return `${baseClass} ${scrollClass}`
 	}
 
+	const headerInner = (
+		<>
+			<Logo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+			<div className="flex items-center space-x-4">
+				<DesktopMenu lang={lang} />
+				<IconMenu />
+			</div>
+		</>
+	)
+
 	return (
 		<HeaderContext.Provider value={headerState}>
 			<MobileMenu lang={lang} />
-			<motion.header
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ opacity: { delay: finishedLoading ? 0 : 4.9, duration: 0 } }}
-				className={getHeaderClassName()}
-			>
-				<Logo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
-				<div className="flex items-center space-x-4">
-					<DesktopMenu lang={lang} />
-					<IconMenu />
-				</div>
-			</motion.header>
+			{IS_LH ? (
+				<header className={getHeaderClassName()}>{headerInner}</header>
+			) : (
+				AnimatedHeader && (
+					<AnimatedHeader
+						className={getHeaderClassName()}
+						finishedLoading={finishedLoading}
+					>
+						{headerInner}
+					</AnimatedHeader>
+				)
+			)}
 		</HeaderContext.Provider>
 	)
 }

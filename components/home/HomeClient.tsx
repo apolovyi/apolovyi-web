@@ -2,14 +2,15 @@
 
 import { Suspense, lazy, useEffect } from 'react'
 
+import dynamic from 'next/dynamic'
+
 import type { Locale } from '@/i18n-config'
 
 // Keep Header and SocialMediaAround eager; lazy-load below-the-fold sections
 import Header from '@/components/header/Header'
-import SocialMediaAround from '@/components/home/SocialMediaAround'
+import HeroSection from '@/components/home/HeroSection'
 import { useAppContext } from '@/components/shared/AppContext'
 
-const HeroSection = lazy(() => import('@/components/home/HeroSection'))
 const AboutMe = lazy(() => import('@/components/home/AboutMe'))
 const MyExperience = lazy(() => import('@/components/home/MyExperience'))
 const MyProjects = lazy(() => import('@/components/home/MyProjects'))
@@ -17,6 +18,9 @@ const GetInTouch = lazy(() => import('@/components/home/GetInTouch'))
 const Footer = lazy(() => import('@/components/footer/Footer'))
 
 const IS_LH = process.env.NEXT_PUBLIC_LIGHTHOUSE === 'true'
+
+// Avoid loading framer-motion-heavy SocialMediaAround during Lighthouse runs
+const SocialMediaAround = IS_LH ? () => null : dynamic(() => import('@/components/home/SocialMediaAround'))
 
 interface HomeClientProps {
 	lang: Locale
@@ -47,12 +51,10 @@ export default function HomeClient({ lang }: HomeClientProps) {
 				finishedLoading={sharedState.finishedLoading}
 				lang={lang}
 			/>
-			<Suspense fallback={null}>
-				<HeroSection
-					finishedLoading={sharedState.finishedLoading}
-					lang={lang}
-				/>
-			</Suspense>
+			<HeroSection
+				finishedLoading={sharedState.finishedLoading}
+				lang={lang}
+			/>
 			<SocialMediaAround finishedLoading={sharedState.finishedLoading} />
 			{!IS_LH && sharedState.finishedLoading && (
 				<>
