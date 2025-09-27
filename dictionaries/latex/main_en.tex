@@ -1,0 +1,413 @@
+\documentclass[11pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=1.1cm,
+    bottom=2cm,
+    left=1.5cm,
+    right=1.5cm,
+    footskip=1.0cm
+]{geometry}
+\usepackage[explicit]{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 79, 144}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Artem Polovyi CV(EN)},
+    pdfauthor={Artem Polovyi},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+\usepackage[disable]{microtype}
+\usepackage[none]{hyphenat}
+\usepackage{graphicx}
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Fontspec for Verdana font
+% \usepackage{fontspec}
+% \setmainfont{Verdana}
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+\fi
+
+\usepackage[default, type1]{sourcesanspro} 
+
+% Custom commands
+\newcommand{\highlight}[1]{\textbf{\textsf{#1}}}
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\makeatletter
+\let\ps@customFooterStyle\ps@plain
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Artem Polovyi - Page \thepage{} of \pageref*{LastPage}}
+}{}{}
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{
+    \needspace{4\baselineskip}
+    \Large\color{primaryColor}
+}{
+}{
+}{
+    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+}[]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.3cm
+}{
+    0.2cm
+}
+
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10cm,
+        parsep=0.10cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10cm,
+        parsep=0.10cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2cm + 0.00001cm
+    }{
+        0.2cm + 0.00001cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{1cm, \fill, 4.5cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\newcommand{\placelastupdatedtext}{%
+  \AddToShipoutPictureFG*{%
+    \put(
+        \LenToUnit{\paperwidth-2cm-0.2cm+0.05cm},
+        \LenToUnit{\paperheight-1.0cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in May 2024}\hspace{\widthof{Last updated in May 2024}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\mbox{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}}
+
+
+\begin{document}
+    \begin{header}
+    \begin{minipage}[t]{0.32\textwidth}
+        \includegraphics[width=\linewidth]{5.JPG} % Include your picture here
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.55\textwidth}
+        \vspace{-4cm} % Adjusted for better alignment
+        \raggedleft
+        \fontsize{28pt}{30pt}\selectfont
+        \textbf{Artem Polovyi}
+
+        \vspace{0.3cm}
+
+        \normalsize
+        \mbox{\faMapMarker* \hspace*{0.1cm} Zurich, Switzerland}
+        \kern 0.5cm
+        % \mbox{\faEnvelope[regular] \hspace*{0.1cm} \href{mailto:info@apolovyi.me}{info@apolovyi.me}}
+        \mbox{\faEnvelope[regular] \hspace*{0.1cm} \href{mailto:artem.polovyi@gmail.com}{artem.polovyi@gmail.com}}
+        \kern 0.5cm
+        \mbox{\faPhone* \hspace*{0.1cm} +41 78 3139822}
+        \kern 0.5cm
+        \mbox{\faLinkedinIn \hspace*{0.1cm} \href{https://linkedin.com/in/apolovyi}{linkedin.com/in/apolovyi}}
+        \kern 0.5cm
+        \mbox{\faGithub \hspace*{0.1cm} \href{https://github.com/apolovyi}{github.com/apolovyi}}
+        \kern 0.5cm
+        \mbox{\faGlobe \hspace*{0.1cm} \href{https://apolovyi.me}{apolovyi.me}}
+    \end{minipage}
+\end{header}
+
+
+    \vspace{0.3 cm}
+
+    % \section{About Me}
+    % \begin{onecolentry}
+    %     As a skilled Full-Stack Software Engineer with extensive experience in leading product and consulting companies, my expertise lies in designing and developing high-performance, scalable, and highly available applications.
+    % \end{onecolentry}
+    % \vspace{0.1 cm}
+    % \begin{onecolentry}
+    %     I specialize in backend technologies (\textit{Spring Boot}, \textit{Kotlin}, \textit{Java}), frontend development (\textit{React}, \textit{JavaScript}, \textit{TypeScript}), DevOps (\textit{Jenkins}, \textit{GitLab}), and test automation. I have an agile mindset and extensive experience working in agile environments. Outside of work, I enjoy sports and exploring new cultures.
+    % \end{onecolentry}
+
+%     \section{About Me}
+% \begin{onecolentry}
+%     As an experienced Full-Stack Software Engineer, I bring a wealth of experience from leading product and consulting companies, including work for industry giants like Infineon and Audi. My expertise lies in architecting and implementing high-performance, scalable applications that handle significant traffic loads. With a strong foundation in both backend (\textit{Spring Boot}, \textit{Kotlin}, \textit{Java}) and frontend (\textit{React}, \textit{TypeScript}) technologies, I excel at delivering end-to-end solutions that meet complex business requirements.
+% \end{onecolentry}
+% \vspace{0.1 cm}
+% \begin{onecolentry}
+%     My technical proficiency extends across the entire development lifecycle, encompassing DevOps practices (\textit{Jenkins}, \textit{GitLab}, \textit{AWS}), database management (\textit{PostgreSQL}), and containerization (\textit{Docker}). I thrive in agile environments, leveraging my problem-solving skills and passion for continuous learning to drive innovation and optimize system performance. Beyond my technical skills, I bring a global perspective to my work, enriched by my love for exploring new cultures and engaging in sports, which fuels my adaptability and team-oriented approach in dynamic professional settings.
+% \end{onecolentry}
+
+    \section{About Me}
+\begin{onecolentry}
+    As an experienced Full-Stack Software Engineer, I specialize in building high-performance, scalable applications for industry leaders like Infineon and Audi. My expertise spans backend (\textit{Spring Boot}, \textit{Kotlin}, \textit{Java}), frontend (\textit{React}, \textit{TypeScript}), and DevOps (\textit{Jenkins}, \textit{AWS}, \textit{Docker}), enabling me to deliver comprehensive solutions for complex business needs.
+\end{onecolentry}
+\vspace{0.3 cm}
+\begin{onecolentry}
+    I excel in agile environments, continuously enhancing my skills to drive innovation and optimize system performance. My global perspective and adaptability, fostered by my interest in diverse cultures and sports, contribute to my effective team collaboration in dynamic professional settings.
+\end{onecolentry}
+
+    \section{Professional Experience}
+
+\begin{twocolentry}{
+    Zurich, Switzerland  
+
+    Oct. 2024 – Present  
+}
+\textbf{Flowable}, Senior Software Engineer  
+\begin{highlights}  
+   \item Migrated critical \href{https://ubs.com}{UBS} customer onboarding systems from legacy applications to modern Flowable architecture.
+   \item Developed and optimized business process workflows using BPMN and CMMN for private and commercial clients.
+   \item Implemented automated compliance checks to meet regulatory requirements in the banking sector.
+   \item Conducted security analyses and technical system upgrades to ensure system integrity.
+\end{highlights}   
+\end{twocolentry}  
+
+
+\vspace{0.2 cm}
+
+    \begin{twocolentry}{
+        Munich, Germany
+        
+        Feb. 2022 - Jan. 2024
+        
+        2 years
+    }
+        \textbf{Virtual Identity AG}, Senior Full-Stack Engineer
+        \begin{highlights}
+            \item Developed and maintained features on \href{https://infineon.com}{infineon.com} to optimize user experience and functionality.
+            \item Successfully migrated \href{https://voestalpine.com}{voestalpine.com} to the AWS cloud, enhancing scalability and performance.
+            \item Designed and conducted comprehensive unit and integration tests to increase software reliability.
+            \item Technologies: Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms, Artifactory, AWS (API Gateway, DMS, SQS, SNS, Elastic Beanstalk, Lambda, Route53, CloudFormation).
+        \end{highlights}
+    \end{twocolentry}
+    
+    \vspace{0.2 cm}
+    
+    \begin{twocolentry}{
+            Munich, Germany
+            
+            Nov. 2021 - Feb. 2022
+            
+            4 months
+        }
+            \textbf{Spreadshirt}, Full-Stack Engineer
+            % \textbf{Spreadshirt}, Full-Stack Engineer (Part-time contract)
+            \begin{highlights}
+                \item Developed a high-performance application for payout generation, improving financial operations.
+                \item Created intuitive user interfaces, enhancing user experience and application usability.
+                \item Technologies: PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript, React.
+            \end{highlights}
+        \end{twocolentry}
+        
+    \vspace{1.9 cm}
+    
+    \begin{twocolentry}{
+        Munich, Germany
+        
+        Feb. 2019 - Oct. 2021
+        
+        2 years 9 months
+    }
+        \textbf{Comsysto Reply GmbH}, Full-Stack Engineer
+        \begin{highlights}
+            \item Collaborated in a Scrum team to optimize pricing, voucher management, and communication systems for the \href{https://audiondemand.audi.de/rent.html}{ABI Audi On Demand} product.
+            \item Developed and maintained multiple microservices and microfrontends handling loads of up to 200 QPS.
+            \item Refactored code using Kotlin, increasing maintainability and reducing code lines by 30\%.
+            \item Technologies: PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry, AWS (Lambda, Route53, CloudFormation, API Gateway).
+        \end{highlights}
+    \end{twocolentry}
+    
+    \section{Education}
+    \begin{threecolentry}{\textbf{M.Sc.}}{
+        Oct. 2018 - Nov. 2023
+    }
+        \textbf{Munich University of Applied Sciences}
+        \vspace{0.1 cm}
+        \begin{onecolentry}
+        Computer Vision and Machine Learning
+        \end{onecolentry}
+    \end{threecolentry}
+    
+    \vspace{0.2 cm}
+    \begin{threecolentry}{\textbf{B.Sc.}}{
+        Oct. 2014 - Feb. 2018
+    }
+        \textbf{TH Köln - University of Applied Sciences}
+        \vspace{0.1 cm}
+        \begin{onecolentry}
+        Networks and Distributed Systems
+        \end{onecolentry}
+    \end{threecolentry}
+    
+    \vspace{0.2 cm}
+    \begin{threecolentry}{\textbf{B.Sc.}}{
+        Sept. 2010 - May 2013
+    }
+        \textbf{Telecommunications University Kyiv}
+        \vspace{0.1 cm}
+        \begin{onecolentry}
+        IT Security Management
+        \end{onecolentry}
+    \end{threecolentry}
+
+   \section{Languages}
+    \begin{onecolentry}
+        \textbf{Full Professional:} English, German
+
+        \vspace{0.2cm}
+
+        \textbf{Native/Bilingual:} Ukrainian, Russian
+    \end{onecolentry}
+
+    
+    \section{Certifications}
+    \begin{samepage}
+        \begin{twocolentry}{
+            Dec. 2020
+        }
+            \href{https://www.credly.com/badges/2c48adfb-29e0-4e19-95ae-f60acd185247}{AWS Certified Developer – Associate}
+        \end{twocolentry}
+        \vspace{0.2cm}
+        \begin{twocolentry}{
+            May. 2025
+        }
+            Flowable Developer Certification
+        \end{twocolentry}
+
+    \end{samepage}
+    
+    \section{Volunteer Work \& Personal Projects}
+    \begin{twocolentry}{
+    Munich, Germany
+    
+        Jan. 2020 - Oct. 2024
+    }
+        \textbf{SmartDorm}, Lead Full-Stack Engineer
+        \begin{highlights}
+            \item Developed a \href{https://smartdorm.schollheim.net/}{web application} to streamline and automate management processes in the student dormitory.
+            \item Migrated and consolidated data into a central database to ensure 100\% data consistency.
+            \item Reduced administrative work by 35\% through digitalization and automation.
+            \item Implemented a CI/CD pipeline to optimize the development process.
+            \item Technologies: PostgreSQL, Kotlin, Spring Boot, React, GitLab.
+        \end{highlights}
+    \end{twocolentry}
+    
+    \section{Technologies}
+    \begin{onecolentry}
+        \textbf{Languages:} Java, Kotlin, JavaScript, TypeScript, HTML/CSS, SQL
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Frameworks:} Spring Boot, React, Angular, Node.js
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Technologies:} AWS, RabbitMQ, ELK Stack, Git
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Databases:} PostgreSQL, MySQL, Oracle, CouchDB, Flyway
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Tools:} Docker, Artifactory, GitLab, Jenkins, Grafana, SonarCloud
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Other:} RESTful API design; unit, integration, and E2E testing
+    \end{onecolentry}
+    
+
+\end{document}
