@@ -16,6 +16,7 @@
 		"lint:fix": "eslint . --fix",
 		"lint:ci": "eslint . --max-warnings=0",
 		"validate:dictionaries": "node scripts/validateDictionaries.js",
+		"check": "npm run format:check && npm run lint:ci",
 		"prepare": "husky",
 		"test:smoke": "node scripts/smoke.mjs"
 	},
@@ -58,11 +59,14 @@
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
-			"eslint --fix",
-			"prettier --write"
+			"prettier --write",
+			"eslint --fix"
 		],
 		"*.{css,md,json}": [
 			"prettier --write"
+		],
+		"dictionaries/*.json": [
+			"npm run validate:dictionaries"
 		]
 	}
 }
