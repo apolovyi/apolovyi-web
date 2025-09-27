@@ -19,7 +19,7 @@ const Footer = lazy(() => import('@/components/footer/Footer'))
 
 const IS_LH = process.env.NEXT_PUBLIC_LIGHTHOUSE === 'true'
 
-// Avoid loading framer-motion-heavy SocialMediaAround during Lighthouse runs
+// Avoid loading motion-heavy SocialMediaAround during Lighthouse runs
 const SocialMediaAround = IS_LH ? () => null : dynamic(() => import('@/components/home/SocialMediaAround'))
 
 interface HomeClientProps {

@@ -1,7 +1,9 @@
+'use client'
+
 import { memo, useCallback, useRef } from 'react'
 
 import type { Locale } from '@/i18n-config'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'

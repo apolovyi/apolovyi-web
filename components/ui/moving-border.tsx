@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react'
 
-import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransform } from 'framer-motion'
+import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransform } from 'motion/react'
 
 import { cn } from '@/lib/utils'
 

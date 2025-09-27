@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 export default function AnimatedHeader({
 	className,

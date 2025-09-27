@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 import type { Locale } from '@/i18n-config'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
