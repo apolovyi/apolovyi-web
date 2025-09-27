@@ -1,0 +1,402 @@
+\documentclass[11pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=1.5 cm, % seperation between body and page edge from the top
+    bottom=1.5 cm, % seperation between body and page edge from the bottom
+    left=1.3 cm, % seperation between body and page edge from the left
+    right=1.3 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage[explicit]{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Artem Polovyi CV(DE)},
+    pdfauthor={Artem Polovyi},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+\usepackage[disable]{microtype} % This disables all micro-typographic enhancements, including word breaks.
+\usepackage[none]{hyphenat} % Disable hyphenation
+% \usepackage{ragged2e} % For text alignment
+% \RaggedRight % Apply ragged right alignment to the entire document
+
+% Added package
+\usepackage{graphicx} % for including images
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage[default, type1]{sourcesanspro} 
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Artem Polovyi - Seite \thepage{} von \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{
+    % avoid page braking right after the section title
+    \needspace{4\baselineskip}
+    % make the font size of the section title large and color it with the primary color
+    \Large\color{primaryColor}
+}{
+}{
+}{
+    % print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
+    % from the end of the title to the end of the body
+    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+}[] % section title formatting
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+% \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{1 cm, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in May 2024}\hspace{\widthof{Last updated in May 2024}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\mbox{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}}
+
+
+\begin{document}
+    \begin{header}
+    \begin{minipage}[t]{0.32\textwidth}
+        \includegraphics[width=\linewidth]{5.JPG} % Include your picture here
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.55\textwidth}
+        \vspace{-4cm} % Adjusted for better alignment
+        \raggedleft
+        \fontsize{28pt}{30pt}\selectfont
+        \textbf{Artem Polovyi}
+
+        \vspace{0.3cm}
+
+        \normalsize
+        \mbox{\faMapMarker* \hspace*{0.1cm} Zürich, Schweiz}
+        \kern 0.5cm
+        % \mbox{\faEnvelope[regular] \hspace*{0.1cm} \href{mailto:info@apolovyi.me}{info@apolovyi.me}}
+        \mbox{\faEnvelope[regular] \hspace*{0.1cm} \href{mailto:artem.polovyi@gmail.com}{artem.polovyi@gmail.com}}
+        \kern 0.5cm
+        \mbox{\faPhone* \hspace*{0.1cm} +41 78 3139822}
+        \kern 0.5cm
+        \mbox{\faLinkedinIn \hspace*{0.1cm} \href{https://linkedin.com/in/apolovyi}{linkedin.com/in/apolovyi}}
+        \kern 0.5cm
+        \mbox{\faGithub \hspace*{0.1cm} \href{https://github.com/apolovyi}{github.com/apolovyi}}
+        \kern 0.5cm
+        \mbox{\faGlobe \hspace*{0.1cm} \href{https://apolovyi.me}{apolovyi.me}}
+    \end{minipage}
+\end{header}
+
+
+    \vspace{0.3 cm - 0.3 cm}
+
+    % \section{Über mich}
+    % \begin{onecolentry}
+    %     Als versierter Full-Stack-Softwareentwickler mit umfassender Praxis in führenden Produkt-\\ und Beratungsunternehmen liegt meine Expertise in der Konzeption und Entwicklung leistungsstarker,\\ skalierbarer und hochverfügbarer Anwendungen.
+    % \end{onecolentry}
+    % \begin{onecolentry}
+    %     Ich spezialisiere mich auf Backend-Technologien (\textit{Spring Boot}, \textit{Kotlin}, \textit{Java}), Frontend-Entwicklung (\textit{React}, \textit{JavaScript}, \textit{TypeScript}), DevOps (\textit{Jenkins}, \textit{GitLab}) und Testautomatisierung. Ich habe eine agile Denkweise und umfassende Erfahrung in agilen Umgebungen. Außerhalb der Arbeit genieße ich Sport und das Erkunden neuer Kulturen.
+    % \end{onecolentry}
+
+    \section{Über mich}
+\begin{onecolentry}
+    Als erfahrener Full-Stack Softwareentwickler bin ich spezialisiert auf die Entwicklung hochleistungsfähiger, skalierbarer Anwendungen für Branchenführer wie Infineon und Audi. Meine Expertise umfasst Backend (\textit{Spring Boot}, \textit{Kotlin}, \textit{Java}), Frontend (\textit{React}, \textit{TypeScript}) und DevOps (\textit{Jenkins}, \textit{AWS}, \textit{Docker}), was es mir ermöglicht, umfassende Lösungen für komplexe Geschäftsanforderungen zu liefern.
+\end{onecolentry}
+\vspace{0.1 cm}
+\begin{onecolentry}
+    Ich arbeite erfolgreich in agilen Umgebungen und erweitere kontinuierlich meine Fähigkeiten, um Innovation \\ voranzutreiben und die Systemleistung zu optimieren. Meine globale Perspektive und Anpassungsfähigkeit, gefördert durch mein Interesse an verschiedenen Kulturen und Sport, tragen zu meiner effektiven Teamzusammenarbeit in dynamischen professionellen Umgebungen bei.
+\end{onecolentry}
+    
+    \section{Berufserfahrung}
+
+\begin{twocolentry}{
+    Zürich, Schweiz
+    
+    Okt. 2024 – heute  
+}
+\textbf{Flowable}, Senior Softwareentwickler  
+\begin{highlights}  
+    \item Migration kritischer \href{https://ubs.com}{UBS}  Kundenonboarding-Systeme von Legacy-Anwendungen auf moderne Flowable-Architektur.
+    \item Entwicklung und Optimierung von Geschäftsprozess-Workflows mit BPMN und CMMN für Privat- und Geschäftskunden.
+    \item Implementierung automatisierter Compliance-Prüfungen zur Einhaltung regulatorischer Bankensektor-Anforderungen.
+    \item Durchführung von Sicherheitsanalysen und technischen System-Upgrades zur Gewährleistung der Systemintegrität.
+\end{highlights}  
+\end{twocolentry}
+
+\vspace{0.2 cm}
+
+    \begin{twocolentry}{
+        München, Deutschland
+        
+        Feb. 2022 - Jan. 2024
+        
+        2 Jahre
+    }
+        \textbf{Virtual Identity AG}, Senior Full-Stack-Entwickler
+        \begin{highlights}
+            \item Entwickelte und wartete Funktionen auf \href{https://infineon.com}{infineon.com},\\ um die Benutzererfahrung und Funktionalität zu optimieren.
+            \item Erfolgreiche Migration von \href{https://voestalpine.com}{voestalpine.com} in die AWS-Cloud, was die Skalierbarkeit und Leistung steigerte.
+            \item Entwarf und führte umfassende Unit- und Integrationstests durch, um die Softwarezuverlässigkeit zu erhöhen.
+            \item Technologien: Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms, Artifactory, AWS (API Gateway, DMS, SQS, SNS, Elastic Beanstalk, Lambda, Route53, CloudFormation).
+
+        \end{highlights}
+    \end{twocolentry}
+    
+    \vspace{0.2 cm}
+
+    \begin{twocolentry}{
+            München, Deutschland
+            
+            Nov. 2021 - Feb. 2022
+            
+            4 Monate
+        }
+            \textbf{Spreadshirt}, Senior Full-Stack-Entwickler
+            % \textbf{Spreadshirt}, Full-Stack Engineer (Teilzeitvertrag)
+            \begin{highlights}
+                \item Entwicklung einer leistungsstarken Anwendung \\zur Generierung von Auszahlungen, die die Finanzoperationen verbesserte.
+                \item Erstellung intuitiver Benutzeroberflächen, die die Benutzererfahrung und Anwendungsnutzung verbesserten.
+                \item Technologien: PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript, React.
+            \end{highlights}
+        \end{twocolentry}
+        
+ \vspace{0.6 cm}
+    
+    \begin{twocolentry}{
+        München, Deutschland
+        
+        Feb. 2019 - Okt. 2021
+        
+        2 Jahre 9 Monate
+    }
+        \textbf{Comsysto Reply GmbH}, Full-Stack-Entwickler
+        \begin{highlights}
+            \item Mitarbeit in einem Scrum-Team zur Optimierung der Preisgestaltung,\\ Gutscheinverwaltung und Kommunikationssysteme\\ für das \href{https://audiondemand.audi.de/rent.html}{ABI Audi On Demand}-Produkt.
+            \item Entwicklung und Wartung mehrerer Microservices und Microfrontends, die Lasten von bis zu 200 QPS bewältigen.
+            \item Refaktorierte den Code mit Kotlin, wodurch die Wartbarkeit erhöht und die Codezeilen um 20\% reduziert wurden.
+            \item Technologien: PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry, AWS (Lambda, Route53, CloudFormation, API Gateway).
+        \end{highlights}
+    \end{twocolentry}
+    
+    \section{Bildung}
+    \begin{threecolentry}{\textbf{M.Sc.}}{
+        Okt. 2018 - Nov. 2023
+    }
+        \textbf{Hochschule München}
+        \vspace{0.1 cm}
+        \begin{onecolentry}
+        Computer Vision und Maschinelles Lernen
+        \end{onecolentry}
+    \end{threecolentry}
+    
+    \vspace{0.2 cm}
+    \begin{threecolentry}{\textbf{B.Sc.}}{
+        Okt. 2014 - Feb. 2018
+    }
+        \textbf{Technische Hochschule Köln}
+        \vspace{0.1 cm}
+        \begin{onecolentry}
+        Netzwerke und Verteilte Systeme
+        \end{onecolentry}
+    \end{threecolentry}
+    
+    \vspace{0.2 cm}
+    \begin{threecolentry}{\textbf{B.Sc.}}{
+        Sept. 2010 - Mai 2013
+    }
+        \textbf{Universität für Telekommunikation Kyiv}
+        \vspace{0.1 cm}
+        \begin{onecolentry}
+        IT-Sicherheitsmanagement
+        \end{onecolentry}
+    \end{threecolentry}
+
+    \section{Sprachen}
+    \begin{onecolentry}
+        \textbf{Verhandlungssicher:} Deutsch, Englisch
+        
+        \vspace{0.2cm}
+        
+        \textbf{Muttersprache:} Ukrainisch, Russisch
+    \end{onecolentry}
+    
+    \section{Zertifikate}
+    \begin{samepage}
+        \begin{twocolentry}{
+            Dez. 2020
+        }
+            \href{https://www.credly.com/badges/2c48adfb-29e0-4e19-95ae-f60acd185247}{AWS Certified Developer – Associate}
+        \end{twocolentry}
+    \end{samepage}
+    
+    \section{Freiwillige Arbeit \& Private Projekte}
+    \begin{twocolentry}{
+        Jan. 2020 - Heute
+    }
+        \textbf{SmartDorm}, Studentenwohnheim Geschwister Scholl
+        \begin{highlights}
+            \item Entwickelte eine \href{https://smartdorm.schollheim.net/}{Webanwendung}
+             zur Rationalisierung und Automatisierung der Managementprozesse im Studentenwohnheim.
+            \item Migrierte und konsolidierte Daten in eine zentrale Datenbank, um eine 100\%ige Datenkonsistenz zu gewährleisten.
+            \item Reduzierte die Verwaltungsarbeit durch Digitalisierung und Automatisierung um 35\%.
+            \item Implementierte eine CI/CD-Pipeline zur Optimierung des Entwicklungsprozesses.
+            \item Technologien: PostgreSQL, Kotlin, Spring Boot, React, GitLab.
+
+        \end{highlights}
+    \end{twocolentry}
+    
+    \section{Technologien}
+    \begin{onecolentry}
+        \textbf{Sprachen:} Java, Kotlin, JavaScript, TypeScript, HTML/CSS, SQL
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Frameworks:} Spring Boot, React, Angular, Node.js
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Technologien:} AWS, RabbitMQ, ELK-Stack, Git
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Datenbanken:} PostgreSQL, MySQL, Oracle, CouchDB, Flyway
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Tools:} Docker, Artifactory, GitLab, Jenkins, Grafana, SonarCloud
+    \end{onecolentry}
+    
+    \vspace{0.2cm}
+    
+    \begin{onecolentry}
+        \textbf{Sonstiges:} RESTful API-Design; Unit-, Integrations- und E2E-Tests
+    \end{onecolentry}
+    
+
+\end{document}
