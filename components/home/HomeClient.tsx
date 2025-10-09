@@ -56,7 +56,7 @@ export default function HomeClient({ lang }: HomeClientProps) {
 				lang={lang}
 			/>
 			<SocialMediaAround finishedLoading={sharedState.finishedLoading} />
-			{!IS_LH && sharedState.finishedLoading && (
+			{!IS_LH && (
 				<>
 					<Suspense fallback={null}>
 						<AboutMe lang={lang} />

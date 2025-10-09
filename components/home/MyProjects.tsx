@@ -31,8 +31,8 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 	useHoverLiftMotion(imgCardRef)
 	useHoverLiftMotion(contentCardRef)
 	const isEven = index % 2 === 0
-	useMotionInView(imgCardRef, isEven ? 'fade-right' : 'fade-left', { mode: 'toggle' })
-	useMotionInView(contentCardRef, isEven ? 'fade-left' : 'fade-right', { mode: 'toggle' })
+	useMotionInView(imgCardRef, isEven ? 'fade-right' : 'fade-left', { mode: 'toggle', threshold: 0.01, rootMargin: '0px 0px 20% 0px' })
+	useMotionInView(contentCardRef, isEven ? 'fade-left' : 'fade-right', { mode: 'toggle', threshold: 0.01, rootMargin: '0px 0px 20% 0px' })
 
 	// tiny GPU-friendly parallax for the image element
 	useEffect(() => {
@@ -164,8 +164,8 @@ export default function MyProjects({ lang: _lang }: MyProjectsProps) {
 	const { projectsSection } = dict
 	const sectionRef = useRef<HTMLElement>(null)
 	const headerRef = useRef<HTMLElement>(null)
-	useMotionInView(sectionRef, 'fade-up')
-	useMotionInView(headerRef, 'fade-up')
+	useMotionInView(sectionRef, 'fade-up', { threshold: 0.01, rootMargin: '0px 0px 25% 0px' })
+	useMotionInView(headerRef, 'fade-up', { threshold: 0.01, rootMargin: '0px 0px 25% 0px' })
 	const itemRefs = useRef<Array<HTMLDivElement | null>>([])
 	useEffect(() => {
 		const items = itemRefs.current.filter(Boolean) as HTMLDivElement[]
@@ -190,7 +190,7 @@ export default function MyProjects({ lang: _lang }: MyProjectsProps) {
 						}
 					})
 				},
-				{ threshold: 0.15 },
+				{ threshold: 0, rootMargin: '0px 0px 25% 0px' },
 			)
 			io.observe(el)
 			observers.push(io)

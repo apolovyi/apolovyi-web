@@ -10,6 +10,7 @@ type MotionName = 'fade-up' | 'fade-in' | 'fade-left' | 'fade-right'
 type Options = {
 	delay?: number
 	threshold?: number
+	rootMargin?: string
 
 	mode?: 'once' | 'toggle'
 	inDuration?: number
@@ -69,7 +70,7 @@ export function useMotionInView<T extends HTMLElement>(ref: RefObject<T>, motion
 					}
 				})
 			},
-			{ threshold },
+			{ threshold, rootMargin: options?.rootMargin ?? '0px 0px 0px 0px' },
 		)
 		io.observe(el)
 		return () => io.disconnect()
@@ -83,5 +84,6 @@ export function useMotionInView<T extends HTMLElement>(ref: RefObject<T>, motion
 		options?.outDuration,
 		options?.entryEase,
 		options?.exitEase,
+		options?.rootMargin,
 	])
 }
