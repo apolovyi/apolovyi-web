@@ -75,7 +75,7 @@ async function startStaticServer() {
           res.end('Not found')
         })
         .pipe(res)
-    } catch (e) {
+    } catch {
       res.statusCode = 500
       res.end('Server error')
     }
