@@ -81,13 +81,20 @@ const server = http.createServer((req, res) => {
       stat = fs.statSync(filePath)
     }
   } catch {
-    // Fallback for SPA-style routes: try index.html
-    filePath = path.join(ROOT, 'index.html')
+    // Try adding .html extension for clean URLs (e.g., /en -> /en.html)
+    const htmlPath = safeJoin(ROOT, relPath + '.html')
     try {
-      stat = fs.statSync(filePath)
+      stat = fs.statSync(htmlPath)
+      filePath = htmlPath
     } catch {
-      send(res, 404, 'Not Found')
-      return
+      // Fallback for SPA-style routes: try index.html
+      filePath = path.join(ROOT, 'index.html')
+      try {
+        stat = fs.statSync(filePath)
+      } catch {
+        send(res, 404, 'Not Found')
+        return
+      }
     }
   }
 
