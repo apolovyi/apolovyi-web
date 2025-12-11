@@ -31,7 +31,9 @@ export function WorldMap({ dots = [], lineColor = '#c23b3b', className }: WorldM
 		fetch('/world-map.svg')
 			.then((res) => res.text())
 			.then(setMapSvg)
-			.catch(console.error)
+			.catch(() => {
+				// Silently fail - map is optional
+			})
 	}, [])
 
 	const projectPoint = (lat: number, lng: number) => {

@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import { OrbitControls } from '@react-three/drei'
 import { Canvas, useThree } from '@react-three/fiber'
-import { Color, Fog, PerspectiveCamera, Vector3 } from 'three'
+import type { MeshPhongMaterial, PerspectiveCamera } from 'three'
+import { Color, Fog, Vector3 } from 'three'
 import ThreeGlobe from 'three-globe'
 
 import { cn } from '@/lib/utils'
@@ -79,7 +80,7 @@ function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 	const { scene, camera } = useThree()
 	const [globeReady, setGlobeReady] = useState(false)
 
-	const mergedConfig = { ...defaultGlobeConfig, ...globeConfig }
+	const mergedConfig = useMemo(() => ({ ...defaultGlobeConfig, ...globeConfig }), [globeConfig])
 
 	// Initialize globe on mount
 	useEffect(() => {
@@ -94,7 +95,7 @@ function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 
 		const globe = globeRef.current
 
-		fetch('/globe.json')
+		void fetch('/globe.json')
 			.then((res) => res.json())
 			.then((countries) => {
 				if (!globeRef.current) return
@@ -115,7 +116,7 @@ function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 			.arcStartLng((d) => (d as Position).startLng)
 			.arcEndLat((d) => (d as Position).endLat)
 			.arcEndLng((d) => (d as Position).endLng)
-			.arcColor((d) => (d as Position).color)
+			.arcColor((d: object) => (d as Position).color)
 			.arcAltitude((d) => (d as Position).arcAlt)
 			.arcStroke(() => [0.32, 0.28, 0.3][Math.floor(Math.random() * 3)])
 			.arcDashLength(mergedConfig.arcLength!)
@@ -142,7 +143,7 @@ function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 		if (!globeRef.current || !globeReady) return
 
 		const globe = globeRef.current
-		const globeMaterial = globe.globeMaterial() as THREE.MeshPhongMaterial
+		const globeMaterial = globe.globeMaterial() as MeshPhongMaterial
 		globeMaterial.color = new Color(mergedConfig.globeColor!)
 		globeMaterial.emissive = new Color(mergedConfig.emissive!)
 		globeMaterial.emissiveIntensity = mergedConfig.emissiveIntensity!
@@ -167,9 +168,7 @@ function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 
 			globeRef.current.ringsData(newData)
 
-			numbersOfRingsRef.current = numbersOfRingsRef.current.map((v) =>
-				v < mergedConfig.maxRings! ? v + 1 : v
-			)
+			numbersOfRingsRef.current = numbersOfRingsRef.current.map((v) => (v < mergedConfig.maxRings! ? v + 1 : v))
 		}, 600)
 
 		return () => clearInterval(interval)
@@ -208,7 +207,10 @@ function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 
 	return (
 		<>
-			<ambientLight color={mergedConfig.ambientLight} intensity={0.6} />
+			<ambientLight
+				color={mergedConfig.ambientLight}
+				intensity={0.6}
+			/>
 			<directionalLight
 				color={mergedConfig.directionalLeftLight}
 				position={new Vector3(-400, 100, 400)}
@@ -279,4 +281,3 @@ export function GithubGlobe({ className, config }: GithubGlobeProps) {
 		</div>
 	)
 }
-
