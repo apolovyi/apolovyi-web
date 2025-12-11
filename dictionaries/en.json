@@ -1,13 +1,13 @@
 {
 	"metadata": {
 		"title": {
-			"default": "Artem Polovyi - Full-Stack Software Engineer",
+			"default": "Artem Polovyi - Full-Stack Software Engineer in Zurich",
 			"template": "%s | Artem Polovyi - Full-Stack Software Engineer"
 		},
-		"description": "Experienced full-stack engineer specializing in scalable web applications and cloud technologies. Serving clients in the US and Europe with 7+ years of expertise in Java, Kotlin, Spring Boot, React, and AWS.",
+		"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 7+ years building enterprise solutions for Audi, Infineon, and Flowable using Java, Kotlin, Spring Boot, React, and TypeScript.",
 		"openGraph": {
-			"title": "Artem Polovyi - Full-Stack Software Engineer",
-			"description": "Experienced full-stack engineer specializing in scalable web applications and cloud technologies. Serving clients in the US and Europe with 7+ years of expertise in Java, Kotlin, Spring Boot, React, and AWS.",
+			"title": "Artem Polovyi - Full-Stack Software Engineer in Zurich",
+			"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 7+ years building enterprise solutions for Audi, Infineon, and Flowable using Java, Kotlin, Spring Boot, React, and TypeScript.",
 			"siteName": "Artem Polovyi - Full-Stack Software Engineer",
 			"images": [
 				{
@@ -68,17 +68,17 @@
 	"heroSection": {
 		"greeting": "Hi, my name is",
 		"name": "Artem Polovyi.",
-		"tagline": "I bring ideas to life.",
+		"tagline": "Full-Stack Engineer in Zurich.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_EN_WEB.pdf",
 		"paragraphs": [
-			"As a full-stack software engineer with strong problem-solving skills, I specialize in creating exceptional digital experiences",
-			"Currently, I am passionate about creating robust solutions, exploring innovative technologies, and driving digital transformation."
+			"7+ years building enterprise solutions for companies like Audi, Infineon, and Flowable.",
+			"Currently at Flowable in Zurich, crafting business process solutions with Java, Spring Boot, and React."
 		],
 		"highlightedTerms": [
-			"full-stack software engineer",
-			"robust solutions",
-			"innovative technologies",
-			"digital transformation"
+			"Audi",
+			"Infineon",
+			"Flowable",
+			"Zurich"
 		],
 		"cta": "Check out my resume!"
 	},

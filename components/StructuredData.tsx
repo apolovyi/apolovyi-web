@@ -1,69 +1,78 @@
 import Script from 'next/script'
 
 const StructuredData = () => {
-	const structuredData = {
+	const personData = {
 		'@context': 'https://schema.org',
-		'@type': 'Organization',
-		'name': 'Artem Polovyi - Full-Stack Software Engineering',
+		'@type': 'Person',
+		'name': 'Artem Polovyi',
 		'url': 'https://apolovyi.me',
-		'logo': 'https://apolovyi.me/img/logo.png',
 		'image': 'https://apolovyi.me/img/me-circle.webp',
 		'description':
-			'Experienced full-stack engineer specializing in scalable web applications and cloud technologies. Serving clients in the US and Europe with 7+ years of expertise in Java, Kotlin, Spring Boot, React, and AWS.',
+			'Full-Stack Software Engineer based in Zurich, Switzerland. 7+ years building enterprise solutions for Audi, Infineon, and Flowable using Java, Kotlin, Spring Boot, React, and TypeScript.',
 		'email': 'info@apolovyi.me',
 		'sameAs': ['https://www.linkedin.com/in/apolovyi', 'https://github.com/apolovyi'],
+		'jobTitle': 'Senior Full-Stack Software Engineer',
+		'worksFor': {
+			'@type': 'Organization',
+			'name': 'Flowable',
+			'url': 'https://flowable.com',
+			'address': {
+				'@type': 'PostalAddress',
+				'addressLocality': 'Zurich',
+				'addressCountry': 'CH',
+			},
+		},
 		'address': {
 			'@type': 'PostalAddress',
 			'addressLocality': 'Zurich',
+			'addressRegion': 'ZH',
 			'addressCountry': 'CH',
-			'postalCode': '8001',
 		},
-		'founder': {
-			'@type': 'Person',
-			'name': 'Artem Polovyi',
-			'jobTitle': 'Senior Full-Stack Software Engineer',
-			'alumniOf': [
-				{
-					'@type': 'EducationalOrganization',
-					'name': 'Munich University of Applied Sciences',
-				},
-				{
-					'@type': 'EducationalOrganization',
-					'name': 'TH Köln - University of Applied Sciences',
-				},
-				{
-					'@type': 'EducationalOrganization',
-					'name': 'Telecommunications University Kyiv',
-				},
-			],
-			'knowsLanguage': ['English', 'German', 'Ukrainian', 'Russian'],
-		},
-		'knowsAbout': ['Full-Stack Development', 'Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'AWS', 'Cloud Technologies'],
-		'makesOffer': [
+		'alumniOf': [
 			{
-				'@type': 'Offer',
-				'itemOffered': {
-					'@type': 'Service',
-					'name': 'Full-Stack Software Development',
-					'description': 'Development of scalable web applications using modern technologies',
-				},
+				'@type': 'EducationalOrganization',
+				'name': 'Munich University of Applied Sciences',
 			},
 			{
-				'@type': 'Offer',
-				'itemOffered': {
-					'@type': 'Service',
-					'name': 'Cloud Solutions Architecture',
-					'description': 'Design and implementation of cloud-based solutions using AWS',
-				},
+				'@type': 'EducationalOrganization',
+				'name': 'TH Köln - University of Applied Sciences',
+			},
+			{
+				'@type': 'EducationalOrganization',
+				'name': 'Telecommunications University Kyiv',
 			},
 		],
+		'knowsLanguage': [
+			{ '@type': 'Language', 'name': 'German', 'alternateName': 'de' },
+			{ '@type': 'Language', 'name': 'English', 'alternateName': 'en' },
+			{ '@type': 'Language', 'name': 'Ukrainian', 'alternateName': 'uk' },
+			{ '@type': 'Language', 'name': 'Russian', 'alternateName': 'ru' },
+		],
+		'knowsAbout': [
+			'Java',
+			'Kotlin',
+			'Spring Boot',
+			'React',
+			'TypeScript',
+			'Next.js',
+			'PostgreSQL',
+			'AWS',
+			'Docker',
+			'Microservices',
+			'BPMN',
+			'Flowable',
+		],
+		'nationality': {
+			'@type': 'Country',
+			'name': 'Ukraine',
+		},
 	}
 
 	return (
 		<Script
 			id="ld-json"
 			type="application/ld+json"
-			dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+			dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
 		/>
 	)
 }

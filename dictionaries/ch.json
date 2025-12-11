@@ -1,13 +1,13 @@
 {
 	"metadata": {
 		"title": {
-			"default": "Artem Polovyi - Full-Stack Softwareentwickler",
+			"default": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
 			"template": "%s | Artem Polovyi - Full-Stack Softwareentwickler"
 		},
-		"description": "Erfahrener Full-Stack-Entwickler, spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien. Betreut Kunden in den USA und Europa mit über 7 Jahren Expertise in Java, Kotlin, Spring Boot, React und AWS.",
+		"description": "Full-Stack Software Engineer in Zürich. Über 7 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon und Flowable mit Java, Kotlin, Spring Boot, React und TypeScript.",
 		"openGraph": {
-			"title": "Artem Polovyi - Full-Stack Softwareentwickler",
-			"description": "Erfahrener Full-Stack-Entwickler, spezialisiert auf skalierbare Webanwendungen und Cloud-Technologien. Betreut Kunden in den USA und Europa mit über 7 Jahren Expertise in Java, Kotlin, Spring Boot, React und AWS.",
+			"title": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
+			"description": "Full-Stack Software Engineer in Zürich. Über 7 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon und Flowable mit Java, Kotlin, Spring Boot, React und TypeScript.",
 			"siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
 			"images": [
 				{
@@ -68,17 +68,17 @@
 	"heroSection": {
 		"greeting": "Grüezi, ich heisse",
 		"name": "Artem Polovyi.",
-		"tagline": "Ich bring Idee zum Läbe.",
+		"tagline": "Full-Stack Engineer i Züri.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_DE_WEB.pdf",
 		"paragraphs": [
-			"Als Full-Stack Software Entwickler mit starchä Problemlösigsfähigkeite, bin ich uf s'Schaffe vo ussergewöhnlichä digitalä Erläbnis spezialisiert",
-			"Momentan bin ich begeisteret davo, robust Lösige z'entwickle, innovativi Technologie z'erforsche und digitali Transformation voraaztriebe."
+			"Über 7 Jahr Erfahrig im Entwickle vo Enterprise-Lösige für Firme wie Audi, Infineon und Flowable.",
+			"Aktuell bi Flowable i Züri – Business-Process-Lösige mit Java, Spring Boot und React."
 		],
 		"highlightedTerms": [
-			"Full-Stack Software Entwickler",
-			"robust Lösige",
-			"innovativi Technologie",
-			"digitali Transformation"
+			"Audi",
+			"Infineon",
+			"Flowable",
+			"Züri"
 		],
 		"cta": "Lueg der min Läbenslauf aa!"
 	},
