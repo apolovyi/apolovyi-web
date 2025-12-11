@@ -4,10 +4,10 @@
 			"default": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення",
 			"template": "%s | Артем Польовий - Full-Stack Розробник Програмного Забезпечення"
 		},
-		"description": "Досвідчений full-stack інженер, що спеціалізується на масштабованих веб-додатках та хмарних технологіях. Обслуговує клієнтів у США та Європі з понад 7-річним досвідом роботи з Java, Kotlin, Spring Boot, React та AWS.",
+		"description": "Full-Stack інженер-програміст у Цюріху, Швейцарія. Понад 10 років досвіду розробки enterprise-рішень для Audi, Infineon, Flowable та PEAX з використанням Java, Kotlin, Spring Boot, React та TypeScript.",
 		"openGraph": {
 			"title": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення",
-			"description": "Досвідчений full-stack інженер, що спеціалізується на масштабованих веб-додатках та хмарних технологіях. Обслуговує клієнтів у США та Європі з понад 7-річним досвідом роботи з Java, Kotlin, Spring Boot, React та AWS.",
+			"description": "Full-Stack інженер-програміст у Цюріху, Швейцарія. Понад 10 років досвіду розробки enterprise-рішень для Audi, Infineon, Flowable та PEAX з використанням Java, Kotlin, Spring Boot, React та TypeScript.",
 			"siteName": "Артем Польовий - Full-Stack Розробник Програмного Забезпечення",
 			"images": [
 				{
@@ -71,13 +71,14 @@
 		"tagline": "Full-Stack інженер у Цюріху.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_EN_WEB.pdf",
 		"paragraphs": [
-			"Понад 7 років досвіду розробки enterprise-рішень для компаній Audi, Infineon та Flowable.",
-			"Зараз працюю у Flowable в Цюріху — розробка бізнес-процесів на Java, Spring Boot та React."
+			"Понад 10 років досвіду розробки enterprise-рішень для компаній Audi, Infineon, Flowable та PEAX.",
+			"Зараз працюю у PEAX в Цюріху — розробка цифрових поштових скриньок та систем управління документами на Java, Spring Boot та React."
 		],
 		"highlightedTerms": [
 			"Audi",
 			"Infineon",
 			"Flowable",
+			"PEAX",
 			"Цюріху"
 		],
 		"cta": "Перегляньте моє резюме!"

@@ -4,10 +4,10 @@
 			"default": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
 			"template": "%s | Artem Polovyi - Full-Stack Softwareentwickler"
 		},
-		"description": "Full-Stack Software Engineer in Zürich. Über 7 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon und Flowable mit Java, Kotlin, Spring Boot, React und TypeScript.",
+		"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, Flowable und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
 		"openGraph": {
 			"title": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
-			"description": "Full-Stack Software Engineer in Zürich. Über 7 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon und Flowable mit Java, Kotlin, Spring Boot, React und TypeScript.",
+			"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, Flowable und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
 			"siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
 			"images": [
 				{
@@ -71,13 +71,14 @@
 		"tagline": "Full-Stack Engineer in Zürich.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_DE_WEB.pdf",
 		"paragraphs": [
-			"Über 7 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Unternehmen wie Audi, Infineon und Flowable.",
-			"Aktuell bei Flowable in Zürich – Entwicklung von Business-Process-Lösungen mit Java, Spring Boot und React."
+			"Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Unternehmen wie Audi, Infineon, Flowable und PEAX.",
+			"Aktuell bei PEAX in Zürich – Entwicklung von digitalen Briefkasten- und Dokumentenmanagement-Lösungen mit Java, Spring Boot und React."
 		],
 		"highlightedTerms": [
 			"Audi",
 			"Infineon",
 			"Flowable",
+			"PEAX",
 			"Zürich"
 		],
 		"cta": "Mein Lebenslauf"
