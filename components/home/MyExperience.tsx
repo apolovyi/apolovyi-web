@@ -9,17 +9,19 @@ import { useMotionInView } from '@/components/shared/useMotionInView'
 interface Company {
 	name: string
 	key: string
+	location: string
 }
 
 const companies: Company[] = [
-	{ name: 'Flowable Mimacom Group', key: 'Flowable' },
-	{ name: 'The Bicester Collection', key: 'TheBicesterCollection' },
-	{ name: 'Virtual Identity AG', key: 'VirtualIdentityAG' },
-	{ name: 'SmartDorm', key: 'SmartDorm' },
-	{ name: 'Spreadshirt', key: 'Spreadshirt' },
-	{ name: 'Comsysto Reply GmbH', key: 'ComsystoReplyGmbH' },
-	{ name: 'Blookery', key: 'Blookery' },
-	{ name: 'SilverTours GmbH', key: 'SilverToursGmbH' },
+	{ name: 'PEAX AG', key: 'PEAX', location: 'Zurich, CH' },
+	{ name: 'Flowable Mimacom Group', key: 'Flowable', location: 'Zurich, CH' },
+	{ name: 'The Bicester Collection', key: 'TheBicesterCollection', location: 'London, UK' },
+	{ name: 'Virtual Identity AG', key: 'VirtualIdentityAG', location: 'Munich, DE' },
+	{ name: 'SmartDorm', key: 'SmartDorm', location: 'Munich, DE' },
+	{ name: 'Spreadshirt', key: 'Spreadshirt', location: 'Leipzig, DE' },
+	{ name: 'Comsysto Reply GmbH', key: 'ComsystoReplyGmbH', location: 'Munich, DE' },
+	{ name: 'Blookery', key: 'Blookery', location: 'Cologne, DE' },
+	{ name: 'SilverTours GmbH', key: 'SilverToursGmbH', location: 'Cologne, DE' },
 ]
 
 const MyExperience = () => {
@@ -115,6 +117,27 @@ const CompanyButton = ({ isActive, onClick, companyName }: CompanyButtonProps) =
 	)
 }
 
+// Simple location pin icon
+const LocationPinIcon = ({ className }: { className?: string }) => (
+	<svg
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		strokeWidth="2"
+		strokeLinecap="round"
+		strokeLinejoin="round"
+		className={className}
+		aria-hidden="true"
+	>
+		<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+		<circle
+			cx="12"
+			cy="10"
+			r="3"
+		/>
+	</svg>
+)
+
 interface JobDescriptionProps {
 	company: string
 }
@@ -122,6 +145,7 @@ interface JobDescriptionProps {
 const JobDescription = ({ company }: JobDescriptionProps) => {
 	const dictionary = useDictionary()
 	const job = dictionary.experienceSection.roles[company as keyof typeof dictionary.experienceSection.roles]
+	const companyData = companies.find((c) => c.key === company)
 
 	const highlightKeywords = (text: string, keywords: string[]) => {
 		let highlightedText = text
@@ -137,11 +161,17 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 			<div>
 				<div className="flex flex-col lg:flex-row lg:items-center">
 					<span className="font-body text-lg font-semibold text-text-primary">{job.title}</span>
-					<span className="text-base text-accent-coral lg:ml-2 lg:text-lg">
-						@ {companies.find((c) => c.key === company)?.name || company}
-					</span>
+					<span className="text-base text-accent-coral lg:ml-2 lg:text-lg">@ {companyData?.name || company}</span>
 				</div>
-				<p className="mt-2 font-tech text-sm text-text-secondary">{job.date}</p>
+				<div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
+					<p className="font-tech text-sm text-text-secondary">{job.date}</p>
+					{companyData?.location && (
+						<span className="flex items-center gap-1 font-tech text-sm text-neutral-medium-gray">
+							<LocationPinIcon className="h-3.5 w-3.5" />
+							{companyData.location}
+						</span>
+					)}
+				</div>
 				{job.url ? (
 					<a
 						href={job.url}

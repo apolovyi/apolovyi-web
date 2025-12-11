@@ -7,7 +7,7 @@ import { motion } from 'motion/react'
 
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
-import { AuroraBackground } from '@/components/ui/aurora-background'
+import { JourneyBackground } from '@/components/ui/journey-background'
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
 
 interface AnimatedTextProps {
@@ -129,7 +129,7 @@ export default function MotionHero({ finishedLoading, lang: _lang }: MotionHeroP
 	const containerClass = 'mx-8 flex min-h-screen flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0'
 
 	return (
-		<AuroraBackground animated={effectsOn}>
+		<JourneyBackground animated={effectsOn}>
 			{effectsOn ? (
 				<motion.div
 					initial={{ opacity: 0.0, y: 40 }}
@@ -142,6 +142,6 @@ export default function MotionHero({ finishedLoading, lang: _lang }: MotionHeroP
 			) : (
 				<div className={containerClass}>{heroContent}</div>
 			)}
-		</AuroraBackground>
+		</JourneyBackground>
 	)
 }
