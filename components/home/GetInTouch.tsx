@@ -34,9 +34,6 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
-		event.stopPropagation()
-
-		logger.warn('Form submission started')
 		setIsSubmitting(true)
 		setSubmitStatus('idle')
 
@@ -45,47 +42,22 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 		try {
 			const formData = new FormData(form)
 
-			// Debug: Log the form data being sent
-			logger.warn('Form data being sent:')
-			for (const [key, value] of formData.entries()) {
-				logger.warn(`${key}: ${value}`)
-			}
-
-			// Prepare URL encoded body without any casts
-			const params = new URLSearchParams()
-			formData.forEach((value, key) => {
-				if (typeof value === 'string') {
-					params.append(key, value)
-				} else {
-					params.append(key, value.name)
-				}
-			})
-
-			logger.warn('Sending fetch request...')
-			const response = await fetch('/__forms.html', {
+			const response = await fetch(form.action || window.location.pathname, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-				body: params.toString(),
+				body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
 			})
 
-			logger.warn('Response received')
-			logger.warn('Response status:', response.status)
-			logger.warn('Response status text:', response.statusText)
-
 			if (response.ok) {
-				logger.warn('Form submitted successfully!')
 				setSubmitStatus('success')
 				form.reset()
 			} else {
-				const responseText = await response.text()
-				logger.error('Response error:', responseText)
 				throw new Error(`HTTP error! status: ${response.status}`)
 			}
 		} catch (error) {
 			logger.error('Form submission error:', error)
 			setSubmitStatus('error')
 		} finally {
-			logger.warn('Form submission completed')
 			setIsSubmitting(false)
 		}
 	}
@@ -123,7 +95,6 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 				<form
 					name="contact"
 					method="POST"
-					action="/"
 					onSubmit={handleSubmit}
 					className="w-full max-w-md space-y-4"
 					data-netlify="true"

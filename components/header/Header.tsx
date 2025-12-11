@@ -18,8 +18,7 @@ interface HeaderProps {
 	lang: Locale
 }
 
-const IS_LH = process.env.NEXT_PUBLIC_LIGHTHOUSE === 'true'
-const AnimatedHeader = IS_LH ? null : dynamic(() => import('./AnimatedHeader'))
+const AnimatedHeader = dynamic(() => import('./AnimatedHeader'))
 
 const useHeaderState = (finishedLoading: boolean, lang: Locale) => {
 	const [showElement, setShowElement] = useState(true)
@@ -61,18 +60,12 @@ const Header = ({ finishedLoading, lang }: HeaderProps) => {
 	return (
 		<HeaderContext.Provider value={headerState}>
 			<MobileMenu lang={lang} />
-			{IS_LH ? (
-				<header className={getHeaderClassName()}>{headerInner}</header>
-			) : (
-				AnimatedHeader && (
-					<AnimatedHeader
-						className={getHeaderClassName()}
-						finishedLoading={finishedLoading}
-					>
-						{headerInner}
-					</AnimatedHeader>
-				)
-			)}
+			<AnimatedHeader
+				className={getHeaderClassName()}
+				finishedLoading={finishedLoading}
+			>
+				{headerInner}
+			</AnimatedHeader>
 		</HeaderContext.Provider>
 	)
 }

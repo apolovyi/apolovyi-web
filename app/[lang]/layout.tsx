@@ -4,8 +4,6 @@ import Script from 'next/script'
 
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import LanguageDetector from '@/components/LanguageDetector'
 import StructuredData from '@/components/StructuredData'
@@ -16,9 +14,7 @@ import SmoothScrollProvider from '@/components/shared/SmoothScrollProvider'
 
 import { getDictionary as getServerDictionary } from '@/lib/dictionary.server'
 
-const ENABLE_VERCEL_ANALYTICS = process.env.NEXT_PUBLIC_ENABLE_VERCEL_ANALYTICS === 'true'
 const ENABLE_TINY_ANALYTICS = process.env.NEXT_PUBLIC_ENABLE_TINY_ANALYTICS === 'true'
-const IS_LH = process.env.NEXT_PUBLIC_LIGHTHOUSE === 'true'
 
 // Fonts
 const comfortaa = Comfortaa({
@@ -57,11 +53,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 	const currentPath = lang === i18n.defaultLocale ? '' : `/${lang}`
 	const fullUrl = `${baseUrl}${currentPath}`
 
-	const isLighthouse = process.env.NEXT_PUBLIC_LIGHTHOUSE === 'true'
-	const ogImages = isLighthouse
-		? [{ url: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==', width: 1, height: 1, alt: 'placeholder' }]
-		: metadata.openGraph.images
-
 	return {
 		title: { default: metadata.title.default, template: metadata.title.template },
 		metadataBase: new URL(baseUrl),
@@ -71,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 			description: metadata.openGraph.description,
 			url: fullUrl,
 			siteName: metadata.openGraph.siteName,
-			images: ogImages,
+			images: metadata.openGraph.images,
 			locale: lang,
 			type: 'website',
 		},
@@ -107,22 +98,14 @@ export default async function LangLayout({ children, params }: { children: React
 			className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
 		>
 			<body>
-				{IS_LH && (
-					<style
-						dangerouslySetInnerHTML={{
-							__html:
-								'.font-heading,.font-sub-heading,.font-body,.font-tech, body,*{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif !important}',
-						}}
-					/>
-				)}
 				<WebVitals />
-				{ENABLE_VERCEL_ANALYTICS && <Analytics />}
 				<LanguageDetector />
 				<DictionaryProvider dictionary={dictionary}>
-					<AppProvider>{IS_LH ? children : <SmoothScrollProvider>{children}</SmoothScrollProvider>}</AppProvider>
+					<AppProvider>
+						<SmoothScrollProvider>{children}</SmoothScrollProvider>
+					</AppProvider>
 				</DictionaryProvider>
 				<StructuredData />
-				{ENABLE_VERCEL_ANALYTICS && <SpeedInsights />}
 				{ENABLE_TINY_ANALYTICS && (
 					<Script
 						src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"

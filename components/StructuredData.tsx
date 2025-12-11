@@ -7,7 +7,7 @@ const StructuredData = () => {
 		'name': 'Artem Polovyi - Full-Stack Software Engineering',
 		'url': 'https://apolovyi.me',
 		'logo': 'https://apolovyi.me/img/logo.png',
-		'image': 'https://apolovyi.me/img/me-circle.png',
+		'image': 'https://apolovyi.me/img/me-circle.webp',
 		'description':
 			'Experienced full-stack engineer specializing in scalable web applications and cloud technologies. Serving clients in the US and Europe with 7+ years of expertise in Java, Kotlin, Spring Boot, React, and AWS.',
 		'email': 'info@apolovyi.me',
