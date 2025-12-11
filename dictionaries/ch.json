@@ -138,10 +138,10 @@
 					}
 				]
 			},
-			"Flowable": {
-				"title": "Softwareentwickler (bi UBS)",
+			"UBS": {
+				"title": "Softwareentwickler (via Flowable)",
 				"date": "Oktober 2024 - August 2025",
-				"url": "https://flowable.com",
+				"url": "https://ubs.com",
 				"tasks": [
 					{
 						"text": "Migration vo kritische Chunde-Onboarding-Systeme vo Legacy-Applikatione uf moderni Flowable-Architektur.",

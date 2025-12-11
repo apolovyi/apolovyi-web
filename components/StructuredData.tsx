@@ -46,7 +46,6 @@ const StructuredData = () => {
 			{ '@type': 'Language', 'name': 'German', 'alternateName': 'de' },
 			{ '@type': 'Language', 'name': 'English', 'alternateName': 'en' },
 			{ '@type': 'Language', 'name': 'Ukrainian', 'alternateName': 'uk' },
-			{ '@type': 'Language', 'name': 'Russian', 'alternateName': 'ru' },
 		],
 		'knowsAbout': [
 			'Java',

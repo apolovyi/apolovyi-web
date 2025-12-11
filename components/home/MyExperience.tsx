@@ -14,7 +14,7 @@ interface Company {
 
 const companies: Company[] = [
 	{ name: 'PEAX AG', key: 'PEAX', location: 'Zurich, CH' },
-	{ name: 'Flowable Mimacom Group', key: 'Flowable', location: 'Zurich, CH' },
+	{ name: 'UBS', key: 'UBS', location: 'Zurich, CH' },
 	{ name: 'The Bicester Collection', key: 'TheBicesterCollection', location: 'London, UK' },
 	{ name: 'Career Break', key: 'CareerBreak', location: '11 Countries' },
 	{ name: 'Virtual Identity AG', key: 'VirtualIdentityAG', location: 'Munich, DE' },
@@ -118,7 +118,6 @@ const CompanyButton = ({ isActive, onClick, companyName }: CompanyButtonProps) =
 	)
 }
 
-// Simple location pin icon
 const LocationPinIcon = ({ className }: { className?: string }) => (
 	<svg
 		viewBox="0 0 24 24"
@@ -139,7 +138,6 @@ const LocationPinIcon = ({ className }: { className?: string }) => (
 	</svg>
 )
 
-// Globe icon for travel/career break
 const GlobeIcon = ({ className }: { className?: string }) => (
 	<svg
 		viewBox="0 0 24 24"

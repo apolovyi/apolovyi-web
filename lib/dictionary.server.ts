@@ -16,8 +16,6 @@ async function importLocale(locale: string): Promise<Dictionary> {
 			return (await import('@/dictionaries/ch.json')).default as Dictionary
 		case 'uk':
 			return (await import('@/dictionaries/uk.json')).default as Dictionary
-		case 'ru':
-			return (await import('@/dictionaries/ru.json')).default as Dictionary
 		default:
 			return (await import('@/dictionaries/en.json')).default as Dictionary
 	}
