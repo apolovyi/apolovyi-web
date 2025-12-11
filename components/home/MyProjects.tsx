@@ -21,7 +21,7 @@ interface ProjectItemProps {
 const ProjectItem = ({ project, index }: ProjectItemProps) => {
 	const imgLinkRef = useRef<HTMLAnchorElement>(null)
 	const titleLinkRef = useRef<HTMLAnchorElement>(null)
-	const extLinkRef = useRef<HTMLAnchorElement>(null)
+	const extLinkRef = useRef<HTMLDivElement>(null)
 	const imgCardRef = useRef<HTMLDivElement>(null)
 	const contentCardRef = useRef<HTMLDivElement>(null)
 	const imgRef = useRef<HTMLImageElement>(null)
@@ -139,16 +139,11 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 						</li>
 					))}
 				</ul>
-				<div className={`mt-4 flex ${isEven ? 'lg:justify-end' : 'lg:justify-start'}`}>
-					<a
-						ref={extLinkRef}
-						href={project.link}
-						target="_blank"
-						rel="noreferrer"
-						className="text-accent-coral hover:text-accent-blue"
-					>
-						<ExternalLink url={project.link} />
-					</a>
+				<div
+					ref={extLinkRef}
+					className={`mt-4 flex ${isEven ? 'lg:justify-end' : 'lg:justify-start'} text-accent-coral hover:text-accent-blue`}
+				>
+					<ExternalLink url={project.link} />
 				</div>
 			</div>
 		</div>

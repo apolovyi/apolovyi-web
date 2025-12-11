@@ -1,5 +1,6 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import React, { useEffect, useRef, useState } from 'react'
 
 import type { Locale } from '@/i18n-config'
@@ -9,6 +10,11 @@ import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
+
+const GithubGlobe = dynamic(() => import('@/components/ui/github-globe').then((m) => m.GithubGlobe), {
+	ssr: false,
+	loading: () => null,
+})
 
 interface AnimatedTextProps {
 	delay: number
@@ -46,19 +52,32 @@ export default function MotionHero({ finishedLoading, lang: _lang }: MotionHeroP
 
 	// Defer heavy effects on mobile and respect reduced motion
 	const [effectsOn, setEffectsOn] = useState(true)
+	const [isDesktop, setIsDesktop] = useState<boolean | null>(null)
+
 	useEffect(() => {
 		if (typeof window === 'undefined') return
 		const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 		if (prefersReduced) {
 			setEffectsOn(false)
-			return
 		}
+
+		const checkDesktop = () => {
+			setIsDesktop(window.matchMedia('(min-width: 1024px)').matches)
+		}
+		checkDesktop()
+		window.addEventListener('resize', checkDesktop)
+
 		const isMobile = window.matchMedia('(max-width: 640px)').matches
-		if (isMobile) {
+		if (isMobile && !prefersReduced) {
 			setEffectsOn(false)
 			const id = window.setTimeout(() => setEffectsOn(true), 1500)
-			return () => window.clearTimeout(id)
+			return () => {
+				window.clearTimeout(id)
+				window.removeEventListener('resize', checkDesktop)
+			}
 		}
+
+		return () => window.removeEventListener('resize', checkDesktop)
 	}, [])
 
 	const highlightText = (text: string, terms: string[]) => {
@@ -98,9 +117,9 @@ export default function MotionHero({ finishedLoading, lang: _lang }: MotionHeroP
 				className="mt-10 max-w-sm font-body text-base tracking-wider text-text-secondary sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
 				enabled={effectsOn}
 			>
-				<p className="text-text-secondary">{highlightText(heroSection.paragraphs[0], heroSection.highlightedTerms)}</p>
+				<p>{highlightText(heroSection.paragraphs[0], heroSection.highlightedTerms)}</p>
 				<br />
-				<p className="text-text-secondary">{highlightText(heroSection.paragraphs[1], heroSection.highlightedTerms)}</p>
+				<p>{highlightText(heroSection.paragraphs[1], heroSection.highlightedTerms)}</p>
 			</AnimatedText>
 			<AnimatedText
 				delay={baseDelay + 0.8}
@@ -128,20 +147,43 @@ export default function MotionHero({ finishedLoading, lang: _lang }: MotionHeroP
 
 	const containerClass = 'mx-8 flex min-h-screen flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0'
 
+	const heroWithContent = effectsOn ? (
+		<motion.div
+			initial={{ opacity: 0.0, y: 40 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			transition={{ delay: 0.1, duration: 0.8, ease: 'easeInOut' }}
+			className={`relative z-10 ${containerClass}`}
+		>
+			{heroContent}
+		</motion.div>
+	) : (
+		<div className={`relative z-10 ${containerClass}`}>{heroContent}</div>
+	)
+
+	// Show loading state while detecting desktop/mobile
+	if (isDesktop === null) {
+		return (
+			<section className="relative h-screen overflow-hidden bg-white">
+				<div className={`relative z-10 ${containerClass}`}>{heroContent}</div>
+			</section>
+		)
+	}
+
+	if (isDesktop) {
+		return (
+			<section className="relative h-screen overflow-hidden bg-white">
+				<div className="pointer-events-none absolute -right-[5%] top-1/2 z-0 h-[700px] w-[700px] -translate-y-1/2 xl:h-[800px] xl:w-[800px] 2xl:-right-[2%] 2xl:h-[900px] 2xl:w-[900px]">
+					<GithubGlobe />
+				</div>
+				<div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white via-white/95 via-45% to-white/20" />
+				{heroWithContent}
+			</section>
+		)
+	}
+
 	return (
 		<AuroraBackground>
-			{effectsOn ? (
-				<motion.div
-					initial={{ opacity: 0.0, y: 40 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ delay: 0.1, duration: 0.8, ease: 'easeInOut' }}
-					className={containerClass}
-				>
-					{heroContent}
-				</motion.div>
-			) : (
-				<div className={containerClass}>{heroContent}</div>
-			)}
+			{heroWithContent}
 		</AuroraBackground>
 	)
 }
