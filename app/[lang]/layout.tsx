@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Comfortaa, IBM_Plex_Mono, Merriweather, Quicksand } from 'next/font/google'
+import { Comfortaa, IBM_Plex_Mono } from 'next/font/google'
 import Script from 'next/script'
 
 import type { Locale } from '@/i18n-config'
@@ -23,24 +23,11 @@ const comfortaa = Comfortaa({
 	display: 'swap',
 })
 
-const quicksand = Quicksand({
-	subsets: ['latin'],
-	variable: '--font-quicksand',
-	display: 'swap',
-})
-
 const ibmPlexMono = IBM_Plex_Mono({
 	subsets: ['latin'],
 	variable: '--font-ibm-plex-mono',
 	display: 'swap',
 	weight: ['400', '600'],
-})
-
-const merriweather = Merriweather({
-	subsets: ['latin'],
-	variable: '--font-merriweather',
-	display: 'swap',
-	weight: ['400', '700'],
 })
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string[] }> }): Promise<Metadata> {
@@ -95,7 +82,7 @@ export default async function LangLayout({ children, params }: { children: React
 	return (
 		<html
 			lang={lang}
-			className={`${comfortaa.variable} ${quicksand.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
+			className={`${comfortaa.variable} ${ibmPlexMono.variable}`}
 		>
 			<body>
 				<WebVitals />

@@ -26,9 +26,9 @@ module.exports = {
 				tall: { raw: '(min-height: 820px)' },
 			},
 			fontFamily: {
-				'body': ['var(--font-quicksand)', 'sans-serif'],
+				'body': ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
 				'heading': ['var(--font-comfortaa)', 'sans-serif'],
-				'sub-heading': ['var(--font-merriweather)', 'serif'],
+				'sub-heading': ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
 				'tech': ['var(--font-ibm-plex-mono)', 'monospace'],
 			},
 			// colors: {
