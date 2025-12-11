@@ -220,6 +220,42 @@
 					}
 				]
 			},
+			"CareerBreak": {
+				"title": "Sabbatical & Wältreisi",
+				"date": "Feb 2024 - Juni 2024",
+				"url": "",
+				"tasks": [
+					{
+						"text": "E transformativi 6-monatigi Reis dure 11 Länder uf 4 Kontinänt: Griecheland, Ägypte, Südafrika, Sambia, Simbabwe, Fidschi, Australie, Chile, Argentinie, Kolumbie und Ecuador.",
+						"keywords": [
+							"11 Länder",
+							"4 Kontinänt"
+						]
+					},
+					{
+						"text": "Neui Perspektive gsammlet über globali Technologieadoption, Nutzerverhaltensmuster und verschiedeni Asätz für digitali Lösige in Schwelleländer.",
+						"keywords": [
+							"globali Technologie",
+							"digitali Lösige"
+						]
+					},
+					{
+						"text": "Apassigsfähigkeit, interkulturelli Kommunikationsfähigkeite und d'Fähigkeit entwicklet, in dynamische, unvorhersehbare Umgebige z'gedeihe.",
+						"keywords": [
+							"Apassigsfähigkeit",
+							"interkulturell"
+						]
+					},
+					{
+						"text": "Mit erneueter Kreativität, globaler Perspektive und tüüferer Wertschätzig für d'Entwicklig vo inklusive, barrierefreie Technologie zruggkehrt.",
+						"keywords": [
+							"Kreativität",
+							"globali Perspektive",
+							"inklusiv"
+						]
+					}
+				]
+			},
 			"VirtualIdentityAG": {
 				"title": "Senior Full-Stack Entwickler",
 				"date": "Feb 2022 - Jan 2024",

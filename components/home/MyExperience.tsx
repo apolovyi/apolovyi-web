@@ -16,6 +16,7 @@ const companies: Company[] = [
 	{ name: 'PEAX AG', key: 'PEAX', location: 'Zurich, CH' },
 	{ name: 'Flowable Mimacom Group', key: 'Flowable', location: 'Zurich, CH' },
 	{ name: 'The Bicester Collection', key: 'TheBicesterCollection', location: 'London, UK' },
+	{ name: 'Career Break', key: 'CareerBreak', location: '11 Countries' },
 	{ name: 'Virtual Identity AG', key: 'VirtualIdentityAG', location: 'Munich, DE' },
 	{ name: 'SmartDorm', key: 'SmartDorm', location: 'Munich, DE' },
 	{ name: 'Spreadshirt', key: 'Spreadshirt', location: 'Leipzig, DE' },
@@ -138,6 +139,28 @@ const LocationPinIcon = ({ className }: { className?: string }) => (
 	</svg>
 )
 
+// Globe icon for travel/career break
+const GlobeIcon = ({ className }: { className?: string }) => (
+	<svg
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		strokeWidth="2"
+		strokeLinecap="round"
+		strokeLinejoin="round"
+		className={className}
+		aria-hidden="true"
+	>
+		<circle
+			cx="12"
+			cy="12"
+			r="10"
+		/>
+		<path d="M2 12h20" />
+		<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+	</svg>
+)
+
 interface JobDescriptionProps {
 	company: string
 }
@@ -146,6 +169,7 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 	const dictionary = useDictionary()
 	const job = dictionary.experienceSection.roles[company as keyof typeof dictionary.experienceSection.roles]
 	const companyData = companies.find((c) => c.key === company)
+	const isCareerBreak = company === 'CareerBreak'
 
 	const highlightKeywords = (text: string, keywords: string[]) => {
 		let highlightedText = text
@@ -160,14 +184,15 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 		<div className="flex min-h-[350px] flex-col space-y-4">
 			<div>
 				<div className="flex flex-col lg:flex-row lg:items-center">
+					{isCareerBreak && <GlobeIcon className="mb-2 h-6 w-6 text-accent-coral lg:mb-0 lg:mr-2" />}
 					<span className="font-body text-lg font-semibold text-text-primary">{job.title}</span>
-					<span className="text-base text-accent-coral lg:ml-2 lg:text-lg">@ {companyData?.name || company}</span>
+					{!isCareerBreak && <span className="text-base text-accent-coral lg:ml-2 lg:text-lg">@ {companyData?.name || company}</span>}
 				</div>
 				<div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
 					<p className="font-tech text-sm text-text-secondary">{job.date}</p>
 					{companyData?.location && (
 						<span className="flex items-center gap-1 font-tech text-sm text-neutral-medium-gray">
-							<LocationPinIcon className="h-3.5 w-3.5" />
+							{isCareerBreak ? <GlobeIcon className="h-3.5 w-3.5" /> : <LocationPinIcon className="h-3.5 w-3.5" />}
 							{companyData.location}
 						</span>
 					)}

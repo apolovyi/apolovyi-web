@@ -220,6 +220,42 @@
 					}
 				]
 			},
+			"CareerBreak": {
+				"title": "Sabbatical & World Travel",
+				"date": "Feb 2024 - June 2024",
+				"url": "",
+				"tasks": [
+					{
+						"text": "Embarked on a transformative 6-month journey across 11 countries spanning 4 continents: Greece, Egypt, South Africa, Zambia, Zimbabwe, Fiji, Australia, Chile, Argentina, Colombia, and Ecuador.",
+						"keywords": [
+							"11 countries",
+							"4 continents"
+						]
+					},
+					{
+						"text": "Gained fresh perspectives on global technology adoption, user behavior patterns, and diverse approaches to digital solutions in emerging markets.",
+						"keywords": [
+							"global technology",
+							"digital solutions"
+						]
+					},
+					{
+						"text": "Developed adaptability, cross-cultural communication skills, and the ability to thrive in dynamic, unpredictable environments.",
+						"keywords": [
+							"adaptability",
+							"cross-cultural"
+						]
+					},
+					{
+						"text": "Returned with renewed creativity, global perspective, and deeper appreciation for building inclusive, accessible technology.",
+						"keywords": [
+							"creativity",
+							"global perspective",
+							"inclusive"
+						]
+					}
+				]
+			},
 			"VirtualIdentityAG": {
 				"title": "Senior Full-Stack Engineer",
 				"date": "Feb 2022 - Jan 2024",
