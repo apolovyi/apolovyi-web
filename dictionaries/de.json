@@ -4,10 +4,10 @@
 			"default": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
 			"template": "%s | Artem Polovyi - Full-Stack Softwareentwickler"
 		},
-		"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, Flowable und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
+		"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, UBS und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
 		"openGraph": {
 			"title": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
-			"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, Flowable und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
+			"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, UBS und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
 			"siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
 			"images": [
 				{
@@ -71,13 +71,13 @@
 		"tagline": "Full-Stack Engineer in Zürich.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_DE_WEB.pdf",
 		"paragraphs": [
-			"Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Unternehmen wie Audi, Infineon, Flowable und PEAX.",
+			"Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Unternehmen wie Audi, Infineon, UBS und PEAX.",
 			"Aktuell bei PEAX in Zürich – Entwicklung von digitalen Briefkasten- und Dokumentenmanagement-Lösungen mit Java, Spring Boot und React."
 		],
 		"highlightedTerms": [
 			"Audi",
 			"Infineon",
-			"Flowable",
+			"UBS",
 			"PEAX",
 			"Zürich"
 		],
@@ -107,38 +107,70 @@
 	"experienceSection": {
 		"title": "Wo ich gearbeitet habe",
 		"roles": {
-			"Flowable": {
+			"PEAX": {
 				"title": "Softwareentwickler",
-				"date": "Oktober 2024 - Heute",
+				"date": "Januar 2025 - Heute",
+				"url": "https://peax.ch",
+				"tasks": [
+					{
+						"text": "Entwicklung und Wartung von digitalen Briefkasten- und Dokumentenmanagement-Lösungen für Schweizer Unternehmen und Privatpersonen.",
+						"keywords": [
+							"digitaler Briefkasten",
+							"Dokumentenmanagement"
+						]
+					},
+					{
+						"text": "Entwicklung skalierbarer Backend-Services mit Java und Spring Boot für sichere Dokumentenverarbeitung.",
+						"keywords": [
+							"Java",
+							"Spring Boot",
+							"Backend"
+						]
+					},
+					{
+						"text": "Implementierung von React-basierten Frontend-Komponenten für intuitive Benutzererlebnisse.",
+						"keywords": [
+							"React",
+							"Frontend",
+							"UX"
+						]
+					}
+				]
+			},
+			"Flowable": {
+				"title": "Softwareentwickler (Berater bei UBS)",
+				"date": "Oktober 2024 - Dezember 2024",
 				"url": "https://flowable.com",
 				"tasks": [
 					{
-						"text": "Bewertung von Sicherheitslücken und Implementierung von Sicherheitsmaßnahmen zur Verbesserung der Systemsicherheit und Compliance.",
+						"text": "Migration kritischer Kunden-Onboarding-Systeme von Legacy-Anwendungen auf moderne Flowable-Architektur.",
 						"keywords": [
-							"Sicherheit",
-							"Compliance"
+							"Migration",
+							"Flowable",
+							"Kunden-Onboarding"
 						]
 					},
 					{
-						"text": "Evaluierung von Aufwand und Komplexität für Systemaktualisierungen und Verbesserungen zur effizienten Ressourcenplanung.",
-						"keywords": [
-							"Systemaktualisierungen",
-							"Projektplanung"
-						]
-					},
-					{
-						"text": "Durchführung technischer Aktualisierungen und Abhängigkeitsverwaltung zur Aufrechterhaltung der Systemintegrität und Leistungsoptimierung.",
-						"keywords": [
-							"technische Aktualisierungen",
-							"Abhängigkeitsverwaltung"
-						]
-					},
-					{
-						"text": "Entwicklung und Modellierung von Geschäftsprozessen mittels BPMN und CMMN zur Schaffung optimierter Workflows und Steigerung der Geschäftseffizienz.",
+						"text": "Entwicklung und Optimierung von Geschäftsprozess-Workflows mittels BPMN und CMMN für Privat- und Firmenkunden im Bankensektor.",
 						"keywords": [
 							"BPMN",
 							"CMMN",
-							"Geschäftsprozesse"
+							"Banking"
+						]
+					},
+					{
+						"text": "Implementierung automatisierter Compliance-Prüfungen zur Erfüllung regulatorischer Anforderungen im Bankensektor.",
+						"keywords": [
+							"Compliance",
+							"Banking",
+							"Automatisierung"
+						]
+					},
+					{
+						"text": "Durchführung von Sicherheitsanalysen und technischen System-Upgrades zur Gewährleistung der Systemintegrität.",
+						"keywords": [
+							"Sicherheit",
+							"System-Upgrades"
 						]
 					}
 				]

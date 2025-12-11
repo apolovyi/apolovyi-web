@@ -4,10 +4,10 @@
 			"default": "Artem Polovyi - Full-Stack Software Engineer in Zurich",
 			"template": "%s | Artem Polovyi - Full-Stack Software Engineer"
 		},
-		"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 10+ years building enterprise solutions for Audi, Infineon, Flowable, and PEAX using Java, Kotlin, Spring Boot, React, and TypeScript.",
+		"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 10+ years building enterprise solutions for Audi, Infineon, UBS, and PEAX using Java, Kotlin, Spring Boot, React, and TypeScript.",
 		"openGraph": {
 			"title": "Artem Polovyi - Full-Stack Software Engineer in Zurich",
-			"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 10+ years building enterprise solutions for Audi, Infineon, Flowable, and PEAX using Java, Kotlin, Spring Boot, React, and TypeScript.",
+			"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 10+ years building enterprise solutions for Audi, Infineon, UBS, and PEAX using Java, Kotlin, Spring Boot, React, and TypeScript.",
 			"siteName": "Artem Polovyi - Full-Stack Software Engineer",
 			"images": [
 				{
@@ -71,13 +71,13 @@
 		"tagline": "Full-Stack Engineer in Zurich.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_EN_WEB.pdf",
 		"paragraphs": [
-			"10+ years building enterprise solutions for companies like Audi, Infineon, Flowable, and PEAX.",
+			"10+ years building enterprise solutions for companies like Audi, Infineon, UBS, and PEAX.",
 			"Currently at PEAX in Zurich, building digital mailbox and document management solutions with Java, Spring Boot, and React."
 		],
 		"highlightedTerms": [
 			"Audi",
 			"Infineon",
-			"Flowable",
+			"UBS",
 			"PEAX",
 			"Zurich"
 		],
@@ -107,38 +107,70 @@
 	"experienceSection": {
 		"title": "Where I've Worked",
 		"roles": {
-			"Flowable": {
+			"PEAX": {
 				"title": "Software Engineer",
-				"date": "Oct 2024 - Present",
+				"date": "Jan 2025 - Present",
+				"url": "https://peax.ch",
+				"tasks": [
+					{
+						"text": "Developing and maintaining digital mailbox and document management solutions for Swiss businesses and individuals.",
+						"keywords": [
+							"digital mailbox",
+							"document management"
+						]
+					},
+					{
+						"text": "Building scalable backend services with Java and Spring Boot to handle secure document processing.",
+						"keywords": [
+							"Java",
+							"Spring Boot",
+							"backend"
+						]
+					},
+					{
+						"text": "Implementing React-based frontend components for intuitive user experiences.",
+						"keywords": [
+							"React",
+							"frontend",
+							"UX"
+						]
+					}
+				]
+			},
+			"Flowable": {
+				"title": "Software Engineer (Consultant at UBS)",
+				"date": "Oct 2024 - Dec 2024",
 				"url": "https://flowable.com",
 				"tasks": [
 					{
-						"text": "Assessing solution vulnerabilities and implementing security measures to enhance system security and compliance standards.",
+						"text": "Migrated critical customer onboarding systems from legacy applications to modern Flowable architecture.",
 						"keywords": [
-							"security",
-							"compliance"
+							"migration",
+							"Flowable",
+							"customer onboarding"
 						]
 					},
 					{
-						"text": "Evaluating effort and complexity for system upgrades and enhancements to ensure efficient resource allocation and project planning.",
-						"keywords": [
-							"system upgrades",
-							"project planning"
-						]
-					},
-					{
-						"text": "Performing technical upgrades and dependency management to maintain system integrity and optimize performance.",
-						"keywords": [
-							"technical upgrades",
-							"dependency management"
-						]
-					},
-					{
-						"text": "Designing and modeling sophisticated business processes using BPMN and CMMN to create optimized workflows and enhance business efficiency.",
+						"text": "Developed and optimized business process workflows using BPMN and CMMN for private and commercial banking clients.",
 						"keywords": [
 							"BPMN",
 							"CMMN",
-							"business processes"
+							"banking"
+						]
+					},
+					{
+						"text": "Implemented automated compliance checks to meet regulatory requirements in the banking sector.",
+						"keywords": [
+							"compliance",
+							"banking",
+							"automation"
+						]
+					},
+					{
+						"text": "Conducted security analyses and technical system upgrades to ensure system integrity.",
+						"keywords": [
+							"security",
+							"system upgrades"
 						]
 					}
 				]

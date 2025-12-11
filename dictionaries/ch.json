@@ -4,10 +4,10 @@
 			"default": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
 			"template": "%s | Artem Polovyi - Full-Stack Softwareentwickler"
 		},
-		"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, Flowable und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
+		"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, UBS und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
 		"openGraph": {
 			"title": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
-			"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, Flowable und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
+			"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, UBS und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
 			"siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
 			"images": [
 				{
@@ -71,13 +71,13 @@
 		"tagline": "Full-Stack Engineer i Züri.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_DE_WEB.pdf",
 		"paragraphs": [
-			"Über 10 Jahr Erfahrig im Entwickle vo Enterprise-Lösige für Firme wie Audi, Infineon, Flowable und PEAX.",
+			"Über 10 Jahr Erfahrig im Entwickle vo Enterprise-Lösige für Firme wie Audi, Infineon, UBS und PEAX.",
 			"Aktuell bi PEAX i Züri – digitali Briefchaste- und Dokumentemanagement-Lösige mit Java, Spring Boot und React."
 		],
 		"highlightedTerms": [
 			"Audi",
 			"Infineon",
-			"Flowable",
+			"UBS",
 			"PEAX",
 			"Züri"
 		],
@@ -107,38 +107,70 @@
 	"experienceSection": {
 		"title": "Wo ich gschaffet han",
 		"roles": {
-			"Flowable": {
+			"PEAX": {
 				"title": "Softwareentwickler",
-				"date": "Oktober 2024 - Jetzt",
+				"date": "Januar 2025 - Jetzt",
+				"url": "https://peax.ch",
+				"tasks": [
+					{
+						"text": "Entwicklig und Wartig vo digitale Briefchaste- und Dokumentemanagement-Lösige für Schwiizer Unternähme und Privatpersone.",
+						"keywords": [
+							"digitale Briefchaste",
+							"Dokumentemanagement"
+						]
+					},
+					{
+						"text": "Entwicklig vo skalierbare Backend-Services mit Java und Spring Boot für sicheri Dokumenteverarbeitig.",
+						"keywords": [
+							"Java",
+							"Spring Boot",
+							"Backend"
+						]
+					},
+					{
+						"text": "Implementierig vo React-basierte Frontend-Komponente für intuitivi Benutzererläbnis.",
+						"keywords": [
+							"React",
+							"Frontend",
+							"UX"
+						]
+					}
+				]
+			},
+			"Flowable": {
+				"title": "Softwareentwickler (Berater bi UBS)",
+				"date": "Oktober 2024 - Dezember 2024",
 				"url": "https://flowable.com",
 				"tasks": [
 					{
-						"text": "Analysiere vo Sicherheitslücke und Umsetzig vo Sicherheitsmassnahme zum d'System-Sicherheit und Compliance z'verbessere.",
+						"text": "Migration vo kritische Chunde-Onboarding-Systeme vo Legacy-Applikatione uf moderni Flowable-Architektur.",
 						"keywords": [
-							"Sicherheit",
-							"Compliance"
+							"Migration",
+							"Flowable",
+							"Chunde-Onboarding"
 						]
 					},
 					{
-						"text": "Bewertig vom Ufwand und Komplexität vo Systemupdates und Verbesserige für e effizient Ressourceplanig.",
-						"keywords": [
-							"Systemupdates",
-							"Projektplanig"
-						]
-					},
-					{
-						"text": "Durchfüehrig vo technische Updates und Verwaltung vo Abhängigkeite zum d'Systemintegrität z'erhalte und d'Leischtig z'optimiere.",
-						"keywords": [
-							"technischi Updates",
-							"Abhängigkeiteverwaltung"
-						]
-					},
-					{
-						"text": "Entwicklig und Modellierig vo Gschäftsprozäss mit BPMN und CMMN zum optimierti Workflows z'schaffe und d'Gschäftseffizienz z'steigere.",
+						"text": "Entwicklig und Optimierig vo Gschäftsprozäss-Workflows mit BPMN und CMMN für Privat- und Firmechunde im Bankewäse.",
 						"keywords": [
 							"BPMN",
 							"CMMN",
-							"Gschäftsprozäss"
+							"Banking"
+						]
+					},
+					{
+						"text": "Implementierig vo automatisierte Compliance-Prüefige zum regulatorischi Aforderige im Bankewäse z'erfülle.",
+						"keywords": [
+							"Compliance",
+							"Banking",
+							"Automatisierig"
+						]
+					},
+					{
+						"text": "Durchfüehrig vo Sicherheitsanalyse und technische System-Upgrades zum d'Systemintegrität z'gwährleiste.",
+						"keywords": [
+							"Sicherheit",
+							"System-Upgrades"
 						]
 					}
 				]
