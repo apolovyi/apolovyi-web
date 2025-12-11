@@ -19,7 +19,7 @@ type Options = {
 	exitEase?: number[] | string
 }
 
-export function useMotionInView<T extends HTMLElement>(ref: RefObject<T>, motion: MotionName = 'fade-up', options?: Options) {
+export function useMotionInView<T extends HTMLElement>(ref: RefObject<T | null>, motion: MotionName = 'fade-up', options?: Options) {
 	useEffect(() => {
 		const el = ref.current
 		if (!el) return

@@ -16,7 +16,15 @@ interface LanguageSwitcherProps {
 	currentLang?: Locale
 }
 
-const LanguageOption = ({ locale, currentLanguage, onClick, getFlag, getDisplayName }) => (
+interface LanguageOptionProps {
+	locale: Locale
+	currentLanguage: Locale
+	onClick: (locale: Locale) => void
+	getFlag: (locale: Locale) => string
+	getDisplayName: (locale: Locale) => string
+}
+
+const LanguageOption = ({ locale, currentLanguage, onClick, getFlag, getDisplayName }: LanguageOptionProps) => (
 	<button
 		onClick={() => onClick(locale)}
 		className={`block w-full px-4 py-2 text-left text-sm ${

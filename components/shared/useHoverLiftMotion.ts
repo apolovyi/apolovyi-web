@@ -11,7 +11,7 @@ export type HoverLiftOptions = {
 	duration?: number
 }
 
-export function useHoverLiftMotion<T extends HTMLElement>(ref: RefObject<T>, opts?: HoverLiftOptions) {
+export function useHoverLiftMotion<T extends HTMLElement>(ref: RefObject<T | null>, opts?: HoverLiftOptions) {
 	useEffect(() => {
 		const el = ref.current
 		if (!el) return

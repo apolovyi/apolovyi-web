@@ -1,6 +1,10 @@
 import React from 'react'
 
-export default function InstagramIcon(props) {
+interface InstagramIconProps {
+	className?: string
+}
+
+export default function InstagramIcon(props: InstagramIconProps) {
 	return (
 		<svg
 			className={props.className}

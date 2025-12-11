@@ -52,7 +52,7 @@ const MyExperience = () => {
 							{experienceSectionTitle}
 						</h2>
 					</div>
-					<div className="h-[0.2px] w-full bg-accent-green"></div>
+					<div className="h-[0.2px] w-full bg-accent-blue"></div>
 				</header>
 
 				<div className="flex flex-col md:flex-row md:space-x-8">

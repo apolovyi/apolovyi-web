@@ -48,7 +48,7 @@ export function Button({
 
 			<div
 				className={cn(
-					'flex h-full w-full items-center justify-center whitespace-nowrap border border-accent-coral bg-slate-900/[0.8] text-base antialiased backdrop-blur-xl hover:bg-accent-coral hover:text-accent-green',
+					'flex h-full w-full items-center justify-center whitespace-nowrap border border-accent-coral bg-slate-900/[0.8] text-base antialiased backdrop-blur-xl hover:bg-accent-coral hover:text-accent-blue',
 					className,
 				)}
 				style={{

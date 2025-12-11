@@ -118,7 +118,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 				</a>
 				<div
 					ref={contentCardRef}
-					className={`my-4 rounded-md bg-accent-green bg-opacity-85 px-6 py-10 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}
+					className={`my-4 rounded-md bg-accent-blue bg-opacity-85 px-6 py-10 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}
 				>
 					<p className="font-body text-base font-light text-neutral-light-gray xl:text-xl">{project.description}</p>
 				</div>
@@ -145,7 +145,7 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 						href={project.link}
 						target="_blank"
 						rel="noreferrer"
-						className="text-accent-coral hover:text-accent-green"
+						className="text-accent-coral hover:text-accent-blue"
 					>
 						<ExternalLink url={project.link} />
 					</a>
@@ -216,7 +216,7 @@ export default function MyProjects({ lang: _lang }: MyProjectsProps) {
 							{projectsSection.title}
 						</h2>
 					</div>
-					<div className="ml-4 h-[0.2px] flex-grow bg-accent-green"></div>
+					<div className="ml-4 h-[0.2px] flex-grow bg-accent-blue"></div>
 				</header>
 
 				<div className="space-y-20 lg:space-y-32">

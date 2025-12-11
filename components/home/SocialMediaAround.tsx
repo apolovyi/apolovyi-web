@@ -66,7 +66,7 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
 						))}
 					</div>
 					<div
-						className="h-28 w-0.5 bg-accent-green"
+						className="h-28 w-0.5 bg-accent-blue"
 						aria-hidden="true"
 					></div>
 				</div>
@@ -97,7 +97,7 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
 						</a>
 					</motion.div>
 					<div
-						className="h-24 w-0.5 bg-accent-green"
+						className="h-24 w-0.5 bg-accent-blue"
 						aria-hidden="true"
 					></div>
 				</div>

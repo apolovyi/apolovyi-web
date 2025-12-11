@@ -1,6 +1,10 @@
 import React from 'react'
 
-export default function LinkedinIcon(props) {
+interface LinkedinIconProps {
+	className?: string
+}
+
+export default function LinkedinIcon(props: LinkedinIconProps) {
 	return (
 		<svg
 			className={props.className}

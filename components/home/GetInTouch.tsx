@@ -81,7 +81,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 								{contactSection.title}
 							</h2>
 						</div>
-						<div className="h-[0.2px] w-full bg-accent-green"></div>
+						<div className="h-[0.2px] w-full bg-accent-blue"></div>
 					</header>
 				</div>
 				<div className="mx-auto flex max-w-3xl flex-col px-4 sm:px-6"></div>

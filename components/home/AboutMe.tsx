@@ -37,7 +37,7 @@ const TechList = ({ techs }: TechListProps) => (
 
 type SectionHeaderProps = {
 	title: string
-	aosRef?: React.RefObject<HTMLElement>
+	aosRef?: React.RefObject<HTMLElement | null>
 }
 
 const SectionHeader = ({ title, aosRef }: SectionHeaderProps) => (
@@ -50,7 +50,7 @@ const SectionHeader = ({ title, aosRef }: SectionHeaderProps) => (
 			<span className="font-tech text-xl text-accent-coral">01.</span>
 			<h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">{title}</h2>
 		</div>
-		<div className="h-[0.2px] w-full bg-accent-green"></div>
+		<div className="h-[0.2px] w-full bg-accent-blue"></div>
 	</header>
 )
 

@@ -11,7 +11,7 @@ export type HoverTapOptions = {
 	duration?: number
 }
 
-export function useHoverTapMotion<T extends HTMLElement>(ref: RefObject<T>, opts?: HoverTapOptions) {
+export function useHoverTapMotion<T extends HTMLElement>(ref: RefObject<T | null>, opts?: HoverTapOptions) {
 	useEffect(() => {
 		const el = ref.current
 		if (!el) return
