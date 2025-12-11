@@ -4,10 +4,10 @@ import React, { useRef, useState } from 'react'
 
 import type { Locale } from '@/i18n-config'
 
-import ArrowIcon from '@/components/icons/ArrowIcon'
 import CheckCircleIcon from '@/components/icons/CheckCircleIcon'
 import XCircleIcon from '@/components/icons/XCircleIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import SectionHeader from '@/components/shared/SectionHeader'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 import { useMotionInView } from '@/components/shared/useMotionInView'
 
@@ -70,21 +70,12 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 		>
 			<div className="flex flex-col items-center space-y-6">
 				<div className="mx-auto flex w-full flex-col px-4 sm:px-6">
-					<header
-						ref={headerRef}
-						className="flex flex-row items-center font-heading"
-					>
-						<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
-						<div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-							<span className="font-tech text-xl text-accent-coral"> 04.</span>
-							<h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-								{contactSection.title}
-							</h2>
-						</div>
-						<div className="h-[0.2px] w-full bg-accent-blue"></div>
-					</header>
+					<SectionHeader
+						number="04."
+						title={contactSection.title}
+						headerRef={headerRef}
+					/>
 				</div>
-				<div className="mx-auto flex max-w-3xl flex-col px-4 sm:px-6"></div>
 
 				<div className="mt-14 text-center text-3xl font-bold tracking-wide text-text-primary sm:text-5xl">{contactSection.subtitle}</div>
 

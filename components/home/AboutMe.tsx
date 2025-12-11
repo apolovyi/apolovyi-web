@@ -6,6 +6,7 @@ import type { DOMKeyframesDefinition } from 'motion'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import SectionHeader from '@/components/shared/SectionHeader'
 import { useMotionInView } from '@/components/shared/useMotionInView'
 
 const technologies = [
@@ -33,25 +34,6 @@ const TechList = ({ techs }: TechListProps) => (
 			</li>
 		))}
 	</ul>
-)
-
-type SectionHeaderProps = {
-	title: string
-	aosRef?: React.RefObject<HTMLElement | null>
-}
-
-const SectionHeader = ({ title, aosRef }: SectionHeaderProps) => (
-	<header
-		ref={aosRef}
-		className="flex flex-row items-center font-heading"
-	>
-		<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
-		<div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-			<span className="font-tech text-xl text-accent-coral">01.</span>
-			<h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">{title}</h2>
-		</div>
-		<div className="h-[0.2px] w-full bg-accent-blue"></div>
-	</header>
 )
 
 const ProfileImage = () => (
@@ -115,8 +97,9 @@ const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 		>
 			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
 				<SectionHeader
+					number="01."
 					title={aboutMeSection.title}
-					aosRef={headerRef}
+					headerRef={headerRef}
 				/>
 
 				<div className="mt-8 flex flex-col items-start lg:flex-row lg:space-x-12">

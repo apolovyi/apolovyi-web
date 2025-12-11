@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import SectionHeader from '@/components/shared/SectionHeader'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 import { useMotionInView } from '@/components/shared/useMotionInView'
 
@@ -41,19 +42,12 @@ const MyExperience = () => {
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
-				<header
-					ref={headerRef}
-					className="mb-8 flex flex-row items-center font-heading"
-				>
-					<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
-					<div className="flex flex-row items-center space-x-2 whitespace-nowrap pr-2">
-						<span className="font-tech text-xl text-accent-coral">02.</span>
-						<h2 className="px-2 font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-							{experienceSectionTitle}
-						</h2>
-					</div>
-					<div className="h-[0.2px] w-full bg-accent-blue"></div>
-				</header>
+				<SectionHeader
+					number="02."
+					title={experienceSectionTitle}
+					headerRef={headerRef}
+					className="mb-8"
+				/>
 
 				<div className="flex flex-col md:flex-row md:space-x-8">
 					<div ref={leftColRef}>

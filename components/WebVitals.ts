@@ -6,7 +6,7 @@ import { logger } from '@/lib/logger'
 
 export function WebVitals() {
 	useReportWebVitals((metric) => {
-		logger.warn(metric)
+		logger.debug(metric)
 	})
 
 	return null

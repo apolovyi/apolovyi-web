@@ -4,9 +4,9 @@ import type { Locale } from '@/i18n-config'
 import { animate } from 'motion'
 import type { DOMKeyframesDefinition } from 'motion'
 
-import ArrowIcon from '@/components/icons/ArrowIcon'
 import ExternalLink from '@/components/icons/ExternalLink'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import SectionHeader from '@/components/shared/SectionHeader'
 import { useHoverLiftMotion } from '@/components/shared/useHoverLiftMotion'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 import { useMotionInView } from '@/components/shared/useMotionInView'
@@ -205,19 +205,12 @@ export default function MyProjects({ lang: _lang }: MyProjectsProps) {
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
-				<header
-					ref={headerRef}
-					className="mb-12 flex items-center"
-				>
-					<ArrowIcon className="h-6 w-6 flex-none translate-y-[2px] text-accent-coral" />
-					<div className="ml-2 flex items-center space-x-2">
-						<span className="font-tech text-xl text-accent-coral">03.</span>
-						<h2 className="whitespace-nowrap font-heading text-lg font-bold tracking-wider text-text-primary opacity-85 md:text-2xl">
-							{projectsSection.title}
-						</h2>
-					</div>
-					<div className="ml-4 h-[0.2px] flex-grow bg-accent-blue"></div>
-				</header>
+				<SectionHeader
+					number="03."
+					title={projectsSection.title}
+					headerRef={headerRef}
+					className="mb-12"
+				/>
 
 				<div className="space-y-20 lg:space-y-32">
 					{projectsSection.projects.map((project, index) => (
