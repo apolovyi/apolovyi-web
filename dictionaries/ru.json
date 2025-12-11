@@ -4,10 +4,10 @@
 			"default": "Артем Полевой - Full-Stack Разработчик Программного Обеспечения",
 			"template": "%s | Артем Полевой - Full-Stack Разработчик Программного Обеспечения"
 		},
-		"description": "Full-Stack инженер-программист в Цюрихе, Швейцария. Более 10 лет опыта разработки enterprise-решений для Audi, Infineon, UBS и PEAX с использованием Java, Kotlin, Spring Boot, React и TypeScript.",
+		"description": "Full-Stack инженер-программист в Цюрихе, Швейцария. Более 10 лет опыта разработки enterprise-решений для Audi, Infineon, UBS, Flowable и PEAX с использованием Java, Kotlin, Spring Boot, React и TypeScript.",
 		"openGraph": {
 			"title": "Артем Полевой - Full-Stack Разработчик Программного Обеспечения",
-			"description": "Full-Stack инженер-программист в Цюрихе, Швейцария. Более 10 лет опыта разработки enterprise-решений для Audi, Infineon, UBS и PEAX с использованием Java, Kotlin, Spring Boot, React и TypeScript.",
+			"description": "Full-Stack инженер-программист в Цюрихе, Швейцария. Более 10 лет опыта разработки enterprise-решений для Audi, Infineon, UBS, Flowable и PEAX с использованием Java, Kotlin, Spring Boot, React и TypeScript.",
 			"siteName": "Артем Полевой - Full-Stack Разработчик Программного Обеспечения",
 			"images": [
 				{
@@ -71,13 +71,14 @@
 		"tagline": "Full-Stack инженер в Цюрихе.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_EN_WEB.pdf",
 		"paragraphs": [
-			"Более 10 лет опыта разработки enterprise-решений для компаний Audi, Infineon, UBS и PEAX.",
+			"Более 10 лет опыта разработки enterprise-решений для компаний Audi, Infineon, UBS, Flowable и PEAX.",
 			"Сейчас работаю в PEAX в Цюрихе — разработка цифровых почтовых ящиков и систем управления документами на Java, Spring Boot и React."
 		],
 		"highlightedTerms": [
 			"Audi",
 			"Infineon",
 			"UBS",
+			"Flowable",
 			"PEAX",
 			"Цюрихе"
 		],
@@ -108,8 +109,8 @@
 		"title": "Где я работал",
 		"roles": {
 			"PEAX": {
-				"title": "Инженер-программист",
-				"date": "Январь 2025 - Настоящее время",
+				"title": "Senior Backend Engineer",
+				"date": "Октябрь 2025 - Настоящее время",
 				"url": "https://peax.ch",
 				"tasks": [
 					{
@@ -138,8 +139,8 @@
 				]
 			},
 			"Flowable": {
-				"title": "Инженер-программист (консультант в UBS)",
-				"date": "Октябрь 2024 - Декабрь 2024",
+				"title": "Инженер-программист (в UBS)",
+				"date": "Октябрь 2024 - Август 2025",
 				"url": "https://flowable.com",
 				"tasks": [
 					{

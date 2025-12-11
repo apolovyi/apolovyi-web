@@ -4,10 +4,10 @@
 			"default": "Artem Polovyi - Full-Stack Software Engineer in Zurich",
 			"template": "%s | Artem Polovyi - Full-Stack Software Engineer"
 		},
-		"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 10+ years building enterprise solutions for Audi, Infineon, UBS, and PEAX using Java, Kotlin, Spring Boot, React, and TypeScript.",
+		"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 10+ years building enterprise solutions for Audi, Infineon, UBS, Flowable, and PEAX using Java, Kotlin, Spring Boot, React, and TypeScript.",
 		"openGraph": {
 			"title": "Artem Polovyi - Full-Stack Software Engineer in Zurich",
-			"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 10+ years building enterprise solutions for Audi, Infineon, UBS, and PEAX using Java, Kotlin, Spring Boot, React, and TypeScript.",
+			"description": "Full-Stack Software Engineer based in Zurich, Switzerland. 10+ years building enterprise solutions for Audi, Infineon, UBS, Flowable, and PEAX using Java, Kotlin, Spring Boot, React, and TypeScript.",
 			"siteName": "Artem Polovyi - Full-Stack Software Engineer",
 			"images": [
 				{
@@ -71,13 +71,14 @@
 		"tagline": "Full-Stack Engineer in Zurich.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_EN_WEB.pdf",
 		"paragraphs": [
-			"10+ years building enterprise solutions for companies like Audi, Infineon, UBS, and PEAX.",
+			"10+ years building enterprise solutions for companies like Audi, Infineon, UBS, Flowable, and PEAX.",
 			"Currently at PEAX in Zurich, building digital mailbox and document management solutions with Java, Spring Boot, and React."
 		],
 		"highlightedTerms": [
 			"Audi",
 			"Infineon",
 			"UBS",
+			"Flowable",
 			"PEAX",
 			"Zurich"
 		],
@@ -108,8 +109,8 @@
 		"title": "Where I've Worked",
 		"roles": {
 			"PEAX": {
-				"title": "Software Engineer",
-				"date": "Jan 2025 - Present",
+				"title": "Senior Backend Engineer",
+				"date": "Oct 2025 - Present",
 				"url": "https://peax.ch",
 				"tasks": [
 					{
@@ -138,8 +139,8 @@
 				]
 			},
 			"Flowable": {
-				"title": "Software Engineer (Consultant at UBS)",
-				"date": "Oct 2024 - Dec 2024",
+				"title": "Software Developer (at UBS)",
+				"date": "Oct 2024 - Aug 2025",
 				"url": "https://flowable.com",
 				"tasks": [
 					{

@@ -4,10 +4,10 @@
 			"default": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
 			"template": "%s | Artem Polovyi - Full-Stack Softwareentwickler"
 		},
-		"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, UBS und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
+		"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, UBS, Flowable und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
 		"openGraph": {
 			"title": "Artem Polovyi - Full-Stack Softwareentwickler in Zürich",
-			"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, UBS und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
+			"description": "Full-Stack Software Engineer in Zürich. Über 10 Jahre Erfahrung in der Entwicklung von Enterprise-Lösungen für Audi, Infineon, UBS, Flowable und PEAX mit Java, Kotlin, Spring Boot, React und TypeScript.",
 			"siteName": "Artem Polovyi - Full-Stack Softwareentwickler",
 			"images": [
 				{
@@ -71,13 +71,14 @@
 		"tagline": "Full-Stack Engineer i Züri.",
 		"resumeHref": "/cv/CV_Artem_Polovyi_DE_WEB.pdf",
 		"paragraphs": [
-			"Über 10 Jahr Erfahrig im Entwickle vo Enterprise-Lösige für Firme wie Audi, Infineon, UBS und PEAX.",
+			"Über 10 Jahr Erfahrig im Entwickle vo Enterprise-Lösige für Firme wie Audi, Infineon, UBS, Flowable und PEAX.",
 			"Aktuell bi PEAX i Züri – digitali Briefchaste- und Dokumentemanagement-Lösige mit Java, Spring Boot und React."
 		],
 		"highlightedTerms": [
 			"Audi",
 			"Infineon",
 			"UBS",
+			"Flowable",
 			"PEAX",
 			"Züri"
 		],
@@ -108,8 +109,8 @@
 		"title": "Wo ich gschaffet han",
 		"roles": {
 			"PEAX": {
-				"title": "Softwareentwickler",
-				"date": "Januar 2025 - Jetzt",
+				"title": "Senior Backend Engineer",
+				"date": "Oktober 2025 - Jetzt",
 				"url": "https://peax.ch",
 				"tasks": [
 					{
@@ -138,8 +139,8 @@
 				]
 			},
 			"Flowable": {
-				"title": "Softwareentwickler (Berater bi UBS)",
-				"date": "Oktober 2024 - Dezember 2024",
+				"title": "Softwareentwickler (bi UBS)",
+				"date": "Oktober 2024 - August 2025",
 				"url": "https://flowable.com",
 				"tasks": [
 					{
