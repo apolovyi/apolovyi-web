@@ -74,6 +74,7 @@ export interface Role {
 	title: string
 	date: string
 	url?: string
+	subtitle?: string
 	tasks: RoleTask[]
 }
 export interface ExperienceSection {

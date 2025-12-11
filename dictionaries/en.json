@@ -138,10 +138,11 @@
 					}
 				]
 			},
-			"UBS": {
-				"title": "Software Developer (via Flowable)",
+			"UBSFlowable": {
+				"title": "Software Developer",
 				"date": "Oct 2024 - Aug 2025",
 				"url": "https://ubs.com",
+				"subtitle": "Employed by Flowable, deployed at UBS",
 				"tasks": [
 					{
 						"text": "Migrated critical customer onboarding systems from legacy applications to modern Flowable architecture.",

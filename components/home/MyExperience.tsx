@@ -14,7 +14,7 @@ interface Company {
 
 const companies: Company[] = [
 	{ name: 'PEAX AG', key: 'PEAX', location: 'Zurich, CH' },
-	{ name: 'UBS', key: 'UBS', location: 'Zurich, CH' },
+	{ name: 'UBS + Flowable', key: 'UBSFlowable', location: 'Zurich, CH' },
 	{ name: 'The Bicester Collection', key: 'TheBicesterCollection', location: 'London, UK' },
 	{ name: 'Career Break', key: 'CareerBreak', location: '11 Countries' },
 	{ name: 'Virtual Identity AG', key: 'VirtualIdentityAG', location: 'Munich, DE' },
@@ -186,6 +186,7 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 					<span className="font-body text-lg font-semibold text-text-primary">{job.title}</span>
 					{!isCareerBreak && <span className="text-base text-accent-coral lg:ml-2 lg:text-lg">@ {companyData?.name || company}</span>}
 				</div>
+				{job.subtitle && <p className="mt-1 font-tech text-xs italic text-text-secondary">{job.subtitle}</p>}
 				<div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
 					<p className="font-tech text-sm text-text-secondary">{job.date}</p>
 					{companyData?.location && (

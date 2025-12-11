@@ -52,7 +52,13 @@ const aboutMeSectionSchema = z.object({
 })
 
 const roleTaskSchema = z.object({ text: z.string(), keywords: z.array(z.string()) })
-const roleSchema = z.object({ title: z.string(), date: z.string(), url: z.string().optional(), tasks: z.array(roleTaskSchema) })
+const roleSchema = z.object({
+	title: z.string(),
+	date: z.string(),
+	url: z.string().optional(),
+	subtitle: z.string().optional(),
+	tasks: z.array(roleTaskSchema),
+})
 const experienceSectionSchema = z.object({ title: z.string(), roles: z.record(z.string(), roleSchema) })
 
 const projectSchema = z.object({
