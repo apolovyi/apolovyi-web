@@ -34,32 +34,44 @@ export default function HomeClient({ lang }: HomeClientProps) {
 	}, [setSharedState])
 
 	return (
-		<main className="relative w-full snap-mandatory bg-background-primary selection:bg-highlight">
-			<Header
-				finishedLoading={sharedState.finishedLoading}
-				lang={lang}
-			/>
-			<HeroSection
-				finishedLoading={sharedState.finishedLoading}
-				lang={lang}
-			/>
-			<SocialMediaAround finishedLoading={sharedState.finishedLoading} />
-			{/* Always render content for SEO - animations handled via useMotionInView */}
-			<Suspense fallback={null}>
-				<AboutMe lang={lang} />
-			</Suspense>
-			<Suspense fallback={null}>
-				<MyExperience />
-			</Suspense>
-			<Suspense fallback={null}>
-				<MyProjects lang={lang} />
-			</Suspense>
-			<Suspense fallback={null}>
-				<GetInTouch lang={lang} />
-			</Suspense>
-			<Suspense fallback={null}>
-				<Footer lang={lang} />
-			</Suspense>
-		</main>
+		<>
+			{/* Skip to content link for accessibility */}
+			<a
+				href="#main-content"
+				className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-accent-coral focus:px-4 focus:py-2 focus:text-white focus:outline-none"
+			>
+				Skip to main content
+			</a>
+			<main
+				id="main-content"
+				className="relative w-full snap-mandatory bg-background-primary selection:bg-highlight"
+			>
+				<Header
+					finishedLoading={sharedState.finishedLoading}
+					lang={lang}
+				/>
+				<HeroSection
+					finishedLoading={sharedState.finishedLoading}
+					lang={lang}
+				/>
+				<SocialMediaAround finishedLoading={sharedState.finishedLoading} />
+				{/* Always render content for SEO - animations handled via useMotionInView */}
+				<Suspense fallback={null}>
+					<AboutMe lang={lang} />
+				</Suspense>
+				<Suspense fallback={null}>
+					<MyExperience />
+				</Suspense>
+				<Suspense fallback={null}>
+					<MyProjects lang={lang} />
+				</Suspense>
+				<Suspense fallback={null}>
+					<GetInTouch lang={lang} />
+				</Suspense>
+				<Suspense fallback={null}>
+					<Footer lang={lang} />
+				</Suspense>
+			</main>
+		</>
 	)
 }
