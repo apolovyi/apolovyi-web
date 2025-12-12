@@ -11,10 +11,10 @@ const usableHeight = height - padding.top - padding.bottom - 40
 
 export const LINE_Y_POSITIONS: Record<MetroLineId, number> = {
 	backend: padding.top + usableHeight * 0.05,
-	frontend: padding.top + usableHeight * 0.24,
-	cloud: padding.top + usableHeight * 0.43,
-	leadership: padding.top + usableHeight * 0.58,
-	volunteer: padding.top + usableHeight * 0.75,
+	frontend: padding.top + usableHeight * 0.22,
+	cloud: padding.top + usableHeight * 0.39,
+	leadership: padding.top + usableHeight * 0.54,
+	volunteer: padding.top + usableHeight * 0.7,
 }
 
 interface LayoutResult {

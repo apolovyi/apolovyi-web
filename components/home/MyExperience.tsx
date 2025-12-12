@@ -40,7 +40,7 @@ const MyExperience = () => {
 				{/* Metro Map - All screen sizes (scrollable on mobile) */}
 				<div
 					ref={leftColRef}
-					className="mb-8"
+					className="mb-4 lg:mb-6"
 				>
 					<CareerMetroMap
 						activeStation={activeCompany}
@@ -50,7 +50,7 @@ const MyExperience = () => {
 
 				<div
 					ref={rightColRef}
-					className="mt-2"
+					className="mt-0"
 				>
 					<JobDescription company={activeCompany} />
 				</div>

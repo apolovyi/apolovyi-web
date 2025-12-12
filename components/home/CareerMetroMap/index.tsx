@@ -32,9 +32,11 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 	}
 
 	return (
-		<div className={cn('flex flex-col gap-3', className)}>
-			{/* Scrollable container for mobile */}
-			<div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-600/50 overflow-x-auto pb-2">
+		<div className={cn('flex flex-col gap-2', className)}>
+			{/* Scrollable container for mobile with fade hint */}
+			<div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-600/50 relative overflow-x-auto pb-2">
+				{/* Right fade gradient - scroll hint for mobile */}
+				<div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background-primary to-transparent lg:hidden" />
 				<svg
 					viewBox={`0 0 ${SVG_DIMENSIONS.width} ${SVG_DIMENSIONS.height}`}
 					className="h-auto min-w-[600px] lg:w-full lg:min-w-0"

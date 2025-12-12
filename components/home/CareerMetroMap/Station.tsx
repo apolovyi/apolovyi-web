@@ -31,6 +31,15 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 			}}
 			aria-label={`${station.company}, ${station.role.en}, ${station.period.start} to ${station.period.end === 'present' ? 'present' : station.period.end}`}
 		>
+			{/* Invisible larger hit area for mobile touch */}
+			<circle
+				cx={x}
+				cy={y}
+				r={size + 8}
+				fill="transparent"
+				className="pointer-events-auto"
+			/>
+
 			{/* Outer ring for active/focus state */}
 			{isActive && (
 				<motion.circle
