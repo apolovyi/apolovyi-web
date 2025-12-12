@@ -1,11 +1,12 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 
 import { ANIMATION_CONFIG, getStationSize } from './constants'
 import type { StationProps } from './types'
 
 export function Station({ position, isActive, lineColors, onClick, onHover, isPrimary = true }: StationProps) {
+	const prefersReducedMotion = useReducedMotion()
 	const { station, x, y } = position
 	const size = isPrimary ? getStationSize(station.tenureMonths) : getStationSize(station.tenureMonths) * 0.8
 
@@ -14,21 +15,23 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 
 	return (
 		<g
-			className="cursor-pointer"
+			className="cursor-pointer outline-none focus:outline-none"
 			onClick={onClick}
 			onMouseEnter={() => onHover(true)}
 			onMouseLeave={() => onHover(false)}
+			onFocus={() => onHover(true)}
+			onBlur={() => onHover(false)}
 			role="button"
-			tabIndex={0}
+			tabIndex={isPrimary ? 0 : -1}
 			onKeyDown={(e) => {
 				if (e.key === 'Enter' || e.key === ' ') {
 					e.preventDefault()
 					onClick()
 				}
 			}}
-			aria-label={`${station.company} - ${station.role.en}`}
+			aria-label={`${station.company}, ${station.role.en}, ${station.period.start} to ${station.period.end === 'present' ? 'present' : station.period.end}`}
 		>
-			{/* Outer ring for active state */}
+			{/* Outer ring for active/focus state */}
 			{isActive && (
 				<motion.circle
 					cx={x}
@@ -37,9 +40,9 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 					fill="none"
 					stroke={primaryColor}
 					strokeWidth={2}
-					initial={{ scale: 0, opacity: 0 }}
+					initial={prefersReducedMotion ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
 					animate={{ scale: 1, opacity: 1 }}
-					transition={{ duration: 0.2 }}
+					transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.2 }}
 				/>
 			)}
 
@@ -51,18 +54,22 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 				fill={isActive ? primaryColor : '#1a1a1a'}
 				stroke={primaryColor}
 				strokeWidth={2}
-				initial={{ scale: 0 }}
+				initial={prefersReducedMotion ? { scale: 1 } : { scale: 0 }}
 				animate={{ scale: 1 }}
-				transition={{
-					type: 'spring',
-					stiffness: 300,
-					damping: 20,
-					delay: ANIMATION_CONFIG.stationDelay,
-				}}
+				transition={
+					prefersReducedMotion
+						? { duration: 0 }
+						: {
+								type: 'spring',
+								stiffness: 300,
+								damping: 20,
+								delay: ANIMATION_CONFIG.stationDelay,
+							}
+				}
 			/>
 
-			{/* Pulse animation for current position - only on primary */}
-			{isPrimary && station.period.end === 'present' && (
+			{/* Pulse animation for current position - only on primary and if motion allowed */}
+			{isPrimary && station.period.end === 'present' && !prefersReducedMotion && (
 				<circle
 					cx={x}
 					cy={y}

@@ -1,11 +1,12 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 
 import { ANIMATION_CONFIG, LINE_STYLES, SVG_DIMENSIONS, TIMELINE } from './constants'
 import type { MetroLineProps } from './types'
 
 export function MetroLine({ segment, isActive, animationDelay }: MetroLineProps) {
+	const prefersReducedMotion = useReducedMotion()
 	const { line, points } = segment
 
 	if (points.length === 0) return null
@@ -42,16 +43,20 @@ export function MetroLine({ segment, isActive, animationDelay }: MetroLineProps)
 				strokeLinejoin="round"
 				strokeDasharray={strokeStyle.strokeDasharray}
 				strokeOpacity={isActive ? 1 : 0.6}
-				initial={{ pathLength: 0, opacity: 0 }}
+				initial={prefersReducedMotion ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
 				animate={{ pathLength: 1, opacity: 1 }}
-				transition={{
-					pathLength: {
-						duration: ANIMATION_CONFIG.lineDuration,
-						delay: animationDelay,
-						ease: 'easeInOut',
-					},
-					opacity: { duration: 0.3, delay: animationDelay },
-				}}
+				transition={
+					prefersReducedMotion
+						? { duration: 0 }
+						: {
+								pathLength: {
+									duration: ANIMATION_CONFIG.lineDuration,
+									delay: animationDelay,
+									ease: 'easeInOut',
+								},
+								opacity: { duration: 0.3, delay: animationDelay },
+							}
+				}
 			/>
 		</g>
 	)
