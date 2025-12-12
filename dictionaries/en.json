@@ -108,370 +108,6 @@
 	"experienceSection": {
 		"title": "Where I've Worked",
 		"roles": {
-			"PEAX": {
-				"title": "Senior Backend Engineer",
-				"date": "Oct 2025 - Present",
-				"url": "https://peax.ch",
-				"tasks": [
-					{
-						"text": "Developing and maintaining digital mailbox and document management solutions for Swiss businesses and individuals.",
-						"keywords": [
-							"digital mailbox",
-							"document management"
-						]
-					},
-					{
-						"text": "Building scalable backend services with Java and Spring Boot to handle secure document processing.",
-						"keywords": [
-							"Java",
-							"Spring Boot",
-							"backend"
-						]
-					},
-					{
-						"text": "Implementing React-based frontend components for intuitive user experiences.",
-						"keywords": [
-							"React",
-							"frontend",
-							"UX"
-						]
-					}
-				]
-			},
-			"UBSFlowable": {
-				"title": "Software Developer",
-				"date": "Oct 2024 - Aug 2025",
-				"url": "https://ubs.com",
-				"subtitle": "Employed by Flowable, deployed at UBS",
-				"tasks": [
-					{
-						"text": "Migrated critical customer onboarding systems from legacy applications to modern Flowable architecture.",
-						"keywords": [
-							"migration",
-							"Flowable",
-							"customer onboarding"
-						]
-					},
-					{
-						"text": "Developed and optimized business process workflows using BPMN and CMMN for private and commercial banking clients.",
-						"keywords": [
-							"BPMN",
-							"CMMN",
-							"banking"
-						]
-					},
-					{
-						"text": "Implemented automated compliance checks to meet regulatory requirements in the banking sector.",
-						"keywords": [
-							"compliance",
-							"banking",
-							"automation"
-						]
-					},
-					{
-						"text": "Conducted security analyses and technical system upgrades to ensure system integrity.",
-						"keywords": [
-							"security",
-							"system upgrades"
-						]
-					}
-				]
-			},
-			"TheBicesterCollection": {
-				"title": "Lead Full-Stack Engineer",
-				"date": "June 2024 - October 2024",
-				"url": "https://www.thebicestercollection.com",
-				"tasks": [
-					{
-						"text": "Leading the development of an innovative e-commerce platform for a prestigious brand collective in New York City.",
-						"keywords": [
-							"e-commerce platform",
-							"prestigious brand"
-						]
-					},
-					{
-						"text": "Implementing a headless CMS architecture to enhance content flexibility and site performance.",
-						"keywords": [
-							"headless CMS",
-							"content flexibility"
-						]
-					},
-					{
-						"text": "Optimizing the website for search engines (SEO) to boost visibility and organic traffic.",
-						"keywords": [
-							"SEO",
-							"organic traffic"
-						]
-					},
-					{
-						"text": "Leveraging Vercel's platform for seamless deployment and hosting, ensuring high availability and rapid content delivery.",
-						"keywords": [
-							"Vercel",
-							"seamless deployment"
-						]
-					},
-					{
-						"text": "Utilizing a modern tech stack including Next.js, TypeScript, Tailwind CSS, and Sanity to build a robust and scalable web application.",
-						"keywords": [
-							"Next.js",
-							"TypeScript",
-							"Tailwind CSS",
-							"Sanity"
-						]
-					}
-				]
-			},
-			"CareerBreak": {
-				"title": "Sabbatical & World Travel",
-				"date": "Feb 2024 - June 2024",
-				"url": "",
-				"tasks": [
-					{
-						"text": "Embarked on a transformative 6-month journey across 11 countries spanning 4 continents: Greece, Egypt, South Africa, Zambia, Zimbabwe, Fiji, Australia, Chile, Argentina, Colombia, and Ecuador.",
-						"keywords": [
-							"11 countries",
-							"4 continents"
-						]
-					},
-					{
-						"text": "Gained fresh perspectives on global technology adoption, user behavior patterns, and diverse approaches to digital solutions in emerging markets.",
-						"keywords": [
-							"global technology",
-							"digital solutions"
-						]
-					},
-					{
-						"text": "Developed adaptability, cross-cultural communication skills, and the ability to thrive in dynamic, unpredictable environments.",
-						"keywords": [
-							"adaptability",
-							"cross-cultural"
-						]
-					},
-					{
-						"text": "Returned with renewed creativity, global perspective, and deeper appreciation for building inclusive, accessible technology.",
-						"keywords": [
-							"creativity",
-							"global perspective",
-							"inclusive"
-						]
-					}
-				]
-			},
-			"VirtualIdentityAG": {
-				"title": "Senior Full-Stack Engineer",
-				"date": "Feb 2022 - Jan 2024",
-				"url": "https://www.virtual-identity.com",
-				"tasks": [
-					{
-						"text": "Developed and maintained features on infineon.com to optimize user experience and functionality.",
-						"keywords": [
-							"infineon.com",
-							"user experience"
-						]
-					},
-					{
-						"text": "Successfully migrated voestalpine.com to the AWS cloud, enhancing scalability and performance.",
-						"keywords": [
-							"voestalpine.com",
-							"AWS cloud"
-						]
-					},
-					{
-						"text": "Designed and conducted comprehensive unit and integration tests to increase software reliability.",
-						"keywords": [
-							"unit tests",
-							"integration tests"
-						]
-					},
-					{
-						"text": "Optimized website performance, improving loading times and user satisfaction.",
-						"keywords": [
-							"performance",
-							"loading times"
-						]
-					},
-					{
-						"text": "Utilized technologies including Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms, and various AWS services.",
-						"keywords": [
-							"Java",
-							"Spring",
-							"JUnit",
-							"MySQL",
-							"Oracle",
-							"PostgreSQL",
-							"Flyway",
-							"TypeScript",
-							"React",
-							"Stencil",
-							"Web Components",
-							"OpenCms",
-							"AWS"
-						]
-					}
-				]
-			},
-			"SmartDorm": {
-				"title": "Lead Full-Stack Developer (Volunteer)",
-				"date": "Jan 2020 - Present",
-				"url": "https://smartdorm.schollheim.net",
-				"tasks": [
-					{
-						"text": "Developed a web application to streamline and automate management processes in the student dormitory Geschwister Scholl.",
-						"keywords": [
-							"web application",
-							"process automation"
-						]
-					},
-					{
-						"text": "Migrated and consolidated data into a central database to ensure 100% data consistency.",
-						"keywords": [
-							"data migration",
-							"database consolidation"
-						]
-					},
-					{
-						"text": "Reduced administrative work by 35% through digitalization and automation.",
-						"keywords": [
-							"digitalization",
-							"automation",
-							"efficiency improvement"
-						]
-					},
-					{
-						"text": "Implemented a CI/CD pipeline to optimize the development process.",
-						"keywords": [
-							"CI/CD",
-							"development optimization"
-						]
-					},
-					{
-						"text": "Utilized technologies including PostgreSQL, Kotlin, Spring Boot, React, and GitLab.",
-						"keywords": [
-							"PostgreSQL",
-							"Kotlin",
-							"Spring Boot",
-							"React",
-							"GitLab"
-						]
-					}
-				]
-			},
-			"Spreadshirt": {
-				"title": "Senior Full-Stack Engineer",
-				"date": "Nov 2021 - Feb 2022",
-				"url": "https://www.spreadshirt.com",
-				"tasks": [
-					{
-						"text": "Developed a high-performance application for payout generation, improving financial operations.",
-						"keywords": [
-							"payout generation"
-						]
-					},
-					{
-						"text": "Created intuitive user interfaces, enhancing user experience and application usability.",
-						"keywords": [
-							"user interfaces"
-						]
-					},
-					{
-						"text": "Worked with technologies including PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript, and React.",
-						"keywords": [
-							"PostgreSQL",
-							"Flyway",
-							"Kotlin",
-							"Spring Boot",
-							"JUnit",
-							"TypeScript",
-							"React"
-						]
-					}
-				]
-			},
-			"ComsystoReplyGmbH": {
-				"title": "Full-Stack Engineer",
-				"date": "Feb 2019 - Oct 2021",
-				"url": "https://www.comsysto.com",
-				"tasks": [
-					{
-						"text": "Collaborated in a Scrum team to optimize pricing, voucher management, and communication systems for the ABI Audi On Demand product.",
-						"keywords": [
-							"Scrum",
-							"ABI Audi On Demand"
-						]
-					},
-					{
-						"text": "Developed and maintained multiple microservices and microfrontends handling loads of up to 200 QPS.",
-						"keywords": [
-							"microservices",
-							"microfrontends"
-						]
-					},
-					{
-						"text": "Refactored code using Kotlin, increasing maintainability and reducing code lines by 30%.",
-						"keywords": [
-							"Kotlin"
-						]
-					},
-					{
-						"text": "Utilized technologies including PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry, and various AWS services.",
-						"keywords": [
-							"PostgreSQL",
-							"Flyway",
-							"Java",
-							"Kotlin",
-							"Spring Boot",
-							"JUnit",
-							"RabbitMQ",
-							"TypeScript",
-							"Angular",
-							"Jenkins",
-							"CloudFoundry",
-							"AWS"
-						]
-					}
-				]
-			},
-			"Blookery": {
-				"title": "Frontend Engineer",
-				"date": "May 2018 - Aug 2018",
-				"url": "https://www.blookery.de",
-				"tasks": [
-					{
-						"text": "Led the development of a travel website specializing in blind bookings across Europe, boosting user engagement.",
-						"keywords": [
-							"blind bookings",
-							"user engagement"
-						]
-					},
-					{
-						"text": "Created responsive user interfaces with React, ensuring seamless functionality across devices.",
-						"keywords": [
-							"React",
-							"responsive"
-						]
-					},
-					{
-						"text": "Implemented advanced JavaScript features to enhance site interactivity and navigation.",
-						"keywords": [
-							"JavaScript"
-						]
-					},
-					{
-						"text": "Translated wireframes into accessible HTML/CSS layouts, adhering to WCAG guidelines.",
-						"keywords": [
-							"HTML/CSS",
-							"WCAG"
-						]
-					},
-					{
-						"text": "Developed unit and integration tests using Jest, ensuring code reliability.",
-						"keywords": [
-							"unit",
-							"integration tests"
-						]
-					}
-				]
-			},
 			"SilverToursGmbH": {
 				"title": "Student Full-Stack Developer",
 				"date": "Jan 2015 - Aug 2018",
@@ -496,19 +132,338 @@
 						]
 					},
 					{
-						"text": "Created internal tools for the customer service team, increasing efficiency by 50%.",
+						"text": "Created internal tools for the customer service team, increasing efficiency by 30%.",
 						"keywords": [
-							"internal tools"
+							"internal tools",
+							"30%"
+						]
+					}
+				]
+			},
+			"Senacor": {
+				"title": "Java Developer (Intern)",
+				"date": "Oct 2017 - Jan 2018",
+				"url": "https://www.senacor.com",
+				"tasks": [
+					{
+						"text": "Implemented end-to-end tests for banking applications.",
+						"keywords": [
+							"end-to-end tests",
+							"banking"
 						]
 					},
 					{
-						"text": "Worked with technologies including JavaScript, HTML, CSS, jQuery, and PHP.",
+						"text": "Integrated application monitoring with dashboard solution.",
 						"keywords": [
-							"JavaScript",
-							"HTML",
-							"CSS",
-							"jQuery",
-							"PHP"
+							"monitoring",
+							"dashboard"
+						]
+					},
+					{
+						"text": "Improved incident response time by 60% through proactive monitoring.",
+						"keywords": [
+							"60%",
+							"response time"
+						]
+					},
+					{
+						"text": "Developed automated test procedures using Selenium.",
+						"keywords": [
+							"Selenium",
+							"automated"
+						]
+					}
+				]
+			},
+			"Blookery": {
+				"title": "Frontend Engineer",
+				"date": "May 2018 - Aug 2018",
+				"url": "https://www.blookery.de",
+				"tasks": [
+					{
+						"text": "Led the development of a travel website specializing in blind bookings across Europe.",
+						"keywords": [
+							"blind bookings"
+						]
+					},
+					{
+						"text": "Created responsive user interfaces with React, ensuring seamless functionality across devices.",
+						"keywords": [
+							"React",
+							"responsive"
+						]
+					},
+					{
+						"text": "Implemented advanced JavaScript features to enhance site interactivity and navigation.",
+						"keywords": [
+							"JavaScript"
+						]
+					},
+					{
+						"text": "Translated wireframes into accessible HTML/CSS layouts, adhering to WCAG guidelines.",
+						"keywords": [
+							"WCAG",
+							"accessible"
+						]
+					},
+					{
+						"text": "Developed unit and integration tests using Jest, ensuring code reliability.",
+						"keywords": [
+							"Jest",
+							"tests"
+						]
+					}
+				]
+			},
+			"ComsystoReplyGmbH": {
+				"title": "Full-Stack Engineer",
+				"date": "Feb 2019 - Oct 2021",
+				"url": "https://www.comsysto.com",
+				"tasks": [
+					{
+						"text": "Collaborated in a Scrum team to optimize pricing, voucher management, and communication systems for the ABI Audi On Demand product.",
+						"keywords": [
+							"Scrum",
+							"Audi On Demand"
+						]
+					},
+					{
+						"text": "Developed and maintained multiple microservices and microfrontends handling loads of up to 200 QPS.",
+						"keywords": [
+							"microservices",
+							"200 QPS"
+						]
+					},
+					{
+						"text": "Refactored code using Kotlin, increasing maintainability and reducing code lines by 20%.",
+						"keywords": [
+							"Kotlin",
+							"20%"
+						]
+					}
+				]
+			},
+			"SmartDorm": {
+				"title": "Lead Full-Stack Developer (Volunteer)",
+				"date": "Jan 2020 - Present",
+				"url": "https://smartdorm.schollheim.net",
+				"tasks": [
+					{
+						"text": "Developed a web application to streamline and automate management processes in the student dormitory Geschwister Scholl.",
+						"keywords": [
+							"web application",
+							"automation"
+						]
+					},
+					{
+						"text": "Migrated and consolidated data into a central database to ensure 100% data consistency.",
+						"keywords": [
+							"data migration",
+							"100%"
+						]
+					},
+					{
+						"text": "Reduced administrative work by 35% through digitalization and automation.",
+						"keywords": [
+							"35%",
+							"automation"
+						]
+					},
+					{
+						"text": "Implemented a CI/CD pipeline to optimize the development process.",
+						"keywords": [
+							"CI/CD"
+						]
+					}
+				]
+			},
+			"Spreadshirt": {
+				"title": "Senior Full-Stack Engineer",
+				"date": "Nov 2021 - Feb 2022",
+				"url": "https://www.spreadshirt.com",
+				"tasks": [
+					{
+						"text": "Developed a high-performance application for payout generation, improving financial operations.",
+						"keywords": [
+							"payout generation"
+						]
+					},
+					{
+						"text": "Created intuitive user interfaces, enhancing user experience and application usability.",
+						"keywords": [
+							"user interfaces"
+						]
+					}
+				]
+			},
+			"VirtualIdentityAG": {
+				"title": "Senior Full-Stack Engineer",
+				"date": "Feb 2022 - Jan 2024",
+				"url": "https://www.virtual-identity.com",
+				"tasks": [
+					{
+						"text": "Developed and maintained features on infineon.com to optimize user experience and functionality.",
+						"keywords": [
+							"infineon.com"
+						]
+					},
+					{
+						"text": "Successfully migrated voestalpine.com to the AWS cloud, enhancing scalability and performance.",
+						"keywords": [
+							"voestalpine.com",
+							"AWS"
+						]
+					},
+					{
+						"text": "Designed and conducted comprehensive unit and integration tests to increase software reliability.",
+						"keywords": [
+							"unit tests",
+							"integration tests"
+						]
+					},
+					{
+						"text": "Optimized website performance, improving loading times and user satisfaction.",
+						"keywords": [
+							"performance"
+						]
+					}
+				]
+			},
+			"CareerBreak": {
+				"title": "Sabbatical & World Travel",
+				"date": "Feb 2024 - Jun 2024",
+				"url": "",
+				"tasks": [
+					{
+						"text": "Embarked on a transformative 6-month journey across 11 countries spanning 4 continents: Greece, Egypt, South Africa, Zambia, Zimbabwe, Fiji, Australia, Chile, Argentina, Colombia, and Ecuador.",
+						"keywords": [
+							"11 countries",
+							"4 continents"
+						]
+					},
+					{
+						"text": "Gained fresh perspectives on global technology adoption, user behavior patterns, and diverse approaches to digital solutions.",
+						"keywords": [
+							"global technology"
+						]
+					},
+					{
+						"text": "Developed adaptability, cross-cultural communication skills, and the ability to thrive in dynamic environments.",
+						"keywords": [
+							"adaptability",
+							"cross-cultural"
+						]
+					},
+					{
+						"text": "Returned with renewed creativity, global perspective, and deeper appreciation for building inclusive technology.",
+						"keywords": [
+							"creativity",
+							"global perspective"
+						]
+					}
+				]
+			},
+			"TheBicesterCollection": {
+				"title": "Lead Full-Stack Engineer",
+				"date": "Jun 2024 - Oct 2024",
+				"url": "https://www.thebicestercollection.com",
+				"tasks": [
+					{
+						"text": "Led the development of an innovative e-commerce platform for a prestigious luxury brand collective.",
+						"keywords": [
+							"e-commerce",
+							"luxury"
+						]
+					},
+					{
+						"text": "Implemented a headless CMS architecture to enhance content flexibility and site performance.",
+						"keywords": [
+							"headless CMS"
+						]
+					},
+					{
+						"text": "Optimized the website for search engines (SEO) to boost visibility and organic traffic.",
+						"keywords": [
+							"SEO"
+						]
+					},
+					{
+						"text": "Leveraged Vercel's platform for seamless deployment and hosting, ensuring high availability.",
+						"keywords": [
+							"Vercel"
+						]
+					},
+					{
+						"text": "Utilized Next.js, TypeScript, Tailwind CSS, and Sanity to build a robust and scalable web application.",
+						"keywords": [
+							"Next.js",
+							"TypeScript",
+							"Tailwind",
+							"Sanity"
+						]
+					}
+				]
+			},
+			"UBSFlowable": {
+				"title": "Software Developer",
+				"date": "Oct 2024 - Aug 2025",
+				"url": "https://ubs.com",
+				"tasks": [
+					{
+						"text": "Migrated critical customer onboarding systems from legacy applications to modern Flowable architecture.",
+						"keywords": [
+							"migration",
+							"Flowable"
+						]
+					},
+					{
+						"text": "Developed and optimized business process workflows using BPMN and CMMN for private and commercial banking clients.",
+						"keywords": [
+							"BPMN",
+							"CMMN"
+						]
+					},
+					{
+						"text": "Implemented automated compliance checks to meet regulatory requirements in the banking sector.",
+						"keywords": [
+							"compliance",
+							"regulatory"
+						]
+					},
+					{
+						"text": "Conducted security analyses and technical system upgrades to ensure system integrity.",
+						"keywords": [
+							"security",
+							"upgrades"
+						]
+					}
+				],
+				"subtitle": "Employed by Flowable, deployed at UBS"
+			},
+			"PEAX": {
+				"title": "Senior Backend Engineer",
+				"date": "Oct 2025 - Present",
+				"url": "https://peax.ch",
+				"tasks": [
+					{
+						"text": "Developing and maintaining digital mailbox and document management solutions for Swiss businesses and individuals.",
+						"keywords": [
+							"digital mailbox",
+							"document management"
+						]
+					},
+					{
+						"text": "Building scalable backend services with Java and Spring Boot to handle secure document processing.",
+						"keywords": [
+							"Java",
+							"Spring Boot"
+						]
+					},
+					{
+						"text": "Implementing React-based frontend components for intuitive user experiences.",
+						"keywords": [
+							"React",
+							"frontend"
 						]
 					}
 				]
@@ -593,7 +548,7 @@
 			{
 				"category": "Car Rental Platform",
 				"company": "ABI Audi On Demand",
-				"description": "Collaborated in a Scrum team to optimize pricing, voucher management, and communication systems for the ABI Audi On Demand product. Developed and maintained multiple microservices and microfrontends handling loads of up to 200 QPS. Refactored code using Kotlin, increasing maintainability and reducing code lines by 30%.",
+				"description": "Collaborated in a Scrum team to optimize pricing, voucher management, and communication systems for the ABI Audi On Demand product. Developed and maintained multiple microservices and microfrontends handling loads of up to 200 QPS. Refactored code using Kotlin, increasing maintainability and reducing code lines by 20%.",
 				"role": "Full-Stack Engineer",
 				"image": "/img/projects/aod.png",
 				"link": "https://audiondemand.audi.de/rent.html",
