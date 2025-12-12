@@ -66,7 +66,7 @@ const defaultGlobeConfig: GlobeConfig = {
 	maxRings: 3,
 	initialPosition: { lat: 50, lng: 10 },
 	autoRotate: true,
-	autoRotateSpeed: -0.5,
+	autoRotateSpeed: -1,
 }
 
 interface WorldProps {
@@ -76,7 +76,6 @@ interface WorldProps {
 
 function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 	const globeRef = useRef<ThreeGlobe | null>(null)
-	const numbersOfRingsRef = useRef<number[]>(data.map(() => 0))
 	const { scene, camera } = useThree()
 	const [globeReady, setGlobeReady] = useState(false)
 
@@ -89,6 +88,22 @@ function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 			setGlobeReady(true)
 		}
 	}, [])
+
+	// Extract all unique points from the journey data
+	const allPoints = useMemo(() => {
+		const points: { lat: number; lng: number }[] = []
+		data.forEach((arc) => {
+			// Add start point
+			if (!points.find((p) => p.lat === arc.startLat && p.lng === arc.startLng)) {
+				points.push({ lat: arc.startLat, lng: arc.startLng })
+			}
+			// Add end point
+			if (!points.find((p) => p.lat === arc.endLat && p.lng === arc.endLng)) {
+				points.push({ lat: arc.endLat, lng: arc.endLng })
+			}
+		})
+		return points
+	}, [data])
 
 	useEffect(() => {
 		if (!globeRef.current || !globeReady) return
@@ -124,20 +139,22 @@ function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 			.arcDashGap(15)
 			.arcDashAnimateTime(mergedConfig.arcTime!)
 
+		// Show all points permanently (start and end points of all arcs)
 		globe
-			.pointsData(data)
-			.pointColor((d) => (d as Position).color)
+			.pointsData(allPoints)
+			.pointColor(() => '#ff6b6b')
 			.pointsMerge(true)
-			.pointAltitude(0.0)
-			.pointRadius(2)
+			.pointAltitude(0.007)
+			.pointRadius(0.5)
 
+		// Ring configuration - rings will be triggered separately
 		globe
 			.ringsData([])
-			.ringColor(() => (t: number) => `rgba(255,255,255,${1 - t})`)
+			.ringColor(() => (t: number) => `rgba(255, 107, 107, ${1 - t})`)
 			.ringMaxRadius(mergedConfig.maxRings!)
 			.ringPropagationSpeed(RING_PROPAGATION_SPEED)
-			.ringRepeatPeriod((mergedConfig.arcTime! * mergedConfig.arcLength!) / mergedConfig.rings!)
-	}, [data, mergedConfig, globeReady])
+			.ringRepeatPeriod(0) // No repeat - we'll trigger manually
+	}, [data, mergedConfig, globeReady, allPoints])
 
 	useEffect(() => {
 		if (!globeRef.current || !globeReady) return
@@ -150,29 +167,68 @@ function Globe({ globeConfig = defaultGlobeConfig, data }: WorldProps) {
 		globeMaterial.shininess = mergedConfig.shininess!
 	}, [mergedConfig, globeReady])
 
+	// Trigger ring pulse at arc endpoints when arcs complete
 	useEffect(() => {
 		if (!globeRef.current || !globeReady) return
 
-		// Initialize ring counters for each data point
-		numbersOfRingsRef.current = data.map(() => 0)
+		const arcTime = mergedConfig.arcTime!
+		const arcLength = mergedConfig.arcLength!
+		const timeouts: ReturnType<typeof setTimeout>[] = []
 
-		const interval = setInterval(() => {
-			if (!globeRef.current) return
+		// Schedule ring pulses for each arc based on when they complete
+		data.forEach((arc) => {
+			// Calculate when this arc reaches its endpoint
+			// Each arc has an order that determines its initial gap
+			const arcDelay = arc.order * (arcTime / data.length)
+			const arcDuration = arcTime * arcLength
 
-			const newData = data
-				.filter((_, i) => (numbersOfRingsRef.current[i] ?? 0) < mergedConfig.maxRings!)
-				.map((d) => ({
-					lat: d.startLat,
-					lng: d.startLng,
-				}))
+			// Trigger pulse when arc reaches the end point
+			const timeout = setTimeout(() => {
+				if (!globeRef.current) return
 
-			globeRef.current.ringsData(newData)
+				// Add ring at the end location
+				const currentRings = (globeRef.current.ringsData() as { lat: number; lng: number }[]) || []
+				globeRef.current.ringsData([...currentRings, { lat: arc.endLat, lng: arc.endLng }])
 
-			numbersOfRingsRef.current = numbersOfRingsRef.current.map((v) => (v < mergedConfig.maxRings! ? v + 1 : v))
-		}, 600)
+				// Remove the ring after it expands
+				setTimeout(() => {
+					if (!globeRef.current) return
+					const rings = (globeRef.current.ringsData() as { lat: number; lng: number }[]) || []
+					globeRef.current.ringsData(rings.filter((r) => !(r.lat === arc.endLat && r.lng === arc.endLng)))
+				}, 2000)
+			}, arcDelay + arcDuration)
 
-		return () => clearInterval(interval)
-	}, [data, mergedConfig.maxRings, globeReady])
+			timeouts.push(timeout)
+		})
+
+		// Repeat the animation cycle
+		const cycleTime = arcTime + 1000
+		const cycleInterval = setInterval(() => {
+			data.forEach((arc) => {
+				const arcDelay = arc.order * (arcTime / data.length)
+				const arcDuration = arcTime * arcLength
+
+				const timeout = setTimeout(() => {
+					if (!globeRef.current) return
+					const currentRings = (globeRef.current.ringsData() as { lat: number; lng: number }[]) || []
+					globeRef.current.ringsData([...currentRings, { lat: arc.endLat, lng: arc.endLng }])
+
+					setTimeout(() => {
+						if (!globeRef.current) return
+						const rings = (globeRef.current.ringsData() as { lat: number; lng: number }[]) || []
+						globeRef.current.ringsData(rings.filter((r) => !(r.lat === arc.endLat && r.lng === arc.endLng)))
+					}, 2000)
+				}, arcDelay + arcDuration)
+
+				timeouts.push(timeout)
+			})
+		}, cycleTime)
+
+		return () => {
+			timeouts.forEach(clearTimeout)
+			clearInterval(cycleInterval)
+		}
+	}, [data, mergedConfig.arcTime, mergedConfig.arcLength, globeReady])
 
 	// Add globe to scene
 	useEffect(() => {
@@ -243,20 +299,33 @@ interface GithubGlobeProps {
 	config?: GlobeConfig
 }
 
-// Journey arcs around the world
+// My journey around the world, ending in Zurich
 const journeyArcs: Position[] = [
+	// Kyiv, Ukraine → Cologne, Germany
 	{ order: 0, startLat: 50.45, startLng: 30.52, endLat: 50.94, endLng: 6.96, arcAlt: 0.1, color: '#ff6b6b' },
+	// Cologne → Munich, Germany
 	{ order: 1, startLat: 50.94, startLng: 6.96, endLat: 48.14, endLng: 11.58, arcAlt: 0.05, color: '#ff6b6b' },
+	// Munich → Athens, Greece
 	{ order: 2, startLat: 48.14, startLng: 11.58, endLat: 37.98, endLng: 23.73, arcAlt: 0.1, color: '#ff6b6b' },
+	// Athens → Cairo, Egypt
 	{ order: 3, startLat: 37.98, startLng: 23.73, endLat: 30.04, endLng: 31.24, arcAlt: 0.08, color: '#ff6b6b' },
+	// Cairo → Cape Town, South Africa
 	{ order: 4, startLat: 30.04, startLng: 31.24, endLat: -33.92, endLng: 18.42, arcAlt: 0.4, color: '#ff6b6b' },
-	{ order: 5, startLat: -33.92, startLng: 18.42, endLat: -17.82, endLng: 25.85, arcAlt: 0.15, color: '#ff6b6b' },
-	{ order: 6, startLat: -17.82, startLng: 25.85, endLat: -17.77, endLng: 177.97, arcAlt: 0.5, color: '#ff6b6b' },
+	// Cape Town → Victoria Falls, Zimbabwe
+	{ order: 5, startLat: -33.92, startLng: 18.42, endLat: -17.92, endLng: 25.85, arcAlt: 0.15, color: '#ff6b6b' },
+	// Victoria Falls → Fiji
+	{ order: 6, startLat: -17.92, startLng: 25.85, endLat: -17.77, endLng: 177.97, arcAlt: 0.5, color: '#ff6b6b' },
+	// Fiji → Sydney, Australia
 	{ order: 7, startLat: -17.77, startLng: 177.97, endLat: -33.87, endLng: 151.21, arcAlt: 0.2, color: '#ff6b6b' },
+	// Sydney → Santiago, Chile
 	{ order: 8, startLat: -33.87, startLng: 151.21, endLat: -33.45, endLng: -70.67, arcAlt: 0.5, color: '#ff6b6b' },
+	// Santiago → Buenos Aires, Argentina
 	{ order: 9, startLat: -33.45, startLng: -70.67, endLat: -34.6, endLng: -58.38, arcAlt: 0.1, color: '#ff6b6b' },
+	// Buenos Aires → Bogota, Colombia
 	{ order: 10, startLat: -34.6, startLng: -58.38, endLat: 4.71, endLng: -74.07, arcAlt: 0.3, color: '#ff6b6b' },
+	// Bogota → Quito, Ecuador
 	{ order: 11, startLat: 4.71, startLng: -74.07, endLat: -0.18, endLng: -78.47, arcAlt: 0.08, color: '#ff6b6b' },
+	// Quito → Zurich, Switzerland (back home)
 	{ order: 12, startLat: -0.18, startLng: -78.47, endLat: 47.37, endLng: 8.54, arcAlt: 0.5, color: '#ff6b6b' },
 ]
 
