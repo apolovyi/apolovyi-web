@@ -1,8 +1,8 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
-import { lines, stationIdToDictionaryKey } from '@/lib/career-data'
+import { type MetroLineId, lines, stationIdToDictionaryKey } from '@/lib/career-data'
 import { cn } from '@/lib/utils'
 
 import { Legend } from './Legend'
@@ -13,9 +13,31 @@ import { ANIMATION_CONFIG, SVG_DIMENSIONS, TIMELINE } from './constants'
 import { LINE_Y_POSITIONS, getStationLines, useStationLayout } from './hooks/useStationLayout'
 import type { CareerMetroMapProps } from './types'
 
+// All line IDs for initial state
+const ALL_LINE_IDS: MetroLineId[] = ['backend', 'frontend', 'cloud', 'leadership', 'volunteer']
+
 export function CareerMetroMap({ activeStation, onStationSelect, className }: CareerMetroMapProps) {
 	const { stationPositions, lineSegments } = useStationLayout()
 	const [hoveredStation, setHoveredStation] = useState<string | null>(null)
+	const [visibleLines, setVisibleLines] = useState<MetroLineId[]>(ALL_LINE_IDS)
+	const [animationKey, setAnimationKey] = useState(0)
+
+	// Replay animations
+	const handleReplay = useCallback(() => {
+		setAnimationKey((k) => k + 1)
+	}, [])
+
+	// Toggle line visibility
+	const handleToggleLine = useCallback((lineId: MetroLineId) => {
+		setVisibleLines((prev) => {
+			if (prev.includes(lineId)) {
+				// Don't allow hiding all lines
+				if (prev.length === 1) return prev
+				return prev.filter((id) => id !== lineId)
+			}
+			return [...prev, lineId]
+		})
+	}, [])
 
 	// Get active lines based on selected station
 	const activeLines = useMemo(() => {
@@ -51,21 +73,27 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						y={SVG_DIMENSIONS.height - 30}
 					/>
 
-					{/* Metro lines */}
-					{lineSegments.map((segment, index) => (
-						<MetroLine
-							key={segment.line.id}
-							segment={segment}
-							isActive={activeLines.includes(segment.line.id)}
-							animationDelay={index * ANIMATION_CONFIG.lineStagger}
-						/>
-					))}
+					{/* Metro lines - filtered by visibility */}
+					{lineSegments
+						.filter((segment) => visibleLines.includes(segment.line.id))
+						.map((segment, index) => (
+							<MetroLine
+								key={`${segment.line.id}-${animationKey}`}
+								segment={segment}
+								isActive={activeLines.includes(segment.line.id)}
+								animationDelay={index * ANIMATION_CONFIG.lineStagger}
+							/>
+						))}
 
-					{/* Vertical connectors for multi-line stations */}
+					{/* Vertical connectors for multi-line stations - only for visible lines */}
 					{Array.from(stationPositions.values())
-						.filter((pos) => pos.station.lines.length > 1)
+						.filter((pos) => {
+							const visibleStationLines = pos.station.lines.filter((l) => visibleLines.includes(l))
+							return visibleStationLines.length > 1
+						})
 						.map((position) => {
-							const stationLineYs = position.station.lines.map((lineId) => LINE_Y_POSITIONS[lineId])
+							const visibleStationLines = position.station.lines.filter((l) => visibleLines.includes(l))
+							const stationLineYs = visibleStationLines.map((lineId) => LINE_Y_POSITIONS[lineId])
 							const minY = Math.min(...stationLineYs)
 							const maxY = Math.max(...stationLineYs)
 							return (
@@ -83,20 +111,22 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 							)
 						})}
 
-					{/* Stations - render on each line they belong to */}
+					{/* Stations - render on each visible line they belong to */}
 					{Array.from(stationPositions.values()).flatMap((position) => {
-						const stationLines = getStationLines(position.station)
+						const stationLines = getStationLines(position.station).filter((l) => visibleLines.includes(l.id))
+						if (stationLines.length === 0) return []
+
 						const dictionaryKey = stationIdToDictionaryKey(position.id)
 						const isActive = activeStation === dictionaryKey || hoveredStation === position.id
 
-						// Render a station dot on EACH line the station belongs to
+						// Render a station dot on EACH visible line the station belongs to
 						return stationLines.map((line, lineIndex) => {
 							const lineY = LINE_Y_POSITIONS[line.id]
 							const positionOnLine = { ...position, y: lineY }
 
 							return (
 								<Station
-									key={`${position.id}-${line.id}`}
+									key={`${position.id}-${line.id}-${animationKey}`}
 									position={positionOnLine}
 									isActive={isActive}
 									lineColors={[line.color]}
@@ -108,8 +138,12 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						})
 					})}
 
-					{/* Station labels for active/hovered stations */}
+					{/* Station labels for active/hovered stations on visible lines */}
 					{Array.from(stationPositions.values()).map((position) => {
+						// Only show label if station has at least one visible line
+						const hasVisibleLine = position.station.lines.some((l) => visibleLines.includes(l))
+						if (!hasVisibleLine) return null
+
 						const dictionaryKey = stationIdToDictionaryKey(position.id)
 						const isActive = activeStation === dictionaryKey
 						const isHovered = hoveredStation === position.id
@@ -127,10 +161,34 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 				</svg>
 			</div>
 
-			<Legend
-				lines={lines}
-				activeLines={activeLines}
-			/>
+			<div className="flex items-center justify-between gap-4">
+				<Legend
+					lines={lines}
+					activeLines={activeLines}
+					visibleLines={visibleLines}
+					onToggleLine={handleToggleLine}
+				/>
+				<button
+					onClick={handleReplay}
+					className="flex-shrink-0 rounded-md p-1.5 text-text-secondary transition-colors hover:bg-neutral-800/50 hover:text-text-primary"
+					aria-label="Replay animation"
+					title="Replay animation"
+				>
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="2"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+					>
+						<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+						<path d="M21 3v5h-5" />
+					</svg>
+				</button>
+			</div>
 		</div>
 	)
 }

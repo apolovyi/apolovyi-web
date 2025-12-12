@@ -36,6 +36,8 @@ export interface StationProps {
 export interface LegendProps {
 	lines: MetroLine[]
 	activeLines: MetroLineId[]
+	visibleLines: MetroLineId[]
+	onToggleLine: (lineId: MetroLineId) => void
 }
 
 export interface TimelineAxisProps {
