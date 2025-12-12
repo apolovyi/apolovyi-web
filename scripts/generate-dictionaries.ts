@@ -1,16 +1,25 @@
 #!/usr/bin/env npx tsx
 
 /**
- * Generates dictionary experience sections from career-data.ts
+ * Generates dictionary sections from career-data.ts
  * Run: npm run generate:dictionaries
  *
- * This script updates only the experienceSection.roles in dictionaries.
- * Other sections remain unchanged.
+ * This script updates:
+ * - experienceSection.roles
+ * - heroSection.highlightedTerms
+ * - aboutMeSection.highlightedTerms
  */
 import * as fs from 'fs'
 import * as path from 'path'
 
-import { type Lang, type TaskItem, stationIdToDictionaryKey, stations } from '../lib/career-data'
+import {
+	type Lang,
+	type TaskItem,
+	getAboutMeHighlightedTerms,
+	getHeroHighlightedTerms,
+	stationIdToDictionaryKey,
+	stations,
+} from '../lib/career-data'
 
 const DICTIONARIES_DIR = path.join(__dirname, '..', 'dictionaries')
 
@@ -70,14 +79,23 @@ function updateDictionary(lang: Lang): void {
 	const content = fs.readFileSync(filePath, 'utf-8')
 	const dictionary = JSON.parse(content)
 
-	// Update only the roles section
+	// Update roles section
 	const newRoles = generateRoles(lang)
 
 	if (!dictionary.experienceSection) {
 		dictionary.experienceSection = {}
 	}
-
 	dictionary.experienceSection.roles = newRoles
+
+	// Update heroSection.highlightedTerms
+	if (dictionary.heroSection) {
+		dictionary.heroSection.highlightedTerms = getHeroHighlightedTerms()
+	}
+
+	// Update aboutMeSection.highlightedTerms
+	if (dictionary.aboutMeSection) {
+		dictionary.aboutMeSection.highlightedTerms = getAboutMeHighlightedTerms()
+	}
 
 	// Write back with pretty formatting
 	fs.writeFileSync(filePath, JSON.stringify(dictionary, null, '\t'), 'utf-8')

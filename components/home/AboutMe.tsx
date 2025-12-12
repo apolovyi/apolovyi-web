@@ -9,10 +9,9 @@ import { useDictionary } from '@/components/shared/DictionaryContext'
 import SectionHeader from '@/components/shared/SectionHeader'
 import { useMotionInView } from '@/components/shared/useMotionInView'
 
-const technologies = [
-	['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'Next.js'],
-	['AWS', 'PostgreSQL', 'Docker', 'Jenkins', 'GitLab', 'Sanity CMS'],
-]
+import { getFeaturedTechnologies } from '@/lib/career-data'
+
+const technologies = getFeaturedTechnologies()
 
 interface AboutMeProps {
 	lang: Locale

@@ -1,66 +1,60 @@
 import Script from 'next/script'
 
+import {
+	getCurrentEmployer,
+	getEducationForStructuredData,
+	getNotableCompanies,
+	getStructuredDataTechnologies,
+	getTotalYearsExperience,
+} from '@/lib/career-data'
+
 const StructuredData = () => {
+	const employer = getCurrentEmployer()
+	const technologies = getStructuredDataTechnologies()
+	const educationList = getEducationForStructuredData()
+	const notableCompanies = getNotableCompanies()
+	const yearsExperience = getTotalYearsExperience()
+
+	const description = `Full-Stack Software Engineer based in ${employer?.city || 'Zurich'}, Switzerland. ${yearsExperience}+ years building enterprise solutions for ${notableCompanies.join(', ')} using Java, Kotlin, Spring Boot, React, and TypeScript.`
+
 	const personData = {
 		'@context': 'https://schema.org',
 		'@type': 'Person',
 		'name': 'Artem Polovyi',
 		'url': 'https://apolovyi.me',
 		'image': 'https://apolovyi.me/img/me-circle.webp',
-		'description':
-			'Full-Stack Software Engineer based in Zurich, Switzerland. 10+ years building enterprise solutions for Audi, Infineon, UBS, Flowable, and PEAX using Java, Kotlin, Spring Boot, React, and TypeScript.',
+		description,
 		'email': 'info@apolovyi.me',
 		'sameAs': ['https://www.linkedin.com/in/apolovyi', 'https://github.com/apolovyi'],
-		'jobTitle': 'Senior Full-Stack Software Engineer',
-		'worksFor': {
-			'@type': 'Organization',
-			'name': 'PEAX AG',
-			'url': 'https://peax.ch',
-			'address': {
-				'@type': 'PostalAddress',
-				'addressLocality': 'Zurich',
-				'addressCountry': 'CH',
-			},
-		},
+		'jobTitle': employer?.jobTitle.en || 'Senior Full-Stack Software Engineer',
+		'worksFor': employer
+			? {
+					'@type': 'Organization',
+					'name': employer.name,
+					'url': employer.url,
+					'address': {
+						'@type': 'PostalAddress',
+						'addressLocality': employer.city,
+						'addressCountry': employer.country,
+					},
+				}
+			: undefined,
 		'address': {
 			'@type': 'PostalAddress',
-			'addressLocality': 'Zurich',
+			'addressLocality': employer?.city || 'Zurich',
 			'addressRegion': 'ZH',
 			'addressCountry': 'CH',
 		},
-		'alumniOf': [
-			{
-				'@type': 'EducationalOrganization',
-				'name': 'Munich University of Applied Sciences',
-			},
-			{
-				'@type': 'EducationalOrganization',
-				'name': 'TH Köln - University of Applied Sciences',
-			},
-			{
-				'@type': 'EducationalOrganization',
-				'name': 'Telecommunications University Kyiv',
-			},
-		],
+		'alumniOf': educationList.map((edu) => ({
+			'@type': 'EducationalOrganization',
+			'name': edu.name,
+		})),
 		'knowsLanguage': [
 			{ '@type': 'Language', 'name': 'German', 'alternateName': 'de' },
 			{ '@type': 'Language', 'name': 'English', 'alternateName': 'en' },
 			{ '@type': 'Language', 'name': 'Ukrainian', 'alternateName': 'uk' },
 		],
-		'knowsAbout': [
-			'Java',
-			'Kotlin',
-			'Spring Boot',
-			'React',
-			'TypeScript',
-			'Next.js',
-			'PostgreSQL',
-			'AWS',
-			'Docker',
-			'Microservices',
-			'BPMN',
-			'Flowable',
-		],
+		'knowsAbout': technologies,
 		'nationality': {
 			'@type': 'Country',
 			'name': 'Ukraine',

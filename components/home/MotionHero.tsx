@@ -1,7 +1,8 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import React, { useEffect, useRef, useState } from 'react'
+
+import dynamic from 'next/dynamic'
 
 import type { Locale } from '@/i18n-config'
 import { motion } from 'motion/react'
@@ -43,7 +44,7 @@ interface MotionHeroProps {
 	lang: Locale
 }
 
-export default function MotionHero({ finishedLoading, lang: _lang }: MotionHeroProps) {
+export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	const ctaRef = useRef<HTMLButtonElement>(null)
 	useHoverTapMotion(ctaRef)
 	const baseDelay = finishedLoading ? 0 : 6.4
@@ -53,6 +54,13 @@ export default function MotionHero({ finishedLoading, lang: _lang }: MotionHeroP
 	// Defer heavy effects on mobile and respect reduced motion
 	const [effectsOn, setEffectsOn] = useState(true)
 	const [isDesktop, setIsDesktop] = useState<boolean | null>(null)
+	// Track animation key to force re-render on language change
+	const [animationKey, setAnimationKey] = useState(0)
+
+	// Reset animation when language changes
+	useEffect(() => {
+		setAnimationKey((prev) => prev + 1)
+	}, [lang])
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return
@@ -90,7 +98,10 @@ export default function MotionHero({ finishedLoading, lang: _lang }: MotionHeroP
 	}
 
 	const heroContent = (
-		<div className="z-10">
+		<div
+			className="z-10"
+			key={animationKey}
+		>
 			<TextGenerateEffect
 				className="font-tech tracking-wider text-accent-coral lg:text-lg"
 				words={heroSection.greeting}
@@ -181,9 +192,5 @@ export default function MotionHero({ finishedLoading, lang: _lang }: MotionHeroP
 		)
 	}
 
-	return (
-		<AuroraBackground>
-			{heroWithContent}
-		</AuroraBackground>
-	)
+	return <AuroraBackground>{heroWithContent}</AuroraBackground>
 }

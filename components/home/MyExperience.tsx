@@ -6,24 +6,9 @@ import SectionHeader from '@/components/shared/SectionHeader'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 import { useMotionInView } from '@/components/shared/useMotionInView'
 
-interface Company {
-	name: string
-	key: string
-	location: string
-}
+import { type ExperienceCompany, getExperienceCompanies } from '@/lib/career-data'
 
-const companies: Company[] = [
-	{ name: 'PEAX AG', key: 'PEAX', location: 'Zurich, CH' },
-	{ name: 'UBS + Flowable', key: 'UBSFlowable', location: 'Zurich, CH' },
-	{ name: 'The Bicester Collection', key: 'TheBicesterCollection', location: 'London, UK' },
-	{ name: 'Career Break', key: 'CareerBreak', location: '11 Countries' },
-	{ name: 'Virtual Identity AG', key: 'VirtualIdentityAG', location: 'Munich, DE' },
-	{ name: 'SmartDorm', key: 'SmartDorm', location: 'Munich, DE' },
-	{ name: 'Spreadshirt', key: 'Spreadshirt', location: 'Leipzig, DE' },
-	{ name: 'Comsysto Reply GmbH', key: 'ComsystoReplyGmbH', location: 'Munich, DE' },
-	{ name: 'Blookery', key: 'Blookery', location: 'Cologne, DE' },
-	{ name: 'SilverTours GmbH', key: 'SilverToursGmbH', location: 'Cologne, DE' },
-]
+const companies: ExperienceCompany[] = getExperienceCompanies()
 
 const MyExperience = () => {
 	const dictionary = useDictionary()
@@ -73,7 +58,7 @@ const MyExperience = () => {
 }
 
 interface CompaniesBarProps {
-	companies: Company[]
+	companies: ExperienceCompany[]
 	activeCompany: string
 	setActiveCompany: (key: string) => void
 }

@@ -810,6 +810,132 @@ export function getTotalYearsExperience(): number {
 	return currentYear - startYear
 }
 
+/**
+ * Featured technologies for the About Me section.
+ * Returns two columns of technologies to display.
+ * Edit this list to change what appears in the About section.
+ */
+export function getFeaturedTechnologies(): [string[], string[]] {
+	// Curated list - edit here to update About Me section
+	const column1 = ['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'Next.js']
+	const column2 = ['AWS', 'PostgreSQL', 'Docker', 'Jenkins', 'GitLab', 'Sanity CMS']
+	return [column1, column2]
+}
+
+/**
+ * Get current employer (most recent non-volunteer, non-career-break station)
+ */
+export function getCurrentEmployer(): {
+	name: string
+	url?: string
+	city: string
+	country: string
+	jobTitle: { en: string; de: string }
+} | null {
+	const current = stations.find((s) => s.period.end === 'present' && !s.isVolunteer && s.id !== 'career-break')
+	if (!current) return null
+	return {
+		name: current.company,
+		url: current.url,
+		city: current.location.city,
+		country: current.location.country,
+		jobTitle: current.role,
+	}
+}
+
+/**
+ * Get top technologies for structured data (JSON-LD knowsAbout)
+ */
+export function getStructuredDataTechnologies(): string[] {
+	// Get 5-star and 4-star skills, prioritizing 5-star
+	const topSkills = technicalSkills
+		.filter((s) => s.stars >= 4)
+		.sort((a, b) => b.stars - a.stars)
+		.slice(0, 12)
+		.map((s) => s.name)
+	return topSkills
+}
+
+/**
+ * Get education list for structured data
+ */
+export function getEducationForStructuredData(): Array<{ name: string }> {
+	return education.map((e) => ({ name: e.institution }))
+}
+
+/**
+ * Get notable companies worked with (for SEO descriptions)
+ */
+export function getNotableCompanies(): string[] {
+	// Curated list of notable client/company names for marketing
+	return ['Audi', 'Infineon', 'UBS', 'Flowable', 'PEAX']
+}
+
+/**
+ * Get highlighted terms for hero section (companies + current city)
+ */
+export function getHeroHighlightedTerms(): string[] {
+	const employer = getCurrentEmployer()
+	const companies = getNotableCompanies()
+	const terms = [...companies]
+	if (employer?.city && !terms.includes(employer.city)) {
+		terms.push(employer.city)
+	}
+	return terms
+}
+
+/**
+ * Get highlighted terms for about me section (technologies + notable companies)
+ */
+export function getAboutMeHighlightedTerms(): string[] {
+	// Technologies mentioned in the specialization text
+	const techTerms = ['Spring Boot', 'Kotlin', 'Java', 'React', 'JavaScript', 'TypeScript', 'Jenkins', 'GitLab']
+	// Add notable companies mentioned in aboutMe text
+	const companyTerms = ['Infineon', 'Audi']
+	return [...techTerms, ...companyTerms]
+}
+
+export interface ExperienceCompany {
+	name: string
+	key: string
+	location: string
+}
+
+/**
+ * Get companies for the experience section, sorted by most recent first.
+ */
+export function getExperienceCompanies(): ExperienceCompany[] {
+	const monthOrder: Record<string, number> = {
+		Jan: 1,
+		Feb: 2,
+		Mar: 3,
+		Apr: 4,
+		May: 5,
+		Jun: 6,
+		Jul: 7,
+		Aug: 8,
+		Sep: 9,
+		Oct: 10,
+		Nov: 11,
+		Dec: 12,
+	}
+
+	const parseDate = (dateStr: string): number => {
+		if (dateStr === 'present') return Date.now()
+		const [month, year] = dateStr.split(' ')
+		return new Date(parseInt(year), monthOrder[month] - 1).getTime()
+	}
+
+	return [...stations]
+		.sort((a, b) => parseDate(b.period.start) - parseDate(a.period.start))
+		.map((station) => ({
+			name: station.company,
+			key: stationIdToDictionaryKey(station.id),
+			location:
+				station.location.country === '4 Continents' ? station.location.city : `${station.location.city}, ${station.location.country}`,
+		}))
+}
+
 // --------------------- Generators ---------------------
 
 export interface DictionaryRole {
