@@ -139,6 +139,33 @@
 					}
 				]
 			},
+			"FLConsulting": {
+				"title": "Backend-Entwickler",
+				"date": "Jul 2015 - Jan 2017",
+				"url": "",
+				"tasks": [
+					{
+						"text": "Implementierung der Website für Kongress-Meeting-Organisation.",
+						"keywords": [
+							"Kongress",
+							"Website"
+						]
+					},
+					{
+						"text": "Entwicklung des Newsletter-Systems für Event-Kommunikation.",
+						"keywords": [
+							"Newsletter"
+						]
+					},
+					{
+						"text": "Implementierung der Recruiting-Website für Karriere-Events.",
+						"keywords": [
+							"Recruiting",
+							"Karriere-Events"
+						]
+					}
+				]
+			},
 			"Senacor": {
 				"title": "Java-Entwickler (Praktikum)",
 				"date": "Oct 2017 - Jan 2018",
@@ -447,9 +474,9 @@
 						]
 					},
 					{
-						"text": "Implementierung React-basierter Frontend-Komponenten für intuitive Benutzererfahrungen.",
+						"text": "Implementierung Angular-basierter Frontend-Komponenten für intuitive Benutzererfahrungen.",
 						"keywords": [
-							"React"
+							"Angular"
 						]
 					}
 				]

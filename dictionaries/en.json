@@ -140,6 +140,33 @@
 					}
 				]
 			},
+			"FLConsulting": {
+				"title": "Backend Developer",
+				"date": "Jul 2015 - Jan 2017",
+				"url": "",
+				"tasks": [
+					{
+						"text": "Implemented website for congress meeting organization.",
+						"keywords": [
+							"congress",
+							"website"
+						]
+					},
+					{
+						"text": "Developed newsletter system for event communication.",
+						"keywords": [
+							"newsletter"
+						]
+					},
+					{
+						"text": "Built recruiting website for career events.",
+						"keywords": [
+							"recruiting",
+							"career events"
+						]
+					}
+				]
+			},
 			"Senacor": {
 				"title": "Java Developer (Intern)",
 				"date": "Oct 2017 - Jan 2018",
@@ -460,9 +487,9 @@
 						]
 					},
 					{
-						"text": "Implementing React-based frontend components for intuitive user experiences.",
+						"text": "Implementing Angular-based frontend components for intuitive user experiences.",
 						"keywords": [
-							"React",
+							"Angular",
 							"frontend"
 						]
 					}
