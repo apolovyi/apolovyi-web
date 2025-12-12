@@ -148,6 +148,33 @@ export const stations: CareerStation[] = [
 		url: 'https://www.billiger-mietwagen.de',
 	},
 	{
+		id: 'fl-consulting',
+		company: 'F&L Consulting',
+		role: {
+			en: 'Backend Developer',
+			de: 'Backend-Entwickler',
+		},
+		location: { city: 'Cologne', country: 'DE', coordinates: { lat: 50.94, lng: 6.96 } },
+		period: { start: 'Jul 2015', end: 'Jan 2017' },
+		tenureMonths: 18,
+		lines: ['backend', 'frontend'],
+		domains: ['enterprise'],
+		tasks: {
+			en: [
+				{ text: 'Implemented website for congress meeting organization.', keywords: ['congress', 'website'] },
+				{ text: 'Developed newsletter system for event communication.', keywords: ['newsletter'] },
+				{ text: 'Built recruiting website for career events.', keywords: ['recruiting', 'career events'] },
+			],
+			de: [
+				{ text: 'Implementierung der Website für Kongress-Meeting-Organisation.', keywords: ['Kongress', 'Website'] },
+				{ text: 'Entwicklung des Newsletter-Systems für Event-Kommunikation.', keywords: ['Newsletter'] },
+				{ text: 'Implementierung der Recruiting-Website für Karriere-Events.', keywords: ['Recruiting', 'Karriere-Events'] },
+			],
+		},
+		technologies: ['Java', 'JSP', 'JSF', 'WildFly', 'HTML', 'CSS', 'JavaScript'],
+		highlight: 'Congress websites, newsletter systems, recruiting platform',
+	},
+	{
 		id: 'senacor',
 		company: 'Senacor Technologies',
 		role: {
@@ -205,6 +232,7 @@ export const stations: CareerStation[] = [
 			de: [
 				{ text: 'Entwicklung des kompletten Frontend der Reise-Website für Blind Bookings.', keywords: ['Blind Bookings'] },
 				{ text: 'Erstellung responsiver Benutzeroberflächen mit React.', keywords: ['React'] },
+				{ text: 'Implementierung fortgeschrittener JavaScript-Funktionen zur Verbesserung der Interaktivität.', keywords: ['JavaScript'] },
 				{ text: 'Implementierung barrierefreier Interfaces nach WCAG-Richtlinien.', keywords: ['WCAG'] },
 				{ text: 'Entwicklung von Unit- und Integrationstests mit Jest.', keywords: ['Jest'] },
 			],
@@ -260,7 +288,7 @@ export const stations: CareerStation[] = [
 		},
 		location: { city: 'Munich', country: 'DE', coordinates: { lat: 48.14, lng: 11.58 } },
 		period: { start: 'Jan 2020', end: 'present' },
-		tenureMonths: 60,
+		tenureMonths: 72,
 		lines: ['volunteer'],
 		domains: ['education'],
 		tasks: {
@@ -450,6 +478,7 @@ export const stations: CareerStation[] = [
 				},
 				{ text: 'Implementierung einer Headless-CMS-Architektur für verbesserte Content-Flexibilität.', keywords: ['Headless CMS'] },
 				{ text: 'SEO-Optimierung zur Steigerung der Sichtbarkeit und des organischen Traffics.', keywords: ['SEO'] },
+				{ text: 'Nutzung der Vercel-Plattform für nahtloses Deployment und Hosting mit hoher Verfügbarkeit.', keywords: ['Vercel'] },
 				{ text: 'Einsatz von Next.js, TypeScript, Tailwind CSS und Sanity.', keywords: ['Next.js', 'TypeScript'] },
 			],
 		},
@@ -525,7 +554,7 @@ export const stations: CareerStation[] = [
 					text: 'Building scalable backend services with Java and Spring Boot to handle secure document processing.',
 					keywords: ['Java', 'Spring Boot'],
 				},
-				{ text: 'Implementing React-based frontend components for intuitive user experiences.', keywords: ['React', 'frontend'] },
+				{ text: 'Implementing Angular-based frontend components for intuitive user experiences.', keywords: ['Angular', 'frontend'] },
 			],
 			de: [
 				{
@@ -536,10 +565,10 @@ export const stations: CareerStation[] = [
 					text: 'Erstellung skalierbarer Backend-Services mit Java und Spring Boot für sichere Dokumentenverarbeitung.',
 					keywords: ['Java', 'Spring Boot'],
 				},
-				{ text: 'Implementierung React-basierter Frontend-Komponenten für intuitive Benutzererfahrungen.', keywords: ['React'] },
+				{ text: 'Implementierung Angular-basierter Frontend-Komponenten für intuitive Benutzererfahrungen.', keywords: ['Angular'] },
 			],
 		},
-		technologies: ['Java', 'Spring Boot', 'React'],
+		technologies: ['Java', 'Spring Boot', 'Angular'],
 		highlight: 'Digital mailbox and document management for Swiss businesses',
 		url: 'https://peax.ch',
 	},
@@ -649,7 +678,7 @@ export const lines: MetroLine[] = [
 		color: '#c23b3b',
 		pattern: 'solid',
 		yPosition: 60,
-		stations: ['silvertours', 'senacor', 'comsysto', 'spreadshirt', 'virtual-identity', 'ubs-flowable', 'peax'],
+		stations: ['silvertours', 'fl-consulting', 'senacor', 'comsysto', 'spreadshirt', 'virtual-identity', 'ubs-flowable', 'peax'],
 	},
 	{
 		id: 'frontend',
@@ -657,7 +686,7 @@ export const lines: MetroLine[] = [
 		color: '#3b82f6',
 		pattern: 'solid',
 		yPosition: 120,
-		stations: ['silvertours', 'blookery', 'comsysto', 'spreadshirt', 'virtual-identity', 'bicester', 'peax'],
+		stations: ['silvertours', 'fl-consulting', 'blookery', 'comsysto', 'spreadshirt', 'virtual-identity', 'bicester', 'peax'],
 	},
 	{
 		id: 'cloud',
@@ -695,7 +724,7 @@ export const domains: Domain[] = [
 ]
 
 export const transferStations = [
-	{ city: 'Cologne', stations: ['silvertours', 'blookery'] },
+	{ city: 'Cologne', stations: ['silvertours', 'fl-consulting', 'blookery'] },
 	{ city: 'Vienna', stations: ['senacor'] },
 	{ city: 'Munich', stations: ['comsysto', 'smartdorm', 'spreadshirt', 'virtual-identity'] },
 	{ city: 'Leipzig', stations: ['spreadshirt'] },
@@ -707,6 +736,7 @@ export const transferStations = [
 
 const stationIdMapping: Record<string, string> = {
 	'silvertours': 'SilverToursGmbH',
+	'fl-consulting': 'FLConsulting',
 	'senacor': 'Senacor',
 	'blookery': 'Blookery',
 	'comsysto': 'ComsystoReplyGmbH',
@@ -721,6 +751,7 @@ const stationIdMapping: Record<string, string> = {
 
 const dictionaryKeyMapping: Record<string, string> = {
 	SilverToursGmbH: 'silvertours',
+	FLConsulting: 'fl-consulting',
 	Senacor: 'senacor',
 	Blookery: 'blookery',
 	ComsystoReplyGmbH: 'comsysto',

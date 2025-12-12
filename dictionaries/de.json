@@ -190,6 +190,12 @@
 						]
 					},
 					{
+						"text": "Implementierung fortgeschrittener JavaScript-Funktionen zur Verbesserung der Interaktivität.",
+						"keywords": [
+							"JavaScript"
+						]
+					},
+					{
 						"text": "Implementierung barrierefreier Interfaces nach WCAG-Richtlinien.",
 						"keywords": [
 							"WCAG"
@@ -370,6 +376,12 @@
 						"text": "SEO-Optimierung zur Steigerung der Sichtbarkeit und des organischen Traffics.",
 						"keywords": [
 							"SEO"
+						]
+					},
+					{
+						"text": "Nutzung der Vercel-Plattform für nahtloses Deployment und Hosting mit hoher Verfügbarkeit.",
+						"keywords": [
+							"Vercel"
 						]
 					},
 					{
