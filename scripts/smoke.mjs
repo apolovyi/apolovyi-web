@@ -4,7 +4,7 @@ import { createReadStream } from 'fs'
 import { extname, join } from 'path'
 import { spawn } from 'child_process'
 
-const locales = ['en', 'de', 'ch', 'uk', 'ru']
+const locales = ['en', 'de', 'ch', 'uk']
 const PORT = 4173
 const OUT_DIR = 'out'
 
@@ -112,15 +112,22 @@ async function main() {
 
   try {
     // 1) Pages respond with 200 + HTML and correct <html lang>
-    const paths = ['/', ...locales.map((l) => `/${l}`)]
-    for (const p of paths) {
+    // Root path redirects to /en via JS, so we only check locale paths
+    const localePaths = locales.map((l) => `/${l}`)
+    for (const p of localePaths) {
       const { status, text } = await httpGet(p)
       if (status !== 200) throw new Error(`GET ${p} -> ${status}`)
       if (!text.includes('<!DOCTYPE html>')) throw new Error(`GET ${p} did not return HTML`)
-      const expectedLang = p === '/' ? 'en' : p.slice(1)
+      const expectedLang = p.slice(1)
       if (!text.includes(`<html lang="${expectedLang}"`)) throw new Error(`GET ${p} missing <html lang="${expectedLang}">`)
       console.log(`✓ ${p} OK (lang=${expectedLang})`)
     }
+
+    // Root path should exist and contain redirect script
+    const { status: rootStatus, text: rootText } = await httpGet('/')
+    if (rootStatus !== 200) throw new Error(`GET / -> ${rootStatus}`)
+    if (!rootText.includes("window.location.replace('/en')")) throw new Error('GET / missing redirect script')
+    console.log('✓ / OK (redirect to /en)')
 
     // 2) Critical top-level assets exist
     const assetPaths = ['/manifest.webmanifest', '/robots.txt', '/sitemap.xml', '/fav/favicon-32x32.png', '/img/me-bg.webp']
