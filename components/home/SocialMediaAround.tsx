@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 
 import { motion } from 'motion/react'
 
@@ -47,13 +47,15 @@ interface SocialMediaEmailProps {
 
 const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
 	const animationDelay = finishedLoading ? 0 : 7
+	const [hasAnimated, setHasAnimated] = useState(false)
 
 	return (
 		<>
 			<motion.div
-				initial={{ y: '100%' }}
+				initial={hasAnimated ? false : { y: '100%' }}
 				animate={{ y: '0%' }}
 				transition={{ y: { delay: animationDelay, duration: 0.5 } }}
+				onAnimationComplete={() => setHasAnimated(true)}
 				className="fixed bottom-0 left-0 z-10 hidden flex-row items-center justify-between px-12 lg:flex"
 			>
 				<div className="flex flex-col items-center justify-center space-y-8">
@@ -73,7 +75,7 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
 			</motion.div>
 
 			<motion.div
-				initial={{ y: '170%' }}
+				initial={hasAnimated ? false : { y: '170%' }}
 				animate={{ y: '0%' }}
 				transition={{ y: { delay: animationDelay, duration: 0.5 } }}
 				className="fixed -right-10 bottom-0 z-10 hidden flex-row items-center justify-between lg:flex"
