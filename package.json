@@ -15,9 +15,10 @@
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
 		"lint:ci": "eslint . --max-warnings=0",
-		"validate:dictionaries": "node scripts/validateDictionaries.js",
+		"validate:dictionaries": "npx tsx scripts/validate-dictionaries.ts",
 		"validate:career-data": "npx tsx scripts/validate-career-data.ts",
 		"generate:dictionaries": "npx tsx scripts/generate-dictionaries.ts",
+		"optimize:images": "npx tsx scripts/optimize-images.ts",
 		"check": "npm run format:check && npm run lint:ci",
 		"prepare": "husky",
 		"test:smoke": "node scripts/smoke.mjs"
