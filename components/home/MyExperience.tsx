@@ -4,7 +4,6 @@ import { CareerMetroMap } from '@/components/home/CareerMetroMap'
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import SectionHeader from '@/components/shared/SectionHeader'
-import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 import { useMotionInView } from '@/components/shared/useMotionInView'
 
 import { type ExperienceCompany, getExperienceCompanies } from '@/lib/career-data'
@@ -38,10 +37,10 @@ const MyExperience = () => {
 					className="mb-8"
 				/>
 
-				{/* Metro Map - Desktop */}
+				{/* Metro Map - All screen sizes (scrollable on mobile) */}
 				<div
 					ref={leftColRef}
-					className="mb-8 hidden lg:block"
+					className="mb-8"
 				>
 					<CareerMetroMap
 						activeStation={activeCompany}
@@ -49,70 +48,14 @@ const MyExperience = () => {
 					/>
 				</div>
 
-				<div className="flex flex-col md:flex-row md:space-x-8">
-					{/* Company tabs - Mobile/Tablet fallback and desktop supplement */}
-					<div className="lg:hidden">
-						<CompaniesBar
-							companies={companies}
-							activeCompany={activeCompany}
-							setActiveCompany={setActiveCompany}
-						/>
-					</div>
-					<div
-						ref={rightColRef}
-						className="mt-6 flex-1 md:mt-0 lg:mt-0"
-					>
-						<JobDescription company={activeCompany} />
-					</div>
+				<div
+					ref={rightColRef}
+					className="mt-2"
+				>
+					<JobDescription company={activeCompany} />
 				</div>
 			</div>
 		</section>
-	)
-}
-
-interface CompaniesBarProps {
-	companies: ExperienceCompany[]
-	activeCompany: string
-	setActiveCompany: (key: string) => void
-}
-
-const CompaniesBar = ({ companies, activeCompany, setActiveCompany }: CompaniesBarProps) => {
-	return (
-		<div className="mb-4 flex overflow-x-auto md:mb-0 md:flex-col md:overflow-x-visible">
-			{companies.map((company) => (
-				<CompanyButton
-					key={company.key}
-					isActive={activeCompany === company.key}
-					onClick={() => setActiveCompany(company.key)}
-					companyName={company.name}
-				/>
-			))}
-		</div>
-	)
-}
-
-interface CompanyButtonProps {
-	isActive: boolean
-	onClick: () => void
-	companyName: string
-}
-
-const CompanyButton = ({ isActive, onClick, companyName }: CompanyButtonProps) => {
-	const ref = React.useRef<HTMLButtonElement>(null)
-	useHoverTapMotion(ref)
-	return (
-		<button
-			ref={ref}
-			onClick={onClick}
-			className={`whitespace-nowrap px-4 py-2 text-sm transition-colors duration-300 md:text-left lg:text-base ${
-				isActive
-					? 'bg-accent-coral text-background-primary'
-					: 'text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral'
-			}`}
-			aria-pressed={isActive}
-		>
-			{companyName}
-		</button>
 	)
 }
 

@@ -33,80 +33,83 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 
 	return (
 		<div className={cn('flex flex-col gap-3', className)}>
-			<svg
-				viewBox={`0 0 ${SVG_DIMENSIONS.width} ${SVG_DIMENSIONS.height}`}
-				className="h-auto w-full"
-				role="img"
-				aria-label="Career timeline visualization as a metro map"
-			>
-				{/* Timeline axis */}
-				<TimelineAxis
-					startYear={TIMELINE.start}
-					endYear={TIMELINE.end}
-					width={SVG_DIMENSIONS.width}
-					y={SVG_DIMENSIONS.height - 30}
-				/>
-
-				{/* Metro lines */}
-				{lineSegments.map((segment, index) => (
-					<MetroLine
-						key={segment.line.id}
-						segment={segment}
-						isActive={activeLines.includes(segment.line.id)}
-						animationDelay={index * ANIMATION_CONFIG.lineStagger}
+			{/* Scrollable container for mobile */}
+			<div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-600/50 overflow-x-auto pb-2">
+				<svg
+					viewBox={`0 0 ${SVG_DIMENSIONS.width} ${SVG_DIMENSIONS.height}`}
+					className="h-auto min-w-[600px] lg:w-full lg:min-w-0"
+					role="img"
+					aria-label="Career timeline visualization as a metro map"
+				>
+					{/* Timeline axis */}
+					<TimelineAxis
+						startYear={TIMELINE.start}
+						endYear={TIMELINE.end}
+						width={SVG_DIMENSIONS.width}
+						y={SVG_DIMENSIONS.height - 30}
 					/>
-				))}
 
-				{/* Vertical connectors for multi-line stations */}
-				{Array.from(stationPositions.values())
-					.filter((pos) => pos.station.lines.length > 1)
-					.map((position) => {
-						const stationLineYs = position.station.lines.map((lineId) => LINE_Y_POSITIONS[lineId])
-						const minY = Math.min(...stationLineYs)
-						const maxY = Math.max(...stationLineYs)
-						return (
-							<line
-								key={`connector-${position.id}`}
-								x1={position.x}
-								y1={minY}
-								x2={position.x}
-								y2={maxY}
-								stroke="#666"
-								strokeWidth={3}
-								strokeOpacity={0.7}
-								strokeLinecap="round"
-							/>
-						)
+					{/* Metro lines */}
+					{lineSegments.map((segment, index) => (
+						<MetroLine
+							key={segment.line.id}
+							segment={segment}
+							isActive={activeLines.includes(segment.line.id)}
+							animationDelay={index * ANIMATION_CONFIG.lineStagger}
+						/>
+					))}
+
+					{/* Vertical connectors for multi-line stations */}
+					{Array.from(stationPositions.values())
+						.filter((pos) => pos.station.lines.length > 1)
+						.map((position) => {
+							const stationLineYs = position.station.lines.map((lineId) => LINE_Y_POSITIONS[lineId])
+							const minY = Math.min(...stationLineYs)
+							const maxY = Math.max(...stationLineYs)
+							return (
+								<line
+									key={`connector-${position.id}`}
+									x1={position.x}
+									y1={minY}
+									x2={position.x}
+									y2={maxY}
+									stroke="#666"
+									strokeWidth={3}
+									strokeOpacity={0.7}
+									strokeLinecap="round"
+								/>
+							)
+						})}
+
+					{/* Stations - render on each line they belong to */}
+					{Array.from(stationPositions.values()).flatMap((position) => {
+						const stationLines = getStationLines(position.station)
+						const dictionaryKey = stationIdToDictionaryKey(position.id)
+						const isActive = activeStation === dictionaryKey || hoveredStation === position.id
+
+						// Render a station dot on EACH line the station belongs to
+						return stationLines.map((line, lineIndex) => {
+							const lineY = LINE_Y_POSITIONS[line.id]
+							const positionOnLine = { ...position, y: lineY }
+
+							return (
+								<Station
+									key={`${position.id}-${line.id}`}
+									position={positionOnLine}
+									isActive={isActive}
+									lineColors={[line.color]}
+									onClick={() => handleStationClick(position.id)}
+									onHover={(hovering) => setHoveredStation(hovering ? position.id : null)}
+									isPrimary={lineIndex === 0}
+								/>
+							)
+						})
 					})}
 
-				{/* Stations - render on each line they belong to */}
-				{Array.from(stationPositions.values()).flatMap((position) => {
-					const stationLines = getStationLines(position.station)
-					const dictionaryKey = stationIdToDictionaryKey(position.id)
-					const isActive = activeStation === dictionaryKey || hoveredStation === position.id
-
-					// Render a station dot on EACH line the station belongs to
-					return stationLines.map((line, lineIndex) => {
-						const lineY = LINE_Y_POSITIONS[line.id]
-						const positionOnLine = { ...position, y: lineY }
-
-						return (
-							<Station
-								key={`${position.id}-${line.id}`}
-								position={positionOnLine}
-								isActive={isActive}
-								lineColors={[line.color]}
-								onClick={() => handleStationClick(position.id)}
-								onHover={(hovering) => setHoveredStation(hovering ? position.id : null)}
-								isPrimary={lineIndex === 0}
-							/>
-						)
-					})
-				})}
-
-				{/* Company name tooltip on hover */}
-				{hoveredStation && stationPositions.has(hoveredStation) && <StationTooltip position={stationPositions.get(hoveredStation)!} />}
-			</svg>
+					{/* Company name tooltip on hover */}
+					{hoveredStation && stationPositions.has(hoveredStation) && <StationTooltip position={stationPositions.get(hoveredStation)!} />}
+				</svg>
+			</div>
 
 			<Legend
 				lines={lines}
