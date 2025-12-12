@@ -108,8 +108,22 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						})
 					})}
 
-					{/* Company name tooltip on hover */}
-					{hoveredStation && stationPositions.has(hoveredStation) && <StationTooltip position={stationPositions.get(hoveredStation)!} />}
+					{/* Station labels for active/hovered stations */}
+					{Array.from(stationPositions.values()).map((position) => {
+						const dictionaryKey = stationIdToDictionaryKey(position.id)
+						const isActive = activeStation === dictionaryKey
+						const isHovered = hoveredStation === position.id
+
+						if (!isActive && !isHovered) return null
+
+						return (
+							<StationLabel
+								key={`label-${position.id}`}
+								position={position}
+								isActive={isActive}
+							/>
+						)
+					})}
 				</svg>
 			</div>
 
@@ -121,52 +135,50 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 	)
 }
 
-// Simple tooltip component
-function StationTooltip({
+// Station label component - shows company name near station
+function StationLabel({
 	position,
+	isActive,
 }: {
 	position: { x: number; y: number; station: { company: string; period: { start: string; end: string } } }
+	isActive: boolean
 }) {
 	const { x, y, station } = position
 
-	// Determine if tooltip should flip to avoid edge
-	const flipRight = x < 100
-	const flipDown = y < 60
+	// Truncate long names
+	const displayName = station.company.length > 18 ? station.company.slice(0, 16) + '…' : station.company
 
-	const tooltipX = flipRight ? x + 15 : x - 15
-	const tooltipY = flipDown ? y + 25 : y - 25
-	const anchor = flipRight ? 'start' : 'end'
+	// Estimate text width (approx 6px per char for 11px font)
+	const textWidth = displayName.length * 6.5 + 12
+
+	// Position label above station, offset to avoid overlap
+	const labelY = y - 22
+	const anchor: 'start' | 'middle' | 'end' = x < 80 ? 'start' : x > 620 ? 'end' : 'middle'
+
+	// Calculate rect position based on anchor
+	const rectX = anchor === 'start' ? x - 4 : anchor === 'end' ? x - textWidth + 4 : x - textWidth / 2
 
 	return (
-		<g>
-			{/* Background */}
+		<g className="pointer-events-none">
+			{/* Background pill for better readability */}
 			<rect
-				x={flipRight ? tooltipX - 4 : tooltipX - 140}
-				y={tooltipY - 14}
-				width={144}
-				height={36}
+				x={rectX}
+				y={labelY - 9}
+				width={textWidth}
+				height={18}
 				rx={4}
-				fill="#1a1a1a"
-				stroke="#333"
+				fill={isActive ? 'rgba(26, 26, 26, 0.95)' : 'rgba(26, 26, 26, 0.9)'}
+				stroke={isActive ? '#c23b3b' : '#444'}
 				strokeWidth={1}
 			/>
 			{/* Company name */}
 			<text
-				x={tooltipX}
-				y={tooltipY}
+				x={anchor === 'start' ? x + 2 : anchor === 'end' ? x - 2 : x}
+				y={labelY + 4}
 				textAnchor={anchor}
-				className="fill-text-primary font-body text-xs font-medium"
+				className={`font-tech text-[11px] ${isActive ? 'fill-accent-coral font-medium' : 'fill-text-primary'}`}
 			>
-				{station.company.length > 20 ? station.company.slice(0, 18) + '...' : station.company}
-			</text>
-			{/* Period */}
-			<text
-				x={tooltipX}
-				y={tooltipY + 14}
-				textAnchor={anchor}
-				className="fill-text-secondary font-tech text-[10px]"
-			>
-				{station.period.start} - {station.period.end === 'present' ? 'Present' : station.period.end}
+				{displayName}
 			</text>
 		</g>
 	)
