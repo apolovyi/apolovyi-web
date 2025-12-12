@@ -4,7 +4,7 @@
  * Validates career data integrity
  * Run: npm run validate:career-data
  */
-import { type CareerStation, type MetroLine, certifications, education, lines, parseMonthYear, stations } from '../lib/career-data'
+import { certifications, education, lines, parseMonthYear, stations } from '../lib/career-data'
 
 interface ValidationError {
 	type: 'error' | 'warning'

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 
+import { CareerMetroMap } from '@/components/home/CareerMetroMap'
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import SectionHeader from '@/components/shared/SectionHeader'
@@ -37,8 +38,20 @@ const MyExperience = () => {
 					className="mb-8"
 				/>
 
+				{/* Metro Map - Desktop */}
+				<div
+					ref={leftColRef}
+					className="mb-8 hidden lg:block"
+				>
+					<CareerMetroMap
+						activeStation={activeCompany}
+						onStationSelect={setActiveCompany}
+					/>
+				</div>
+
 				<div className="flex flex-col md:flex-row md:space-x-8">
-					<div ref={leftColRef}>
+					{/* Company tabs - Mobile/Tablet fallback and desktop supplement */}
+					<div className="lg:hidden">
 						<CompaniesBar
 							companies={companies}
 							activeCompany={activeCompany}
@@ -47,7 +60,7 @@ const MyExperience = () => {
 					</div>
 					<div
 						ref={rightColRef}
-						className="mt-6 md:mt-0"
+						className="mt-6 flex-1 md:mt-0 lg:mt-0"
 					>
 						<JobDescription company={activeCompany} />
 					</div>
