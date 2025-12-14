@@ -33,8 +33,8 @@ export function TimelineAxis({ startYear, endYear, width, y }: TimelineAxisProps
 			{/* Year markers */}
 			{years.map((year, index) => {
 				const x = getX(year)
-				// Show every other year on small screens
-				const showLabel = year % 2 === 1 || year === startYear || year === endYear
+				// Show every 2 years to avoid crowding
+				const showLabel = year % 2 === 1 || year === endYear
 
 				return (
 					<motion.g
@@ -45,19 +45,19 @@ export function TimelineAxis({ startYear, endYear, width, y }: TimelineAxisProps
 					>
 						<line
 							x1={x}
-							y1={y - 4}
+							y1={y - 3}
 							x2={x}
-							y2={y + 4}
+							y2={y + 3}
 							stroke="currentColor"
-							strokeOpacity={0.3}
+							strokeOpacity={showLabel ? 0.3 : 0.15}
 							strokeWidth={1}
 						/>
 						{showLabel && (
 							<text
 								x={x}
-								y={y + 18}
+								y={y + 14}
 								textAnchor="middle"
-								className="fill-text-secondary font-tech text-[10px]"
+								className="fill-text-secondary/70 font-tech text-[9px]"
 							>
 								{year}
 							</text>

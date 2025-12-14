@@ -8,14 +8,22 @@ import type { StationProps } from './types'
 export function Station({ position, isActive, lineColors, onClick, onHover, isPrimary = true }: StationProps) {
 	const prefersReducedMotion = useReducedMotion()
 	const { station, x, y } = position
-	const size = isPrimary ? getStationSize(station.tenureMonths) : getStationSize(station.tenureMonths) * 0.8
+	const size = isPrimary ? getStationSize(station.tenureMonths) : getStationSize(station.tenureMonths) * 0.85
 
 	// Use first line color or default
 	const primaryColor = lineColors[0] || '#c23b3b'
 
+	// Special treatment for career break
+	const isCareerBreak = station.id === 'career-break'
+	const isCurrentJob = station.period.end === 'present'
+
+	// Globe icon is larger for visibility
+	const globeSize = size * 2.2
+
 	return (
 		<g
-			className="cursor-pointer outline-none focus:outline-none"
+			className="outline-none focus:outline-none"
+			style={{ cursor: 'pointer' }}
 			onClick={onClick}
 			onMouseEnter={() => onHover(true)}
 			onMouseLeave={() => onHover(false)}
@@ -31,65 +39,108 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 			}}
 			aria-label={`${station.company}, ${station.role.en}, ${station.period.start} to ${station.period.end === 'present' ? 'present' : station.period.end}`}
 		>
-			{/* Invisible larger hit area for mobile touch */}
+			{/* Invisible larger hit area for touch */}
 			<circle
 				cx={x}
 				cy={y}
-				r={size + 8}
+				r={size + 10}
 				fill="transparent"
 				className="pointer-events-auto"
 			/>
 
-			{/* Outer ring for active/focus state */}
+			{/* Glow effect for active state */}
 			{isActive && (
 				<motion.circle
 					cx={x}
 					cy={y}
-					r={size + 4}
-					fill="none"
-					stroke={primaryColor}
-					strokeWidth={2}
-					initial={prefersReducedMotion ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-					animate={{ scale: 1, opacity: 1 }}
-					transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.2 }}
+					r={size + 3}
+					fill={primaryColor}
+					opacity={0.15}
+					initial={prefersReducedMotion ? { scale: 1 } : { scale: 0 }}
+					animate={{ scale: 1 }}
+					transition={{ duration: 0.2 }}
 				/>
 			)}
 
-			{/* Main station dot */}
-			<motion.circle
-				cx={x}
-				cy={y}
-				r={size}
-				fill={isActive ? primaryColor : '#1a1a1a'}
-				stroke={primaryColor}
-				strokeWidth={2}
-				initial={prefersReducedMotion ? { scale: 1 } : { scale: 0 }}
-				animate={{ scale: 1 }}
-				transition={
-					prefersReducedMotion
-						? { duration: 0 }
-						: {
-								type: 'spring',
-								stiffness: 300,
-								damping: 20,
-								delay: ANIMATION_CONFIG.stationDelay,
-							}
-				}
-			/>
+			{/* Main station dot with hover scale effect */}
+			<motion.g
+				style={{ transformOrigin: `${x}px ${y}px` }}
+				animate={{ scale: isActive ? 1.15 : 1 }}
+				transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+			>
+				{isCareerBreak ? (
+					// Globe icon for career break - larger and more prominent
+					<motion.g
+						initial={prefersReducedMotion ? { scale: 1 } : { scale: 0 }}
+						animate={{ scale: 1 }}
+						style={{ transformOrigin: `${x}px ${y}px` }}
+						transition={
+							prefersReducedMotion ? { duration: 0 } : { type: 'spring', stiffness: 300, damping: 20, delay: ANIMATION_CONFIG.stationDelay }
+						}
+					>
+						{/* Globe circle */}
+						<circle
+							cx={x}
+							cy={y}
+							r={globeSize}
+							fill={isActive ? primaryColor : 'var(--background-primary)'}
+							stroke={primaryColor}
+							strokeWidth={2}
+						/>
+						{/* Vertical meridian */}
+						<ellipse
+							cx={x}
+							cy={y}
+							rx={globeSize * 0.35}
+							ry={globeSize * 0.85}
+							fill="none"
+							stroke={isActive ? 'rgba(255,255,255,0.7)' : primaryColor}
+							strokeWidth={1}
+						/>
+						{/* Horizontal equator */}
+						<line
+							x1={x - globeSize * 0.85}
+							y1={y}
+							x2={x + globeSize * 0.85}
+							y2={y}
+							stroke={isActive ? 'rgba(255,255,255,0.7)' : primaryColor}
+							strokeWidth={1}
+						/>
+					</motion.g>
+				) : (
+					// Standard station dot - hollow by default, filled when active
+					<motion.circle
+						cx={x}
+						cy={y}
+						r={size}
+						fill={isActive ? primaryColor : 'transparent'}
+						stroke={primaryColor}
+						strokeWidth={isActive ? 2 : 1.5}
+						initial={prefersReducedMotion ? { scale: 1 } : { scale: 0 }}
+						animate={{ scale: 1 }}
+						style={{ transformOrigin: `${x}px ${y}px` }}
+						transition={
+							prefersReducedMotion ? { duration: 0 } : { type: 'spring', stiffness: 300, damping: 20, delay: ANIMATION_CONFIG.stationDelay }
+						}
+					/>
+				)}
+			</motion.g>
 
-			{/* Pulse animation for current position - only on primary and if motion allowed */}
-			{isPrimary && station.period.end === 'present' && !prefersReducedMotion && (
+			{/* Subtle pulse for current job - stops on hover */}
+			{isPrimary && isCurrentJob && !prefersReducedMotion && !isActive && (
 				<circle
 					cx={x}
 					cy={y}
 					r={size}
-					fill={primaryColor}
-					opacity="0.4"
+					fill="none"
+					stroke={primaryColor}
+					strokeWidth={1}
+					opacity={0.4}
 				>
 					<animate
 						attributeName="r"
 						from={String(size)}
-						to={String(size + 12)}
+						to={String(size + 8)}
 						dur="2s"
 						repeatCount="indefinite"
 					/>

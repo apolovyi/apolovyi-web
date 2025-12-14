@@ -403,9 +403,9 @@ export const stations: CareerStation[] = [
 			de: 'Sabbatical & Weltreise',
 		},
 		location: { city: '11 Countries', country: '4 Continents', coordinates: { lat: 0, lng: 0 } },
-		period: { start: 'Feb 2024', end: 'Jun 2024' },
-		tenureMonths: 5,
-		lines: [],
+		period: { start: 'Jan 2024', end: 'Jun 2024' },
+		tenureMonths: 6,
+		lines: ['volunteer'],
 		domains: [],
 		tasks: {
 			en: [
@@ -449,7 +449,7 @@ export const stations: CareerStation[] = [
 			en: 'Lead Full-Stack Engineer',
 			de: 'Lead Full-Stack-Entwickler',
 		},
-		location: { city: 'London', country: 'UK', remote: true, coordinates: { lat: 51.51, lng: -0.13 } },
+		location: { city: 'Remote', country: 'UK', remote: true, coordinates: { lat: 51.51, lng: -0.13 } },
 		period: { start: 'Jun 2024', end: 'Oct 2024' },
 		tenureMonths: 5,
 		lines: ['frontend', 'leadership'],
@@ -542,7 +542,7 @@ export const stations: CareerStation[] = [
 		location: { city: 'Zurich', country: 'CH', coordinates: { lat: 47.37, lng: 8.54 } },
 		period: { start: 'Oct 2025', end: 'present' },
 		tenureMonths: 2,
-		lines: ['backend', 'frontend'],
+		lines: ['backend', 'frontend', 'cloud', 'leadership'],
 		domains: ['enterprise'],
 		tasks: {
 			en: [
@@ -675,7 +675,7 @@ export const lines: MetroLine[] = [
 	{
 		id: 'backend',
 		label: 'Backend',
-		color: '#c23b3b',
+		color: '#e8655a', // Soft coral
 		pattern: 'solid',
 		yPosition: 60,
 		stations: ['silvertours', 'fl-consulting', 'senacor', 'comsysto', 'spreadshirt', 'virtual-identity', 'ubs-flowable', 'peax'],
@@ -683,7 +683,7 @@ export const lines: MetroLine[] = [
 	{
 		id: 'frontend',
 		label: 'Frontend',
-		color: '#3b82f6',
+		color: '#5b9bd5', // Soft blue
 		pattern: 'solid',
 		yPosition: 120,
 		stations: ['silvertours', 'fl-consulting', 'blookery', 'comsysto', 'spreadshirt', 'virtual-identity', 'bicester', 'peax'],
@@ -691,26 +691,26 @@ export const lines: MetroLine[] = [
 	{
 		id: 'cloud',
 		label: 'Cloud/DevOps',
-		color: '#10b981',
+		color: '#4db6a0', // Soft teal
 		pattern: 'dashed',
 		yPosition: 180,
-		stations: ['comsysto', 'virtual-identity', 'ubs-flowable'],
+		stations: ['comsysto', 'virtual-identity', 'ubs-flowable', 'peax'],
 	},
 	{
 		id: 'leadership',
 		label: 'Leadership',
-		color: '#f59e0b',
+		color: '#e0a458', // Soft amber
 		pattern: 'dotted',
 		yPosition: 240,
-		stations: ['bicester'],
+		stations: ['bicester', 'peax'],
 	},
 	{
 		id: 'volunteer',
 		label: 'Volunteer',
-		color: '#8b5cf6',
+		color: '#9d8ec9', // Soft lavender
 		pattern: 'double-dotted',
 		yPosition: 320,
-		stations: ['smartdorm'],
+		stations: ['smartdorm', 'career-break'],
 	},
 ]
 
@@ -1002,4 +1002,49 @@ export function getTimelinePosition(dateStr: string, startYear = 2015, endYear =
 	const totalRange = endDate.getTime() - startDate.getTime()
 	const position = date.getTime() - startDate.getTime()
 	return Math.max(0, Math.min(1, position / totalRange))
+}
+
+// --------------------- Travel Journey (Career Break) ---------------------
+
+export interface TravelDestination {
+	country: string
+	city: string
+	lat: number
+	lng: number
+}
+
+// Journey: Germany → Greece → Egypt → South Africa → Zambia → Zimbabwe → Fiji → Australia → Chile → Argentina → Colombia → Ecuador → Germany
+export const careerBreakJourney: TravelDestination[] = [
+	{ country: 'Germany', city: 'Cologne', lat: 50.94, lng: 6.96 },
+	{ country: 'Greece', city: 'Athens', lat: 37.98, lng: 23.73 },
+	{ country: 'Egypt', city: 'Cairo', lat: 30.04, lng: 31.24 },
+	{ country: 'South Africa', city: 'Cape Town', lat: -33.92, lng: 18.42 },
+	{ country: 'Zambia', city: 'Livingstone', lat: -17.84, lng: 25.86 },
+	{ country: 'Zimbabwe', city: 'Victoria Falls', lat: -17.93, lng: 25.83 },
+	{ country: 'Fiji', city: 'Suva', lat: -18.14, lng: 178.44 },
+	{ country: 'Australia', city: 'Sydney', lat: -33.87, lng: 151.21 },
+	{ country: 'Chile', city: 'Santiago', lat: -33.45, lng: -70.67 },
+	{ country: 'Argentina', city: 'Buenos Aires', lat: -34.6, lng: -58.38 },
+	{ country: 'Colombia', city: 'Bogotá', lat: 4.71, lng: -74.07 },
+	{ country: 'Ecuador', city: 'Quito', lat: -0.18, lng: -78.47 },
+	{ country: 'Germany', city: 'Cologne', lat: 50.94, lng: 6.96 },
+]
+
+/**
+ * Get travel journey as map dots (for WorldMap component)
+ */
+export function getTravelJourneyDots(): Array<{
+	start: { lat: number; lng: number; label?: string }
+	end: { lat: number; lng: number; label?: string }
+}> {
+	const dots = []
+	for (let i = 0; i < careerBreakJourney.length - 1; i++) {
+		const start = careerBreakJourney[i]
+		const end = careerBreakJourney[i + 1]
+		dots.push({
+			start: { lat: start.lat, lng: start.lng, label: start.city },
+			end: { lat: end.lat, lng: end.lng, label: end.city },
+		})
+	}
+	return dots
 }

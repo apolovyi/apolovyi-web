@@ -1,10 +1,12 @@
 'use client'
 
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
+import { trackLineToggle, trackMapReplay, trackStationClick } from '@/lib/analytics'
 import { type MetroLineId, lines, stationIdToDictionaryKey } from '@/lib/career-data'
 import { cn } from '@/lib/utils'
 
+import { AnimatedTrain } from './AnimatedTrain'
 import { Legend } from './Legend'
 import { MetroLine } from './MetroLine'
 import { Station } from './Station'
@@ -21,21 +23,108 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 	const [hoveredStation, setHoveredStation] = useState<string | null>(null)
 	const [visibleLines, setVisibleLines] = useState<MetroLineId[]>(ALL_LINE_IDS)
 	const [animationKey, setAnimationKey] = useState(0)
+	const [hasScrolled, setHasScrolled] = useState(false)
+	const [showTrain, setShowTrain] = useState(false)
+	const scrollContainerRef = useRef<HTMLDivElement>(null)
+	const svgRef = useRef<SVGSVGElement>(null)
+
+	// Get sorted station IDs for keyboard navigation (by x position = chronological)
+	const sortedStationIds = useMemo(() => {
+		return Array.from(stationPositions.entries())
+			.sort((a, b) => a[1].x - b[1].x)
+			.map(([id]) => id)
+	}, [stationPositions])
+
+	// Keyboard navigation handler
+	const handleKeyDown = useCallback(
+		(e: React.KeyboardEvent) => {
+			if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return
+
+			e.preventDefault()
+			const _currentIndex = activeStation
+				? sortedStationIds.indexOf(stationIdToDictionaryKey(activeStation) === activeStation ? activeStation : '')
+				: -1
+
+			// Find current station in sorted list by dictionary key
+			let currentIdx = -1
+			for (let i = 0; i < sortedStationIds.length; i++) {
+				if (stationIdToDictionaryKey(sortedStationIds[i]) === activeStation) {
+					currentIdx = i
+					break
+				}
+			}
+
+			let newIndex: number
+			if (e.key === 'ArrowRight') {
+				newIndex = currentIdx < sortedStationIds.length - 1 ? currentIdx + 1 : 0
+			} else {
+				newIndex = currentIdx > 0 ? currentIdx - 1 : sortedStationIds.length - 1
+			}
+
+			const newStationId = sortedStationIds[newIndex]
+			const dictionaryKey = stationIdToDictionaryKey(newStationId)
+			onStationSelect(dictionaryKey)
+		},
+		[activeStation, sortedStationIds, onStationSelect],
+	)
+
+	// Track scroll to hide hint
+	useEffect(() => {
+		const container = scrollContainerRef.current
+		if (!container) return
+
+		const handleScroll = () => {
+			if (container.scrollLeft > 20) {
+				setHasScrolled(true)
+			}
+		}
+
+		container.addEventListener('scroll', handleScroll)
+		return () => container.removeEventListener('scroll', handleScroll)
+	}, [])
+
+	// Auto-start train animation when map becomes visible
+	const [hasTriggered, setHasTriggered] = useState(false)
+	useEffect(() => {
+		const svg = svgRef.current
+		if (!svg || hasTriggered) return
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					setHasTriggered(true)
+					// Start train after lines have drawn
+					setTimeout(() => setShowTrain(true), 500)
+					observer.disconnect()
+				}
+			},
+			{ threshold: 0.3 },
+		)
+
+		observer.observe(svg)
+		return () => observer.disconnect()
+	}, [hasTriggered])
 
 	// Replay animations
 	const handleReplay = useCallback(() => {
+		setShowTrain(false)
 		setAnimationKey((k) => k + 1)
+		// Start train after a brief delay so lines draw first
+		setTimeout(() => setShowTrain(true), 500)
+		trackMapReplay()
 	}, [])
 
-	// Toggle line visibility
+	// Toggle line visibility - solo mode: click to show only that line, click again to show all
 	const handleToggleLine = useCallback((lineId: MetroLineId) => {
 		setVisibleLines((prev) => {
-			if (prev.includes(lineId)) {
-				// Don't allow hiding all lines
-				if (prev.length === 1) return prev
-				return prev.filter((id) => id !== lineId)
+			// If this line is already solo'd (only visible line), show all lines
+			if (prev.length === 1 && prev.includes(lineId)) {
+				trackLineToggle(lineId, true)
+				return ALL_LINE_IDS
 			}
-			return [...prev, lineId]
+			// Otherwise, solo this line
+			trackLineToggle(lineId, false)
+			return [lineId]
 		})
 	}, [])
 
@@ -48,22 +137,50 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 	}, [activeStation, stationPositions])
 
 	// Handle station click - convert to dictionary key
-	const handleStationClick = (stationId: string) => {
+	const handleStationClick = (stationId: string, stationName: string) => {
 		const dictionaryKey = stationIdToDictionaryKey(stationId)
+		trackStationClick(stationId, stationName)
 		onStationSelect(dictionaryKey)
 	}
 
 	return (
 		<div className={cn('flex flex-col gap-2', className)}>
 			{/* Scrollable container for mobile with fade hint */}
-			<div className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-600/50 relative overflow-x-auto pb-2">
-				{/* Right fade gradient - scroll hint for mobile */}
-				<div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background-primary to-transparent lg:hidden" />
+			<div
+				ref={scrollContainerRef}
+				className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-600/50 relative overflow-x-auto overflow-y-visible pb-2"
+			>
+				{/* Scroll hint for mobile only (hidden on tablet+) */}
+				{!hasScrolled && (
+					<div className="pointer-events-none absolute right-2 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1 rounded-full bg-background-secondary/80 px-2 py-1 text-text-secondary/70 backdrop-blur-sm md:hidden">
+						<span className="font-tech text-[10px] uppercase tracking-wide">Scroll</span>
+						<svg
+							width="14"
+							height="14"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="2"
+							style={{
+								animation: 'bounce-x 1s ease-in-out infinite',
+							}}
+						>
+							<style>{`@keyframes bounce-x { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(3px); } }`}</style>
+							<path d="M9 18l6-6-6-6" />
+						</svg>
+					</div>
+				)}
+				{/* Subtle right fade - mobile only */}
+				<div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background-primary to-transparent md:hidden" />
 				<svg
+					ref={svgRef}
 					viewBox={`0 0 ${SVG_DIMENSIONS.width} ${SVG_DIMENSIONS.height}`}
-					className="h-auto min-w-[600px] lg:w-full lg:min-w-0"
+					className="h-auto min-w-[600px] outline-none focus:outline-none lg:w-full lg:min-w-0"
+					style={{ overflow: 'visible' }}
 					role="img"
-					aria-label="Career timeline visualization as a metro map"
+					aria-label="Career timeline visualization as a metro map. Use arrow keys to navigate between positions."
+					tabIndex={0}
+					onKeyDown={handleKeyDown}
 				>
 					{/* Timeline axis */}
 					<TimelineAxis
@@ -73,17 +190,53 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						y={SVG_DIMENSIONS.height - 30}
 					/>
 
-					{/* Metro lines - filtered by visibility */}
-					{lineSegments
-						.filter((segment) => visibleLines.includes(segment.line.id))
-						.map((segment, index) => (
-							<MetroLine
-								key={`${segment.line.id}-${animationKey}`}
-								segment={segment}
-								isActive={activeLines.includes(segment.line.id)}
-								animationDelay={index * ANIMATION_CONFIG.lineStagger}
-							/>
-						))}
+					{/* "Now" indicator arrow */}
+					{(() => {
+						const { width, padding } = SVG_DIMENSIONS
+						const usableWidth = width - padding.left - padding.right
+						const currentYear = new Date().getFullYear() + new Date().getMonth() / 12
+						const nowX = padding.left + ((currentYear - TIMELINE.start) / (TIMELINE.end - TIMELINE.start)) * usableWidth
+						return (
+							<g>
+								{/* Arrow pointing right */}
+								<polygon
+									points={`${nowX + 8},${SVG_DIMENSIONS.height - 45} ${nowX + 14},${SVG_DIMENSIONS.height - 40} ${nowX + 8},${SVG_DIMENSIONS.height - 35}`}
+									fill="var(--text-secondary)"
+									opacity={0.6}
+								/>
+								{/* "Now" text */}
+								<text
+									x={nowX + 2}
+									y={SVG_DIMENSIONS.height - 40}
+									textAnchor="end"
+									className="fill-text-secondary/60 font-tech text-[8px] uppercase"
+								>
+									Now
+								</text>
+							</g>
+						)
+					})()}
+
+					{/* Metro lines - animate visibility */}
+					{lineSegments.map((segment, index) => (
+						<MetroLine
+							key={`${segment.line.id}-${animationKey}`}
+							segment={segment}
+							isActive={activeLines.includes(segment.line.id)}
+							isVisible={visibleLines.includes(segment.line.id)}
+							animationDelay={index * ANIMATION_CONFIG.lineStagger}
+						/>
+					))}
+
+					{/* Animated train on the backend line - only shows on Replay */}
+					{showTrain && lineSegments.find((s) => s.line.id === 'backend') && (
+						<AnimatedTrain
+							segment={lineSegments.find((s) => s.line.id === 'backend')!}
+							animationKey={animationKey}
+							svgWidth={SVG_DIMENSIONS.width}
+							svgHeight={SVG_DIMENSIONS.height}
+						/>
+					)}
 
 					{/* Vertical connectors for multi-line stations - only for visible lines */}
 					{Array.from(stationPositions.values())
@@ -103,10 +256,10 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 									y1={minY}
 									x2={position.x}
 									y2={maxY}
-									stroke="#666"
-									strokeWidth={3}
-									strokeOpacity={0.7}
-									strokeLinecap="round"
+									stroke="#555"
+									strokeWidth={1}
+									strokeOpacity={0.4}
+									strokeDasharray="2 2"
 								/>
 							)
 						})}
@@ -130,7 +283,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 									position={positionOnLine}
 									isActive={isActive}
 									lineColors={[line.color]}
-									onClick={() => handleStationClick(position.id)}
+									onClick={() => handleStationClick(position.id, position.station.company)}
 									onHover={(hovering) => setHoveredStation(hovering ? position.id : null)}
 									isPrimary={lineIndex === 0}
 								/>
@@ -138,7 +291,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						})
 					})}
 
-					{/* Station labels for active/hovered stations on visible lines */}
+					{/* Station labels - show hovered OR active, not both */}
 					{Array.from(stationPositions.values()).map((position) => {
 						// Only show label if station has at least one visible line
 						const hasVisibleLine = position.station.lines.some((l) => visibleLines.includes(l))
@@ -148,13 +301,18 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						const isActive = activeStation === dictionaryKey
 						const isHovered = hoveredStation === position.id
 
-						if (!isActive && !isHovered) return null
+						// Priority: hovered > active (show only one label at a time)
+						// If something is hovered, only show that label
+						// If nothing is hovered, show the active label
+						const shouldShowLabel = hoveredStation ? isHovered : isActive
+
+						if (!shouldShowLabel) return null
 
 						return (
 							<StationLabel
 								key={`label-${position.id}`}
 								position={position}
-								isActive={isActive}
+								isActive={isActive && !hoveredStation}
 							/>
 						)
 					})}
@@ -170,73 +328,114 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 				/>
 				<button
 					onClick={handleReplay}
-					className="flex-shrink-0 rounded-md p-1.5 text-text-secondary transition-colors hover:bg-neutral-800/50 hover:text-text-primary"
+					className="group flex flex-shrink-0 items-center gap-1.5 rounded-full border border-text-secondary/20 px-2 py-1 text-text-secondary/60 transition-all hover:border-text-secondary/40 hover:text-text-secondary"
 					aria-label="Replay animation"
 					title="Replay animation"
 				>
 					<svg
-						width="16"
-						height="16"
+						width="12"
+						height="12"
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
-						strokeWidth="2"
-						strokeLinecap="round"
-						strokeLinejoin="round"
+						strokeWidth="2.5"
 					>
 						<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
 						<path d="M21 3v5h-5" />
 					</svg>
+					<span className="font-tech text-[9px] uppercase tracking-wide">Replay</span>
 				</button>
 			</div>
 		</div>
 	)
 }
 
-// Station label component - shows company name near station
+// Station label component - minimal, sleek design with edge-aware positioning
 function StationLabel({
 	position,
-	isActive,
+	isActive: _isActive,
 }: {
-	position: { x: number; y: number; station: { company: string; period: { start: string; end: string } } }
+	position: { x: number; y: number; station: { company: string; period: { start: string; end: string }; tenureMonths: number } }
 	isActive: boolean
 }) {
+	void _isActive // Keep for potential future use
 	const { x, y, station } = position
 
-	// Truncate long names
-	const displayName = station.company.length > 18 ? station.company.slice(0, 16) + '…' : station.company
+	// Truncate only very long names
+	const displayName = station.company.length > 24 ? station.company.slice(0, 22) + '…' : station.company
 
-	// Estimate text width (approx 6px per char for 11px font)
-	const textWidth = displayName.length * 6.5 + 12
+	// Format tenure duration
+	const formatTenure = (months: number): string => {
+		if (months < 12) return `${months}mo`
+		const years = Math.floor(months / 12)
+		const remainingMonths = months % 12
+		if (remainingMonths === 0) return `${years}y`
+		return `${years}y ${remainingMonths}mo`
+	}
+	const tenureText = formatTenure(station.tenureMonths)
 
-	// Position label above station, offset to avoid overlap
-	const labelY = y - 22
-	const anchor: 'start' | 'middle' | 'end' = x < 80 ? 'start' : x > 620 ? 'end' : 'middle'
+	// Edge-aware positioning using SVG dimensions
+	const leftEdge = SVG_DIMENSIONS.padding.left + 50
+	const rightEdge = SVG_DIMENSIONS.width - SVG_DIMENSIONS.padding.right - 50
 
-	// Calculate rect position based on anchor
-	const rectX = anchor === 'start' ? x - 4 : anchor === 'end' ? x - textWidth + 4 : x - textWidth / 2
+	// Position label above station
+	const labelY = y - 18
+
+	// Determine text anchor based on position
+	let anchor: 'start' | 'middle' | 'end' = 'middle'
+	let labelX = x
+
+	if (x < leftEdge) {
+		anchor = 'start'
+		labelX = Math.max(x, SVG_DIMENSIONS.padding.left + 5)
+	} else if (x > rightEdge) {
+		anchor = 'end'
+		labelX = Math.min(x, SVG_DIMENSIONS.width - SVG_DIMENSIONS.padding.right - 5)
+	}
 
 	return (
 		<g className="pointer-events-none">
-			{/* Background pill for better readability */}
-			<rect
-				x={rectX}
-				y={labelY - 9}
-				width={textWidth}
-				height={18}
-				rx={4}
-				fill={isActive ? 'rgba(26, 26, 26, 0.95)' : 'rgba(26, 26, 26, 0.9)'}
-				stroke={isActive ? '#c23b3b' : '#444'}
-				strokeWidth={1}
-			/>
-			{/* Company name */}
+			{/* Company name - outline */}
 			<text
-				x={anchor === 'start' ? x + 2 : anchor === 'end' ? x - 2 : x}
-				y={labelY + 4}
+				x={labelX}
+				y={labelY}
 				textAnchor={anchor}
-				className={`font-tech text-[11px] ${isActive ? 'fill-accent-coral font-medium' : 'fill-text-primary'}`}
+				className="font-tech text-[10px] font-medium"
+				stroke="var(--background-primary)"
+				strokeWidth={3}
+				fill="none"
 			>
 				{displayName}
+			</text>
+			{/* Company name - main */}
+			<text
+				x={labelX}
+				y={labelY}
+				textAnchor={anchor}
+				className="fill-text-primary font-tech text-[10px] font-medium"
+			>
+				{displayName}
+			</text>
+			{/* Tenure duration - outline */}
+			<text
+				x={labelX}
+				y={labelY + 10}
+				textAnchor={anchor}
+				className="font-tech text-[8px]"
+				stroke="var(--background-primary)"
+				strokeWidth={2}
+				fill="none"
+			>
+				{tenureText}
+			</text>
+			{/* Tenure duration - main */}
+			<text
+				x={labelX}
+				y={labelY + 10}
+				textAnchor={anchor}
+				className="fill-text-secondary/70 font-tech text-[8px]"
+			>
+				{tenureText}
 			</text>
 		</g>
 	)

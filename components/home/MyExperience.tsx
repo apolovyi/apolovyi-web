@@ -5,8 +5,9 @@ import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import SectionHeader from '@/components/shared/SectionHeader'
 import { useMotionInView } from '@/components/shared/useMotionInView'
+import { WorldMap } from '@/components/ui/world-map'
 
-import { type ExperienceCompany, getExperienceCompanies } from '@/lib/career-data'
+import { type ExperienceCompany, getExperienceCompanies, getTravelJourneyDots } from '@/lib/career-data'
 
 const companies: ExperienceCompany[] = getExperienceCompanies()
 
@@ -164,6 +165,20 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 					</li>
 				))}
 			</ul>
+
+			{/* Travel map for career break */}
+			{isCareerBreak && (
+				<div className="mt-4 overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900/50">
+					<div className="aspect-[2/1] w-full">
+						<WorldMap dots={getTravelJourneyDots()} />
+					</div>
+					<div className="border-t border-neutral-800 px-3 py-2">
+						<p className="font-tech text-xs text-text-secondary">
+							11 countries visited: Greece, Egypt, South Africa, Zambia, Zimbabwe, Fiji, Australia, Chile, Argentina, Colombia, Ecuador
+						</p>
+					</div>
+				</div>
+			)}
 		</div>
 	)
 }

@@ -10,6 +10,8 @@ export interface StationPosition {
 export interface LineSegment {
 	line: MetroLine
 	points: Array<{ x: number; y: number; stationId: string }>
+	hasOngoingStation: boolean
+	lastStationEndX: number
 }
 
 export interface CareerMetroMapProps {

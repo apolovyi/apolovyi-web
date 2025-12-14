@@ -6,15 +6,17 @@ import { SVG_DIMENSIONS, TIMELINE } from '../constants'
 import type { LineSegment, StationPosition } from '../types'
 
 // Pre-calculate line Y positions for external use
+// Lines need to start at Y~100 to avoid being clipped by sticky header when scrolled
 const { height, padding } = SVG_DIMENSIONS
-const usableHeight = height - padding.top - padding.bottom - 40
+const topOffset = 70 // Extra offset to avoid header clipping
+const usableHeight = height - padding.top - padding.bottom - topOffset
 
 export const LINE_Y_POSITIONS: Record<MetroLineId, number> = {
-	backend: padding.top + usableHeight * 0.05,
-	frontend: padding.top + usableHeight * 0.22,
-	cloud: padding.top + usableHeight * 0.39,
-	leadership: padding.top + usableHeight * 0.54,
-	volunteer: padding.top + usableHeight * 0.7,
+	backend: padding.top + topOffset + usableHeight * 0.0,
+	frontend: padding.top + topOffset + usableHeight * 0.18,
+	cloud: padding.top + topOffset + usableHeight * 0.38,
+	leadership: padding.top + topOffset + usableHeight * 0.58,
+	volunteer: padding.top + topOffset + usableHeight * 0.78,
 }
 
 interface LayoutResult {
@@ -38,9 +40,6 @@ export function useStationLayout(): LayoutResult {
 		const stationPositions = new Map<string, StationPosition>()
 
 		for (const station of stations) {
-			// Skip career break in the map visualization
-			if (station.id === 'career-break') continue
-
 			const x = getX(station.period.start)
 
 			// Use primary line's Y position (first line in array)
@@ -65,7 +64,27 @@ export function useStationLayout(): LayoutResult {
 				.filter((p): p is { x: number; y: number; stationId: string } => p !== null)
 				.sort((a, b) => a.x - b.x)
 
-			return { line, points }
+			// Check if any station on this line is ongoing (period.end === 'present')
+			const lineStations = line.stations.map((id) => stationPositions.get(id)?.station).filter((s): s is CareerStation => s !== undefined)
+
+			const hasOngoingStation = lineStations.some((s) => s.period.end.toLowerCase() === 'present')
+
+			// Calculate X position of the last station's end date
+			let lastStationEndX = 0
+			if (lineStations.length > 0) {
+				// Find the station with the latest end date
+				const lastEndDate = lineStations.reduce((latest, s) => {
+					if (s.period.end.toLowerCase() === 'present') return 'present'
+					// Compare dates - this is a simple string comparison that works for "Mon YYYY" format
+					return s.period.end > latest ? s.period.end : latest
+				}, lineStations[0].period.end)
+
+				if (lastEndDate.toLowerCase() !== 'present') {
+					lastStationEndX = getX(lastEndDate)
+				}
+			}
+
+			return { line, points, hasOngoingStation, lastStationEndX }
 		})
 
 		// Generate year markers

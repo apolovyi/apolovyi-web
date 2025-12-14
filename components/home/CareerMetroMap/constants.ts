@@ -1,7 +1,7 @@
 export const SVG_DIMENSIONS = {
 	width: 700,
 	height: 380,
-	padding: { top: 30, right: 30, bottom: 60, left: 30 },
+	padding: { top: 30, right: 30, bottom: 45, left: 30 },
 } as const
 
 export const TIMELINE = {
@@ -11,16 +11,16 @@ export const TIMELINE = {
 
 export const LINE_STYLES = {
 	'solid': { strokeDasharray: 'none' },
-	'dashed': { strokeDasharray: '8 4' },
-	'dotted': { strokeDasharray: '2 4' },
+	'dashed': { strokeDasharray: '6 3' },
+	'dotted': { strokeDasharray: '2 3' },
 	'double-dotted': { strokeDasharray: '2 2 6 2' },
 } as const
 
 export const STATION_SIZES = {
-	small: 6, // < 6 months
-	medium: 8, // 6-18 months
-	large: 10, // 18-36 months
-	xlarge: 12, // > 36 months
+	small: 4, // < 6 months
+	medium: 5, // 6-18 months
+	large: 6, // 18-36 months
+	xlarge: 7, // > 36 months
 } as const
 
 export const ANIMATION_CONFIG = {

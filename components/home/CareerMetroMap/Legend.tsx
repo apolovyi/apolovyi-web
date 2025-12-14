@@ -6,9 +6,11 @@ import { LINE_STYLES } from './constants'
 import type { LegendProps } from './types'
 
 export function Legend({ lines, activeLines, visibleLines, onToggleLine }: LegendProps) {
+	const isSoloMode = visibleLines.length === 1
+
 	return (
 		<motion.div
-			className="flex flex-wrap gap-x-3 gap-y-2 lg:gap-x-4"
+			className="flex flex-wrap items-center gap-x-4 gap-y-1.5 sm:gap-x-5"
 			initial={{ opacity: 0, y: 10 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 1, duration: 0.4 }}
@@ -16,40 +18,42 @@ export function Legend({ lines, activeLines, visibleLines, onToggleLine }: Legen
 			{lines.map((line) => {
 				const isActive = activeLines.includes(line.id)
 				const isVisible = visibleLines.includes(line.id)
+				const isSoloed = isSoloMode && isVisible
 				const strokeStyle = LINE_STYLES[line.pattern] || LINE_STYLES.solid
 
 				return (
 					<button
 						key={line.id}
 						onClick={() => onToggleLine(line.id)}
-						className={`flex items-center gap-2 rounded-md px-2 py-1 transition-all ${
-							isVisible
-								? isActive
-									? 'bg-neutral-800/50 opacity-100'
-									: 'opacity-80 hover:bg-neutral-800/30'
-								: 'opacity-30 hover:opacity-50'
-						}`}
+						className={`group flex items-center gap-1.5 py-0.5 transition-all ${
+							isVisible ? (isActive || isSoloed ? 'opacity-100' : 'opacity-70 hover:opacity-90') : 'opacity-30 hover:opacity-50'
+						} ${isSoloed ? '-mx-2 rounded-full bg-text-secondary/10 px-2' : ''}`}
 						aria-pressed={isVisible}
-						aria-label={`${isVisible ? 'Hide' : 'Show'} ${line.label} line`}
+						aria-label={isSoloed ? `Show all lines (${line.label} is soloed)` : `Solo ${line.label} line`}
 					>
 						<svg
-							width="24"
-							height="10"
+							width="16"
+							height="6"
+							viewBox="0 0 20 6"
 							className="flex-shrink-0"
 						>
 							<line
 								x1="0"
-								y1="5"
-								x2="24"
-								y2="5"
+								y1="3"
+								x2="20"
+								y2="3"
 								stroke={line.color}
-								strokeWidth="3"
+								strokeWidth="2"
 								strokeLinecap="round"
 								strokeDasharray={strokeStyle.strokeDasharray}
 								strokeOpacity={isVisible ? 1 : 0.4}
 							/>
 						</svg>
-						<span className={`font-tech text-sm lg:text-xs ${isVisible ? 'text-text-secondary' : 'text-text-secondary/50'}`}>
+						<span
+							className={`font-tech text-[10px] uppercase tracking-wide ${
+								isVisible ? 'text-text-secondary' : 'text-text-secondary/50 line-through'
+							}`}
+						>
 							{line.label}
 						</span>
 					</button>
