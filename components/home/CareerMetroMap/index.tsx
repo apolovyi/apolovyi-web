@@ -269,17 +269,6 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						/>
 					))}
 
-					{/* Animated train on the backend line - only shows on Replay */}
-					{showTrain && lineSegments.find((s) => s.line.id === 'backend') && (
-						<AnimatedTrain
-							segment={lineSegments.find((s) => s.line.id === 'backend')!}
-							animationKey={animationKey}
-							svgWidth={SVG_DIMENSIONS.width}
-							svgHeight={SVG_DIMENSIONS.height}
-							svgRef={svgRef}
-						/>
-					)}
-
 					{/* Vertical connectors for multi-line stations - only for visible lines */}
 					{Array.from(stationPositions.values())
 						.filter((pos) => {
@@ -390,6 +379,17 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 							)
 						})
 					})()}
+
+					{/* Animated train on the backend line - rendered last to be on top */}
+					{showTrain && lineSegments.find((s) => s.line.id === 'backend') && (
+						<AnimatedTrain
+							segment={lineSegments.find((s) => s.line.id === 'backend')!}
+							animationKey={animationKey}
+							svgWidth={SVG_DIMENSIONS.width}
+							svgHeight={SVG_DIMENSIONS.height}
+							svgRef={svgRef}
+						/>
+					)}
 				</svg>
 			</div>
 
