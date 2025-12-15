@@ -21,10 +21,10 @@ const ALL_LINE_IDS: MetroLineId[] = ['backend', 'frontend', 'cloud', 'leadership
 
 // Stations that should always show labels (notable companies, well-spaced on timeline)
 // Only 2 labels to avoid collision: middle (2019) and recent (2025)
-const ALWAYS_SHOW_LABEL_STATIONS = ['comsysto', 'peax']
+const ALWAYS_SHOW_LABEL_STATIONS = ['peax'] // Only current employer
 
 // Minimum X distance between labels to avoid collision (in SVG units)
-const LABEL_MIN_DISTANCE = 60
+const LABEL_MIN_DISTANCE = 80
 
 export function CareerMetroMap({ activeStation, onStationSelect, className }: CareerMetroMapProps) {
 	const { stationPositions, lineSegments } = useStationLayout()
@@ -311,6 +311,9 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 
 						const dictionaryKey = stationIdToDictionaryKey(position.id)
 						const isActive = activeStation === dictionaryKey || hoveredStation === position.id
+						const isCurrentEmployer = position.station.period.end === 'present' && !position.station.isVolunteer
+						// Show pulse on current employer when it's active OR when nothing else is focused
+						const showPulse = isCurrentEmployer && (isActive || (activeStation === null && hoveredStation === null))
 
 						// Render a station dot on EACH visible line the station belongs to
 						return stationLines.map((line, lineIndex) => {
@@ -326,6 +329,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 									onClick={() => handleStationClick(position.id, position.station.company)}
 									onHover={(hovering) => setHoveredStation(hovering ? position.id : null)}
 									isPrimary={lineIndex === 0}
+									showCurrentJobPulse={showPulse}
 								/>
 							)
 						})

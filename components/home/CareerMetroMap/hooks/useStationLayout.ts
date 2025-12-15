@@ -26,6 +26,9 @@ interface LayoutResult {
 	yearMarkers: Array<{ year: number; x: number }>
 }
 
+// Minimum distance between adjacent stations (in SVG units)
+const MIN_STATION_GAP = 25
+
 export function useStationLayout(): LayoutResult {
 	return useMemo(() => {
 		const { width, padding } = SVG_DIMENSIONS
@@ -37,11 +40,45 @@ export function useStationLayout(): LayoutResult {
 			return padding.left + normalizedPos * usableWidth
 		}
 
-		// Calculate station positions - use primary line Y position
+		// Calculate initial station positions based on time
+		const initialPositions = new Map<string, { x: number; station: CareerStation }>()
+		for (const station of stations) {
+			initialPositions.set(station.id, { x: getX(station.period.start), station })
+		}
+
+		// Apply minimum spacing for stations that share lines
+		// Group stations by their lines and ensure minimum gap
+		const adjustedX = new Map<string, number>()
+
+		for (const line of lines) {
+			// Get stations on this line, sorted by their initial X position
+			const lineStations = line.stations
+				.map((id) => ({ id, ...initialPositions.get(id)! }))
+				.filter((s) => s.station)
+				.sort((a, b) => a.x - b.x)
+
+			let lastX = -Infinity
+			for (const station of lineStations) {
+				const currentX = adjustedX.get(station.id) ?? station.x
+				const minX = lastX + MIN_STATION_GAP
+
+				if (currentX < minX) {
+					// Station is too close, push it right
+					adjustedX.set(station.id, minX)
+					lastX = minX
+				} else {
+					// Keep existing position (might have been adjusted by another line)
+					adjustedX.set(station.id, currentX)
+					lastX = currentX
+				}
+			}
+		}
+
+		// Build final station positions
 		const stationPositions = new Map<string, StationPosition>()
 
 		for (const station of stations) {
-			const x = getX(station.period.start)
+			const x = adjustedX.get(station.id) ?? initialPositions.get(station.id)!.x
 
 			// Use primary line's Y position (first line in array)
 			let y: number

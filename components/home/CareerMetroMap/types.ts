@@ -33,6 +33,7 @@ export interface StationProps {
 	onClick: () => void
 	onHover: (hovering: boolean) => void
 	isPrimary?: boolean
+	showCurrentJobPulse?: boolean
 }
 
 export interface LegendProps {

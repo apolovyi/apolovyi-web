@@ -661,10 +661,12 @@ export function AnimatedTrain({ segment, animationKey, svgWidth: _svgWidth, svgH
 	const [phase, setPhase] = useState<'travel' | 'transform' | 'launch' | 'done'>('travel')
 	const [trainX, setTrainX] = useState(0)
 
-	// Calculate positions
+	// Calculate positions - offset train above the line so it doesn't overlap stations
+	const TRAIN_Y_OFFSET = -25 // Train travels above the line
 	const firstPoint = points[0]
 	const startX = firstPoint?.x ?? 0
-	const y = firstPoint?.y ?? 0
+	const baseY = firstPoint?.y ?? 0
+	const y = baseY + TRAIN_Y_OFFSET
 
 	let endX: number
 	if (hasOngoingStation) {
