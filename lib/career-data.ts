@@ -1090,11 +1090,7 @@ export function getTravelJourneyDots(): Array<{
  * Get unique roles for the hero section typewriter animation
  */
 export function getHeroRoles(lang: Lang): string[] {
-	const rolesByLang: Record<Lang, string[]> = {
-		en: ['Software Engineer', 'Solutions Architect', 'Tech Lead'],
-		de: ['Software-Ingenieur', 'Lösungsarchitekt', 'Tech Lead'],
-	}
-	return rolesByLang[lang] ?? rolesByLang.en
+	return lang === 'en' ? ['Software Engineer', 'Solutions Architect', 'Tech Lead'] : ['Software-Ingenieur', 'Lösungsarchitekt', 'Tech Lead']
 }
 
 // --------------------- Impact Metrics ---------------------
