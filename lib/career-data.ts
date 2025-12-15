@@ -1093,8 +1093,6 @@ export function getHeroRoles(lang: Lang): string[] {
 	const rolesByLang: Record<Lang, string[]> = {
 		en: ['Software Engineer', 'Solutions Architect', 'Tech Lead'],
 		de: ['Software-Ingenieur', 'Lösungsarchitekt', 'Tech Lead'],
-		ch: ['Software-Ingenieur', 'Lösungsarchitekt', 'Tech Lead'],
-		uk: ['Інженер-програміст', 'Архітектор рішень', 'Технічний керівник'],
 	}
 	return rolesByLang[lang] ?? rolesByLang.en
 }
