@@ -11,12 +11,17 @@ import { Legend } from './Legend'
 import { MetroLine } from './MetroLine'
 import { Station } from './Station'
 import { TimelineAxis } from './TimelineAxis'
+import { VerticalTimeline } from './VerticalTimeline'
 import { ANIMATION_CONFIG, SVG_DIMENSIONS, TIMELINE } from './constants'
 import { LINE_Y_POSITIONS, getStationLines, useStationLayout } from './hooks/useStationLayout'
 import type { CareerMetroMapProps } from './types'
 
 // All line IDs for initial state
 const ALL_LINE_IDS: MetroLineId[] = ['backend', 'frontend', 'cloud', 'leadership', 'volunteer']
+
+// Stations that should always show labels (notable companies for context)
+// Ordered by timeline position for alternating above/below placement
+const ALWAYS_SHOW_LABEL_STATIONS = ['senacor', 'comsysto', 'peax'] // Early, middle, recent
 
 export function CareerMetroMap({ activeStation, onStationSelect, className }: CareerMetroMapProps) {
 	const { stationPositions, lineSegments } = useStationLayout()
@@ -25,8 +30,17 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 	const [animationKey, setAnimationKey] = useState(0)
 	const [hasScrolled, setHasScrolled] = useState(false)
 	const [showTrain, setShowTrain] = useState(false)
+	const [isMobile, setIsMobile] = useState(false)
 	const scrollContainerRef = useRef<HTMLDivElement>(null)
 	const svgRef = useRef<SVGSVGElement>(null)
+
+	// Detect mobile screen width
+	useEffect(() => {
+		const checkMobile = () => setIsMobile(window.innerWidth < 640)
+		checkMobile()
+		window.addEventListener('resize', checkMobile)
+		return () => window.removeEventListener('resize', checkMobile)
+	}, [])
 
 	// Get sorted station IDs for keyboard navigation (by x position = chronological)
 	const sortedStationIds = useMemo(() => {
@@ -143,12 +157,31 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 		onStationSelect(dictionaryKey)
 	}
 
+	// Mobile: show vertical timeline
+	if (isMobile) {
+		return (
+			<div className={cn('flex flex-col gap-3', className)}>
+				<VerticalTimeline
+					activeStation={activeStation}
+					onStationSelect={onStationSelect}
+					visibleLines={visibleLines}
+				/>
+				<Legend
+					lines={lines}
+					activeLines={activeLines}
+					visibleLines={visibleLines}
+					onToggleLine={handleToggleLine}
+				/>
+			</div>
+		)
+	}
+
 	return (
 		<div
 			className={cn('flex flex-col gap-2', className)}
 			style={{ overflow: 'visible' }}
 		>
-			{/* Scrollable container for mobile, visible overflow on desktop for rocket */}
+			{/* Scrollable container for tablet, visible overflow on desktop for rocket */}
 			<div
 				ref={scrollContainerRef}
 				className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-600/50 relative overflow-x-auto pb-2 lg:overflow-visible"
@@ -238,6 +271,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 							animationKey={animationKey}
 							svgWidth={SVG_DIMENSIONS.width}
 							svgHeight={SVG_DIMENSIONS.height}
+							svgRef={svgRef}
 						/>
 					)}
 
@@ -294,7 +328,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						})
 					})}
 
-					{/* Station labels - show hovered OR active, not both */}
+					{/* Station labels - show always-visible labels + hovered/active */}
 					{Array.from(stationPositions.values()).map((position) => {
 						// Only show label if station has at least one visible line
 						const hasVisibleLine = position.station.lines.some((l) => visibleLines.includes(l))
@@ -303,19 +337,25 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						const dictionaryKey = stationIdToDictionaryKey(position.id)
 						const isActive = activeStation === dictionaryKey
 						const isHovered = hoveredStation === position.id
+						const alwaysVisibleIndex = ALWAYS_SHOW_LABEL_STATIONS.indexOf(position.id)
+						const isAlwaysVisible = alwaysVisibleIndex !== -1
 
-						// Priority: hovered > active (show only one label at a time)
-						// If something is hovered, only show that label
-						// If nothing is hovered, show the active label
-						const shouldShowLabel = hoveredStation ? isHovered : isActive
+						// Show label if: always visible station, hovered, or active (when nothing hovered)
+						const shouldShowLabel = isAlwaysVisible || (hoveredStation ? isHovered : isActive)
 
 						if (!shouldShowLabel) return null
+
+						// Alternate position for always-visible labels to avoid overlap
+						// Odd index = below, even index = above
+						const positionBelow = isAlwaysVisible && alwaysVisibleIndex % 2 === 1
 
 						return (
 							<StationLabel
 								key={`label-${position.id}`}
 								position={position}
 								isActive={isActive && !hoveredStation}
+								isCompact={isAlwaysVisible && !isHovered && !isActive}
+								positionBelow={positionBelow}
 							/>
 						)
 					})}
@@ -357,9 +397,13 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 function StationLabel({
 	position,
 	isActive: _isActive,
+	isCompact = false,
+	positionBelow = false,
 }: {
 	position: { x: number; y: number; station: { company: string; period: { start: string; end: string }; tenureMonths: number } }
 	isActive: boolean
+	isCompact?: boolean
+	positionBelow?: boolean
 }) {
 	void _isActive // Keep for potential future use
 	const { x, y, station } = position
@@ -381,8 +425,8 @@ function StationLabel({
 	const leftEdge = SVG_DIMENSIONS.padding.left + 50
 	const rightEdge = SVG_DIMENSIONS.width - SVG_DIMENSIONS.padding.right - 50
 
-	// Position label above station
-	const labelY = y - 18
+	// Position label above or below station
+	const labelY = positionBelow ? y + 22 : y - 18
 
 	// Determine text anchor based on position
 	let anchor: 'start' | 'middle' | 'end' = 'middle'
@@ -395,6 +439,38 @@ function StationLabel({
 		anchor = 'end'
 		labelX = Math.min(x, SVG_DIMENSIONS.width - SVG_DIMENSIONS.padding.right - 5)
 	}
+
+	// Compact version: just company name, smaller and subtler
+	if (isCompact) {
+		return (
+			<g className="pointer-events-none">
+				{/* Company name - outline */}
+				<text
+					x={labelX}
+					y={labelY}
+					textAnchor={anchor}
+					className="font-tech text-[9px]"
+					stroke="var(--background-primary)"
+					strokeWidth={2}
+					fill="none"
+				>
+					{displayName}
+				</text>
+				{/* Company name - main */}
+				<text
+					x={labelX}
+					y={labelY}
+					textAnchor={anchor}
+					className="fill-text-secondary/80 font-tech text-[9px]"
+				>
+					{displayName}
+				</text>
+			</g>
+		)
+	}
+
+	// Full version: company name + tenure (order changes based on position)
+	const tenureY = positionBelow ? labelY + 10 : labelY + 10
 
 	return (
 		<g className="pointer-events-none">
@@ -422,7 +498,7 @@ function StationLabel({
 			{/* Tenure duration - outline */}
 			<text
 				x={labelX}
-				y={labelY + 10}
+				y={tenureY}
 				textAnchor={anchor}
 				className="font-tech text-[8px]"
 				stroke="var(--background-primary)"
@@ -434,7 +510,7 @@ function StationLabel({
 			{/* Tenure duration - main */}
 			<text
 				x={labelX}
-				y={labelY + 10}
+				y={tenureY}
 				textAnchor={anchor}
 				className="fill-text-secondary/70 font-tech text-[8px]"
 			>

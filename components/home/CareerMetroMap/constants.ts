@@ -1,7 +1,7 @@
 export const SVG_DIMENSIONS = {
 	width: 700,
-	height: 380,
-	padding: { top: 30, right: 30, bottom: 45, left: 30 },
+	height: 450, // Increased for better line spacing (was 380)
+	padding: { top: 30, right: 30, bottom: 50, left: 30 },
 } as const
 
 export const TIMELINE = {

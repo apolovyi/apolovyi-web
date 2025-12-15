@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { type RefObject, useEffect, useRef, useState } from 'react'
 
 import { motion, useReducedMotion } from 'motion/react'
+import { createPortal } from 'react-dom'
 
 import { SVG_DIMENSIONS, TIMELINE } from './constants'
 import type { LineSegment } from './types'
@@ -12,6 +13,7 @@ interface AnimatedTrainProps {
 	animationKey: number
 	svgWidth: number
 	svgHeight: number
+	svgRef?: RefObject<SVGSVGElement | null>
 }
 
 // Sleek modern train with glow effects
@@ -171,7 +173,8 @@ function TrainIcon({ color }: { color: string }) {
 }
 
 // Rocket with improved aesthetics
-function RocketIcon({ color }: { color: string }) {
+// Unused - portal rocket has inline SVG. Kept for reference.
+function _RocketIcon({ color }: { color: string }) {
 	return (
 		<g>
 			{/* Outer glow */}
@@ -263,8 +266,8 @@ function RocketIcon({ color }: { color: string }) {
 	)
 }
 
-// Intense rocket flames
-function RocketFlames() {
+// Intense rocket flames (unused - portal version has inline SVG flames)
+function _RocketFlames() {
 	return (
 		<g transform="scale(1.6)">
 			{/* Outer flame glow */}
@@ -311,65 +314,88 @@ function RocketFlames() {
 	)
 }
 
-// Rocket launch with curved trajectory - flies across entire visible area
-function RocketLaunch({
+// Portal-based rocket launch that renders outside SVG for proper overflow
+function PortalRocketLaunch({
 	startX,
 	startY,
-	svgWidth: _svgWidth,
-	svgHeight: _svgHeight,
+	svgRef,
 	color,
 }: {
 	startX: number
 	startY: number
-	svgWidth: number
-	svgHeight: number
+	svgRef: RefObject<SVGSVGElement | null>
 	color: string
 }) {
-	// Rocket points UP (rotation 0), starts at train's end position
-	const [position, setPosition] = useState({ x: startX, y: startY, rotation: 0 })
+	const [screenPos, setScreenPos] = useState({ x: 0, y: 0, rotation: 0, scale: 1 })
+	const [isClient, setIsClient] = useState(false)
+	// Store initial SVG position so rocket stays fixed even when user scrolls
+	const initialSvgRect = useRef<{ left: number; top: number; scaleX: number; scaleY: number; clampedX: number } | null>(null)
 
 	useEffect(() => {
+		setIsClient(true)
+	}, [])
+
+	useEffect(() => {
+		if (!svgRef.current || !isClient) return
+
 		const duration = 4000 // 4 seconds for vertical flight
 		const startTime = Date.now()
 
-		// Rocket flies straight UP from train's end position
-		const launchStartY = startY
-		const launchEndY = -150 // Exit above viewport
-		const totalDistance = launchStartY - launchEndY
+		// Capture initial SVG position ONCE at animation start
+		const svg = svgRef.current
+		const rect = svg.getBoundingClientRect()
+		const viewBox = svg.viewBox.baseVal
+		const viewportWidth = window.innerWidth
+
+		// Calculate raw X position
+		const scaleX = rect.width / viewBox.width
+		let rocketX = rect.left + startX * scaleX
+
+		// Clamp X to stay within viewport (with padding for rocket width)
+		const rocketHalfWidth = 60
+		rocketX = Math.min(Math.max(rocketX, rocketHalfWidth), viewportWidth - rocketHalfWidth)
+
+		initialSvgRect.current = {
+			left: rect.left,
+			top: rect.top,
+			scaleX: rect.width / viewBox.width,
+			scaleY: rect.height / viewBox.height,
+			clampedX: rocketX, // Pre-calculated clamped X position
+		}
 
 		const animateFrame = () => {
+			if (!initialSvgRect.current) return
+
 			const elapsed = Date.now() - startTime
 			const t = Math.min(elapsed / duration, 1)
 
-			// Easing for vertical flight:
-			// 0-20%: Slow lift-off (quadratic ease-in)
-			// 20-80%: Steady climb
-			// 80-100%: Accelerate out of view
-			let yProgress: number
+			const { top, scaleY, clampedX } = initialSvgRect.current
 
+			// Easing for vertical flight
+			let yProgress: number
 			if (t < 0.2) {
-				// Slow lift-off
 				const tNorm = t / 0.2
 				yProgress = 0.15 * tNorm * tNorm
 			} else if (t < 0.8) {
-				// Steady climb
 				const tNorm = (t - 0.2) / 0.6
 				yProgress = 0.15 + 0.6 * tNorm
 			} else {
-				// Accelerate out
 				const tNorm = (t - 0.8) / 0.2
-				const accel = tNorm * tNorm
-				yProgress = 0.75 + 0.25 * accel
+				yProgress = 0.75 + 0.25 * tNorm * tNorm
 			}
 
-			// X stays constant (straight up), Y decreases (going up)
-			const x = startX
-			const y = launchStartY - totalDistance * yProgress
+			// Calculate SVG coordinates - fly to well above viewport (-500 in SVG coords)
+			const totalDistance = startY + 500 // From startY to -500
+			const svgY = startY - totalDistance * yProgress
 
-			// Rotation: stays at 0 (pointing up), slight wobble for realism
+			// Use clamped X position, calculate Y from initial top position
+			const screenX = clampedX
+			const screenY = top + svgY * scaleY
+
+			// Slight wobble for realism
 			const rotation = Math.sin(t * Math.PI * 6) * 3
 
-			setPosition({ x, y, rotation })
+			setScreenPos({ x: screenX, y: screenY, rotation, scale: scaleX * 0.8 })
 
 			if (t < 1) {
 				requestAnimationFrame(animateFrame)
@@ -378,68 +404,214 @@ function RocketLaunch({
 
 		const frameId = requestAnimationFrame(animateFrame)
 		return () => cancelAnimationFrame(frameId)
-	}, [startX, startY])
+	}, [startX, startY, svgRef, isClient])
 
-	return (
-		<g transform={`translate(${position.x}, ${position.y})`}>
-			{/* Rocket with dynamic rotation */}
-			<g transform={`rotate(${position.rotation})`}>
-				<RocketIcon color={color} />
-				{/* Flames behind rocket */}
-				<g transform="translate(0, 35)">
-					<RocketFlames />
+	if (!isClient) return null
+
+	// Render rocket in a portal at document.body level
+	return createPortal(
+		<div
+			style={{
+				position: 'fixed',
+				left: screenPos.x,
+				top: screenPos.y,
+				transform: `translate(-50%, -50%) rotate(${screenPos.rotation}deg) scale(${screenPos.scale})`,
+				pointerEvents: 'none',
+				zIndex: 9999,
+			}}
+		>
+			{/* Rocket SVG rendered as HTML */}
+			<svg
+				width="120"
+				height="300"
+				viewBox="-60 -80 120 300"
+				style={{ overflow: 'visible' }}
+			>
+				<defs>
+					<linearGradient
+						id="portalRocketBody"
+						x1="0%"
+						y1="0%"
+						x2="100%"
+						y2="0%"
+					>
+						<stop
+							offset="0%"
+							stopColor={color}
+						/>
+						<stop
+							offset="50%"
+							stopColor="#ffffff"
+							stopOpacity="0.3"
+						/>
+						<stop
+							offset="100%"
+							stopColor={color}
+						/>
+					</linearGradient>
+					<linearGradient
+						id="portalFlameGradient"
+						x1="0%"
+						y1="0%"
+						x2="0%"
+						y2="100%"
+					>
+						<stop
+							offset="0%"
+							stopColor="#FFFFFF"
+						/>
+						<stop
+							offset="30%"
+							stopColor="#FFFF00"
+						/>
+						<stop
+							offset="60%"
+							stopColor="#FFA500"
+						/>
+						<stop
+							offset="100%"
+							stopColor="#FF4500"
+							stopOpacity="0"
+						/>
+					</linearGradient>
+					<radialGradient
+						id="portalWindowGlow"
+						cx="50%"
+						cy="50%"
+						r="50%"
+					>
+						<stop
+							offset="0%"
+							stopColor="#88DDFF"
+						/>
+						<stop
+							offset="100%"
+							stopColor="#4488AA"
+						/>
+					</radialGradient>
+				</defs>
+
+				{/* Rocket body */}
+				<g transform="scale(1.6)">
+					{/* Nose cone */}
+					<path
+						d="M-9,-14 Q0,-32 9,-14"
+						fill={color}
+					/>
+					{/* Body */}
+					<rect
+						x={-9}
+						y={-14}
+						width={18}
+						height={32}
+						rx={2}
+						fill="url(#portalRocketBody)"
+					/>
+					{/* Window */}
+					<circle
+						cx={0}
+						cy={-4}
+						r={5}
+						fill="url(#portalWindowGlow)"
+					/>
+					<circle
+						cx={0}
+						cy={-4}
+						r={3}
+						fill="#88DDFF"
+						opacity={0.8}
+					/>
+					{/* Fins */}
+					<path
+						d="M-9,12 L-18,24 L-9,20 Z"
+						fill={color}
+					/>
+					<path
+						d="M9,12 L18,24 L9,20 Z"
+						fill={color}
+					/>
+					{/* Center fin */}
+					<path
+						d="M-3,18 L0,28 L3,18 Z"
+						fill={color}
+						opacity={0.8}
+					/>
 				</g>
-			</g>
 
-			{/* Smoke trail going DOWN (behind the rocket flying up) */}
-			{[...Array(12)].map((_, i) => {
-				// Trail goes straight down (positive Y) with slight spread
-				const spread = Math.sin(i * 0.8) * 8
-				const offsetY = i * 18 + 60 // Below rocket (positive Y = down in SVG)
-				return (
-					<motion.circle
+				{/* Flames */}
+				<g transform="translate(0, 55) scale(1.6)">
+					<ellipse
+						cx={0}
+						cy={35}
+						rx={18}
+						ry={40}
+						fill="url(#portalFlameGradient)"
+						opacity={0.5}
+					>
+						<animate
+							attributeName="ry"
+							values="40;55;45;60;40"
+							dur="0.2s"
+							repeatCount="indefinite"
+						/>
+					</ellipse>
+					<ellipse
+						cx={0}
+						cy={28}
+						rx={12}
+						ry={28}
+						fill="url(#portalFlameGradient)"
+					>
+						<animate
+							attributeName="ry"
+							values="28;40;30;45;28"
+							dur="0.15s"
+							repeatCount="indefinite"
+						/>
+					</ellipse>
+					<ellipse
+						cx={0}
+						cy={22}
+						rx={6}
+						ry={16}
+						fill="#FFFFEE"
+					>
+						<animate
+							attributeName="ry"
+							values="16;24;18;28;16"
+							dur="0.1s"
+							repeatCount="indefinite"
+						/>
+					</ellipse>
+				</g>
+
+				{/* Smoke trail */}
+				{[...Array(10)].map((_, i) => (
+					<circle
 						key={`smoke-${i}`}
-						cx={spread}
-						cy={offsetY}
-						r={5 + i * 1.2}
-						fill={i < 4 ? '#FF8844' : i < 7 ? '#AAAAAA' : '#666666'}
-						initial={{ opacity: i < 4 ? 0.7 : 0.5, scale: 1 }}
-						animate={{
-							opacity: 0,
-							scale: 2.5,
-						}}
-						transition={{
-							duration: 0.6,
-							delay: i * 0.04,
-							ease: 'easeOut',
-							repeat: Infinity,
-						}}
-					/>
-				)
-			})}
-
-			{/* Spark particles trailing below */}
-			{[...Array(6)].map((_, i) => {
-				const spread = (i - 2.5) * 10
-				const offsetY = 70 + i * 15 // Below rocket
-				return (
-					<motion.circle
-						key={`spark-${i}`}
-						cx={spread}
-						cy={offsetY}
-						r={2.5}
-						fill="#FFD700"
-						initial={{ opacity: 0.9, scale: 1 }}
-						animate={{ opacity: 0, scale: 0.3 }}
-						transition={{
-							duration: 0.5,
-							delay: i * 0.06,
-							repeat: Infinity,
-						}}
-					/>
-				)
-			})}
-		</g>
+						cx={Math.sin(i * 0.8) * 8}
+						cy={120 + i * 20}
+						r={8 + i * 2}
+						fill={i < 3 ? '#FF8844' : i < 6 ? '#AAAAAA' : '#666666'}
+						opacity={0.6 - i * 0.05}
+					>
+						<animate
+							attributeName="r"
+							values={`${8 + i * 2};${16 + i * 3};${8 + i * 2}`}
+							dur="0.6s"
+							repeatCount="indefinite"
+						/>
+						<animate
+							attributeName="opacity"
+							values={`${0.6 - i * 0.05};0;${0.6 - i * 0.05}`}
+							dur="0.6s"
+							repeatCount="indefinite"
+						/>
+					</circle>
+				))}
+			</svg>
+		</div>,
+		document.body,
 	)
 }
 
@@ -483,7 +655,7 @@ function SparkleEffect({ color }: { color: string }) {
 	)
 }
 
-export function AnimatedTrain({ segment, animationKey, svgWidth, svgHeight }: AnimatedTrainProps) {
+export function AnimatedTrain({ segment, animationKey, svgWidth: _svgWidth, svgHeight: _svgHeight, svgRef }: AnimatedTrainProps) {
 	const prefersReducedMotion = useReducedMotion()
 	const { line, points, hasOngoingStation } = segment
 	const [phase, setPhase] = useState<'travel' | 'transform' | 'launch' | 'done'>('travel')
@@ -673,34 +845,26 @@ export function AnimatedTrain({ segment, animationKey, svgWidth, svgHeight }: An
 				</g>
 			)}
 
-			{/* Phase 2: Transform - train morphs into rocket with sparkle burst */}
+			{/* Phase 2: Transform - train fades out with sparkle burst, then portal rocket takes over */}
 			{phase === 'transform' && (
 				<g transform={`translate(${endX}, ${y})`}>
 					<motion.g
 						initial={{ scale: 1, opacity: 1 }}
 						animate={{ scale: 0, opacity: 0, rotate: 15 }}
-						transition={{ duration: 0.35, ease: 'easeIn' }}
+						transition={{ duration: 0.5, ease: 'easeIn' }}
 					>
 						<TrainIcon color={line.color} />
-					</motion.g>
-					<motion.g
-						initial={{ scale: 0, opacity: 0 }}
-						animate={{ scale: 1, opacity: 1 }}
-						transition={{ duration: 0.35, delay: 0.25, ease: 'backOut' }}
-					>
-						<RocketIcon color={line.color} />
 					</motion.g>
 					<SparkleEffect color={line.color} />
 				</g>
 			)}
 
-			{/* Phase 3: Rocket launches with curved trajectory across screen */}
-			{phase === 'launch' && (
-				<RocketLaunch
+			{/* Phase 3: Rocket launches - rendered via portal for proper overflow */}
+			{phase === 'launch' && svgRef && (
+				<PortalRocketLaunch
 					startX={endX}
 					startY={y}
-					svgWidth={svgWidth}
-					svgHeight={svgHeight}
+					svgRef={svgRef}
 					color={line.color}
 				/>
 			)}

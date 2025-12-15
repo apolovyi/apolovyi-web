@@ -39,11 +39,11 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 			}}
 			aria-label={`${station.company}, ${station.role.en}, ${station.period.start} to ${station.period.end === 'present' ? 'present' : station.period.end}`}
 		>
-			{/* Invisible larger hit area for touch */}
+			{/* Invisible larger hit area for touch - min 44px (22px radius) per WCAG */}
 			<circle
 				cx={x}
 				cy={y}
-				r={size + 10}
+				r={Math.max(22, size + 10)}
 				fill="transparent"
 				className="pointer-events-auto"
 			/>

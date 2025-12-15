@@ -8,15 +8,16 @@ import type { LineSegment, StationPosition } from '../types'
 // Pre-calculate line Y positions for external use
 // Lines need to start at Y~100 to avoid being clipped by sticky header when scrolled
 const { height, padding } = SVG_DIMENSIONS
-const topOffset = 70 // Extra offset to avoid header clipping
+const topOffset = 50 // Reduced offset for more usable space
 const usableHeight = height - padding.top - padding.bottom - topOffset
 
+// Evenly spaced lines with ~65px between each (usableHeight / 4 gaps)
 export const LINE_Y_POSITIONS: Record<MetroLineId, number> = {
 	backend: padding.top + topOffset + usableHeight * 0.0,
-	frontend: padding.top + topOffset + usableHeight * 0.18,
-	cloud: padding.top + topOffset + usableHeight * 0.38,
-	leadership: padding.top + topOffset + usableHeight * 0.58,
-	volunteer: padding.top + topOffset + usableHeight * 0.78,
+	frontend: padding.top + topOffset + usableHeight * 0.25,
+	cloud: padding.top + topOffset + usableHeight * 0.5,
+	leadership: padding.top + topOffset + usableHeight * 0.75,
+	volunteer: padding.top + topOffset + usableHeight * 1.0,
 }
 
 interface LayoutResult {
