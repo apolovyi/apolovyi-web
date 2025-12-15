@@ -183,11 +183,15 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	if (isDesktop) {
 		return (
 			<section className="relative h-screen overflow-hidden bg-white">
-				<div className="pointer-events-none absolute -right-[5%] top-1/2 z-0 h-[700px] w-[700px] -translate-y-1/2 xl:h-[800px] xl:w-[800px] 2xl:-right-[2%] 2xl:h-[900px] 2xl:w-[900px]">
+				{/* Globe positioning: right-leaning but more centered on larger screens */}
+				{/* z-[5] puts it above gradient overlay but below hero text */}
+				<div className="min-[1800px]:right-[15%] min-[1800px]:h-[800px] min-[1800px]:w-[800px] absolute right-[5%] top-1/2 z-[5] h-[600px] w-[600px] -translate-y-1/2 lg:right-[2%] lg:h-[650px] lg:w-[650px] xl:right-[8%] xl:h-[700px] xl:w-[700px] 2xl:right-[12%] 2xl:h-[750px] 2xl:w-[750px]">
 					<GithubGlobe />
 				</div>
-				<div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white via-white/95 via-45% to-white/20" />
-				{heroWithContent}
+				{/* Gradient overlay - pointer-events-none to allow globe interaction */}
+				<div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white via-white/95 via-50% to-white/10" />
+				{/* Hero text - pointer-events-none on container, auto on interactive children */}
+				<div className="pointer-events-none relative z-10 [&_a]:pointer-events-auto [&_button]:pointer-events-auto">{heroWithContent}</div>
 			</section>
 		)
 	}
