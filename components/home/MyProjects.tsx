@@ -86,7 +86,14 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 								type="image/webp"
 							/>
 							<img
-								ref={imgRef}
+								ref={(el) => {
+									// @ts-expect-error - assigning to ref
+									imgRef.current = el
+									// Handle already-loaded cached images
+									if (el?.complete && el.naturalWidth > 0) {
+										el.style.opacity = '1'
+									}
+								}}
 								src={project.image}
 								alt={project.company}
 								width={800}
