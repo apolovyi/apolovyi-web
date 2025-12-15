@@ -12,6 +12,8 @@ import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
 
+import { type Lang, getHeroRoles } from '@/lib/career-data'
+
 const GithubGlobe = dynamic(() => import('@/components/ui/github-globe').then((m) => m.GithubGlobe), {
 	ssr: false,
 	loading: () => null,
@@ -39,6 +41,93 @@ const AnimatedText = ({ delay, children, className, enabled = true, as: Componen
 	)
 }
 
+interface TypedRolesProps {
+	roles: string[]
+	suffix: string
+	className?: string
+	enabled?: boolean
+	delay?: number
+}
+
+const TypedRoles = ({ roles, suffix, className, enabled = true, delay = 0 }: TypedRolesProps) => {
+	const [roleIndex, setRoleIndex] = useState(0)
+	const [displayText, setDisplayText] = useState('')
+	const [isDeleting, setIsDeleting] = useState(false)
+	const [isReady, setIsReady] = useState(false)
+
+	// Wait for initial animation delay
+	useEffect(() => {
+		if (!enabled) {
+			setIsReady(true)
+			setDisplayText(roles[0])
+			return
+		}
+		const timer = setTimeout(() => setIsReady(true), delay * 1000)
+		return () => clearTimeout(timer)
+	}, [delay, enabled, roles])
+
+	useEffect(() => {
+		if (!isReady || !enabled) return
+
+		const currentRole = roles[roleIndex]
+		const typeSpeed = 80
+		const deleteSpeed = 40
+		const pauseAfterType = 2000
+		const pauseAfterDelete = 300
+
+		let timeout: NodeJS.Timeout
+
+		if (!isDeleting) {
+			if (displayText.length < currentRole.length) {
+				timeout = setTimeout(() => {
+					setDisplayText(currentRole.slice(0, displayText.length + 1))
+				}, typeSpeed)
+			} else {
+				timeout = setTimeout(() => setIsDeleting(true), pauseAfterType)
+			}
+		} else {
+			if (displayText.length > 0) {
+				timeout = setTimeout(() => {
+					setDisplayText(displayText.slice(0, -1))
+				}, deleteSpeed)
+			} else {
+				timeout = setTimeout(() => {
+					setIsDeleting(false)
+					setRoleIndex((prev) => (prev + 1) % roles.length)
+				}, pauseAfterDelete)
+			}
+		}
+
+		return () => clearTimeout(timeout)
+	}, [displayText, isDeleting, roleIndex, roles, isReady, enabled])
+
+	if (!enabled) {
+		return (
+			<span className={className}>
+				{roles[0]}
+				{suffix}
+			</span>
+		)
+	}
+
+	return (
+		<span
+			className={className}
+			aria-live="polite"
+			aria-atomic="true"
+		>
+			{displayText}
+			<span
+				className="animate-pulse text-accent-coral"
+				aria-hidden="true"
+			>
+				|
+			</span>
+			{suffix}
+		</span>
+	)
+}
+
 interface MotionHeroProps {
 	finishedLoading: boolean
 	lang: Locale
@@ -50,6 +139,9 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	const baseDelay = finishedLoading ? 0 : 6.4
 	const dictionary = useDictionary()
 	const { heroSection } = dictionary
+	const heroRoles = getHeroRoles(lang as Lang)
+	// Extract location suffix from tagline (e.g., "in Zurich." from "Full-Stack Engineer in Zurich.")
+	const taglineSuffix = heroSection.tagline.includes(' in ') ? heroSection.tagline.slice(heroSection.tagline.indexOf(' in ')) : '.'
 
 	// Defer heavy effects on mobile and respect reduced motion
 	const [effectsOn, setEffectsOn] = useState(true)
@@ -121,7 +213,12 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 				className="mt-4 font-sub-heading text-3xl font-light text-text-secondary sm:text-4xl md:text-4xl lg:text-6xl"
 				enabled={effectsOn}
 			>
-				{heroSection.tagline}
+				<TypedRoles
+					roles={heroRoles}
+					suffix={taglineSuffix}
+					enabled={effectsOn}
+					delay={baseDelay + 0.6}
+				/>
 			</AnimatedText>
 			<AnimatedText
 				delay={baseDelay + 0.6}

@@ -723,6 +723,14 @@ export const domains: Domain[] = [
 	{ id: 'ecommerce', label: 'E-Commerce', icon: '🛒' },
 ]
 
+/**
+ * Get domains for a station by its ID
+ */
+export function getStationDomains(stationId: string): DomainId[] {
+	const station = getStationById(stationId)
+	return station?.domains ?? []
+}
+
 export const transferStations = [
 	{ city: 'Cologne', stations: ['silvertours', 'fl-consulting', 'blookery'] },
 	{ city: 'Vienna', stations: ['senacor'] },
@@ -820,6 +828,33 @@ export function getFeaturedTechnologies(): [string[], string[]] {
 	const column1 = ['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'Next.js']
 	const column2 = ['AWS', 'PostgreSQL', 'Docker', 'Jenkins', 'GitLab', 'Sanity CMS']
 	return [column1, column2]
+}
+
+export interface FeaturedTech {
+	name: string
+	since: number | null
+	years: number | null
+}
+
+/**
+ * Get featured technologies with years of experience
+ */
+export function getFeaturedTechnologiesWithYears(): [FeaturedTech[], FeaturedTech[]] {
+	const currentYear = new Date().getFullYear()
+	const column1Names = ['Java', 'Kotlin', 'Spring Boot', 'React', 'TypeScript', 'Next.js']
+	const column2Names = ['AWS', 'PostgreSQL', 'Docker', 'Jenkins', 'GitLab', 'Sanity CMS']
+
+	const mapToFeaturedTech = (names: string[]): FeaturedTech[] =>
+		names.map((name) => {
+			// Map display names to skill names (handle variations)
+			const skillName = name === 'Spring Boot' ? 'Spring (Boot)' : name
+			const skill = technicalSkills.find((s) => s.name === skillName || s.name === name)
+			const since = skill?.since ?? null
+			const years = since ? currentYear - since : null
+			return { name, since, years }
+		})
+
+	return [mapToFeaturedTech(column1Names), mapToFeaturedTech(column2Names)]
 }
 
 /**
@@ -1047,4 +1082,67 @@ export function getTravelJourneyDots(): Array<{
 		})
 	}
 	return dots
+}
+
+// --------------------- Hero Roles ---------------------
+
+/**
+ * Get unique roles for the hero section typewriter animation
+ */
+export function getHeroRoles(lang: Lang): string[] {
+	// Curated list of notable roles to cycle through
+	const roles = [
+		lang === 'en' ? 'Full-Stack Engineer' : 'Full-Stack-Entwickler',
+		lang === 'en' ? 'Senior Backend Engineer' : 'Senior Backend-Entwickler',
+		lang === 'en' ? 'Lead Developer' : 'Lead-Entwickler',
+		lang === 'en' ? 'Software Architect' : 'Software-Architekt',
+	]
+	return roles
+}
+
+// --------------------- Impact Metrics ---------------------
+
+export interface DisplayMetric {
+	value: string
+	label: string
+	icon: 'speed' | 'efficiency' | 'code' | 'scale' | 'compliance' | 'data'
+}
+
+/**
+ * Get displayable metrics for a station by dictionary key
+ */
+export function getStationMetrics(dictionaryKey: string): DisplayMetric[] {
+	const stationId = dictionaryKeyToStationId(dictionaryKey)
+	const station = getStationById(stationId)
+	if (!station?.metrics) return []
+
+	const metrics: DisplayMetric[] = []
+	const m = station.metrics
+
+	if (m.qps) {
+		metrics.push({ value: `${m.qps}`, label: 'QPS', icon: 'speed' })
+	}
+	if (m.efficiencyGain) {
+		const match = m.efficiencyGain.match(/(\d+)%/)
+		if (match) {
+			metrics.push({ value: `${match[1]}%`, label: 'efficiency gain', icon: 'efficiency' })
+		}
+	}
+	if (m.codeReduction) {
+		const match = m.codeReduction.match(/(\d+)%/)
+		if (match) {
+			metrics.push({ value: `${match[1]}%`, label: 'less code', icon: 'code' })
+		}
+	}
+	if (m.responseTimeImprovement) {
+		const match = m.responseTimeImprovement.match(/(\d+)%/)
+		if (match) {
+			metrics.push({ value: `${match[1]}%`, label: 'faster response', icon: 'speed' })
+		}
+	}
+	if (m.dataConsistency) {
+		metrics.push({ value: m.dataConsistency, label: 'data consistency', icon: 'data' })
+	}
+
+	return metrics
 }

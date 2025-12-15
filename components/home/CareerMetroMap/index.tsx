@@ -3,10 +3,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { trackLineToggle, trackMapReplay, trackStationClick } from '@/lib/analytics'
-import { type MetroLineId, lines, stationIdToDictionaryKey } from '@/lib/career-data'
+import { type DomainId, type MetroLineId, domains, getStationDomains, lines, stationIdToDictionaryKey } from '@/lib/career-data'
 import { cn } from '@/lib/utils'
 
 import { AnimatedTrain } from './AnimatedTrain'
+import { DomainFilter } from './DomainFilter'
 import { Legend } from './Legend'
 import { MetroLine } from './MetroLine'
 import { Station } from './Station'
@@ -30,6 +31,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 	const { stationPositions, lineSegments } = useStationLayout()
 	const [hoveredStation, setHoveredStation] = useState<string | null>(null)
 	const [visibleLines, setVisibleLines] = useState<MetroLineId[]>(ALL_LINE_IDS)
+	const [activeDomain, setActiveDomain] = useState<DomainId | null>(null)
 	const [animationKey, setAnimationKey] = useState(0)
 	const [hasScrolled, setHasScrolled] = useState(false)
 	const [showTrain, setShowTrain] = useState(false)
@@ -315,22 +317,31 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						// Show pulse on current employer when it's active OR when nothing else is focused
 						const showPulse = isCurrentEmployer && (isActive || (activeStation === null && hoveredStation === null))
 
+						// Check domain filter
+						const stationDomains = getStationDomains(position.id)
+						const matchesDomain = !activeDomain || stationDomains.includes(activeDomain)
+						const isDimmed = activeDomain && !matchesDomain
+
 						// Render a station dot on EACH visible line the station belongs to
 						return stationLines.map((line, lineIndex) => {
 							const lineY = LINE_Y_POSITIONS[line.id]
 							const positionOnLine = { ...position, y: lineY }
 
 							return (
-								<Station
+								<g
 									key={`${position.id}-${line.id}-${animationKey}`}
-									position={positionOnLine}
-									isActive={isActive}
-									lineColors={[line.color]}
-									onClick={() => handleStationClick(position.id, position.station.company)}
-									onHover={(hovering) => setHoveredStation(hovering ? position.id : null)}
-									isPrimary={lineIndex === 0}
-									showCurrentJobPulse={showPulse}
-								/>
+									style={{ opacity: isDimmed ? 0.25 : 1, transition: 'opacity 0.3s ease' }}
+								>
+									<Station
+										position={positionOnLine}
+										isActive={isActive && !isDimmed}
+										lineColors={[line.color]}
+										onClick={() => handleStationClick(position.id, position.station.company)}
+										onHover={(hovering) => setHoveredStation(hovering ? position.id : null)}
+										isPrimary={lineIndex === 0}
+										showCurrentJobPulse={showPulse && !isDimmed}
+									/>
+								</g>
 							)
 						})
 					})}
@@ -382,32 +393,39 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 				</svg>
 			</div>
 
-			<div className="flex items-center justify-between gap-4">
-				<Legend
-					lines={lines}
-					activeLines={activeLines}
-					visibleLines={visibleLines}
-					onToggleLine={handleToggleLine}
-				/>
-				<button
-					onClick={handleReplay}
-					className="group flex flex-shrink-0 items-center gap-1.5 rounded-full border border-text-secondary/20 px-2 py-1 text-text-secondary/60 transition-all hover:border-text-secondary/40 hover:text-text-secondary"
-					aria-label="Replay animation"
-					title="Replay animation"
-				>
-					<svg
-						width="12"
-						height="12"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						strokeWidth="2.5"
+			<div className="flex flex-col gap-2">
+				<div className="flex items-center justify-between gap-4">
+					<Legend
+						lines={lines}
+						activeLines={activeLines}
+						visibleLines={visibleLines}
+						onToggleLine={handleToggleLine}
+					/>
+					<button
+						onClick={handleReplay}
+						className="group flex flex-shrink-0 items-center gap-1.5 rounded-full border border-text-secondary/20 px-2 py-1 text-text-secondary/60 transition-all hover:border-text-secondary/40 hover:text-text-secondary"
+						aria-label="Replay animation"
+						title="Replay animation"
 					>
-						<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
-						<path d="M21 3v5h-5" />
-					</svg>
-					<span className="font-tech text-[9px] uppercase tracking-wide">Replay</span>
-				</button>
+						<svg
+							width="12"
+							height="12"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="2.5"
+						>
+							<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+							<path d="M21 3v5h-5" />
+						</svg>
+						<span className="font-tech text-[9px] uppercase tracking-wide">Replay</span>
+					</button>
+				</div>
+				<DomainFilter
+					domains={domains}
+					activeDomain={activeDomain}
+					onSelectDomain={setActiveDomain}
+				/>
 			</div>
 		</div>
 	)

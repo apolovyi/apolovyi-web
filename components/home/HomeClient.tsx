@@ -10,6 +10,8 @@ import type { Locale } from '@/i18n-config'
 import Header from '@/components/header/Header'
 import HeroSection from '@/components/home/HeroSection'
 import { useAppContext } from '@/components/shared/AppContext'
+import CustomCursor from '@/components/shared/CustomCursor'
+import ScrollProgressIndicator from '@/components/shared/ScrollProgressIndicator'
 
 const AboutMe = lazy(() => import('@/components/home/AboutMe'))
 const MyExperience = lazy(() => import('@/components/home/MyExperience'))
@@ -42,6 +44,8 @@ export default function HomeClient({ lang }: HomeClientProps) {
 			>
 				Skip to main content
 			</a>
+			<CustomCursor />
+			<ScrollProgressIndicator />
 			<main
 				id="main-content"
 				className="relative w-full snap-mandatory bg-background-primary selection:bg-highlight"

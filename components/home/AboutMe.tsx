@@ -9,29 +9,47 @@ import { useDictionary } from '@/components/shared/DictionaryContext'
 import SectionHeader from '@/components/shared/SectionHeader'
 import { useMotionInView } from '@/components/shared/useMotionInView'
 
-import { getFeaturedTechnologies } from '@/lib/career-data'
+import { type FeaturedTech, getFeaturedTechnologiesWithYears } from '@/lib/career-data'
 
-const technologies = getFeaturedTechnologies()
+const technologies = getFeaturedTechnologiesWithYears()
 
 interface AboutMeProps {
 	lang: Locale
 }
 
 type TechListProps = {
-	techs: string[]
+	techs: FeaturedTech[]
+}
+
+const formatYears = (years: number | null): { display: string; ariaLabel: string } | null => {
+	if (years === null) return null
+	if (years >= 10) return { display: '10+', ariaLabel: '10 or more years of experience' }
+	if (years >= 5) return { display: `${years}`, ariaLabel: `${years} years of experience` }
+	return null // Don't show badge for < 5 years
 }
 
 const TechList = ({ techs }: TechListProps) => (
 	<ul className="flex flex-col space-y-2">
-		{techs.map((tech) => (
-			<li
-				key={tech}
-				className="flex items-center space-x-2"
-			>
-				<ArrowIcon className="h-3 w-3 text-accent-coral" />
-				<span className="text-base text-text-secondary md:text-lg">{tech}</span>
-			</li>
-		))}
+		{techs.map((tech) => {
+			const years = formatYears(tech.years)
+			return (
+				<li
+					key={tech.name}
+					className="flex items-center gap-2"
+				>
+					<ArrowIcon className="h-3 w-3 flex-shrink-0 text-accent-coral" />
+					<span className="text-base text-text-secondary md:text-lg">{tech.name}</span>
+					{years && (
+						<span
+							className="rounded bg-accent-coral/10 px-1.5 py-0.5 font-tech text-[11px] text-accent-coral"
+							aria-label={years.ariaLabel}
+						>
+							{years.display}y
+						</span>
+					)}
+				</li>
+			)
+		})}
 	</ul>
 )
 
