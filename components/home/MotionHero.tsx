@@ -185,7 +185,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 			<section className="relative h-screen overflow-hidden bg-white">
 				{/* Globe positioning: right-leaning but more centered on larger screens */}
 				{/* z-[5] puts it above gradient overlay but below hero text */}
-				<div className="min-[1800px]:right-[15%] min-[1800px]:h-[800px] min-[1800px]:w-[800px] absolute right-[5%] top-1/2 z-[5] h-[600px] w-[600px] -translate-y-1/2 lg:right-[2%] lg:h-[650px] lg:w-[650px] xl:right-[8%] xl:h-[700px] xl:w-[700px] 2xl:right-[12%] 2xl:h-[750px] 2xl:w-[750px]">
+				<div className="absolute right-[5%] top-1/2 z-[5] h-[600px] w-[600px] -translate-y-1/2 lg:right-[2%] lg:h-[650px] lg:w-[650px] xl:right-[8%] xl:h-[700px] xl:w-[700px] 2xl:right-[12%] 2xl:h-[750px] 2xl:w-[750px] min-[1800px]:right-[15%] min-[1800px]:h-[800px] min-[1800px]:w-[800px]">
 					<GithubGlobe />
 				</div>
 				{/* Gradient overlay - pointer-events-none to allow globe interaction */}

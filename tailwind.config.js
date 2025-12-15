@@ -22,9 +22,6 @@ module.exports = {
 			'270': '270deg',
 		},
 		extend: {
-			screens: {
-				tall: { raw: '(min-height: 820px)' },
-			},
 			fontFamily: {
 				'body': ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
 				'heading': ['var(--font-comfortaa)', 'sans-serif'],
@@ -145,7 +142,15 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'), addVariablesForColors],
+	plugins: [
+		require('tailwindcss-animate'),
+		require('@tailwindcss/typography'),
+		addVariablesForColors,
+		// Custom 'tall' variant for height-based responsive design
+		function ({ addVariant }) {
+			addVariant('tall', '@media (min-height: 820px)')
+		},
+	],
 }
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

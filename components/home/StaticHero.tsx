@@ -14,7 +14,7 @@ export default function StaticHero(_props: StaticHeroProps) {
 	const { heroSection } = dictionary
 
 	return (
-		<div className="mx-8 flex min-h-screen flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0">
+		<div className="mx-8 flex min-h-screen flex-col justify-center pt-20 tall:pt-0 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72">
 			<div className="z-10">
 				<div className="font-tech tracking-wider text-accent-coral lg:text-lg">{heroSection.greeting}</div>
 				<div className="mt-12">
