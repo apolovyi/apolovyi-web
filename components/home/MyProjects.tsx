@@ -87,7 +87,6 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 							/>
 							<img
 								ref={(el) => {
-									// @ts-expect-error - assigning to ref
 									imgRef.current = el
 									// Handle already-loaded cached images
 									if (el?.complete && el.naturalWidth > 0) {
