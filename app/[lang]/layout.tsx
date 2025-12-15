@@ -14,7 +14,7 @@ import SmoothScrollProvider from '@/components/shared/SmoothScrollProvider'
 
 import { getDictionary as getServerDictionary } from '@/lib/dictionary.server'
 
-const ENABLE_TINY_ANALYTICS = process.env.NEXT_PUBLIC_ENABLE_TINY_ANALYTICS === 'true'
+const ENABLE_TINY_ANALYTICS = process.env.NODE_ENV === 'production'
 
 // Fonts
 const comfortaa = Comfortaa({
@@ -96,7 +96,7 @@ export default async function LangLayout({ children, params }: { children: React
 				{ENABLE_TINY_ANALYTICS && (
 					<Script
 						src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"
-						strategy="lazyOnload"
+						strategy="afterInteractive"
 					/>
 				)}
 			</body>
