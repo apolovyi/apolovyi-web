@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-import { motion } from 'motion/react'
+import { useReducedMotion } from 'motion/react'
 
 import { cn } from '@/lib/utils'
 
@@ -21,6 +21,7 @@ export function WorldMap({ dots = [], lineColor = '#c23b3b', className }: WorldM
 	const svgRef = useRef<SVGSVGElement>(null)
 	const [isVisible, setIsVisible] = useState(false)
 	const [mapSvg, setMapSvg] = useState<string>('')
+	const prefersReducedMotion = useReducedMotion()
 
 	useEffect(() => {
 		const timer = setTimeout(() => setIsVisible(true), 300)
@@ -50,6 +51,37 @@ export function WorldMap({ dots = [], lineColor = '#c23b3b', className }: WorldM
 
 	if (!mapSvg) return null
 
+	// Animation timing - sequential journey
+	const flightDuration = 2 // seconds per flight segment
+	const pauseBetweenFlights = 0.5 // pause at each destination
+	const segmentDuration = flightDuration + pauseBetweenFlights
+	const totalJourneyDuration = dots.length * segmentDuration
+	const pulseDuration = 3
+
+	// Build the complete journey path for a single plane
+	const allPoints = dots.map((dot) => projectPoint(dot.start.lat, dot.start.lng))
+	// Add the final destination
+	if (dots.length > 0) {
+		const lastDot = dots[dots.length - 1]
+		allPoints.push(projectPoint(lastDot.end.lat, lastDot.end.lng))
+	}
+
+	// Create a continuous path through all points
+	const createJourneyPath = () => {
+		if (allPoints.length < 2) return ''
+		let path = `M ${allPoints[0].x} ${allPoints[0].y}`
+		for (let i = 1; i < allPoints.length; i++) {
+			const prev = allPoints[i - 1]
+			const curr = allPoints[i]
+			const midX = (prev.x + curr.x) / 2
+			const midY = Math.min(prev.y, curr.y) - 50
+			path += ` Q ${midX} ${midY} ${curr.x} ${curr.y}`
+		}
+		return path
+	}
+
+	const journeyPath = createJourneyPath()
+
 	return (
 		<div className={cn('relative h-full w-full', className)}>
 			<div
@@ -63,129 +95,135 @@ export function WorldMap({ dots = [], lineColor = '#c23b3b', className }: WorldM
 				preserveAspectRatio="xMidYMid slice"
 			>
 				<defs>
-					<linearGradient
-						id="path-gradient"
-						x1="0%"
-						y1="0%"
-						x2="100%"
-						y2="0%"
+					{/* Glow filter for dots and plane */}
+					<filter
+						id="dot-glow"
+						x="-50%"
+						y="-50%"
+						width="200%"
+						height="200%"
 					>
-						<stop
-							offset="0%"
-							stopColor={lineColor}
-							stopOpacity="0"
+						<feGaussianBlur
+							stdDeviation="1.5"
+							result="coloredBlur"
 						/>
-						<stop
-							offset="5%"
-							stopColor={lineColor}
-							stopOpacity="1"
-						/>
-						<stop
-							offset="95%"
-							stopColor={lineColor}
-							stopOpacity="1"
-						/>
-						<stop
-							offset="100%"
-							stopColor={lineColor}
-							stopOpacity="0"
-						/>
-					</linearGradient>
+						<feMerge>
+							<feMergeNode in="coloredBlur" />
+							<feMergeNode in="SourceGraphic" />
+						</feMerge>
+					</filter>
 				</defs>
 
-				{dots.map((dot, i) => {
-					const startPoint = projectPoint(dot.start.lat, dot.start.lng)
-					const endPoint = projectPoint(dot.end.lat, dot.end.lng)
-					return (
-						<g key={`path-group-${i}`}>
-							<motion.path
-								d={createCurvedPath(startPoint, endPoint)}
+				{/* Static flight paths - subtle dashed lines showing the route */}
+				{isVisible &&
+					dots.map((dot, i) => {
+						const startPoint = projectPoint(dot.start.lat, dot.start.lng)
+						const endPoint = projectPoint(dot.end.lat, dot.end.lng)
+						const pathD = createCurvedPath(startPoint, endPoint)
+
+						return (
+							<path
+								key={`static-path-${i}`}
+								d={pathD}
 								fill="none"
-								stroke="url(#path-gradient)"
+								stroke={lineColor}
 								strokeWidth="1"
-								initial={{ pathLength: 0, opacity: 0 }}
-								animate={isVisible ? { pathLength: 1, opacity: 1 } : {}}
-								transition={{
-									pathLength: { duration: 1, delay: i * 0.5 },
-									opacity: { duration: 0.3, delay: i * 0.5 },
-								}}
+								strokeOpacity="0.3"
+								strokeDasharray="6 4"
+							/>
+						)
+					})}
+
+				{/* Single animated plane traveling the complete journey */}
+				{isVisible && !prefersReducedMotion && journeyPath && (
+					<g filter="url(#dot-glow)">
+						<path
+							id="journey-path"
+							d={journeyPath}
+							fill="none"
+							stroke="none"
+						/>
+						{/* Plane icon - pointing right (→) for auto-rotate to work correctly */}
+						<g>
+							<animateMotion
+								dur={`${totalJourneyDuration}s`}
+								repeatCount="indefinite"
+								rotate="auto"
+								calcMode="spline"
+								keySplines={dots.map(() => '0.4 0 0.2 1').join('; ')}
+								keyTimes={dots.map((_, i) => i / dots.length).join('; ') + '; 1'}
+							>
+								<mpath href="#journey-path" />
+							</animateMotion>
+							{/* Plane shape - pointing right */}
+							<polygon
+								points="-6,-4 6,0 -6,4 -3,0"
+								fill={lineColor}
 							/>
 						</g>
-					)
-				})}
+					</g>
+				)}
 
-				{dots.map((dot, i) => {
-					const startPoint = projectPoint(dot.start.lat, dot.start.lng)
-					const endPoint = projectPoint(dot.end.lat, dot.end.lng)
-					return (
-						<g key={`points-group-${i}`}>
-							<g key={`start-${i}`}>
+				{/* Destination dots - only unique locations */}
+				{isVisible &&
+					allPoints.map((point, i) => {
+						const pulseDelay = (i * 0.4) % pulseDuration
+
+						return (
+							<g
+								key={`destination-${i}`}
+								filter="url(#dot-glow)"
+							>
+								{/* Solid center dot */}
 								<circle
-									cx={startPoint.x}
-									cy={startPoint.y}
-									r="2"
+									cx={point.x}
+									cy={point.y}
+									r="4"
 									fill={lineColor}
 								/>
+								{/* White inner highlight */}
 								<circle
-									cx={startPoint.x}
-									cy={startPoint.y}
-									r="2"
-									fill={lineColor}
-									opacity="0.5"
-								>
-									<animate
-										attributeName="r"
-										from="2"
-										to="8"
-										dur="1.5s"
-										begin="0s"
-										repeatCount="indefinite"
-									/>
-									<animate
-										attributeName="opacity"
-										from="0.5"
-										to="0"
-										dur="1.5s"
-										begin="0s"
-										repeatCount="indefinite"
-									/>
-								</circle>
-							</g>
-							<g key={`end-${i}`}>
-								<circle
-									cx={endPoint.x}
-									cy={endPoint.y}
-									r="2"
-									fill={lineColor}
+									cx={point.x - 1}
+									cy={point.y - 1}
+									r="1.5"
+									fill="rgba(255,255,255,0.4)"
 								/>
-								<circle
-									cx={endPoint.x}
-									cy={endPoint.y}
-									r="2"
-									fill={lineColor}
-									opacity="0.5"
-								>
-									<animate
-										attributeName="r"
-										from="2"
-										to="8"
-										dur="1.5s"
-										begin="0s"
-										repeatCount="indefinite"
-									/>
-									<animate
-										attributeName="opacity"
-										from="0.5"
-										to="0"
-										dur="1.5s"
-										begin="0s"
-										repeatCount="indefinite"
-									/>
-								</circle>
+								{/* Pulse ring animation */}
+								{!prefersReducedMotion && (
+									<circle
+										cx={point.x}
+										cy={point.y}
+										r="4"
+										fill="none"
+										stroke={lineColor}
+										strokeWidth="2"
+									>
+										<animate
+											attributeName="r"
+											values="4;14;4"
+											dur={`${pulseDuration}s`}
+											begin={`${pulseDelay}s`}
+											repeatCount="indefinite"
+										/>
+										<animate
+											attributeName="opacity"
+											values="0.5;0;0.5"
+											dur={`${pulseDuration}s`}
+											begin={`${pulseDelay}s`}
+											repeatCount="indefinite"
+										/>
+										<animate
+											attributeName="stroke-width"
+											values="2;0.5;2"
+											dur={`${pulseDuration}s`}
+											begin={`${pulseDelay}s`}
+											repeatCount="indefinite"
+										/>
+									</circle>
+								)}
 							</g>
-						</g>
-					)
-				})}
+						)
+					})}
 			</svg>
 		</div>
 	)
