@@ -19,9 +19,12 @@ import type { CareerMetroMapProps } from './types'
 // All line IDs for initial state
 const ALL_LINE_IDS: MetroLineId[] = ['backend', 'frontend', 'cloud', 'leadership', 'volunteer']
 
-// Stations that should always show labels (notable companies for context)
-// Ordered by timeline position for alternating above/below placement
-const ALWAYS_SHOW_LABEL_STATIONS = ['senacor', 'comsysto', 'peax'] // Early, middle, recent
+// Stations that should always show labels (notable companies, well-spaced on timeline)
+// Only 2 labels to avoid collision: middle (2019) and recent (2025)
+const ALWAYS_SHOW_LABEL_STATIONS = ['comsysto', 'peax']
+
+// Minimum X distance between labels to avoid collision (in SVG units)
+const LABEL_MIN_DISTANCE = 60
 
 export function CareerMetroMap({ activeStation, onStationSelect, className }: CareerMetroMapProps) {
 	const { stationPositions, lineSegments } = useStationLayout()
@@ -329,36 +332,49 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 					})}
 
 					{/* Station labels - show always-visible labels + hovered/active */}
-					{Array.from(stationPositions.values()).map((position) => {
-						// Only show label if station has at least one visible line
-						const hasVisibleLine = position.station.lines.some((l) => visibleLines.includes(l))
-						if (!hasVisibleLine) return null
+					{(() => {
+						// Get active/hovered station position for collision detection
+						const activePos = activeStation
+							? Array.from(stationPositions.values()).find((p) => stationIdToDictionaryKey(p.id) === activeStation)
+							: null
+						const hoveredPos = hoveredStation ? stationPositions.get(hoveredStation) : null
+						const focusedPos = hoveredPos || activePos
 
-						const dictionaryKey = stationIdToDictionaryKey(position.id)
-						const isActive = activeStation === dictionaryKey
-						const isHovered = hoveredStation === position.id
-						const alwaysVisibleIndex = ALWAYS_SHOW_LABEL_STATIONS.indexOf(position.id)
-						const isAlwaysVisible = alwaysVisibleIndex !== -1
+						return Array.from(stationPositions.values()).map((position) => {
+							// Only show label if station has at least one visible line
+							const hasVisibleLine = position.station.lines.some((l) => visibleLines.includes(l))
+							if (!hasVisibleLine) return null
 
-						// Show label if: always visible station, hovered, or active (when nothing hovered)
-						const shouldShowLabel = isAlwaysVisible || (hoveredStation ? isHovered : isActive)
+							const dictionaryKey = stationIdToDictionaryKey(position.id)
+							const isActive = activeStation === dictionaryKey
+							const isHovered = hoveredStation === position.id
+							const alwaysVisibleIndex = ALWAYS_SHOW_LABEL_STATIONS.indexOf(position.id)
+							const isAlwaysVisible = alwaysVisibleIndex !== -1
 
-						if (!shouldShowLabel) return null
+							// Check for collision with focused station
+							const wouldCollide =
+								isAlwaysVisible && !isActive && !isHovered && focusedPos && Math.abs(position.x - focusedPos.x) < LABEL_MIN_DISTANCE
 
-						// Alternate position for always-visible labels to avoid overlap
-						// Odd index = below, even index = above
-						const positionBelow = isAlwaysVisible && alwaysVisibleIndex % 2 === 1
+							// Show label if: always visible (not colliding), hovered, or active
+							const shouldShowLabel = (isAlwaysVisible && !wouldCollide) || (hoveredStation ? isHovered : isActive)
 
-						return (
-							<StationLabel
-								key={`label-${position.id}`}
-								position={position}
-								isActive={isActive && !hoveredStation}
-								isCompact={isAlwaysVisible && !isHovered && !isActive}
-								positionBelow={positionBelow}
-							/>
-						)
-					})}
+							if (!shouldShowLabel) return null
+
+							// Alternate position for always-visible labels to avoid overlap
+							// Odd index = below, even index = above
+							const positionBelow = isAlwaysVisible && alwaysVisibleIndex % 2 === 1
+
+							return (
+								<StationLabel
+									key={`label-${position.id}`}
+									position={position}
+									isActive={isActive && !hoveredStation}
+									isCompact={isAlwaysVisible && !isHovered && !isActive}
+									positionBelow={positionBelow}
+								/>
+							)
+						})
+					})()}
 				</svg>
 			</div>
 
