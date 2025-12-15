@@ -463,8 +463,8 @@ function StationLabel({
 	const leftEdge = SVG_DIMENSIONS.padding.left + 50
 	const rightEdge = SVG_DIMENSIONS.width - SVG_DIMENSIONS.padding.right - 50
 
-	// Position label above or below station
-	const labelY = positionBelow ? y + 22 : y - 18
+	// Position label above or below station (moved up to avoid overlap)
+	const labelY = positionBelow ? y + 25 : y - 25
 
 	// Determine text anchor based on position
 	let anchor: 'start' | 'middle' | 'end' = 'middle'
