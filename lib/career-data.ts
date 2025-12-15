@@ -6,7 +6,7 @@
 
 export type MetroLineId = 'backend' | 'frontend' | 'cloud' | 'leadership' | 'volunteer'
 export type DomainId = 'banking' | 'automotive' | 'enterprise' | 'travel' | 'education' | 'ecommerce' | 'events'
-export type Lang = 'en' | 'de'
+export type Lang = 'en' | 'de' | 'ch' | 'uk'
 
 export interface TaskItem {
 	text: string
@@ -19,6 +19,8 @@ export interface CareerStation {
 	role: {
 		en: string
 		de: string
+		ch: string
+		uk: string
 	}
 	location: {
 		city: string
@@ -40,6 +42,8 @@ export interface CareerStation {
 	tasks: {
 		en: TaskItem[]
 		de: TaskItem[]
+		ch: TaskItem[]
+		uk: TaskItem[]
 	}
 
 	// Quantified achievements
@@ -116,6 +120,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Student Full-Stack Developer',
 			de: 'Studentischer Full-Stack-Entwickler',
+			ch: 'Studäntische Full-Stack Entwickler',
+			uk: 'Full-Stack розробник (студент)',
 		},
 		location: { city: 'Cologne', country: 'DE', coordinates: { lat: 50.94, lng: 6.96 } },
 		period: { start: 'Jan 2015', end: 'Aug 2018' },
@@ -141,6 +147,33 @@ export const stations: CareerStation[] = [
 				{ text: 'Durchführung von Tests bei jeder Produktiteration zur Qualitätssicherung.', keywords: ['Tests'] },
 				{ text: 'Entwicklung interner Tools für das Kundenservice-Team (30% Effizienzsteigerung).', keywords: ['30%'] },
 			],
+			ch: [
+				{
+					text: "Entwicklig vo neue Features für e füehrendi Autovermietigsplattform, zum d'Benutzererfrahrig z'verbessere.",
+					keywords: ['Autovermietigsplattform'],
+				},
+				{
+					text: "Umsetzig vo A/B-Tests zum d'Produktspezifikatione z'optimiere und d'Konversionsrate z'steigere.",
+					keywords: ['A/B-Tests'],
+				},
+				{
+					text: 'Durchfüehrig vo gründliche Tests in jedere Produktiteration zum qualitativ hochwertige Releases sicherzstelle.',
+					keywords: ['Tests'],
+				},
+				{
+					text: "Erstellig vo interne Tools für s'Kundeserviceteam, wo d'Effizienz um 30% gsteigeret händ.",
+					keywords: ['interni Tools', '30%'],
+				},
+			],
+			uk: [
+				{
+					text: 'Розробка нових функцій для провідної платформи оренди автомобілів, покращення користувацького досвіду.',
+					keywords: ['оренда автомобілів'],
+				},
+				{ text: 'Впровадження A/B-тестів для оптимізації специфікацій продукту та підвищення конверсії.', keywords: ['A/B-тести'] },
+				{ text: 'Проведення тестування на кожній ітерації продукту для забезпечення якості.', keywords: ['тестування'] },
+				{ text: 'Створення внутрішніх інструментів для служби підтримки клієнтів (підвищення ефективності на 30%).', keywords: ['30%'] },
+			],
 		},
 		metrics: { efficiencyGain: '30% faster CS tools', scale: 'Leading car rental platform' },
 		technologies: ['JavaScript', 'HTML', 'CSS', 'jQuery', 'PHP', 'MySQL'],
@@ -153,6 +186,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Backend Developer',
 			de: 'Backend-Entwickler',
+			ch: 'Backend-Entwickler',
+			uk: 'Backend-розробник',
 		},
 		location: { city: 'Cologne', country: 'DE', coordinates: { lat: 50.94, lng: 6.96 } },
 		period: { start: 'Jul 2015', end: 'Jan 2017' },
@@ -170,6 +205,16 @@ export const stations: CareerStation[] = [
 				{ text: 'Entwicklung des Newsletter-Systems für Event-Kommunikation.', keywords: ['Newsletter'] },
 				{ text: 'Implementierung der Recruiting-Website für Karriere-Events.', keywords: ['Recruiting', 'Karriere-Events'] },
 			],
+			ch: [
+				{ text: 'Implementierig vo de Website für Kongress-Meeting-Organisation.', keywords: ['Kongress', 'Website'] },
+				{ text: 'Entwicklig vom Newsletter-System für Event-Kommunikation.', keywords: ['Newsletter'] },
+				{ text: 'Implementierig vo de Recruiting-Website für Karriere-Events.', keywords: ['Recruiting', 'Karriere-Events'] },
+			],
+			uk: [
+				{ text: 'Розробка веб-сайту для організації конгресів та зустрічей.', keywords: ['конгрес', 'веб-сайт'] },
+				{ text: 'Створення системи розсилки для комунікації щодо подій.', keywords: ['розсилка'] },
+				{ text: "Розробка рекрутингового веб-сайту для кар'єрних заходів.", keywords: ['рекрутинг', "кар'єрні заходи"] },
+			],
 		},
 		technologies: ['Java', 'JSP', 'JSF', 'WildFly', 'HTML', 'CSS', 'JavaScript'],
 		highlight: 'Congress websites, newsletter systems, recruiting platform',
@@ -180,6 +225,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Java Developer (Intern)',
 			de: 'Java-Entwickler (Praktikum)',
+			ch: 'Java-Entwickler (Praktikum)',
+			uk: 'Java-розробник (стажування)',
 		},
 		location: { city: 'Vienna', country: 'AT', coordinates: { lat: 48.21, lng: 16.37 } },
 		period: { start: 'Oct 2017', end: 'Jan 2018' },
@@ -199,6 +246,18 @@ export const stations: CareerStation[] = [
 				{ text: 'Verbesserung der Reaktionszeit bei Systemausfällen um 60%.', keywords: ['60%'] },
 				{ text: 'Entwicklung automatisierter Testverfahren mit Selenium.', keywords: ['Selenium'] },
 			],
+			ch: [
+				{ text: 'Implementierig vo End-to-End-Tests für Banking-Aawändige.', keywords: ['End-to-End-Tests', 'Banking'] },
+				{ text: 'Integration vo Application Monitoring mit Dashboard-Lösig.', keywords: ['Monitoring', 'Dashboard'] },
+				{ text: 'Verbesserig vo de Reaktionsziit bi Systemusfäll um 60%.', keywords: ['60%'] },
+				{ text: 'Entwicklig vo automatisierte Testverfahre mit Selenium.', keywords: ['Selenium'] },
+			],
+			uk: [
+				{ text: 'Розробка end-to-end тестів для банківських додатків.', keywords: ['end-to-end тести', 'банківські'] },
+				{ text: 'Інтеграція моніторингу додатків з dashboard-рішенням.', keywords: ['моніторинг', 'dashboard'] },
+				{ text: 'Покращення часу реагування на інциденти на 60% завдяки проактивному моніторингу.', keywords: ['60%'] },
+				{ text: 'Розробка автоматизованих тестових процедур з використанням Selenium.', keywords: ['Selenium'] },
+			],
 		},
 		metrics: { responseTimeImprovement: '60% faster incident response' },
 		technologies: ['Java', 'WildFly', 'Nagios', 'Selenium', 'HTML', 'CSS', 'JavaScript', 'jQuery'],
@@ -212,6 +271,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Frontend Engineer',
 			de: 'Frontend-Entwickler',
+			ch: 'Frontend Entwickler',
+			uk: 'Frontend-розробник',
 		},
 		location: { city: 'Cologne', country: 'DE', coordinates: { lat: 50.94, lng: 6.96 } },
 		period: { start: 'May 2018', end: 'Aug 2018' },
@@ -236,6 +297,23 @@ export const stations: CareerStation[] = [
 				{ text: 'Implementierung barrierefreier Interfaces nach WCAG-Richtlinien.', keywords: ['WCAG'] },
 				{ text: 'Entwicklung von Unit- und Integrationstests mit Jest.', keywords: ['Jest'] },
 			],
+			ch: [
+				{
+					text: 'Leitig vo de Entwicklig vonere Reise-Website, spezialisiert uf Blind Bookings in ganz Europa.',
+					keywords: ['Blind Bookings'],
+				},
+				{ text: 'Erstellig vo responsive Benutzeroberfläche mit React.', keywords: ['React', 'responsiv'] },
+				{ text: "Umsetzig vo fortgschrittene JavaScript-Funktione zum d'Interaktivität z'verbessere.", keywords: ['JavaScript'] },
+				{ text: 'Umwandlig vo Wireframes in barrierefreii HTML/CSS-Layouts nach WCAG-Richtlinie.', keywords: ['WCAG'] },
+				{ text: 'Entwicklig vo Unit- und Integrationstests mit Jest.', keywords: ['Jest'] },
+			],
+			uk: [
+				{ text: 'Розробка туристичного веб-сайту, що спеціалізується на сліпих бронюваннях по Європі.', keywords: ['сліпі бронювання'] },
+				{ text: 'Створення адаптивних інтерфейсів користувача з React.', keywords: ['React', 'адаптивний'] },
+				{ text: 'Впровадження розширених функцій JavaScript для покращення інтерактивності сайту.', keywords: ['JavaScript'] },
+				{ text: 'Реалізація доступних HTML/CSS макетів відповідно до WCAG.', keywords: ['WCAG', 'доступність'] },
+				{ text: 'Розробка unit та інтеграційних тестів з використанням Jest.', keywords: ['Jest', 'тести'] },
+			],
 		},
 		technologies: ['React', 'JavaScript', 'Jest', 'HTML', 'CSS'],
 		highlight: 'Blind bookings platform, WCAG accessibility',
@@ -247,6 +325,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Full-Stack Engineer',
 			de: 'Full-Stack-Entwickler',
+			ch: 'Full-Stack Entwickler',
+			uk: 'Full-Stack інженер',
 		},
 		location: { city: 'Munich', country: 'DE', coordinates: { lat: 48.14, lng: 11.58 } },
 		period: { start: 'Feb 2019', end: 'Oct 2021' },
@@ -273,6 +353,28 @@ export const stations: CareerStation[] = [
 				{ text: 'Entwicklung und Wartung von Microservices mit bis zu 200 QPS.', keywords: ['Microservices', '200 QPS'] },
 				{ text: 'Code-Refactoring mit Kotlin, Reduzierung der Codezeilen um 20%.', keywords: ['Kotlin', '20%'] },
 			],
+			ch: [
+				{
+					text: "Zämearbet imene Scrum-Team zum d'Priisgestaltung, Gutschiin-Verwaltig und Kommunikationssystem für s'ABI Audi On Demand Produkt z'optimiere.",
+					keywords: ['Scrum', 'ABI Audi On Demand'],
+				},
+				{
+					text: 'Entwicklig und Wartung vo mehrere Microservices und Microfrontends, wo Laste bis zu 200 QPS bewältiged.',
+					keywords: ['Microservices', '200 QPS'],
+				},
+				{
+					text: 'Refaktorisierig vo Code mit Kotlin, Erhöhig vo de Wartbarkeit und Reduktion vo de Codeziile um 20%.',
+					keywords: ['Kotlin', '20%'],
+				},
+			],
+			uk: [
+				{
+					text: 'Робота в Scrum-команді над оптимізацією ціноутворення та системи ваучерів для ABI Audi On Demand.',
+					keywords: ['Scrum', 'Audi On Demand'],
+				},
+				{ text: 'Розробка та підтримка мікросервісів з навантаженням до 200 QPS.', keywords: ['мікросервіси', '200 QPS'] },
+				{ text: 'Рефакторинг коду на Kotlin, зменшення кількості рядків на 20%.', keywords: ['Kotlin', '20%'] },
+			],
 		},
 		metrics: { qps: 200, codeReduction: '20% fewer lines with Kotlin' },
 		technologies: ['Java', 'Kotlin', 'Spring Boot', 'PostgreSQL', 'AWS', 'Angular', 'TypeScript', 'RabbitMQ', 'Jenkins', 'CloudFoundry'],
@@ -285,6 +387,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Lead Full-Stack Developer (Volunteer)',
 			de: 'Lead Full-Stack-Entwickler (Ehrenamt)',
+			ch: 'Lead Full-Stack-Entwickler (Freiwillig)',
+			uk: 'Провідний Full-Stack розробник (волонтер)',
 		},
 		location: { city: 'Munich', country: 'DE', coordinates: { lat: 48.14, lng: 11.58 } },
 		period: { start: 'Jan 2020', end: 'present' },
@@ -316,6 +420,27 @@ export const stations: CareerStation[] = [
 				{ text: 'Reduzierung der administrativen Arbeit um 35% durch Digitalisierung.', keywords: ['35%'] },
 				{ text: 'Implementierung einer CI/CD-Pipeline zur Optimierung des Entwicklungsprozesses.', keywords: ['CI/CD'] },
 			],
+			ch: [
+				{
+					text: "Han e Webaawändig entwicklet zum d'Verwaltigsprozäss im Studentewohnheim Geschwister Scholl z'optimiere und z'automatisiere.",
+					keywords: ['Webaawändig', 'Prozässautomatisierig'],
+				},
+				{
+					text: "Han d'Date in e zentrali Datebank migriert und konsolidiert, zum 100% Datekonsistenz z'gwährleiste.",
+					keywords: ['Datemigration', '100%'],
+				},
+				{ text: 'Han de Verwaltigsufwand dur Digitalisierig und Automatisierig um 35% reduziert.', keywords: ['35%', 'Automatisierig'] },
+				{ text: "Han e CI/CD-Pipeline implementiert zum de Entwickligsprozäss z'optimiere.", keywords: ['CI/CD'] },
+			],
+			uk: [
+				{
+					text: 'Розробка веб-додатку для автоматизації процесів управління студентським гуртожитком Geschwister Scholl.',
+					keywords: ['веб-додаток', 'автоматизація'],
+				},
+				{ text: 'Міграція та консолідація даних у центральну базу даних (100% консистентність даних).', keywords: ['міграція', '100%'] },
+				{ text: 'Зменшення адміністративної роботи на 35% завдяки діджиталізації.', keywords: ['35%', 'автоматизація'] },
+				{ text: 'Впровадження CI/CD пайплайну для оптимізації процесу розробки.', keywords: ['CI/CD'] },
+			],
 		},
 		metrics: { efficiencyGain: '35% less admin work', dataConsistency: '100%' },
 		technologies: ['Kotlin', 'Spring Boot', 'PostgreSQL', 'React', 'GitLab CI/CD'],
@@ -329,6 +454,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Senior Full-Stack Engineer',
 			de: 'Senior Full-Stack-Entwickler',
+			ch: 'Senior Full-Stack Entwickler',
+			uk: 'Старший Full-Stack інженер',
 		},
 		location: { city: 'Leipzig', country: 'DE', coordinates: { lat: 51.34, lng: 12.38 } },
 		period: { start: 'Nov 2021', end: 'Feb 2022' },
@@ -347,6 +474,23 @@ export const stations: CareerStation[] = [
 				{ text: 'Entwicklung einer hochperformanten Anwendung zur Generierung von Auszahlungen.', keywords: ['Auszahlungen'] },
 				{ text: 'Erstellung intuitiver Benutzeroberflächen zur Verbesserung der User Experience.', keywords: ['Benutzeroberflächen'] },
 			],
+			ch: [
+				{
+					text: "Entwicklig vonere Hochleischtigsaawändig für d'Generierig vo Uszahlige, zum d'Finanzprozess z'verbessere.",
+					keywords: ['Uszahligsgenerierig'],
+				},
+				{
+					text: "Erstellig vo intuitive Benutzeroberfläche, zum d'Benutzererfrahrig und Aawändigsnutzbarkeit z'verbessere.",
+					keywords: ['Benutzeroberfläche'],
+				},
+			],
+			uk: [
+				{
+					text: 'Розробка високопродуктивного додатку для генерації виплат, покращення фінансових операцій.',
+					keywords: ['генерація виплат'],
+				},
+				{ text: 'Створення інтуїтивних інтерфейсів користувача для покращення UX.', keywords: ['інтерфейси'] },
+			],
 		},
 		technologies: ['Kotlin', 'Spring Boot', 'PostgreSQL', 'React', 'TypeScript', 'Flyway', 'JUnit'],
 		highlight: 'Payout generation system for creators',
@@ -358,6 +502,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Senior Full-Stack Engineer',
 			de: 'Senior Full-Stack-Entwickler',
+			ch: 'Senior Full-Stack Entwickler',
+			uk: 'Старший Full-Stack інженер',
 		},
 		location: { city: 'Munich', country: 'DE', coordinates: { lat: 48.14, lng: 11.58 } },
 		period: { start: 'Feb 2022', end: 'Jan 2024' },
@@ -389,6 +535,27 @@ export const stations: CareerStation[] = [
 				{ text: 'Design und Durchführung umfassender Unit- und Integrationstests.', keywords: ['Unit-Tests', 'Integrationstests'] },
 				{ text: 'Optimierung der Website-Performance und Ladezeiten.', keywords: ['Performance'] },
 			],
+			ch: [
+				{
+					text: "Entwicklig und Wartung vo Features uf infineon.com zum d'Benutzererfrahrig und Funktionalität z'optimiere.",
+					keywords: ['infineon.com'],
+				},
+				{
+					text: "Erfolgriichi Migration vo voestalpine.com in d'AWS-Cloud, zum d'Skalierbarkeit und Leischtig z'verbessere.",
+					keywords: ['voestalpine.com', 'AWS'],
+				},
+				{
+					text: "Entwurf und Durchfüehrig vo umfassende Unit- und Integrationstests zum d'Softwarezuverlässigkeit z'erhöhe.",
+					keywords: ['Unit-Tests', 'Integrationstests'],
+				},
+				{ text: 'Optimierig vo de Website-Performance, Verbesserig vo de Ladezyte und Benutzerzfridenheit.', keywords: ['Performance'] },
+			],
+			uk: [
+				{ text: 'Розробка та підтримка функцій на infineon.com для оптимізації користувацького досвіду.', keywords: ['infineon.com'] },
+				{ text: 'Успішна міграція voestalpine.com до хмари AWS.', keywords: ['voestalpine.com', 'AWS'] },
+				{ text: 'Проектування та проведення unit та інтеграційних тестів.', keywords: ['unit-тести', 'інтеграційні тести'] },
+				{ text: 'Оптимізація продуктивності веб-сайту та часу завантаження.', keywords: ['продуктивність'] },
+			],
 		},
 		metrics: { scale: 'infineon.com, voestalpine.com' },
 		technologies: ['Java', 'Spring', 'AWS', 'React', 'TypeScript', 'PostgreSQL', 'OpenCms', 'MySQL', 'Oracle', 'Stencil', 'Web Components'],
@@ -401,6 +568,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Sabbatical & World Travel',
 			de: 'Sabbatical & Weltreise',
+			ch: 'Sabbatical & Wältreisi',
+			uk: 'Саббатікал та подорож світом',
 		},
 		location: { city: '11 Countries', country: '4 Continents', coordinates: { lat: 0, lng: 0 } },
 		period: { start: 'Jan 2024', end: 'Jun 2024' },
@@ -438,6 +607,36 @@ export const stations: CareerStation[] = [
 				{ text: 'Entwicklung von Anpassungsfähigkeit und interkultureller Kommunikation.', keywords: ['Anpassungsfähigkeit'] },
 				{ text: 'Rückkehr mit erneuerter Kreativität und globaler Perspektive.', keywords: ['Kreativität'] },
 			],
+			ch: [
+				{
+					text: 'E transformativi 6-monatigi Reis dure 11 Länder uf 4 Kontinänt: Griecheland, Ägypte, Südafrika, Sambia, Simbabwe, Fidschi, Australie, Chile, Argentinie, Kolumbie und Ecuador.',
+					keywords: ['11 Länder', '4 Kontinänt'],
+				},
+				{
+					text: 'Neui Perspektive gsammlet über globali Technologieadoption, Nutzerverhaltensmuster und verschiedeni Asätz für digitali Lösige.',
+					keywords: ['Technologie'],
+				},
+				{
+					text: "Apassigsfähigkeit, interkulturelli Kommunikationsfähigkeite und d'Fähigkeit entwicklet, in dynamische Umgebige z'gedeihe.",
+					keywords: ['Apassigsfähigkeit'],
+				},
+				{
+					text: "Mit erneueter Kreativität, globaler Perspektive und tüüferer Wertschätzig für d'Entwicklig vo inklusive Technologie zruggkehrt.",
+					keywords: ['Kreativität'],
+				},
+			],
+			uk: [
+				{
+					text: 'Трансформаційна 6-місячна подорож через 11 країн на 4 континентах: Греція, Єгипет, ПАР, Замбія, Зімбабве, Фіджі, Австралія, Чилі, Аргентина, Колумбія та Еквадор.',
+					keywords: ['11 країн', '4 континенти'],
+				},
+				{
+					text: 'Нові перспективи щодо глобального впровадження технологій та різноманітних підходів до цифрових рішень.',
+					keywords: ['технології'],
+				},
+				{ text: 'Розвиток адаптивності та міжкультурної комунікації.', keywords: ['адаптивність'] },
+				{ text: 'Повернення з оновленою креативністю та глобальною перспективою.', keywords: ['креативність'] },
+			],
 		},
 		technologies: [],
 		highlight: 'Greece, Egypt, South Africa, Zambia, Zimbabwe, Fiji, Australia, Chile, Argentina, Colombia, Ecuador',
@@ -448,6 +647,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Lead Full-Stack Engineer',
 			de: 'Lead Full-Stack-Entwickler',
+			ch: 'Lead Full-Stack Entwickler',
+			uk: 'Провідний Full-Stack інженер',
 		},
 		location: { city: 'Remote', country: 'UK', remote: true, coordinates: { lat: 51.51, lng: -0.13 } },
 		period: { start: 'Jun 2024', end: 'Oct 2024' },
@@ -481,6 +682,38 @@ export const stations: CareerStation[] = [
 				{ text: 'Nutzung der Vercel-Plattform für nahtloses Deployment und Hosting mit hoher Verfügbarkeit.', keywords: ['Vercel'] },
 				{ text: 'Einsatz von Next.js, TypeScript, Tailwind CSS und Sanity.', keywords: ['Next.js', 'TypeScript'] },
 			],
+			ch: [
+				{
+					text: 'Leitig vo de Entwicklig vonere innovative E-Commerce-Plattform für e renommierti Luxusmarke-Kollektiv (Remote vo London us).',
+					keywords: ['E-Commerce-Plattform', 'renommierti Marke'],
+				},
+				{
+					text: 'Umsetzig vonere Headless-CMS-Architektur zum Verbessere vo de Inhaltsflexibilität und Website-Leischtig.',
+					keywords: ['Headless-CMS'],
+				},
+				{
+					text: "Optimierig vo de Website für Suchmaschine (SEO) zum d'Sichtbarkeit und de organisch Traffic z'erhöhe.",
+					keywords: ['SEO'],
+				},
+				{ text: 'Nutzung vo de Vercel-Plattform für es nahtloses Deployment und Hosting mit hochi Verfügbarkeit.', keywords: ['Vercel'] },
+				{
+					text: 'Verwändig vo Next.js, TypeScript, Tailwind CSS und Sanity zum Ufbaue vonere robuste und skalierbari Webaawändig.',
+					keywords: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Sanity'],
+				},
+			],
+			uk: [
+				{
+					text: 'Керівництво розробкою інноваційної e-commerce платформи для престижного колективу люксових брендів.',
+					keywords: ['e-commerce', 'люкс'],
+				},
+				{ text: 'Впровадження headless CMS архітектури для покращення гнучкості контенту.', keywords: ['headless CMS'] },
+				{ text: 'SEO-оптимізація для підвищення видимості та органічного трафіку.', keywords: ['SEO'] },
+				{ text: 'Використання платформи Vercel для безперебійного деплойменту та хостингу.', keywords: ['Vercel'] },
+				{
+					text: 'Використання Next.js, TypeScript, Tailwind CSS та Sanity для створення масштабованого веб-додатку.',
+					keywords: ['Next.js', 'TypeScript'],
+				},
+			],
 		},
 		technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Sanity CMS', 'Vercel'],
 		highlight: 'E-commerce for luxury brands, headless CMS (Remote)',
@@ -492,6 +725,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Software Developer',
 			de: 'Softwareentwickler',
+			ch: 'Softwareentwickler',
+			uk: 'Розробник програмного забезпечення',
 		},
 		location: { city: 'Zurich', country: 'CH', coordinates: { lat: 47.37, lng: 8.54 } },
 		period: { start: 'Oct 2024', end: 'Aug 2025' },
@@ -526,6 +761,36 @@ export const stations: CareerStation[] = [
 				{ text: 'Implementierung automatisierter Compliance-Prüfungen für regulatorische Anforderungen.', keywords: ['Compliance'] },
 				{ text: 'Durchführung von Sicherheitsanalysen und technischen System-Upgrades.', keywords: ['Sicherheit'] },
 			],
+			ch: [
+				{
+					text: 'Migration vo kritische Chunde-Onboarding-Systeme vo Legacy-Applikatione uf moderni Flowable-Architektur.',
+					keywords: ['Migration', 'Flowable', 'Chunde-Onboarding'],
+				},
+				{
+					text: 'Entwicklig und Optimierig vo Gschäftsprozäss-Workflows mit BPMN und CMMN für Privat- und Firmechunde im Bankewäse.',
+					keywords: ['BPMN', 'CMMN', 'Banking'],
+				},
+				{
+					text: "Implementierig vo automatisierte Compliance-Prüefige zum regulatorischi Aforderige im Bankewäse z'erfülle.",
+					keywords: ['Compliance', 'Banking'],
+				},
+				{
+					text: "Durchfüehrig vo Sicherheitsanalyse und technische System-Upgrades zum d'Systemintegrität z'gwährleiste.",
+					keywords: ['Sicherheit', 'System-Upgrades'],
+				},
+			],
+			uk: [
+				{
+					text: 'Міграція критичних систем онбордингу клієнтів з legacy-додатків до сучасної архітектури Flowable.',
+					keywords: ['міграція', 'Flowable'],
+				},
+				{ text: 'Розробка та оптимізація бізнес-процесів з використанням BPMN та CMMN.', keywords: ['BPMN', 'CMMN'] },
+				{
+					text: 'Впровадження автоматизованих перевірок відповідності регуляторним вимогам банківського сектору.',
+					keywords: ['compliance'],
+				},
+				{ text: 'Проведення аналізу безпеки та технічних оновлень системи.', keywords: ['безпека'] },
+			],
 		},
 		metrics: { compliance: 'Banking regulatory requirements' },
 		technologies: ['Java', 'Spring Boot', 'Flowable', 'BPMN', 'CMMN', 'PostgreSQL', 'Docker', 'Kubernetes'],
@@ -538,6 +803,8 @@ export const stations: CareerStation[] = [
 		role: {
 			en: 'Senior Backend Engineer',
 			de: 'Senior Backend-Entwickler',
+			ch: 'Senior Backend Engineer',
+			uk: 'Старший Backend-інженер',
 		},
 		location: { city: 'Zurich', country: 'CH', coordinates: { lat: 47.37, lng: 8.54 } },
 		period: { start: 'Oct 2025', end: 'present' },
@@ -566,6 +833,31 @@ export const stations: CareerStation[] = [
 					keywords: ['Java', 'Spring Boot'],
 				},
 				{ text: 'Implementierung Angular-basierter Frontend-Komponenten für intuitive Benutzererfahrungen.', keywords: ['Angular'] },
+			],
+			ch: [
+				{
+					text: 'Entwicklig und Wartig vo digitale Briefchaste- und Dokumentemanagement-Lösige für Schwiizer Unternähme und Privatpersone.',
+					keywords: ['digitale Briefchaste', 'Dokumentemanagement'],
+				},
+				{
+					text: 'Entwicklig vo skalierbare Backend-Services mit Java und Spring Boot für sicheri Dokumenteverarbeitig.',
+					keywords: ['Java', 'Spring Boot', 'Backend'],
+				},
+				{
+					text: 'Implementierig vo Angular-basierte Frontend-Komponente für intuitivi Benutzererläbnis.',
+					keywords: ['Angular', 'Frontend', 'UX'],
+				},
+			],
+			uk: [
+				{
+					text: 'Розробка та підтримка рішень цифрової поштової скриньки та управління документами для швейцарських компаній.',
+					keywords: ['цифрова скринька', 'управління документами'],
+				},
+				{
+					text: 'Створення масштабованих backend-сервісів на Java та Spring Boot для безпечної обробки документів.',
+					keywords: ['Java', 'Spring Boot'],
+				},
+				{ text: 'Впровадження Angular-компонентів для інтуїтивного користувацького досвіду.', keywords: ['Angular', 'frontend'] },
 			],
 		},
 		technologies: ['Java', 'Spring Boot', 'Angular'],

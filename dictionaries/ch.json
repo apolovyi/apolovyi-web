@@ -80,7 +80,7 @@
 			"UBS",
 			"Flowable",
 			"PEAX",
-			"Züri"
+			"Zurich"
 		],
 		"cta": "Lueg der min Läbenslauf aa!",
 		"roles": [
@@ -113,369 +113,6 @@
 	"experienceSection": {
 		"title": "Wo ich gschaffet han",
 		"roles": {
-			"PEAX": {
-				"title": "Senior Backend Engineer",
-				"date": "Oktober 2025 - Jetzt",
-				"url": "https://peax.ch",
-				"tasks": [
-					{
-						"text": "Entwicklig und Wartig vo digitale Briefchaste- und Dokumentemanagement-Lösige für Schwiizer Unternähme und Privatpersone.",
-						"keywords": [
-							"digitale Briefchaste",
-							"Dokumentemanagement"
-						]
-					},
-					{
-						"text": "Entwicklig vo skalierbare Backend-Services mit Java und Spring Boot für sicheri Dokumenteverarbeitig.",
-						"keywords": [
-							"Java",
-							"Spring Boot",
-							"Backend"
-						]
-					},
-					{
-						"text": "Implementierig vo React-basierte Frontend-Komponente für intuitivi Benutzererläbnis.",
-						"keywords": [
-							"React",
-							"Frontend",
-							"UX"
-						]
-					}
-				]
-			},
-			"UBSFlowable": {
-				"title": "Softwareentwickler",
-				"date": "Oktober 2024 - August 2025",
-				"url": "https://ubs.com",
-				"subtitle": "Aagstellt bi Flowable, igsetzt bi UBS",
-				"tasks": [
-					{
-						"text": "Migration vo kritische Chunde-Onboarding-Systeme vo Legacy-Applikatione uf moderni Flowable-Architektur.",
-						"keywords": [
-							"Migration",
-							"Flowable",
-							"Chunde-Onboarding"
-						]
-					},
-					{
-						"text": "Entwicklig und Optimierig vo Gschäftsprozäss-Workflows mit BPMN und CMMN für Privat- und Firmechunde im Bankewäse.",
-						"keywords": [
-							"BPMN",
-							"CMMN",
-							"Banking"
-						]
-					},
-					{
-						"text": "Implementierig vo automatisierte Compliance-Prüefige zum regulatorischi Aforderige im Bankewäse z'erfülle.",
-						"keywords": [
-							"Compliance",
-							"Banking",
-							"Automatisierig"
-						]
-					},
-					{
-						"text": "Durchfüehrig vo Sicherheitsanalyse und technische System-Upgrades zum d'Systemintegrität z'gwährleiste.",
-						"keywords": [
-							"Sicherheit",
-							"System-Upgrades"
-						]
-					}
-				]
-			},
-			"TheBicesterCollection": {
-				"title": "Lead Full-Stack Entwickler",
-				"date": "Juni 2024 - Oktober 2024",
-				"url": "https://www.thebicestercollection.com",
-				"tasks": [
-					{
-						"text": "Leitig vo de Entwicklig vonere innovative E-Commerce-Plattform für e renommierti Luxusmarke-Kollektiv (Remote vo London us).",
-						"keywords": [
-							"E-Commerce-Plattform",
-							"renommierti Marke"
-						]
-					},
-					{
-						"text": "Umsetzig vonere Headless-CMS-Architektur zum Verbessere vo de Inhaltsflexibilität und Website-Leischtig.",
-						"keywords": [
-							"Headless-CMS",
-							"Inhaltsflexibilität"
-						]
-					},
-					{
-						"text": "Optimierig vo de Website für Suchmaschine (SEO) zum d'Sichtbarkeit und de organisch Traffic z'erhöhe.",
-						"keywords": [
-							"SEO",
-							"organisch Traffic"
-						]
-					},
-					{
-						"text": "Nutzung vo de Vercel-Plattform für es nahtloses Deployment und Hosting, zum e hochi Verfügbarkeit und schnelli Inhaltsuslieferig z'garantiere.",
-						"keywords": [
-							"Vercel",
-							"nahtloses Deployment"
-						]
-					},
-					{
-						"text": "Verwändig vomene moderne Technologie-Stack mit Next.js, TypeScript, Tailwind CSS und Sanity zum Ufbaue vonere robuste und skalierbari Webaawändig.",
-						"keywords": [
-							"Next.js",
-							"TypeScript",
-							"Tailwind CSS",
-							"Sanity"
-						]
-					}
-				]
-			},
-			"CareerBreak": {
-				"title": "Sabbatical & Wältreisi",
-				"date": "Feb 2024 - Juni 2024",
-				"url": "",
-				"tasks": [
-					{
-						"text": "E transformativi 6-monatigi Reis dure 11 Länder uf 4 Kontinänt: Griecheland, Ägypte, Südafrika, Sambia, Simbabwe, Fidschi, Australie, Chile, Argentinie, Kolumbie und Ecuador.",
-						"keywords": [
-							"11 Länder",
-							"4 Kontinänt"
-						]
-					},
-					{
-						"text": "Neui Perspektive gsammlet über globali Technologieadoption, Nutzerverhaltensmuster und verschiedeni Asätz für digitali Lösige in Schwelleländer.",
-						"keywords": [
-							"globali Technologie",
-							"digitali Lösige"
-						]
-					},
-					{
-						"text": "Apassigsfähigkeit, interkulturelli Kommunikationsfähigkeite und d'Fähigkeit entwicklet, in dynamische, unvorhersehbare Umgebige z'gedeihe.",
-						"keywords": [
-							"Apassigsfähigkeit",
-							"interkulturell"
-						]
-					},
-					{
-						"text": "Mit erneueter Kreativität, globaler Perspektive und tüüferer Wertschätzig für d'Entwicklig vo inklusive, barrierefreie Technologie zruggkehrt.",
-						"keywords": [
-							"Kreativität",
-							"globali Perspektive",
-							"inklusiv"
-						]
-					}
-				]
-			},
-			"VirtualIdentityAG": {
-				"title": "Senior Full-Stack Entwickler",
-				"date": "Feb 2022 - Jan 2024",
-				"url": "https://www.virtual-identity.com",
-				"tasks": [
-					{
-						"text": "Entwicklig und Wartung vo Features uf infineon.com zum d'Benutzererfrahrig und Funktionalität z'optimiere.",
-						"keywords": [
-							"infineon.com",
-							"Benutzererfrahrig"
-						]
-					},
-					{
-						"text": "Erfolgriichi Migration vo voestalpine.com in d'AWS-Cloud, zum d'Skalierbarkeit und Leischtig z'verbessere.",
-						"keywords": [
-							"voestalpine.com",
-							"AWS-Cloud"
-						]
-					},
-					{
-						"text": "Entwurf und Durchfüehrig vo umfassende Unit- und Integrationstests zum d'Softwarezuverlässigkeit z'erhöhe.",
-						"keywords": [
-							"Unit-Tests",
-							"Integrationstests"
-						]
-					},
-					{
-						"text": "Optimierig vo de Website-Performance, Verbesserig vo de Ladezyte und Benutzerzfridenheit.",
-						"keywords": [
-							"Performance",
-							"Ladezyte"
-						]
-					},
-					{
-						"text": "Verwändig vo Technologie wie Java, Spring, JUnit, MySQL, Oracle, PostgreSQL, Flyway, TypeScript, React, Stencil, Web Components, HTML/CSS, OpenCms und verschiedeni AWS-Dienscht.",
-						"keywords": [
-							"Java",
-							"Spring",
-							"JUnit",
-							"MySQL",
-							"Oracle",
-							"PostgreSQL",
-							"Flyway",
-							"TypeScript",
-							"React",
-							"Stencil",
-							"Web Components",
-							"OpenCms",
-							"AWS"
-						]
-					}
-				]
-			},
-			"SmartDorm": {
-				"title": "Lead Full-Stack-Entwickler (Freiwillig)",
-				"date": "Jan 2020 - Hüt",
-				"tasks": [
-					{
-						"text": "Han e Webaawändig entwicklet zum d'Verwaltigsprozäss im Studentewohnheim Geschwister Scholl z'optimiere und z'automatisiere.",
-						"keywords": [
-							"Webaawändig",
-							"Prozässautomatisierig"
-						]
-					},
-					{
-						"text": "Han d'Date in e zentrali Datebank migriert und konsolidiert, zum 100% Datekonsistenz z'gwährleiste.",
-						"keywords": [
-							"Datemigration",
-							"Datebankkonsolidierig"
-						]
-					},
-					{
-						"text": "Han de Verwaltigsufwand dur Digitalisierig und Automatisierig um 35% reduziert.",
-						"keywords": [
-							"Digitalisierig",
-							"Automatisierig",
-							"Effizienzsteigerig"
-						]
-					},
-					{
-						"text": "Han e CI/CD-Pipeline implementiert zum de Entwickligsprozäss z'optimiere.",
-						"keywords": [
-							"CI/CD",
-							"Entwickligsoptimierig"
-						]
-					},
-					{
-						"text": "Han Technologie wie PostgreSQL, Kotlin, Spring Boot, React und GitLab verwändet.",
-						"keywords": [
-							"PostgreSQL",
-							"Kotlin",
-							"Spring Boot",
-							"React",
-							"GitLab"
-						]
-					}
-				]
-			},
-			"Spreadshirt": {
-				"title": "Senior Full-Stack Entwickler",
-				"date": "Nov 2021 - Feb 2022",
-				"url": "https://www.spreadshirt.com",
-				"tasks": [
-					{
-						"text": "Entwicklig vonere Hochleischtigsaawändig für d'Generierig vo Uszahlige, zum d'Finanzprozess z'verbessere.",
-						"keywords": [
-							"Uszahligsgenerierig"
-						]
-					},
-					{
-						"text": "Erstellig vo intuitive Benutzeroberfläche, zum d'Benutzererfrahrig und Aawändigsnutzbarkeit z'verbessere.",
-						"keywords": [
-							"Benutzeroberfläche"
-						]
-					},
-					{
-						"text": "Arbet mit Technologie wie PostgreSQL, Flyway, Kotlin, Spring Boot, JUnit, TypeScript und React.",
-						"keywords": [
-							"PostgreSQL",
-							"Flyway",
-							"Kotlin",
-							"Spring Boot",
-							"JUnit",
-							"TypeScript",
-							"React"
-						]
-					}
-				]
-			},
-			"ComsystoReplyGmbH": {
-				"title": "Full-Stack Entwickler",
-				"date": "Feb 2019 - Okt 2021",
-				"url": "https://www.comsysto.com",
-				"tasks": [
-					{
-						"text": "Zämearbet imene Scrum-Team zum d'Priisgestaltung, Gutschiin-Verwaltig und Kommunikationssystem für s'ABI Audi On Demand Produkt z'optimiere.",
-						"keywords": [
-							"Scrum",
-							"ABI Audi On Demand"
-						]
-					},
-					{
-						"text": "Entwicklig und Wartung vo mehrere Microservices und Microfrontends, wo Laste bis zu 200 QPS bewältiged.",
-						"keywords": [
-							"Microservices",
-							"Microfrontends"
-						]
-					},
-					{
-						"text": "Refaktorisierig vo Code mit Kotlin, Erhöhig vo de Wartbarkeit und Reduktion vo de Codeziile um 30%.",
-						"keywords": [
-							"Kotlin"
-						]
-					},
-					{
-						"text": "Verwändig vo Technologie wie PostgreSQL, Flyway, Java, Kotlin, Spring Boot, JUnit, RabbitMQ, TypeScript, Angular, Jenkins, CloudFoundry und verschiedeni AWS-Dienscht.",
-						"keywords": [
-							"PostgreSQL",
-							"Flyway",
-							"Java",
-							"Kotlin",
-							"Spring Boot",
-							"JUnit",
-							"RabbitMQ",
-							"TypeScript",
-							"Angular",
-							"Jenkins",
-							"CloudFoundry",
-							"AWS"
-						]
-					}
-				]
-			},
-			"Blookery": {
-				"title": "Frontend Entwickler",
-				"date": "Mai 2018 - Aug 2018",
-				"url": "https://www.blookery.de",
-				"tasks": [
-					{
-						"text": "Leitig vo de Entwicklig vonere Reise-Website, spezialisiert uf Blind Bookings in ganz Europa, zum s'Benutzerengagement z'steigere.",
-						"keywords": [
-							"Blind Bookings",
-							"Benutzerengagement"
-						]
-					},
-					{
-						"text": "Erstellig vo responsive Benutzeroberfläche mit React, zum e nahtlosi Funktionalität über verschiedeni Grät z'garantiere.",
-						"keywords": [
-							"React",
-							"responsiv"
-						]
-					},
-					{
-						"text": "Umsetzig vo fortgschrittene JavaScript-Funktione zum d'Interaktivität und Navigation vo de Website z'verbessere.",
-						"keywords": [
-							"JavaScript"
-						]
-					},
-					{
-						"text": "Umwandlig vo Wireframes in barrierefreii HTML/CSS-Layouts, wo de WCAG-Richtlinie entspräched.",
-						"keywords": [
-							"HTML/CSS",
-							"WCAG"
-						]
-					},
-					{
-						"text": "Entwicklig vo Unit- und Integrationstests mit Jest, zum d'Codezuverlässigkeit sicherzstelle.",
-						"keywords": [
-							"Unit-Tests",
-							"Integrationstests"
-						]
-					}
-				]
-			},
 			"SilverToursGmbH": {
 				"title": "Studäntische Full-Stack Entwickler",
 				"date": "Jan 2015 - Aug 2018",
@@ -500,19 +137,363 @@
 						]
 					},
 					{
-						"text": "Erstellig vo interne Tools für s'Kundeserviceteam, wo d'Effizienz um 50% gsteigeret händ.",
+						"text": "Erstellig vo interne Tools für s'Kundeserviceteam, wo d'Effizienz um 30% gsteigeret händ.",
 						"keywords": [
-							"interni Tools"
+							"interni Tools",
+							"30%"
+						]
+					}
+				]
+			},
+			"FLConsulting": {
+				"title": "Backend-Entwickler",
+				"date": "Jul 2015 - Jan 2017",
+				"url": "",
+				"tasks": [
+					{
+						"text": "Implementierig vo de Website für Kongress-Meeting-Organisation.",
+						"keywords": [
+							"Kongress",
+							"Website"
 						]
 					},
 					{
-						"text": "Arbet mit Technologie wie JavaScript, HTML, CSS, jQuery und PHP.",
+						"text": "Entwicklig vom Newsletter-System für Event-Kommunikation.",
 						"keywords": [
-							"JavaScript",
-							"HTML",
-							"CSS",
-							"jQuery",
-							"PHP"
+							"Newsletter"
+						]
+					},
+					{
+						"text": "Implementierig vo de Recruiting-Website für Karriere-Events.",
+						"keywords": [
+							"Recruiting",
+							"Karriere-Events"
+						]
+					}
+				]
+			},
+			"Senacor": {
+				"title": "Java-Entwickler (Praktikum)",
+				"date": "Oct 2017 - Jan 2018",
+				"url": "https://www.senacor.com",
+				"tasks": [
+					{
+						"text": "Implementierig vo End-to-End-Tests für Banking-Aawändige.",
+						"keywords": [
+							"End-to-End-Tests",
+							"Banking"
+						]
+					},
+					{
+						"text": "Integration vo Application Monitoring mit Dashboard-Lösig.",
+						"keywords": [
+							"Monitoring",
+							"Dashboard"
+						]
+					},
+					{
+						"text": "Verbesserig vo de Reaktionsziit bi Systemusfäll um 60%.",
+						"keywords": [
+							"60%"
+						]
+					},
+					{
+						"text": "Entwicklig vo automatisierte Testverfahre mit Selenium.",
+						"keywords": [
+							"Selenium"
+						]
+					}
+				]
+			},
+			"Blookery": {
+				"title": "Frontend Entwickler",
+				"date": "May 2018 - Aug 2018",
+				"url": "https://www.blookery.de",
+				"tasks": [
+					{
+						"text": "Leitig vo de Entwicklig vonere Reise-Website, spezialisiert uf Blind Bookings in ganz Europa.",
+						"keywords": [
+							"Blind Bookings"
+						]
+					},
+					{
+						"text": "Erstellig vo responsive Benutzeroberfläche mit React.",
+						"keywords": [
+							"React",
+							"responsiv"
+						]
+					},
+					{
+						"text": "Umsetzig vo fortgschrittene JavaScript-Funktione zum d'Interaktivität z'verbessere.",
+						"keywords": [
+							"JavaScript"
+						]
+					},
+					{
+						"text": "Umwandlig vo Wireframes in barrierefreii HTML/CSS-Layouts nach WCAG-Richtlinie.",
+						"keywords": [
+							"WCAG"
+						]
+					},
+					{
+						"text": "Entwicklig vo Unit- und Integrationstests mit Jest.",
+						"keywords": [
+							"Jest"
+						]
+					}
+				]
+			},
+			"ComsystoReplyGmbH": {
+				"title": "Full-Stack Entwickler",
+				"date": "Feb 2019 - Oct 2021",
+				"url": "https://www.comsysto.com",
+				"tasks": [
+					{
+						"text": "Zämearbet imene Scrum-Team zum d'Priisgestaltung, Gutschiin-Verwaltig und Kommunikationssystem für s'ABI Audi On Demand Produkt z'optimiere.",
+						"keywords": [
+							"Scrum",
+							"ABI Audi On Demand"
+						]
+					},
+					{
+						"text": "Entwicklig und Wartung vo mehrere Microservices und Microfrontends, wo Laste bis zu 200 QPS bewältiged.",
+						"keywords": [
+							"Microservices",
+							"200 QPS"
+						]
+					},
+					{
+						"text": "Refaktorisierig vo Code mit Kotlin, Erhöhig vo de Wartbarkeit und Reduktion vo de Codeziile um 20%.",
+						"keywords": [
+							"Kotlin",
+							"20%"
+						]
+					}
+				]
+			},
+			"SmartDorm": {
+				"title": "Lead Full-Stack-Entwickler (Freiwillig)",
+				"date": "Jan 2020 - Jetzt",
+				"url": "https://smartdorm.schollheim.net",
+				"tasks": [
+					{
+						"text": "Han e Webaawändig entwicklet zum d'Verwaltigsprozäss im Studentewohnheim Geschwister Scholl z'optimiere und z'automatisiere.",
+						"keywords": [
+							"Webaawändig",
+							"Prozässautomatisierig"
+						]
+					},
+					{
+						"text": "Han d'Date in e zentrali Datebank migriert und konsolidiert, zum 100% Datekonsistenz z'gwährleiste.",
+						"keywords": [
+							"Datemigration",
+							"100%"
+						]
+					},
+					{
+						"text": "Han de Verwaltigsufwand dur Digitalisierig und Automatisierig um 35% reduziert.",
+						"keywords": [
+							"35%",
+							"Automatisierig"
+						]
+					},
+					{
+						"text": "Han e CI/CD-Pipeline implementiert zum de Entwickligsprozäss z'optimiere.",
+						"keywords": [
+							"CI/CD"
+						]
+					}
+				]
+			},
+			"Spreadshirt": {
+				"title": "Senior Full-Stack Entwickler",
+				"date": "Nov 2021 - Feb 2022",
+				"url": "https://www.spreadshirt.com",
+				"tasks": [
+					{
+						"text": "Entwicklig vonere Hochleischtigsaawändig für d'Generierig vo Uszahlige, zum d'Finanzprozess z'verbessere.",
+						"keywords": [
+							"Uszahligsgenerierig"
+						]
+					},
+					{
+						"text": "Erstellig vo intuitive Benutzeroberfläche, zum d'Benutzererfrahrig und Aawändigsnutzbarkeit z'verbessere.",
+						"keywords": [
+							"Benutzeroberfläche"
+						]
+					}
+				]
+			},
+			"VirtualIdentityAG": {
+				"title": "Senior Full-Stack Entwickler",
+				"date": "Feb 2022 - Jan 2024",
+				"url": "https://www.virtual-identity.com",
+				"tasks": [
+					{
+						"text": "Entwicklig und Wartung vo Features uf infineon.com zum d'Benutzererfrahrig und Funktionalität z'optimiere.",
+						"keywords": [
+							"infineon.com"
+						]
+					},
+					{
+						"text": "Erfolgriichi Migration vo voestalpine.com in d'AWS-Cloud, zum d'Skalierbarkeit und Leischtig z'verbessere.",
+						"keywords": [
+							"voestalpine.com",
+							"AWS"
+						]
+					},
+					{
+						"text": "Entwurf und Durchfüehrig vo umfassende Unit- und Integrationstests zum d'Softwarezuverlässigkeit z'erhöhe.",
+						"keywords": [
+							"Unit-Tests",
+							"Integrationstests"
+						]
+					},
+					{
+						"text": "Optimierig vo de Website-Performance, Verbesserig vo de Ladezyte und Benutzerzfridenheit.",
+						"keywords": [
+							"Performance"
+						]
+					}
+				]
+			},
+			"CareerBreak": {
+				"title": "Sabbatical & Wältreisi",
+				"date": "Jan 2024 - Jun 2024",
+				"url": "",
+				"tasks": [
+					{
+						"text": "E transformativi 6-monatigi Reis dure 11 Länder uf 4 Kontinänt: Griecheland, Ägypte, Südafrika, Sambia, Simbabwe, Fidschi, Australie, Chile, Argentinie, Kolumbie und Ecuador.",
+						"keywords": [
+							"11 Länder",
+							"4 Kontinänt"
+						]
+					},
+					{
+						"text": "Neui Perspektive gsammlet über globali Technologieadoption, Nutzerverhaltensmuster und verschiedeni Asätz für digitali Lösige.",
+						"keywords": [
+							"Technologie"
+						]
+					},
+					{
+						"text": "Apassigsfähigkeit, interkulturelli Kommunikationsfähigkeite und d'Fähigkeit entwicklet, in dynamische Umgebige z'gedeihe.",
+						"keywords": [
+							"Apassigsfähigkeit"
+						]
+					},
+					{
+						"text": "Mit erneueter Kreativität, globaler Perspektive und tüüferer Wertschätzig für d'Entwicklig vo inklusive Technologie zruggkehrt.",
+						"keywords": [
+							"Kreativität"
+						]
+					}
+				]
+			},
+			"TheBicesterCollection": {
+				"title": "Lead Full-Stack Entwickler",
+				"date": "Jun 2024 - Oct 2024",
+				"url": "https://www.thebicestercollection.com",
+				"tasks": [
+					{
+						"text": "Leitig vo de Entwicklig vonere innovative E-Commerce-Plattform für e renommierti Luxusmarke-Kollektiv (Remote vo London us).",
+						"keywords": [
+							"E-Commerce-Plattform",
+							"renommierti Marke"
+						]
+					},
+					{
+						"text": "Umsetzig vonere Headless-CMS-Architektur zum Verbessere vo de Inhaltsflexibilität und Website-Leischtig.",
+						"keywords": [
+							"Headless-CMS"
+						]
+					},
+					{
+						"text": "Optimierig vo de Website für Suchmaschine (SEO) zum d'Sichtbarkeit und de organisch Traffic z'erhöhe.",
+						"keywords": [
+							"SEO"
+						]
+					},
+					{
+						"text": "Nutzung vo de Vercel-Plattform für es nahtloses Deployment und Hosting mit hochi Verfügbarkeit.",
+						"keywords": [
+							"Vercel"
+						]
+					},
+					{
+						"text": "Verwändig vo Next.js, TypeScript, Tailwind CSS und Sanity zum Ufbaue vonere robuste und skalierbari Webaawändig.",
+						"keywords": [
+							"Next.js",
+							"TypeScript",
+							"Tailwind CSS",
+							"Sanity"
+						]
+					}
+				]
+			},
+			"UBSFlowable": {
+				"title": "Softwareentwickler",
+				"date": "Oct 2024 - Aug 2025",
+				"url": "https://ubs.com",
+				"tasks": [
+					{
+						"text": "Migration vo kritische Chunde-Onboarding-Systeme vo Legacy-Applikatione uf moderni Flowable-Architektur.",
+						"keywords": [
+							"Migration",
+							"Flowable",
+							"Chunde-Onboarding"
+						]
+					},
+					{
+						"text": "Entwicklig und Optimierig vo Gschäftsprozäss-Workflows mit BPMN und CMMN für Privat- und Firmechunde im Bankewäse.",
+						"keywords": [
+							"BPMN",
+							"CMMN",
+							"Banking"
+						]
+					},
+					{
+						"text": "Implementierig vo automatisierte Compliance-Prüefige zum regulatorischi Aforderige im Bankewäse z'erfülle.",
+						"keywords": [
+							"Compliance",
+							"Banking"
+						]
+					},
+					{
+						"text": "Durchfüehrig vo Sicherheitsanalyse und technische System-Upgrades zum d'Systemintegrität z'gwährleiste.",
+						"keywords": [
+							"Sicherheit",
+							"System-Upgrades"
+						]
+					}
+				],
+				"subtitle": "Aagstellt bi Flowable, igsetzt bi UBS"
+			},
+			"PEAX": {
+				"title": "Senior Backend Engineer",
+				"date": "Oct 2025 - Jetzt",
+				"url": "https://peax.ch",
+				"tasks": [
+					{
+						"text": "Entwicklig und Wartig vo digitale Briefchaste- und Dokumentemanagement-Lösige für Schwiizer Unternähme und Privatpersone.",
+						"keywords": [
+							"digitale Briefchaste",
+							"Dokumentemanagement"
+						]
+					},
+					{
+						"text": "Entwicklig vo skalierbare Backend-Services mit Java und Spring Boot für sicheri Dokumenteverarbeitig.",
+						"keywords": [
+							"Java",
+							"Spring Boot",
+							"Backend"
+						]
+					},
+					{
+						"text": "Implementierig vo Angular-basierte Frontend-Komponente für intuitivi Benutzererläbnis.",
+						"keywords": [
+							"Angular",
+							"Frontend",
+							"UX"
 						]
 					}
 				]
