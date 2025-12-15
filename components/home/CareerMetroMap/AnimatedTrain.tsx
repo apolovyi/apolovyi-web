@@ -16,155 +16,174 @@ interface AnimatedTrainProps {
 	svgRef?: RefObject<SVGSVGElement | null>
 }
 
-// Sleek modern train with glow effects
+// SBB Colors from official design system
+const SBB_COLORS = {
+	red: '#EB0000',
+	charcoal: '#212121',
+	white: '#FFFFFF',
+}
+
+// Minimal SBB-branded train - clean, iconic, modern
 function TrainIcon({ color }: { color: string }) {
+	const accentColor = SBB_COLORS.red
+
 	return (
 		<g>
-			{/* Glow effect */}
+			{/* Soft glow using line color */}
 			<ellipse
 				cx={0}
 				cy={0}
-				rx={40}
-				ry={15}
+				rx={42}
+				ry={12}
 				fill={color}
-				opacity={0.15}
+				opacity={0.25}
 				filter="url(#trainGlow)"
 			/>
 
-			{/* Main train body - sleek modern design */}
-			<g transform="scale(1.4)">
+			{/* Minimal modern train */}
+			<g transform="scale(1.5)">
 				{/* Shadow */}
 				<ellipse
-					cx={0}
+					cx={2}
 					cy={10}
-					rx={22}
-					ry={3}
+					rx={26}
+					ry={2.5}
 					fill="rgba(0,0,0,0.2)"
 				/>
 
-				{/* Body with gradient */}
-				<rect
-					x={-28}
-					y={-9}
-					width={56}
-					height={18}
-					rx={6}
-					fill="url(#trainBodyGradient)"
-				/>
-
-				{/* Chrome trim top */}
-				<rect
-					x={-28}
-					y={-9}
-					width={56}
-					height={2}
-					rx={1}
-					fill="rgba(255,255,255,0.4)"
-				/>
-
-				{/* Windows with reflection */}
-				<rect
-					x={-22}
-					y={-5}
-					width={9}
-					height={6}
-					rx={1.5}
-					fill="#B4DCFF"
-				/>
-				<rect
-					x={-10}
-					y={-5}
-					width={9}
-					height={6}
-					rx={1.5}
-					fill="#B4DCFF"
-				/>
-				<rect
-					x={2}
-					y={-5}
-					width={9}
-					height={6}
-					rx={1.5}
-					fill="#B4DCFF"
-				/>
-
-				{/* Front windshield - angled */}
+				{/* Clean body - single white shape with rounded front */}
 				<path
-					d="M14,-5 L14,1 L22,1 Q24,1 24,-1 L24,-3 Q24,-5 22,-5 Z"
-					fill="#B4DCFF"
+					d="M-28,-7 L-28,6 L24,6 L30,0 L30,-4 L24,-7 Z"
+					fill={SBB_COLORS.white}
+					stroke="#CCCCCC"
+					strokeWidth={0.5}
 				/>
 
-				{/* Window reflections */}
-				<rect
-					x={-22}
-					y={-5}
-					width={9}
-					height={2}
-					rx={0.5}
-					fill="rgba(255,255,255,0.3)"
-				/>
-				<rect
-					x={-10}
-					y={-5}
-					width={9}
-					height={2}
-					rx={0.5}
-					fill="rgba(255,255,255,0.3)"
-				/>
-				<rect
-					x={2}
-					y={-5}
-					width={9}
-					height={2}
-					rx={0.5}
-					fill="rgba(255,255,255,0.3)"
-				/>
-
-				{/* Side stripe */}
+				{/* Iconic SBB red stripe - the key identifier */}
 				<rect
 					x={-28}
 					y={2}
-					width={56}
-					height={2.5}
-					fill="rgba(255,255,255,0.5)"
+					width={52}
+					height={3}
+					fill={accentColor}
+				/>
+				{/* Red stripe curves to front */}
+				<path
+					d="M24,2 L30,0 L30,1 L24,5 Z"
+					fill={accentColor}
 				/>
 
-				{/* Wheels */}
-				<g fill="#222">
+				{/* Simple windows - clean rectangles */}
+				<rect
+					x={-24}
+					y={-5}
+					width={10}
+					height={5}
+					rx={1}
+					fill="#2A3A4A"
+				/>
+				<rect
+					x={-12}
+					y={-5}
+					width={10}
+					height={5}
+					rx={1}
+					fill="#2A3A4A"
+				/>
+				<rect
+					x={0}
+					y={-5}
+					width={10}
+					height={5}
+					rx={1}
+					fill="#2A3A4A"
+				/>
+				<rect
+					x={12}
+					y={-5}
+					width={8}
+					height={5}
+					rx={1}
+					fill="#2A3A4A"
+				/>
+
+				{/* Window highlight */}
+				<rect
+					x={-24}
+					y={-5}
+					width={10}
+					height={1.5}
+					rx={0.5}
+					fill="rgba(255,255,255,0.15)"
+				/>
+				<rect
+					x={-12}
+					y={-5}
+					width={10}
+					height={1.5}
+					rx={0.5}
+					fill="rgba(255,255,255,0.15)"
+				/>
+				<rect
+					x={0}
+					y={-5}
+					width={10}
+					height={1.5}
+					rx={0.5}
+					fill="rgba(255,255,255,0.15)"
+				/>
+
+				{/* Front windshield */}
+				<path
+					d="M22,-5 L28,-3 L28,0 L22,1 Z"
+					fill="#1A2A3A"
+				/>
+
+				{/* Simple undercarriage */}
+				<rect
+					x={-26}
+					y={6}
+					width={56}
+					height={2.5}
+					fill={SBB_COLORS.charcoal}
+				/>
+
+				{/* Minimal wheels - just 4 circles */}
+				<g fill={SBB_COLORS.charcoal}>
 					<circle
-						cx={-18}
-						cy={8}
-						r={3}
+						cx={-20}
+						cy={9}
+						r={2.5}
 					/>
 					<circle
-						cx={-8}
-						cy={8}
-						r={3}
+						cx={-10}
+						cy={9}
+						r={2.5}
 					/>
 					<circle
-						cx={8}
-						cy={8}
-						r={3}
+						cx={10}
+						cy={9}
+						r={2.5}
 					/>
 					<circle
-						cx={18}
-						cy={8}
-						r={3}
+						cx={20}
+						cy={9}
+						r={2.5}
 					/>
 				</g>
 
-				{/* Headlight with glow */}
+				{/* Single clean headlight */}
 				<circle
-					cx={26}
-					cy={-2}
-					r={2.5}
-					fill="#FFE566"
+					cx={29}
+					cy={-1}
+					r={2}
+					fill="#FFFFDD"
 				/>
 				<circle
-					cx={26}
-					cy={-2}
-					r={4}
-					fill="#FFE566"
+					cx={29}
+					cy={-1}
+					r={3}
+					fill="#FFFFAA"
 					opacity={0.3}
 				/>
 			</g>
@@ -662,7 +681,7 @@ export function AnimatedTrain({ segment, animationKey, svgWidth: _svgWidth, svgH
 	const [trainX, setTrainX] = useState(0)
 
 	// Calculate positions - offset train above the line so it doesn't overlap stations
-	const TRAIN_Y_OFFSET = -25 // Train travels above the line
+	const TRAIN_Y_OFFSET = 15 // Train travels below the line for visibility
 	const firstPoint = points[0]
 	const startX = firstPoint?.x ?? 0
 	const baseY = firstPoint?.y ?? 0
