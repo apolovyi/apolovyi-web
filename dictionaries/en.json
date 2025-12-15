@@ -502,6 +502,43 @@
 			}
 		}
 	},
+	"flightPathSection": {
+		"title": "Learning Journey",
+		"education": {
+			"title": "Education",
+			"items": [
+				{
+					"degree": "Master of Science",
+					"field": "Computer Science",
+					"institution": "Hochschule München",
+					"year": 2023,
+					"location": "Munich, Germany"
+				},
+				{
+					"degree": "Bachelor of Science",
+					"field": "Computer Science",
+					"institution": "Technische Hochschule Köln",
+					"year": 2018,
+					"location": "Cologne, Germany"
+				}
+			]
+		},
+		"certifications": {
+			"title": "Certifications",
+			"items": [
+				{
+					"name": "AWS Certified Developer – Associate",
+					"issuer": "Amazon Web Services",
+					"year": 2020
+				},
+				{
+					"name": "Flowable Developer Certification",
+					"issuer": "Flowable",
+					"year": 2025
+				}
+			]
+		}
+	},
 	"projectsSection": {
 		"title": "Some Things I've Built",
 		"projects": [

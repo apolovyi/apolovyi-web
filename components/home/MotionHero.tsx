@@ -139,7 +139,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	const { heroSection } = dictionary
 	const heroRoles = heroSection.roles
 	// Extract location suffix from tagline (e.g., "in Zurich." from "Full-Stack Engineer in Zurich.")
-	const taglineSuffix = heroSection.tagline.includes(' in ') ? heroSection.tagline.slice(heroSection.tagline.indexOf(' in ')) : '.'
+	const taglineSuffix = heroSection.tagline.includes(' in') ? heroSection.tagline.slice(heroSection.tagline.indexOf(' in')) : '.'
 
 	// Defer heavy effects on mobile and respect reduced motion
 	const [effectsOn, setEffectsOn] = useState(true)

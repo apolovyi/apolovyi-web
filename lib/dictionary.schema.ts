@@ -86,12 +86,40 @@ const contactSectionSchema = z.object({
 	errorMessage: z.string(),
 })
 
+const educationItemSchema = z.object({
+	degree: z.string(),
+	field: z.string(),
+	institution: z.string(),
+	year: z.number(),
+	location: z.string(),
+})
+
+const certificationItemSchema = z.object({
+	name: z.string(),
+	issuer: z.string(),
+	year: z.number(),
+	url: z.string().optional(),
+})
+
+const flightPathSectionSchema = z.object({
+	title: z.string(),
+	education: z.object({
+		title: z.string(),
+		items: z.array(educationItemSchema),
+	}),
+	certifications: z.object({
+		title: z.string(),
+		items: z.array(certificationItemSchema),
+	}),
+})
+
 export const dictionarySchema = z.object({
 	metadata: metadataSchema,
 	header: headerSchema,
 	heroSection: heroSectionSchema,
 	aboutMeSection: aboutMeSectionSchema,
 	experienceSection: experienceSectionSchema,
+	flightPathSection: flightPathSectionSchema,
 	projectsSection: projectsSectionSchema,
 	contactSection: contactSectionSchema,
 	footer: z.object({ rights: z.string() }),

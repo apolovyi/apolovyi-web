@@ -15,6 +15,7 @@ import ScrollProgressIndicator from '@/components/shared/ScrollProgressIndicator
 
 const AboutMe = lazy(() => import('@/components/home/AboutMe'))
 const MyExperience = lazy(() => import('@/components/home/MyExperience'))
+const FlightPath = lazy(() => import('@/components/home/FlightPath'))
 const MyProjects = lazy(() => import('@/components/home/MyProjects'))
 const GetInTouch = lazy(() => import('@/components/home/GetInTouch'))
 const Footer = lazy(() => import('@/components/footer/Footer'))
@@ -65,6 +66,9 @@ export default function HomeClient({ lang }: HomeClientProps) {
 				</Suspense>
 				<Suspense fallback={null}>
 					<MyExperience />
+				</Suspense>
+				<Suspense fallback={null}>
+					<FlightPath lang={lang} />
 				</Suspense>
 				<Suspense fallback={null}>
 					<MyProjects lang={lang} />

@@ -500,6 +500,43 @@
 			}
 		}
 	},
+	"flightPathSection": {
+		"title": "Bildigsweg",
+		"education": {
+			"title": "Usbildig",
+			"items": [
+				{
+					"degree": "Master of Science",
+					"field": "Informatik",
+					"institution": "Hochschule München",
+					"year": 2023,
+					"location": "Münche, Dütschland"
+				},
+				{
+					"degree": "Bachelor of Science",
+					"field": "Informatik",
+					"institution": "Technische Hochschule Köln",
+					"year": 2018,
+					"location": "Köln, Dütschland"
+				}
+			]
+		},
+		"certifications": {
+			"title": "Zertifizierige",
+			"items": [
+				{
+					"name": "AWS Certified Developer – Associate",
+					"issuer": "Amazon Web Services",
+					"year": 2020
+				},
+				{
+					"name": "Flowable Developer Zertifizierig",
+					"issuer": "Flowable",
+					"year": 2025
+				}
+			]
+		}
+	},
 	"projectsSection": {
 		"title": "Es paar Sache, wo ich bout han",
 		"projects": [

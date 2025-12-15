@@ -99,6 +99,33 @@ export interface ContactSection {
 	errorMessage: string
 }
 
+export interface EducationItem {
+	degree: string
+	field: string
+	institution: string
+	year: number
+	location: string
+}
+
+export interface CertificationItem {
+	name: string
+	issuer: string
+	year: number
+	url?: string
+}
+
+export interface FlightPathSection {
+	title: string
+	education: {
+		title: string
+		items: EducationItem[]
+	}
+	certifications: {
+		title: string
+		items: CertificationItem[]
+	}
+}
+
 export interface Footer {
 	rights: string
 }
@@ -109,6 +136,7 @@ export interface Dictionary {
 	heroSection: HeroSection
 	aboutMeSection: AboutMeSection
 	experienceSection: ExperienceSection
+	flightPathSection: FlightPathSection
 	projectsSection: ProjectsSection
 	contactSection: ContactSection
 	footer: Footer

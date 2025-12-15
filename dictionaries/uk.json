@@ -493,6 +493,43 @@
 			}
 		}
 	},
+	"flightPathSection": {
+		"title": "Освітній шлях",
+		"education": {
+			"title": "Освіта",
+			"items": [
+				{
+					"degree": "Магістр наук",
+					"field": "Комп'ютерні науки",
+					"institution": "Hochschule München",
+					"year": 2023,
+					"location": "Мюнхен, Німеччина"
+				},
+				{
+					"degree": "Бакалавр наук",
+					"field": "Комп'ютерні науки",
+					"institution": "Technische Hochschule Köln",
+					"year": 2018,
+					"location": "Кельн, Німеччина"
+				}
+			]
+		},
+		"certifications": {
+			"title": "Сертифікати",
+			"items": [
+				{
+					"name": "AWS Certified Developer – Associate",
+					"issuer": "Amazon Web Services",
+					"year": 2020
+				},
+				{
+					"name": "Flowable Developer Certification",
+					"issuer": "Flowable",
+					"year": 2025
+				}
+			]
+		}
+	},
 	"projectsSection": {
 		"title": "Деякі з моїх проектів",
 		"projects": [
