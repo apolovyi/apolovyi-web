@@ -677,7 +677,7 @@ function SparkleEffect({ color }: { color: string }) {
 export function AnimatedTrain({ segment, animationKey, svgWidth: _svgWidth, svgHeight: _svgHeight, svgRef }: AnimatedTrainProps) {
 	const prefersReducedMotion = useReducedMotion()
 	const { line, points, hasOngoingStation } = segment
-	const [phase, setPhase] = useState<'travel' | 'fadeOut' | 'done'>('travel')
+	const [phase, setPhase] = useState<'travel' | 'transform' | 'launch' | 'done'>('travel')
 	const [trainX, setTrainX] = useState(0)
 
 	// Calculate positions - train wheels should sit on the track
@@ -729,12 +729,14 @@ export function AnimatedTrain({ segment, animationKey, svgWidth: _svgWidth, svgH
 		setPhase('travel')
 		setTrainX(startX)
 
-		// Train travels for 5.5s, then fades out over 1.5s
-		const fadeOutTimer = setTimeout(() => setPhase('fadeOut'), 5500)
-		const doneTimer = setTimeout(() => setPhase('done'), 7000)
+		// Train travels for 5.5s, transforms (90° rotation) for 0.8s, then rocket launches
+		const transformTimer = setTimeout(() => setPhase('transform'), 5500)
+		const launchTimer = setTimeout(() => setPhase('launch'), 6300)
+		const doneTimer = setTimeout(() => setPhase('done'), 10500)
 
 		return () => {
-			clearTimeout(fadeOutTimer)
+			clearTimeout(transformTimer)
+			clearTimeout(launchTimer)
 			clearTimeout(doneTimer)
 		}
 	}, [animationKey, startX])
@@ -866,17 +868,28 @@ export function AnimatedTrain({ segment, animationKey, svgWidth: _svgWidth, svgH
 				</g>
 			)}
 
-			{/* Phase 2: Smooth fade out - train continues forward while fading */}
-			{phase === 'fadeOut' && (
-				<g transform={`translate(0, ${y})`}>
+			{/* Phase 2: Transform - train rotates 90° to become vertical (like rocket) */}
+			{phase === 'transform' && (
+				<g transform={`translate(${endX}, ${y})`}>
 					<motion.g
-						initial={{ opacity: 1, x: endX, scale: 1 }}
-						animate={{ opacity: 0, x: endX + 100, scale: 0.9 }}
-						transition={{ duration: 1.5, ease: 'easeOut' }}
+						initial={{ rotate: 0, scale: 1, opacity: 1 }}
+						animate={{ rotate: -90, scale: 0.8, opacity: 0 }}
+						transition={{ duration: 0.8, ease: 'easeInOut' }}
 					>
 						<TrainIcon color={line.color} />
 					</motion.g>
+					<SparkleEffect color={line.color} />
 				</g>
+			)}
+
+			{/* Phase 3: Rocket launches - rendered via portal for proper overflow */}
+			{phase === 'launch' && svgRef && (
+				<PortalRocketLaunch
+					startX={endX}
+					startY={y}
+					svgRef={svgRef}
+					color={line.color}
+				/>
 			)}
 		</g>
 	)
