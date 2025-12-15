@@ -144,11 +144,14 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 	}
 
 	return (
-		<div className={cn('flex flex-col gap-2', className)}>
-			{/* Scrollable container for mobile with fade hint */}
+		<div
+			className={cn('flex flex-col gap-2', className)}
+			style={{ overflow: 'visible' }}
+		>
+			{/* Scrollable container for mobile, visible overflow on desktop for rocket */}
 			<div
 				ref={scrollContainerRef}
-				className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-600/50 relative overflow-x-auto overflow-y-visible pb-2"
+				className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-600/50 relative overflow-x-auto pb-2 lg:overflow-visible"
 			>
 				{/* Scroll hint for mobile only (hidden on tablet+) */}
 				{!hasScrolled && (

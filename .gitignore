@@ -43,3 +43,4 @@ claude_chats
 /CLAUDE.md
 /.todo
 .screenshots/
+.tmp/

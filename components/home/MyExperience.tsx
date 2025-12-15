@@ -41,7 +41,7 @@ const MyExperience = () => {
 				{/* Metro Map - All screen sizes (scrollable on mobile) */}
 				<div
 					ref={leftColRef}
-					className="mb-4 lg:mb-6"
+					className="mb-4 overflow-visible lg:mb-6"
 				>
 					<CareerMetroMap
 						activeStation={activeCompany}

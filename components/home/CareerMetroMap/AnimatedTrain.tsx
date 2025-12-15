@@ -315,8 +315,8 @@ function RocketFlames() {
 function RocketLaunch({
 	startX,
 	startY,
-	svgWidth,
-	svgHeight,
+	svgWidth: _svgWidth,
+	svgHeight: _svgHeight,
 	color,
 }: {
 	startX: number
@@ -325,53 +325,49 @@ function RocketLaunch({
 	svgHeight: number
 	color: string
 }) {
-	const [position, setPosition] = useState({ x: startX, y: startY, rotation: -90 })
+	// Rocket points UP (rotation 0), starts at train's end position
+	const [position, setPosition] = useState({ x: startX, y: startY, rotation: 0 })
 
 	useEffect(() => {
-		const duration = 6000 // 6 seconds for extended visibility
+		const duration = 4000 // 4 seconds for vertical flight
 		const startTime = Date.now()
 
-		// Rocket starts from LEFT side and flies ACROSS the entire screen
-		const launchStartX = 50 // Start from left edge of SVG
-		const launchEndX = svgWidth + 150 // Exit past right edge
-		const totalDistance = launchEndX - launchStartX
+		// Rocket flies straight UP from train's end position
+		const launchStartY = startY
+		const launchEndY = -150 // Exit above viewport
+		const totalDistance = launchStartY - launchEndY
 
 		const animateFrame = () => {
 			const elapsed = Date.now() - startTime
 			const t = Math.min(elapsed / duration, 1)
 
-			// Custom easing optimized for visibility:
-			// 0-15%: Slow launch phase (covers 10% of distance)
-			// 15-85%: Extended cruise across screen (covers 75% of distance)
-			// 85-100%: Explosive exit (covers 15% of distance)
-			// Result: rocket visible for ~70% of animation = ~4.2 seconds
-			let xProgress: number
+			// Easing for vertical flight:
+			// 0-20%: Slow lift-off (quadratic ease-in)
+			// 20-80%: Steady climb
+			// 80-100%: Accelerate out of view
+			let yProgress: number
 
-			if (t < 0.15) {
-				// Slow launch: quadratic ease-in
-				const tNorm = t / 0.15
-				xProgress = 0.1 * tNorm * tNorm
-			} else if (t < 0.85) {
-				// Extended cruise: linear movement (covers most of the distance)
-				const tNorm = (t - 0.15) / 0.7
-				xProgress = 0.1 + 0.75 * tNorm
+			if (t < 0.2) {
+				// Slow lift-off
+				const tNorm = t / 0.2
+				yProgress = 0.15 * tNorm * tNorm
+			} else if (t < 0.8) {
+				// Steady climb
+				const tNorm = (t - 0.2) / 0.6
+				yProgress = 0.15 + 0.6 * tNorm
 			} else {
-				// Explosive exit: cubic acceleration
-				const tNorm = (t - 0.85) / 0.15
-				const explosive = tNorm * tNorm * tNorm
-				xProgress = 0.85 + 0.15 * explosive
+				// Accelerate out
+				const tNorm = (t - 0.8) / 0.2
+				const accel = tNorm * tNorm
+				yProgress = 0.75 + 0.25 * accel
 			}
 
-			// X movement: fly across entire visible width
-			const x = launchStartX + totalDistance * xProgress
+			// X stays constant (straight up), Y decreases (going up)
+			const x = startX
+			const y = launchStartY - totalDistance * yProgress
 
-			// Y movement: gentle sine wobble through center of metro map
-			const centerY = svgHeight / 2
-			const wobble = Math.sin(t * Math.PI * 4) * 25 // 4 gentle wobbles
-			const y = centerY + wobble
-
-			// Rotation: mostly horizontal, slight tilt matching wobble direction
-			const rotation = -90 + Math.cos(t * Math.PI * 4) * 10
+			// Rotation: stays at 0 (pointing up), slight wobble for realism
+			const rotation = Math.sin(t * Math.PI * 6) * 3
 
 			setPosition({ x, y, rotation })
 
@@ -382,7 +378,7 @@ function RocketLaunch({
 
 		const frameId = requestAnimationFrame(animateFrame)
 		return () => cancelAnimationFrame(frameId)
-	}, [svgWidth, svgHeight])
+	}, [startX, startY])
 
 	return (
 		<g transform={`translate(${position.x}, ${position.y})`}>
@@ -395,15 +391,15 @@ function RocketLaunch({
 				</g>
 			</g>
 
-			{/* Dynamic smoke trail based on movement direction */}
+			{/* Smoke trail going DOWN (behind the rocket flying up) */}
 			{[...Array(12)].map((_, i) => {
-				const trailAngle = ((position.rotation + 90) * Math.PI) / 180
-				const offsetX = Math.cos(trailAngle + Math.PI) * (i * 18 + 25)
-				const offsetY = Math.sin(trailAngle + Math.PI) * (i * 18 + 25)
+				// Trail goes straight down (positive Y) with slight spread
+				const spread = Math.sin(i * 0.8) * 8
+				const offsetY = i * 18 + 60 // Below rocket (positive Y = down in SVG)
 				return (
 					<motion.circle
 						key={`smoke-${i}`}
-						cx={offsetX}
+						cx={spread}
 						cy={offsetY}
 						r={5 + i * 1.2}
 						fill={i < 4 ? '#FF8844' : i < 7 ? '#AAAAAA' : '#666666'}
@@ -422,16 +418,15 @@ function RocketLaunch({
 				)
 			})}
 
-			{/* Spark particles trailing behind */}
+			{/* Spark particles trailing below */}
 			{[...Array(6)].map((_, i) => {
-				const trailAngle = ((position.rotation + 90) * Math.PI) / 180
-				const spread = (i - 2.5) * 8
-				const dist = 40 + i * 15
+				const spread = (i - 2.5) * 10
+				const offsetY = 70 + i * 15 // Below rocket
 				return (
 					<motion.circle
 						key={`spark-${i}`}
-						cx={Math.cos(trailAngle + Math.PI) * dist + Math.cos(trailAngle + Math.PI / 2) * spread}
-						cy={Math.sin(trailAngle + Math.PI) * dist + Math.sin(trailAngle + Math.PI / 2) * spread}
+						cx={spread}
+						cy={offsetY}
 						r={2.5}
 						fill="#FFD700"
 						initial={{ opacity: 0.9, scale: 1 }}
@@ -542,7 +537,7 @@ export function AnimatedTrain({ segment, animationKey, svgWidth, svgHeight }: An
 
 		const transformTimer = setTimeout(() => setPhase('transform'), 5500)
 		const launchTimer = setTimeout(() => setPhase('launch'), 6200)
-		const doneTimer = setTimeout(() => setPhase('done'), 12500) // 6200 + 6000 + buffer
+		const doneTimer = setTimeout(() => setPhase('done'), 10500) // 6200 + 4000 + buffer
 
 		return () => {
 			clearTimeout(transformTimer)
