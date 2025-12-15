@@ -2,8 +2,6 @@
 
 import React, { useMemo, useRef, useState } from 'react'
 
-import { useRouter } from 'next/navigation'
-
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
 
@@ -42,7 +40,6 @@ const LanguageOption = ({ locale, currentLanguage, onClick, getFlag, getDisplayN
 )
 
 function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
-	const router = useRouter()
 	const [isOpen, setIsOpen] = useState(false)
 	const { language, setLanguage, isUS } = useDetectLanguage(currentLang)
 	const dropdownRef = useOutsideClick(() => setIsOpen(false))
@@ -52,8 +49,10 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
 	const handleLanguageChange = (newLang: Locale) => {
 		setCookie('detectedLang', newLang, { days: 365 }) // Set cookie to expire in 1 year
 		setLanguage(newLang)
-		router.push(`/${newLang}`)
 		setIsOpen(false)
+		// Use full page navigation to ensure dictionary context is refreshed
+		// This is necessary for static export where layouts are pre-rendered
+		window.location.href = `/${newLang}`
 	}
 
 	const getDisplayName = useMemo(() => (locale: Locale) => i18n.localeNames[locale], [])
