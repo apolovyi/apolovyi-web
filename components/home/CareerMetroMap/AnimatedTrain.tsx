@@ -677,11 +677,12 @@ function SparkleEffect({ color }: { color: string }) {
 export function AnimatedTrain({ segment, animationKey, svgWidth: _svgWidth, svgHeight: _svgHeight, svgRef }: AnimatedTrainProps) {
 	const prefersReducedMotion = useReducedMotion()
 	const { line, points, hasOngoingStation } = segment
-	const [phase, setPhase] = useState<'travel' | 'transform' | 'launch' | 'done'>('travel')
+	const [phase, setPhase] = useState<'travel' | 'fadeOut' | 'done'>('travel')
 	const [trainX, setTrainX] = useState(0)
 
-	// Calculate positions - offset train above the line so it doesn't overlap stations
-	const TRAIN_Y_OFFSET = 15 // Train travels below the line for visibility
+	// Calculate positions - train wheels should sit on the track
+	// Train scale is 1.5, wheels at cy=9, so offset = -(9 * 1.5) = -13.5
+	const TRAIN_Y_OFFSET = -14 // Train wheels on the track
 	const firstPoint = points[0]
 	const startX = firstPoint?.x ?? 0
 	const baseY = firstPoint?.y ?? 0
@@ -728,13 +729,12 @@ export function AnimatedTrain({ segment, animationKey, svgWidth: _svgWidth, svgH
 		setPhase('travel')
 		setTrainX(startX)
 
-		const transformTimer = setTimeout(() => setPhase('transform'), 5500)
-		const launchTimer = setTimeout(() => setPhase('launch'), 6200)
-		const doneTimer = setTimeout(() => setPhase('done'), 10500) // 6200 + 4000 + buffer
+		// Train travels for 5.5s, then fades out over 1.5s
+		const fadeOutTimer = setTimeout(() => setPhase('fadeOut'), 5500)
+		const doneTimer = setTimeout(() => setPhase('done'), 7000)
 
 		return () => {
-			clearTimeout(transformTimer)
-			clearTimeout(launchTimer)
+			clearTimeout(fadeOutTimer)
 			clearTimeout(doneTimer)
 		}
 	}, [animationKey, startX])
@@ -866,28 +866,17 @@ export function AnimatedTrain({ segment, animationKey, svgWidth: _svgWidth, svgH
 				</g>
 			)}
 
-			{/* Phase 2: Transform - train fades out with sparkle burst, then portal rocket takes over */}
-			{phase === 'transform' && (
-				<g transform={`translate(${endX}, ${y})`}>
+			{/* Phase 2: Smooth fade out - train continues forward while fading */}
+			{phase === 'fadeOut' && (
+				<g transform={`translate(0, ${y})`}>
 					<motion.g
-						initial={{ scale: 1, opacity: 1 }}
-						animate={{ scale: 0, opacity: 0, rotate: 15 }}
-						transition={{ duration: 0.5, ease: 'easeIn' }}
+						initial={{ opacity: 1, x: endX, scale: 1 }}
+						animate={{ opacity: 0, x: endX + 100, scale: 0.9 }}
+						transition={{ duration: 1.5, ease: 'easeOut' }}
 					>
 						<TrainIcon color={line.color} />
 					</motion.g>
-					<SparkleEffect color={line.color} />
 				</g>
-			)}
-
-			{/* Phase 3: Rocket launches - rendered via portal for proper overflow */}
-			{phase === 'launch' && svgRef && (
-				<PortalRocketLaunch
-					startX={endX}
-					startY={y}
-					svgRef={svgRef}
-					color={line.color}
-				/>
 			)}
 		</g>
 	)
