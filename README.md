@@ -11,11 +11,11 @@ I chose Next.js because it is a powerful React framework with Server-Side Render
 Tailwind CSS is a framework that significantly reduces styling efforts. It provides low-level CSS classes that can be directly embedded into HTML, streamlining the design process.
 
 ---
+
 ## Technologies & libraries
 
 - Next.js
 - Nodejs
 - TypeScript
 - Tailwind CSS
-- Vercel Analytics
-
+- TinyAnalytics
