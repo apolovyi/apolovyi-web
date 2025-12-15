@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Comfortaa, IBM_Plex_Mono } from 'next/font/google'
-import Script from 'next/script'
 
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
@@ -94,9 +93,9 @@ export default async function LangLayout({ children, params }: { children: React
 				</DictionaryProvider>
 				<StructuredData />
 				{ENABLE_TINY_ANALYTICS && (
-					<Script
+					<script
 						src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"
-						strategy="afterInteractive"
+						defer
 					/>
 				)}
 			</body>
