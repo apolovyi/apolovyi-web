@@ -1090,14 +1090,13 @@ export function getTravelJourneyDots(): Array<{
  * Get unique roles for the hero section typewriter animation
  */
 export function getHeroRoles(lang: Lang): string[] {
-	// Curated list of notable roles to cycle through
-	const roles = [
-		lang === 'en' ? 'Full-Stack Engineer' : 'Full-Stack-Entwickler',
-		lang === 'en' ? 'Senior Backend Engineer' : 'Senior Backend-Entwickler',
-		lang === 'en' ? 'Lead Developer' : 'Lead-Entwickler',
-		lang === 'en' ? 'Software Architect' : 'Software-Architekt',
-	]
-	return roles
+	const rolesByLang: Record<Lang, string[]> = {
+		en: ['Software Engineer', 'Solutions Architect', 'Tech Lead'],
+		de: ['Software-Ingenieur', 'Lösungsarchitekt', 'Tech Lead'],
+		ch: ['Software-Ingenieur', 'Lösungsarchitekt', 'Tech Lead'],
+		uk: ['Інженер-програміст', 'Архітектор рішень', 'Технічний керівник'],
+	}
+	return rolesByLang[lang] ?? rolesByLang.en
 }
 
 // --------------------- Impact Metrics ---------------------
