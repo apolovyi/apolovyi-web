@@ -82,7 +82,12 @@
 			"PEAX",
 			"Zurich"
 		],
-		"cta": "Mein Lebenslauf"
+		"cta": "Mein Lebenslauf",
+		"roles": [
+			"Software-Ingenieur",
+			"Lösungsarchitekt",
+			"Tech Lead"
+		]
 	},
 	"aboutMeSection": {
 		"title": "Über mich",

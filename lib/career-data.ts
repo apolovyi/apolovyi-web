@@ -1084,22 +1084,6 @@ export function getTravelJourneyDots(): Array<{
 	return dots
 }
 
-// --------------------- Hero Roles ---------------------
-
-/**
- * Get unique roles for the hero section typewriter animation
- */
-export function getHeroRoles(lang: Lang): string[] {
-	const locale = lang as string
-	if (locale === 'uk') {
-		return ['Інженер-програміст', 'Архітектор рішень', 'Технічний керівник']
-	}
-	if (locale === 'de' || locale === 'ch') {
-		return ['Software-Ingenieur', 'Lösungsarchitekt', 'Tech Lead']
-	}
-	return ['Software Engineer', 'Solutions Architect', 'Tech Lead']
-}
-
 // --------------------- Impact Metrics ---------------------
 
 export interface DisplayMetric {

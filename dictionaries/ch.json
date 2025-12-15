@@ -82,7 +82,12 @@
 			"PEAX",
 			"Züri"
 		],
-		"cta": "Lueg der min Läbenslauf aa!"
+		"cta": "Lueg der min Läbenslauf aa!",
+		"roles": [
+			"Software-Ingenieur",
+			"Lösungsarchitekt",
+			"Tech Lead"
+		]
 	},
 	"aboutMeSection": {
 		"title": "Über mich",

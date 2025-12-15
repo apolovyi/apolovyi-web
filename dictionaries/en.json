@@ -82,7 +82,12 @@
 			"PEAX",
 			"Zurich"
 		],
-		"cta": "Check out my resume!"
+		"cta": "Check out my resume!",
+		"roles": [
+			"Software Engineer",
+			"Solutions Architect",
+			"Tech Lead"
+		]
 	},
 	"aboutMeSection": {
 		"title": "About Me",

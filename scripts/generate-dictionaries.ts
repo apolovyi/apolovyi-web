@@ -7,6 +7,7 @@
  * This script updates:
  * - experienceSection.roles
  * - heroSection.highlightedTerms
+ * - heroSection.roles
  * - aboutMeSection.highlightedTerms
  */
 import * as fs from 'fs'
@@ -22,6 +23,17 @@ import {
 } from '../lib/career-data'
 
 const DICTIONARIES_DIR = path.join(__dirname, '..', 'dictionaries')
+
+// All supported locales
+type Locale = 'en' | 'de' | 'ch' | 'uk'
+
+// Hero roles for typewriter animation (single source of truth)
+const heroRolesByLocale: Record<Locale, string[]> = {
+	en: ['Software Engineer', 'Solutions Architect', 'Tech Lead'],
+	de: ['Software-Ingenieur', 'Lösungsarchitekt', 'Tech Lead'],
+	ch: ['Software-Ingenieur', 'Lösungsarchitekt', 'Tech Lead'],
+	uk: ['Інженер-програміст', 'Архітектор рішень', 'Технічний керівник'],
+}
 
 interface DictionaryRole {
 	title: string
@@ -87,9 +99,10 @@ function updateDictionary(lang: Lang): void {
 	}
 	dictionary.experienceSection.roles = newRoles
 
-	// Update heroSection.highlightedTerms
+	// Update heroSection.highlightedTerms and roles
 	if (dictionary.heroSection) {
 		dictionary.heroSection.highlightedTerms = getHeroHighlightedTerms()
+		dictionary.heroSection.roles = heroRolesByLocale[lang as Locale]
 	}
 
 	// Update aboutMeSection.highlightedTerms
@@ -103,13 +116,39 @@ function updateDictionary(lang: Lang): void {
 	console.log(`Updated ${filePath} with ${Object.keys(newRoles).length} roles`)
 }
 
+function updateHeroRolesOnly(locale: Locale): void {
+	const filePath = path.join(DICTIONARIES_DIR, `${locale}.json`)
+
+	if (!fs.existsSync(filePath)) {
+		console.error(`Dictionary file not found: ${filePath}`)
+		return
+	}
+
+	const content = fs.readFileSync(filePath, 'utf-8')
+	const dictionary = JSON.parse(content)
+
+	// Update only heroSection.roles
+	if (dictionary.heroSection) {
+		dictionary.heroSection.roles = heroRolesByLocale[locale]
+	}
+
+	fs.writeFileSync(filePath, JSON.stringify(dictionary, null, '\t') + '\n', 'utf-8')
+	console.log(`Updated ${filePath} with hero roles`)
+}
+
 function main(): void {
-	console.log('Generating dictionary roles from career-data.ts...\n')
+	console.log('Generating dictionary content from career-data.ts...\n')
 
-	const languages: Lang[] = ['en', 'de']
-
-	for (const lang of languages) {
+	// Full update for en/de (career data has translations)
+	const fullLanguages: Lang[] = ['en', 'de']
+	for (const lang of fullLanguages) {
 		updateDictionary(lang)
+	}
+
+	// Hero roles only for ch/uk (career data doesn't have these translations)
+	const heroOnlyLocales: Locale[] = ['ch', 'uk']
+	for (const locale of heroOnlyLocales) {
+		updateHeroRolesOnly(locale)
 	}
 
 	console.log('\nDone! Run `npm run validate:dictionaries` to verify.')

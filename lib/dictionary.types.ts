@@ -49,6 +49,7 @@ export interface HeroSection {
 	name: string
 	greeting: string
 	tagline: string
+	roles: string[]
 	resumeHref: string
 	paragraphs: string[]
 	highlightedTerms: string[]

@@ -34,6 +34,7 @@ const heroSectionSchema = z.object({
 	name: z.string(),
 	greeting: z.string(),
 	tagline: z.string(),
+	roles: z.array(z.string()),
 	resumeHref: z.string(),
 	paragraphs: z.array(z.string()),
 	highlightedTerms: z.array(z.string()),

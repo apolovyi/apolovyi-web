@@ -12,8 +12,6 @@ import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
 
-import { type Lang, getHeroRoles } from '@/lib/career-data'
-
 const GithubGlobe = dynamic(() => import('@/components/ui/github-globe').then((m) => m.GithubGlobe), {
 	ssr: false,
 	loading: () => null,
@@ -139,7 +137,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	const baseDelay = finishedLoading ? 0 : 6.4
 	const dictionary = useDictionary()
 	const { heroSection } = dictionary
-	const heroRoles = getHeroRoles(lang as Lang)
+	const heroRoles = heroSection.roles
 	// Extract location suffix from tagline (e.g., "in Zurich." from "Full-Stack Engineer in Zurich.")
 	const taglineSuffix = heroSection.tagline.includes(' in ') ? heroSection.tagline.slice(heroSection.tagline.indexOf(' in ')) : '.'
 
