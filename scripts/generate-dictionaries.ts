@@ -97,8 +97,8 @@ function updateDictionary(lang: Lang): void {
 		dictionary.aboutMeSection.highlightedTerms = getAboutMeHighlightedTerms()
 	}
 
-	// Write back with pretty formatting
-	fs.writeFileSync(filePath, JSON.stringify(dictionary, null, '\t'), 'utf-8')
+	// Write back with pretty formatting (ensure trailing newline)
+	fs.writeFileSync(filePath, JSON.stringify(dictionary, null, '\t') + '\n', 'utf-8')
 
 	console.log(`Updated ${filePath} with ${Object.keys(newRoles).length} roles`)
 }
