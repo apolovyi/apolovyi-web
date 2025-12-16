@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 
-type Theme = 'light' | 'dark' | 'system'
+type Theme = 'light' | 'dark' | 'system' | 'auto'
 
 interface ThemeContextType {
 	theme: Theme
@@ -19,46 +19,74 @@ function getSystemTheme(): 'light' | 'dark' {
 	return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
+function getTimeBasedTheme(): 'light' | 'dark' {
+	const hour = new Date().getHours()
+	// Dark mode from 7pm (19:00) to 7am (07:00)
+	return hour >= 19 || hour < 7 ? 'dark' : 'light'
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-	const [theme, setThemeState] = useState<Theme>('system')
+	const [theme, setThemeState] = useState<Theme>('auto')
 	const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light')
 	const [mounted, setMounted] = useState(false)
 
-	// Calculate resolved theme
-	const updateResolvedTheme = useCallback((currentTheme: Theme) => {
-		const resolved = currentTheme === 'system' ? getSystemTheme() : currentTheme
-		setResolvedTheme(resolved)
-
-		// Update document class
-		if (resolved === 'dark') {
-			document.documentElement.classList.add('dark')
-		} else {
-			document.documentElement.classList.remove('dark')
+	// Calculate resolved theme based on mode
+	const getResolvedTheme = useCallback((currentTheme: Theme): 'light' | 'dark' => {
+		switch (currentTheme) {
+			case 'auto':
+				return getTimeBasedTheme()
+			case 'system':
+				return getSystemTheme()
+			default:
+				return currentTheme
 		}
 	}, [])
+
+	// Update resolved theme and DOM
+	const updateResolvedTheme = useCallback(
+		(currentTheme: Theme) => {
+			const resolved = getResolvedTheme(currentTheme)
+			setResolvedTheme(resolved)
+
+			// Update document class
+			if (resolved === 'dark') {
+				document.documentElement.classList.add('dark')
+			} else {
+				document.documentElement.classList.remove('dark')
+			}
+		},
+		[getResolvedTheme],
+	)
 
 	// Initialize theme from localStorage
 	useEffect(() => {
 		const stored = localStorage.getItem(STORAGE_KEY) as Theme | null
-		const initialTheme = stored || 'system'
+		const initialTheme = stored || 'auto'
 		setThemeState(initialTheme)
 		updateResolvedTheme(initialTheme)
 		setMounted(true)
 	}, [updateResolvedTheme])
 
-	// Listen for system theme changes
+	// Listen for system theme changes (for 'system' mode)
 	useEffect(() => {
-		if (!mounted) return
+		if (!mounted || theme !== 'system') return
 
 		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-		const handleChange = () => {
-			if (theme === 'system') {
-				updateResolvedTheme('system')
-			}
-		}
+		const handleChange = () => updateResolvedTheme('system')
 
 		mediaQuery.addEventListener('change', handleChange)
 		return () => mediaQuery.removeEventListener('change', handleChange)
+	}, [theme, mounted, updateResolvedTheme])
+
+	// Check time periodically for 'auto' mode (every minute)
+	useEffect(() => {
+		if (!mounted || theme !== 'auto') return
+
+		const interval = setInterval(() => {
+			updateResolvedTheme('auto')
+		}, 60000) // Check every minute
+
+		return () => clearInterval(interval)
 	}, [theme, mounted, updateResolvedTheme])
 
 	const setTheme = useCallback(

@@ -94,8 +94,22 @@ export default async function LangLayout({ children, params }: { children: React
 							(function() {
 								try {
 									var theme = localStorage.getItem('theme');
-									var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-									if (theme === 'dark' || (!theme && prefersDark)) {
+									var hour = new Date().getHours();
+									var isNightTime = hour >= 19 || hour < 7;
+									var isDark = false;
+
+									if (theme === 'dark') {
+										isDark = true;
+									} else if (theme === 'light') {
+										isDark = false;
+									} else if (theme === 'system') {
+										isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+									} else {
+										// 'auto' or no preference: use time-based
+										isDark = isNightTime;
+									}
+
+									if (isDark) {
 										document.documentElement.classList.add('dark');
 									}
 								} catch (e) {}
