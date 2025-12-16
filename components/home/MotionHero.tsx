@@ -141,7 +141,18 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	const { heroSection } = dictionary
 	const heroRoles = heroSection.roles
 	// Extract location suffix from tagline (e.g., "in Zurich." from "Full-Stack Engineer in Zurich.")
-	const taglineSuffix = heroSection.tagline.includes(' in') ? heroSection.tagline.slice(heroSection.tagline.indexOf(' in')) : '.'
+	// Supports: "in" (en/de), "i" (ch), "у" (uk)
+	const getTaglineSuffix = (tagline: string): string => {
+		const patterns = [' in ', ' i ', ' у ']
+		for (const pattern of patterns) {
+			const idx = tagline.lastIndexOf(pattern)
+			if (idx !== -1) {
+				return tagline.slice(idx + 1) // +1 to skip leading space
+			}
+		}
+		return '.'
+	}
+	const taglineSuffix = getTaglineSuffix(heroSection.tagline)
 
 	// Defer heavy effects on mobile and respect reduced motion
 	const [effectsOn, setEffectsOn] = useState(true)
