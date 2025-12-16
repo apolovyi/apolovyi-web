@@ -250,15 +250,20 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 					target="_blank"
 					rel="noreferrer"
 				>
-					<button
+					<motion.button
 						ref={ctaRef}
-						className="relative p-[2px]"
+						className="group relative overflow-hidden rounded-md p-[2px] shadow-lg transition-shadow duration-300 hover:shadow-xl hover:shadow-accent-coral/25 dark:shadow-accent-coral/10 dark:hover:shadow-accent-coral/30"
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.98 }}
+						transition={{ type: 'spring', stiffness: 400, damping: 17 }}
 					>
-						<div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary to-secondary" />
-						<div className="group relative rounded-[6px] bg-background-primary px-8 py-3 font-heading text-accent-coral transition duration-200 hover:bg-transparent hover:text-white">
+						{/* Animated gradient background */}
+						<div className="absolute inset-0 animate-[shimmer_3s_ease-in-out_infinite] bg-gradient-to-r from-accent-blue via-accent-coral to-accent-blue bg-[length:200%_100%]" />
+						{/* Inner content */}
+						<div className="relative rounded-[5px] bg-background-primary px-8 py-3 font-heading text-accent-coral transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
 							{heroSection.cta}
 						</div>
-					</button>
+					</motion.button>
 				</a>
 			</AnimatedText>
 		</div>
