@@ -94,6 +94,17 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+
+	/* Text selection colors */
+	::selection {
+		background-color: rgba(0, 91, 176, 0.3); /* accent-blue with opacity */
+		color: inherit;
+	}
+
+	.dark ::selection {
+		background-color: rgba(194, 59, 59, 0.4); /* accent-coral with opacity */
+		color: #ffffff;
+	}
 }
 
 /* Print styles for grayscale PDF export */
