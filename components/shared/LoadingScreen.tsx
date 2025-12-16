@@ -178,29 +178,13 @@ export function LoadingScreen() {
 	const [isVisible, setIsVisible] = useState(true)
 
 	useEffect(() => {
-		// Minimum display time ensures animation is visible and hydration completes
-		const minDisplayTime = 500
+		// Simple approach: hide after 500ms minimum
+		// By the time React hydrates, the page is already interactive
+		const timer = setTimeout(() => {
+			setIsLoading(false)
+		}, 500)
 
-		const startTime = Date.now()
-
-		const hideLoader = () => {
-			const elapsed = Date.now() - startTime
-			const remainingTime = Math.max(0, minDisplayTime - elapsed)
-
-			// Wait for minimum display time before hiding
-			setTimeout(() => setIsLoading(false), remainingTime)
-		}
-
-		// Hide after page is fully loaded (or immediately if already loaded)
-		if (document.readyState === 'complete') {
-			hideLoader()
-		} else {
-			window.addEventListener('load', hideLoader)
-		}
-
-		return () => {
-			window.removeEventListener('load', hideLoader)
-		}
+		return () => clearTimeout(timer)
 	}, [])
 
 	// Remove from DOM after exit animation completes, then signal ready
