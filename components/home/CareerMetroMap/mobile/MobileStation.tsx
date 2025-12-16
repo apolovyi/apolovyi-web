@@ -16,12 +16,6 @@ interface MobileStationProps {
 	index: number
 }
 
-// Truncate company name if too long
-function truncateCompany(name: string, maxLength: number = 20): string {
-	if (name.length <= maxLength) return name
-	return name.substring(0, maxLength - 1) + '…'
-}
-
 export function MobileStation({ id, x, y, station, isActive, onSelect, index }: MobileStationProps) {
 	const isCurrentJob = station.period.end === 'present' && !station.isVolunteer
 
@@ -31,8 +25,8 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 	// Get primary line color for the station
 	const primaryLineColor = station.lines[0] === 'backend' ? '#3B82F6' : station.lines[0] === 'frontend' ? '#10B981' : '#8B5CF6'
 
-	// Truncate long company names for better fit
-	const displayName = truncateCompany(station.company)
+	// Use shortName if available, otherwise use company name
+	const displayName = station.shortName || station.company
 
 	const handleClick = () => {
 		onSelect(stationIdToDictionaryKey(id))

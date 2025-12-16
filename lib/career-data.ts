@@ -16,6 +16,7 @@ export interface TaskItem {
 export interface CareerStation {
 	id: string
 	company: string
+	shortName?: string // Short display name for mobile (if company name is too long)
 	role: {
 		en: string
 		de: string
@@ -117,6 +118,7 @@ export const stations: CareerStation[] = [
 	{
 		id: 'silvertours',
 		company: 'SilverTours GmbH',
+		shortName: 'SilverTours',
 		role: {
 			en: 'Student Full-Stack Developer',
 			de: 'Studentischer Full-Stack-Entwickler',
@@ -222,6 +224,7 @@ export const stations: CareerStation[] = [
 	{
 		id: 'senacor',
 		company: 'Senacor Technologies',
+		shortName: 'Senacor',
 		role: {
 			en: 'Java Developer (Intern)',
 			de: 'Java-Entwickler (Praktikum)',
@@ -322,6 +325,7 @@ export const stations: CareerStation[] = [
 	{
 		id: 'comsysto',
 		company: 'Comsysto Reply GmbH',
+		shortName: 'Comsysto Reply',
 		role: {
 			en: 'Full-Stack Engineer',
 			de: 'Full-Stack-Entwickler',
@@ -499,6 +503,7 @@ export const stations: CareerStation[] = [
 	{
 		id: 'virtual-identity',
 		company: 'Virtual Identity AG',
+		shortName: 'Virtual Identity',
 		role: {
 			en: 'Senior Full-Stack Engineer',
 			de: 'Senior Full-Stack-Entwickler',
@@ -644,6 +649,7 @@ export const stations: CareerStation[] = [
 	{
 		id: 'bicester',
 		company: 'The Bicester Collection',
+		shortName: 'Bicester Collection',
 		role: {
 			en: 'Lead Full-Stack Engineer',
 			de: 'Lead Full-Stack-Entwickler',
