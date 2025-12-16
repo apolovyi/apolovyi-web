@@ -6,26 +6,18 @@ const HexagonLogo = () => (
 		viewBox="0 0 100 100"
 		width="50"
 		height="50"
+		className="hexagon-logo"
 	>
-		<style>
-			{`
-        .hexagon { fill: #fafafa; stroke: #ea5555; stroke-width: 2; }
-        .text { font-size: 40px; fill: #ea5555; font-weight: 200; }
-      `}
-		</style>
-
-		{/* Hexagon */}
 		<polygon
-			className="hexagon"
 			points="50,5 95,30 95,70 50,95 5,70 5,30"
+			className="fill-background-primary stroke-accent-coral"
+			strokeWidth="2"
 		/>
-
-		{/* AP Text */}
 		<text
 			x="50"
 			y="62"
 			textAnchor="middle"
-			className="text"
+			className="fill-accent-coral text-[40px] font-extralight"
 		>
 			AP
 		</text>

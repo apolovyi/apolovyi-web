@@ -250,15 +250,20 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 					target="_blank"
 					rel="noreferrer"
 				>
-					<button
+					<motion.button
 						ref={ctaRef}
-						className="relative p-[2px]"
+						className="group relative overflow-hidden rounded-md p-[2px] shadow-lg transition-shadow duration-300 hover:shadow-xl hover:shadow-accent-coral/25 dark:shadow-accent-coral/10 dark:hover:shadow-accent-coral/30"
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.98 }}
+						transition={{ type: 'spring', stiffness: 400, damping: 17 }}
 					>
-						<div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary to-secondary" />
-						<div className="group relative rounded-[6px] bg-white px-8 py-3 font-heading text-accent-coral transition duration-200 hover:bg-transparent hover:text-white">
+						{/* Animated gradient background */}
+						<div className="absolute inset-0 animate-[shimmer_3s_ease-in-out_infinite] bg-gradient-to-r from-accent-blue via-accent-coral to-accent-blue bg-[length:200%_100%]" />
+						{/* Inner content */}
+						<div className="relative rounded-[5px] bg-background-primary px-8 py-3 font-heading text-accent-coral transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
 							{heroSection.cta}
 						</div>
-					</button>
+					</motion.button>
 				</a>
 			</AnimatedText>
 		</div>
@@ -279,14 +284,14 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 
 	// Single layout - CSS controls which background shows (no JS layout switching)
 	return (
-		<section className="relative h-dvh overflow-hidden bg-white">
+		<section className="relative h-dvh overflow-hidden bg-background-primary">
 			{/* Desktop: Globe (hidden on mobile via CSS, lazy-loaded client-only) */}
 			<div className="absolute right-[5%] top-1/2 z-[5] hidden h-[600px] w-[600px] -translate-y-1/2 lg:right-[2%] lg:block lg:h-[650px] lg:w-[650px] xl:right-[8%] xl:h-[700px] xl:w-[700px] 2xl:right-[12%] 2xl:h-[750px] 2xl:w-[750px] min-[1800px]:right-[15%] min-[1800px]:h-[800px] min-[1800px]:w-[800px]">
 				<GithubGlobe />
 			</div>
 
 			{/* Desktop: Gradient overlay (hidden on mobile) */}
-			<div className="pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-r from-white via-white/95 via-50% to-white/10 lg:block" />
+			<div className="via-background-primary/95 to-background-primary/10 pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-r from-background-primary via-50% lg:block" />
 
 			{/* Mobile: Aurora effect (hidden on desktop, lazy-loaded client-only) */}
 			<div className="lg:hidden">

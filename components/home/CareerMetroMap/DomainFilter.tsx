@@ -24,7 +24,7 @@ export function DomainFilter({ domains, activeDomain, onSelectDomain }: DomainFi
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 1.2, duration: 0.4 }}
 		>
-			<span className="font-tech text-[10px] uppercase tracking-wide text-text-secondary/60">Industry:</span>
+			<span className="text-text-secondary/60 font-tech text-[10px] uppercase tracking-wide">Industry:</span>
 			{domains.map((domain) => {
 				const isActive = activeDomain === domain.id
 
@@ -36,7 +36,7 @@ export function DomainFilter({ domains, activeDomain, onSelectDomain }: DomainFi
 							isActive
 								? 'bg-accent-coral/20 text-accent-coral'
 								: activeDomain
-									? 'bg-transparent text-text-secondary/40 hover:text-text-secondary/60'
+									? 'text-text-secondary/40 hover:text-text-secondary/60 bg-transparent'
 									: 'bg-text-secondary/5 text-text-secondary/70 hover:bg-text-secondary/10'
 						}`}
 						aria-pressed={isActive}

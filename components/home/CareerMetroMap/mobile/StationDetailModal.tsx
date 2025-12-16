@@ -141,7 +141,7 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 						<div className="sticky top-0 z-10 bg-background-primary px-4 pb-3 pt-4">
 							{/* Drag handle */}
 							<div className="mb-3 flex justify-center">
-								<div className="h-1 w-10 rounded-full bg-text-secondary/20" />
+								<div className="bg-text-secondary/20 h-1 w-10 rounded-full" />
 							</div>
 
 							<div className="flex items-start justify-between gap-3">

@@ -309,12 +309,12 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 
 			{/* Travel map for career break */}
 			{isCareerBreak && (
-				<div className="mt-4 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 shadow-sm">
+				<div className="mt-4 overflow-hidden rounded-lg border border-neutral-light-gray bg-background-secondary shadow-sm">
 					<div className="aspect-[2/1] w-full">
 						<WorldMap dots={getTravelJourneyDots()} />
 					</div>
-					<div className="border-t border-neutral-200 bg-white/50 px-3 py-2">
-						<p className="font-tech text-xs text-neutral-600">
+					<div className="bg-background-primary/50 border-t border-neutral-light-gray px-3 py-2">
+						<p className="font-tech text-xs text-text-secondary">
 							11 countries visited: Greece, Egypt, South Africa, Zambia, Zimbabwe, Fiji, Australia, Chile, Argentina, Colombia, Ecuador
 						</p>
 					</div>

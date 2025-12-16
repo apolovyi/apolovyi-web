@@ -203,7 +203,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 			>
 				{/* Scroll hint for mobile only (hidden on tablet+) */}
 				{!hasScrolled && (
-					<div className="pointer-events-none absolute right-2 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1 rounded-full bg-background-secondary/80 px-2 py-1 text-text-secondary/70 backdrop-blur-sm md:hidden">
+					<div className="bg-background-secondary/80 text-text-secondary/70 pointer-events-none absolute right-2 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1 rounded-full px-2 py-1 backdrop-blur-sm md:hidden">
 						<span className="font-tech text-[10px] uppercase tracking-wide">Scroll</span>
 						<svg
 							width="14"
@@ -413,7 +413,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 					/>
 					<button
 						onClick={handleReplay}
-						className="group flex flex-shrink-0 items-center gap-1.5 rounded-full border border-text-secondary/20 px-2 py-1 text-text-secondary/60 transition-all hover:border-text-secondary/40 hover:text-text-secondary"
+						className="border-text-secondary/20 text-text-secondary/60 hover:border-text-secondary/40 group flex flex-shrink-0 items-center gap-1.5 rounded-full border px-2 py-1 transition-all hover:text-text-secondary"
 						aria-label="Replay animation"
 						title="Replay animation"
 					>

@@ -47,7 +47,7 @@ export default function ScrollProgressIndicator() {
 
 	return (
 		<div
-			className="fixed left-0 right-0 top-0 z-50 h-1 bg-gray-200/30"
+			className="bg-neutral-light-gray/30 fixed left-0 right-0 top-0 z-50 h-1"
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 			role="progressbar"

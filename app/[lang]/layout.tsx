@@ -11,6 +11,7 @@ import { AppProvider } from '@/components/shared/AppContext'
 import { DictionaryProvider } from '@/components/shared/DictionaryContext'
 import { LoadingScreen } from '@/components/shared/LoadingScreen'
 import SmoothScrollProvider from '@/components/shared/SmoothScrollProvider'
+import { ThemeProvider } from '@/components/shared/ThemeProvider'
 
 import { getDictionary as getServerDictionary } from '@/lib/dictionary.server'
 
@@ -83,17 +84,52 @@ export default async function LangLayout({ children, params }: { children: React
 		<html
 			lang={lang}
 			className={`${comfortaa.variable} ${ibmPlexMono.variable} overflow-x-hidden`}
+			suppressHydrationWarning
 		>
+			<head>
+				{/* Prevent flash of wrong theme */}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							(function() {
+								try {
+									var theme = localStorage.getItem('theme');
+									var hour = new Date().getHours();
+									var isNightTime = hour >= 19 || hour < 7;
+									var isDark = false;
+
+									if (theme === 'dark') {
+										isDark = true;
+									} else if (theme === 'light') {
+										isDark = false;
+									} else if (theme === 'system') {
+										isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+									} else {
+										// 'auto' or no preference: use time-based
+										isDark = isNightTime;
+									}
+
+									if (isDark) {
+										document.documentElement.classList.add('dark');
+									}
+								} catch (e) {}
+							})();
+						`,
+					}}
+				/>
+			</head>
 			<body className="overflow-x-hidden">
-				<LoadingScreen />
-				<WebVitals />
-				<LanguageDetector />
-				<DictionaryProvider dictionary={dictionary}>
-					<AppProvider>
-						<SmoothScrollProvider>{children}</SmoothScrollProvider>
-					</AppProvider>
-				</DictionaryProvider>
-				<StructuredData />
+				<ThemeProvider>
+					<LoadingScreen />
+					<WebVitals />
+					<LanguageDetector />
+					<DictionaryProvider dictionary={dictionary}>
+						<AppProvider>
+							<SmoothScrollProvider>{children}</SmoothScrollProvider>
+						</AppProvider>
+					</DictionaryProvider>
+					<StructuredData />
+				</ThemeProvider>
 				{ENABLE_TINY_ANALYTICS && (
 					<script
 						src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"

@@ -62,24 +62,24 @@ module.exports = {
 				highlight: 'rgba(172,220,255,0.87)',
 				border: 'var(--border)',
 				neutral: {
-					'offwhite': '#F7F7F7',
-					'light-gray': '#E5E5E5',
-					'medium-gray': '#A0A0A0',
+					'offwhite': 'var(--neutral-offwhite)',
+					'light-gray': 'var(--neutral-light-gray)',
+					'medium-gray': 'var(--neutral-medium-gray)',
 				},
 				input: 'var(--input)',
 				ring: 'var(--ring)',
 				// background: "var(--background)",
 				background: {
 					DEFAULT: 'var(--background)',
-					primary: '#FFFFFF',
-					secondary: '#FAFAFA',
+					primary: 'var(--bg-primary)',
+					secondary: 'var(--bg-secondary)',
 				},
 				foreground: 'var(--foreground)',
 				error: '#C90000',
 				success: '#00C968',
 				text: {
-					primary: '#2B2B2B',
-					secondary: '#4A4A4A',
+					primary: 'var(--text-primary)',
+					secondary: 'var(--text-secondary)',
 				},
 				primary: {
 					DEFAULT: 'var(--primary)',
@@ -126,6 +126,10 @@ module.exports = {
 						backgroundPosition: '350% 50%, 350% 50%',
 					},
 				},
+				'shimmer': {
+					'0%': { backgroundPosition: '200% 0' },
+					'100%': { backgroundPosition: '-200% 0' },
+				},
 				'accordion-down': {
 					from: { height: '0' },
 					to: { height: 'var(--radix-accordion-content-height)' },
@@ -137,6 +141,7 @@ module.exports = {
 			},
 			animation: {
 				'aurora': 'aurora 60s linear infinite',
+				'shimmer': 'shimmer 3s ease-in-out infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 			},
