@@ -102,8 +102,8 @@ const TypedRoles = ({ roles, suffix, className, enabled = true, delay = 0 }: Typ
 	if (!enabled) {
 		return (
 			<span className={className}>
-				{roles[0]}
-				{suffix}
+				<span className="block">{roles[0]}</span>
+				<span className="block">{suffix}</span>
 			</span>
 		)
 	}
@@ -114,14 +114,16 @@ const TypedRoles = ({ roles, suffix, className, enabled = true, delay = 0 }: Typ
 			aria-live="polite"
 			aria-atomic="true"
 		>
-			{displayText}
-			<span
-				className="animate-pulse text-accent-coral"
-				aria-hidden="true"
-			>
-				|
+			<span className="block min-h-[1.2em]">
+				{displayText}
+				<span
+					className="animate-pulse text-accent-coral"
+					aria-hidden="true"
+				>
+					|
+				</span>
 			</span>
-			{suffix}
+			<span className="block">{suffix}</span>
 		</span>
 	)
 }
