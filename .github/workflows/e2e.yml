@@ -1,0 +1,105 @@
+name: E2E Tests
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, labeled, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      test_level:
+        description: 'Test coverage level'
+        required: true
+        default: 'core'
+        type: choice
+        options:
+          - core
+          - full
+
+env:
+  CI: true
+
+jobs:
+  e2e:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Skip if PR is draft (unless labeled for full tests)
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      !github.event.pull_request.draft ||
+      contains(github.event.pull_request.labels.*.name, 'test:full')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium webkit firefox
+
+      - name: Install Playwright system deps
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium webkit firefox
+
+      - name: Build application
+        run: npm run build
+
+      - name: Determine test scope
+        id: test-scope
+        run: |
+          # Full suite triggers:
+          # 1. Manual dispatch with 'full' selected
+          # 2. PR labeled with 'test:full'
+          # 3. PR is NOT a draft (ready for review)
+          #
+          # Core tests (fast feedback):
+          # - Draft PRs without 'test:full' label
+
+          IS_DRAFT="${{ github.event.pull_request.draft }}"
+          HAS_FULL_LABEL="${{ contains(github.event.pull_request.labels.*.name, 'test:full') }}"
+          IS_MANUAL_FULL="${{ github.event_name == 'workflow_dispatch' && inputs.test_level == 'full' }}"
+
+          if [[ "$IS_MANUAL_FULL" == "true" ]]; then
+            echo "projects=" >> $GITHUB_OUTPUT
+            echo "scope=full" >> $GITHUB_OUTPUT
+          elif [[ "$HAS_FULL_LABEL" == "true" ]]; then
+            echo "projects=" >> $GITHUB_OUTPUT
+            echo "scope=full" >> $GITHUB_OUTPUT
+          elif [[ "$IS_DRAFT" != "true" ]]; then
+            # Non-draft PRs always get full tests
+            echo "projects=" >> $GITHUB_OUTPUT
+            echo "scope=full" >> $GITHUB_OUTPUT
+          else
+            # Draft PRs get core tests only
+            echo "projects=--project=chrome-desktop --project=safari-desktop --project=iphone-12" >> $GITHUB_OUTPUT
+            echo "scope=core" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run E2E tests (${{ steps.test-scope.outputs.scope }})
+        run: npx playwright test ${{ steps.test-scope.outputs.projects }}
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-${{ steps.test-scope.outputs.scope }}
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
