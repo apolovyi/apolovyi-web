@@ -255,7 +255,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 						className="relative p-[2px]"
 					>
 						<div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary to-secondary" />
-						<div className="group relative rounded-[6px] bg-white px-8 py-3 font-heading text-accent-coral transition duration-200 hover:bg-transparent hover:text-white">
+						<div className="group relative rounded-[6px] bg-background-primary px-8 py-3 font-heading text-accent-coral transition duration-200 hover:bg-transparent hover:text-white">
 							{heroSection.cta}
 						</div>
 					</button>
