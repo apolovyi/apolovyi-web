@@ -15,7 +15,8 @@ import { TimelineAxis } from './TimelineAxis'
 import { ANIMATION_CONFIG, SVG_DIMENSIONS, TIMELINE } from './constants'
 import { LINE_Y_POSITIONS, getStationLines, useStationLayout } from './hooks/useStationLayout'
 import { MobileTrainJourney } from './mobile/MobileTrainJourney'
-import { StationBottomSheet } from './mobile/StationBottomSheet'
+import { StationCard } from './mobile/StationCard'
+import { StationDetailModal } from './mobile/StationDetailModal'
 import type { CareerMetroMapProps } from './types'
 
 // All line IDs for initial state
@@ -37,6 +38,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 	const [hasScrolled, setHasScrolled] = useState(false)
 	const [showTrain, setShowTrain] = useState(false)
 	const [isMobile, setIsMobile] = useState(false)
+	const [isModalOpen, setIsModalOpen] = useState(false)
 	const scrollContainerRef = useRef<HTMLDivElement>(null)
 	const svgRef = useRef<SVGSVGElement>(null)
 
@@ -163,33 +165,12 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 		onStationSelect(dictionaryKey)
 	}
 
-	// Auto-scroll to show bottom sheet when station is selected on mobile
-	const handleAutoScroll = useCallback(() => {
-		// Find the mobile train journey container
-		const mobileContainer = document.querySelector('[data-mobile-train-journey]')
-		if (!mobileContainer) return
+	// Close modal when station changes
+	useEffect(() => {
+		setIsModalOpen(false)
+	}, [activeStation])
 
-		const rect = mobileContainer.getBoundingClientRect()
-		const bottomSheetHeight = 380 // Expanded height from constants
-		const padding = 20 // Extra padding
-
-		// Check if bottom sheet content would be cut off
-		const mapBottom = rect.bottom
-		const viewportHeight = window.innerHeight
-		const availableSpace = viewportHeight - mapBottom
-
-		// Only scroll if expanded bottom sheet won't fit
-		if (availableSpace < bottomSheetHeight + padding) {
-			// Scroll just enough to fit the expanded sheet below the map
-			const scrollNeeded = bottomSheetHeight + padding - availableSpace
-			window.scrollTo({
-				top: window.scrollY + scrollNeeded,
-				behavior: 'smooth',
-			})
-		}
-	}, [])
-
-	// Mobile: show train journey with bottom sheet
+	// Mobile: show train journey with compact card + modal
 	if (isMobile) {
 		return (
 			<div className={cn('flex flex-col gap-3 overflow-x-hidden', className)}>
@@ -197,9 +178,14 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 					activeStation={activeStation}
 					onStationSelect={onStationSelect}
 				/>
-				<StationBottomSheet
+				<StationCard
 					activeStation={activeStation}
-					onAutoScroll={handleAutoScroll}
+					onCardTap={() => setIsModalOpen(true)}
+				/>
+				<StationDetailModal
+					activeStation={activeStation}
+					isOpen={isModalOpen}
+					onClose={() => setIsModalOpen(false)}
 				/>
 			</div>
 		)

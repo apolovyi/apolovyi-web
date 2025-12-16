@@ -72,7 +72,6 @@ export function MobileTrainJourney({ className, activeStation: externalActiveSta
 	return (
 		<div
 			ref={containerRef}
-			data-mobile-train-journey
 			className={cn('overflow-x-hidden', className)}
 		>
 			<div className="relative w-full overflow-hidden">

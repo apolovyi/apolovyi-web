@@ -53,7 +53,6 @@ export const TRAIN_CONFIG = {
 // Animation timings
 export const ANIMATION_CONFIG = {
 	stationActivation: 200, // ms
-	bottomSheetExpand: 300, // ms
 	trainSmooth: 100, // ms for scroll interpolation
 } as const
 
@@ -76,11 +75,4 @@ export const SCENERY_COLORS = {
 	},
 	trees: '#6B7280',
 	ground: '#F1F5F9',
-} as const
-
-// Bottom sheet configuration
-export const BOTTOM_SHEET_CONFIG = {
-	collapsedHeight: 88,
-	expandedHeight: 380,
-	peekHeight: 60, // How much shows when fully collapsed
 } as const
