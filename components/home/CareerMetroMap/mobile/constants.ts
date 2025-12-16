@@ -40,7 +40,7 @@ export const STATION_CONFIG = {
 		active: 10,
 		pulse: 16,
 	},
-	labelOffset: 18,
+	labelOffset: 16, // Reduced from 18 for better fit on narrow screens
 } as const
 
 // Train configuration
