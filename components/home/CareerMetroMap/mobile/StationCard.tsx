@@ -69,15 +69,15 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 	const totalTechCount = station?.technologies?.length || 0
 
 	return (
-		<AnimatePresence mode="wait">
+		<AnimatePresence mode="popLayout">
 			<motion.button
 				key={activeStation}
 				onClick={onCardTap}
 				className="fixed bottom-0 left-0 right-0 z-50 touch-manipulation text-left active:bg-background-secondary/50"
-				initial={{ y: 100, opacity: 0 }}
+				initial={{ y: 80, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
-				exit={{ y: 100, opacity: 0 }}
-				transition={{ duration: 0.2, ease: 'easeOut' }}
+				exit={{ y: 60, opacity: 0 }}
+				transition={{ type: 'spring', stiffness: 400, damping: 30 }}
 			>
 				<div
 					className="rounded-t-2xl bg-background-primary px-4 pb-4 pt-3"

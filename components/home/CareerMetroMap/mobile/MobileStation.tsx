@@ -33,7 +33,7 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 	}
 
 	return (
-		<g
+		<motion.g
 			onClick={handleClick}
 			style={{ cursor: 'pointer' }}
 			role="button"
@@ -45,6 +45,8 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 					handleClick()
 				}
 			}}
+			whileTap={{ scale: 0.92, opacity: 0.8 }}
+			transition={{ duration: 0.1 }}
 		>
 			{/* Hit area - larger invisible circle for easier tapping */}
 			<circle
@@ -143,6 +145,6 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 			>
 				{station.period.start} - {station.period.end === 'present' ? 'Present' : station.period.end}
 			</text>
-		</g>
+		</motion.g>
 	)
 }

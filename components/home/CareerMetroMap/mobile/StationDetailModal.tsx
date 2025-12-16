@@ -135,7 +135,7 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 						initial={{ y: '100%' }}
 						animate={{ y: 0 }}
 						exit={{ y: '100%' }}
-						transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+						transition={{ type: 'spring', damping: 30, stiffness: 200, mass: 0.8 }}
 					>
 						{/* Header */}
 						<div className="sticky top-0 z-10 bg-background-primary px-4 pb-3 pt-4">
