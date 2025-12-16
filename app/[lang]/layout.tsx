@@ -82,9 +82,9 @@ export default async function LangLayout({ children, params }: { children: React
 	return (
 		<html
 			lang={lang}
-			className={`${comfortaa.variable} ${ibmPlexMono.variable}`}
+			className={`${comfortaa.variable} ${ibmPlexMono.variable} overflow-x-hidden`}
 		>
-			<body>
+			<body className="overflow-x-hidden">
 				<LoadingScreen />
 				<WebVitals />
 				<LanguageDetector />

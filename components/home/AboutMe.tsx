@@ -129,7 +129,7 @@ const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 							{highlightTerms(aboutMeSection.paragraphs.specialization)}
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.mindset}</p>
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.technologies}</p>
-							<div className="flex space-x-16 font-tech">
+							<div className="flex flex-col gap-4 font-tech min-[375px]:flex-row min-[375px]:gap-8 sm:gap-16">
 								{technologies.map((techList, index) => (
 									<TechList
 										key={index}

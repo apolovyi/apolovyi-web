@@ -163,17 +163,27 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 		onStationSelect(dictionaryKey)
 	}
 
-	// Auto-scroll to bottom sheet when station is selected on mobile
+	// Auto-scroll to show bottom sheet when station is selected on mobile
 	const handleAutoScroll = useCallback(() => {
-		// Scroll to show the bottom sheet - scroll to bottom of the experience section
-		const experienceSection = document.getElementById('experienceSection')
-		if (experienceSection) {
-			const rect = experienceSection.getBoundingClientRect()
-			const sectionBottom = window.scrollY + rect.bottom
-			// Scroll so the bottom sheet is visible (accounting for bottom sheet height)
-			const targetScroll = sectionBottom - window.innerHeight + 100
+		// Find the mobile train journey container
+		const mobileContainer = document.querySelector('[data-mobile-train-journey]')
+		if (!mobileContainer) return
+
+		const rect = mobileContainer.getBoundingClientRect()
+		const bottomSheetHeight = 380 // Expanded height from constants
+		const padding = 20 // Extra padding
+
+		// Check if bottom sheet content would be cut off
+		const mapBottom = rect.bottom
+		const viewportHeight = window.innerHeight
+		const availableSpace = viewportHeight - mapBottom
+
+		// Only scroll if expanded bottom sheet won't fit
+		if (availableSpace < bottomSheetHeight + padding) {
+			// Scroll just enough to fit the expanded sheet below the map
+			const scrollNeeded = bottomSheetHeight + padding - availableSpace
 			window.scrollTo({
-				top: Math.max(0, targetScroll),
+				top: window.scrollY + scrollNeeded,
 				behavior: 'smooth',
 			})
 		}

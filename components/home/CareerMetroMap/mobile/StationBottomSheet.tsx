@@ -79,13 +79,18 @@ export function StationBottomSheet({ activeStation, onAutoScroll }: StationBotto
 	const dictionary = useDictionary()
 	const sheetRef = useRef<HTMLDivElement>(null)
 
-	// Reset expanded state and trigger auto-scroll when station changes
+	// Auto-expand and trigger auto-scroll when station changes
 	useEffect(() => {
-		setIsExpanded(false)
-		// Trigger auto-scroll callback when a new station is selected
-		if (activeStation && onAutoScroll) {
-			// Small delay to let the bottom sheet animate in
-			setTimeout(() => onAutoScroll(), 100)
+		if (activeStation) {
+			// Auto-expand to show job details immediately
+			setIsExpanded(true)
+			// Trigger auto-scroll callback
+			if (onAutoScroll) {
+				// Small delay to let the bottom sheet animate in
+				setTimeout(() => onAutoScroll(), 100)
+			}
+		} else {
+			setIsExpanded(false)
 		}
 	}, [activeStation, onAutoScroll])
 

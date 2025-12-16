@@ -87,23 +87,32 @@ export function SwissScenery({ scrollProgress }: SwissSceneryProps) {
 	const farMountainPath = useMemo(() => generateMountainPath(500, 80, 5, 1), [])
 	const nearMountainPath = useMemo(() => generateMountainPath(550, 60, 4, 2), [])
 
-	// Tree positions (scattered along the sides)
+	// Tree positions (scattered along the sides - kept within safe bounds)
 	const trees = useMemo(
 		() => [
 			{ x: 30, y: 200, scale: 0.8, opacity: 0.4 },
 			{ x: 50, y: 350, scale: 1, opacity: 0.5 },
-			{ x: 340, y: 280, scale: 0.9, opacity: 0.45 },
-			{ x: 320, y: 450, scale: 1.1, opacity: 0.5 },
+			{ x: 330, y: 280, scale: 0.9, opacity: 0.45 },
+			{ x: 310, y: 450, scale: 1.1, opacity: 0.5 },
 			{ x: 60, y: 520, scale: 0.7, opacity: 0.35 },
-			{ x: 310, y: 600, scale: 0.85, opacity: 0.4 },
+			{ x: 300, y: 600, scale: 0.85, opacity: 0.4 },
 		],
 		[],
 	)
 
 	return (
-		<g>
-			{/* Sky gradient background */}
+		<g clipPath="url(#sceneryClip)">
+			{/* Clip path and gradients */}
 			<defs>
+				{/* Clip path to prevent horizontal overflow */}
+				<clipPath id="sceneryClip">
+					<rect
+						x={0}
+						y={0}
+						width={MOBILE_SVG.viewBox.width}
+						height={MOBILE_SVG.viewBox.height}
+					/>
+				</clipPath>
 				<linearGradient
 					id="skyGradient"
 					x1="0%"
