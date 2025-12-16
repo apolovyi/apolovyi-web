@@ -81,7 +81,7 @@ jobs:
             echo "projects=" >> $GITHUB_OUTPUT
             echo "scope=full" >> $GITHUB_OUTPUT
           else
-            # Draft PRs get core tests only
+            # Draft PRs get core tests only (Chrome + Safari + iPhone)
             echo "projects=--project=chrome-desktop --project=safari-desktop --project=iphone-12" >> $GITHUB_OUTPUT
             echo "scope=core" >> $GITHUB_OUTPUT
           fi
