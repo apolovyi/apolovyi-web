@@ -55,9 +55,10 @@ const MyExperience = () => {
 					/>
 				</div>
 
+				{/* Job description - hidden on mobile since bottom sheet shows it */}
 				<div
 					ref={rightColRef}
-					className="mt-0"
+					className="mt-0 hidden sm:block"
 				>
 					<JobDescription company={activeCompany} />
 				</div>

@@ -12,9 +12,10 @@ import { Legend } from './Legend'
 import { MetroLine } from './MetroLine'
 import { Station } from './Station'
 import { TimelineAxis } from './TimelineAxis'
-import { VerticalTimeline } from './VerticalTimeline'
 import { ANIMATION_CONFIG, SVG_DIMENSIONS, TIMELINE } from './constants'
 import { LINE_Y_POSITIONS, getStationLines, useStationLayout } from './hooks/useStationLayout'
+import { MobileTrainJourney } from './mobile/MobileTrainJourney'
+import { StationBottomSheet } from './mobile/StationBottomSheet'
 import type { CareerMetroMapProps } from './types'
 
 // All line IDs for initial state
@@ -162,21 +163,15 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 		onStationSelect(dictionaryKey)
 	}
 
-	// Mobile: show vertical timeline
+	// Mobile: show train journey with bottom sheet
 	if (isMobile) {
 		return (
 			<div className={cn('flex flex-col gap-3', className)}>
-				<VerticalTimeline
+				<MobileTrainJourney
 					activeStation={activeStation}
 					onStationSelect={onStationSelect}
-					visibleLines={visibleLines}
 				/>
-				<Legend
-					lines={lines}
-					activeLines={activeLines}
-					visibleLines={visibleLines}
-					onToggleLine={handleToggleLine}
-				/>
+				<StationBottomSheet activeStation={activeStation} />
 			</div>
 		)
 	}
