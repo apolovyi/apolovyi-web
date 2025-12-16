@@ -39,6 +39,9 @@ test.describe('Hero Animations - Desktop', () => {
 	test('header should be visible after loading', async ({ page }) => {
 		await page.goto('/en')
 
+		// Wait for page to be fully loaded before checking header
+		await page.waitForLoadState('networkidle')
+
 		// Header should be visible - target the fixed navigation header specifically
 		const header = page.locator('header.fixed').first()
 		await expect(header).toBeVisible({ timeout: VISIBILITY_TIMEOUT })
@@ -52,9 +55,11 @@ test.describe('Hero Animations - Desktop', () => {
 				const style = window.getComputedStyle(el)
 				const opacity = parseFloat(style.opacity)
 				// Accept opacity > 0.5 OR if opacity is NaN but element is visible
+				// Fallback: Some browsers may return empty string for opacity in edge cases,
+				// resulting in NaN. Check visibility as backup for cross-browser robustness.
 				return opacity > 0.5 || (isNaN(opacity) && style.visibility !== 'hidden')
 			},
-			{ timeout: 10000 },
+			{ timeout: VISIBILITY_TIMEOUT },
 		)
 	})
 
@@ -181,14 +186,11 @@ test.describe('Animation Flash Prevention', () => {
 	test('hero should be fully visible after load', async ({ page }) => {
 		await page.goto('/en')
 
-		// Wait for everything to settle
-		await page.waitForTimeout(2000)
-
 		// Hero h1 should be visible
 		const h1 = page.getByRole('heading', { level: 1 })
-		await expect(h1).toBeVisible()
+		await expect(h1).toBeVisible({ timeout: VISIBILITY_TIMEOUT })
 
-		// Wait for opacity to be 1 (fully visible)
+		// Wait for opacity to be exactly 1 (animation fully complete, no flash)
 		await page.waitForFunction(
 			() => {
 				const el = document.querySelector('h1')

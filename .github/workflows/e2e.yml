@@ -45,13 +45,12 @@ jobs:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
+      - name: Install Playwright system deps
+        run: npx playwright install-deps chromium webkit firefox
+
       - name: Install Playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium webkit firefox
-
-      - name: Install Playwright system deps
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium webkit firefox
+        run: npx playwright install chromium webkit firefox
 
       - name: Build application
         run: npm run build
