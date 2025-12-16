@@ -1,0 +1,15 @@
+# Language-based redirects for root path
+# Netlify processes these at the edge based on Accept-Language header
+# Order matters: first match wins, most specific first
+
+# Swiss German (de-CH) → Swiss German page
+/  /ch  302  Language=de-CH
+
+# German → German page
+/  /de  302  Language=de
+
+# Ukrainian → Ukrainian page
+/  /uk  302  Language=uk
+
+# Default fallback → English
+/  /en  302

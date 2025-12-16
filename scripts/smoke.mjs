@@ -123,11 +123,12 @@ async function main() {
       console.log(`✓ ${p} OK (lang=${expectedLang})`)
     }
 
-    // Root path should exist and contain redirect script
+    // Root path should exist and contain language detection script
     const { status: rootStatus, text: rootText } = await httpGet('/')
     if (rootStatus !== 200) throw new Error(`GET / -> ${rootStatus}`)
-    if (!rootText.includes("window.location.replace('/en')")) throw new Error('GET / missing redirect script')
-    console.log('✓ / OK (redirect to /en)')
+    if (!rootText.includes('window.location.replace')) throw new Error('GET / missing redirect script')
+    if (!rootText.includes('detectedLang')) throw new Error('GET / missing cookie check')
+    console.log('✓ / OK (language detection redirect)')
 
     // 2) Critical top-level assets exist
     const assetPaths = ['/manifest.webmanifest', '/robots.txt', '/sitemap.xml', '/fav/favicon-32x32.png', '/img/me-bg.webp']
