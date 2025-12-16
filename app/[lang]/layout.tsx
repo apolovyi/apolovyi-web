@@ -18,7 +18,7 @@ const ENABLE_TINY_ANALYTICS = process.env.NODE_ENV === 'production'
 
 // Fonts
 const comfortaa = Comfortaa({
-	subsets: ['latin'],
+	subsets: ['latin', 'cyrillic'],
 	variable: '--font-comfortaa',
 	display: 'swap',
 })

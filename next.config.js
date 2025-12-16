@@ -7,9 +7,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
 	reactStrictMode: true,
 	output: 'export',
-	images: { unoptimized: true, qualities: [75, 100] },
+	images: { unoptimized: true },
 	compiler: {
 		removeConsole: process.env.NODE_ENV === 'production',
+	},
+	experimental: {
+		optimizePackageImports: ['motion', 'lucide-react'],
 	},
 }
 module.exports = withBundleAnalyzer(nextConfig)

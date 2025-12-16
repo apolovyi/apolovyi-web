@@ -1,0 +1,21 @@
+# Immutable hashed assets (1 year cache)
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts (1 year cache)
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images (30 days cache)
+/img/*
+  Cache-Control: public, max-age=2592000
+
+# Favicons (1 day cache)
+/fav/*
+  Cache-Control: public, max-age=86400
+
+# Security headers for all routes
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
