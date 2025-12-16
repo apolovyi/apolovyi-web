@@ -2,48 +2,72 @@
 
 > **Reviewing:** [OPTIMIZATION_PLAN.md](./OPTIMIZATION_PLAN.md)
 > **Date:** December 2024
-> **Verdict:** 3/10 - Most claims are incorrect or already implemented
+> **Verdict:** ~~3/10~~ → **5/10** (revised after self-review)
 
 ---
 
-## Factually Incorrect Claims
+## Self-Review Corrections
 
-| Claim in Plan                                | Reality                                       | Location                               |
-| -------------------------------------------- | --------------------------------------------- | -------------------------------------- |
-| "Heavy 3D libs loaded synchronously (~1MB+)" | Already lazy-loaded via `next/dynamic`        | `components/home/MotionHero.tsx:15-18` |
-| "No `netlify.toml`"                          | Using `_redirects` for Netlify edge redirects | `public/_redirects`                    |
-| "Motion library not optimized"               | Already using `motion/react` subpath imports  | All component files                    |
-| "No loading states for route segments"       | Single-page app - route loading irrelevant    | `app/[lang]/page.tsx`                  |
-| "Total 3D bundle: ~1.2MB in initial load"    | Actual First Load JS: **162kB**               | `npm run build` output                 |
+**Errors in this review that were corrected:**
+
+| My Original Claim                      | Why It Was Wrong                                                                                    |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| "Delete `me-bg.jpg`"                   | **WRONG** - Used as `<picture>` fallback in `AboutMe.tsx:72` for browsers without AVIF/WebP support |
+| "`_redirects` replaces `netlify.toml`" | **MISLEADING** - `_redirects` only handles redirects, not caching/security headers                  |
+| "Fonts already optimized"              | **INCOMPLETE** - Missing `cyrillic` subset needed for Ukrainian locale (`uk`)                       |
+| "3/10 score"                           | **TOO HARSH** - Plan has valid points I initially dismissed                                         |
+| "No evidence of codebase analysis"     | **UNFAIR** - Plan correctly identified tech stack and versions                                      |
 
 ---
 
-## Already Implemented Suggestions
+## Claims in Original Plan: Reassessed
 
-| Suggestion from Plan             | Current Implementation                                                                |
-| -------------------------------- | ------------------------------------------------------------------------------------- |
-| Dynamic import 3D components     | `MotionHero.tsx:15`: `const GithubGlobe = dynamic(() => import(...), { ssr: false })` |
-| `generateStaticParams` for i18n  | `app/[lang]/page.tsx:9-11`                                                            |
-| next/font with `display: 'swap'` | `app/[lang]/layout.tsx:20-31`                                                         |
-| Bundle analyzer setup            | `next.config.js:3-5` with `@next/bundle-analyzer`                                     |
-| Motion subpath imports           | Using `from 'motion/react'` in 15+ files                                              |
+| Claim in Plan                          | My Initial Assessment     | Corrected Assessment                                                             |
+| -------------------------------------- | ------------------------- | -------------------------------------------------------------------------------- |
+| "Heavy 3D libs loaded synchronously"   | Wrong - already lazy      | **Correct** - already lazy-loaded                                                |
+| "No `netlify.toml`"                    | Wrong - have `_redirects` | **Valid** - `_redirects` ≠ caching headers                                       |
+| "Motion library not optimized"         | Wrong - using subpaths    | **Partially valid** - subpaths used, but no dynamic imports for heavy animations |
+| "No loading states for route segments" | Wrong - SPA               | **Debatable** - could improve perceived performance                              |
+| "Fonts need cyrillic subset"           | Dismissed                 | **Valid** - Ukrainian locale needs cyrillic                                      |
+
+---
+
+## What the Original Plan Got RIGHT
+
+1. **`netlify.toml` for caching headers** - `_redirects` doesn't provide this
+2. **Cyrillic font subset** - Currently missing for Ukrainian locale
+3. **Security headers** - Not currently configured
+4. **`experimental.optimizePackageImports`** - Valid optimization
+5. **Preconnect/DNS prefetch hints** - Not currently implemented
+6. **Analytics script optimization** - Using `defer` but `afterInteractive` strategy would be better
+
+---
+
+## What the Original Plan Got WRONG
+
+| Issue                      | Details                                                   |
+| -------------------------- | --------------------------------------------------------- |
+| "Remove `output: 'export`" | Would break static hosting, increase costs, add latency   |
+| "~1.2MB in initial load"   | Actual: 162kB initial, Three.js is lazy-loaded separately |
+| Dynamic import Three.js    | Already implemented in `MotionHero.tsx:15-18`             |
+| `generateStaticParams`     | Already implemented in `app/[lang]/page.tsx:9-11`         |
+| next/font setup            | Already implemented (missing cyrillic is the only gap)    |
 
 ---
 
 ## Dangerous Recommendation: Removing `output: 'export'`
 
-The plan's "critical" fix to remove static export would cause:
+This remains a problematic suggestion:
 
-1. **Deployment breakage** - Current setup uses Netlify static hosting
-2. **Cost increase** - SSR requires Netlify Functions with compute limits
-3. **Added latency** - Cold start times for serverless functions
-4. **Cache invalidation** - Static files get global CDN caching; SSR does not
-5. **Redirect breakage** - `_redirects` works only for static sites
+1. **Deployment change** - Static → SSR requires Netlify Functions
+2. **Cost implications** - SSR has compute limits on free tier
+3. **Added complexity** - Cold starts, function timeouts
+4. **Not needed** - Images already manually optimized with AVIF/WebP/JPG fallbacks
 
 ### Why `images: { unoptimized: true }` is Correct
 
-- Static export **cannot** use Next.js Image Optimization (requires server)
-- Images are already manually optimized with AVIF/WebP variants
+- Static export cannot use Next.js Image Optimization (requires server)
+- Site uses `<picture>` elements with AVIF → WebP → JPG fallback chain
 - This is the documented approach for static Next.js sites
 
 ---
@@ -67,42 +91,20 @@ Three.js chunk (lazy):        ~588 kB (loaded after initial paint)
 
 ---
 
-## Missing from Original Analysis
+## Corrected Recommendations
 
-The plan failed to identify actual issues:
+### 1. Add cyrillic font subset (VALID from original plan)
 
-| Actual Issue                 | Size   | Recommendation                   |
-| ---------------------------- | ------ | -------------------------------- |
-| `public/img/me-bg.jpg`       | 955 KB | Delete (AVIF/WebP exist)         |
-| `public/img/me-white-bg.jpg` | 430 KB | Delete (AVIF/WebP exist)         |
-| `public/world-map.svg`       | 580 KB | Consider optimization            |
-| `public/globe.json`          | 257 KB | Already gzipped by CDN           |
-| No Lighthouse baseline       | -      | Should measure before optimizing |
-
----
-
-## Valid Recommendations (Minor Impact)
-
-| Item                                     | Impact        | Action        |
-| ---------------------------------------- | ------------- | ------------- |
-| Create `netlify.toml` with cache headers | Low           | Worth adding  |
-| Security headers                         | Good practice | Worth adding  |
-| `experimental.optimizePackageImports`    | May help      | Worth testing |
-| Lazy load Lenis (~20KB)                  | Very low      | Optional      |
-| DNS prefetch for analytics               | Minimal       | Optional      |
-
----
-
-## Recommended Changes
-
-### 1. Remove redundant images
-
-```bash
-rm public/img/me-bg.jpg        # 955KB saved
-rm public/img/me-white-bg.jpg  # 430KB saved
+```tsx
+// app/[lang]/layout.tsx
+const comfortaa = Comfortaa({
+	subsets: ['latin', 'cyrillic'], // Add cyrillic for Ukrainian
+	variable: '--font-comfortaa',
+	display: 'swap',
+})
 ```
 
-### 2. Create `netlify.toml`
+### 2. Create `netlify.toml` (VALID from original plan)
 
 ```toml
 [build]
@@ -129,11 +131,13 @@ rm public/img/me-white-bg.jpg  # 430KB saved
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 ```
 
-### 3. Update `next.config.js`
+### 3. Add `optimizePackageImports` (VALID from original plan)
 
 ```js
+// next.config.js
 const nextConfig = {
 	// ... existing config
 	experimental: {
@@ -142,7 +146,17 @@ const nextConfig = {
 }
 ```
 
-### 4. Optional: Lazy load Lenis
+### 4. Add DNS prefetch (VALID from original plan)
+
+```tsx
+// app/[lang]/layout.tsx
+<link
+	rel="dns-prefetch"
+	href="https://app.tinyanalytics.io"
+/>
+```
+
+### 5. Optional: Lazy load Lenis (~20KB savings)
 
 ```tsx
 // components/shared/SmoothScrollProvider.tsx
@@ -155,23 +169,12 @@ useEffect(() => {
 }, [])
 ```
 
-### 5. Add DNS prefetch
-
-```tsx
-// app/[lang]/layout.tsx - in <head>
-<link
-	rel="dns-prefetch"
-	href="https://app.tinyanalytics.io"
-/>
-```
-
 ---
 
 ## What NOT to Do
 
+- ~~Delete `me-bg.jpg`~~ - **Needed as fallback for older browsers**
 - Do not remove `output: 'export'`
-- Do not add `loading.tsx` files (single-page app)
-- Do not "fix" motion imports (already correct)
 - Do not "fix" Three.js loading (already lazy)
 - Do not switch to Netlify SSR mode
 
@@ -179,6 +182,30 @@ useEffect(() => {
 
 ## Summary
 
-The original plan shows no evidence of codebase analysis. 40% of claims are factually incorrect, and the primary recommendation would cause regressions. The useful recommendations amount to ~10 lines of configuration changes with minimal performance impact.
+| Aspect                    | Original Plan           | This Review            |
+| ------------------------- | ----------------------- | ---------------------- |
+| Codebase analysis         | Partial                 | Initially incomplete   |
+| Accurate claims           | ~50%                    | ~70% after corrections |
+| Actionable items          | 5-6 valid               | 4-5 confirmed valid    |
+| Dangerous recommendations | 1 major (remove export) | Correctly identified   |
 
-**Score: 3/10**
+The original plan has more validity than my initial 3/10 suggested. Key valid points:
+
+- `netlify.toml` with caching/security headers
+- Cyrillic font subset for Ukrainian
+- `optimizePackageImports`
+- DNS prefetch
+
+Key invalid points:
+
+- Remove `output: 'export'` (would break site)
+- "1.2MB initial load" claim (actually 162kB)
+- Three.js lazy loading (already done)
+
+**Revised Score: 5/10**
+
+The plan contains useful recommendations buried under incorrect assumptions. A proper optimization effort should:
+
+1. Run Lighthouse baseline first
+2. Implement the 4-5 valid config changes
+3. Ignore the SSR migration suggestion
