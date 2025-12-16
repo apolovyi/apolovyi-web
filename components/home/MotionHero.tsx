@@ -264,7 +264,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 		</div>
 	)
 
-	const containerClass = 'mx-8 flex min-h-screen flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0'
+	const containerClass = 'mx-8 flex min-h-dvh flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0'
 
 	const heroWithContent = effectsOn ? (
 		<motion.div
@@ -282,7 +282,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	// Show loading state while detecting desktop/mobile
 	if (isDesktop === null) {
 		return (
-			<section className="relative h-screen overflow-hidden bg-white">
+			<section className="relative h-dvh overflow-hidden bg-white">
 				<div className={`relative z-10 ${containerClass}`}>{heroContent}</div>
 			</section>
 		)
@@ -290,7 +290,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 
 	if (isDesktop) {
 		return (
-			<section className="relative h-screen overflow-hidden bg-white">
+			<section className="relative h-dvh overflow-hidden bg-white">
 				{/* Globe positioning: right-leaning but more centered on larger screens */}
 				{/* z-[5] puts it above gradient overlay but below hero text */}
 				<div className="absolute right-[5%] top-1/2 z-[5] h-[600px] w-[600px] -translate-y-1/2 lg:right-[2%] lg:h-[650px] lg:w-[650px] xl:right-[8%] xl:h-[700px] xl:w-[700px] 2xl:right-[12%] 2xl:h-[750px] 2xl:w-[750px] min-[1800px]:right-[15%] min-[1800px]:h-[800px] min-[1800px]:w-[800px]">

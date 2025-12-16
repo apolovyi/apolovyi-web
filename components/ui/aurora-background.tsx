@@ -15,7 +15,7 @@ export const AuroraBackground = ({ className, children, showRadialGradient = tru
 	return (
 		<div
 			className={cn(
-				'relative flex',
+				'relative flex min-h-dvh',
 				// "transition-bg relative flex h-[100vh] flex-col items-center justify-center bg-zinc-50  text-slate-950 dark:bg-zinc-900",
 				className,
 			)}
