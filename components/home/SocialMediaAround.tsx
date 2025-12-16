@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { motion } from 'motion/react'
 
@@ -46,16 +46,22 @@ interface SocialMediaEmailProps {
 }
 
 const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
-	const animationDelay = finishedLoading ? 0 : 7
-	const [hasAnimated, setHasAnimated] = useState(false)
+	const [shouldAnimate, setShouldAnimate] = useState(false)
+
+	// Only trigger animation once loading completes
+	useEffect(() => {
+		if (finishedLoading && !shouldAnimate) {
+			setShouldAnimate(true)
+		}
+	}, [finishedLoading, shouldAnimate])
 
 	return (
 		<>
 			<motion.div
-				initial={hasAnimated ? false : { y: '100%' }}
+				key={shouldAnimate ? 'animate-left' : 'static-left'}
+				initial={shouldAnimate ? { y: '100%' } : false}
 				animate={{ y: '0%' }}
-				transition={{ y: { delay: animationDelay, duration: 0.5 } }}
-				onAnimationComplete={() => setHasAnimated(true)}
+				transition={{ y: { delay: 0, duration: 0.5 } }}
 				className="fixed bottom-0 left-0 z-10 hidden flex-row items-center justify-between px-12 lg:flex"
 			>
 				<div className="flex flex-col items-center justify-center space-y-8">
@@ -75,9 +81,10 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
 			</motion.div>
 
 			<motion.div
-				initial={hasAnimated ? false : { y: '170%' }}
+				key={shouldAnimate ? 'animate-right' : 'static-right'}
+				initial={shouldAnimate ? { y: '170%' } : false}
 				animate={{ y: '0%' }}
-				transition={{ y: { delay: animationDelay, duration: 0.5 } }}
+				transition={{ y: { delay: 0, duration: 0.5 } }}
 				className="fixed -right-10 bottom-0 z-10 hidden flex-row items-center justify-between lg:flex"
 			>
 				<div className="flex flex-col items-center justify-center space-y-24">

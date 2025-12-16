@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 import type { Locale } from '@/i18n-config'
 import type { Variants } from 'motion/react'
@@ -14,13 +14,13 @@ import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 
 const containerVariants: Variants = {
 	hidden: { opacity: 0 },
-	visible: (finishedLoading: boolean) => ({
+	visible: {
 		opacity: 1,
 		transition: {
 			staggerChildren: 0.1,
-			delayChildren: finishedLoading ? 0 : 5.4,
+			delayChildren: 0,
 		},
-	}),
+	},
 }
 
 const itemVariants: Variants = {
@@ -43,7 +43,14 @@ interface DesktopMenuProps {
 function DesktopMenu({ lang }: DesktopMenuProps) {
 	const { finishedLoading } = useHeaderContext()
 	const { header } = useDictionary()
-	const [hasAnimated, setHasAnimated] = useState(false)
+	const [shouldAnimate, setShouldAnimate] = useState(false)
+
+	// Only trigger animation once loading completes
+	useEffect(() => {
+		if (finishedLoading && !shouldAnimate) {
+			setShouldAnimate(true)
+		}
+	}, [finishedLoading, shouldAnimate])
 
 	const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
 		e.preventDefault()
@@ -91,12 +98,11 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 
 	return (
 		<motion.nav
+			key={shouldAnimate ? 'animate' : 'static'}
 			className="hidden flex-row items-center space-x-4 font-tech text-xs md:flex lg:space-x-10 xl:text-lg 2xl:space-x-16"
 			variants={containerVariants}
-			initial={hasAnimated ? false : 'hidden'}
+			initial={shouldAnimate ? 'hidden' : false}
 			animate="visible"
-			custom={finishedLoading}
-			onAnimationComplete={() => setHasAnimated(true)}
 		>
 			{header.menuItems.map((item) => (
 				<motion.div

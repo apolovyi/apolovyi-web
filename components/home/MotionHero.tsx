@@ -152,7 +152,7 @@ interface MotionHeroProps {
 export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	const ctaRef = useRef<HTMLButtonElement>(null)
 	useHoverTapMotion(ctaRef)
-	const baseDelay = finishedLoading ? 0 : 6.4
+	const baseDelay = 0
 	const dictionary = useDictionary()
 	const { heroSection } = dictionary
 	const heroRoles = heroSection.roles
@@ -171,14 +171,18 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	const taglineSuffix = getTaglineSuffix(heroSection.tagline)
 
 	// Defer heavy effects on mobile and respect reduced motion
+	// Also wait for loading screen to complete before enabling animations
 	const [effectsOn, setEffectsOn] = useState(true)
+	const animationsEnabled = effectsOn && finishedLoading
 	// Track animation key to force re-render on language change
 	const [animationKey, setAnimationKey] = useState(0)
 
-	// Reset animation when language changes
+	// Reset animation when language changes or loading completes
 	useEffect(() => {
-		setAnimationKey((prev) => prev + 1)
-	}, [lang])
+		if (finishedLoading) {
+			setAnimationKey((prev) => prev + 1)
+		}
+	}, [lang, finishedLoading])
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return
@@ -213,13 +217,13 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 			<TextGenerateEffect
 				className="font-tech tracking-wider text-accent-coral lg:text-lg"
 				words={heroSection.greeting}
-				filter={effectsOn}
-				duration={effectsOn ? 0.5 : 0.01}
+				filter={animationsEnabled}
+				duration={animationsEnabled ? 0.5 : 0.01}
 			/>
 			<AnimatedText
 				delay={baseDelay + 0.2}
 				className="mt-8 font-heading text-3xl font-bold text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
-				enabled={effectsOn}
+				enabled={animationsEnabled}
 				as="h1"
 			>
 				{heroSection.name}
@@ -227,19 +231,19 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 			<AnimatedText
 				delay={baseDelay + 0.4}
 				className="mt-4 font-sub-heading text-3xl font-light text-text-secondary sm:text-4xl md:text-4xl lg:text-6xl"
-				enabled={effectsOn}
+				enabled={animationsEnabled}
 			>
 				<TypedRoles
 					roles={heroRoles}
 					suffix={taglineSuffix}
-					enabled={effectsOn}
+					enabled={animationsEnabled}
 					delay={baseDelay + 0.6}
 				/>
 			</AnimatedText>
 			<AnimatedText
 				delay={baseDelay + 0.6}
 				className="mt-10 max-w-sm font-body text-base tracking-wider text-text-secondary sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
-				enabled={effectsOn}
+				enabled={animationsEnabled}
 			>
 				<p>{highlightText(heroSection.paragraphs[0], heroSection.highlightedTerms)}</p>
 				<br />
@@ -248,7 +252,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 			<AnimatedText
 				delay={baseDelay + 0.8}
 				className="mt-12"
-				enabled={effectsOn}
+				enabled={animationsEnabled}
 			>
 				<a
 					href={heroSection.resumeHref}
@@ -271,7 +275,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 
 	const containerClass = 'mx-8 flex min-h-dvh flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0'
 
-	const heroWithContent = effectsOn ? (
+	const heroWithContent = animationsEnabled ? (
 		<motion.div
 			initial={{ opacity: 0.0, y: 40 }}
 			whileInView={{ opacity: 1, y: 0 }}
