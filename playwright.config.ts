@@ -13,7 +13,7 @@ export default defineConfig({
 	},
 	projects: [
 		// ===================
-		// Desktop Browsers (Chrome + Safari only - covers 90%+ of users)
+		// Desktop Browsers (Chrome & Safari - covers 90%+ of users)
 		// ===================
 		{
 			name: 'chrome-desktop',

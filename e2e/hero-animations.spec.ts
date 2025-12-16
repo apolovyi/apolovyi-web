@@ -54,9 +54,7 @@ test.describe('Hero Animations - Desktop', () => {
 				if (!el) return false
 				const style = window.getComputedStyle(el)
 				const opacity = parseFloat(style.opacity)
-				// Accept opacity > 0.5 OR if opacity is NaN but element is visible
-				// Fallback: Some browsers may return empty string for opacity in edge cases,
-				// resulting in NaN. Check visibility as backup for cross-browser robustness.
+				// NaN fallback: some browsers return empty opacity string in edge cases
 				return opacity > 0.5 || (isNaN(opacity) && style.visibility !== 'hidden')
 			},
 			{ timeout: VISIBILITY_TIMEOUT },
