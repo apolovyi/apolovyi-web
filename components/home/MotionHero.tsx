@@ -9,13 +9,29 @@ import { motion } from 'motion/react'
 
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
-import { AuroraBackground } from '@/components/ui/aurora-background'
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
 
+// Desktop: Globe (lazy, client-only)
 const GithubGlobe = dynamic(() => import('@/components/ui/github-globe').then((m) => m.GithubGlobe), {
 	ssr: false,
 	loading: () => null,
 })
+
+// Mobile: Aurora effect (lazy, only loads on mobile)
+const AuroraEffect = dynamic(
+	() =>
+		import('@/components/ui/aurora-background').then((_m) => {
+			// Return just the aurora effect div, not the full wrapper
+			const AuroraEffectOnly = () => (
+				<div className="absolute inset-0 overflow-hidden">
+					<div className="pointer-events-none absolute -inset-[10px] opacity-50 blur-[10px] invert filter will-change-transform [--aurora:repeating-linear-gradient(100deg,var(--blue-500)_10%,var(--indigo-300)_15%,var(--blue-300)_20%,var(--violet-200)_25%,var(--blue-400)_30%)] [--dark-gradient:repeating-linear-gradient(100deg,var(--black)_0%,var(--black)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--black)_16%)] [--white-gradient:repeating-linear-gradient(100deg,var(--white)_0%,var(--white)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--white)_16%)] [background-image:var(--white-gradient),var(--aurora)] [background-position:50%_50%,50%_50%] [background-size:300%,_200%] [mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)] after:absolute after:inset-0 after:animate-aurora after:mix-blend-difference after:content-[''] after:[background-image:var(--white-gradient),var(--aurora)] after:[background-size:200%,_100%] dark:invert-0 dark:[background-image:var(--dark-gradient),var(--aurora)] after:dark:[background-image:var(--dark-gradient),var(--aurora)]" />
+				</div>
+			)
+			AuroraEffectOnly.displayName = 'AuroraEffectOnly'
+			return { default: AuroraEffectOnly }
+		}),
+	{ ssr: false, loading: () => null },
+)
 
 interface AnimatedTextProps {
 	delay: number
@@ -156,7 +172,6 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 
 	// Defer heavy effects on mobile and respect reduced motion
 	const [effectsOn, setEffectsOn] = useState(true)
-	const [isDesktop, setIsDesktop] = useState<boolean | null>(null)
 	// Track animation key to force re-render on language change
 	const [animationKey, setAnimationKey] = useState(0)
 
@@ -170,25 +185,15 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 		const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 		if (prefersReduced) {
 			setEffectsOn(false)
+			return
 		}
-
-		const checkDesktop = () => {
-			setIsDesktop(window.matchMedia('(min-width: 1024px)').matches)
-		}
-		checkDesktop()
-		window.addEventListener('resize', checkDesktop)
 
 		const isMobile = window.matchMedia('(max-width: 640px)').matches
-		if (isMobile && !prefersReduced) {
+		if (isMobile) {
 			setEffectsOn(false)
 			const id = window.setTimeout(() => setEffectsOn(true), 1500)
-			return () => {
-				window.clearTimeout(id)
-				window.removeEventListener('resize', checkDesktop)
-			}
+			return () => window.clearTimeout(id)
 		}
-
-		return () => window.removeEventListener('resize', checkDesktop)
 	}, [])
 
 	const highlightText = (text: string, terms: string[]) => {
@@ -279,30 +284,24 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 		<div className={`relative z-10 ${containerClass}`}>{heroContent}</div>
 	)
 
-	// Show loading state while detecting desktop/mobile
-	if (isDesktop === null) {
-		return (
-			<section className="relative h-dvh overflow-hidden bg-white">
-				<div className={`relative z-10 ${containerClass}`}>{heroContent}</div>
-			</section>
-		)
-	}
+	// Single layout - CSS controls which background shows (no JS layout switching)
+	return (
+		<section className="relative h-dvh overflow-hidden bg-white">
+			{/* Desktop: Globe (hidden on mobile via CSS, lazy-loaded client-only) */}
+			<div className="absolute right-[5%] top-1/2 z-[5] hidden h-[600px] w-[600px] -translate-y-1/2 lg:right-[2%] lg:block lg:h-[650px] lg:w-[650px] xl:right-[8%] xl:h-[700px] xl:w-[700px] 2xl:right-[12%] 2xl:h-[750px] 2xl:w-[750px] min-[1800px]:right-[15%] min-[1800px]:h-[800px] min-[1800px]:w-[800px]">
+				<GithubGlobe />
+			</div>
 
-	if (isDesktop) {
-		return (
-			<section className="relative h-dvh overflow-hidden bg-white">
-				{/* Globe positioning: right-leaning but more centered on larger screens */}
-				{/* z-[5] puts it above gradient overlay but below hero text */}
-				<div className="absolute right-[5%] top-1/2 z-[5] h-[600px] w-[600px] -translate-y-1/2 lg:right-[2%] lg:h-[650px] lg:w-[650px] xl:right-[8%] xl:h-[700px] xl:w-[700px] 2xl:right-[12%] 2xl:h-[750px] 2xl:w-[750px] min-[1800px]:right-[15%] min-[1800px]:h-[800px] min-[1800px]:w-[800px]">
-					<GithubGlobe />
-				</div>
-				{/* Gradient overlay - pointer-events-none to allow globe interaction */}
-				<div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white via-white/95 via-50% to-white/10" />
-				{/* Hero text - pointer-events-none on container, auto on interactive children */}
-				<div className="pointer-events-none relative z-10 [&_a]:pointer-events-auto [&_button]:pointer-events-auto">{heroWithContent}</div>
-			</section>
-		)
-	}
+			{/* Desktop: Gradient overlay (hidden on mobile) */}
+			<div className="pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-r from-white via-white/95 via-50% to-white/10 lg:block" />
 
-	return <AuroraBackground>{heroWithContent}</AuroraBackground>
+			{/* Mobile: Aurora effect (hidden on desktop, lazy-loaded client-only) */}
+			<div className="lg:hidden">
+				<AuroraEffect />
+			</div>
+
+			{/* Hero content - same for both layouts */}
+			<div className="pointer-events-none relative z-10 [&_a]:pointer-events-auto [&_button]:pointer-events-auto">{heroWithContent}</div>
+		</section>
+	)
 }

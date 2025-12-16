@@ -29,11 +29,13 @@ export default function HomeClient({ lang }: HomeClientProps) {
 	const { sharedState, setSharedState } = useAppContext()
 
 	useEffect(() => {
-		// Set finishedLoading after initial render to trigger animations
-		const timer = window.setTimeout(() => {
+		// Wait for LoadingScreen to complete before triggering animations
+		const handleLoadingComplete = () => {
 			setSharedState((prev) => ({ ...prev, finishedLoading: true }))
-		}, 100)
-		return () => window.clearTimeout(timer)
+		}
+
+		window.addEventListener('loadingScreenComplete', handleLoadingComplete)
+		return () => window.removeEventListener('loadingScreenComplete', handleLoadingComplete)
 	}, [setSharedState])
 
 	return (

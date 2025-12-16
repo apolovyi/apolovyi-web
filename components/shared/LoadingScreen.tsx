@@ -203,10 +203,14 @@ export function LoadingScreen() {
 		}
 	}, [])
 
-	// Remove from DOM after exit animation completes
+	// Remove from DOM after exit animation completes, then signal ready
 	useEffect(() => {
 		if (!isLoading) {
-			const timer = setTimeout(() => setIsVisible(false), 350)
+			const timer = setTimeout(() => {
+				setIsVisible(false)
+				// Dispatch event so other components know loading is complete
+				window.dispatchEvent(new CustomEvent('loadingScreenComplete'))
+			}, 350)
 			return () => clearTimeout(timer)
 		}
 	}, [isLoading])

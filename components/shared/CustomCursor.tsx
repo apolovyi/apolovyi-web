@@ -12,8 +12,8 @@ const TEXT_INPUT_TYPES = ['text', 'email', 'password', 'search', 'tel', 'url', '
 export default function CustomCursor() {
 	const cursorRef = useRef<HTMLDivElement>(null)
 	const [variant, setVariant] = useState<CursorVariant>('default')
-	const [isMobile, setIsMobile] = useState(true)
-	const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+	// Start as null to avoid hydration mismatch - only render after client detection
+	const [shouldRender, setShouldRender] = useState<boolean | null>(null)
 
 	const cursorX = useMotionValue(-100)
 	const cursorY = useMotionValue(-100)
@@ -76,23 +76,22 @@ export default function CustomCursor() {
 	useEffect(() => {
 		if (typeof window === 'undefined') return
 
-		// Check for mobile/touch device
-		const checkMobile = () => {
+		// Check for mobile/touch device and reduced motion
+		const checkShouldRender = () => {
 			const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0
 			const isSmallScreen = window.matchMedia('(max-width: 1024px)').matches
-			setIsMobile(hasTouchScreen || isSmallScreen)
+			const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+			const isMobile = hasTouchScreen || isSmallScreen
+			setShouldRender(!isMobile && !prefersReduced)
 		}
-		checkMobile()
-		window.addEventListener('resize', checkMobile)
+		checkShouldRender()
+		window.addEventListener('resize', checkShouldRender)
 
-		// Check reduced motion
-		setPrefersReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-
-		return () => window.removeEventListener('resize', checkMobile)
+		return () => window.removeEventListener('resize', checkShouldRender)
 	}, [])
 
 	useEffect(() => {
-		if (isMobile || prefersReducedMotion) return
+		if (!shouldRender) return
 
 		window.addEventListener('mousemove', handleMouseMove)
 		document.body.addEventListener('mouseenter', handleMouseEnter)
@@ -107,7 +106,7 @@ export default function CustomCursor() {
 			document.body.removeEventListener('mouseleave', handleMouseLeave)
 			document.body.style.cursor = 'auto'
 		}
-	}, [isMobile, prefersReducedMotion, handleMouseMove, handleMouseEnter, handleMouseLeave])
+	}, [shouldRender, handleMouseMove, handleMouseEnter, handleMouseLeave])
 
 	// Memoize variants to avoid recreation on every render
 	const variants = useMemo(
@@ -142,8 +141,8 @@ export default function CustomCursor() {
 		[],
 	)
 
-	// Don't render on mobile or if user prefers reduced motion
-	if (isMobile || prefersReducedMotion) return null
+	// Don't render until client detection complete, or on mobile/reduced motion
+	if (!shouldRender) return null
 
 	return (
 		<motion.div

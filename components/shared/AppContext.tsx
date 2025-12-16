@@ -13,7 +13,7 @@ type AppContextType = {
 }
 
 const defaultContextValue: AppContextType = {
-	sharedState: { finishedLoading: true },
+	sharedState: { finishedLoading: false },
 	setSharedState: () => {},
 }
 
