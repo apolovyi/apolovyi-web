@@ -187,15 +187,8 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 		const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 		if (prefersReduced) {
 			setEffectsOn(false)
-			return
 		}
-
-		const isMobile = window.matchMedia('(max-width: 640px)').matches
-		if (isMobile) {
-			setEffectsOn(false)
-			const id = window.setTimeout(() => setEffectsOn(true), 1500)
-			return () => window.clearTimeout(id)
-		}
+		// No mobile delay - LoadingScreen already provides the initial wait
 	}, [])
 
 	const highlightText = (text: string, terms: string[]) => {
