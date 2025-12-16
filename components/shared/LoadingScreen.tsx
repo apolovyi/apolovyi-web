@@ -150,8 +150,15 @@ function TrackTies() {
 		<div className="absolute bottom-[18px] left-0 right-0 overflow-hidden">
 			<motion.div
 				className="flex gap-6"
-				animate={{ x: [0, -48] }}
-				transition={{ duration: 0.3, repeat: Infinity, ease: 'linear' }}
+				initial={{ x: 0 }}
+				animate={{ x: -48 }}
+				transition={{
+					duration: 0.3,
+					repeat: Infinity,
+					ease: 'linear',
+					repeatType: 'loop',
+				}}
+				style={{ willChange: 'transform' }}
 			>
 				{Array.from({ length: 20 }).map((_, i) => (
 					<div
@@ -213,8 +220,15 @@ export function LoadingScreen() {
 					<div className="relative flex flex-col items-center">
 						{/* Train with bobbing animation */}
 						<motion.div
-							animate={{ y: [0, -2, 0] }}
-							transition={{ duration: 0.5, repeat: Infinity, ease: 'easeInOut' }}
+							initial={{ y: 0 }}
+							animate={{ y: [0, -3, 0] }}
+							transition={{
+								duration: 0.6,
+								repeat: Infinity,
+								ease: 'easeInOut',
+								repeatType: 'loop',
+							}}
+							style={{ willChange: 'transform' }}
 						>
 							<TrainIcon />
 						</motion.div>
@@ -228,8 +242,14 @@ export function LoadingScreen() {
 						{/* Loading text */}
 						<motion.p
 							className="mt-4 font-tech text-sm text-gray-500"
+							initial={{ opacity: 0.5 }}
 							animate={{ opacity: [0.5, 1, 0.5] }}
-							transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+							transition={{
+								duration: 1.5,
+								repeat: Infinity,
+								ease: 'easeInOut',
+								repeatType: 'loop',
+							}}
 						>
 							Loading...
 						</motion.p>
