@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useRef } from 'react'
 
 import type { Locale } from '@/i18n-config'
 import type { Variants } from 'motion/react'
@@ -43,14 +43,6 @@ interface DesktopMenuProps {
 function DesktopMenu({ lang }: DesktopMenuProps) {
 	const { finishedLoading } = useHeaderContext()
 	const { header } = useDictionary()
-	const [shouldAnimate, setShouldAnimate] = useState(false)
-
-	// Only trigger animation once loading completes
-	useEffect(() => {
-		if (finishedLoading && !shouldAnimate) {
-			setShouldAnimate(true)
-		}
-	}, [finishedLoading, shouldAnimate])
 
 	const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
 		e.preventDefault()
@@ -98,11 +90,10 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 
 	return (
 		<motion.nav
-			key={shouldAnimate ? 'animate' : 'static'}
 			className="hidden flex-row items-center space-x-4 font-tech text-xs md:flex lg:space-x-10 xl:text-lg 2xl:space-x-16"
 			variants={containerVariants}
-			initial={shouldAnimate ? 'hidden' : false}
-			animate="visible"
+			initial="hidden"
+			animate={finishedLoading ? 'visible' : 'hidden'}
 		>
 			{header.menuItems.map((item) => (
 				<motion.div

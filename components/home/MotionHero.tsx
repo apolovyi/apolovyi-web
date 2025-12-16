@@ -177,12 +177,10 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 	// Track animation key to force re-render on language change
 	const [animationKey, setAnimationKey] = useState(0)
 
-	// Reset animation when language changes or loading completes
+	// Reset animation when language changes
 	useEffect(() => {
-		if (finishedLoading) {
-			setAnimationKey((prev) => prev + 1)
-		}
-	}, [lang, finishedLoading])
+		setAnimationKey((prev) => prev + 1)
+	}, [lang])
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return
@@ -275,17 +273,15 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 
 	const containerClass = 'mx-8 flex min-h-dvh flex-col justify-center pt-20 md:mx-28 lg:mx-32 xl:mx-56 2xl:mx-72 tall:pt-0'
 
-	const heroWithContent = animationsEnabled ? (
+	const heroWithContent = (
 		<motion.div
-			initial={{ opacity: 0.0, y: 40 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			transition={{ delay: 0.1, duration: 0.8, ease: 'easeInOut' }}
+			initial={{ opacity: 0, y: 40 }}
+			animate={animationsEnabled ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+			transition={{ duration: 0.8, ease: 'easeInOut' }}
 			className={`relative z-10 ${containerClass}`}
 		>
 			{heroContent}
 		</motion.div>
-	) : (
-		<div className={`relative z-10 ${containerClass}`}>{heroContent}</div>
 	)
 
 	// Single layout - CSS controls which background shows (no JS layout switching)

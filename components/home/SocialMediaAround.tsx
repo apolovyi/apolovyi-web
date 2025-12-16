@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import { motion } from 'motion/react'
 
@@ -46,22 +46,12 @@ interface SocialMediaEmailProps {
 }
 
 const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
-	const [shouldAnimate, setShouldAnimate] = useState(false)
-
-	// Only trigger animation once loading completes
-	useEffect(() => {
-		if (finishedLoading && !shouldAnimate) {
-			setShouldAnimate(true)
-		}
-	}, [finishedLoading, shouldAnimate])
-
 	return (
 		<>
 			<motion.div
-				key={shouldAnimate ? 'animate-left' : 'static-left'}
-				initial={shouldAnimate ? { y: '100%' } : false}
-				animate={{ y: '0%' }}
-				transition={{ y: { delay: 0, duration: 0.5 } }}
+				initial={{ y: '100%' }}
+				animate={{ y: finishedLoading ? '0%' : '100%' }}
+				transition={{ y: { duration: 0.5 } }}
 				className="fixed bottom-0 left-0 z-10 hidden flex-row items-center justify-between px-12 lg:flex"
 			>
 				<div className="flex flex-col items-center justify-center space-y-8">
@@ -81,10 +71,9 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
 			</motion.div>
 
 			<motion.div
-				key={shouldAnimate ? 'animate-right' : 'static-right'}
-				initial={shouldAnimate ? { y: '170%' } : false}
-				animate={{ y: '0%' }}
-				transition={{ y: { delay: 0, duration: 0.5 } }}
+				initial={{ y: '170%' }}
+				animate={{ y: finishedLoading ? '0%' : '170%' }}
+				transition={{ y: { duration: 0.5 } }}
 				className="fixed -right-10 bottom-0 z-10 hidden flex-row items-center justify-between lg:flex"
 			>
 				<div className="flex flex-col items-center justify-center space-y-24">
