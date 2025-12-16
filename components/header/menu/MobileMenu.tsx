@@ -8,6 +8,7 @@ import { motion } from 'motion/react'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { ThemeToggle } from '@/components/shared/ThemeToggle'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 
 interface MobileMenuProps {
@@ -82,7 +83,8 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 				className="h-full w-1/4 bg-background-primary bg-opacity-20 backdrop-blur-sm hover:cursor-pointer"
 			/>
 			<div className="flex w-3/4 flex-col items-center justify-center bg-background-primary font-body">
-				<div className="mt-4">
+				<div className="mt-4 flex items-center gap-4">
+					<ThemeToggle />
 					<LanguageSwitcher currentLang={lang} />
 				</div>
 				<div className="mt-10 flex flex-col items-center justify-center space-y-8">

@@ -10,6 +10,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { scrollToSection, useHeaderContext } from '@/components/header/menu/HeaderContext'
 import { useDictionary } from '@/components/shared/DictionaryContext'
 import { HoverUnderlineFromLeftToRight } from '@/components/shared/HoverAnimation'
+import { ThemeToggle } from '@/components/shared/ThemeToggle'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 
 const containerVariants: Variants = {
@@ -115,6 +116,9 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 			))}
 			<motion.div variants={itemVariants}>
 				<MotionExternal href={header.resumeButton.href}>{header.resumeButton.text}</MotionExternal>
+			</motion.div>
+			<motion.div variants={itemVariants}>
+				<ThemeToggle />
 			</motion.div>
 			<motion.div variants={itemVariants}>
 				<LanguageSwitcher currentLang={lang} />
