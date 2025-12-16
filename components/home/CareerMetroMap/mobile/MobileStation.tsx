@@ -106,7 +106,7 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 					x={labelOnRight ? x + STATION_CONFIG.labelOffset : x - STATION_CONFIG.labelOffset}
 					y={y - 2}
 					textAnchor={labelOnRight ? 'start' : 'end'}
-					className="fill-text-primary font-tech text-[10px] font-medium"
+					className="fill-text-primary font-tech text-[9px] font-medium"
 					dominantBaseline="middle"
 				>
 					{displayName}
@@ -141,7 +141,7 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 				x={labelOnRight ? x + STATION_CONFIG.labelOffset : x - STATION_CONFIG.labelOffset}
 				y={y + 10}
 				textAnchor={labelOnRight ? 'start' : 'end'}
-				className="fill-text-secondary/60 font-tech text-[8px]"
+				className="fill-text-secondary/60 font-tech text-[7px]"
 			>
 				{station.period.start} - {station.period.end === 'present' ? 'Present' : station.period.end}
 			</text>
