@@ -163,7 +163,7 @@ function TrackTies() {
 				{Array.from({ length: 20 }).map((_, i) => (
 					<div
 						key={i}
-						className="h-2 w-6 flex-shrink-0 rounded-sm bg-gray-300"
+						className="h-2 w-6 flex-shrink-0 rounded-sm bg-neutral-light-gray"
 					/>
 				))}
 			</motion.div>
@@ -175,7 +175,7 @@ function TrackTies() {
 function TrackRail() {
 	return (
 		<div className="absolute bottom-[26px] left-0 right-0">
-			<div className="h-1 w-full bg-gray-400" />
+			<div className="h-1 w-full bg-neutral-medium-gray" />
 		</div>
 	)
 }
@@ -241,7 +241,7 @@ export function LoadingScreen() {
 
 						{/* Loading text */}
 						<motion.p
-							className="mt-4 font-tech text-sm text-gray-500"
+							className="mt-4 font-tech text-sm text-text-secondary"
 							initial={{ opacity: 0.5 }}
 							animate={{ opacity: [0.5, 1, 0.5] }}
 							transition={{
