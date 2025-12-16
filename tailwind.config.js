@@ -23,9 +23,9 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				'body': ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+				'body': ['var(--font-comfortaa)', 'system-ui', 'sans-serif'],
 				'heading': ['var(--font-comfortaa)', 'sans-serif'],
-				'sub-heading': ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+				'sub-heading': ['var(--font-comfortaa)', 'sans-serif'],
 				'tech': ['var(--font-ibm-plex-mono)', 'monospace'],
 			},
 			// colors: {
