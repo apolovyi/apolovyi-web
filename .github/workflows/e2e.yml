@@ -18,7 +18,7 @@ on:
 env:
   CI: true
   # Core test projects for draft PRs (fast feedback)
-  CORE_PROJECTS: '--project=chrome-desktop --project=safari-desktop --project=iphone-12'
+  CORE_PROJECTS: '--project=chrome-desktop --project=safari-desktop --project=iphone-15'
 
 jobs:
   e2e:

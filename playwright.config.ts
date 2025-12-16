@@ -32,12 +32,12 @@ export default defineConfig({
 			use: { ...devices['iPhone SE'] }, // Small screen
 		},
 		{
-			name: 'iphone-12',
-			use: { ...devices['iPhone 12'] }, // Standard
+			name: 'iphone-15',
+			use: { ...devices['iPhone 15'] }, // Standard
 		},
 		{
-			name: 'iphone-14-pro-max',
-			use: { ...devices['iPhone 14 Pro Max'] }, // Large
+			name: 'iphone-15-pro-max',
+			use: { ...devices['iPhone 15 Pro Max'] }, // Large
 		},
 		{
 			name: 'ipad-pro-11',
