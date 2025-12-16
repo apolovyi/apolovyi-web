@@ -9,6 +9,7 @@ import StructuredData from '@/components/StructuredData'
 import { WebVitals } from '@/components/WebVitals'
 import { AppProvider } from '@/components/shared/AppContext'
 import { DictionaryProvider } from '@/components/shared/DictionaryContext'
+import { LoadingScreen } from '@/components/shared/LoadingScreen'
 import SmoothScrollProvider from '@/components/shared/SmoothScrollProvider'
 
 import { getDictionary as getServerDictionary } from '@/lib/dictionary.server'
@@ -84,6 +85,7 @@ export default async function LangLayout({ children, params }: { children: React
 			className={`${comfortaa.variable} ${ibmPlexMono.variable}`}
 		>
 			<body>
+				<LoadingScreen />
 				<WebVitals />
 				<LanguageDetector />
 				<DictionaryProvider dictionary={dictionary}>
