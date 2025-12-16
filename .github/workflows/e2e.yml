@@ -23,11 +23,7 @@ jobs:
     name: E2E Tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # Skip if PR is draft (unless labeled for full tests)
-    if: |
-      github.event_name == 'workflow_dispatch' ||
-      !github.event.pull_request.draft ||
-      contains(github.event.pull_request.labels.*.name, 'test:full')
+    # Always run - test scope is determined dynamically (core for drafts, full for ready PRs)
 
     steps:
       - name: Checkout
