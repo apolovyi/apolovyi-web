@@ -22,8 +22,9 @@ jobs:
   e2e:
     name: E2E Tests
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    # Always run - test scope is determined dynamically (core for drafts, full for ready PRs)
+    timeout-minutes: 10
+    container:
+      image: mcr.microsoft.com/playwright:v1.49.1-noble
 
     steps:
       - name: Checkout
@@ -37,20 +38,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        id: playwright-cache
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Playwright system deps
-        run: npx playwright install-deps chromium webkit
-
-      - name: Install Playwright browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install chromium webkit
 
       - name: Cache Next.js build
         uses: actions/cache@v4
