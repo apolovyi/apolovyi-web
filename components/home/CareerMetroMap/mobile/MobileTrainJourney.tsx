@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { stationIdToDictionaryKey } from '@/lib/career-data'
+import { cn } from '@/lib/utils'
 
 import { MobileStation } from './MobileStation'
 import { MobileTrain } from './MobileTrain'
@@ -71,13 +72,12 @@ export function MobileTrainJourney({ className, activeStation: externalActiveSta
 	return (
 		<div
 			ref={containerRef}
-			className={className}
+			className={cn('overflow-x-hidden', className)}
 		>
-			<div className="relative w-full">
+			<div className="relative w-full overflow-hidden">
 				<svg
 					viewBox={`0 0 ${MOBILE_SVG.viewBox.width} ${MOBILE_SVG.viewBox.height}`}
 					className="h-auto w-full"
-					style={{ overflow: 'visible' }}
 				>
 					{/* Scenery background layer */}
 					<SwissScenery scrollProgress={scrollProgress} />
