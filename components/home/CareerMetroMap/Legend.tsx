@@ -27,7 +27,7 @@ export function Legend({ lines, activeLines, visibleLines, onToggleLine }: Legen
 						onClick={() => onToggleLine(line.id)}
 						className={`group flex items-center gap-1.5 py-0.5 transition-all ${
 							isVisible ? (isActive || isSoloed ? 'opacity-100' : 'opacity-70 hover:opacity-90') : 'opacity-30 hover:opacity-50'
-						} ${isSoloed ? '-mx-2 rounded-full bg-text-secondary/10 px-2' : ''}`}
+						} ${isSoloed ? 'bg-text-secondary/10 -mx-2 rounded-full px-2' : ''}`}
 						aria-pressed={isVisible}
 						aria-label={isSoloed ? `Show all lines (${line.label} is soloed)` : `Solo ${line.label} line`}
 					>

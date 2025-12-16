@@ -34,7 +34,7 @@ export function VerticalTimeline({ activeStation, onStationSelect, visibleLines 
 	return (
 		<div className="relative pl-6">
 			{/* Vertical connecting line */}
-			<div className="absolute bottom-2 left-2 top-2 w-0.5 bg-gradient-to-b from-text-secondary/30 via-text-secondary/20 to-text-secondary/10" />
+			<div className="from-text-secondary/30 via-text-secondary/20 to-text-secondary/10 absolute bottom-2 left-2 top-2 w-0.5 bg-gradient-to-b" />
 
 			{/* Stations */}
 			<div className="space-y-3">
@@ -91,7 +91,7 @@ export function VerticalTimeline({ activeStation, onStationSelect, visibleLines 
 										<span className="bg-accent-primary/20 text-accent-primary rounded px-1.5 py-0.5 font-tech text-[9px]">Now</span>
 									)}
 								</div>
-								<div className="mt-0.5 font-tech text-[10px] text-text-secondary/70">
+								<div className="text-text-secondary/70 mt-0.5 font-tech text-[10px]">
 									{station.period.start} — {station.period.end === 'present' ? 'Present' : station.period.end}
 								</div>
 								{/* Line badges */}

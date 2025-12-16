@@ -49,7 +49,7 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 
 	if (!activeStation) {
 		return (
-			<div className="fixed bottom-0 left-0 right-0 z-50 bg-background-primary/95 px-4 py-4 text-center backdrop-blur-sm">
+			<div className="bg-background-primary/95 fixed bottom-0 left-0 right-0 z-50 px-4 py-4 text-center backdrop-blur-sm">
 				<p className="font-tech text-sm text-text-secondary">Tap a station to see details</p>
 			</div>
 		)
@@ -73,7 +73,7 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 			<motion.button
 				key={activeStation}
 				onClick={onCardTap}
-				className="fixed bottom-0 left-0 right-0 z-50 touch-manipulation text-left active:bg-background-secondary/50"
+				className="active:bg-background-secondary/50 fixed bottom-0 left-0 right-0 z-50 touch-manipulation text-left"
 				initial={{ y: 80, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				exit={{ y: 60, opacity: 0 }}
@@ -85,7 +85,7 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 				>
 					{/* Drag handle / tap indicator */}
 					<div className="mb-2 flex justify-center">
-						<div className="h-1 w-8 rounded-full bg-text-secondary/20" />
+						<div className="bg-text-secondary/20 h-1 w-8 rounded-full" />
 					</div>
 
 					{/* Main content */}
@@ -124,7 +124,7 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 										</span>
 									))}
 									{totalTechCount > 3 && (
-										<span className="rounded bg-text-secondary/10 px-2 py-0.5 font-tech text-[11px] text-text-secondary">
+										<span className="bg-text-secondary/10 rounded px-2 py-0.5 font-tech text-[11px] text-text-secondary">
 											+{totalTechCount - 3}
 										</span>
 									)}
@@ -133,7 +133,7 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 						</div>
 
 						{/* Tap for more indicator */}
-						<div className="flex flex-col items-center gap-0.5 text-text-secondary/60">
+						<div className="text-text-secondary/60 flex flex-col items-center gap-0.5">
 							<ChevronUpIcon className="h-5 w-5" />
 							<span className="font-tech text-[10px]">More</span>
 						</div>
