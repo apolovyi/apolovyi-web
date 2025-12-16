@@ -36,7 +36,7 @@ const MyExperience = () => {
 			id="experienceSection"
 			className="flex w-full flex-col space-y-12 px-4 py-32 sm:px-16 md:px-16 lg:px-24 xl:space-y-28 2xl:px-72"
 		>
-			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8">
+			<div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-6 lg:px-8 2xl:max-w-6xl">
 				<SectionHeader
 					number="02."
 					title={experienceSectionTitle}
@@ -257,7 +257,7 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 	}
 
 	return (
-		<div className="flex min-h-[350px] flex-col space-y-4">
+		<div className="flex min-h-[350px] flex-col space-y-4 2xl:px-4">
 			<div>
 				<div className="flex flex-col lg:flex-row lg:items-center">
 					{isCareerBreak && <GlobeIcon className="mb-2 h-6 w-6 text-accent-coral lg:mb-0 lg:mr-2" />}

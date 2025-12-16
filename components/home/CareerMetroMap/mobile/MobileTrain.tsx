@@ -150,7 +150,12 @@ export function MobileTrain({ stationPoints, trackPath, scrollProgress }: Mobile
 		const delta = 1
 		const pointBefore = path.getPointAtLength(Math.max(0, targetLength - delta))
 		const pointAfter = path.getPointAtLength(Math.min(totalLength, targetLength + delta))
-		const angle = Math.atan2(pointAfter.y - pointBefore.y, pointAfter.x - pointBefore.x) * (180 / Math.PI)
+		let angle = Math.atan2(pointAfter.y - pointBefore.y, pointAfter.x - pointBefore.x) * (180 / Math.PI)
+
+		// Keep train upright - flip if it would appear upside down
+		// (when angle is between 90° and 270°, or -90° to -270°)
+		if (angle > 90) angle -= 180
+		if (angle < -90) angle += 180
 
 		setPosition({ x: point.x, y: point.y, angle })
 	}, [scrollProgress, stationPoints, trackPath])
