@@ -13,7 +13,17 @@ const nextConfig = {
 		removeConsole: process.env.NODE_ENV === 'production',
 	},
 	experimental: {
-		optimizePackageImports: ['motion', 'lucide-react'],
+		optimizePackageImports: [
+			'motion',
+			'lucide-react',
+			'@react-three/drei',
+			'@react-three/fiber',
+			'three',
+			'zod',
+			'class-variance-authority',
+			'clsx',
+			'tailwind-merge',
+		],
 	},
 }
 module.exports = withBundleAnalyzer(nextConfig)

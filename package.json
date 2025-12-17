@@ -27,7 +27,9 @@
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
 		"test:e2e:headed": "playwright test --headed",
-		"test:e2e:debug": "playwright test --debug"
+		"test:e2e:debug": "playwright test --debug",
+		"size": "size-limit",
+		"size:check": "size-limit --limit"
 	},
 	"dependencies": {
 		"@react-three/drei": "^10.7.7",
@@ -49,6 +51,7 @@
 	"devDependencies": {
 		"@next/bundle-analyzer": "^16.0.10",
 		"@playwright/test": "^1.57.0",
+		"@size-limit/file": "^12.0.0",
 		"@tailwindcss/typography": "~0.5.14",
 		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
 		"@types/node": "~22.3.0",
@@ -68,6 +71,7 @@
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"serve": "^14.2.5",
 		"sharp": "^0.34.5",
+		"size-limit": "^12.0.0",
 		"tailwindcss": "~3.4.19",
 		"three-stdlib": "^2.36.1",
 		"typescript": "~5.9.3"
@@ -83,5 +87,12 @@
 		"dictionaries/*.json": [
 			"pnpm run validate:dictionaries"
 		]
-	}
+	},
+	"size-limit": [
+		{
+			"name": "Total JS",
+			"path": "out/_next/static/chunks/**/*.js",
+			"limit": "750 KB"
+		}
+	]
 }
