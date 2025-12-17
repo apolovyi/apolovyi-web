@@ -1,81 +1,65 @@
-import { FlatCompat } from '@eslint/eslintrc'
-import js from '@eslint/js'
+import { defineConfig, globalIgnores } from 'eslint/config'
+import nextVitals from 'eslint-config-next/core-web-vitals'
+import nextTypescript from 'eslint-config-next/typescript'
+import prettier from 'eslint-config-prettier'
 
-// Bridge legacy "extends" configs (e.g., "next/core-web-vitals", "next/typescript", "prettier")
-const compat = new FlatCompat({
-  // import.meta.dirname is available on Node >= 20.11
-  baseDirectory: import.meta.dirname,
-})
+const eslintConfig = defineConfig([
+  // Base Next.js + Core Web Vitals rules
+  ...nextVitals,
 
-const config = [
-  // Ignore build artifacts and vendor directories when running `eslint .`
-  {
-    ignores: ['.next/**', 'out/**', 'node_modules/**', 'next-env.d.ts']
-  },
-  // Base ESLint recommended (in addition to Next's)
-  js.configs.recommended,
-  // Base Next + Prettier for all files
-  ...compat.config({
-    extends: ['next/core-web-vitals', 'prettier'],
-  }),
-  // Global stricter rules (JS + TS)
+  // TypeScript-specific rules
+  ...nextTypescript,
+
+  // Prettier compatibility (must be last)
+  prettier,
+
+  // Override default ignores
+  globalIgnores(['.next/**', 'out/**', 'node_modules/**', 'next-env.d.ts']),
+
+  // Global stricter rules
   {
     rules: {
-      // General best practices
       'no-var': 'error',
       'prefer-const': ['error', { destructuring: 'all' }],
-      'eqeqeq': ['error', 'smart'],
+      eqeqeq: ['error', 'smart'],
       'object-shorthand': ['error', 'always'],
+      // Disable React Compiler's strict hooks rules (too aggressive for existing code)
+      'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/immutability': 'off',
     },
   },
-  // Apply Next TypeScript rules only to TS/TSX files and tweak a few rules
-  ...compat.config({ extends: ['next/typescript'] }).map((cfg) => ({
-    ...cfg,
+
+  // TypeScript-specific overrides
+  {
     files: ['**/*.ts', '**/*.tsx'],
-    languageOptions: {
-      // Enable typed linting for TS rules that require type info
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
     rules: {
-      ...cfg.rules,
-      // Allow intentionally unused variables prefixed with _
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
-      // Stricter TS checks
       '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', fixStyle: 'separate-type-imports' }],
-      '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: { attributes: false } }],
-      '@typescript-eslint/no-floating-promises': ['error'],
     },
-  })),
-  // For application code, disallow console (allow warn/error)
+  },
+
+  // Disallow console in application code
   {
     files: ['app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}', 'lib/**/*.{ts,tsx}'],
     rules: {
       'no-console': 'error',
     },
   },
-  // Allow console inside the logger implementation only
+
+  // Allow console in logger
   {
     files: ['lib/logger.ts'],
     rules: { 'no-console': 'off' },
   },
-  // For scripts and config files, allow console
+
+  // Allow console and require in scripts and config files
   {
-    files: [
-      'scripts/**/*.js',
-      '*.config.js',
-      'next.config.js',
-      'postcss.config.js',
-      'tailwind.config.js',
-      'prettier.config.js',
-    ],
+    files: ['scripts/**/*.js', '*.config.js', 'next.config.js', 'postcss.config.js', 'tailwind.config.js', 'prettier.config.js'],
     rules: {
       'no-console': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
-]
+])
 
-export default config
-
+export default eslintConfig

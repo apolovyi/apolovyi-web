@@ -8,6 +8,7 @@ const nextConfig = {
 	reactStrictMode: true,
 	output: 'export',
 	images: { unoptimized: true },
+	reactCompiler: true,
 	compiler: {
 		removeConsole: process.env.NODE_ENV === 'production',
 	},
