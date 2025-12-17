@@ -20,11 +20,12 @@ const GithubGlobe = dynamic(() => import('@/components/ui/github-globe').then((m
 // Mobile: Aurora effect (lazy, only loads on mobile)
 const AuroraEffect = dynamic(
 	() =>
-		import('@/components/ui/aurora-background').then((_m) => {
+		Promise.all([import('@/components/ui/aurora-background'), import('@/lib/utils')]).then(([_m, utils]) => {
+			const { AURORA_EFFECT_ANIMATED, AURORA_EFFECT_BASE, AURORA_EFFECT_RADIAL_MASK } = utils
 			// Return just the aurora effect div, not the full wrapper
 			const AuroraEffectOnly = () => (
 				<div className="absolute inset-0 overflow-hidden">
-					<div className="pointer-events-none absolute -inset-[10px] opacity-50 blur-[10px] invert filter will-change-transform [background-image:var(--aurora-bg-gradient),var(--aurora)] [background-position:50%_50%,50%_50%] [background-size:300%,_200%] [mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)] after:absolute after:inset-0 after:animate-aurora after:mix-blend-difference after:content-[''] after:[background-image:var(--aurora-bg-gradient),var(--aurora)] after:[background-size:200%,_100%] dark:invert-0" />
+					<div className={`${AURORA_EFFECT_BASE} ${AURORA_EFFECT_ANIMATED} ${AURORA_EFFECT_RADIAL_MASK}`} />
 				</div>
 			)
 			AuroraEffectOnly.displayName = 'AuroraEffectOnly'
