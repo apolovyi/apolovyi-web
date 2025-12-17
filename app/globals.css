@@ -5,6 +5,24 @@
 :root {
 	--background: hsl(0, 0%, 100%);
 	--foreground: hsl(222.2, 84%, 4.9%);
+
+	/* Aurora effect gradients */
+	--aurora: repeating-linear-gradient(
+		100deg,
+		var(--blue-500) 10%,
+		var(--indigo-300) 15%,
+		var(--blue-300) 20%,
+		var(--violet-200) 25%,
+		var(--blue-400) 30%
+	);
+	--aurora-bg-gradient: repeating-linear-gradient(
+		100deg,
+		var(--white) 0%,
+		var(--white) 7%,
+		var(--transparent) 10%,
+		var(--transparent) 12%,
+		var(--white) 16%
+	);
 	--card: hsl(0, 0%, 100%);
 	--card-foreground: hsl(222.2, 84%, 4.9%);
 	--popover: hsl(0, 0%, 100%);
@@ -46,6 +64,16 @@
 .dark {
 	--background: hsl(222.2, 84%, 4.9%);
 	--foreground: hsl(210, 40%, 98%);
+
+	/* Aurora effect gradient (dark mode) */
+	--aurora-bg-gradient: repeating-linear-gradient(
+		100deg,
+		var(--black) 0%,
+		var(--black) 7%,
+		var(--transparent) 10%,
+		var(--transparent) 12%,
+		var(--black) 16%
+	);
 	--card: hsl(222.2, 84%, 4.9%);
 	--card-foreground: hsl(210, 40%, 98%);
 	--popover: hsl(222.2, 84%, 4.9%);
