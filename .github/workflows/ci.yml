@@ -14,31 +14,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: 22
+          cache: pnpm
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Validate dictionaries
-        run: npm run validate:dictionaries
+        run: pnpm run validate:dictionaries
 
       - name: Validate career data
-        run: npm run validate:career-data
+        run: pnpm run validate:career-data
 
       - name: Check dictionaries are in sync
         run: |
-          npm run generate:dictionaries
-          git diff --exit-code dictionaries/ || (echo "Error: Dictionaries are out of sync. Run 'npm run generate:dictionaries' locally and commit the changes." && exit 1)
+          pnpm run generate:dictionaries
+          git diff --exit-code dictionaries/ || (echo "Error: Dictionaries are out of sync. Run 'pnpm run generate:dictionaries' locally and commit the changes." && exit 1)
 
       - name: Prettier check
-        run: npm run format:check
+        run: pnpm run format:check
 
       - name: Lint (CI strict)
-        run: npm run lint:ci
+        run: pnpm run lint:ci
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
