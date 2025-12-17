@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"dev:clean": "rm -rf .next && next dev --turbopack",
-		"prebuild": "npm run validate:dictionaries",
+		"prebuild": "pnpm run validate:dictionaries",
 		"build": "next build --turbopack",
 		"analyze": "ANALYZE=true next build",
 		"format": "prettier \"**/*.{css,js,json,jsx,ts,tsx}\"",
@@ -20,7 +20,7 @@
 		"validate:career-data": "npx tsx scripts/validate-career-data.ts",
 		"generate:dictionaries": "npx tsx scripts/generate-dictionaries.ts",
 		"optimize:images": "npx tsx scripts/optimize-images.ts",
-		"check": "npm run format:check && npm run lint:ci",
+		"check": "pnpm run format:check && pnpm run lint:ci",
 		"prepare": "husky",
 		"test:smoke": "node scripts/smoke.mjs",
 		"test:e2e": "playwright test",
@@ -82,7 +82,7 @@
 			"prettier --write"
 		],
 		"dictionaries/*.json": [
-			"npm run validate:dictionaries"
+			"pnpm run validate:dictionaries"
 		]
 	}
 }
