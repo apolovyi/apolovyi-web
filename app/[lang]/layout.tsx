@@ -31,9 +31,9 @@ const ibmPlexMono = IBM_Plex_Mono({
 	weight: ['400', '600'],
 })
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string[] }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
 	const resolvedParams = await params
-	const lang = resolvedParams.lang?.[0] || i18n.defaultLocale
+	const lang = resolvedParams.lang || i18n.defaultLocale
 	const dictionary = await getServerDictionary(lang as Locale)
 	const { metadata } = dictionary
 
