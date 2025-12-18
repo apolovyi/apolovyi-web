@@ -41,7 +41,7 @@ const TechList = ({ techs }: TechListProps) => (
 					<span className="text-base text-text-secondary md:text-lg">{tech.name}</span>
 					{years && (
 						<span
-							className="rounded bg-accent-coral/10 px-1.5 py-0.5 font-tech text-[11px] text-accent-coral"
+							className="rounded-sm bg-accent-coral/10 px-1.5 py-0.5 font-tech text-[11px] text-accent-coral"
 							aria-label={years.ariaLabel}
 						>
 							{years.display}y
@@ -56,8 +56,8 @@ const TechList = ({ techs }: TechListProps) => (
 const ProfileImage = () => (
 	<div className="relative mx-auto h-60 w-60 sm:h-80 sm:w-80">
 		<div className="group absolute inset-0">
-			<div className="absolute h-full w-full translate-x-5 translate-y-5 rounded border-2 border-accent-coral transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
-			<div className="absolute h-full w-full overflow-hidden rounded">
+			<div className="absolute h-full w-full translate-x-5 translate-y-5 rounded-sm border-2 border-accent-coral transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
+			<div className="absolute h-full w-full overflow-hidden rounded-sm">
 				<div className="absolute inset-0 bg-accent-coral opacity-10 transition-opacity duration-300 group-hover:opacity-0"></div>
 				<picture>
 					<source
@@ -72,7 +72,7 @@ const ProfileImage = () => (
 						src="/img/me-bg.jpg"
 						alt="Artem Polovyi"
 						loading="lazy"
-						className="absolute inset-0 h-full w-full rounded object-cover opacity-100"
+						className="absolute inset-0 h-full w-full rounded-sm object-cover opacity-100"
 						onLoad={(e) => animate(e.currentTarget as HTMLImageElement, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
 					/>
 				</picture>

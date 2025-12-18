@@ -9,7 +9,7 @@ export default function NotFound() {
 				<p className="mx-auto mb-8 max-w-md text-gray-400">The page you&apos;re looking for doesn&apos;t exist or has been moved.</p>
 				<Link
 					href="/en"
-					className="inline-block rounded border border-[#c23b3b] px-6 py-3 text-[#c23b3b] transition-colors duration-200 hover:bg-[#c23b3b] hover:text-white"
+					className="inline-block rounded-sm border border-[#c23b3b] px-6 py-3 text-[#c23b3b] transition-colors duration-200 hover:bg-[#c23b3b] hover:text-white"
 				>
 					Go Home
 				</Link>

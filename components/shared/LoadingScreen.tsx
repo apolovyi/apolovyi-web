@@ -163,7 +163,7 @@ function TrackTies() {
 				{Array.from({ length: 20 }).map((_, i) => (
 					<div
 						key={i}
-						className="h-2 w-6 flex-shrink-0 rounded-sm bg-neutral-light-gray"
+						className="rounded-xs h-2 w-6 flex-shrink-0 bg-neutral-light-gray"
 					/>
 				))}
 			</motion.div>

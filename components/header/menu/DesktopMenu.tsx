@@ -82,7 +82,7 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 				href={href}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="border-spacing-2 rounded-sm border border-accent-coral px-3 py-2 text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10"
+				className="rounded-xs border-spacing-2 border border-accent-coral px-3 py-2 text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10"
 			>
 				{children}
 			</a>

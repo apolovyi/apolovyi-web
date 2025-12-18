@@ -25,19 +25,19 @@ function IconMenu() {
 				aria-hidden="true"
 			>
 				<motion.span
-					className="absolute left-0 top-1/2 h-0.5 w-8 origin-center -translate-y-1/2 rounded bg-accent-coral"
+					className="absolute left-0 top-1/2 h-0.5 w-8 origin-center -translate-y-1/2 rounded-sm bg-accent-coral"
 					initial={{ y: -10, rotate: 0 }}
 					animate={rotate ? { y: 0, rotate: 45 } : { y: -10, rotate: 0 }}
 					transition={{ duration: 0.2, ease: 'easeInOut' }}
 				/>
 				<motion.span
-					className="absolute left-0 top-1/2 h-0.5 w-8 origin-center -translate-y-1/2 rounded bg-accent-coral"
+					className="absolute left-0 top-1/2 h-0.5 w-8 origin-center -translate-y-1/2 rounded-sm bg-accent-coral"
 					initial={{ opacity: 1 }}
 					animate={rotate ? { opacity: 0 } : { opacity: 1 }}
 					transition={{ duration: 0.2, ease: 'easeInOut' }}
 				/>
 				<motion.span
-					className="absolute left-0 top-1/2 h-0.5 w-8 origin-center -translate-y-1/2 rounded bg-accent-coral"
+					className="absolute left-0 top-1/2 h-0.5 w-8 origin-center -translate-y-1/2 rounded-sm bg-accent-coral"
 					initial={{ y: 10, rotate: 0 }}
 					animate={rotate ? { y: 0, rotate: -45 } : { y: 10, rotate: 0 }}
 					transition={{ duration: 0.2, ease: 'easeInOut' }}

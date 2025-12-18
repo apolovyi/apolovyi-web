@@ -64,7 +64,7 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 				href={href}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="rounded border border-accent-coral px-5 py-2 font-heading text-xs text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10 sm:px-10 sm:py-4"
+				className="rounded-sm border border-accent-coral px-5 py-2 font-heading text-xs text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10 sm:px-10 sm:py-4"
 			>
 				{children}
 			</a>
@@ -80,7 +80,7 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 		>
 			<div
 				onClick={closeMenu}
-				className="h-full w-1/4 bg-background-primary bg-opacity-20 backdrop-blur-sm hover:cursor-pointer"
+				className="backdrop-blur-xs h-full w-1/4 bg-background-primary bg-opacity-20 hover:cursor-pointer"
 			/>
 			<div className="flex w-3/4 flex-col items-center justify-center bg-background-primary font-body">
 				<div className="mt-4 flex items-center gap-4">

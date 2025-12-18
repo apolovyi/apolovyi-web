@@ -203,7 +203,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 			>
 				{/* Scroll hint for mobile only (hidden on tablet+) */}
 				{!hasScrolled && (
-					<div className="bg-background-secondary/80 text-text-secondary/70 pointer-events-none absolute right-2 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1 rounded-full px-2 py-1 backdrop-blur-sm md:hidden">
+					<div className="bg-background-secondary/80 text-text-secondary/70 backdrop-blur-xs pointer-events-none absolute right-2 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1 rounded-full px-2 py-1 md:hidden">
 						<span className="font-tech text-[10px] uppercase tracking-wide">Scroll</span>
 						<svg
 							width="14"
@@ -226,7 +226,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 				<svg
 					ref={svgRef}
 					viewBox={`0 0 ${SVG_DIMENSIONS.width} ${SVG_DIMENSIONS.height}`}
-					className="h-auto min-w-[600px] outline-none focus:outline-none lg:w-full lg:min-w-0"
+					className="outline-hidden focus:outline-hidden h-auto min-w-[600px] lg:w-full lg:min-w-0"
 					style={{ overflow: 'visible' }}
 					role="img"
 					aria-label="Career timeline visualization as a metro map. Use arrow keys to navigate between positions."

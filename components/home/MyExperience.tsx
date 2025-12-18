@@ -309,7 +309,7 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 
 			{/* Travel map for career break */}
 			{isCareerBreak && (
-				<div className="mt-4 overflow-hidden rounded-lg border border-neutral-light-gray bg-background-secondary shadow-sm">
+				<div className="shadow-xs mt-4 overflow-hidden rounded-lg border border-neutral-light-gray bg-background-secondary">
 					<div className="aspect-[2/1] w-full">
 						<WorldMap dots={getTravelJourneyDots()} />
 					</div>

@@ -88,7 +88,7 @@ export function VerticalTimeline({ activeStation, onStationSelect, visibleLines 
 										{station.company}
 									</span>
 									{isCurrentJob && (
-										<span className="bg-accent-primary/20 text-accent-primary rounded px-1.5 py-0.5 font-tech text-[9px]">Now</span>
+										<span className="bg-accent-primary/20 text-accent-primary rounded-sm px-1.5 py-0.5 font-tech text-[9px]">Now</span>
 									)}
 								</div>
 								<div className="text-text-secondary/70 mt-0.5 font-tech text-[10px]">
@@ -101,7 +101,7 @@ export function VerticalTimeline({ activeStation, onStationSelect, visibleLines 
 										.map((lineId) => (
 											<span
 												key={lineId}
-												className="rounded px-1 py-0.5 font-tech text-[8px] uppercase"
+												className="rounded-sm px-1 py-0.5 font-tech text-[8px] uppercase"
 												style={{
 													backgroundColor: `${getLineColor(lineId)}20`,
 													color: getLineColor(lineId),

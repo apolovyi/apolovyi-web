@@ -65,7 +65,7 @@ export default function ScrollProgressIndicator() {
 				<motion.div
 					initial={{ opacity: 0, y: -10 }}
 					animate={{ opacity: 1, y: 0 }}
-					className="absolute left-1/2 top-2 -translate-x-1/2 rounded bg-gray-900/90 px-2 py-1 font-tech text-xs text-white"
+					className="absolute left-1/2 top-2 -translate-x-1/2 rounded-sm bg-gray-900/90 px-2 py-1 font-tech text-xs text-white"
 				>
 					{currentSection}
 				</motion.div>

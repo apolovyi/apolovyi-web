@@ -49,7 +49,7 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 
 	if (!activeStation) {
 		return (
-			<div className="bg-background-primary/95 fixed bottom-0 left-0 right-0 z-50 px-4 py-4 text-center backdrop-blur-sm">
+			<div className="bg-background-primary/95 backdrop-blur-xs fixed bottom-0 left-0 right-0 z-50 px-4 py-4 text-center">
 				<p className="font-tech text-sm text-text-secondary">Tap a station to see details</p>
 			</div>
 		)
@@ -118,13 +118,13 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 									{techTags.map((tech) => (
 										<span
 											key={tech}
-											className="rounded bg-accent-coral/10 px-2 py-0.5 font-tech text-[11px] text-accent-coral"
+											className="rounded-sm bg-accent-coral/10 px-2 py-0.5 font-tech text-[11px] text-accent-coral"
 										>
 											{tech}
 										</span>
 									))}
 									{totalTechCount > 3 && (
-										<span className="bg-text-secondary/10 rounded px-2 py-0.5 font-tech text-[11px] text-text-secondary">
+										<span className="bg-text-secondary/10 rounded-sm px-2 py-0.5 font-tech text-[11px] text-text-secondary">
 											+{totalTechCount - 3}
 										</span>
 									)}

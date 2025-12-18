@@ -141,7 +141,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 							ref={submitBtnRef}
 							type="submit"
 							disabled={isSubmitting}
-							className="flex items-center gap-2 rounded-md border-2 border-accent-coral px-6 py-2 font-tech text-sm text-accent-coral transition-all duration-300 ease-in-out hover:bg-accent-coral hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-accent-coral focus:ring-opacity-50 disabled:cursor-not-allowed disabled:opacity-50"
+							className="focus:outline-hidden flex items-center gap-2 rounded-md border-2 border-accent-coral px-6 py-2 font-tech text-sm text-accent-coral transition-all duration-300 ease-in-out hover:bg-accent-coral hover:bg-opacity-10 focus:ring-2 focus:ring-accent-coral focus:ring-opacity-50 disabled:cursor-not-allowed disabled:opacity-50"
 						>
 							{isSubmitting && (
 								<svg
@@ -198,7 +198,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					id={name}
 					required={required}
 					rows={rows}
-					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+					className="focus:outline-hidden w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:ring-1 focus:ring-accent-coral"
 				/>
 			) : (
 				<input
@@ -206,7 +206,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					name={name}
 					id={name}
 					required={required}
-					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+					className="focus:outline-hidden w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:ring-1 focus:ring-accent-coral"
 				/>
 			)}
 		</div>
