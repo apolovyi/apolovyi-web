@@ -9,7 +9,7 @@ interface HoverUnderlineProps {
 
 const HoverUnderlineFromCenterToSides = ({ children, className }: HoverUnderlineProps): React.ReactElement => {
 	return (
-		<div className="group relative text-base uppercase leading-8 tracking-widest">
+		<div className="group relative text-base leading-8 tracking-widest uppercase">
 			{children}
 			<span
 				className={cn(
@@ -23,7 +23,7 @@ const HoverUnderlineFromCenterToSides = ({ children, className }: HoverUnderline
 
 const HoverUnderlineFromLeftToRight = ({ children, className }: HoverUnderlineProps): React.ReactElement => {
 	return (
-		<div className="group relative text-base uppercase leading-8 tracking-widest">
+		<div className="group relative text-base leading-8 tracking-widest uppercase">
 			{children}
 			<span
 				className={cn(

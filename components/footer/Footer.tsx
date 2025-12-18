@@ -28,7 +28,7 @@ const ClickableIcon = React.memo(function ClickableIcon({ href, Icon, label }: I
 			aria-label={label}
 			className="inline-flex h-12 w-12 items-center justify-center"
 		>
-			<Icon className="h-5 w-5 fill-current text-text-secondary transition-colors duration-300 hover:cursor-pointer hover:text-accent-coral" />
+			<Icon className="text-text-secondary hover:text-accent-coral h-5 w-5 fill-current transition-colors duration-300 hover:cursor-pointer" />
 		</a>
 	)
 })
@@ -58,7 +58,7 @@ const Footer = ({ lang: _lang }: FooterProps) => {
 					/>
 				))}
 			</div>
-			<p className="text-center font-body text-sm font-light text-text-secondary">
+			<p className="font-body text-text-secondary text-center text-sm font-light">
 				© {currentYear} Artem Polovyi. {footer.rights}
 			</p>
 		</footer>

@@ -134,7 +134,7 @@ const TypedRoles = ({ roles, suffix, className, enabled = true, delay = 0 }: Typ
 			<span className="block min-h-[1.2em]">
 				{displayText}
 				<span
-					className="animate-pulse text-accent-coral"
+					className="text-accent-coral animate-pulse"
 					aria-hidden="true"
 				>
 					|
@@ -207,14 +207,14 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 			key={animationKey}
 		>
 			<TextGenerateEffect
-				className="font-tech tracking-wider text-accent-coral lg:text-lg"
+				className="font-tech text-accent-coral tracking-wider lg:text-lg"
 				words={heroSection.greeting}
 				filter={animationsEnabled}
 				duration={animationsEnabled ? 0.5 : 0.01}
 			/>
 			<AnimatedText
 				delay={baseDelay + 0.2}
-				className="mt-8 font-heading text-3xl font-bold text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
+				className="font-heading text-text-primary mt-8 text-3xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
 				enabled={animationsEnabled}
 				as="h1"
 			>
@@ -222,7 +222,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 			</AnimatedText>
 			<AnimatedText
 				delay={baseDelay + 0.4}
-				className="mt-4 font-sub-heading text-3xl font-light text-text-secondary sm:text-4xl md:text-4xl lg:text-6xl"
+				className="font-sub-heading text-text-secondary mt-4 text-3xl font-light sm:text-4xl md:text-4xl lg:text-6xl"
 				enabled={animationsEnabled}
 			>
 				<TypedRoles
@@ -234,7 +234,7 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 			</AnimatedText>
 			<AnimatedText
 				delay={baseDelay + 0.6}
-				className="mt-10 max-w-sm font-body text-base tracking-wider text-text-secondary sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
+				className="font-body text-text-secondary mt-10 max-w-sm text-base tracking-wider sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
 				enabled={animationsEnabled}
 			>
 				<p>{highlightText(heroSection.paragraphs[0], heroSection.highlightedTerms)}</p>
@@ -253,15 +253,15 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 				>
 					<motion.button
 						ref={ctaRef}
-						className="group relative overflow-hidden rounded-md p-[2px] shadow-lg transition-shadow duration-300 hover:shadow-xl hover:shadow-accent-coral/25 dark:shadow-accent-coral/10 dark:hover:shadow-accent-coral/30"
+						className="group hover:shadow-accent-coral/25 dark:shadow-accent-coral/10 dark:hover:shadow-accent-coral/30 relative overflow-hidden rounded-md p-[2px] shadow-lg transition-shadow duration-300 hover:shadow-xl"
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.98 }}
 						transition={{ type: 'spring', stiffness: 400, damping: 17 }}
 					>
 						{/* Animated gradient background */}
-						<div className="absolute inset-0 animate-[shimmer_3s_ease-in-out_infinite] bg-gradient-to-r from-accent-blue via-accent-coral to-accent-blue bg-[length:200%_100%]" />
+						<div className="from-accent-blue via-accent-coral to-accent-blue absolute inset-0 animate-[shimmer_3s_ease-in-out_infinite] bg-gradient-to-r bg-[length:200%_100%]" />
 						{/* Inner content */}
-						<div className="relative rounded-[5px] bg-background-primary px-8 py-3 font-heading text-accent-coral transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
+						<div className="bg-background-primary font-heading text-accent-coral relative rounded-[5px] px-8 py-3 transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
 							{heroSection.cta}
 						</div>
 					</motion.button>
@@ -285,14 +285,14 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 
 	// Single layout - CSS controls which background shows (no JS layout switching)
 	return (
-		<section className="relative h-dvh overflow-hidden bg-background-primary">
+		<section className="bg-background-primary relative h-dvh overflow-hidden">
 			{/* Desktop: Globe (hidden on mobile via CSS, lazy-loaded client-only) */}
-			<div className="absolute right-[5%] top-1/2 z-[5] hidden h-[600px] w-[600px] -translate-y-1/2 lg:right-[2%] lg:block lg:h-[650px] lg:w-[650px] xl:right-[8%] xl:h-[700px] xl:w-[700px] 2xl:right-[12%] 2xl:h-[750px] 2xl:w-[750px] min-[1800px]:right-[15%] min-[1800px]:h-[800px] min-[1800px]:w-[800px]">
+			<div className="absolute top-1/2 right-[5%] z-[5] hidden h-[600px] w-[600px] -translate-y-1/2 min-[1800px]:right-[15%] min-[1800px]:h-[800px] min-[1800px]:w-[800px] lg:right-[2%] lg:block lg:h-[650px] lg:w-[650px] xl:right-[8%] xl:h-[700px] xl:w-[700px] 2xl:right-[12%] 2xl:h-[750px] 2xl:w-[750px]">
 				<GithubGlobe />
 			</div>
 
 			{/* Desktop: Gradient overlay (hidden on mobile) */}
-			<div className="via-background-primary/95 to-background-primary/10 pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-r from-background-primary via-50% lg:block" />
+			<div className="via-background-primary/95 to-background-primary/10 from-background-primary pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-r via-50% lg:block" />
 
 			{/* Mobile: Aurora effect (hidden on desktop, lazy-loaded client-only) */}
 			<div className="lg:hidden">

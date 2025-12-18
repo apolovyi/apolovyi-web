@@ -203,8 +203,8 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 			>
 				{/* Scroll hint for mobile only (hidden on tablet+) */}
 				{!hasScrolled && (
-					<div className="bg-background-secondary/80 text-text-secondary/70 pointer-events-none absolute right-2 top-1/2 z-20 flex -translate-y-1/2 items-center gap-1 rounded-full px-2 py-1 backdrop-blur-sm md:hidden">
-						<span className="font-tech text-[10px] uppercase tracking-wide">Scroll</span>
+					<div className="bg-background-secondary/80 text-text-secondary/70 pointer-events-none absolute top-1/2 right-2 z-20 flex -translate-y-1/2 items-center gap-1 rounded-full px-2 py-1 backdrop-blur-xs md:hidden">
+						<span className="font-tech text-[10px] tracking-wide uppercase">Scroll</span>
 						<svg
 							width="14"
 							height="14"
@@ -222,11 +222,11 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 					</div>
 				)}
 				{/* Subtle right fade - mobile only */}
-				<div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background-primary to-transparent md:hidden" />
+				<div className="from-background-primary pointer-events-none absolute top-0 right-0 z-10 h-full w-8 bg-gradient-to-l to-transparent md:hidden" />
 				<svg
 					ref={svgRef}
 					viewBox={`0 0 ${SVG_DIMENSIONS.width} ${SVG_DIMENSIONS.height}`}
-					className="h-auto min-w-[600px] outline-none focus:outline-none lg:w-full lg:min-w-0"
+					className="h-auto min-w-[600px] outline-hidden focus:outline-hidden lg:w-full lg:min-w-0"
 					style={{ overflow: 'visible' }}
 					role="img"
 					aria-label="Career timeline visualization as a metro map. Use arrow keys to navigate between positions."
@@ -413,7 +413,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 					/>
 					<button
 						onClick={handleReplay}
-						className="border-text-secondary/20 text-text-secondary/60 hover:border-text-secondary/40 group flex flex-shrink-0 items-center gap-1.5 rounded-full border px-2 py-1 transition-all hover:text-text-secondary"
+						className="border-text-secondary/20 text-text-secondary/60 hover:border-text-secondary/40 group hover:text-text-secondary flex flex-shrink-0 items-center gap-1.5 rounded-full border px-2 py-1 transition-all"
 						aria-label="Replay animation"
 						title="Replay animation"
 					>
@@ -428,7 +428,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 							<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
 							<path d="M21 3v5h-5" />
 						</svg>
-						<span className="font-tech text-[9px] uppercase tracking-wide">Replay</span>
+						<span className="font-tech text-[9px] tracking-wide uppercase">Replay</span>
 					</button>
 				</div>
 				<DomainFilter

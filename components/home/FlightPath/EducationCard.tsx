@@ -44,14 +44,14 @@ export function EducationCard({ item }: EducationCardProps) {
 
 			{/* Content */}
 			<div className="flex flex-col">
-				<span className="font-heading text-base font-semibold text-text-primary">{item.degree}</span>
-				<span className="font-body text-sm text-text-secondary">{item.field}</span>
+				<span className="font-heading text-text-primary text-base font-semibold">{item.degree}</span>
+				<span className="font-body text-text-secondary text-sm">{item.field}</span>
 				<div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
 					<span className="font-tech text-amber-700">{item.institution}</span>
 					<span className="text-neutral-medium-gray">·</span>
 					<span className="font-tech text-neutral-medium-gray">{item.year}</span>
 				</div>
-				<span className="mt-1 font-tech text-xs text-neutral-medium-gray">{item.location}</span>
+				<span className="font-tech text-neutral-medium-gray mt-1 text-xs">{item.location}</span>
 			</div>
 		</div>
 	)

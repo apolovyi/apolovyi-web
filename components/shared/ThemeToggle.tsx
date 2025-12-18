@@ -37,7 +37,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 			aria-label={getAriaLabel()}
 			title={getAriaLabel()}
 		>
-			{/* Auto icon (sun + moon) */}
+			{/* Auto icon - Sun and Moon combined (Lucide sun-moon style) */}
 			<motion.svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
@@ -46,7 +46,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				className="absolute h-5 w-5 text-text-primary"
+				className="text-text-primary absolute h-5 w-5"
 				initial={false}
 				animate={{
 					scale: theme === 'auto' ? 1 : 0,
@@ -54,20 +54,16 @@ export function ThemeToggle({ className }: { className?: string }) {
 				}}
 				transition={{ duration: 0.2 }}
 			>
-				{/* Half sun, half moon */}
-				<circle
-					cx="12"
-					cy="12"
-					r="4"
-				/>
+				{/* Sun rays on left side */}
+				<path d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4" />
 				<path d="M12 2v2" />
 				<path d="M12 20v2" />
-				<path d="M4.93 4.93l1.41 1.41" />
-				<path d="M17.66 17.66l1.41 1.41" />
+				<path d="m4.9 4.9 1.4 1.4" />
+				<path d="m17.7 17.7 1.4 1.4" />
 				<path d="M2 12h2" />
 				<path d="M20 12h2" />
-				<path d="M6.34 17.66l-1.41 1.41" />
-				<path d="M19.07 4.93l-1.41 1.41" />
+				<path d="m6.3 17.7-1.4 1.4" />
+				<path d="m19.1 4.9-1.4 1.4" />
 			</motion.svg>
 
 			{/* Sun icon (shown in dark mode) */}
@@ -79,7 +75,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				className="absolute h-5 w-5 text-text-primary"
+				className="text-text-primary absolute h-5 w-5"
 				initial={false}
 				animate={{
 					scale: theme === 'dark' ? 1 : 0,
@@ -152,7 +148,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				className="absolute h-5 w-5 text-text-primary"
+				className="text-text-primary absolute h-5 w-5"
 				initial={false}
 				animate={{
 					scale: theme === 'light' ? 1 : 0,

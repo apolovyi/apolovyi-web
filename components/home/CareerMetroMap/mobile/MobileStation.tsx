@@ -128,7 +128,7 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 							y={0}
 							textAnchor="middle"
 							dominantBaseline="middle"
-							className="fill-white font-tech text-[7px] font-bold uppercase"
+							className="font-tech fill-white text-[7px] font-bold uppercase"
 						>
 							Now
 						</text>

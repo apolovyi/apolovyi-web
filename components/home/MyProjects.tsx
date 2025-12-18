@@ -103,14 +103,14 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 								onLoad={(e) => animate(e.currentTarget as HTMLImageElement, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
 							/>
 						</picture>
-						<div className="absolute inset-0 rounded-lg bg-background-primary p-4 opacity-10 transition-opacity duration-300 hover:opacity-0 md:opacity-45"></div>
+						<div className="bg-background-primary absolute inset-0 rounded-lg p-4 opacity-10 transition-opacity duration-300 hover:opacity-0 md:opacity-45"></div>
 					</a>
 				</div>
 			</div>
 
 			{/* Content */}
 			<div className={`mt-6 flex w-full flex-col lg:mt-0 lg:w-1/2 ${isEven ? 'lg:order-2 lg:items-end' : 'lg:order-1 lg:items-start'}`}>
-				<span className="font-heading text-base font-light text-accent-coral">{project.category}</span>
+				<span className="font-heading text-accent-coral text-base font-light">{project.category}</span>
 				<a
 					ref={titleLinkRef}
 					href={project.link}
@@ -118,28 +118,28 @@ const ProjectItem = ({ project, index }: ProjectItemProps) => {
 					rel="noopener noreferrer"
 					className="group"
 				>
-					<span className="font-sub-heading text-xl font-light text-text-primary transition-colors duration-300 group-hover:text-accent-coral">
+					<span className="font-sub-heading text-text-primary group-hover:text-accent-coral text-xl font-light transition-colors duration-300">
 						{project.company}
 					</span>
 				</a>
 				<div
 					ref={contentCardRef}
-					className={`my-4 rounded-md bg-accent-blue bg-opacity-85 px-6 py-10 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}
+					className={`bg-accent-blue bg-opacity-85 my-4 rounded-md px-6 py-10 shadow-xl ${isEven ? 'lg:text-right' : 'lg:text-left'}`}
 				>
-					<p className="font-body text-base font-light text-neutral-light-gray xl:text-xl">{project.description}</p>
+					<p className="font-body text-neutral-light-gray text-base font-light xl:text-xl">{project.description}</p>
 				</div>
-				<div className={`mb-4 font-heading text-sm text-accent-coral lg:text-base ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
+				<div className={`font-heading text-accent-coral mb-4 text-sm lg:text-base ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
 					Role: {project.role}
 				</div>
 				<ul
-					className={`flex flex-wrap font-tech text-base font-light text-text-primary lg:text-lg ${
+					className={`font-tech text-text-primary flex flex-wrap text-base font-light lg:text-lg ${
 						isEven ? 'lg:justify-end' : 'lg:justify-start'
 					}`}
 				>
 					{project.technologies.map((tech: string, techIndex: number) => (
 						<li
 							key={techIndex}
-							className={`mb-2 mr-4 ${isEven ? 'lg:ml-4 lg:mr-0' : ''}`}
+							className={`mr-4 mb-2 ${isEven ? 'lg:mr-0 lg:ml-4' : ''}`}
 						>
 							{tech}
 						</li>

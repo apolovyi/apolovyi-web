@@ -66,7 +66,7 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
 			<button
 				ref={triggerRef}
 				onClick={() => setIsOpen(!isOpen)}
-				className="flex items-center space-x-2 rounded px-3 py-2 text-sm text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral"
+				className="text-text-secondary hover:bg-accent-coral hover:bg-opacity-10 hover:text-accent-coral flex items-center space-x-2 rounded-sm px-3 py-2 text-sm"
 			>
 				<span>{getFlag(language)}</span>
 				<span>{getDisplayName(language)}</span>
@@ -86,7 +86,7 @@ function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
 				</svg>
 			</button>
 			{isOpen && (
-				<div className="w-55 absolute right-0 mt-2 rounded-md bg-background shadow-lg ring-1 ring-black ring-opacity-5">
+				<div className="bg-background ring-opacity-5 absolute right-0 mt-2 w-55 rounded-md shadow-lg ring-1 ring-black">
 					<div
 						className="py-1"
 						role="menu"

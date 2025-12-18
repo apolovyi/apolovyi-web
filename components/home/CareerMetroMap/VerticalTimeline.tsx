@@ -34,7 +34,7 @@ export function VerticalTimeline({ activeStation, onStationSelect, visibleLines 
 	return (
 		<div className="relative pl-6">
 			{/* Vertical connecting line */}
-			<div className="from-text-secondary/30 via-text-secondary/20 to-text-secondary/10 absolute bottom-2 left-2 top-2 w-0.5 bg-gradient-to-b" />
+			<div className="from-text-secondary/30 via-text-secondary/20 to-text-secondary/10 absolute top-2 bottom-2 left-2 w-0.5 bg-gradient-to-b" />
 
 			{/* Stations */}
 			<div className="space-y-3">
@@ -61,7 +61,7 @@ export function VerticalTimeline({ activeStation, onStationSelect, visibleLines 
 							<div
 								className={cn(
 									'relative z-10 mt-1.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full',
-									isActive ? 'ring-2 ring-offset-1 ring-offset-background-primary' : '',
+									isActive ? 'ring-offset-background-primary ring-2 ring-offset-1' : '',
 								)}
 								style={{
 									backgroundColor: isActive ? primaryColor : 'transparent',
@@ -88,10 +88,10 @@ export function VerticalTimeline({ activeStation, onStationSelect, visibleLines 
 										{station.company}
 									</span>
 									{isCurrentJob && (
-										<span className="bg-accent-primary/20 text-accent-primary rounded px-1.5 py-0.5 font-tech text-[9px]">Now</span>
+										<span className="bg-accent-primary/20 text-accent-primary font-tech rounded-sm px-1.5 py-0.5 text-[9px]">Now</span>
 									)}
 								</div>
-								<div className="text-text-secondary/70 mt-0.5 font-tech text-[10px]">
+								<div className="text-text-secondary/70 font-tech mt-0.5 text-[10px]">
 									{station.period.start} — {station.period.end === 'present' ? 'Present' : station.period.end}
 								</div>
 								{/* Line badges */}
@@ -101,7 +101,7 @@ export function VerticalTimeline({ activeStation, onStationSelect, visibleLines 
 										.map((lineId) => (
 											<span
 												key={lineId}
-												className="rounded px-1 py-0.5 font-tech text-[8px] uppercase"
+												className="font-tech rounded-sm px-1 py-0.5 text-[8px] uppercase"
 												style={{
 													backgroundColor: `${getLineColor(lineId)}20`,
 													color: getLineColor(lineId),

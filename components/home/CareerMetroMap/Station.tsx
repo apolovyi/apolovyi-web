@@ -24,7 +24,7 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 
 	return (
 		<g
-			className="outline-none focus:outline-none"
+			className="outline-hidden focus:outline-hidden"
 			style={{ cursor: 'pointer' }}
 			onClick={onClick}
 			onMouseEnter={() => onHover(true)}

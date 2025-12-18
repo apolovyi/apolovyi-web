@@ -17,7 +17,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
 				<p className="mx-auto mb-8 max-w-md text-gray-400">An unexpected error occurred. Please try again.</p>
 				<button
 					onClick={() => reset()}
-					className="inline-block rounded border border-[#c23b3b] px-6 py-3 text-[#c23b3b] transition-colors duration-200 hover:bg-[#c23b3b] hover:text-white"
+					className="inline-block rounded-sm border border-[#c23b3b] px-6 py-3 text-[#c23b3b] transition-colors duration-200 hover:bg-[#c23b3b] hover:text-white"
 				>
 					Try Again
 				</button>

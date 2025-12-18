@@ -85,9 +85,9 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 					/>
 				</div>
 
-				<div className="mt-14 text-center text-3xl font-bold tracking-wide text-text-primary sm:text-5xl">{contactSection.subtitle}</div>
+				<div className="text-text-primary mt-14 text-center text-3xl font-bold tracking-wide sm:text-5xl">{contactSection.subtitle}</div>
 
-				<p className="mx-auto max-w-4xl text-center font-body text-lg leading-relaxed text-text-secondary md:px-32">
+				<p className="font-body text-text-secondary mx-auto max-w-4xl text-center text-lg leading-relaxed md:px-32">
 					{contactSection.content}
 				</p>
 
@@ -141,7 +141,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 							ref={submitBtnRef}
 							type="submit"
 							disabled={isSubmitting}
-							className="flex items-center gap-2 rounded-md border-2 border-accent-coral px-6 py-2 font-tech text-sm text-accent-coral transition-all duration-300 ease-in-out hover:bg-accent-coral hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-accent-coral focus:ring-opacity-50 disabled:cursor-not-allowed disabled:opacity-50"
+							className="border-accent-coral font-tech text-accent-coral hover:bg-accent-coral hover:bg-opacity-10 focus:ring-accent-coral focus:ring-opacity-50 flex items-center gap-2 rounded-md border-2 px-6 py-2 text-sm transition-all duration-300 ease-in-out focus:ring-2 focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
 						>
 							{isSubmitting && (
 								<svg
@@ -188,7 +188,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 		<div>
 			<label
 				htmlFor={name}
-				className="mb-2 block font-tech text-sm text-text-secondary"
+				className="font-tech text-text-secondary mb-2 block text-sm"
 			>
 				{label}
 			</label>
@@ -198,7 +198,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					id={name}
 					required={required}
 					rows={rows}
-					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+					className="border-neutral-medium-gray text-text-primary focus:border-accent-coral focus:ring-accent-coral w-full rounded-md border bg-transparent px-4 py-2 focus:ring-1 focus:outline-hidden"
 				/>
 			) : (
 				<input
@@ -206,7 +206,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					name={name}
 					id={name}
 					required={required}
-					className="w-full rounded-md border border-neutral-medium-gray bg-transparent px-4 py-2 text-text-primary focus:border-accent-coral focus:outline-none focus:ring-1 focus:ring-accent-coral"
+					className="border-neutral-medium-gray text-text-primary focus:border-accent-coral focus:ring-accent-coral w-full rounded-md border bg-transparent px-4 py-2 focus:ring-1 focus:outline-hidden"
 				/>
 			)}
 		</div>

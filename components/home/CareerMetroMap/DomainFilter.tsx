@@ -24,7 +24,7 @@ export function DomainFilter({ domains, activeDomain, onSelectDomain }: DomainFi
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 1.2, duration: 0.4 }}
 		>
-			<span className="text-text-secondary/60 font-tech text-[10px] uppercase tracking-wide">Industry:</span>
+			<span className="text-text-secondary/60 font-tech text-[10px] tracking-wide uppercase">Industry:</span>
 			{domains.map((domain) => {
 				const isActive = activeDomain === domain.id
 
@@ -32,7 +32,7 @@ export function DomainFilter({ domains, activeDomain, onSelectDomain }: DomainFi
 					<button
 						key={domain.id}
 						onClick={() => onSelectDomain(isActive ? null : domain.id)}
-						className={`flex items-center gap-1 rounded-full px-2 py-0.5 font-tech text-[10px] transition-all ${
+						className={`font-tech flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] transition-all ${
 							isActive
 								? 'bg-accent-coral/20 text-accent-coral'
 								: activeDomain
@@ -43,7 +43,7 @@ export function DomainFilter({ domains, activeDomain, onSelectDomain }: DomainFi
 						aria-label={isActive ? `Clear ${domain.label} filter` : `Filter by ${domain.label}`}
 					>
 						<span>{domain.icon}</span>
-						<span className="uppercase tracking-wide">{domain.label}</span>
+						<span className="tracking-wide uppercase">{domain.label}</span>
 					</button>
 				)
 			})}

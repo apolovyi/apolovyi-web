@@ -147,7 +147,7 @@ function TrainIcon() {
 // Animated track ties
 function TrackTies() {
 	return (
-		<div className="absolute bottom-[18px] left-0 right-0 overflow-hidden">
+		<div className="absolute right-0 bottom-[18px] left-0 overflow-hidden">
 			<motion.div
 				className="flex gap-6"
 				initial={{ x: 0 }}
@@ -163,7 +163,7 @@ function TrackTies() {
 				{Array.from({ length: 20 }).map((_, i) => (
 					<div
 						key={i}
-						className="h-2 w-6 flex-shrink-0 rounded-sm bg-neutral-light-gray"
+						className="bg-neutral-light-gray h-2 w-6 flex-shrink-0 rounded-xs"
 					/>
 				))}
 			</motion.div>
@@ -174,8 +174,8 @@ function TrackTies() {
 // Track rail
 function TrackRail() {
 	return (
-		<div className="absolute bottom-[26px] left-0 right-0">
-			<div className="h-1 w-full bg-neutral-medium-gray" />
+		<div className="absolute right-0 bottom-[26px] left-0">
+			<div className="bg-neutral-medium-gray h-1 w-full" />
 		</div>
 	)
 }
@@ -212,7 +212,7 @@ export function LoadingScreen() {
 		<AnimatePresence>
 			{isLoading && (
 				<motion.div
-					className="fixed inset-0 z-[9999] flex items-center justify-center bg-background-primary"
+					className="bg-background-primary fixed inset-0 z-[9999] flex items-center justify-center"
 					initial={{ opacity: 1, y: 0 }}
 					exit={{ opacity: 0, y: -20 }}
 					transition={{ duration: 0.3, ease: 'easeIn' }}
@@ -241,7 +241,7 @@ export function LoadingScreen() {
 
 						{/* Loading text */}
 						<motion.p
-							className="mt-4 font-tech text-sm text-text-secondary"
+							className="font-tech text-text-secondary mt-4 text-sm"
 							initial={{ opacity: 0.5 }}
 							animate={{ opacity: [0.5, 1, 0.5] }}
 							transition={{

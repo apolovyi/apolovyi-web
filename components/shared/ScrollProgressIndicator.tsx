@@ -47,7 +47,7 @@ export default function ScrollProgressIndicator() {
 
 	return (
 		<div
-			className="bg-neutral-light-gray/30 fixed left-0 right-0 top-0 z-50 h-1"
+			className="bg-neutral-light-gray/30 fixed top-0 right-0 left-0 z-50 h-1"
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 			role="progressbar"
@@ -57,7 +57,7 @@ export default function ScrollProgressIndicator() {
 			aria-label="Page scroll progress"
 		>
 			<motion.div
-				className="h-full origin-left bg-gradient-to-r from-accent-coral to-primary"
+				className="from-accent-coral to-primary h-full origin-left bg-gradient-to-r"
 				style={{ scaleX }}
 			/>
 			{/* Section label tooltip */}
@@ -65,7 +65,7 @@ export default function ScrollProgressIndicator() {
 				<motion.div
 					initial={{ opacity: 0, y: -10 }}
 					animate={{ opacity: 1, y: 0 }}
-					className="absolute left-1/2 top-2 -translate-x-1/2 rounded bg-gray-900/90 px-2 py-1 font-tech text-xs text-white"
+					className="font-tech absolute top-2 left-1/2 -translate-x-1/2 rounded-sm bg-gray-900/90 px-2 py-1 text-xs text-white"
 				>
 					{currentSection}
 				</motion.div>

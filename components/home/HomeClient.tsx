@@ -43,7 +43,7 @@ export default function HomeClient({ lang }: HomeClientProps) {
 			{/* Skip to content link for accessibility */}
 			<a
 				href="#main-content"
-				className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-accent-coral focus:px-4 focus:py-2 focus:text-white focus:outline-none"
+				className="focus:bg-accent-coral sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-sm focus:px-4 focus:py-2 focus:text-white focus:outline-hidden"
 			>
 				Skip to main content
 			</a>
@@ -51,7 +51,7 @@ export default function HomeClient({ lang }: HomeClientProps) {
 			<ScrollProgressIndicator />
 			<main
 				id="main-content"
-				className="relative w-full snap-mandatory bg-background-primary selection:bg-highlight"
+				className="bg-background-primary selection:bg-highlight relative w-full snap-mandatory"
 			>
 				<Header
 					finishedLoading={sharedState.finishedLoading}

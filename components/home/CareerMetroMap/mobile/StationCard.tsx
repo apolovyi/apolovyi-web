@@ -49,8 +49,8 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 
 	if (!activeStation) {
 		return (
-			<div className="bg-background-primary/95 fixed bottom-0 left-0 right-0 z-50 px-4 py-4 text-center backdrop-blur-sm">
-				<p className="font-tech text-sm text-text-secondary">Tap a station to see details</p>
+			<div className="bg-background-primary/95 fixed right-0 bottom-0 left-0 z-50 px-4 py-4 text-center backdrop-blur-xs">
+				<p className="font-tech text-text-secondary text-sm">Tap a station to see details</p>
 			</div>
 		)
 	}
@@ -73,14 +73,14 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 			<motion.button
 				key={activeStation}
 				onClick={onCardTap}
-				className="active:bg-background-secondary/50 fixed bottom-0 left-0 right-0 z-50 touch-manipulation text-left"
+				className="active:bg-background-secondary/50 fixed right-0 bottom-0 left-0 z-50 touch-manipulation text-left"
 				initial={{ y: 80, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				exit={{ y: 60, opacity: 0 }}
 				transition={{ type: 'spring', stiffness: 400, damping: 30 }}
 			>
 				<div
-					className="rounded-t-2xl bg-background-primary px-4 pb-4 pt-3"
+					className="bg-background-primary rounded-t-2xl px-4 pt-3 pb-4"
 					style={{ boxShadow: '0 -4px 20px rgba(0,0,0,0.15)' }}
 				>
 					{/* Drag handle / tap indicator */}
@@ -97,15 +97,15 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 									className="h-2.5 w-2.5 flex-shrink-0 rounded-full"
 									style={{ backgroundColor: SBB_COLORS.red }}
 								/>
-								<span className="truncate font-body text-sm font-semibold text-text-primary">{job.title}</span>
+								<span className="font-body text-text-primary truncate text-sm font-semibold">{job.title}</span>
 							</div>
-							<p className="ml-[18px] truncate text-sm text-accent-coral">@ {companyData?.name || activeStation}</p>
+							<p className="text-accent-coral ml-[18px] truncate text-sm">@ {companyData?.name || activeStation}</p>
 
 							{/* Date & Location */}
-							<div className="ml-[18px] mt-1 flex items-center gap-3 text-text-secondary">
+							<div className="text-text-secondary mt-1 ml-[18px] flex items-center gap-3">
 								<span className="font-tech text-xs">{job.date}</span>
 								{companyData?.location && (
-									<span className="flex items-center gap-1 font-tech text-xs">
+									<span className="font-tech flex items-center gap-1 text-xs">
 										<LocationPinIcon className="h-3 w-3" />
 										{companyData.location}
 									</span>
@@ -114,17 +114,17 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 
 							{/* Tech tags */}
 							{techTags.length > 0 && (
-								<div className="ml-[18px] mt-2 flex flex-wrap gap-1.5">
+								<div className="mt-2 ml-[18px] flex flex-wrap gap-1.5">
 									{techTags.map((tech) => (
 										<span
 											key={tech}
-											className="rounded bg-accent-coral/10 px-2 py-0.5 font-tech text-[11px] text-accent-coral"
+											className="bg-accent-coral/10 font-tech text-accent-coral rounded-sm px-2 py-0.5 text-[11px]"
 										>
 											{tech}
 										</span>
 									))}
 									{totalTechCount > 3 && (
-										<span className="bg-text-secondary/10 rounded px-2 py-0.5 font-tech text-[11px] text-text-secondary">
+										<span className="bg-text-secondary/10 font-tech text-text-secondary rounded-sm px-2 py-0.5 text-[11px]">
 											+{totalTechCount - 3}
 										</span>
 									)}
