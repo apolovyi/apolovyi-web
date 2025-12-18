@@ -37,11 +37,11 @@ const TechList = ({ techs }: TechListProps) => (
 					key={tech.name}
 					className="flex items-center gap-2"
 				>
-					<ArrowIcon className="h-3 w-3 flex-shrink-0 text-accent-coral" />
-					<span className="text-base text-text-secondary md:text-lg">{tech.name}</span>
+					<ArrowIcon className="text-accent-coral h-3 w-3 flex-shrink-0" />
+					<span className="text-text-secondary text-base md:text-lg">{tech.name}</span>
 					{years && (
 						<span
-							className="rounded-sm bg-accent-coral/10 px-1.5 py-0.5 font-tech text-[11px] text-accent-coral"
+							className="bg-accent-coral/10 font-tech text-accent-coral rounded-sm px-1.5 py-0.5 text-[11px]"
 							aria-label={years.ariaLabel}
 						>
 							{years.display}y
@@ -56,9 +56,9 @@ const TechList = ({ techs }: TechListProps) => (
 const ProfileImage = () => (
 	<div className="relative mx-auto h-60 w-60 sm:h-80 sm:w-80">
 		<div className="group absolute inset-0">
-			<div className="absolute h-full w-full translate-x-5 translate-y-5 rounded-sm border-2 border-accent-coral transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
+			<div className="border-accent-coral absolute h-full w-full translate-x-5 translate-y-5 rounded-sm border-2 transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
 			<div className="absolute h-full w-full overflow-hidden rounded-sm">
-				<div className="absolute inset-0 bg-accent-coral opacity-10 transition-opacity duration-300 group-hover:opacity-0"></div>
+				<div className="bg-accent-coral absolute inset-0 opacity-10 transition-opacity duration-300 group-hover:opacity-0"></div>
 				<picture>
 					<source
 						srcSet="/img/me-bg.avif"
@@ -124,12 +124,12 @@ const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 						ref={contentRef}
 						className="w-full lg:w-3/5"
 					>
-						<div className="space-y-4 font-body text-base sm:text-lg">
+						<div className="font-body space-y-4 text-base sm:text-lg">
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.intro}</p>
 							{highlightTerms(aboutMeSection.paragraphs.specialization)}
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.mindset}</p>
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.technologies}</p>
-							<div className="flex flex-col gap-4 font-tech min-[375px]:flex-row min-[375px]:gap-8 sm:gap-16">
+							<div className="font-tech flex flex-col gap-4 min-[375px]:flex-row min-[375px]:gap-8 sm:gap-16">
 								{technologies.map((techList, index) => (
 									<TechList
 										key={index}

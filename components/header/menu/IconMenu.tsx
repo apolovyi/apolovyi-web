@@ -11,7 +11,7 @@ function IconMenu() {
 
 	return (
 		<button
-			className="inline-flex h-12 w-12 flex-col items-center justify-center text-text-primary md:hidden"
+			className="text-text-primary inline-flex h-12 w-12 flex-col items-center justify-center md:hidden"
 			onClick={() => {
 				setRotate(!rotate)
 				setShowElement(!showElement)
@@ -25,19 +25,19 @@ function IconMenu() {
 				aria-hidden="true"
 			>
 				<motion.span
-					className="absolute left-0 top-1/2 h-0.5 w-8 origin-center -translate-y-1/2 rounded-sm bg-accent-coral"
+					className="bg-accent-coral absolute top-1/2 left-0 h-0.5 w-8 origin-center -translate-y-1/2 rounded-sm"
 					initial={{ y: -10, rotate: 0 }}
 					animate={rotate ? { y: 0, rotate: 45 } : { y: -10, rotate: 0 }}
 					transition={{ duration: 0.2, ease: 'easeInOut' }}
 				/>
 				<motion.span
-					className="absolute left-0 top-1/2 h-0.5 w-8 origin-center -translate-y-1/2 rounded-sm bg-accent-coral"
+					className="bg-accent-coral absolute top-1/2 left-0 h-0.5 w-8 origin-center -translate-y-1/2 rounded-sm"
 					initial={{ opacity: 1 }}
 					animate={rotate ? { opacity: 0 } : { opacity: 1 }}
 					transition={{ duration: 0.2, ease: 'easeInOut' }}
 				/>
 				<motion.span
-					className="absolute left-0 top-1/2 h-0.5 w-8 origin-center -translate-y-1/2 rounded-sm bg-accent-coral"
+					className="bg-accent-coral absolute top-1/2 left-0 h-0.5 w-8 origin-center -translate-y-1/2 rounded-sm"
 					initial={{ y: 10, rotate: 0 }}
 					animate={rotate ? { y: 0, rotate: -45 } : { y: 10, rotate: 0 }}
 					transition={{ duration: 0.2, ease: 'easeInOut' }}

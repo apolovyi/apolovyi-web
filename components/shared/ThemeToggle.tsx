@@ -46,7 +46,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				className="absolute h-5 w-5 text-text-primary"
+				className="text-text-primary absolute h-5 w-5"
 				initial={false}
 				animate={{
 					scale: theme === 'auto' ? 1 : 0,
@@ -79,7 +79,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				className="absolute h-5 w-5 text-text-primary"
+				className="text-text-primary absolute h-5 w-5"
 				initial={false}
 				animate={{
 					scale: theme === 'dark' ? 1 : 0,
@@ -152,7 +152,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				className="absolute h-5 w-5 text-text-primary"
+				className="text-text-primary absolute h-5 w-5"
 				initial={false}
 				animate={{
 					scale: theme === 'light' ? 1 : 0,

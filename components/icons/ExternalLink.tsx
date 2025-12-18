@@ -20,7 +20,7 @@ const ExternalLink = ({ url, label = 'Open external link' }: ExternalLinkProps) 
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				className="delay-50 text-scd-light h-6 w-6 transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-secondary"
+				className="text-scd-light hover:text-secondary h-6 w-6 transition delay-50 duration-200 ease-in-out hover:-translate-y-1 hover:scale-110"
 				aria-hidden="true"
 				focusable="false"
 			>

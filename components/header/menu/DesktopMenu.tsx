@@ -82,7 +82,7 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 				href={href}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="rounded-xs border-spacing-2 border border-accent-coral px-3 py-2 text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10"
+				className="border-accent-coral text-accent-coral hover:bg-accent-coral hover:bg-opacity-10 border-spacing-2 rounded-xs border px-3 py-2 transition-colors duration-300"
 			>
 				{children}
 			</a>
@@ -91,7 +91,7 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 
 	return (
 		<motion.nav
-			className="hidden flex-row items-center space-x-4 font-tech text-xs md:flex lg:space-x-10 xl:text-lg 2xl:space-x-16"
+			className="font-tech hidden flex-row items-center space-x-4 text-xs md:flex lg:space-x-10 xl:text-lg 2xl:space-x-16"
 			variants={containerVariants}
 			initial="hidden"
 			animate={finishedLoading ? 'visible' : 'hidden'}
@@ -107,8 +107,8 @@ function DesktopMenu({ lang }: DesktopMenuProps) {
 					>
 						<HoverUnderlineFromLeftToRight className="bg-primary">
 							<div className="flex items-center whitespace-nowrap">
-								<span className="mr-2 text-accent-coral group-hover:text-accent-coral">&gt; {item.id}.</span>
-								<span className="font-body text-sm text-text-primary transition-all xl:text-lg">{item.name}</span>
+								<span className="text-accent-coral group-hover:text-accent-coral mr-2">&gt; {item.id}.</span>
+								<span className="font-body text-text-primary text-sm transition-all xl:text-lg">{item.name}</span>
 							</div>
 						</HoverUnderlineFromLeftToRight>
 					</MotionLink>

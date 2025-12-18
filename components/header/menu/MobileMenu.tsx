@@ -64,7 +64,7 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 				href={href}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="rounded-sm border border-accent-coral px-5 py-2 font-heading text-xs text-accent-coral transition-colors duration-300 hover:bg-accent-coral hover:bg-opacity-10 sm:px-10 sm:py-4"
+				className="border-accent-coral font-heading text-accent-coral hover:bg-accent-coral hover:bg-opacity-10 rounded-sm border px-5 py-2 text-xs transition-colors duration-300 sm:px-10 sm:py-4"
 			>
 				{children}
 			</a>
@@ -80,9 +80,9 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 		>
 			<div
 				onClick={closeMenu}
-				className="backdrop-blur-xs h-full w-1/4 bg-background-primary bg-opacity-20 hover:cursor-pointer"
+				className="bg-background-primary bg-opacity-20 h-full w-1/4 backdrop-blur-xs hover:cursor-pointer"
 			/>
-			<div className="flex w-3/4 flex-col items-center justify-center bg-background-primary font-body">
+			<div className="bg-background-primary font-body flex w-3/4 flex-col items-center justify-center">
 				<div className="mt-4 flex items-center gap-4">
 					<ThemeToggle />
 					<LanguageSwitcher currentLang={lang} />
@@ -94,8 +94,8 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 							href={item.href}
 							onClick={(e) => handleScroll(e, item.href)}
 						>
-							<span className="font-tech text-xs text-accent-coral">{item.id}.</span>
-							<span className="font-body text-sm text-text-primary duration-300 hover:cursor-pointer hover:text-accent-coral sm:text-base">
+							<span className="font-tech text-accent-coral text-xs">{item.id}.</span>
+							<span className="font-body text-text-primary hover:text-accent-coral text-sm duration-300 hover:cursor-pointer sm:text-base">
 								{item.name}
 							</span>
 						</MotionLink>

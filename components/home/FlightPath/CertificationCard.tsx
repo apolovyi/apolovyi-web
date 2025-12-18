@@ -59,13 +59,13 @@ export function CertificationCard({ item }: CertificationCardProps) {
 						</svg>
 					)}
 				</div>
-				<span className="rounded-full bg-indigo-500/10 px-2 py-1 font-tech text-xs text-indigo-700">{item.year}</span>
+				<span className="font-tech rounded-full bg-indigo-500/10 px-2 py-1 text-xs text-indigo-700">{item.year}</span>
 			</div>
 
 			{/* Content */}
 			<div className="flex flex-1 flex-col">
-				<span className="font-heading text-sm font-semibold leading-tight text-text-primary">{item.name}</span>
-				<span className="mt-1 font-tech text-xs text-indigo-600">{item.issuer}</span>
+				<span className="font-heading text-text-primary text-sm leading-tight font-semibold">{item.name}</span>
+				<span className="font-tech mt-1 text-xs text-indigo-600">{item.issuer}</span>
 			</div>
 
 			{/* External link indicator if URL exists */}

@@ -28,7 +28,7 @@ const IconClickableWithAnimation = React.memo(({ href, Icon, label }: IconProps)
 			aria-label={label}
 			className="inline-flex h-12 w-12 items-center justify-center"
 		>
-			<Icon className="h-6 w-6 fill-current text-text-secondary hover:cursor-pointer hover:text-accent-coral" />
+			<Icon className="text-text-secondary hover:text-accent-coral h-6 w-6 fill-current hover:cursor-pointer" />
 		</a>
 	</motion.div>
 ))
@@ -64,7 +64,7 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
 						))}
 					</div>
 					<div
-						className="h-28 w-0.5 bg-accent-blue"
+						className="bg-accent-blue h-28 w-0.5"
 						aria-hidden="true"
 					></div>
 				</div>
@@ -87,7 +87,7 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
 						<a
 							href="mailto:info@apolovyi.me"
 							rel="noreferrer"
-							className="inline-block font-tech tracking-wider text-text-primary transition-colors duration-300 hover:text-accent-coral"
+							className="font-tech text-text-primary hover:text-accent-coral inline-block tracking-wider transition-colors duration-300"
 							aria-label="Send email to info@apolovyi.me"
 						>
 							info<span className="text-accent-coral">@</span>apolovyi
@@ -95,7 +95,7 @@ const SocialMediaEmail = ({ finishedLoading }: SocialMediaEmailProps) => {
 						</a>
 					</motion.div>
 					<div
-						className="h-24 w-0.5 bg-accent-blue"
+						className="bg-accent-blue h-24 w-0.5"
 						aria-hidden="true"
 					></div>
 				</div>

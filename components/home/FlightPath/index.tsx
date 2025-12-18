@@ -59,7 +59,7 @@ export default function FlightPath({ lang: _lang }: FlightPathProps) {
 				>
 					{/* Education Column */}
 					<div>
-						<h3 className="mb-4 flex items-center gap-2 font-heading text-lg font-semibold text-text-primary">
+						<h3 className="font-heading text-text-primary mb-4 flex items-center gap-2 text-lg font-semibold">
 							<span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/10">
 								<svg
 									className="h-3.5 w-3.5 text-amber-600"
@@ -86,7 +86,7 @@ export default function FlightPath({ lang: _lang }: FlightPathProps) {
 
 					{/* Certifications Column */}
 					<div>
-						<h3 className="mb-4 flex items-center gap-2 font-heading text-lg font-semibold text-text-primary">
+						<h3 className="font-heading text-text-primary mb-4 flex items-center gap-2 text-lg font-semibold">
 							<span className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-500/10">
 								<svg
 									className="h-3.5 w-3.5 text-indigo-600"

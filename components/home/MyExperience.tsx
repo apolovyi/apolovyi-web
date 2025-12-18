@@ -220,15 +220,15 @@ const ImpactMetrics = ({ metrics }: { metrics: DisplayMetric[] }) => {
 			{metrics.map((metric) => (
 				<div
 					key={`${metric.icon}-${metric.value}`}
-					className="flex items-center gap-2 rounded-lg border border-accent-coral/20 bg-accent-coral/5 px-3 py-2"
+					className="border-accent-coral/20 bg-accent-coral/5 flex items-center gap-2 rounded-lg border px-3 py-2"
 				>
 					<MetricIcon
 						type={metric.icon}
-						className="h-4 w-4 flex-shrink-0 text-accent-coral"
+						className="text-accent-coral h-4 w-4 flex-shrink-0"
 					/>
 					<span className="font-tech">
-						<span className="text-base font-bold text-accent-coral">{metric.value}</span>
-						<span className="ml-1 text-sm text-accent-coral/70">{metric.label}</span>
+						<span className="text-accent-coral text-base font-bold">{metric.value}</span>
+						<span className="text-accent-coral/70 ml-1 text-sm">{metric.label}</span>
 					</span>
 				</div>
 			))}
@@ -260,15 +260,15 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 		<div className="flex min-h-[350px] flex-col space-y-4 2xl:px-4">
 			<div>
 				<div className="flex flex-col lg:flex-row lg:items-center">
-					{isCareerBreak && <GlobeIcon className="mb-2 h-6 w-6 text-accent-coral lg:mb-0 lg:mr-2" />}
-					<span className="font-body text-lg font-semibold text-text-primary">{job.title}</span>
-					{!isCareerBreak && <span className="text-base text-accent-coral lg:ml-2 lg:text-lg">@ {companyData?.name || company}</span>}
+					{isCareerBreak && <GlobeIcon className="text-accent-coral mb-2 h-6 w-6 lg:mr-2 lg:mb-0" />}
+					<span className="font-body text-text-primary text-lg font-semibold">{job.title}</span>
+					{!isCareerBreak && <span className="text-accent-coral text-base lg:ml-2 lg:text-lg">@ {companyData?.name || company}</span>}
 				</div>
-				{job.subtitle && <p className="mt-1 font-tech text-xs italic text-text-secondary">{job.subtitle}</p>}
+				{job.subtitle && <p className="font-tech text-text-secondary mt-1 text-xs italic">{job.subtitle}</p>}
 				<div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
-					<p className="font-tech text-sm text-text-secondary">{job.date}</p>
+					<p className="font-tech text-text-secondary text-sm">{job.date}</p>
 					{companyData?.location && (
-						<span className="flex items-center gap-1 font-tech text-sm text-neutral-medium-gray">
+						<span className="font-tech text-neutral-medium-gray flex items-center gap-1 text-sm">
 							{isCareerBreak ? <GlobeIcon className="h-3.5 w-3.5" /> : <LocationPinIcon className="h-3.5 w-3.5" />}
 							{companyData.location}
 						</span>
@@ -279,7 +279,7 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 						href={job.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="font-tech text-xs text-accent-coral hover:underline"
+						className="font-tech text-accent-coral text-xs hover:underline"
 					>
 						{job.url}
 					</a>
@@ -296,9 +296,9 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 						key={index}
 						className="flex items-start space-x-2"
 					>
-						<ArrowIcon className="mt-1 h-5 w-4 flex-none text-accent-coral" />
+						<ArrowIcon className="text-accent-coral mt-1 h-5 w-4 flex-none" />
 						<span
-							className="text-sm text-text-secondary lg:text-base"
+							className="text-text-secondary text-sm lg:text-base"
 							dangerouslySetInnerHTML={{
 								__html: highlightKeywords(task.text, task.keywords),
 							}}
@@ -309,12 +309,12 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 
 			{/* Travel map for career break */}
 			{isCareerBreak && (
-				<div className="shadow-xs mt-4 overflow-hidden rounded-lg border border-neutral-light-gray bg-background-secondary">
+				<div className="border-neutral-light-gray bg-background-secondary mt-4 overflow-hidden rounded-lg border shadow-xs">
 					<div className="aspect-[2/1] w-full">
 						<WorldMap dots={getTravelJourneyDots()} />
 					</div>
-					<div className="bg-background-primary/50 border-t border-neutral-light-gray px-3 py-2">
-						<p className="font-tech text-xs text-text-secondary">
+					<div className="bg-background-primary/50 border-neutral-light-gray border-t px-3 py-2">
+						<p className="font-tech text-text-secondary text-xs">
 							11 countries visited: Greece, Egypt, South Africa, Zambia, Zimbabwe, Fiji, Australia, Chile, Argentina, Colombia, Ecuador
 						</p>
 					</div>

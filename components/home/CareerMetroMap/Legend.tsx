@@ -50,7 +50,7 @@ export function Legend({ lines, activeLines, visibleLines, onToggleLine }: Legen
 							/>
 						</svg>
 						<span
-							className={`font-tech text-[10px] uppercase tracking-wide ${
+							className={`font-tech text-[10px] tracking-wide uppercase ${
 								isVisible ? 'text-text-secondary' : 'text-text-secondary/50 line-through'
 							}`}
 						>

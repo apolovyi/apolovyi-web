@@ -130,7 +130,7 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 
 					{/* Modal */}
 					<motion.div
-						className="fixed bottom-0 left-0 right-0 z-[70] max-h-[85vh] overflow-hidden rounded-t-2xl bg-background-primary"
+						className="bg-background-primary fixed right-0 bottom-0 left-0 z-[70] max-h-[85vh] overflow-hidden rounded-t-2xl"
 						style={{ boxShadow: '0 -4px 30px rgba(0,0,0,0.25)' }}
 						initial={{ y: '100%' }}
 						animate={{ y: 0 }}
@@ -138,7 +138,7 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 						transition={{ type: 'spring', damping: 30, stiffness: 200, mass: 0.8 }}
 					>
 						{/* Header */}
-						<div className="sticky top-0 z-10 bg-background-primary px-4 pb-3 pt-4">
+						<div className="bg-background-primary sticky top-0 z-10 px-4 pt-4 pb-3">
 							{/* Drag handle */}
 							<div className="mb-3 flex justify-center">
 								<div className="bg-text-secondary/20 h-1 w-10 rounded-full" />
@@ -151,13 +151,13 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 											className="h-3 w-3 flex-shrink-0 rounded-full"
 											style={{ backgroundColor: SBB_COLORS.red }}
 										/>
-										<h2 className="truncate font-body text-lg font-semibold text-text-primary">{job.title}</h2>
+										<h2 className="font-body text-text-primary truncate text-lg font-semibold">{job.title}</h2>
 									</div>
-									<p className="ml-5 text-base text-accent-coral">@ {companyData?.name || activeStation}</p>
-									<div className="ml-5 mt-1 flex items-center gap-3 text-text-secondary">
+									<p className="text-accent-coral ml-5 text-base">@ {companyData?.name || activeStation}</p>
+									<div className="text-text-secondary mt-1 ml-5 flex items-center gap-3">
 										<span className="font-tech text-sm">{job.date}</span>
 										{companyData?.location && (
-											<span className="flex items-center gap-1 font-tech text-sm">
+											<span className="font-tech flex items-center gap-1 text-sm">
 												<LocationPinIcon className="h-4 w-4" />
 												{companyData.location}
 											</span>
@@ -168,7 +168,7 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 								{/* Close button */}
 								<button
 									onClick={onClose}
-									className="rounded-full p-2 text-text-secondary hover:bg-background-secondary active:bg-background-secondary"
+									className="text-text-secondary hover:bg-background-secondary active:bg-background-secondary rounded-full p-2"
 									aria-label="Close"
 								>
 									<CloseIcon className="h-5 w-5" />
@@ -177,14 +177,14 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 						</div>
 
 						{/* Scrollable content */}
-						<div className="overflow-y-auto px-4 pb-8 pt-2">
+						<div className="overflow-y-auto px-4 pt-2 pb-8">
 							{/* Technologies */}
 							{station?.technologies && station.technologies.length > 0 && (
 								<div className="mb-4 flex flex-wrap gap-2">
 									{station.technologies.map((tech) => (
 										<span
 											key={tech}
-											className="rounded-md bg-accent-coral/10 px-2.5 py-1 font-tech text-xs text-accent-coral"
+											className="bg-accent-coral/10 font-tech text-accent-coral rounded-md px-2.5 py-1 text-xs"
 										>
 											{tech}
 										</span>
@@ -198,15 +198,15 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 									{metrics.map((metric) => (
 										<div
 											key={`${metric.icon}-${metric.value}`}
-											className="flex items-center gap-1.5 rounded-md border border-accent-coral/20 bg-accent-coral/5 px-2.5 py-1.5"
+											className="border-accent-coral/20 bg-accent-coral/5 flex items-center gap-1.5 rounded-md border px-2.5 py-1.5"
 										>
 											<MetricIcon
 												type={metric.icon}
-												className="h-4 w-4 text-accent-coral"
+												className="text-accent-coral h-4 w-4"
 											/>
 											<span className="font-tech text-sm">
-												<span className="font-bold text-accent-coral">{metric.value}</span>
-												<span className="ml-1 text-accent-coral/70">{metric.label}</span>
+												<span className="text-accent-coral font-bold">{metric.value}</span>
+												<span className="text-accent-coral/70 ml-1">{metric.label}</span>
 											</span>
 										</div>
 									))}
@@ -220,9 +220,9 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 										key={index}
 										className="flex items-start gap-2"
 									>
-										<ArrowIcon className="mt-1 h-4 w-4 flex-none text-accent-coral" />
+										<ArrowIcon className="text-accent-coral mt-1 h-4 w-4 flex-none" />
 										<span
-											className="text-sm leading-relaxed text-text-secondary"
+											className="text-text-secondary text-sm leading-relaxed"
 											dangerouslySetInnerHTML={{
 												__html: highlightKeywords(task.text, task.keywords),
 											}}
@@ -237,7 +237,7 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 									href={job.url}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="mt-4 block font-tech text-sm text-accent-coral hover:underline"
+									className="font-tech text-accent-coral mt-4 block text-sm hover:underline"
 								>
 									{job.url}
 								</a>
