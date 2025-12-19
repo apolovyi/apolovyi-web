@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useMemo } from 'react'
+import { Fragment, memo, useMemo } from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -17,7 +17,7 @@ interface HighlightedTextProps {
 /**
  * Highlights specified terms within text using React elements (no dangerouslySetInnerHTML)
  */
-export function HighlightedText({
+export const HighlightedText = memo(function HighlightedText({
 	text,
 	terms,
 	className,
@@ -26,10 +26,12 @@ export function HighlightedText({
 	wholeWord = true,
 }: HighlightedTextProps) {
 	const parts = useMemo(() => {
-		if (!terms.length) return [{ text, isHighlight: false }]
+		// Filter out empty/whitespace-only terms
+		const validTerms = terms.filter((t) => t.trim().length > 0)
+		if (!validTerms.length) return [{ text, isHighlight: false }]
 
 		// Create regex pattern for all terms (case insensitive)
-		const escapedTerms = terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+		const escapedTerms = validTerms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
 		const pattern = wholeWord ? new RegExp(`\\b(${escapedTerms})\\b`, 'gi') : new RegExp(`(${escapedTerms})`, 'gi')
 
 		const result: { text: string; isHighlight: boolean }[] = []
@@ -70,4 +72,4 @@ export function HighlightedText({
 			)}
 		</Component>
 	)
-}
+})

@@ -187,6 +187,9 @@ export function LoadingScreen() {
 		const MAX_WAIT_TIME = 3000 // Maximum time to wait for page readiness
 		const startTime = Date.now()
 		let resolved = false
+		let minTimeoutId: ReturnType<typeof setTimeout> | null = null
+		let maxTimeoutId: ReturnType<typeof setTimeout> | null = null
+		let handleLoad: (() => void) | null = null
 
 		const finish = () => {
 			if (resolved) return
@@ -194,7 +197,7 @@ export function LoadingScreen() {
 
 			const elapsed = Date.now() - startTime
 			if (elapsed < MIN_DISPLAY_TIME) {
-				setTimeout(() => setIsLoading(false), MIN_DISPLAY_TIME - elapsed)
+				minTimeoutId = setTimeout(() => setIsLoading(false), MIN_DISPLAY_TIME - elapsed)
 			} else {
 				setIsLoading(false)
 			}
@@ -206,12 +209,12 @@ export function LoadingScreen() {
 			if (document.fonts) {
 				document.fonts.ready.then(finish).catch(finish)
 			} else {
-				setTimeout(finish, MIN_DISPLAY_TIME)
+				minTimeoutId = setTimeout(finish, MIN_DISPLAY_TIME)
 			}
 		} else {
 			// Wait for load event
-			const handleLoad = () => {
-				window.removeEventListener('load', handleLoad)
+			handleLoad = () => {
+				window.removeEventListener('load', handleLoad!)
 				if (document.fonts) {
 					document.fonts.ready.then(finish).catch(finish)
 				} else {
@@ -221,10 +224,18 @@ export function LoadingScreen() {
 			window.addEventListener('load', handleLoad)
 
 			// Fallback timeout to prevent getting stuck
-			setTimeout(() => {
-				window.removeEventListener('load', handleLoad)
+			maxTimeoutId = setTimeout(() => {
+				if (handleLoad) window.removeEventListener('load', handleLoad)
 				finish()
 			}, MAX_WAIT_TIME)
+		}
+
+		// Cleanup on unmount
+		return () => {
+			resolved = true
+			if (minTimeoutId) clearTimeout(minTimeoutId)
+			if (maxTimeoutId) clearTimeout(maxTimeoutId)
+			if (handleLoad) window.removeEventListener('load', handleLoad)
 		}
 	}, [])
 

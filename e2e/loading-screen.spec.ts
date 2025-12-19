@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
-// Increase timeout for slower browsers (Firefox)
-const VISIBILITY_TIMEOUT = 10000
+// Timeout for visibility checks - loading screen max 3s + minimal buffer
+const VISIBILITY_TIMEOUT = 4000
 
 test.describe('Loading Screen', () => {
 	test('should hide loading screen within reasonable time', async ({ page }) => {

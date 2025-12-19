@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
-// Increase timeout for slower browsers (Firefox)
-const VISIBILITY_TIMEOUT = 10000
+// Timeout for visibility checks - loading screen max 3s + minimal buffer
+const VISIBILITY_TIMEOUT = 4000
 
 test.describe('Hero Animations - Desktop', () => {
 	test.use({ viewport: { width: 1440, height: 900 } })
