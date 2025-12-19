@@ -498,7 +498,7 @@ function StationLabel({
 					y={labelY}
 					textAnchor={anchor}
 					className="font-tech text-[9px]"
-					stroke="var(--background-primary)"
+					stroke="var(--bg-primary)"
 					strokeWidth={2}
 					fill="none"
 				>
@@ -528,7 +528,7 @@ function StationLabel({
 				y={labelY}
 				textAnchor={anchor}
 				className="font-tech text-[10px] font-medium"
-				stroke="var(--background-primary)"
+				stroke="var(--bg-primary)"
 				strokeWidth={3}
 				fill="none"
 			>
@@ -549,7 +549,7 @@ function StationLabel({
 				y={tenureY}
 				textAnchor={anchor}
 				className="font-tech text-[8px]"
-				stroke="var(--background-primary)"
+				stroke="var(--bg-primary)"
 				strokeWidth={2}
 				fill="none"
 			>

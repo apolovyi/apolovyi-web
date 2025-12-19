@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import { CareerMetroMap } from '@/components/home/CareerMetroMap'
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { HighlightedText } from '@/components/shared/HighlightedText'
 import SectionHeader from '@/components/shared/SectionHeader'
 import { useMotionInView } from '@/components/shared/useMotionInView'
 import { WorldMap } from '@/components/ui/world-map'
@@ -247,15 +248,6 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 	const isCareerBreak = company === 'CareerBreak'
 	const metrics = getStationMetrics(company)
 
-	const highlightKeywords = (text: string, keywords: string[]) => {
-		let highlightedText = text
-		keywords.forEach((keyword) => {
-			const regex = new RegExp(keyword, 'gi')
-			highlightedText = highlightedText.replace(regex, (match) => `<span class="text-accent-coral">${match}</span>`)
-		})
-		return highlightedText
-	}
-
 	return (
 		<div className="flex min-h-[350px] flex-col space-y-4 2xl:px-4">
 			<div>
@@ -297,11 +289,11 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 						className="flex items-start space-x-2"
 					>
 						<ArrowIcon className="text-accent-coral mt-1 h-5 w-4 flex-none" />
-						<span
+						<HighlightedText
+							text={task.text}
+							terms={task.keywords}
 							className="text-text-secondary text-sm lg:text-base"
-							dangerouslySetInnerHTML={{
-								__html: highlightKeywords(task.text, task.keywords),
-							}}
+							highlightClassName="text-accent-coral"
 						/>
 					</li>
 				))}

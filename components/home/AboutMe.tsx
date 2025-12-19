@@ -6,6 +6,7 @@ import type { DOMKeyframesDefinition } from 'motion'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { HighlightedText } from '@/components/shared/HighlightedText'
 import SectionHeader from '@/components/shared/SectionHeader'
 import { useMotionInView } from '@/components/shared/useMotionInView'
 
@@ -71,6 +72,9 @@ const ProfileImage = () => (
 					<img
 						src="/img/me-bg.jpg"
 						alt="Artem Polovyi"
+						width={320}
+						height={320}
+						sizes="(max-width: 640px) 240px, 320px"
 						loading="lazy"
 						className="absolute inset-0 h-full w-full rounded-sm object-cover opacity-100"
 						onLoad={(e) => animate(e.currentTarget as HTMLImageElement, { opacity: 1 } as DOMKeyframesDefinition, { duration: 0.35 })}
@@ -92,20 +96,6 @@ const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 	useMotionInView(contentRef, 'fade-right', { mode: 'toggle' })
 	useMotionInView(profileRef, 'fade-left', { mode: 'toggle' })
 
-	const highlightTerms = (text: string) => {
-		let highlightedText = text
-		aboutMeSection.highlightedTerms.forEach((term) => {
-			const regex = new RegExp(`\\b(${term})\\b`, 'gi')
-			highlightedText = highlightedText.replace(regex, '<span class="font-tech text-accent-coral">$1</span>')
-		})
-		return (
-			<p
-				className="text-text-secondary"
-				dangerouslySetInnerHTML={{ __html: highlightedText }}
-			/>
-		)
-	}
-
 	return (
 		<section
 			ref={sectionRef}
@@ -126,7 +116,12 @@ const AboutMe = ({ lang: _lang }: AboutMeProps) => {
 					>
 						<div className="font-body space-y-4 text-base sm:text-lg">
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.intro}</p>
-							{highlightTerms(aboutMeSection.paragraphs.specialization)}
+							<HighlightedText
+								text={aboutMeSection.paragraphs.specialization}
+								terms={aboutMeSection.highlightedTerms}
+								className="text-text-secondary"
+								as="p"
+							/>
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.mindset}</p>
 							<p className="text-text-secondary">{aboutMeSection.paragraphs.technologies}</p>
 							<div className="font-tech flex flex-col gap-4 min-[375px]:flex-row min-[375px]:gap-8 sm:gap-16">

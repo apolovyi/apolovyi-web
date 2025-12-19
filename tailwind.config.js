@@ -98,8 +98,8 @@ module.exports = {
 				accent: {
 					DEFAULT: 'var(--accent)',
 					foreground: 'var(--accent-foreground)',
-					coral: '#c23b3b',
-					blue: '#005bb0',
+					coral: 'var(--accent-coral)',
+					blue: 'var(--accent-blue)',
 				},
 				popover: {
 					DEFAULT: 'var(--popover)',

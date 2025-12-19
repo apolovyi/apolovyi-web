@@ -10,14 +10,14 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
 	}, [error])
 
 	return (
-		<div className="flex min-h-screen items-center justify-center bg-[#0a0a0a] text-white">
+		<div className="bg-background-primary text-text-primary flex min-h-screen items-center justify-center">
 			<div className="px-6 text-center">
-				<h1 className="mb-4 text-6xl font-bold text-[#c23b3b]">Oops!</h1>
-				<h2 className="mb-6 text-2xl font-light text-gray-300 md:text-3xl">Something went wrong</h2>
-				<p className="mx-auto mb-8 max-w-md text-gray-400">An unexpected error occurred. Please try again.</p>
+				<h1 className="text-accent-coral mb-4 text-6xl font-bold">Oops!</h1>
+				<h2 className="text-text-secondary mb-6 text-2xl font-light md:text-3xl">Something went wrong</h2>
+				<p className="text-text-secondary/70 mx-auto mb-8 max-w-md">An unexpected error occurred. Please try again.</p>
 				<button
 					onClick={() => reset()}
-					className="inline-block rounded-sm border border-[#c23b3b] px-6 py-3 text-[#c23b3b] transition-colors duration-200 hover:bg-[#c23b3b] hover:text-white"
+					className="border-accent-coral text-accent-coral hover:bg-accent-coral inline-block rounded-sm border px-6 py-3 transition-colors duration-200 hover:text-white"
 				>
 					Try Again
 				</button>

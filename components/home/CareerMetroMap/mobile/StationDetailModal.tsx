@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'motion/react'
 
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { HighlightedText } from '@/components/shared/HighlightedText'
 
 import { type DisplayMetric, dictionaryKeyToStationId, getExperienceCompanies, getStationById, getStationMetrics } from '@/lib/career-data'
 
@@ -105,15 +106,6 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 	const metrics = getStationMetrics(activeStation)
 
 	if (!job) return null
-
-	const highlightKeywords = (text: string, keywords: string[]) => {
-		let highlightedText = text
-		keywords.forEach((keyword) => {
-			const regex = new RegExp(keyword, 'gi')
-			highlightedText = highlightedText.replace(regex, (match) => `<span class="text-accent-coral">${match}</span>`)
-		})
-		return highlightedText
-	}
 
 	return (
 		<AnimatePresence>
@@ -221,11 +213,11 @@ export function StationDetailModal({ activeStation, isOpen, onClose }: StationDe
 										className="flex items-start gap-2"
 									>
 										<ArrowIcon className="text-accent-coral mt-1 h-4 w-4 flex-none" />
-										<span
+										<HighlightedText
+											text={task.text}
+											terms={task.keywords}
 											className="text-text-secondary text-sm leading-relaxed"
-											dangerouslySetInnerHTML={{
-												__html: highlightKeywords(task.text, task.keywords),
-											}}
+											highlightClassName="text-accent-coral"
 										/>
 									</li>
 								))}

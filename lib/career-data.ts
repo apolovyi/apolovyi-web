@@ -1428,3 +1428,20 @@ export function getStationMetrics(dictionaryKey: string): DisplayMetric[] {
 
 	return metrics
 }
+
+// --------------------- Accessibility Helpers ---------------------
+
+/**
+ * Get short accessible name for a station (used for aria-label)
+ */
+export function getStationAriaLabel(station: CareerStation, displayName?: string): string {
+	return `${displayName || station.company} - ${station.role.en}`
+}
+
+/**
+ * Get full accessible name for a station (used for SVG title tooltip)
+ */
+export function getStationTitle(station: CareerStation): string {
+	const endPeriod = station.period.end === 'present' ? 'present' : station.period.end
+	return `${station.company} - ${station.role.en}, ${station.period.start} to ${endPeriod}`
+}

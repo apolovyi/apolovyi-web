@@ -90,18 +90,15 @@ export const JourneyBackground = ({ className, children, animated = true, ...pro
 						>
 							<stop
 								offset="0%"
-								stopColor="#c23b3b"
-								stopOpacity="0.8"
+								style={{ stopColor: 'var(--accent-coral, #c23b3b)', stopOpacity: 0.8 }}
 							/>
 							<stop
 								offset="50%"
-								stopColor="#c23b3b"
-								stopOpacity="0.5"
+								style={{ stopColor: 'var(--accent-coral, #c23b3b)', stopOpacity: 0.5 }}
 							/>
 							<stop
 								offset="100%"
-								stopColor="#c23b3b"
-								stopOpacity="0.8"
+								style={{ stopColor: 'var(--accent-coral, #c23b3b)', stopOpacity: 0.8 }}
 							/>
 						</linearGradient>
 
@@ -127,13 +124,11 @@ export const JourneyBackground = ({ className, children, animated = true, ...pro
 						<radialGradient id="pulseGradient">
 							<stop
 								offset="0%"
-								stopColor="#c23b3b"
-								stopOpacity="0.6"
+								style={{ stopColor: 'var(--accent-coral, #c23b3b)', stopOpacity: 0.6 }}
 							/>
 							<stop
 								offset="100%"
-								stopColor="#c23b3b"
-								stopOpacity="0"
+								style={{ stopColor: 'var(--accent-coral, #c23b3b)', stopOpacity: 0 }}
 							/>
 						</radialGradient>
 					</defs>

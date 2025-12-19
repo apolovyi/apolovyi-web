@@ -8,6 +8,7 @@ import type { Locale } from '@/i18n-config'
 import { motion } from 'motion/react'
 
 import { useDictionary } from '@/components/shared/DictionaryContext'
+import { HighlightedText } from '@/components/shared/HighlightedText'
 import { useHoverTapMotion } from '@/components/shared/useHoverTapMotion'
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
 
@@ -192,15 +193,6 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 		// No mobile delay - LoadingScreen already provides the initial wait
 	}, [])
 
-	const highlightText = (text: string, terms: string[]) => {
-		let highlightedText = text
-		terms.forEach((term) => {
-			const regex = new RegExp(`(${term})`, 'gi')
-			highlightedText = highlightedText.replace(regex, '<span class="text-accent-coral">$1</span>')
-		})
-		return <span dangerouslySetInnerHTML={{ __html: highlightedText }} />
-	}
-
 	const heroContent = (
 		<div
 			className="z-10"
@@ -237,9 +229,19 @@ export default function MotionHero({ finishedLoading, lang }: MotionHeroProps) {
 				className="font-body text-text-secondary mt-10 max-w-sm text-base tracking-wider sm:max-w-md md:text-lg lg:max-w-lg lg:text-xl"
 				enabled={animationsEnabled}
 			>
-				<p>{highlightText(heroSection.paragraphs[0], heroSection.highlightedTerms)}</p>
+				<HighlightedText
+					text={heroSection.paragraphs[0]}
+					terms={heroSection.highlightedTerms}
+					highlightClassName="text-accent-coral"
+					as="p"
+				/>
 				<br />
-				<p>{highlightText(heroSection.paragraphs[1], heroSection.highlightedTerms)}</p>
+				<HighlightedText
+					text={heroSection.paragraphs[1]}
+					terms={heroSection.highlightedTerms}
+					highlightClassName="text-accent-coral"
+					as="p"
+				/>
 			</AnimatedText>
 			<AnimatedText
 				delay={baseDelay + 0.8}

@@ -144,19 +144,17 @@ function TrainIcon() {
 	)
 }
 
-// Animated track ties
+// Animated track ties - uses CSS animation for smoother performance
 function TrackTies() {
 	return (
 		<div className="absolute right-0 bottom-[18px] left-0 overflow-hidden">
 			<motion.div
 				className="flex gap-6"
-				initial={{ x: 0 }}
-				animate={{ x: -48 }}
+				animate={{ x: [0, -48] }}
 				transition={{
-					duration: 0.3,
+					duration: 0.5,
 					repeat: Infinity,
 					ease: 'linear',
-					repeatType: 'loop',
 				}}
 				style={{ willChange: 'transform' }}
 			>
@@ -185,13 +183,49 @@ export function LoadingScreen() {
 	const [isVisible, setIsVisible] = useState(true)
 
 	useEffect(() => {
-		// Simple approach: hide after 500ms minimum
-		// By the time React hydrates, the page is already interactive
-		const timer = setTimeout(() => {
-			setIsLoading(false)
-		}, 500)
+		const MIN_DISPLAY_TIME = 400 // Minimum time to show loading (prevents flash)
+		const MAX_WAIT_TIME = 3000 // Maximum time to wait for page readiness
+		const startTime = Date.now()
+		let resolved = false
 
-		return () => clearTimeout(timer)
+		const finish = () => {
+			if (resolved) return
+			resolved = true
+
+			const elapsed = Date.now() - startTime
+			if (elapsed < MIN_DISPLAY_TIME) {
+				setTimeout(() => setIsLoading(false), MIN_DISPLAY_TIME - elapsed)
+			} else {
+				setIsLoading(false)
+			}
+		}
+
+		// If document is already complete, just wait minimum time
+		if (document.readyState === 'complete') {
+			// Also wait for fonts if available
+			if (document.fonts) {
+				document.fonts.ready.then(finish).catch(finish)
+			} else {
+				setTimeout(finish, MIN_DISPLAY_TIME)
+			}
+		} else {
+			// Wait for load event
+			const handleLoad = () => {
+				window.removeEventListener('load', handleLoad)
+				if (document.fonts) {
+					document.fonts.ready.then(finish).catch(finish)
+				} else {
+					finish()
+				}
+			}
+			window.addEventListener('load', handleLoad)
+
+			// Fallback timeout to prevent getting stuck
+			setTimeout(() => {
+				window.removeEventListener('load', handleLoad)
+				finish()
+			}, MAX_WAIT_TIME)
+		}
 	}, [])
 
 	// Remove from DOM after exit animation completes, then signal ready

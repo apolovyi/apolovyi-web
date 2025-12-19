@@ -2,9 +2,15 @@
 
 import { motion } from 'motion/react'
 
-import { type CareerStation, stationIdToDictionaryKey } from '@/lib/career-data'
+import { type CareerStation, getStationAriaLabel, getStationTitle, lines, stationIdToDictionaryKey } from '@/lib/career-data'
 
 import { SBB_COLORS, STATION_CONFIG } from './constants'
+
+// Get line color from career-data (single source of truth)
+const getLineColor = (lineId: string): string => {
+	const line = lines.find((l) => l.id === lineId)
+	return line?.color || 'var(--accent-coral, #c23b3b)'
+}
 
 interface MobileStationProps {
 	id: string
@@ -22,8 +28,8 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 	// Alternate label position based on index (even = right, odd = left)
 	const labelOnRight = index % 2 === 0
 
-	// Get primary line color for the station
-	const primaryLineColor = station.lines[0] === 'backend' ? '#3B82F6' : station.lines[0] === 'frontend' ? '#10B981' : '#8B5CF6'
+	// Get primary line color for the station (from career-data)
+	const primaryLineColor = getLineColor(station.lines[0])
 
 	// Use shortName if available, otherwise use company name
 	const displayName = station.shortName || station.company
@@ -37,7 +43,7 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 			onClick={handleClick}
 			style={{ cursor: 'pointer' }}
 			role="button"
-			aria-label={`${station.company} - ${station.role.en}`}
+			aria-label={getStationAriaLabel(station, displayName)}
 			tabIndex={0}
 			onKeyDown={(e) => {
 				if (e.key === 'Enter' || e.key === ' ') {
@@ -48,6 +54,7 @@ export function MobileStation({ id, x, y, station, isActive, onSelect, index }: 
 			whileTap={{ scale: 0.92, opacity: 0.8 }}
 			transition={{ duration: 0.1 }}
 		>
+			<title>{getStationTitle(station)}</title>
 			{/* Hit area - larger invisible circle for easier tapping */}
 			<circle
 				cx={x}

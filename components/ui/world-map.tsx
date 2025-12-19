@@ -17,7 +17,7 @@ interface WorldMapProps {
 	className?: string
 }
 
-export function WorldMap({ dots = [], lineColor = '#c23b3b', className }: WorldMapProps) {
+export function WorldMap({ dots = [], lineColor = 'var(--accent-coral, #c23b3b)', className }: WorldMapProps) {
 	const svgRef = useRef<SVGSVGElement>(null)
 	const [isVisible, setIsVisible] = useState(false)
 	const [mapSvg, setMapSvg] = useState<string>('')
@@ -126,7 +126,7 @@ export function WorldMap({ dots = [], lineColor = '#c23b3b', className }: WorldM
 								key={`static-path-${i}`}
 								d={pathD}
 								fill="none"
-								stroke={lineColor}
+								style={{ stroke: lineColor }}
 								strokeWidth="1"
 								strokeOpacity="0.3"
 								strokeDasharray="6 4"
@@ -158,7 +158,7 @@ export function WorldMap({ dots = [], lineColor = '#c23b3b', className }: WorldM
 							{/* Plane shape - pointing right */}
 							<polygon
 								points="-6,-4 6,0 -6,4 -3,0"
-								fill={lineColor}
+								style={{ fill: lineColor }}
 							/>
 						</g>
 					</g>
@@ -179,7 +179,7 @@ export function WorldMap({ dots = [], lineColor = '#c23b3b', className }: WorldM
 									cx={point.x}
 									cy={point.y}
 									r="4"
-									fill={lineColor}
+									style={{ fill: lineColor }}
 								/>
 								{/* White inner highlight */}
 								<circle
@@ -195,7 +195,7 @@ export function WorldMap({ dots = [], lineColor = '#c23b3b', className }: WorldM
 										cy={point.y}
 										r="4"
 										fill="none"
-										stroke={lineColor}
+										style={{ stroke: lineColor }}
 										strokeWidth="2"
 									>
 										<animate

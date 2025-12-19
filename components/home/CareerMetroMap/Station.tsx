@@ -2,6 +2,8 @@
 
 import { motion, useReducedMotion } from 'motion/react'
 
+import { getStationAriaLabel, getStationTitle } from '@/lib/career-data'
+
 import { ANIMATION_CONFIG, getStationSize } from './constants'
 import type { StationProps } from './types'
 
@@ -11,7 +13,7 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 	const size = isPrimary ? getStationSize(station.tenureMonths) : getStationSize(station.tenureMonths) * 0.85
 
 	// Use first line color or default
-	const primaryColor = lineColors[0] || '#c23b3b'
+	const primaryColor = lineColors[0] || 'var(--accent-coral, #c23b3b)'
 
 	// Special treatment for career break
 	const isCareerBreak = station.id === 'career-break'
@@ -39,8 +41,9 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 					onClick()
 				}
 			}}
-			aria-label={`${station.company}, ${station.role.en}, ${station.period.start} to ${station.period.end === 'present' ? 'present' : station.period.end}`}
+			aria-label={getStationAriaLabel(station, station.shortName)}
 		>
+			<title>{getStationTitle(station)}</title>
 			{/* Invisible hit area for touch */}
 			<circle
 				cx={x}
@@ -213,7 +216,7 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 							cx={x}
 							cy={y}
 							r={globeSize}
-							fill={isActive ? primaryColor : 'var(--background-primary)'}
+							fill={isActive ? primaryColor : 'var(--bg-primary)'}
 							stroke={primaryColor}
 							strokeWidth={2}
 						/>
@@ -252,8 +255,8 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 							cx={x}
 							cy={y}
 							r={size + 2}
-							fill="var(--background-primary)"
-							stroke="var(--background-primary)"
+							fill="var(--bg-primary)"
+							stroke="var(--bg-primary)"
 							strokeWidth={2}
 						/>
 						{/* Solid colored dot */}
