@@ -24,6 +24,7 @@
 		"check": "pnpm run format:check && pnpm run lint:ci",
 		"prepare": "husky",
 		"test:smoke": "node scripts/smoke.mjs",
+		"test:screenshots": "node scripts/capture-screenshots.mjs",
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
 		"test:e2e:headed": "playwright test --headed",

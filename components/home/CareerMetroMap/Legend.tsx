@@ -25,9 +25,9 @@ export function Legend({ lines, activeLines, visibleLines, onToggleLine }: Legen
 					<button
 						key={line.id}
 						onClick={() => onToggleLine(line.id)}
-						className={`group flex items-center gap-1.5 py-0.5 transition-all ${
+						className={`group flex items-center gap-1.5 py-0.5 transition-all print:pointer-events-none print:opacity-100 ${
 							isVisible ? (isActive || isSoloed ? 'opacity-100' : 'opacity-70 hover:opacity-90') : 'opacity-30 hover:opacity-50'
-						} ${isSoloed ? 'bg-text-secondary/10 -mx-2 rounded-full px-2' : ''}`}
+						} ${isSoloed ? 'bg-text-secondary/10 -mx-2 rounded-full px-2 print:mx-0 print:bg-transparent print:px-0' : ''}`}
 						aria-pressed={isVisible}
 						aria-label={isSoloed ? `Show all lines (${line.label} is soloed)` : `Solo ${line.label} line`}
 					>
@@ -47,10 +47,11 @@ export function Legend({ lines, activeLines, visibleLines, onToggleLine }: Legen
 								strokeLinecap="round"
 								strokeDasharray={strokeStyle.strokeDasharray}
 								strokeOpacity={isVisible ? 1 : 0.4}
+								className="print:opacity-100"
 							/>
 						</svg>
 						<span
-							className={`font-tech text-[10px] tracking-wide uppercase ${
+							className={`font-tech text-[10px] tracking-wide uppercase print:text-gray-800 print:no-underline ${
 								isVisible ? 'text-text-secondary' : 'text-text-secondary/50 line-through'
 							}`}
 						>

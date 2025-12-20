@@ -179,28 +179,41 @@
 		display: none !important;
 	}
 
-	/* Metro map print styles */
+	/* ===== METRO MAP PRINT STYLES ===== */
+
 	#experienceSection {
 		break-inside: avoid;
 		page-break-inside: avoid;
+		border: 1px solid #ddd;
+		padding: 1rem;
+		border-radius: 4px;
 	}
 
-	/* Convert metro lines to grayscale patterns */
-	svg line,
-	svg path {
-		filter: grayscale(100%);
+	/* Preserve colors for color printing */
+	#experienceSection svg {
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
 	}
 
-	/* Make station dots visible in grayscale */
-	svg circle {
-		filter: grayscale(100%);
-		stroke-width: 2px !important;
+	/* Ensure station dots preserve colors */
+	#experienceSection svg circle {
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
 	}
 
-	/* Ensure text is black */
-	svg text {
-		fill: black !important;
+	/* Ensure metro line colors are preserved */
+	#experienceSection svg line,
+	#experienceSection svg path {
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
 	}
+
+	/* SVG text should be dark for readability */
+	#experienceSection svg text {
+		fill: #333 !important;
+	}
+
+	/* ===== END METRO MAP PRINT STYLES ===== */
 
 	/* World map grayscale */
 	.world-map,
@@ -208,27 +221,18 @@
 		filter: grayscale(100%);
 	}
 
-	/* Legend print adjustments */
-	.legend-item svg line {
-		stroke: #333 !important;
-	}
-
-	/* Improve contrast for labels */
-	svg rect {
-		fill: white !important;
-		stroke: #666 !important;
-	}
-
-	/* Timeline axis */
-	svg .timeline-axis {
-		stroke: #333 !important;
-	}
-
 	/* Convert coral accent text to dark gray for print */
 	.text-accent-coral,
 	[class*='accent-coral'] {
 		color: #333 !important;
 		font-weight: 600 !important;
+	}
+
+	/* Ensure theme-based text colors are readable in print */
+	.text-text-primary,
+	.text-text-secondary,
+	[class*='text-text-'] {
+		color: #333 !important;
 	}
 
 	/* Links should be black */

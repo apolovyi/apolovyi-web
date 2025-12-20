@@ -307,7 +307,8 @@ const JobDescription = ({ company }: JobDescriptionProps) => {
 					</div>
 					<div className="bg-background-primary/50 border-neutral-light-gray border-t px-3 py-2">
 						<p className="font-tech text-text-secondary text-xs">
-							11 countries visited: Greece, Egypt, South Africa, Zambia, Zimbabwe, Fiji, Australia, Chile, Argentina, Colombia, Ecuador
+							14 cities across 11 countries: Athens, Cairo, Cape Town, Johannesburg, Livingstone, Victoria Falls, Nadi, Suva, Sydney,
+							Santiago, Valparaíso, Buenos Aires, Medellín, Quito
 						</p>
 					</div>
 				</div>

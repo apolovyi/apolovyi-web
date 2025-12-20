@@ -83,11 +83,7 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 				className="bg-background-primary bg-opacity-20 h-full w-1/4 backdrop-blur-xs hover:cursor-pointer"
 			/>
 			<div className="bg-background-primary font-body flex w-3/4 flex-col items-center justify-center">
-				<div className="mt-4 flex items-center gap-4">
-					<ThemeToggle />
-					<LanguageSwitcher currentLang={lang} />
-				</div>
-				<div className="mt-10 flex flex-col items-center justify-center space-y-8">
+				<div className="flex flex-col items-center justify-center space-y-8">
 					{header.menuItems.map((item) => (
 						<MotionLink
 							key={item.id}
@@ -101,6 +97,10 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 						</MotionLink>
 					))}
 					<MotionExternal href={header.resumeButton.href}>{header.resumeButton.text}</MotionExternal>
+				</div>
+				<div className="mt-10 flex items-center gap-4">
+					<ThemeToggle />
+					<LanguageSwitcher currentLang={lang} />
 				</div>
 			</div>
 		</motion.div>

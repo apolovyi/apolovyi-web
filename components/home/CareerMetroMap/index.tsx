@@ -201,9 +201,9 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 				ref={scrollContainerRef}
 				className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-600/50 relative overflow-x-auto pb-2 lg:overflow-visible"
 			>
-				{/* Scroll hint for mobile only (hidden on tablet+) */}
+				{/* Scroll hint for mobile only (hidden on tablet+ and print) */}
 				{!hasScrolled && (
-					<div className="bg-background-secondary/80 text-text-secondary/70 pointer-events-none absolute top-1/2 right-2 z-20 flex -translate-y-1/2 items-center gap-1 rounded-full px-2 py-1 backdrop-blur-xs md:hidden">
+					<div className="bg-background-secondary/80 text-text-secondary/70 pointer-events-none absolute top-1/2 right-2 z-20 flex -translate-y-1/2 items-center gap-1 rounded-full px-2 py-1 backdrop-blur-xs md:hidden print:hidden">
 						<span className="font-tech text-[10px] tracking-wide uppercase">Scroll</span>
 						<svg
 							width="14"
@@ -221,8 +221,8 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 						</svg>
 					</div>
 				)}
-				{/* Subtle right fade - mobile only */}
-				<div className="from-background-primary pointer-events-none absolute top-0 right-0 z-10 h-full w-8 bg-gradient-to-l to-transparent md:hidden" />
+				{/* Subtle right fade - mobile only (hidden in print) */}
+				<div className="from-background-primary pointer-events-none absolute top-0 right-0 z-10 h-full w-8 bg-gradient-to-l to-transparent md:hidden print:hidden" />
 				<svg
 					ref={svgRef}
 					viewBox={`0 0 ${SVG_DIMENSIONS.width} ${SVG_DIMENSIONS.height}`}
@@ -413,7 +413,7 @@ export function CareerMetroMap({ activeStation, onStationSelect, className }: Ca
 					/>
 					<button
 						onClick={handleReplay}
-						className="border-text-secondary/20 text-text-secondary/60 hover:border-text-secondary/40 group hover:text-text-secondary flex flex-shrink-0 items-center gap-1.5 rounded-full border px-2 py-1 transition-all"
+						className="border-text-secondary/20 text-text-secondary/60 hover:border-text-secondary/40 group hover:text-text-secondary flex flex-shrink-0 items-center gap-1.5 rounded-full border px-2 py-1 transition-all print:hidden"
 						aria-label="Replay animation"
 						title="Replay animation"
 					>

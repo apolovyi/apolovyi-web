@@ -19,7 +19,7 @@ interface DomainFilterProps {
 export function DomainFilter({ domains, activeDomain, onSelectDomain }: DomainFilterProps) {
 	return (
 		<motion.div
-			className="flex flex-wrap items-center gap-2"
+			className="flex flex-wrap items-center gap-2 print:hidden"
 			initial={{ opacity: 0, y: 10 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 1.2, duration: 0.4 }}

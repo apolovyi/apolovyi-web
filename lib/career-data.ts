@@ -1346,19 +1346,23 @@ export interface TravelDestination {
 	lng: number
 }
 
-// Journey: Germany → Greece → Egypt → South Africa → Zambia → Zimbabwe → Fiji → Australia → Chile → Argentina → Colombia → Ecuador → Germany
+// Journey: 14 cities visited (round trip from Cologne)
+// Cologne → Athens → Cairo → Cape Town → Johannesburg → Livingstone → Victoria Falls → Nadi → Suva → Sydney → Santiago → Valparaíso → Buenos Aires → Medellín → Quito → Cologne
 export const careerBreakJourney: TravelDestination[] = [
 	{ country: 'Germany', city: 'Cologne', lat: 50.94, lng: 6.96 },
 	{ country: 'Greece', city: 'Athens', lat: 37.98, lng: 23.73 },
 	{ country: 'Egypt', city: 'Cairo', lat: 30.04, lng: 31.24 },
 	{ country: 'South Africa', city: 'Cape Town', lat: -33.92, lng: 18.42 },
+	{ country: 'South Africa', city: 'Johannesburg', lat: -26.2, lng: 28.05 },
 	{ country: 'Zambia', city: 'Livingstone', lat: -17.84, lng: 25.86 },
-	{ country: 'Zimbabwe', city: 'Victoria Falls', lat: -17.93, lng: 25.83 },
+	{ country: 'Zimbabwe', city: 'Victoria Falls', lat: -17.92, lng: 25.83 },
+	{ country: 'Fiji', city: 'Nadi', lat: -17.78, lng: 177.44 },
 	{ country: 'Fiji', city: 'Suva', lat: -18.14, lng: 178.44 },
 	{ country: 'Australia', city: 'Sydney', lat: -33.87, lng: 151.21 },
 	{ country: 'Chile', city: 'Santiago', lat: -33.45, lng: -70.67 },
+	{ country: 'Chile', city: 'Valparaíso', lat: -33.05, lng: -71.61 },
 	{ country: 'Argentina', city: 'Buenos Aires', lat: -34.6, lng: -58.38 },
-	{ country: 'Colombia', city: 'Bogotá', lat: 4.71, lng: -74.07 },
+	{ country: 'Colombia', city: 'Medellín', lat: 6.24, lng: -75.58 },
 	{ country: 'Ecuador', city: 'Quito', lat: -0.18, lng: -78.47 },
 	{ country: 'Germany', city: 'Cologne', lat: 50.94, lng: 6.96 },
 ]

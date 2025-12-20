@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'motion/react'
 
 import { useDictionary } from '@/components/shared/DictionaryContext'
 
-import { dictionaryKeyToStationId, getExperienceCompanies, getStationById } from '@/lib/career-data'
+import { dictionaryKeyToStationId, getExperienceCompanies, getStationById, getTravelJourneyDots } from '@/lib/career-data'
 
 import { SBB_COLORS } from './constants'
 
@@ -44,6 +44,35 @@ const ChevronUpIcon = ({ className }: { className?: string }) => (
 	</svg>
 )
 
+const GlobeIcon = ({ className }: { className?: string }) => (
+	<svg
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		strokeWidth="1.5"
+		className={className}
+	>
+		<circle
+			cx="12"
+			cy="12"
+			r="10"
+		/>
+		<path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+	</svg>
+)
+
+const MapIcon = ({ className }: { className?: string }) => (
+	<svg
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		strokeWidth="1.5"
+		className={className}
+	>
+		<path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4zM8 2v16M16 6v16" />
+	</svg>
+)
+
 export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 	const dictionary = useDictionary()
 
@@ -67,6 +96,8 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 	// Get first 3 technologies for the compact view
 	const techTags = station?.technologies?.slice(0, 3) || []
 	const totalTechCount = station?.technologies?.length || 0
+	const isCareerBreak = activeStation === 'CareerBreak'
+	const travelDots = isCareerBreak ? getTravelJourneyDots() : []
 
 	return (
 		<AnimatePresence mode="popLayout">
@@ -128,6 +159,17 @@ export function StationCard({ activeStation, onCardTap }: StationCardProps) {
 											+{totalTechCount - 3}
 										</span>
 									)}
+								</div>
+							)}
+
+							{/* Career break map preview indicator */}
+							{isCareerBreak && (
+								<div className="mt-2 ml-[18px] flex items-center gap-2">
+									<div className="bg-accent-coral/10 flex items-center gap-1.5 rounded-md px-2 py-1">
+										<GlobeIcon className="text-accent-coral h-4 w-4" />
+										<span className="font-tech text-accent-coral text-[11px]">{travelDots.length} cities journey map inside</span>
+										<MapIcon className="text-accent-coral h-3.5 w-3.5" />
+									</div>
 								</div>
 							)}
 						</div>

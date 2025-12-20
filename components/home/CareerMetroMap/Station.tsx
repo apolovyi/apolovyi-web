@@ -53,9 +53,9 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 			/>
 
 			{/* Enhanced sonar pulse for current job (PEAX) - multiple staggered rings */}
-			{/* Only shows when no station is focused (selected or hovered) */}
+			{/* Only shows when no station is focused (selected or hovered) - hidden in print */}
 			{isPrimary && isCurrentEmployer && !prefersReducedMotion && showCurrentJobPulse && (
-				<>
+				<g className="print:hidden">
 					{/* Ring 1 - fastest, smallest */}
 					<circle
 						cx={x}
@@ -164,7 +164,7 @@ export function Station({ position, isActive, lineColors, onClick, onHover, isPr
 						fill={primaryColor}
 						opacity={0.15}
 					/>
-				</>
+				</g>
 			)}
 
 			{/* Glow effect for active state - enhanced */}
