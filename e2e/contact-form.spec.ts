@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { VISIBILITY_TIMEOUT, waitForPageReady } from './test-utils'
+import { TIMEOUTS, waitForPageReady } from './test-utils'
 
 test.describe('Contact Form', () => {
 	test.beforeEach(async ({ page }) => {
@@ -12,7 +12,7 @@ test.describe('Contact Form', () => {
 			section?.scrollIntoView({ behavior: 'instant' })
 		})
 		// Wait for form to be visible
-		await expect(page.locator('form').first()).toBeVisible({ timeout: VISIBILITY_TIMEOUT })
+		await expect(page.locator('form').first()).toBeVisible({ timeout: TIMEOUTS.visibility })
 	})
 
 	test('form fields are functional and validate input', async ({ page }) => {
@@ -22,7 +22,7 @@ test.describe('Contact Form', () => {
 		const messageField = page.locator('textarea[name="message"]').first()
 		const submitButton = page.locator('button[type="submit"]').first()
 
-		await expect(nameField).toBeVisible({ timeout: VISIBILITY_TIMEOUT })
+		await expect(nameField).toBeVisible({ timeout: TIMEOUTS.visibility })
 		await expect(emailField).toBeVisible()
 		await expect(messageField).toBeVisible()
 		await expect(submitButton).toBeVisible()
@@ -46,7 +46,7 @@ test.describe('Contact Form', () => {
 
 	test('form has Netlify spam protection', async ({ page }) => {
 		const form = page.locator('form[data-netlify="true"]')
-		await expect(form).toBeVisible({ timeout: VISIBILITY_TIMEOUT })
+		await expect(form).toBeVisible({ timeout: TIMEOUTS.visibility })
 
 		// Honeypot field should exist but be hidden
 		const honeypot = page.locator('input[name="bot-field"]')
@@ -58,7 +58,7 @@ test.describe('Contact Form', () => {
 
 	test('form fields have minimum touch target size', async ({ page }) => {
 		const nameField = page.locator('input[name="name"]').first()
-		await expect(nameField).toBeVisible({ timeout: VISIBILITY_TIMEOUT })
+		await expect(nameField).toBeVisible({ timeout: TIMEOUTS.visibility })
 
 		const box = await nameField.boundingBox()
 		// WCAG recommends 44x44px minimum touch target

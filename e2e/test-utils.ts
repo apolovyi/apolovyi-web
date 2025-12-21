@@ -1,22 +1,54 @@
 import type { Page } from '@playwright/test'
 import { expect } from '@playwright/test'
 
-// Standard timeout for visibility checks (loading screen max 3s + buffer)
-export const VISIBILITY_TIMEOUT = 5000
+import { DEBUG, TIMEOUTS } from './test-config'
+
+// Re-export for backward compatibility
+export const VISIBILITY_TIMEOUT = TIMEOUTS.visibility
+export const STATE_CHANGE_TIMEOUT = TIMEOUTS.stateChange
+
+// Export all timeouts and debug flag for direct access
+export { DEBUG, TIMEOUTS }
 
 /**
  * Wait for loading screen to complete and hero to be fully visible
  */
 export async function waitForPageReady(page: Page) {
+	// Wait for loading screen to disappear (it has z-[9999] and blocks clicks)
+	await page.waitForFunction(
+		() => {
+			// Helper to check if a CSS value represents zero
+			const isZero = (value: string | null) => {
+				if (!value || value === 'auto') return false
+				const num = parseFloat(value)
+				return !Number.isNaN(num) && num === 0
+			}
+
+			// Check for any fixed overlay covering the viewport
+			const overlays = document.querySelectorAll('.fixed')
+			for (const overlay of overlays) {
+				const style = window.getComputedStyle(overlay)
+				const zIndex = parseInt(style.zIndex, 10)
+				// Loading screen has z-index 9999 and covers full viewport
+				const coversViewport = isZero(style.top) && isZero(style.right) && isZero(style.bottom) && isZero(style.left)
+				if (zIndex >= 9999 && coversViewport) {
+					return false
+				}
+			}
+			return true
+		},
+		{ timeout: TIMEOUTS.pageReady },
+	)
+
 	const heroName = page.getByRole('heading', { level: 1 })
-	await expect(heroName).toBeVisible({ timeout: VISIBILITY_TIMEOUT })
+	await expect(heroName).toBeVisible({ timeout: TIMEOUTS.visibility })
 
 	await page.waitForFunction(
 		() => {
 			const el = document.querySelector('h1')
 			return el && window.getComputedStyle(el).opacity === '1'
 		},
-		{ timeout: VISIBILITY_TIMEOUT },
+		{ timeout: TIMEOUTS.animation },
 	)
 }
 
@@ -49,6 +81,6 @@ export async function scrollToSection(page: Page, sectionId: string) {
 			return rect.top >= -50 && rect.top < window.innerHeight
 		},
 		sectionId,
-		{ timeout: 2000 },
+		{ timeout: TIMEOUTS.scroll },
 	)
 }

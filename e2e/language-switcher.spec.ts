@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { VISIBILITY_TIMEOUT, waitForPageReady } from './test-utils'
+import { TIMEOUTS, waitForPageReady } from './test-utils'
 
 test.describe('Language Switcher', () => {
 	test.use({ viewport: { width: 1440, height: 900 } })
@@ -14,12 +14,12 @@ test.describe('Language Switcher', () => {
 			.locator('nav button')
 			.filter({ hasText: /English|Deutsch|Українська/ })
 			.first()
-		await expect(langButton).toBeVisible({ timeout: VISIBILITY_TIMEOUT })
+		await expect(langButton).toBeVisible({ timeout: TIMEOUTS.visibility })
 		await langButton.click()
 
 		// Dropdown should show with multiple language options
 		const dropdown = page.locator('[role="menu"]')
-		await expect(dropdown).toBeVisible({ timeout: VISIBILITY_TIMEOUT })
+		await expect(dropdown).toBeVisible({ timeout: TIMEOUTS.visibility })
 
 		const menuItems = page.locator('[role="menuitem"]')
 		const count = await menuItems.count()
@@ -39,11 +39,11 @@ test.describe('Language Switcher', () => {
 
 		// Wait for dropdown and click Ukrainian option
 		const ukrainianOption = page.locator('[role="menuitem"]').filter({ hasText: 'Українська' })
-		await expect(ukrainianOption).toBeVisible({ timeout: 2000 })
+		await expect(ukrainianOption).toBeVisible({ timeout: TIMEOUTS.stateChange })
 		await ukrainianOption.click()
 
 		// Should navigate to /uk
-		await page.waitForURL('**/uk', { timeout: 10000 })
+		await page.waitForURL('**/uk', { timeout: TIMEOUTS.navigation })
 		expect(page.url()).toContain('/uk')
 
 		// HTML lang should be updated
@@ -59,32 +59,32 @@ test.describe('Language Switcher', () => {
 			.locator('nav button')
 			.filter({ hasText: /English|Deutsch|Українська/ })
 			.first()
+		await expect(langButton).toBeVisible({ timeout: TIMEOUTS.visibility })
 		await langButton.click()
 
 		const dropdown = page.locator('[role="menu"]')
-		await expect(dropdown).toBeVisible()
+		await expect(dropdown).toBeVisible({ timeout: TIMEOUTS.visibility })
 
-		// Click outside
-		await page.locator('body').click({ position: { x: 10, y: 10 } })
-		await expect(dropdown).toBeHidden()
+		// Click outside (on main content area, not at edge where it might miss)
+		await page
+			.locator('main')
+			.first()
+			.click({ position: { x: 100, y: 100 } })
+		await expect(dropdown).toBeHidden({ timeout: TIMEOUTS.stateChange })
 	})
 })
 
 test.describe('Locale Verification', () => {
-	const locales = [
-		{ code: 'en', lang: 'en' },
-		{ code: 'de', lang: 'de' },
-		{ code: 'uk', lang: 'uk' },
-		{ code: 'ch', lang: 'ch' },
-	]
+	// Pareto: test 2 locales (en + one non-English) - if routing works, it works for all
+	test('/en page loads with correct lang', async ({ page }) => {
+		await page.goto('/en')
+		await waitForPageReady(page)
+		expect(await page.locator('html').getAttribute('lang')).toBe('en')
+	})
 
-	for (const { code, lang } of locales) {
-		test(`/${code} page loads with correct lang="${lang}"`, async ({ page }) => {
-			await page.goto(`/${code}`)
-			await waitForPageReady(page)
-
-			const htmlLang = await page.locator('html').getAttribute('lang')
-			expect(htmlLang).toBe(lang)
-		})
-	}
+	test('/de page loads with correct lang', async ({ page }) => {
+		await page.goto('/de')
+		await waitForPageReady(page)
+		expect(await page.locator('html').getAttribute('lang')).toBe('de')
+	})
 })

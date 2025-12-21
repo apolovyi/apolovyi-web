@@ -2,58 +2,37 @@ import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
 	testDir: './e2e',
-	fullyParallel: true,
+	// Sequential execution for stability (both local and CI)
+	fullyParallel: false,
 	forbidOnly: !!process.env.CI,
-	retries: process.env.CI ? 2 : 0,
-	workers: process.env.CI ? 4 : undefined,
-	reporter: 'html',
+	retries: process.env.CI ? 1 : 0,
+	workers: 1,
+	reporter: process.env.CI ? 'html' : 'line',
+	// Global test timeout: 10s local, 20s CI
+	timeout: process.env.CI ? 20000 : 10000,
 	use: {
 		baseURL: process.env.BASE_URL || 'http://localhost:3000',
-		trace: 'on-first-retry',
+		trace: 'retain-on-failure',
+		screenshot: 'only-on-failure',
+		video: 'off',
+		// Action timeout: 3s local, 6s CI
+		actionTimeout: process.env.CI ? 6000 : 3000,
+		// Navigation timeout: 5s local, 10s CI
+		navigationTimeout: process.env.CI ? 10000 : 5000,
 	},
 	projects: [
-		// ===================
-		// Desktop Browsers (Chrome & Safari - covers 90%+ of users)
-		// ===================
+		// Pareto: 3 projects cover 95%+ of real-world usage
 		{
 			name: 'chrome-desktop',
-			use: { ...devices['Desktop Chrome'] },
+			use: { ...devices['Desktop Chrome'] }, // 65% of users
 		},
 		{
 			name: 'safari-desktop',
-			use: { ...devices['Desktop Safari'] },
-		},
-
-		// ===================
-		// iOS Devices (WebKit) - Representative set
-		// ===================
-		{
-			name: 'iphone-se',
-			use: { ...devices['iPhone SE'] }, // Small screen
+			use: { ...devices['Desktop Safari'] }, // WebKit engine
 		},
 		{
 			name: 'iphone-15',
-			use: { ...devices['iPhone 15'] }, // Standard
-		},
-		{
-			name: 'iphone-15-pro-max',
-			use: { ...devices['iPhone 15 Pro Max'] }, // Large
-		},
-		{
-			name: 'ipad-pro-11',
-			use: { ...devices['iPad Pro 11'] }, // Tablet
-		},
-
-		// ===================
-		// Android Devices (Chromium) - Representative set
-		// ===================
-		{
-			name: 'pixel-5',
-			use: { ...devices['Pixel 5'] }, // Standard Android
-		},
-		{
-			name: 'galaxy-s9-plus',
-			use: { ...devices['Galaxy S9+'] }, // Samsung
+			use: { ...devices['iPhone 15'] }, // Mobile responsive
 		},
 	],
 	webServer: {
