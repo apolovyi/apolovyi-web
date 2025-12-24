@@ -19,6 +19,7 @@ function IconMenu() {
 			type="button"
 			aria-label={rotate ? 'Close menu' : 'Open menu'}
 			aria-expanded={rotate}
+			data-testid="mobile-menu-toggle"
 		>
 			<div
 				className="relative h-7 w-8"

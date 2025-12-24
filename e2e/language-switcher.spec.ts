@@ -9,19 +9,17 @@ test.describe('Language Switcher', () => {
 		await page.goto('/en')
 		await waitForPageReady(page)
 
-		// Find and click language switcher
-		const langButton = page
-			.locator('nav button')
-			.filter({ hasText: /English|Deutsch|Українська/ })
-			.first()
+		// Find and click language switcher in navigation (desktop)
+		const nav = page.getByRole('navigation')
+		const langButton = nav.getByTestId('language-switcher')
 		await expect(langButton).toBeVisible({ timeout: TIMEOUTS.visibility })
 		await langButton.click()
 
 		// Dropdown should show with multiple language options
-		const dropdown = page.locator('[role="menu"]')
+		const dropdown = page.getByTestId('language-menu')
 		await expect(dropdown).toBeVisible({ timeout: TIMEOUTS.visibility })
 
-		const menuItems = page.locator('[role="menuitem"]')
+		const menuItems = dropdown.locator('[role="menuitem"]')
 		const count = await menuItems.count()
 		expect(count).toBeGreaterThanOrEqual(3)
 	})
@@ -30,15 +28,14 @@ test.describe('Language Switcher', () => {
 		await page.goto('/en')
 		await waitForPageReady(page)
 
-		// Open dropdown
-		const langButton = page
-			.locator('nav button')
-			.filter({ hasText: /English|Deutsch|Українська/ })
-			.first()
+		// Open dropdown (desktop nav)
+		const nav = page.getByRole('navigation')
+		const langButton = nav.getByTestId('language-switcher')
 		await langButton.click()
 
 		// Wait for dropdown and click Ukrainian option
-		const ukrainianOption = page.locator('[role="menuitem"]').filter({ hasText: 'Українська' })
+		const dropdown = page.getByTestId('language-menu')
+		const ukrainianOption = dropdown.locator('[role="menuitem"]').filter({ hasText: 'Українська' })
 		await expect(ukrainianOption).toBeVisible({ timeout: TIMEOUTS.stateChange })
 		await ukrainianOption.click()
 
@@ -55,21 +52,17 @@ test.describe('Language Switcher', () => {
 		await page.goto('/en')
 		await waitForPageReady(page)
 
-		const langButton = page
-			.locator('nav button')
-			.filter({ hasText: /English|Deutsch|Українська/ })
-			.first()
+		// Desktop nav language switcher
+		const nav = page.getByRole('navigation')
+		const langButton = nav.getByTestId('language-switcher')
 		await expect(langButton).toBeVisible({ timeout: TIMEOUTS.visibility })
 		await langButton.click()
 
-		const dropdown = page.locator('[role="menu"]')
+		const dropdown = page.getByTestId('language-menu')
 		await expect(dropdown).toBeVisible({ timeout: TIMEOUTS.visibility })
 
 		// Click outside (on main content area, not at edge where it might miss)
-		await page
-			.locator('main')
-			.first()
-			.click({ position: { x: 100, y: 100 } })
+		await page.locator('main').click({ position: { x: 100, y: 100 } })
 		await expect(dropdown).toBeHidden({ timeout: TIMEOUTS.stateChange })
 	})
 })

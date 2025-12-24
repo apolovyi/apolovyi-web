@@ -98,6 +98,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 					className="w-full max-w-md space-y-4"
 					data-netlify="true"
 					data-netlify-honeypot="bot-field"
+					data-testid="contact-form"
 				>
 					<input
 						type="hidden"
@@ -121,12 +122,14 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 						name="name"
 						type="text"
 						required
+						testId="contact-name"
 					/>
 					<FormField
 						label={contactSection.formLabels.email}
 						name="email"
 						type="email"
 						required
+						testId="contact-email"
 					/>
 					<FormField
 						label={contactSection.formLabels.message}
@@ -134,6 +137,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 						type="textarea"
 						required
 						rows={4}
+						testId="contact-message"
 					/>
 
 					<div className="flex justify-center">
@@ -142,6 +146,7 @@ function GetInTouch({ lang: _lang }: GetInTouchProps) {
 							type="submit"
 							disabled={isSubmitting}
 							className="border-accent-coral font-tech text-accent-coral hover:bg-accent-coral hover:bg-opacity-10 focus:ring-accent-coral focus:ring-opacity-50 flex items-center gap-2 rounded-md border-2 px-6 py-2 text-sm transition-all duration-300 ease-in-out focus:ring-2 focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
+							data-testid="contact-submit"
 						>
 							{isSubmitting && (
 								<svg
@@ -181,9 +186,10 @@ interface FormFieldProps {
 	type: string
 	required?: boolean
 	rows?: number
+	testId?: string
 }
 
-function FormField({ label, name, type, required, rows }: FormFieldProps) {
+function FormField({ label, name, type, required, rows, testId }: FormFieldProps) {
 	return (
 		<div>
 			<label
@@ -199,6 +205,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					required={required}
 					rows={rows}
 					className="border-neutral-medium-gray text-text-primary focus:border-accent-coral focus:ring-accent-coral w-full rounded-md border bg-transparent px-4 py-2 focus:ring-1 focus:outline-hidden"
+					data-testid={testId}
 				/>
 			) : (
 				<input
@@ -207,6 +214,7 @@ function FormField({ label, name, type, required, rows }: FormFieldProps) {
 					id={name}
 					required={required}
 					className="border-neutral-medium-gray text-text-primary focus:border-accent-coral focus:ring-accent-coral w-full rounded-md border bg-transparent px-4 py-2 focus:ring-1 focus:outline-hidden"
+					data-testid={testId}
 				/>
 			)}
 		</div>

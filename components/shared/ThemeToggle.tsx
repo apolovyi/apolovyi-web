@@ -36,6 +36,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 			className={`hover:bg-neutral-light-gray/50 relative flex h-9 w-9 items-center justify-center rounded-full transition-colors ${className}`}
 			aria-label={getAriaLabel()}
 			title={getAriaLabel()}
+			data-testid="theme-toggle"
 		>
 			{/* Auto icon - Sun and Moon combined (Lucide sun-moon style) */}
 			<motion.svg

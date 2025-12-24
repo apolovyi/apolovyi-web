@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test'
-import { expect, test } from '@playwright/test'
 
-import { DEBUG, TIMEOUTS, waitForPageReady } from './test-utils'
+import { expect, test } from './fixtures'
+import { DEBUG, TIMEOUTS } from './test-utils'
 
 /**
  * Wait for element to be scrolled into view with debug diagnostics
@@ -87,12 +87,7 @@ async function waitForSectionInView(page: Page, sectionId: string) {
 test.describe('Navigation - Desktop', () => {
 	test.use({ viewport: { width: 1440, height: 900 } })
 
-	test.beforeEach(async ({ page }) => {
-		await page.goto('/en')
-		await waitForPageReady(page)
-	})
-
-	test('navigation scrolls to About section', async ({ page }) => {
+	test('navigation scrolls to About section', async ({ homePage: page }) => {
 		const nav = page.getByRole('navigation')
 		await expect(nav).toBeVisible({ timeout: TIMEOUTS.visibility })
 
@@ -102,7 +97,7 @@ test.describe('Navigation - Desktop', () => {
 		await waitForSectionInView(page, 'aboutSection')
 	})
 
-	test('navigation scrolls to Contact section', async ({ page }) => {
+	test('navigation scrolls to Contact section', async ({ homePage: page }) => {
 		const nav = page.getByRole('navigation')
 		await expect(nav).toBeVisible({ timeout: TIMEOUTS.visibility })
 
@@ -112,7 +107,7 @@ test.describe('Navigation - Desktop', () => {
 		await waitForSectionInView(page, 'contactSection')
 	})
 
-	test('Resume link opens in new tab with security attributes', async ({ page }) => {
+	test('Resume link opens in new tab with security attributes', async ({ homePage: page }) => {
 		const nav = page.getByRole('navigation')
 		const resumeLink = nav.getByRole('link', { name: /Resume|CV/i })
 		await expect(resumeLink).toBeVisible({ timeout: TIMEOUTS.visibility })
@@ -128,39 +123,21 @@ test.describe('Navigation - Desktop', () => {
 test.describe('Navigation - Mobile', () => {
 	test.use({ viewport: { width: 375, height: 812 } })
 
-	test('mobile menu opens and contains all navigation items', async ({ page }) => {
-		await page.goto('/en')
-		await waitForPageReady(page)
-
-		// Open menu
-		const menuButton = page.locator('header button').first()
-		await expect(menuButton).toBeVisible({ timeout: TIMEOUTS.visibility })
-		await menuButton.click()
-
-		// All nav items should be visible (wait for menu animation)
-		await expect(page.getByText('About').first()).toBeVisible({ timeout: TIMEOUTS.stateChange })
-		await expect(page.getByText('Experience').first()).toBeVisible()
-		await expect(page.getByText('Projects').first()).toBeVisible()
-		await expect(page.getByText('Contact').first()).toBeVisible()
+	test('mobile menu opens and contains all navigation items', async ({ mobileMenuOpen: page }) => {
+		// Menu is already open via fixture, verify all items visible
+		const mobileMenu = page.getByTestId('mobile-menu')
+		await expect(mobileMenu.getByText('About')).toBeVisible()
+		await expect(mobileMenu.getByText('Experience')).toBeVisible()
+		await expect(mobileMenu.getByText('Work')).toBeVisible()
+		await expect(mobileMenu.getByText('Contact')).toBeVisible()
 	})
 
-	test('mobile navigation scrolls to section', async ({ page }) => {
-		await page.goto('/en')
-		await waitForPageReady(page)
+	test('mobile navigation scrolls to section', async ({ mobileMenuOpen: page }) => {
+		// Menu is already open via fixture
+		const mobileMenu = page.getByTestId('mobile-menu')
 
-		const menuButton = page.locator('header button').first()
-		await menuButton.click()
-
-		// Wait for menu to open
-		await expect(page.getByText('About').first()).toBeVisible({ timeout: TIMEOUTS.stateChange })
-
-		// Mobile menu uses CSS transforms that position links outside viewport
-		// Use JS click which ignores viewport constraints
-		await page.evaluate(() => {
-			const link = document.querySelector('a[href*="about"], a[href*="About"]') as HTMLAnchorElement | null
-			if (!link) throw new Error('Mobile navigation "About" link not found')
-			link.click()
-		})
+		// Click About link in mobile menu
+		await mobileMenu.getByText('About').click()
 
 		// Verify scroll happened
 		await waitForSectionInView(page, 'aboutSection')
@@ -170,10 +147,7 @@ test.describe('Navigation - Mobile', () => {
 test.describe('Header', () => {
 	test.use({ viewport: { width: 1440, height: 900 } })
 
-	test('header remains fixed on scroll', async ({ page }) => {
-		await page.goto('/en')
-		await waitForPageReady(page)
-
+	test('header remains fixed on scroll', async ({ homePage: page }) => {
 		// Navigate to a section to trigger scroll (Lenis intercepts window.scrollTo)
 		const nav = page.getByRole('navigation')
 		const contactLink = nav.getByText('Contact')
@@ -181,8 +155,8 @@ test.describe('Header', () => {
 		await contactLink.click()
 		await waitForSectionInView(page, 'contactSection')
 
-		// Header should still be visible and fixed at top
-		const header = page.locator('header').first()
+		// Header should still be visible and fixed at top (target fixed nav header)
+		const header = page.locator('header.fixed')
 		await expect(header).toBeVisible({ timeout: TIMEOUTS.visibility })
 
 		const box = await header.boundingBox()

@@ -77,6 +77,7 @@ const MobileMenu = memo(function MobileMenu({ lang }: MobileMenuProps) {
 			animate={rotate ? { x: '0' } : { x: '100%' }}
 			transition={{ x: { duration: 0.4 } }}
 			className="fixed z-20 flex h-screen w-full duration-300 md:hidden"
+			data-testid="mobile-menu"
 		>
 			<div
 				onClick={closeMenu}

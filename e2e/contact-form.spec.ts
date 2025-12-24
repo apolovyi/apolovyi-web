@@ -1,26 +1,13 @@
-import { expect, test } from '@playwright/test'
-
-import { TIMEOUTS, waitForPageReady } from './test-utils'
+import { expect, test } from './fixtures'
+import { TIMEOUTS } from './test-utils'
 
 test.describe('Contact Form', () => {
-	test.beforeEach(async ({ page }) => {
-		await page.goto('/en')
-		await waitForPageReady(page)
-		// Scroll to contact section
-		await page.evaluate(() => {
-			const section = document.getElementById('contactSection')
-			section?.scrollIntoView({ behavior: 'instant' })
-		})
-		// Wait for form to be visible
-		await expect(page.locator('form').first()).toBeVisible({ timeout: TIMEOUTS.visibility })
-	})
-
-	test('form fields are functional and validate input', async ({ page }) => {
+	test('form fields are functional and validate input', async ({ contactSection: page }) => {
 		// All required fields should be present and interactive
-		const nameField = page.locator('input[name="name"]').first()
-		const emailField = page.locator('input[name="email"], input[type="email"]').first()
-		const messageField = page.locator('textarea[name="message"]').first()
-		const submitButton = page.locator('button[type="submit"]').first()
+		const nameField = page.getByTestId('contact-name')
+		const emailField = page.getByTestId('contact-email')
+		const messageField = page.getByTestId('contact-message')
+		const submitButton = page.getByTestId('contact-submit')
 
 		await expect(nameField).toBeVisible({ timeout: TIMEOUTS.visibility })
 		await expect(emailField).toBeVisible()
@@ -44,7 +31,7 @@ test.describe('Contact Form', () => {
 		expect(isValid).toBe(true)
 	})
 
-	test('form has Netlify spam protection', async ({ page }) => {
+	test('form has Netlify spam protection', async ({ contactSection: page }) => {
 		const form = page.locator('form[data-netlify="true"]')
 		await expect(form).toBeVisible({ timeout: TIMEOUTS.visibility })
 
@@ -56,8 +43,8 @@ test.describe('Contact Form', () => {
 		}
 	})
 
-	test('form fields have minimum touch target size', async ({ page }) => {
-		const nameField = page.locator('input[name="name"]').first()
+	test('form fields have minimum touch target size', async ({ contactSection: page }) => {
+		const nameField = page.getByTestId('contact-name')
 		await expect(nameField).toBeVisible({ timeout: TIMEOUTS.visibility })
 
 		const box = await nameField.boundingBox()

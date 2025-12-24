@@ -24,13 +24,14 @@ test.describe('Hero Animations', () => {
 		await page.goto('/en')
 		await page.waitForLoadState('networkidle')
 
-		const header = page.locator('header').first()
+		// Target the fixed navigation header specifically
+		const header = page.locator('header.fixed')
 		await expect(header).toBeVisible({ timeout: TIMEOUTS.visibility })
 
 		// Header should be fully opaque
 		await page.waitForFunction(
 			() => {
-				const el = document.querySelector('header')
+				const el = document.querySelector('header.fixed')
 				if (!el) return false
 				const opacity = parseFloat(window.getComputedStyle(el).opacity)
 				return opacity > 0.5 || (isNaN(opacity) && window.getComputedStyle(el).visibility !== 'hidden')
