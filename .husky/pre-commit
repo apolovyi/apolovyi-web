@@ -1,1 +1,1 @@
-npx lint-staged
+npx lint-staged && node scripts/generate-claude-docs.mjs && git add -f .claude/docs/

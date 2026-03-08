@@ -3,6 +3,9 @@
 	"version": "0.1.0",
 	"private": true,
 	"packageManager": "pnpm@10.26.0",
+	"engines": {
+		"node": ">=22"
+	},
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"dev:clean": "rm -rf .next && next dev --turbopack",
@@ -20,6 +23,7 @@
 		"validate:dictionaries": "npx tsx scripts/validate-dictionaries.ts",
 		"validate:career-data": "npx tsx scripts/validate-career-data.ts",
 		"generate:dictionaries": "npx tsx scripts/generate-dictionaries.ts",
+		"generate:docs": "node scripts/generate-claude-docs.mjs",
 		"optimize:images": "npx tsx scripts/optimize-images.ts",
 		"check": "pnpm run format:check && pnpm run lint:ci",
 		"prepare": "husky",

@@ -178,6 +178,8 @@ import dynamic from 'next/dynamic'
 
 // components/three/DynamicGlobe.tsx
 
+// components/three/DynamicGlobe.tsx
+
 // Loading placeholder matching the component's dimensions
 const GlobeLoader = () => (
 	<div className="flex h-[500px] w-full items-center justify-center">
@@ -350,6 +352,8 @@ Lazy load Lenis only when needed:
 'use client'
 
 import { useEffect } from 'react'
+
+// hooks/useSmoothScroll.ts
 
 // hooks/useSmoothScroll.ts
 

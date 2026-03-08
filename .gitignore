@@ -39,9 +39,9 @@ yarn-error.log*
 claude_chats
 /.lighthouseci/
 /.prettier-cache
-/.claude
-/CLAUDE.md
-/.todo
+# Claude Code (keep docs/ committed, ignore local config)
+/.claude/*
+!/.claude/docs/
 .screenshots/
 .tmp/
 

@@ -9,30 +9,30 @@
 
 ## Tech Stack
 
-| Technology | Version | Notes |
-|------------|---------|-------|
-| Next.js | 15.5.3 | App Router, static export |
-| React | 19.1.1 | Latest |
-| TypeScript | 5.9.3 | Strict |
-| Tailwind CSS | 3.4.19 | |
-| Three.js | ~588KB | Lazy-loaded |
-| Hosting | Netlify | Static CDN |
+| Technology   | Version | Notes                     |
+| ------------ | ------- | ------------------------- |
+| Next.js      | 15.5.3  | App Router, static export |
+| React        | 19.1.1  | Latest                    |
+| TypeScript   | 5.9.3   | Strict                    |
+| Tailwind CSS | 3.4.19  |                           |
+| Three.js     | ~588KB  | Lazy-loaded               |
+| Hosting      | Netlify | Static CDN                |
 
 ## Current State Assessment
 
 ### ✅ Already Implemented
 
-| Optimization | Status |
-|--------------|--------|
-| Cyrillic font subset | ✅ Done (`latin`, `cyrillic`) |
-| `optimizePackageImports` | ✅ Done (motion, lucide, three, etc.) |
-| Static asset caching | ✅ 1 year for JS/fonts |
-| Image caching | ✅ 30 days |
-| Security headers | ✅ X-Frame-Options, X-Content-Type-Options, Referrer-Policy |
-| HSTS | ✅ Enabled |
-| Three.js lazy loading | ✅ Already lazy |
-| Bundle analyzer | ✅ Configured |
-| E2E tests | ✅ Playwright configured |
+| Optimization             | Status                                                      |
+| ------------------------ | ----------------------------------------------------------- |
+| Cyrillic font subset     | ✅ Done (`latin`, `cyrillic`)                               |
+| `optimizePackageImports` | ✅ Done (motion, lucide, three, etc.)                       |
+| Static asset caching     | ✅ 1 year for JS/fonts                                      |
+| Image caching            | ✅ 30 days                                                  |
+| Security headers         | ✅ X-Frame-Options, X-Content-Type-Options, Referrer-Policy |
+| HSTS                     | ✅ Enabled                                                  |
+| Three.js lazy loading    | ✅ Already lazy                                             |
+| Bundle analyzer          | ✅ Configured                                               |
+| E2E tests                | ✅ Playwright configured                                    |
 
 ### Bundle Performance
 
@@ -56,25 +56,35 @@ strict-transport-security: max-age=31536000
 ### Low Priority (nice to have)
 
 1. **DNS prefetch for analytics**
+
 ```tsx
 // app/[lang]/layout.tsx
-<link rel="dns-prefetch" href="https://app.tinyanalytics.io" />
+<link
+	rel="dns-prefetch"
+	href="https://app.tinyanalytics.io"
+/>
 ```
 
 2. **Lazy load Lenis** (~20KB savings, optional)
+
 ```tsx
 useEffect(() => {
-  const initLenis = async () => {
-    const Lenis = (await import('lenis')).default
-    // ...
-  }
-  initLenis()
+	const initLenis = async () => {
+		const Lenis = (await import('lenis')).default
+		// ...
+	}
+	initLenis()
 }, [])
 ```
 
 3. **Consider `preconnect` for fonts**
+
 ```tsx
-<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+<link
+	rel="preconnect"
+	href="https://fonts.gstatic.com"
+	crossOrigin="anonymous"
+/>
 ```
 
 ### Do NOT Do
@@ -92,6 +102,7 @@ useEffect(() => {
 ## i18n Support
 
 4 locales configured:
+
 - English (en)
 - German (de)
 - Swiss German (ch)
