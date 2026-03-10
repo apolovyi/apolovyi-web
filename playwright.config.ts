@@ -11,7 +11,7 @@ export default defineConfig({
 	// Global test timeout: 10s local, 20s CI
 	timeout: process.env.CI ? 20000 : 10000,
 	use: {
-		baseURL: process.env.BASE_URL || 'http://localhost:3000',
+		baseURL: process.env.BASE_URL || 'http://localhost:3100',
 		trace: 'retain-on-failure',
 		screenshot: 'only-on-failure',
 		video: 'off',
@@ -37,8 +37,8 @@ export default defineConfig({
 	],
 	webServer: {
 		// Use production build in CI for accurate testing, dev server locally
-		command: process.env.CI ? 'npx serve out -l 3000' : 'npm run dev',
-		url: 'http://localhost:3000',
+		command: process.env.CI ? 'npx serve out -l 3100' : 'npm run dev',
+		url: 'http://localhost:3100',
 		reuseExistingServer: !process.env.CI,
 		timeout: 120 * 1000,
 	},

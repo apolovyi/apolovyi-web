@@ -39,14 +39,6 @@ jobs:
       - name: Validate dictionaries
         run: pnpm run validate:dictionaries
 
-      - name: Validate career data
-        run: pnpm run validate:career-data
-
-      - name: Check dictionaries are in sync
-        run: |
-          pnpm run generate:dictionaries
-          git diff --exit-code dictionaries/ || (echo "Error: Dictionaries are out of sync. Run 'pnpm run generate:dictionaries' locally and commit the changes." && exit 1)
-
       - name: Prettier check
         run: pnpm run format:check
 

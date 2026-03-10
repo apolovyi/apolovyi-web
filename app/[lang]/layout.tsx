@@ -1,35 +1,24 @@
 import type { Metadata } from 'next'
-import { Comfortaa, IBM_Plex_Mono } from 'next/font/google'
+import { Outfit } from 'next/font/google'
 
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
 
-import LanguageDetector from '@/components/LanguageDetector'
 import StructuredData from '@/components/StructuredData'
-import { WebVitals } from '@/components/WebVitals'
-import { AppProvider } from '@/components/shared/AppContext'
-import { DictionaryProvider } from '@/components/shared/DictionaryContext'
-import { LoadingScreen } from '@/components/shared/LoadingScreen'
-import SmoothScrollProvider from '@/components/shared/SmoothScrollProvider'
 import { ThemeProvider } from '@/components/shared/ThemeProvider'
 
 import { getDictionary as getServerDictionary } from '@/lib/dictionary.server'
 
+const bcp47Map: Record<string, string> = { ch: 'de-CH' }
+
+const outfit = Outfit({
+	subsets: ['latin', 'latin-ext'],
+	variable: '--font-outfit',
+	display: 'swap',
+	weight: ['100', '200', '300', '400'],
+})
+
 const ENABLE_TINY_ANALYTICS = process.env.NODE_ENV === 'production'
-
-// Fonts
-const comfortaa = Comfortaa({
-	subsets: ['latin', 'cyrillic'],
-	variable: '--font-comfortaa',
-	display: 'swap',
-})
-
-const ibmPlexMono = IBM_Plex_Mono({
-	subsets: ['latin'],
-	variable: '--font-ibm-plex-mono',
-	display: 'swap',
-	weight: ['400', '600'],
-})
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
 	const resolvedParams = await params
@@ -50,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 			description: metadata.openGraph.description,
 			url: fullUrl,
 			siteName: metadata.openGraph.siteName,
-			images: metadata.openGraph.images,
+			images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Artem Polovyi — Software Engineer in Zurich' }],
 			locale: lang,
 			type: 'website',
 		},
@@ -70,6 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 				...Object.fromEntries(i18n.locales.map((l) => [l, l === i18n.defaultLocale ? baseUrl : `${baseUrl}/${l}`])),
 			},
 		},
+		twitter: { card: 'summary_large_image' },
 		other: { 'msapplication-TileColor': '#d8f0f9' },
 		keywords: metadata.keywords,
 	}
@@ -78,26 +68,21 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function LangLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
 	const { lang: langParam } = await params
 	const lang = (langParam || i18n.defaultLocale) as Locale
-	const dictionary = await getServerDictionary(lang)
 
 	return (
 		<html
-			lang={lang}
-			className={`${comfortaa.variable} ${ibmPlexMono.variable} overflow-x-hidden`}
+			lang={bcp47Map[lang] ?? lang}
 			suppressHydrationWarning
 		>
 			<head>
-				{/* Prevent flash of wrong theme */}
+				<StructuredData />
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `
 							(function() {
 								try {
 									var theme = localStorage.getItem('theme');
-									var hour = new Date().getHours();
-									var isNightTime = hour >= 19 || hour < 7;
 									var isDark = false;
-
 									if (theme === 'dark') {
 										isDark = true;
 									} else if (theme === 'light') {
@@ -105,10 +90,9 @@ export default async function LangLayout({ children, params }: { children: React
 									} else if (theme === 'system') {
 										isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 									} else {
-										// 'auto' or no preference: use time-based
-										isDark = isNightTime;
+										var h = new Date().getHours();
+										isDark = h >= 19 || h < 7;
 									}
-
 									if (isDark) {
 										document.documentElement.classList.add('dark');
 									}
@@ -118,18 +102,11 @@ export default async function LangLayout({ children, params }: { children: React
 					}}
 				/>
 			</head>
-			<body className="overflow-x-hidden">
-				<ThemeProvider>
-					<LoadingScreen />
-					<WebVitals />
-					<LanguageDetector />
-					<DictionaryProvider dictionary={dictionary}>
-						<AppProvider>
-							<SmoothScrollProvider>{children}</SmoothScrollProvider>
-						</AppProvider>
-					</DictionaryProvider>
-					<StructuredData />
-				</ThemeProvider>
+			<body
+				className={outfit.variable}
+				style={{ fontFamily: 'var(--font-outfit), sans-serif' }}
+			>
+				<ThemeProvider>{children}</ThemeProvider>
 				{ENABLE_TINY_ANALYTICS && (
 					<script
 						src="https://app.tinyanalytics.io/pixel/ooUXwijEAaOptnOe"

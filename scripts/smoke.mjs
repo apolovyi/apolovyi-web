@@ -1,160 +1,92 @@
-import { createServer } from 'http'
-import { stat } from 'fs/promises'
-import { createReadStream } from 'fs'
-import { extname, join } from 'path'
 import { spawn } from 'child_process'
+import { existsSync, readFileSync } from 'fs'
+import { join } from 'path'
 
-const locales = ['en', 'de', 'ch', 'uk']
-const PORT = 4173
-const OUT_DIR = 'out'
+const LOCALES = ['en', 'de', 'ch', 'uk']
+const OUT = 'out'
+let passed = 0
+let failed = 0
 
-function run(cmd, args, opts = {}) {
-  return new Promise((resolve, reject) => {
-    const child = spawn(cmd, args, { stdio: 'inherit', shell: process.platform === 'win32', ...opts })
-    child.on('error', reject)
-    child.on('exit', (code) => {
-      if (code === 0) resolve()
-      else reject(new Error(`${cmd} ${args.join(' ')} exited with code ${code}`))
-    })
-  })
+function run(cmd, args) {
+	return new Promise((resolve, reject) => {
+		const child = spawn(cmd, args, { stdio: 'inherit', shell: process.platform === 'win32' })
+		child.on('error', reject)
+		child.on('exit', (code) => (code === 0 ? resolve() : reject(new Error(`${cmd} ${args.join(' ')} exited ${code}`))))
+	})
 }
 
-function contentType(filePath) {
-  const ext = extname(filePath)
-  switch (ext) {
-    case '.html':
-      return 'text/html; charset=utf-8'
-    case '.css':
-      return 'text/css; charset=utf-8'
-    case '.js':
-      return 'application/javascript; charset=utf-8'
-    case '.json':
-      return 'application/json; charset=utf-8'
-    case '.png':
-      return 'image/png'
-    case '.svg':
-      return 'image/svg+xml'
-    case '.webp':
-      return 'image/webp'
-    case '.jpg':
-    case '.jpeg':
-      return 'image/jpeg'
-    default:
-      return 'application/octet-stream'
-  }
+function check(label, condition) {
+	if (condition) {
+		passed++
+		console.log(`  ✓ ${label}`)
+	} else {
+		failed++
+		console.error(`  ✗ ${label}`)
+	}
 }
 
-function filePathForUrl(urlPath) {
-  if (urlPath === '/' || urlPath === '') return join(OUT_DIR, 'index.html')
-  // Map "/en" -> "en.html"
-  const localeMatch = urlPath.match(/^\/([a-z]{2})$/)
-  if (localeMatch) return join(OUT_DIR, `${localeMatch[1]}.html`)
-  // Direct mapping to files inside out
-  return join(OUT_DIR, urlPath)
+function readFile(path) {
+	const full = join(OUT, path)
+	if (!existsSync(full)) return null
+	return readFileSync(full, 'utf-8')
 }
 
-async function startStaticServer() {
-  const server = createServer(async (req, res) => {
-    try {
-      const urlPath = (req.url || '/').split('?')[0]
-      let target = filePathForUrl(urlPath)
-
-      // If direct target isn't a file, try adding .html
-      try {
-        const s = await stat(target)
-        if (s.isDirectory()) target = join(target, 'index.html')
-      } catch {
-        if (!target.endsWith('.html')) target = `${target}.html`
-      }
-
-      const ct = contentType(target)
-      res.setHeader('Content-Type', ct)
-      createReadStream(target)
-        .on('error', () => {
-          res.statusCode = 404
-          res.end('Not found')
-        })
-        .pipe(res)
-    } catch {
-      res.statusCode = 500
-      res.end('Server error')
-    }
-  })
-
-  await new Promise((resolve) => server.listen(PORT, resolve))
-  return server
+function fileExists(path) {
+	return existsSync(join(OUT, path))
 }
-
-async function httpGet(pathname) {
-  const res = await fetch(`http://localhost:${PORT}${pathname}`)
-  const text = await res.text()
-  return { status: res.status, text }
-}
-
-function extractNextAssetUrls(html) {
-  const re = /(src|href)=["'](\/[_]next\/[^"']+)["']/g
-  const set = new Set()
-  let m
-  while ((m = re.exec(html))) {
-    set.add(m[2])
-    if (set.size >= 3) break
-  }
-  return [...set]
-}
-
 
 async function main() {
-  console.log('▶ Building static site...')
-  await run('npm', ['run', 'build'])
+	console.log('▶ Building static site...')
+	await run('npm', ['run', 'build'])
 
-  console.log('▶ Starting static server...')
-  const server = await startStaticServer()
+	console.log('\n▶ Checking build output...\n')
 
-  try {
-    // 1) Pages respond with 200 + HTML and correct <html lang>
-    // Root path redirects to /en via JS, so we only check locale paths
-    const localePaths = locales.map((l) => `/${l}`)
-    for (const p of localePaths) {
-      const { status, text } = await httpGet(p)
-      if (status !== 200) throw new Error(`GET ${p} -> ${status}`)
-      if (!text.includes('<!DOCTYPE html>')) throw new Error(`GET ${p} did not return HTML`)
-      const expectedLang = p.slice(1)
-      if (!text.includes(`<html lang="${expectedLang}"`)) throw new Error(`GET ${p} missing <html lang="${expectedLang}">`)
-      console.log(`✓ ${p} OK (lang=${expectedLang})`)
-    }
+	// 1. Locale pages exist
+	console.log('[Locale pages]')
+	for (const locale of LOCALES) {
+		check(`/${locale}.html exists`, fileExists(`${locale}.html`))
+	}
 
-    // Root path should exist and contain language detection script
-    const { status: rootStatus, text: rootText } = await httpGet('/')
-    if (rootStatus !== 200) throw new Error(`GET / -> ${rootStatus}`)
-    if (!rootText.includes('window.location.replace')) throw new Error('GET / missing redirect script')
-    if (!rootText.includes('detectedLang')) throw new Error('GET / missing cookie check')
-    console.log('✓ / OK (language detection redirect)')
+	// 2. Root redirect page
+	console.log('\n[Root page]')
+	const root = readFile('index.html')
+	check('/ exists with redirect', root !== null && root.includes('window.location.replace'))
 
-    // 2) Critical top-level assets exist
-    const assetPaths = ['/manifest.webmanifest', '/robots.txt', '/sitemap.xml', '/fav/favicon-32x32.png', '/img/me-bg.webp']
-    for (const a of assetPaths) {
-      const { status } = await httpGet(a)
-      if (status !== 200) throw new Error(`GET ${a} -> ${status}`)
-      console.log(`✓ ${a} OK`)
-    }
+	// 3. SEO & PWA files
+	console.log('\n[SEO & PWA]')
+	check('/robots.txt exists', fileExists('robots.txt'))
+	check('/sitemap.xml exists', fileExists('sitemap.xml'))
+	check('/manifest.webmanifest exists', fileExists('manifest.webmanifest'))
 
-    // 3) A few Next.js static assets referenced by index are fetchable
-    const { text: indexHtml } = await httpGet('/')
-    const nextAssets = extractNextAssetUrls(indexHtml)
-    for (const url of nextAssets) {
-      const { status } = await httpGet(url)
-      if (status !== 200) throw new Error(`GET ${url} -> ${status}`)
-      console.log(`✓ ${url} OK`)
-    }
+	// 4. Favicons
+	console.log('\n[Favicons]')
+	check('/favicon.ico exists', fileExists('favicon.ico'))
+	check('/fav/apple-touch-icon.png exists', fileExists('fav/apple-touch-icon.png'))
 
-    console.log('✅ Smoke tests passed: routes and assets served without runtime errors')
-  } finally {
-    await new Promise((r) => server.close(r))
-  }
+	// 5. Content sanity (en page as reference)
+	console.log('\n[Content - /en]')
+	const en = readFile('en.html')
+	if (en) {
+		check('contains "Artem Polovyi"', en.includes('Artem Polovyi'))
+		check('has structured data', en.includes('application/ld+json'))
+		check('has dark mode script', en.includes('prefers-color-scheme'))
+		check('has Outfit font variable', en.includes('--font-outfit'))
+	}
+
+	// 6. Next.js assets
+	console.log('\n[Next.js assets]')
+	check('/_next directory exists', fileExists('_next'))
+
+	// Summary
+	console.log(`\n${passed + failed} checks: ${passed} passed, ${failed} failed`)
+	if (failed > 0) {
+		console.error('\n❌ Smoke tests failed')
+		process.exit(1)
+	}
+	console.log('\n✅ Smoke tests passed')
 }
 
 main().catch((err) => {
-  console.error('❌ Smoke tests failed:', err)
-  process.exit(1)
+	console.error('❌ Smoke tests failed:', err)
+	process.exit(1)
 })
-

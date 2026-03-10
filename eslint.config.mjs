@@ -14,7 +14,7 @@ const eslintConfig = defineConfig([
   prettier,
 
   // Override default ignores
-  globalIgnores(['.next/**', 'out/**', 'node_modules/**', 'next-env.d.ts']),
+  globalIgnores(['.next/**', 'out/**', 'node_modules/**', 'playwright-report/**', 'test-results/**', 'next-env.d.ts']),
 
   // Global stricter rules
   {
@@ -52,12 +52,6 @@ const eslintConfig = defineConfig([
     rules: {
       'no-console': 'error',
     },
-  },
-
-  // Allow console in logger
-  {
-    files: ['lib/logger.ts'],
-    rules: { 'no-console': 'off' },
   },
 
   // Allow console and require in scripts and config files

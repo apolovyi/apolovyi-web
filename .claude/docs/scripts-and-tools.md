@@ -6,28 +6,22 @@
 
 | Script | Command |
 |--------|---------|
-| `dev` | `next dev --turbopack` |
-| `dev:clean` | `rm -rf .next && next dev --turbopack` |
+| `dev` | `next dev --turbopack -p 3100` |
+| `dev:clean` | `rm -rf .next && next dev --turbopack -p 3100` |
 | `prebuild` | `pnpm run validate:dictionaries` |
 | `build` | `next build --turbopack` |
 | `analyze` | `ANALYZE=true next build --turbopack` |
-| `format` | `prettier "**/*.{css,js,json,jsx,ts,tsx}"` |
 | `format:write` | `prettier --write "**/*.{css,js,json,jsx,ts,tsx}"` |
 | `format:check` | `prettier --check "**/*.{css,js,json,jsx,ts,tsx}"` |
-| `start` | `next start` |
-| `generate-placeholders` | `node scripts/generatePlaceholders.js` |
+| `serve` | `npx serve out -l 3100` |
 | `lint` | `eslint .` |
 | `lint:fix` | `eslint . --fix` |
 | `lint:ci` | `eslint . --max-warnings=0` |
 | `validate:dictionaries` | `npx tsx scripts/validate-dictionaries.ts` |
-| `validate:career-data` | `npx tsx scripts/validate-career-data.ts` |
-| `generate:dictionaries` | `npx tsx scripts/generate-dictionaries.ts` |
 | `generate:docs` | `node scripts/generate-claude-docs.mjs` |
-| `optimize:images` | `npx tsx scripts/optimize-images.ts` |
 | `check` | `pnpm run format:check && pnpm run lint:ci` |
 | `prepare` | `husky` |
 | `test:smoke` | `node scripts/smoke.mjs` |
-| `test:screenshots` | `node scripts/capture-screenshots.mjs` |
 | `test:e2e` | `playwright test` |
 | `test:e2e:ui` | `playwright test --ui` |
 | `test:e2e:headed` | `playwright test --headed` |

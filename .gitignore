@@ -42,9 +42,11 @@ claude_chats
 # Claude Code (keep docs/ committed, ignore local config)
 /.claude/*
 !/.claude/docs/
+.agents/
 .screenshots/
 .tmp/
 
 # Playwright
 playwright-report/
 test-results/
+.playwright-mcp/

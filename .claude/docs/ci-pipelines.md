@@ -7,7 +7,7 @@
 ### CI (`ci.yml`)
 
 - **Triggers**: push, pull_request
-- **Steps**: Validate dictionaries → Validate career data → Check dictionaries are in sync → Prettier check → Lint (CI strict) → Build
+- **Steps**: Validate dictionaries → Prettier check → Lint (CI strict) → Build
 - **Config**: `.github/workflows/ci.yml`
 
 ### Claude Code Review (`claude-code-review.yml`)

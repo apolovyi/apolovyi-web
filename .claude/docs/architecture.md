@@ -13,7 +13,6 @@
 - Route: `app/[lang]/` dynamic segment
 - Dictionaries: `dictionaries/*.json` validated against Zod schema (`lib/dictionary.schema.ts`)
 - Server: `getDictionary()` from `lib/dictionary.server.ts`
-- Client: `useDictionary()` hook from `DictionaryContext`
 
 ## Path Aliases
 
@@ -28,70 +27,20 @@
 
 ```
 components/
-├── footer/
-│   └── Footer.tsx
-├── header/
-│   ├── menu/
-│   ├── AnimatedHeader.tsx
-│   └── Header.tsx
-├── home/
-│   ├── CareerMetroMap/
-│   ├── FlightPath/
-│   ├── AboutMe.tsx
-│   ├── GetInTouch.tsx
-│   ├── HeroSection.tsx
-│   ├── HomeClient.tsx
-│   ├── MotionHero.tsx
-│   ├── MyExperience.tsx
-│   ├── MyProjects.tsx
-│   ├── SocialMediaAround.tsx
-│   └── StaticHero.tsx
-├── icons/
-│   ├── ArrowIcon.tsx
-│   ├── CheckCircleIcon.tsx
-│   ├── ExternalLink.tsx
-│   ├── GithubIcon.tsx
-│   ├── InstagramIcon.tsx
-│   ├── LinkedinIcon.tsx
-│   └── XCircleIcon.tsx
 ├── shared/
-│   ├── AppContext.tsx
-│   ├── CustomCursor.tsx
-│   ├── DictionaryContext.tsx
-│   ├── HighlightedText.tsx
-│   ├── HoverAnimation.tsx
-│   ├── LoadingScreen.tsx
-│   ├── ScrollProgressIndicator.tsx
-│   ├── SectionHeader.tsx
-│   ├── SmoothScrollProvider.tsx
-│   ├── ThemeProvider.tsx
-│   ├── ThemeToggle.tsx
-│   ├── useHoverLiftMotion.ts
-│   ├── useHoverTapMotion.ts
-│   └── useMotionInView.ts
-├── ui/
-│   ├── aurora-background.tsx
-│   ├── github-globe.tsx
-│   ├── journey-background.tsx
-│   ├── text-generate-effect.tsx
-│   └── world-map.tsx
-├── LanguageDetector.tsx
-├── LanguageSwitcher.tsx
-├── LoadingSpinner.tsx
+│   └── ThemeProvider.tsx
 ├── StructuredData.tsx
-└── WebVitals.ts
+└── ThemeToggle.tsx
 ```
 
 ## Key Patterns
 
-- **Animations**: `motion` library (Framer Motion fork)
-- **Smooth scroll**: Lenis via `SmoothScrollProvider`
-- **3D**: Three.js (globe visualization)
+
+
+
 - **Styling**: Tailwind CSS ^4.1.18 with `class` dark mode
-- **Forms**: Netlify Forms (`data-netlify="true"` in `GetInTouch.tsx`)
 
 ## Deployment
 
 - **Host**: Netlify (static, auto-deploys from `main`)
 - **Analytics**: TinyAnalytics (production only)
-- **Forms**: Netlify Forms (registered via `public/__forms.html`)

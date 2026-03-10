@@ -13,20 +13,9 @@
 
 | Package | Version |
 |---------|---------|
-| `@react-three/drei` | ^10.7.7 |
-| `@react-three/fiber` | ^9.4.2 |
-| `class-variance-authority` | ^0.7.0 |
-| `clsx` | ^2.1.1 |
-| `dotted-map` | ^2.2.3 |
-| `lenis` | ^1.3.11 |
-| `motion` | ^12.23.19 |
 | `next` | ^16.0.10 |
 | `react` | ^19.1.1 |
 | `react-dom` | ^19.1.1 |
-| `tailwind-merge` | ^2.5.2 |
-| `tailwindcss-animate` | ^1.0.7 |
-| `three` | ^0.182.0 |
-| `three-globe` | ^2.45.0 |
 | `zod` | ^4.1.11 |
 
 ## Dev Dependencies
@@ -38,12 +27,10 @@
 | `@size-limit/file` | ^12.0.0 |
 | `@tailwindcss/cli` | ^4.1.18 |
 | `@tailwindcss/postcss` | ^4.1.18 |
-| `@tailwindcss/typography` | ~0.5.19 |
 | `@trivago/prettier-plugin-sort-imports` | ^4.3.0 |
 | `@types/node` | ~22.3.0 |
 | `@types/react` | ^19.1.13 |
 | `@types/react-dom` | ^19.1.9 |
-| `@types/three` | ^0.182.0 |
 | `babel-plugin-react-compiler` | ^1.0.0 |
 | `eslint` | ^9.36.0 |
 | `eslint-config-next` | ^16.0.10 |
@@ -55,8 +42,6 @@
 | `prettier` | ^3.6.2 |
 | `prettier-plugin-tailwindcss` | ^0.7.2 |
 | `serve` | ^14.2.5 |
-| `sharp` | ^0.34.5 |
 | `size-limit` | ^12.0.0 |
 | `tailwindcss` | ^4.1.18 |
-| `three-stdlib` | ^2.36.1 |
 | `typescript` | ~5.9.3 |
