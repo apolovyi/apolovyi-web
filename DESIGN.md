@@ -12,7 +12,7 @@ colors:
 typography:
   display:
     fontFamily: 'Outfit, system-ui, sans-serif'
-    fontSize: 'clamp(2.25rem, 1.2rem + 5vw, 4.5rem)'
+    fontSize: 'clamp(2.25rem, 1.2rem + 4vw, 4rem)'
     fontWeight: 200
     lineHeight: 1.05
     letterSpacing: '-0.025em'
@@ -106,7 +106,7 @@ The dark theme inverts to pure black (#000000) background with white (#ffffff) p
 
 ### Hierarchy
 
-- **Display** (200, clamp(2.25rem, 1.2rem + 5vw, 4.5rem), line-height 1.05, tracking -0.025em): The hero name. Fluid scaling from mobile to desktop. Ultralight at large scale; the weight thinness is the personality.
+- **Display** (200, clamp(2.25rem, 1.2rem + 4vw, 4rem), line-height 1.05, tracking -0.025em): The hero name. Fluid scaling from mobile to desktop. Ultralight at large scale; the weight thinness is the personality.
 - **Title** (300, clamp(1.25rem, 1rem + 1.25vw, 1.5rem), line-height 1.25, tracking 0.06em): Hero subtitle. Fluid sizing maintains ~1.25x ratio to body across viewports. Same weight as body; the size and tracking difference carry the hierarchy while preserving the ultralight aesthetic.
 - **Body** (300, clamp(0.875rem, 0.75rem + 0.625vw, 1rem), line-height 1.625): Hero body copy. Light weight for elegant, comfortable sustained reading.
 - **Label** (400, clamp(0.75rem, 0.625rem + 0.625vw, 0.875rem), line-height 1.5, tracking 0.2em, uppercase): Navigation links. Differentiated from body by uppercase, wide tracking, and smaller size. Size ratio from body: ~1.14x.
