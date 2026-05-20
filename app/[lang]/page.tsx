@@ -29,7 +29,16 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
 
 					<p className="hero-subtitle mt-[clamp(1.25rem,1rem+0.75vw,1.5rem)] leading-tight tracking-[0.06em]">{page.subtitle}</p>
 
-					<p className="hero-body mx-auto mt-[clamp(1.5rem,1rem+1.5vw,2rem)] max-w-sm leading-relaxed">{page.body}</p>
+					<p className="hero-body mx-auto mt-[clamp(1.5rem,1rem+1.5vw,2rem)] max-w-sm leading-relaxed">
+						{page.body.map((line, i) => (
+							<span
+								key={i}
+								className="block"
+							>
+								{line}
+							</span>
+						))}
+					</p>
 
 					<nav
 						className="mt-[clamp(2.5rem,1.5rem+3vw,3.5rem)] flex items-center justify-center gap-0 tracking-[0.2em] uppercase"

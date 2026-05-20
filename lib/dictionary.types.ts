@@ -24,7 +24,7 @@ export interface Metadata {
 export interface Page {
 	name: string
 	subtitle: string
-	body: string
+	body: string[]
 	linksLabel: string
 	links: {
 		linkedin: string

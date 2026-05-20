@@ -17,7 +17,7 @@ export const metadataSchema = z.object({
 const pageSectionSchema = z.object({
 	name: z.string(),
 	subtitle: z.string(),
-	body: z.string(),
+	body: z.array(z.string()),
 	linksLabel: z.string(),
 	links: z.object({
 		linkedin: z.string(),

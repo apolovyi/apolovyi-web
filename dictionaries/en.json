@@ -1,12 +1,12 @@
 {
 	"metadata": {
 		"title": {
-			"default": "Artem Polovyi — Enterprise Engineering, AI-first",
+			"default": "Artem Polovyi | Enterprise Engineering, AI-first",
 			"template": "%s | Artem Polovyi"
 		},
 		"description": "Enterprise engineer in Zurich. A decade of systems at Audi, Infineon, UBS, Flowable, and PEAX. Now making AI behave in production.",
 		"openGraph": {
-			"title": "Artem Polovyi — Enterprise Engineering, AI-first",
+			"title": "Artem Polovyi | Enterprise Engineering, AI-first",
 			"description": "Enterprise engineer in Zurich. A decade of systems at Audi, Infineon, UBS, Flowable, and PEAX. Now making AI behave in production.",
 			"siteName": "Artem Polovyi"
 		},
@@ -20,7 +20,11 @@
 	"page": {
 		"name": "Artem Polovyi",
 		"subtitle": "Enterprise engineering, AI-first.",
-		"body": "Audi, Infineon, UBS, Flowable, PEAX — a decade of enterprise systems. Now I make AI behave in production. Zurich.",
+		"body": [
+			"Audi, Infineon, UBS, Flowable, PEAX: a decade of enterprise systems.",
+			"Now I make AI behave in production.",
+			"Zurich."
+		],
 		"linksLabel": "External links",
 		"links": {
 			"linkedin": "LinkedIn",

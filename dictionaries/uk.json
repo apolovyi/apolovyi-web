@@ -1,12 +1,12 @@
 {
 	"metadata": {
 		"title": {
-			"default": "Artem Polovyi — Enterprise Engineering, AI-first",
+			"default": "Artem Polovyi | Enterprise Engineering, AI-first",
 			"template": "%s | Artem Polovyi"
 		},
 		"description": "Enterprise-інженер у Цюріху. Десятиліття систем в Audi, Infineon, UBS, Flowable та PEAX. Тепер я приборкую ШІ для продакшену.",
 		"openGraph": {
-			"title": "Artem Polovyi — Enterprise Engineering, AI-first",
+			"title": "Artem Polovyi | Enterprise Engineering, AI-first",
 			"description": "Enterprise-інженер у Цюріху. Десятиліття систем в Audi, Infineon, UBS, Flowable та PEAX. Тепер я приборкую ШІ для продакшену.",
 			"siteName": "Artem Polovyi"
 		},
@@ -20,7 +20,11 @@
 	"page": {
 		"name": "Artem Polovyi",
 		"subtitle": "Enterprise engineering, AI-first.",
-		"body": "Audi, Infineon, UBS, Flowable, PEAX — десятиліття enterprise-систем. Тепер я приборкую ШІ для продакшену. Цюріх.",
+		"body": [
+			"Audi, Infineon, UBS, Flowable, PEAX: десятиліття enterprise-систем.",
+			"Тепер я приборкую ШІ для продакшену.",
+			"Цюріх."
+		],
 		"linksLabel": "Зовнішні посилання",
 		"links": {
 			"linkedin": "LinkedIn",
