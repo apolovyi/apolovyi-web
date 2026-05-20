@@ -15,7 +15,7 @@ const outfit = Outfit({
 	subsets: ['latin', 'latin-ext'],
 	variable: '--font-outfit',
 	display: 'swap',
-	weight: ['100', '200', '300', '400'],
+	weight: ['200', '300', '400'],
 })
 
 const ENABLE_TINY_ANALYTICS = process.env.NODE_ENV === 'production'

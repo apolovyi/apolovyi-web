@@ -21,18 +21,18 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
 
 	return (
 		<>
-			<main className="page-body flex items-center justify-center px-6 sm:px-8">
+			<main className="page-body flex items-center justify-center px-[clamp(1.5rem,1rem+1.5vw,2rem)]">
 				<div className="page-content w-full max-w-lg -translate-y-[4%] text-center">
-					<h1 className="hero-name text-5xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">{page.name}</h1>
+					<h1 className="hero-name leading-[1.05] tracking-tight">{page.name}</h1>
 
-					<div className="hero-line mx-auto mt-6 w-32 sm:mt-8 sm:w-48" />
+					<div className="hero-line mx-auto mt-[clamp(1.5rem,1rem+1.5vw,2rem)] w-[clamp(8rem,5rem+10vw,12rem)]" />
 
-					<p className="hero-subtitle mt-5 text-base tracking-[0.08em] sm:mt-6 sm:text-lg">{page.subtitle}</p>
+					<p className="hero-subtitle mt-[clamp(1.25rem,1rem+0.75vw,1.5rem)] leading-tight tracking-[0.06em]">{page.subtitle}</p>
 
-					<p className="hero-body mx-auto mt-6 max-w-sm text-sm leading-relaxed sm:mt-8 sm:text-base">{page.body}</p>
+					<p className="hero-body mx-auto mt-[clamp(1.5rem,1rem+1.5vw,2rem)] max-w-sm leading-relaxed">{page.body}</p>
 
 					<nav
-						className="mt-10 flex items-center justify-center gap-0 text-xs tracking-[0.2em] uppercase sm:mt-14 sm:text-sm"
+						className="mt-[clamp(2.5rem,1.5rem+3vw,3.5rem)] flex items-center justify-center gap-0 tracking-[0.2em] uppercase"
 						aria-label={page.linksLabel}
 					>
 						<a

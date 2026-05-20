@@ -92,16 +92,19 @@
 .hero-name {
 	color: var(--text-primary);
 	font-weight: 200;
+	font-size: clamp(2.25rem, 1.2rem + 5vw, 4.5rem);
 }
 
 .hero-subtitle {
 	color: var(--text-secondary);
 	font-weight: 300;
+	font-size: clamp(1.25rem, 1rem + 1.25vw, 1.5rem);
 }
 
 .hero-body {
 	color: var(--text-body);
 	font-weight: 300;
+	font-size: clamp(0.875rem, 0.75rem + 0.625vw, 1rem);
 }
 
 /* ===== Divider ===== */
@@ -128,6 +131,7 @@
 	color: var(--text-link);
 	text-decoration: none;
 	font-weight: 400;
+	font-size: clamp(0.75rem, 0.625rem + 0.625vw, 0.875rem);
 	transition:
 		color 200ms ease,
 		text-shadow 200ms ease;
