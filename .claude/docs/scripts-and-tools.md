@@ -17,6 +17,7 @@
 | `lint` | `eslint .` |
 | `lint:fix` | `eslint . --fix` |
 | `lint:ci` | `eslint . --max-warnings=0` |
+| `test` | `pnpm run test:e2e` |
 | `validate:dictionaries` | `npx tsx scripts/validate-dictionaries.ts` |
 | `generate:docs` | `node scripts/generate-claude-docs.mjs` |
 | `check` | `pnpm run format:check && pnpm run lint:ci` |
