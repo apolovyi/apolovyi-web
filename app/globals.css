@@ -185,21 +185,19 @@
 	z-index: 10;
 }
 
-.toggle-circle {
-	display: block;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	border: 1.5px solid rgba(0, 0, 0, 0.14);
-	background: transparent;
+.toggle-icon {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	color: var(--text-ui);
 	transition:
-		border-color 400ms ease,
-		background-color 400ms ease,
-		box-shadow 400ms ease;
+		opacity 200ms ease,
+		transform 200ms ease,
+		color 200ms ease;
 }
 
-.theme-toggle:hover .toggle-circle {
-	border-color: rgba(0, 0, 0, 0.35);
+.theme-toggle:hover .toggle-icon {
+	color: var(--text-ui-hover);
 }
 
 /* ===== Dark Mode Overrides ===== */
@@ -251,14 +249,8 @@
 	);
 }
 
-.dark .toggle-circle {
-	border-color: rgba(255, 250, 240, 0.2);
-	background: rgba(255, 250, 240, 0.2);
-}
-
-.dark .theme-toggle:hover .toggle-circle {
-	border-color: rgba(255, 250, 240, 0.4);
-	background: rgba(255, 250, 240, 0.4);
+.dark .theme-toggle:hover .toggle-icon {
+	color: var(--text-ui-hover);
 }
 
 /* ===== Reduced Motion ===== */
