@@ -1,26 +1,26 @@
 {
 	"metadata": {
 		"title": {
-			"default": "Artem Polovyi — Software Engineer у Цюріху",
+			"default": "Artem Polovyi — Enterprise Engineering, AI-first",
 			"template": "%s | Artem Polovyi"
 		},
-		"description": "Software Engineer у Цюріху. 10 років розробки корпоративних систем.",
+		"description": "Enterprise-інженер у Цюріху. Десятиліття систем в Audi, Infineon, UBS, Flowable та PEAX. Тепер я приборкую ШІ для продакшену.",
 		"openGraph": {
-			"title": "Artem Polovyi — Software Engineer у Цюріху",
-			"description": "Software Engineer у Цюріху. 10 років розробки корпоративних систем.",
+			"title": "Artem Polovyi — Enterprise Engineering, AI-first",
+			"description": "Enterprise-інженер у Цюріху. Десятиліття систем в Audi, Infineon, UBS, Flowable та PEAX. Тепер я приборкую ШІ для продакшену.",
 			"siteName": "Artem Polovyi"
 		},
 		"keywords": [
-			"Software Engineer",
+			"Enterprise Engineering",
+			"ШІ-інженерія",
 			"Цюріх",
-			"корпоративні системи",
-			"ШІ"
+			"продакшен"
 		]
 	},
 	"page": {
 		"name": "Artem Polovyi",
-		"subtitle": "Software Engineer у Цюріху.",
-		"body": "10 років розробки корпоративних систем — Audi, Infineon, UBS, Flowable, PEAX. Зараз досліджую, що відбувається, коли ШІ зустрічається з промисловою розробкою програмного забезпечення.",
+		"subtitle": "Enterprise engineering, AI-first.",
+		"body": "Audi, Infineon, UBS, Flowable, PEAX — десятиліття enterprise-систем. Тепер я приборкую ШІ для продакшену. Цюріх.",
 		"linksLabel": "Зовнішні посилання",
 		"links": {
 			"linkedin": "LinkedIn",

@@ -6,10 +6,10 @@ const personData = {
 	'name': 'Artem Polovyi',
 	'url': 'https://apolovyi.me',
 	'image': 'https://apolovyi.me/apple-icon.png',
-	'description': 'Full-Stack Software Engineer based in Zurich, Switzerland.',
+	'description': 'Enterprise engineer in Zurich. Making AI behave in production.',
 	'email': LINKS.email.replace('mailto:', ''),
 	'sameAs': [LINKS.linkedin, LINKS.github],
-	'jobTitle': 'Senior Full-Stack Software Engineer',
+	'jobTitle': 'Enterprise Engineer',
 	'address': {
 		'@type': 'PostalAddress',
 		'addressLocality': 'Zurich',

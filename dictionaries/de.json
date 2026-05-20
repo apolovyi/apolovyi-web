@@ -1,26 +1,26 @@
 {
 	"metadata": {
 		"title": {
-			"default": "Artem Polovyi — Software Engineer in Zürich",
+			"default": "Artem Polovyi — Enterprise Engineering, AI-first",
 			"template": "%s | Artem Polovyi"
 		},
-		"description": "Software Engineer in Zürich. 10 Jahre Entwicklung von Enterprise-Systemen.",
+		"description": "Enterprise-Ingenieur in Zürich. Ein Jahrzehnt Systeme bei Audi, Infineon, UBS, Flowable und PEAX. Jetzt mache ich KI produktionstauglich.",
 		"openGraph": {
-			"title": "Artem Polovyi — Software Engineer in Zürich",
-			"description": "Software Engineer in Zürich. 10 Jahre Entwicklung von Enterprise-Systemen.",
+			"title": "Artem Polovyi — Enterprise Engineering, AI-first",
+			"description": "Enterprise-Ingenieur in Zürich. Ein Jahrzehnt Systeme bei Audi, Infineon, UBS, Flowable und PEAX. Jetzt mache ich KI produktionstauglich.",
 			"siteName": "Artem Polovyi"
 		},
 		"keywords": [
-			"Software Engineer",
+			"Enterprise Engineering",
+			"KI-Engineering",
 			"Zürich",
-			"Enterprise-Systeme",
-			"KI"
+			"Produktion"
 		]
 	},
 	"page": {
 		"name": "Artem Polovyi",
-		"subtitle": "Software Engineer in Zürich.",
-		"body": "10 Jahre Entwicklung von Enterprise-Systemen — Audi, Infineon, UBS, Flowable, PEAX. Aktuell erforsche ich, was passiert, wenn KI auf produktionsnahe Softwareentwicklung trifft.",
+		"subtitle": "Enterprise Engineering, AI-first.",
+		"body": "Audi, Infineon, UBS, Flowable, PEAX — ein Jahrzehnt Enterprise-Systeme. Jetzt bringe ich KI in der Produktion unter Kontrolle. Zürich.",
 		"linksLabel": "Externe Links",
 		"links": {
 			"linkedin": "LinkedIn",

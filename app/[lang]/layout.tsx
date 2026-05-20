@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 			description: metadata.openGraph.description,
 			url: fullUrl,
 			siteName: metadata.openGraph.siteName,
-			images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Artem Polovyi — Software Engineer in Zurich' }],
+			images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Artem Polovyi — Enterprise Engineering, AI-first' }],
 			locale: lang,
 			type: 'website',
 		},
