@@ -1,0 +1,190 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-05-20T15:30:00Z",
+	"title": "Design System: apolovyi.me",
+	"extensions": {
+		"colorMeta": {
+			"warm-parchment": {
+				"role": "neutral",
+				"displayName": "Warm Parchment",
+				"canonical": "oklch(98.2% 0.005 90)",
+				"tonalRamp": [
+					"oklch(15% 0.005 90)",
+					"oklch(25% 0.005 90)",
+					"oklch(40% 0.005 90)",
+					"oklch(55% 0.005 90)",
+					"oklch(70% 0.005 90)",
+					"oklch(82% 0.005 90)",
+					"oklch(92% 0.005 90)",
+					"oklch(98% 0.005 90)"
+				]
+			},
+			"ink": {
+				"role": "neutral",
+				"displayName": "Ink",
+				"canonical": "oklch(14.5% 0.003 90)",
+				"tonalRamp": [
+					"oklch(14% 0.003 90)",
+					"oklch(25% 0.003 90)",
+					"oklch(38% 0.003 90)",
+					"oklch(50% 0.003 90)",
+					"oklch(62% 0.003 90)",
+					"oklch(74% 0.003 90)",
+					"oklch(86% 0.003 90)",
+					"oklch(95% 0.003 90)"
+				]
+			},
+			"body-grey": {
+				"role": "neutral",
+				"displayName": "Body Grey",
+				"canonical": "oklch(48.5% 0.003 90)",
+				"tonalRamp": [
+					"oklch(15% 0.003 90)",
+					"oklch(25% 0.003 90)",
+					"oklch(38% 0.003 90)",
+					"oklch(48% 0.003 90)",
+					"oklch(60% 0.003 90)",
+					"oklch(72% 0.003 90)",
+					"oklch(84% 0.003 90)",
+					"oklch(95% 0.003 90)"
+				]
+			},
+			"chrome": {
+				"role": "neutral",
+				"displayName": "Chrome",
+				"canonical": "oklch(70.5% 0.002 90)",
+				"tonalRamp": [
+					"oklch(15% 0.002 90)",
+					"oklch(28% 0.002 90)",
+					"oklch(40% 0.002 90)",
+					"oklch(52% 0.002 90)",
+					"oklch(64% 0.002 90)",
+					"oklch(76% 0.002 90)",
+					"oklch(86% 0.002 90)",
+					"oklch(95% 0.002 90)"
+				]
+			}
+		},
+		"typographyMeta": {
+			"display": {
+				"displayName": "Display",
+				"purpose": "Hero name only. Ultralight at large scale."
+			},
+			"title": {
+				"displayName": "Title",
+				"purpose": "Hero subtitle. Differentiated by tracking."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "Hero body copy. Comfortable reading weight."
+			},
+			"label": {
+				"displayName": "Label",
+				"purpose": "Navigation links. Uppercase, wide-tracked."
+			}
+		},
+		"shadows": [],
+		"motion": [
+			{
+				"name": "state-transition",
+				"value": "200ms ease",
+				"purpose": "Default for color and background state changes."
+			},
+			{
+				"name": "toggle-transition",
+				"value": "200ms ease",
+				"purpose": "Theme toggle icon opacity, transform, and color transitions."
+			},
+			{
+				"name": "ambient-pulse",
+				"value": "5s ease-in-out infinite",
+				"purpose": "Subtle breathing animation on divider line and dark-mode name glow."
+			}
+		],
+		"breakpoints": [
+			{
+				"name": "sm",
+				"value": "640px"
+			},
+			{
+				"name": "md",
+				"value": "768px"
+			},
+			{
+				"name": "lg",
+				"value": "1024px"
+			}
+		]
+	},
+	"components": [
+		{
+			"name": "Navigation Link",
+			"kind": "nav",
+			"refersTo": "nav-link",
+			"description": "Uppercase tracked text link for external navigation. Dot-separated inline layout.",
+			"html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link\">LinkedIn</a><span class=\"ds-nav-dot\" aria-hidden=\"true\">·</span><a href=\"#\" class=\"ds-nav-link\">GitHub</a><span class=\"ds-nav-dot\" aria-hidden=\"true\">·</span><a href=\"#\" class=\"ds-nav-link\">Email</a></nav>",
+			"css": ".ds-nav { display: flex; align-items: center; justify-content: center; gap: 0; font-family: var(--font-outfit, Outfit, system-ui, sans-serif); font-size: 0.875rem; letter-spacing: 0.2em; text-transform: uppercase; } .ds-nav-link { color: #6a6a6a; text-decoration: none; font-weight: 400; padding: 10px 12px; min-height: 44px; display: inline-flex; align-items: center; transition: color 200ms ease; } .ds-nav-link:hover { color: #111111; } .ds-nav-link:focus-visible { outline: 1px solid currentColor; outline-offset: 3px; border-radius: 2px; } .ds-nav-dot { color: #c0c0c0; }"
+		},
+		{
+			"name": "Theme Toggle",
+			"kind": "button",
+			"refersTo": "theme-toggle",
+			"description": "Fixed-position sun/moon icon button for light/dark theme switching. Two overlapping 18px SVGs swap via opacity and transform.",
+			"html": "<button class=\"ds-theme-toggle\" aria-label=\"Switch to light mode\"><svg class=\"ds-toggle-icon\" viewBox=\"0 0 24 24\"><!-- sun: circle + 8 rays --></svg><svg class=\"ds-toggle-icon\" viewBox=\"0 0 24 24\"><!-- moon: crescent path --></svg></button>",
+			"css": ".ds-theme-toggle { position: fixed; bottom: 24px; right: 24px; background: none; border: none; cursor: pointer; padding: 14px; min-height: 44px; min-width: 44px; display: flex; align-items: center; justify-content: center; z-index: 10; } .ds-toggle-icon { position: absolute; width: 18px; height: 18px; color: var(--text-ui); transition: opacity 200ms ease, transform 200ms ease, color 200ms ease; } .ds-theme-toggle:hover .ds-toggle-icon { color: var(--text-ui-hover); } .ds-theme-toggle:focus-visible { outline: 1px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
+		},
+		{
+			"name": "Divider Line",
+			"kind": "custom",
+			"refersTo": "divider",
+			"description": "Gradient horizontal rule with ambient pulse animation.",
+			"html": "<div class=\"ds-divider\"></div>",
+			"css": ".ds-divider { height: 1px; width: 192px; margin: 0 auto; background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.06) 20%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.06) 80%, transparent); animation: ds-line-pulse 5s ease-in-out infinite; } @keyframes ds-line-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }"
+		}
+	],
+	"narrative": {
+		"northStar": "The Precision Instrument",
+		"overview": "Every element is machined to tolerance. Nothing decorative, nothing performative. The site communicates through material density and deliberate compression: a name rendered at display scale in a single ultralight weight, body copy that earns each word, and navigation reduced to three contact points separated by dots.\n\nThe system rejects developer-portfolio templates (dark mode + terminal font + GitHub stats), SaaS marketing patterns (gradient blobs, feature grids, CTA stacking), hollow minimalism (white page with tiny text that reads as unfinished), and spectacle-driven animation (scroll-jacking, particles, 3D scenes). Restraint here is not absence. It is the residue of removing everything that does not communicate competence.",
+		"keyCharacteristics": [
+			"Single-family typography (Outfit) carrying the entire hierarchy through weight and scale alone",
+			"Pure neutral palette with no accent color; the absence of color is the statement",
+			"Flat elevation; depth conveyed through ambient light and texture, never shadows",
+			"Dual-theme (light/dark) with time-based auto-switching",
+			"Centered single-column composition at a narrow measure"
+		],
+		"rules": [
+			{
+				"name": "The No-Color Rule",
+				"body": "There is no accent color. If a future element needs emphasis, it earns it through weight, scale, or spacing. Color is not available as a tool for hierarchy.",
+				"section": "colors"
+			},
+			{
+				"name": "The Single-Family Rule",
+				"body": "Outfit carries every role. No secondary typeface. The hierarchy must be legible through weight and scale contrast within one family.",
+				"section": "typography"
+			},
+			{
+				"name": "The No-Shadow Rule",
+				"body": "Surfaces never cast shadows. If a component needs to separate from the ground, it uses value contrast or spacing, never elevation.",
+				"section": "elevation"
+			}
+		],
+		"dos": [
+			"Do use weight and scale as the primary hierarchy tools. A 200-weight display next to 400-weight labels creates contrast without color.",
+			"Do keep the warm tint in neutrals. #fafaf8, not #ffffff. #111111, not #000000. The warmth is subtle but load-bearing.",
+			"Do respect the narrow measure. Content stays within max-w-lg (32rem). The compression is deliberate.",
+			"Do use generous fluid vertical rhythm between sections (clamp-based spacing, e.g. clamp(1.5rem, 1rem + 1.5vw, 2rem) to clamp(2.5rem, 1.5rem + 3vw, 3.5rem)) while keeping horizontal padding tight.",
+			"Do maintain 44px minimum touch targets on all interactive elements."
+		],
+		"donts": [
+			"Don't add an accent color. The No-Color Rule is a commitment, not a gap.",
+			"Don't add shadows or elevation to any surface. The No-Shadow Rule is absolute.",
+			"Don't introduce a second typeface without retiring Outfit. One family, committed.",
+			"Don't use terminal fonts, GitHub contribution graphs, or project card grids.",
+			"Don't add gradient blobs, feature grids, logo bars, or stacking CTAs.",
+			"Don't use scroll-jacking, particle effects, or 3D scenes.",
+			"Don't add sections that require assets you don't have.",
+			"Don't use bounce or elastic easing. Exponential ease-out only."
+		]
+	}
+}
