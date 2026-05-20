@@ -22,10 +22,11 @@
 | `check` | `pnpm run format:check && pnpm run lint:ci` |
 | `prepare` | `husky` |
 | `test:smoke` | `node scripts/smoke.mjs` |
-| `test:e2e` | `playwright test` |
-| `test:e2e:ui` | `playwright test --ui` |
-| `test:e2e:headed` | `playwright test --headed` |
-| `test:e2e:debug` | `playwright test --debug` |
+| `pw:install` | `PLAYWRIGHT_BROWSERS_PATH=.playwright playwright install` |
+| `test:e2e` | `PLAYWRIGHT_BROWSERS_PATH=.playwright playwright test` |
+| `test:e2e:ui` | `PLAYWRIGHT_BROWSERS_PATH=.playwright playwright test --ui` |
+| `test:e2e:headed` | `PLAYWRIGHT_BROWSERS_PATH=.playwright playwright test --headed` |
+| `test:e2e:debug` | `PLAYWRIGHT_BROWSERS_PATH=.playwright playwright test --debug` |
 | `size` | `size-limit` |
 | `size:check` | `size-limit --limit` |
 
