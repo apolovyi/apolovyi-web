@@ -19,3 +19,4 @@
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline' https://app.tinyanalytics.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://app.tinyanalytics.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self'

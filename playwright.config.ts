@@ -37,7 +37,7 @@ export default defineConfig({
 	],
 	webServer: {
 		// Use production build in CI for accurate testing, dev server locally
-		command: process.env.CI ? 'npx serve out -l 3100' : 'npm run dev',
+		command: process.env.CI ? 'npx serve out -l 3100' : 'pnpm run dev',
 		url: 'http://localhost:3100',
 		reuseExistingServer: !process.env.CI,
 		timeout: 120 * 1000,

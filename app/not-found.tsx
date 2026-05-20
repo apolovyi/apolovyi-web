@@ -9,7 +9,7 @@ export default function NotFound() {
 					The page you&apos;re looking for doesn&apos;t exist or has been moved.
 				</p>
 				<Link
-					href="/en"
+					href="/"
 					className="border border-[var(--dot-color)] px-6 py-3 text-xs tracking-[0.15em] text-[var(--text-link)] uppercase transition-colors duration-200 hover:text-[var(--text-link-hover)]"
 				>
 					Go Home

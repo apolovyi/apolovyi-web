@@ -4,7 +4,7 @@
 
 **Goal:** Address all code review feedback from Claude Code PR review — unify theming, fix dark mode gaps, clean up class naming, and improve consistency.
 
-**Working directory:** `/Users/artempolovyi/repos/private/apolovyi-web`
+**Working directory:** `/Users/apolovyi/repos/private/apolovyi-web`
 
 **Architecture:** Move the inline `<style>` block from `page.tsx` into `globals.css`, replace all hardcoded hex values with CSS custom properties, rename `v5-*` classes to semantic names, move the font to layout, and fix the error page for dark mode. The OG image issue is skipped (requires a design asset we don't have).
 
@@ -12,7 +12,7 @@
 
 ---
 
-### Task 1: Move inline styles from page.tsx to globals.css
+## Task 1: Move inline styles from page.tsx to globals.css
 
 This is the biggest task. We move ~220 lines of CSS from the JSX `<style>` tag into `globals.css`, rename `v5-*` to semantic names, and replace hardcoded hex with CSS variables where appropriate.
 
@@ -434,7 +434,7 @@ git add app/globals.css "app/[lang]/page.tsx" components/ThemeToggle.tsx && git 
 
 ---
 
-### Task 2: Move font from page.tsx to layout.tsx
+## Task 2: Move font from page.tsx to layout.tsx
 
 **Files:**
 
@@ -485,7 +485,7 @@ git add "app/[lang]/layout.tsx" && git commit -m "move Outfit font from page to 
 
 ---
 
-### Task 3: Fix error.tsx dark mode + remove JS hover handlers
+## Task 3: Fix error.tsx dark mode + remove JS hover handlers
 
 **Files:**
 
@@ -534,7 +534,7 @@ git add app/error.tsx && git commit -m "fix error page dark mode, replace JS hov
 
 ---
 
-### Task 4: Fix LinkedIn URL consistency
+## Task 4: Fix LinkedIn URL consistency
 
 **Files:**
 
@@ -570,7 +570,7 @@ git add components/StructuredData.tsx && git commit -m "fix LinkedIn URL trailin
 
 ---
 
-### Task 5: Clean up stale CSS variables from tailwind.config.js
+## Task 5: Clean up stale CSS variables from tailwind.config.js
 
 The tailwind color tokens reference the old variable values (`--text-primary: #171717`) that no longer match globals.css (`--text-primary: #111`). Since no component uses these Tailwind color utilities (the page uses custom CSS classes), remove the dead color config.
 
@@ -614,7 +614,7 @@ git add tailwind.config.js && git commit -m "remove unused Tailwind color tokens
 
 ---
 
-### Task 6: Update E2E screenshot capture script
+## Task 6: Update E2E screenshot capture script
 
 The `.screenshots/capture-review.mjs` script references old class names. Update it.
 
@@ -649,7 +649,7 @@ git add -u && git commit -m "update review script class references"
 
 ---
 
-### Task 7: Final verification and push
+## Task 7: Final verification and push
 
 **Step 1: Full check**
 

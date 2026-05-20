@@ -4,7 +4,7 @@
 
 **Goal:** Remove all dead code left behind by the White Room redesign and align configs with the actual site.
 
-**Working directory:** `/Users/artempolovyi/repos/private/apolovyi-web`
+**Working directory:** `/Users/apolovyi/repos/private/apolovyi-web`
 
 **Architecture:** The site is now a single-screen page with ~30 words and 3 links. Many files from the old multi-section portfolio (analytics, career data, contact form, screenshot tools, AI artifacts) have zero consumers and must be deleted. Configs and auto-doc generation must be updated to match.
 
@@ -12,7 +12,7 @@
 
 ---
 
-### Task 1: Delete dead libraries
+## Task 1: Delete dead libraries
 
 **Files:**
 
@@ -37,7 +37,7 @@ Expected: Will fail because files importing these still exist (LanguageDetector,
 
 ---
 
-### Task 2: Delete dead components and fix layout
+## Task 2: Delete dead components and fix layout
 
 **Files:**
 
@@ -82,7 +82,7 @@ Expected: May still fail on error.tsx — fixed in Task 3.
 
 ---
 
-### Task 3: Rewrite error.tsx
+## Task 3: Rewrite error.tsx
 
 **Files:**
 
@@ -129,7 +129,7 @@ git add -A && git commit -m "delete dead libraries, components, and fix error pa
 
 ---
 
-### Task 4: Delete dead scripts and assets
+## Task 4: Delete dead scripts and assets
 
 **Files:**
 
@@ -175,7 +175,7 @@ git add -A && git commit -m "delete dead scripts, form asset, and sharp dependen
 
 ---
 
-### Task 5: Delete AI artifacts and planning docs
+## Task 5: Delete AI artifacts and planning docs
 
 **Files:**
 
@@ -211,7 +211,7 @@ git add -A && git commit -m "remove AI artifacts and historical planning docs"
 
 ---
 
-### Task 6: Update generate-claude-docs.mjs
+## Task 6: Update generate-claude-docs.mjs
 
 **Files:**
 
@@ -250,7 +250,7 @@ git add -A && git commit -m "remove career-data doc generation, update architect
 
 ---
 
-### Task 7: Update tailwind.config.js
+## Task 7: Update tailwind.config.js
 
 **Files:**
 
@@ -278,7 +278,7 @@ git add tailwind.config.js && git commit -m "fix tailwind font reference to Outf
 
 ---
 
-### Task 8: Update CLAUDE.md
+## Task 8: Update CLAUDE.md
 
 **Files:**
 
@@ -305,7 +305,7 @@ git add CLAUDE.md && git commit -m "update CLAUDE.md to reflect cleanup"
 
 ---
 
-### Task 9: Final verification
+## Task 9: Final verification
 
 **Step 1: Full check**
 

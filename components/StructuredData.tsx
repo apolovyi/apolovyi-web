@@ -5,7 +5,7 @@ const personData = {
 	'@type': 'Person',
 	'name': 'Artem Polovyi',
 	'url': 'https://apolovyi.me',
-	'image': 'https://apolovyi.me/apple-icon.png',
+	'image': 'https://apolovyi.me/og-image.png',
 	'description': 'Enterprise engineer in Zurich. Making AI behave in production.',
 	'email': LINKS.email.replace('mailto:', ''),
 	'sameAs': [LINKS.linkedin, LINKS.github],

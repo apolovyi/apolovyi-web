@@ -14,7 +14,7 @@ const eslintConfig = defineConfig([
   prettier,
 
   // Override default ignores
-  globalIgnores(['.next/**', 'out/**', 'node_modules/**', 'playwright-report/**', 'test-results/**', 'next-env.d.ts']),
+  globalIgnores(['.next/**', 'out/**', 'node_modules/**', '.playwright/**', '.playwright-mcp/**', 'playwright-report/**', 'test-results/**', 'next-env.d.ts']),
 
   // Global stricter rules
   {

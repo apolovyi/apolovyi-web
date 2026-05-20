@@ -8,7 +8,7 @@ test.describe('Locale Routing', () => {
 		await waitForPageReady(page)
 
 		expect(await page.locator('html').getAttribute('lang')).toBe('en')
-		await expect(page.getByText('Software Engineer in Zurich.')).toBeVisible({
+		await expect(page.getByText('Enterprise engineering, AI-first.')).toBeVisible({
 			timeout: TIMEOUTS.visibility,
 		})
 	})
@@ -18,7 +18,7 @@ test.describe('Locale Routing', () => {
 		await waitForPageReady(page)
 
 		expect(await page.locator('html').getAttribute('lang')).toBe('de')
-		await expect(page.getByText('Software Engineer in Zürich.')).toBeVisible({
+		await expect(page.getByText('Enterprise Engineering, AI-first.')).toBeVisible({
 			timeout: TIMEOUTS.visibility,
 		})
 	})

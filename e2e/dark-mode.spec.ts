@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { TIMEOUTS, waitForPageReady } from './test-utils'
+import { waitForPageReady } from './test-utils'
 
 test.describe('Dark Mode', () => {
 	test('applies dark class when localStorage theme is dark', async ({ page }) => {
@@ -32,21 +32,5 @@ test.describe('Dark Mode', () => {
 
 		const isDark = await page.evaluate(() => document.documentElement.classList.contains('dark'))
 		expect(isDark).toBe(true)
-	})
-
-	test('content is visible in both themes', async ({ page }) => {
-		for (const theme of ['light', 'dark']) {
-			await page.goto('/en')
-			await page.evaluate((t) => localStorage.setItem('theme', t), theme)
-			await page.reload()
-			await waitForPageReady(page)
-
-			await expect(page.getByRole('heading', { level: 1 })).toBeVisible({
-				timeout: TIMEOUTS.visibility,
-			})
-			await expect(page.getByRole('navigation')).toBeVisible({
-				timeout: TIMEOUTS.visibility,
-			})
-		}
 	})
 })

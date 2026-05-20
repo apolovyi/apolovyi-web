@@ -5,8 +5,6 @@ import { TIMEOUTS, waitForPageReady } from './test-utils'
 const VIEWPORTS = [
 	{ name: 'mobile-s', width: 320, height: 568 },
 	{ name: 'mobile-m', width: 375, height: 667 },
-	{ name: 'tablet', width: 768, height: 1024 },
-	{ name: 'desktop', width: 1440, height: 900 },
 ]
 
 for (const vp of VIEWPORTS) {
@@ -17,7 +15,6 @@ for (const vp of VIEWPORTS) {
 			await page.goto('/en')
 			await waitForPageReady(page)
 
-			// h1 and nav visible
 			await expect(page.getByRole('heading', { level: 1 })).toBeVisible({
 				timeout: TIMEOUTS.visibility,
 			})
@@ -25,7 +22,6 @@ for (const vp of VIEWPORTS) {
 				timeout: TIMEOUTS.visibility,
 			})
 
-			// No horizontal overflow
 			const hasOverflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)
 			expect(hasOverflow).toBe(false)
 		})

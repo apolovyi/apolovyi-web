@@ -1,14 +1,14 @@
 import type { Page } from '@playwright/test'
 import { expect } from '@playwright/test'
 
-import { DEBUG, TIMEOUTS } from './test-config'
+const isCI = process.env.CI === 'true'
 
-// Re-export for direct access
-export { DEBUG, TIMEOUTS }
+export const TIMEOUTS = {
+	pageReady: isCI ? 3000 : 1500,
+	visibility: isCI ? 2000 : 1000,
+	animation: isCI ? 1600 : 800,
+} as const
 
-/**
- * Wait for page to be ready (h1 visible and fully opaque)
- */
 export async function waitForPageReady(page: Page) {
 	const heroName = page.getByRole('heading', { level: 1 })
 	await expect(heroName).toBeVisible({ timeout: TIMEOUTS.pageReady })
