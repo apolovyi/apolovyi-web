@@ -6,7 +6,7 @@ const personData = {
 	'name': 'Artem Polovyi',
 	'url': 'https://apolovyi.me',
 	'image': 'https://apolovyi.me/og-image.png',
-	'description': 'Enterprise engineer in Zurich. Making AI production-grade.',
+	'description': 'Enterprise engineer in Zurich. Making AI reliable in production.',
 	'email': LINKS.email.replace('mailto:', ''),
 	'sameAs': [LINKS.linkedin, LINKS.github],
 	'jobTitle': 'Enterprise Engineer',

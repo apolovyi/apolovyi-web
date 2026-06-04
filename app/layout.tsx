@@ -5,12 +5,12 @@ import '@/app/globals.css'
 export const metadata: Metadata = {
 	title: 'Artem Polovyi — Enterprise Engineering, AI-first',
 	description:
-		'Enterprise engineer in Zurich. A decade of systems at Audi, Infineon, UBS, Flowable, and PEAX. Now making AI production-grade.',
+		'Enterprise engineer in Zurich. A decade of systems at Audi, Infineon, UBS, Flowable, and PEAX. Now making AI reliable in production.',
 	metadataBase: new URL('https://apolovyi.me'),
 	openGraph: {
 		title: 'Artem Polovyi — Enterprise Engineering, AI-first',
 		description:
-			'Enterprise engineer in Zurich. A decade of systems at Audi, Infineon, UBS, Flowable, and PEAX. Now making AI production-grade.',
+			'Enterprise engineer in Zurich. A decade of systems at Audi, Infineon, UBS, Flowable, and PEAX. Now making AI reliable in production.',
 		url: 'https://apolovyi.me',
 		siteName: 'Artem Polovyi',
 		images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Artem Polovyi — Enterprise Engineering, AI-first' }],

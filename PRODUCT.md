@@ -10,7 +10,7 @@ Mixed audience: CTOs and engineering managers evaluating a senior hire, companie
 
 ## Product Purpose
 
-Personal brand surface for Artem Polovyi, enterprise engineer in Zurich. A decade of systems work at Audi, Infineon, UBS, Flowable, and PEAX, now focused on making AI production-grade. The site exists to convert a name into an impression: senior, precise, substantive. Success is a visitor who leaves thinking "this person knows what they're doing" within five seconds.
+Personal brand surface for Artem Polovyi, enterprise engineer in Zurich. A decade of systems work at Audi, Infineon, UBS, Flowable, and PEAX, now focused on making AI reliable in production. The site exists to convert a name into an impression: senior, precise, substantive. Success is a visitor who leaves thinking "this person knows what they're doing" within five seconds.
 
 ## Brand Personality
 
