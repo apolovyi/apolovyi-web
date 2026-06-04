@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
 					</p>
 
 					<nav
-						className="mt-[clamp(2.5rem,1.5rem+3vw,3.5rem)] flex items-center justify-center gap-0 tracking-[0.2em] uppercase"
+						className="mt-[clamp(2.5rem,1.5rem+3vw,3.5rem)] flex items-center justify-center gap-0"
 						aria-label={page.linksLabel}
 					>
 						<a

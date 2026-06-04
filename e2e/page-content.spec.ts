@@ -10,8 +10,8 @@ test.describe('Page Content', () => {
 		const h1 = page.getByRole('heading', { level: 1 })
 		await expect(h1).toHaveText('Artem Polovyi')
 
-		await expect(page.getByText('Enterprise engineering, AI-first.')).toBeVisible()
-		await expect(page.getByText(/a decade of enterprise systems/)).toBeVisible()
+		await expect(page.getByText('Enterprise software engineering, AI-first.')).toBeVisible()
+		await expect(page.getByText(/a decade of enterprise software systems/)).toBeVisible()
 	})
 
 	test('has three external links with correct attributes', async ({ page }) => {
