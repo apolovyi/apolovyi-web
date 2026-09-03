@@ -7,7 +7,7 @@ const personData = {
 	'url': 'https://apolovyi.me',
 	'image': 'https://apolovyi.me/og-image.png',
 	'description':
-		'Senior software engineer and architect in Zurich, focused on JVM platforms, system modernisation and reliable AI delivery.',
+		'Senior software engineer and architect in Zürich, focused on JVM platforms, system modernisation and reliable AI delivery.',
 	'email': LINKS.email.replace('mailto:', ''),
 	'sameAs': [LINKS.linkedin, LINKS.github],
 	'jobTitle': 'Senior Software Engineer and Architect',

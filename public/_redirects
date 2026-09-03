@@ -14,3 +14,9 @@
 
 # Default fallback → English
 /  /en  302!
+
+# Apply the same language routing to the selected-work entry point
+/work  /ch/work  302!  Language=de-CH
+/work  /de/work  302!  Language=de
+/work  /uk/work  302!  Language=uk
+/work  /en/work  302!
