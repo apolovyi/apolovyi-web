@@ -1,21 +1,42 @@
-# Welcome to My Personal Portfolio Website
+# apolovyi.me
 
-This platform is designed to showcase my work, projects, case studies, and provide information about myself.
+A static, multilingual personal site presenting Artem Polovyi's enterprise engineering work and approach to reliable AI delivery.
 
-## Why Next.js?
+[Visit apolovyi.me](https://apolovyi.me)
 
-I chose Next.js because it is a powerful React framework with Server-Side Rendering, which enhances SEO and helps us get discovered on Google. Additionally, Next.js allows us to build a full back-end and create blazing-fast websites with benefits like image optimization.
+![Artem Polovyi, enterprise engineer in Zurich](public/og-image.png)
 
-## Why Tailwind CSS?
+## Engineering
 
-Tailwind CSS is a framework that significantly reduces styling efforts. It provides low-level CSS classes that can be directly embedded into HTML, streamlining the design process.
+- Next.js 16 App Router, React 19, TypeScript, and Tailwind CSS
+- Static export with localized routes for English, German, Swiss German, and Ukrainian
+- Zod-validated content dictionaries checked before every build
+- Responsive light and dark themes with structured metadata
+- Playwright behavior tests across desktop Chrome, desktop WebKit, and iPhone emulation
+- Automatic Netlify production deployments from `main`
 
----
+## Delivery
 
-## Technologies & libraries
+GitHub Actions validates dictionaries, formatting, linting, smoke behavior, the production build, and browser-level behavior. Pull requests receive fast core coverage while non-draft changes run the complete Playwright matrix.
 
-- Next.js
-- Nodejs
-- TypeScript
-- Tailwind CSS
-- TinyAnalytics
+```text
+localized content ── schema validation ──> Next.js static export ──> Netlify
+                                      └──> Playwright behavior gates
+```
+
+## Local development
+
+Requires Node.js 22 or newer and pnpm 10.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Run the repository gates with:
+
+```bash
+pnpm check
+pnpm build
+pnpm test:e2e
+```
