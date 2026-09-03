@@ -31,5 +31,33 @@
 			"github": "GitHub",
 			"email": "Email"
 		}
+	},
+	"work": {
+		"title": "Ausgewählte Arbeiten",
+		"intro": "Vier öffentliche Repositorien mit aktueller Engineering-Praxis und ausgewählten Beiträgen.",
+		"back": "Startseite",
+		"projectLink": "Auf GitHub ansehen",
+		"projects": [
+			{
+				"name": "apolovyi-web",
+				"description": "Persönliche Website zu Enterprise Software Engineering, Architektur und zuverlässiger KI-Bereitstellung. Umgesetzt als mehrsprachige statische Next.js-Site mit Playwright-Verhaltensprüfungen.",
+				"url": "https://github.com/apolovyi/apolovyi-web"
+			},
+			{
+				"name": "Pi",
+				"description": "Beiträge zu Pi rund um sichere Kompaktierung, Lifecycle-Observability, Timeout-Bereinigung und Codex-Integration.",
+				"url": "https://github.com/apolovyi/pi"
+			},
+			{
+				"name": "TurkeyNomad",
+				"description": "Reiseführer und praktische Hinweise für Reisen in der Türkei.",
+				"url": "https://github.com/apolovyi/turkeynomad-blog"
+			},
+			{
+				"name": "OpenStrap Edge",
+				"description": "Beiträge zu OpenStrap Edge rund um Readiness-Baselines, sichere Datenimporte und Fortschrittstests.",
+				"url": "https://github.com/apolovyi/openstrap-src"
+			}
+		]
 	}
 }

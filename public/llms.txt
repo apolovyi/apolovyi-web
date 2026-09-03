@@ -1,0 +1,18 @@
+# Artem Polovyi
+
+> Senior software engineer and architect in Zürich, focused on JVM platforms, system modernisation and reliable AI delivery.
+
+Core technologies and domains: Java, Kotlin, Spring Boot, TypeScript, React, Angular, AWS, Azure, Docker, Kubernetes, CI/CD, Flowable BPMN/CMMN, agentic engineering, LLM classification, OCR, and Playwright as a behaviour gate.
+
+## Profile
+
+- [Public profile](https://apolovyi.me/profile.md): Machine-readable professional profile and selected work.
+- [Web CV](https://apolovyi.me/cv/CV_Artem_Polovyi_EN_WEB.pdf): Public English CV.
+- [GitHub](https://github.com/apolovyi): Public repositories and contributions.
+
+## Selected work
+
+- [apolovyi-web](https://github.com/apolovyi/apolovyi-web): Personal site for enterprise software engineering, architecture and reliable AI delivery.
+- [pi](https://github.com/apolovyi/pi): Contributions across compaction safety, lifecycle observability, timeout cleanup and Codex integration.
+- [turkeynomad-blog](https://github.com/apolovyi/turkeynomad-blog): Travel guides and practical advice for exploring Turkey.
+- [openstrap-src](https://github.com/apolovyi/openstrap-src): Contributions across readiness baselines, import data safety and progress testing.
