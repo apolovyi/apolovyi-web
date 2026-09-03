@@ -31,5 +31,33 @@
 			"github": "GitHub",
 			"email": "Email"
 		}
+	},
+	"work": {
+		"title": "Selected work",
+		"intro": "Four public repositories showing current engineering practice and selected contributions.",
+		"back": "Home",
+		"projectLink": "View on GitHub",
+		"projects": [
+			{
+				"name": "apolovyi-web",
+				"description": "Personal site for enterprise software engineering, architecture and reliable AI delivery. Built as a multilingual static Next.js site with Playwright behaviour checks.",
+				"url": "https://github.com/apolovyi/apolovyi-web"
+			},
+			{
+				"name": "Pi",
+				"description": "Contributions to Pi across compaction safety, lifecycle observability, timeout cleanup and Codex integration.",
+				"url": "https://github.com/apolovyi/pi"
+			},
+			{
+				"name": "TurkeyNomad",
+				"description": "Travel guides and practical advice for exploring Turkey.",
+				"url": "https://github.com/apolovyi/turkeynomad-blog"
+			},
+			{
+				"name": "OpenStrap Edge",
+				"description": "Contributions to OpenStrap Edge across readiness baselines, import data safety and progress testing.",
+				"url": "https://github.com/apolovyi/openstrap-src"
+			}
+		]
 	}
 }

@@ -26,7 +26,22 @@ const pageSectionSchema = z.object({
 	}),
 })
 
+const workSectionSchema = z.object({
+	title: z.string(),
+	intro: z.string(),
+	back: z.string(),
+	projectLink: z.string(),
+	projects: z.array(
+		z.object({
+			name: z.string(),
+			description: z.string(),
+			url: z.string().url(),
+		}),
+	),
+})
+
 export const dictionarySchema = z.object({
 	metadata: metadataSchema,
 	page: pageSectionSchema,
+	work: workSectionSchema,
 })

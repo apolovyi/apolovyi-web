@@ -33,7 +33,20 @@ export interface Page {
 	}
 }
 
+export interface Work {
+	title: string
+	intro: string
+	back: string
+	projectLink: string
+	projects: Array<{
+		name: string
+		description: string
+		url: string
+	}>
+}
+
 export interface Dictionary {
 	metadata: Metadata
 	page: Page
+	work: Work
 }

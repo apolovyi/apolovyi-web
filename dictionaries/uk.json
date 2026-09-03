@@ -31,5 +31,33 @@
 			"github": "GitHub",
 			"email": "Email"
 		}
+	},
+	"work": {
+		"title": "Вибрані роботи",
+		"intro": "Чотири публічні репозиторії, що представляють актуальну інженерну практику та вибрані внески.",
+		"back": "Головна",
+		"projectLink": "Переглянути на GitHub",
+		"projects": [
+			{
+				"name": "apolovyi-web",
+				"description": "Особистий сайт про розробку корпоративного програмного забезпечення, архітектуру та надійне впровадження ШІ. Реалізований як багатомовний статичний сайт на Next.js із перевірками поведінки в Playwright.",
+				"url": "https://github.com/apolovyi/apolovyi-web"
+			},
+			{
+				"name": "Pi",
+				"description": "Внески до Pi у безпеку стиснення контексту, спостережуваність життєвого циклу, очищення тайм-аутів та інтеграцію Codex.",
+				"url": "https://github.com/apolovyi/pi"
+			},
+			{
+				"name": "TurkeyNomad",
+				"description": "Путівники та практичні поради для подорожей Туреччиною.",
+				"url": "https://github.com/apolovyi/turkeynomad-blog"
+			},
+			{
+				"name": "OpenStrap Edge",
+				"description": "Внески до OpenStrap Edge у базові показники готовності, безпеку імпорту даних і тестування прогресу.",
+				"url": "https://github.com/apolovyi/openstrap-src"
+			}
+		]
 	}
 }
