@@ -20,5 +20,4 @@ Enable on GitHub:
 ## Deploy
 
 - Netlify (production, auto-deploy from main)
-- Vercel (internal backup)
-- Preview deploys on PRs
+- Netlify deploy previews on PRs
