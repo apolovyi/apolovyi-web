@@ -56,6 +56,12 @@ async function main() {
 	console.log('\n[SEO & PWA]')
 	check('/robots.txt exists', fileExists('robots.txt'))
 	check('/sitemap.xml exists', fileExists('sitemap.xml'))
+	check('/llms.txt exists', fileExists('llms.txt'))
+	check('/profile.md exists', fileExists('profile.md'))
+	for (const locale of LOCALES) {
+		check(`/${locale}/index.md exists`, fileExists(`${locale}/index.md`))
+		check(`/${locale}/work.md exists`, fileExists(`${locale}/work.md`))
+	}
 	check('/manifest.webmanifest exists', fileExists('manifest.webmanifest'))
 
 	// 4. Favicons

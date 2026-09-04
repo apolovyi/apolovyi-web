@@ -10,6 +10,7 @@
 
 ## Recently Completed
 
+- [x] Agent-readable profiles, Markdown alternates and page-specific structured data
 - [x] E2E stability Phase 1-3 (config, locators, fixtures)
 - [x] Next.js 16 + Turbopack + React Compiler
 - [x] Tailwind CSS v4 migration

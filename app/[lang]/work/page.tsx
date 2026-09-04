@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
 
+import { WorkStructuredData } from '@/components/StructuredData'
 import ThemeToggle from '@/components/ThemeToggle'
 
 import { getDictionary } from '@/lib/dictionary.server'
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 		alternates: {
 			canonical: `https://apolovyi.me/${lang}/work`,
 			languages: Object.fromEntries(i18n.locales.map((locale) => [locale, `https://apolovyi.me/${locale}/work`])),
+			types: { 'text/markdown': `https://apolovyi.me/${lang}/work.md` },
 		},
 	}
 }
@@ -36,6 +38,10 @@ export default async function WorkPage({ params }: { params: Promise<{ lang: str
 
 	return (
 		<>
+			<WorkStructuredData
+				locale={lang}
+				work={work}
+			/>
 			<main className="page-body work-page px-[clamp(1.5rem,1rem+1.5vw,2rem)] py-[clamp(2.5rem,1.5rem+3vw,4rem)]">
 				<div className="page-content mx-auto w-full max-w-2xl">
 					<a

@@ -17,6 +17,13 @@ export const i18n = {
 
 export type Locale = (typeof i18n)['locales'][number]
 
+export const localeLanguageTags: Record<Locale, string> = {
+	en: 'en',
+	de: 'de',
+	ch: 'de-CH',
+	uk: 'uk',
+}
+
 export function isValidLocale(tested: string): tested is Locale {
 	return i18n.locales.includes(tested as Locale)
 }
