@@ -39,9 +39,10 @@ yarn-error.log*
 claude_chats
 /.lighthouseci/
 /.prettier-cache
-# Claude Code (keep docs/ committed, ignore local config)
+# Claude Code (keep generated docs committed, ignore local config and infrastructure inventory)
 /.claude/*
 !/.claude/docs/
+/docs/infrastructure.md
 .agents/
 .screenshots/
 .tmp/
