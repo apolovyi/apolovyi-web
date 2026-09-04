@@ -1,6 +1,7 @@
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
 
+import { ProfileStructuredData } from '@/components/StructuredData'
 import ThemeToggle from '@/components/ThemeToggle'
 
 import { LINKS } from '@/lib/constants'
@@ -21,6 +22,11 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
 
 	return (
 		<>
+			<ProfileStructuredData
+				locale={lang}
+				name={page.name}
+				description={[page.subtitle, ...page.body].join(' ')}
+			/>
 			<main className="page-body flex items-center justify-center px-[clamp(1.5rem,1rem+1.5vw,2rem)]">
 				<div className="page-content w-full max-w-lg -translate-y-[4%] text-center">
 					<h1 className="hero-name leading-[1.05] tracking-tight">{page.name}</h1>

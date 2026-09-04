@@ -10,6 +10,20 @@ Core technologies and domains: Java, Kotlin, Spring Boot, TypeScript, React, Ang
 - [Web CV](https://apolovyi.me/cv/CV_Artem_Polovyi_EN_WEB.pdf): Public English CV.
 - [GitHub](https://github.com/apolovyi): Public repositories and contributions.
 
+## Localized profiles
+
+- [English profile](https://apolovyi.me/en/index.md): English machine-readable homepage.
+- [German profile](https://apolovyi.me/de/index.md): German machine-readable homepage.
+- [Swiss profile](https://apolovyi.me/ch/index.md): Swiss German machine-readable homepage.
+- [Ukrainian profile](https://apolovyi.me/uk/index.md): Ukrainian machine-readable homepage.
+
+## Localized selected work
+
+- [English selected work](https://apolovyi.me/en/work.md): English machine-readable project overview.
+- [German selected work](https://apolovyi.me/de/work.md): German machine-readable project overview.
+- [Swiss selected work](https://apolovyi.me/ch/work.md): Swiss German machine-readable project overview.
+- [Ukrainian selected work](https://apolovyi.me/uk/work.md): Ukrainian machine-readable project overview.
+
 ## Selected work
 
 - [apolovyi-web](https://github.com/apolovyi/apolovyi-web): Personal site for enterprise software engineering, architecture and reliable AI delivery.

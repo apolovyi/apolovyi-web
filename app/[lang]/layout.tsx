@@ -2,14 +2,11 @@ import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
 
 import type { Locale } from '@/i18n-config'
-import { i18n } from '@/i18n-config'
+import { i18n, localeLanguageTags } from '@/i18n-config'
 
-import StructuredData from '@/components/StructuredData'
 import { ThemeProvider } from '@/components/shared/ThemeProvider'
 
 import { getDictionary as getServerDictionary } from '@/lib/dictionary.server'
-
-const bcp47Map: Record<string, string> = { ch: 'de-CH' }
 
 const outfit = Outfit({
 	subsets: ['latin', 'latin-ext'],
@@ -58,6 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 				'x-default': baseUrl,
 				...Object.fromEntries(i18n.locales.map((l) => [l, l === i18n.defaultLocale ? baseUrl : `${baseUrl}/${l}`])),
 			},
+			types: { 'text/markdown': `${baseUrl}/${lang}/index.md` },
 		},
 		twitter: { card: 'summary_large_image' },
 		other: { 'msapplication-TileColor': '#d8f0f9' },
@@ -71,11 +69,14 @@ export default async function LangLayout({ children, params }: { children: React
 
 	return (
 		<html
-			lang={bcp47Map[lang] ?? lang}
+			lang={localeLanguageTags[lang]}
 			suppressHydrationWarning
 		>
 			<head>
-				<StructuredData />
+				<link
+					rel="describedby"
+					href="/llms.txt"
+				/>
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `

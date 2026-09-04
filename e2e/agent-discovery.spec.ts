@@ -7,6 +7,13 @@ Allow: /
 Sitemap: https://apolovyi.me/sitemap.xml
 `
 
+const MARKDOWN_VARIANTS = [
+	['en', 'Selected work'],
+	['de', 'Ausgewählte Arbeiten'],
+	['ch', 'Ausgewählte Arbeiten'],
+	['uk', 'Вибрані роботи'],
+] as const
+
 const PROJECTS = [
 	['apolovyi-web', 'https://github.com/apolovyi/apolovyi-web'],
 	['Pi', 'https://github.com/apolovyi/pi'],
@@ -30,13 +37,27 @@ test('work route resolves to the localized page and links selected projects', as
 test('agent-readable entry points expose the intended public profile', async ({ request }) => {
 	const llms = await request.get('/llms.txt')
 	expect(llms.ok()).toBeTruthy()
-	expect(await llms.text()).toContain('# Artem Polovyi')
-	expect(await llms.text()).toContain('https://apolovyi.me/profile.md')
+	const llmsText = await llms.text()
+	expect(llmsText).toContain('# Artem Polovyi')
+	expect(llmsText).toContain('https://apolovyi.me/profile.md')
 
 	const profile = await request.get('/profile.md')
 	expect(profile.ok()).toBeTruthy()
 	expect(await profile.text()).toContain('Senior software engineer and architect in Zürich.')
 	expect(await profile.text()).toContain('https://github.com/apolovyi/openstrap-src')
+
+	for (const [locale, workTitle] of MARKDOWN_VARIANTS) {
+		for (const [path, heading] of [
+			[`/${locale}/index.md`, '# Artem Polovyi'],
+			[`/${locale}/work.md`, `# ${workTitle}`],
+		] as const) {
+			expect(llmsText).toContain(`https://apolovyi.me${path}`)
+			const response = await request.get(path)
+			expect(response.ok()).toBeTruthy()
+			expect(response.headers()['content-type']).toContain('text/markdown')
+			expect(await response.text()).toContain(heading)
+		}
+	}
 })
 
 test('crawler policy and sitemap expose the work pages', async ({ request }) => {
@@ -53,12 +74,37 @@ test('crawler policy and sitemap expose the work pages', async ({ request }) => 
 	}
 })
 
-test('structured data matches the public positioning', async ({ page }) => {
+test('HTML pages advertise LLM descriptions and Markdown alternatives', async ({ page }) => {
 	await page.goto('/en')
-	const structuredData = await page.locator('script[type="application/ld+json"]').textContent()
-	const person = JSON.parse(structuredData ?? '{}')
+	await expect(page.locator('link[rel="describedby"]')).toHaveAttribute('href', '/llms.txt')
+	await expect(page.locator('link[rel="alternate"][type="text/markdown"]')).toHaveAttribute('href', 'https://apolovyi.me/en/index.md')
+
+	await page.goto('/en/work')
+	await expect(page.locator('link[rel="describedby"]')).toHaveAttribute('href', '/llms.txt')
+	await expect(page.locator('link[rel="alternate"][type="text/markdown"]')).toHaveAttribute('href', 'https://apolovyi.me/en/work.md')
+})
+
+test('structured data describes the profile and selected work', async ({ page }) => {
+	await page.goto('/en')
+	let structuredData = await page.locator('script[type="application/ld+json"]').textContent()
+	let graph = JSON.parse(structuredData ?? '{}')['@graph']
+	const person = graph.find((entry: { '@type': string }) => entry['@type'] === 'Person')
+	const profile = graph.find((entry: { '@type': string }) => entry['@type'] === 'ProfilePage')
 
 	expect(person.jobTitle).toBe('Senior Software Engineer and Architect')
 	expect(person.description).toContain('JVM platforms, system modernisation and reliable AI delivery')
 	expect(person.knowsAbout).toContain('Flowable BPMN and CMMN')
+	expect(profile.mainEntity['@id']).toBe(person['@id'])
+	expect(profile.inLanguage).toBe('en')
+
+	await page.goto('/en/work')
+	structuredData = await page.locator('script[type="application/ld+json"]').textContent()
+	graph = JSON.parse(structuredData ?? '{}')['@graph']
+	const collection = graph.find((entry: { '@type': string }) => entry['@type'] === 'CollectionPage')
+	const projects = graph.find((entry: { '@type': string }) => entry['@type'] === 'ItemList')
+
+	expect(collection.mainEntity['@id']).toBe(projects['@id'])
+	expect(collection.inLanguage).toBe('en')
+	expect(projects.itemListElement).toHaveLength(PROJECTS.length)
+	expect(projects.itemListElement[0].item.codeRepository).toBe(PROJECTS[0][1])
 })

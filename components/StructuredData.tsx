@@ -1,8 +1,14 @@
+import type { Locale } from '@/i18n-config'
+import { localeLanguageTags } from '@/i18n-config'
+
 import { LINKS } from '@/lib/constants'
+import type { Work } from '@/lib/dictionary.types'
+
+const PERSON_ID = 'https://apolovyi.me/#person'
 
 const personData = {
-	'@context': 'https://schema.org',
 	'@type': 'Person',
+	'@id': PERSON_ID,
 	'name': 'Artem Polovyi',
 	'url': 'https://apolovyi.me',
 	'image': 'https://apolovyi.me/og-image.png',
@@ -37,11 +43,75 @@ const personData = {
 	],
 }
 
-const StructuredData = () => (
-	<script
-		type="application/ld+json"
-		dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
-	/>
-)
+function JsonLd({ data }: { data: object }) {
+	return (
+		<script
+			type="application/ld+json"
+			dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+		/>
+	)
+}
 
-export default StructuredData
+export function ProfileStructuredData({ locale, name, description }: { locale: Locale; name: string; description: string }) {
+	const url = `https://apolovyi.me/${locale}`
+
+	return (
+		<JsonLd
+			data={{
+				'@context': 'https://schema.org',
+				'@graph': [
+					personData,
+					{
+						'@type': 'ProfilePage',
+						'@id': `${url}#profile`,
+						url,
+						name,
+						description,
+						'inLanguage': localeLanguageTags[locale],
+						'mainEntity': { '@id': PERSON_ID },
+					},
+				],
+			}}
+		/>
+	)
+}
+
+export function WorkStructuredData({ locale, work }: { locale: Locale; work: Work }) {
+	const url = `https://apolovyi.me/${locale}/work`
+	const itemListId = `${url}#projects`
+
+	return (
+		<JsonLd
+			data={{
+				'@context': 'https://schema.org',
+				'@graph': [
+					personData,
+					{
+						'@type': 'CollectionPage',
+						'@id': `${url}#page`,
+						url,
+						'name': work.title,
+						'description': work.intro,
+						'inLanguage': localeLanguageTags[locale],
+						'author': { '@id': PERSON_ID },
+						'mainEntity': { '@id': itemListId },
+					},
+					{
+						'@type': 'ItemList',
+						'@id': itemListId,
+						'itemListElement': work.projects.map((project, index) => ({
+							'@type': 'ListItem',
+							'position': index + 1,
+							'item': {
+								'@type': 'SoftwareSourceCode',
+								'name': project.name,
+								'description': project.description,
+								'codeRepository': project.url,
+							},
+						})),
+					},
+				],
+			}}
+		/>
+	)
+}
