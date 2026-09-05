@@ -39,5 +39,4 @@ Repository: https://github.com/apolovyi/openstrap-src
 ## Public links
 
 - GitHub: https://github.com/apolovyi
-- Web CV: https://apolovyi.me/cv/CV_Artem_Polovyi_EN_WEB.pdf
 - Website: https://apolovyi.me
