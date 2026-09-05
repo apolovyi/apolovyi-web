@@ -21,6 +21,8 @@ const PROJECTS = [
 	['OpenStrap Edge', 'https://github.com/apolovyi/openstrap-src'],
 ] as const
 
+const PRIVATE_CV_PATHS = ['/cv/Artem_Polovyi_DE.yaml', '/cv/CV_Artem_Polovyi_DE_WEB.pdf', '/cv/CV_Artem_Polovyi_EN_WEB.pdf'] as const
+
 test('work route resolves to the localized page and links selected projects', async ({ page }) => {
 	await page.goto('/work')
 
@@ -57,6 +59,18 @@ test('agent-readable entry points expose the intended public profile', async ({ 
 			expect(response.headers()['content-type']).toContain('text/markdown')
 			expect(await response.text()).toContain(heading)
 		}
+	}
+})
+
+test('public CV artifacts are unavailable and unlinked', async ({ request }) => {
+	for (const path of PRIVATE_CV_PATHS) {
+		expect((await request.get(path)).status()).toBe(404)
+	}
+
+	for (const path of ['/llms.txt', '/profile.md']) {
+		const content = await (await request.get(path)).text()
+		expect(content).not.toContain('/cv/')
+		expect(content).not.toContain('Web CV')
 	}
 })
 

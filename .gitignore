@@ -35,6 +35,7 @@ yarn-error.log*
 .idea
 claude_chats
 /.lighthouseci/
+/.netlify/
 /.prettier-cache
 # Claude Code (keep generated docs committed, ignore local config and infrastructure inventory)
 /.claude/*
