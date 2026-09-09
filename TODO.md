@@ -10,6 +10,7 @@
 
 ## Recently Completed
 
+- [x] Pinned all direct dependencies and refreshed vulnerable dependencies; audit reports no known vulnerabilities
 - [x] Engineering-first search metadata across all locales, with unchanged visible UI and browser regression coverage
 - [x] Agent-readable profiles, Markdown alternates and page-specific structured data
 - [x] E2E stability Phase 1-3 (config, locators, fixtures)

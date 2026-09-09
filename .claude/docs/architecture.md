@@ -38,7 +38,7 @@ components/
 
 
 
-- **Styling**: Tailwind CSS ^4.1.18 with `class` dark mode
+- **Styling**: Tailwind CSS 4.1.18 with `class` dark mode
 
 ## Deployment
 
