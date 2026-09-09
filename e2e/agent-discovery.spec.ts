@@ -23,6 +23,48 @@ const PROJECTS = [
 
 const PRIVATE_CV_PATHS = ['/cv/Artem_Polovyi_DE.yaml', '/cv/CV_Artem_Polovyi_DE_WEB.pdf', '/cv/CV_Artem_Polovyi_EN_WEB.pdf'] as const
 
+const SEARCH_METADATA = [
+	[
+		'en',
+		'Artem Polovyi | Senior Software Engineer & Architect, Zürich',
+		'Senior software engineer and architect in Zürich. Enterprise platforms, system modernisation and reliable AI delivery. Experience across Audi, Infineon, UBS, Flowable and PEAX.',
+	],
+	[
+		'de',
+		'Artem Polovyi | Senior Software Engineer & Architekt, Zürich',
+		'Senior Software Engineer und Architekt in Zürich. Enterprise-Plattformen, Systemmodernisierung und zuverlässiger KI-Einsatz. Projekterfahrung bei Audi, Infineon, UBS, Flowable und PEAX.',
+	],
+	[
+		'ch',
+		'Artem Polovyi | Senior Software Engineer & Architekt, Zürich',
+		'Senior Software Engineer und Architekt in Zürich. Enterprise-Plattformen, Systemmodernisierung und zuverlässiger KI-Einsatz. Projekterfahrung bei Audi, Infineon, UBS, Flowable und PEAX.',
+	],
+	[
+		'uk',
+		'Artem Polovyi | Старший інженер-програміст та архітектор, Цюріх',
+		'Старший інженер-програміст та архітектор у Цюріху. Корпоративні платформи, модернізація систем і надійне впровадження ШІ. Досвід проєктів в Audi, Infineon, UBS, Flowable та PEAX.',
+	],
+] as const
+
+for (const [locale, title, description] of SEARCH_METADATA) {
+	test(`search metadata presents the engineering profile in ${locale}`, async ({ page }) => {
+		await page.goto(`/${locale}`)
+
+		await expect(page).toHaveTitle(title)
+		await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', description)
+		await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', title)
+		await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', description)
+	})
+}
+
+test('root redirect includes the engineering search metadata', async ({ request }) => {
+	const response = await request.get('/')
+	const html = await response.text()
+
+	expect(html.match(/<title>(.*?)<\/title>/)?.[1]).toBe('Artem Polovyi | Senior Software Engineer &amp; Architect, Zürich')
+	expect(html.match(/<meta name="description" content="([^"]*)"/)?.[1]).toBe(SEARCH_METADATA[0][2])
+})
+
 test('work route resolves to the localized page and links selected projects', async ({ page }) => {
 	await page.goto('/work')
 

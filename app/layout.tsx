@@ -3,14 +3,14 @@ import type { Metadata } from 'next'
 import '@/app/globals.css'
 
 export const metadata: Metadata = {
-	title: 'Artem Polovyi — Enterprise Engineering, AI-first',
+	title: 'Artem Polovyi | Senior Software Engineer & Architect, Zürich',
 	description:
-		'Enterprise engineer in Zurich. A decade of systems at Audi, Infineon, UBS, Flowable, and PEAX. Now making AI reliable in production.',
+		'Senior software engineer and architect in Zürich. Enterprise platforms, system modernisation and reliable AI delivery. Experience across Audi, Infineon, UBS, Flowable and PEAX.',
 	metadataBase: new URL('https://apolovyi.me'),
 	openGraph: {
-		title: 'Artem Polovyi — Enterprise Engineering, AI-first',
+		title: 'Artem Polovyi | Senior Software Engineer & Architect, Zürich',
 		description:
-			'Enterprise engineer in Zurich. A decade of systems at Audi, Infineon, UBS, Flowable, and PEAX. Now making AI reliable in production.',
+			'Senior software engineer and architect in Zürich. Enterprise platforms, system modernisation and reliable AI delivery. Experience across Audi, Infineon, UBS, Flowable and PEAX.',
 		url: 'https://apolovyi.me',
 		siteName: 'Artem Polovyi',
 		images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Artem Polovyi — Enterprise Engineering, AI-first' }],
