@@ -60,7 +60,6 @@ async function main() {
 	check('/profile.md exists', fileExists('profile.md'))
 	for (const locale of LOCALES) {
 		check(`/${locale}/index.md exists`, fileExists(`${locale}/index.md`))
-		check(`/${locale}/work.md exists`, fileExists(`${locale}/work.md`))
 	}
 	check('/manifest.webmanifest exists', fileExists('manifest.webmanifest'))
 

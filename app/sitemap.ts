@@ -20,11 +20,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: 'weekly' as const,
 			priority: 0.8,
 		})),
-		...i18n.locales.map((locale) => ({
-			url: `${BASE_URL}/${locale}/work`,
-			lastModified: new Date(),
-			changeFrequency: 'monthly' as const,
-			priority: 0.7,
-		})),
 	]
 }

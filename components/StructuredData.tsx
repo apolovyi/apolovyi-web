@@ -2,7 +2,6 @@ import type { Locale } from '@/i18n-config'
 import { localeLanguageTags } from '@/i18n-config'
 
 import { LINKS } from '@/lib/constants'
-import type { Work } from '@/lib/dictionary.types'
 
 const PERSON_ID = 'https://apolovyi.me/#person'
 
@@ -69,46 +68,6 @@ export function ProfileStructuredData({ locale, name, description }: { locale: L
 						description,
 						'inLanguage': localeLanguageTags[locale],
 						'mainEntity': { '@id': PERSON_ID },
-					},
-				],
-			}}
-		/>
-	)
-}
-
-export function WorkStructuredData({ locale, work }: { locale: Locale; work: Work }) {
-	const url = `https://apolovyi.me/${locale}/work`
-	const itemListId = `${url}#projects`
-
-	return (
-		<JsonLd
-			data={{
-				'@context': 'https://schema.org',
-				'@graph': [
-					personData,
-					{
-						'@type': 'CollectionPage',
-						'@id': `${url}#page`,
-						url,
-						'name': work.title,
-						'description': work.intro,
-						'inLanguage': localeLanguageTags[locale],
-						'author': { '@id': PERSON_ID },
-						'mainEntity': { '@id': itemListId },
-					},
-					{
-						'@type': 'ItemList',
-						'@id': itemListId,
-						'itemListElement': work.projects.map((project, index) => ({
-							'@type': 'ListItem',
-							'position': index + 1,
-							'item': {
-								'@type': 'SoftwareSourceCode',
-								'name': project.name,
-								'description': project.description,
-								'codeRepository': project.url,
-							},
-						})),
 					},
 				],
 			}}

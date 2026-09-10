@@ -16,7 +16,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ lan
 
 	const dictionary = await getDictionary(lang)
 
-	return new Response(renderProfileMarkdown(dictionary, lang), {
+	return new Response(renderProfileMarkdown(dictionary), {
 		headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
 	})
 }

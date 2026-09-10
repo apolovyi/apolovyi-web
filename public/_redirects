@@ -1,22 +1,4 @@
-# Language-based redirects for root path
-# Netlify processes these at the edge based on Accept-Language header
-# Order matters: first match wins, most specific first
-# Force (!) needed because index.html exists — without it, Netlify serves the static file
-
-# Swiss German (de-CH) → Swiss German page
 /  /ch  302!  Language=de-CH
-
-# German → German page
 /  /de  302!  Language=de
-
-# Ukrainian → Ukrainian page
 /  /uk  302!  Language=uk
-
-# Default fallback → English
 /  /en  302!
-
-# Apply the same language routing to the selected-work entry point
-/work  /ch/work  302!  Language=de-CH
-/work  /de/work  302!  Language=de
-/work  /uk/work  302!  Language=uk
-/work  /en/work  302!

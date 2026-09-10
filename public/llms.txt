@@ -6,7 +6,7 @@ Core technologies and domains: Java, Kotlin, Spring Boot, TypeScript, React, Ang
 
 ## Profile
 
-- [Public profile](https://apolovyi.me/profile.md): Machine-readable professional profile and selected work.
+- [Public profile](https://apolovyi.me/profile.md): Machine-readable professional profile.
 - [GitHub](https://github.com/apolovyi): Public repositories and contributions.
 
 ## Localized profiles
@@ -15,17 +15,3 @@ Core technologies and domains: Java, Kotlin, Spring Boot, TypeScript, React, Ang
 - [German profile](https://apolovyi.me/de/index.md): German machine-readable homepage.
 - [Swiss profile](https://apolovyi.me/ch/index.md): Swiss German machine-readable homepage.
 - [Ukrainian profile](https://apolovyi.me/uk/index.md): Ukrainian machine-readable homepage.
-
-## Localized selected work
-
-- [English selected work](https://apolovyi.me/en/work.md): English machine-readable project overview.
-- [German selected work](https://apolovyi.me/de/work.md): German machine-readable project overview.
-- [Swiss selected work](https://apolovyi.me/ch/work.md): Swiss German machine-readable project overview.
-- [Ukrainian selected work](https://apolovyi.me/uk/work.md): Ukrainian machine-readable project overview.
-
-## Selected work
-
-- [apolovyi-web](https://github.com/apolovyi/apolovyi-web): Personal site for enterprise software engineering, architecture and reliable AI delivery.
-- [pi](https://github.com/apolovyi/pi): Contributions across compaction safety, lifecycle observability, timeout cleanup and Codex integration.
-- [turkeynomad-blog](https://github.com/apolovyi/turkeynomad-blog): Travel guides and practical advice for exploring Turkey.
-- [openstrap-src](https://github.com/apolovyi/openstrap-src): Contributions across readiness baselines, import data safety and progress testing.
