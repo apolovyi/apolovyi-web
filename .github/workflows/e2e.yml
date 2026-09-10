@@ -17,7 +17,6 @@ on:
 
 env:
   CI: true
-  # Core test projects for draft PRs (fast feedback)
   CORE_PROJECTS: '--project=chrome-desktop --project=safari-desktop --project=iphone-15'
 
 jobs:
@@ -30,14 +29,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        # Version is read from packageManager field in package.json
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version: 22
           cache: pnpm
@@ -46,7 +44,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Cache Next.js build
-        uses: actions/cache@v4
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         with:
           path: |
             .next/cache
@@ -61,39 +59,29 @@ jobs:
       - name: Determine test scope
         id: test-scope
         run: |
-          # Full suite triggers:
-          # 1. Manual dispatch with 'full' selected
-          # 2. PR labeled with 'test:full'
-          # 3. PR is NOT a draft (ready for review)
-          #
-          # Core tests (fast feedback):
-          # - Draft PRs without 'test:full' label
-
           IS_DRAFT="${{ github.event.pull_request.draft }}"
           HAS_FULL_LABEL="${{ contains(github.event.pull_request.labels.*.name, 'test:full') }}"
           IS_MANUAL_FULL="${{ github.event_name == 'workflow_dispatch' && inputs.test_level == 'full' }}"
 
           if [[ "$IS_MANUAL_FULL" == "true" ]]; then
-            echo "projects=" >> $GITHUB_OUTPUT
-            echo "scope=full" >> $GITHUB_OUTPUT
+            echo "projects=" >> "$GITHUB_OUTPUT"
+            echo "scope=full" >> "$GITHUB_OUTPUT"
           elif [[ "$HAS_FULL_LABEL" == "true" ]]; then
-            echo "projects=" >> $GITHUB_OUTPUT
-            echo "scope=full" >> $GITHUB_OUTPUT
+            echo "projects=" >> "$GITHUB_OUTPUT"
+            echo "scope=full" >> "$GITHUB_OUTPUT"
           elif [[ "$IS_DRAFT" != "true" ]]; then
-            # Non-draft PRs always get full tests
-            echo "projects=" >> $GITHUB_OUTPUT
-            echo "scope=full" >> $GITHUB_OUTPUT
+            echo "projects=" >> "$GITHUB_OUTPUT"
+            echo "scope=full" >> "$GITHUB_OUTPUT"
           else
-            # Draft PRs get core tests only (Chrome + Safari + iPhone)
-            echo "projects=$CORE_PROJECTS" >> $GITHUB_OUTPUT
-            echo "scope=core" >> $GITHUB_OUTPUT
+            echo "projects=$CORE_PROJECTS" >> "$GITHUB_OUTPUT"
+            echo "scope=core" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Run E2E tests (${{ steps.test-scope.outputs.scope }})
         run: pnpm exec playwright test ${{ steps.test-scope.outputs.projects }}
 
       - name: Upload test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         if: always()
         with:
           name: playwright-report-${{ steps.test-scope.outputs.scope }}

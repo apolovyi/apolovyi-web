@@ -10,6 +10,7 @@
 
 ## Recently Completed
 
+- [x] Corrected Netlify's cache ownership, aligned its pnpm pin, reviewed native install hooks and pinned Node-24-compatible Actions
 - [x] Locked the dictionary runner and removed download-on-demand tool execution from builds, tests and hooks
 - [x] Netlify builds configured to use Node.js 24
 - [x] Removed the repository-based Work showcase, its routes and agent-readable copies; homepage unchanged
