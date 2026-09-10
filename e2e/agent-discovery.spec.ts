@@ -78,6 +78,25 @@ test('work route resolves to the localized page and links selected projects', as
 	}
 })
 
+for (const [locale, workTitle] of MARKDOWN_VARIANTS) {
+	test(`work OpenGraph metadata describes the localized page in ${locale}`, async ({ page }) => {
+		await page.goto(`/${locale}/work`)
+
+		const title = `${workTitle} | Artem Polovyi`
+		const description = await page.locator('header p').innerText()
+		const url = `https://apolovyi.me/${locale}/work`
+
+		await expect(page).toHaveTitle(title)
+		await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', title)
+		await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', description)
+		await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', url)
+		await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', url)
+		await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://apolovyi.me/og-image.png')
+		await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content', locale)
+		await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website')
+	})
+}
+
 test('agent-readable entry points expose the intended public profile', async ({ request }) => {
 	const llms = await request.get('/llms.txt')
 	expect(llms.ok()).toBeTruthy()

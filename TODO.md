@@ -10,6 +10,7 @@
 
 ## Recently Completed
 
+- [x] Page-specific OpenGraph metadata for all Work locales, preserving the visible UI and shared image
 - [x] Pinned all direct dependencies and refreshed vulnerable dependencies; audit reports no known vulnerabilities
 - [x] Engineering-first search metadata across all locales, with unchanged visible UI and browser regression coverage
 - [x] Agent-readable profiles, Markdown alternates and page-specific structured data

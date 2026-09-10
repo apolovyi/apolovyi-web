@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, ResolvingMetadata } from 'next'
 
 import type { Locale } from '@/i18n-config'
 import { i18n } from '@/i18n-config'
@@ -15,16 +15,23 @@ export function generateStaticParams(): Array<{ lang: string }> {
 	return i18n.locales.map((locale) => ({ lang: locale }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }, parent: ResolvingMetadata): Promise<Metadata> {
 	const { lang: langParam } = await params
 	const lang = (langParam ?? i18n.defaultLocale) as Locale
 	const { work } = await getDictionary(lang)
+	const pageUrl = `https://apolovyi.me/${lang}/work`
 
 	return {
 		title: work.title,
 		description: work.intro,
+		openGraph: {
+			...(await parent).openGraph,
+			title: `${work.title} | Artem Polovyi`,
+			description: work.intro,
+			url: pageUrl,
+		},
 		alternates: {
-			canonical: `https://apolovyi.me/${lang}/work`,
+			canonical: pageUrl,
 			languages: Object.fromEntries(i18n.locales.map((locale) => [locale, `https://apolovyi.me/${locale}/work`])),
 			types: { 'text/markdown': `https://apolovyi.me/${lang}/work.md` },
 		},
