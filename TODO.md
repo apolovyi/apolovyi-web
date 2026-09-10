@@ -10,6 +10,7 @@
 
 ## Recently Completed
 
+- [x] Netlify builds configured to use Node.js 24
 - [x] Removed the repository-based Work showcase, its routes and agent-readable copies; homepage unchanged
 - [x] Pinned all direct dependencies and refreshed vulnerable dependencies; audit reports no known vulnerabilities
 - [x] Engineering-first search metadata across all locales, with unchanged visible UI and browser regression coverage
