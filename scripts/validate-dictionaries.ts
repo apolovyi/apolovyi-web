@@ -1,9 +1,3 @@
-#!/usr/bin/env npx tsx
-
-/**
- * Validates dictionary JSON files against the Zod schema
- * Run: npm run validate:dictionaries
- */
 import * as fs from 'fs'
 import * as path from 'path'
 
@@ -25,21 +19,24 @@ function validateDictionaries(): boolean {
 
 			if (!result.success) {
 				allValid = false
-				console.error(`\n❌ Validation errors in ${file}:`)
-				console.error(JSON.stringify(result.error.format(), null, 2))
+				console.error(
+					`[validate-dictionaries] ${file} failed schema validation. Correct the reported fields and rerun pnpm run validate:dictionaries.\n${JSON.stringify(result.error.format(), null, 2)}`,
+				)
 			} else {
 				console.log(`✅ ${file} valid`)
 			}
 		} catch (e) {
 			allValid = false
-			console.error(`\n❌ Failed to read/parse ${file}:`, (e as Error).message)
+			console.error(
+				`[validate-dictionaries] Cannot read or parse ${file}. ${(e as Error).message}. Correct the file and rerun pnpm run validate:dictionaries.`,
+			)
 		}
 	}
 
 	if (allValid) {
 		console.log('\nAll dictionaries validated successfully.')
 	} else {
-		console.error('\nDictionary validation failed.')
+		console.error('[validate-dictionaries] Dictionary validation failed. Fix the reported files and rerun pnpm run validate:dictionaries.')
 	}
 
 	return allValid

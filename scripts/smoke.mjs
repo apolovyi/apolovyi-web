@@ -37,22 +37,19 @@ function fileExists(path) {
 
 async function main() {
 	console.log('▶ Building static site...')
-	await run('npm', ['run', 'build'])
+	await run('pnpm', ['run', 'build'])
 
 	console.log('\n▶ Checking build output...\n')
 
-	// 1. Locale pages exist
 	console.log('[Locale pages]')
 	for (const locale of LOCALES) {
 		check(`/${locale}.html exists`, fileExists(`${locale}.html`))
 	}
 
-	// 2. Root redirect page
 	console.log('\n[Root page]')
 	const root = readFile('index.html')
 	check('/ exists with redirect', root !== null && root.includes('window.location.replace'))
 
-	// 3. SEO & PWA files
 	console.log('\n[SEO & PWA]')
 	check('/robots.txt exists', fileExists('robots.txt'))
 	check('/sitemap.xml exists', fileExists('sitemap.xml'))
@@ -63,12 +60,10 @@ async function main() {
 	}
 	check('/manifest.webmanifest exists', fileExists('manifest.webmanifest'))
 
-	// 4. Favicons
 	console.log('\n[Favicons]')
 	check('/favicon.ico exists', fileExists('favicon.ico'))
 	check('/fav/apple-touch-icon.png exists', fileExists('fav/apple-touch-icon.png'))
 
-	// 5. Content sanity (en page as reference)
 	console.log('\n[Content - /en]')
 	const en = readFile('en.html')
 	if (en) {
@@ -78,20 +73,18 @@ async function main() {
 		check('has Outfit font variable', en.includes('--font-outfit'))
 	}
 
-	// 6. Next.js assets
 	console.log('\n[Next.js assets]')
 	check('/_next directory exists', fileExists('_next'))
 
-	// Summary
 	console.log(`\n${passed + failed} checks: ${passed} passed, ${failed} failed`)
 	if (failed > 0) {
-		console.error('\n❌ Smoke tests failed')
+		console.error(`[smoke] ${failed} checks failed. Inspect the failed checks and rerun pnpm run test:smoke.`)
 		process.exit(1)
 	}
 	console.log('\n✅ Smoke tests passed')
 }
 
 main().catch((err) => {
-	console.error('❌ Smoke tests failed:', err)
+	console.error(`[smoke] Checks could not complete. ${err.message}. Fix the reported issue and rerun pnpm run test:smoke.`)
 	process.exit(1)
 })

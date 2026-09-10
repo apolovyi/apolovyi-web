@@ -13,12 +13,12 @@
 | `analyze` | `ANALYZE=true next build --turbopack` |
 | `format:write` | `prettier --write "**/*.{css,js,json,jsx,ts,tsx}"` |
 | `format:check` | `prettier --check "**/*.{css,js,json,jsx,ts,tsx}"` |
-| `serve` | `npx serve out -l 3100` |
+| `serve` | `serve out -l 3100` |
 | `lint` | `eslint .` |
 | `lint:fix` | `eslint . --fix` |
 | `lint:ci` | `eslint . --max-warnings=0` |
 | `test` | `pnpm run test:e2e` |
-| `validate:dictionaries` | `npx tsx scripts/validate-dictionaries.ts` |
+| `validate:dictionaries` | `tsx scripts/validate-dictionaries.ts` |
 | `generate:docs` | `node scripts/generate-claude-docs.mjs` |
 | `check` | `pnpm run format:check && pnpm run lint:ci` |
 | `prepare` | `husky` |

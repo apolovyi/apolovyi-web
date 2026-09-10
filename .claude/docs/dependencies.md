@@ -44,4 +44,5 @@
 | `serve` | 14.2.6 |
 | `size-limit` | 12.0.0 |
 | `tailwindcss` | 4.1.18 |
+| `tsx` | 4.23.13 |
 | `typescript` | 5.9.3 |

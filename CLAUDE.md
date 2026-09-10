@@ -19,7 +19,7 @@ Before implementing any feature, ask: "Will this improve the product for a first
 
 ### Perfectionism & Quick Wins
 
-Never skip a task if it adds value and is quick to implement. If a fix takes <10 min and improves quality, do it. Browser compatibility, edge cases, accessibility — handle them.
+Never skip a task if it adds value and is quick to implement. If a fix takes <10 min and improves quality, do it. Handle browser compatibility, edge cases and accessibility.
 
 ### Verify Before Pushing
 
@@ -30,7 +30,7 @@ Never push without local verification:
 3. `pnpm run test:e2e`
 4. Only push after ALL tests pass
 
-CI uses production build (`npx serve out`), not dev server. Behavior differs.
+CI serves the production build (`pnpm run serve`), not the dev server. Behavior differs. Build, test and hook commands use installed tools from exact dependencies in `package.json` and `pnpm-lock.yaml`; do not use download-on-demand runners such as `npx` or `pnpm dlx`.
 
 ## Quick Reference
 

@@ -10,6 +10,7 @@
 
 ## Recently Completed
 
+- [x] Locked the dictionary runner and removed download-on-demand tool execution from builds, tests and hooks
 - [x] Netlify builds configured to use Node.js 24
 - [x] Removed the repository-based Work showcase, its routes and agent-readable copies; homepage unchanged
 - [x] Pinned all direct dependencies and refreshed vulnerable dependencies; audit reports no known vulnerabilities
